@@ -197,7 +197,100 @@ check against.
 
 ---
 
-## 4. Bugs in the upstream Go repo
+## 4. Samsung / AT&T — current models
+
+`samsung_att.py` and `models/att-samsung.json` cover this. **The headline is
+that there is no algorithm to add.** Everything in section 2 is an offline,
+IMEI-derived function lifted out of 2007–2014 firmware; current AT&T Samsung
+hardware does not work that way, and I could not find a public algorithm that
+does. `samsung_att_nck()` raises `NotCalculable` rather than returning a number.
+
+### What actually happens on a current AT&T Galaxy
+
+| | Legacy Samsung | Current Samsung (AT&T) |
+| --- | --- | --- |
+| NCK length | 8 digits | **16 digits** (e.g. `NCK=2738272959528493`) |
+| Companion codes | SPCK | **MCK** (defreeze) and **RGCK** (regional) |
+| Where the code comes from | `f(IMEI)`, computable offline | **AT&T/Samsung server**, after an eligibility check |
+| Alternate path | none | **server-side / OTA unlock** — nothing is typed at all |
+| Entry sequence | `#7465625*638*CODE#`, `#0111*CODE#` | `*#865625#` → Network Lock → 16 digits |
+| Attempts | ~4–5 | **5 or 10** depending on model, then frozen |
+
+Sources: AT&T's own `ATTDeviceUnlockCodeInstructions.pdf` documents the
+`*#865625#` flow and the 16-digit code; a code vendor documents the
+NCK/MCK/RGCK triple at 16 digits.
+
+### Why a calculator cannot exist here
+
+The general shape of a modern scheme was described publicly on XDA in 2017 for
+handsets holding `SALT` and `HASH` in a protected trim area:
+
+```
+h = sha256(NCK || SALT)
+repeat 9 more times: h = sha256(h)
+accept iff h == HASH
+```
+
+The handset can only *check* a code, never derive one — the NCK is effectively
+a preimage, so the carrier is free to issue random codes and no amount of
+firmware analysis yields a generator. (`samsung_att.py` implements this
+verifier and benchmarks it; note it is documented for Sony-family trim-area
+devices — **Samsung's current internal scheme is not public**, and I have not
+found it.)
+
+I measured the brute-force angle rather than hand-waving it: a 10-round chain
+runs at **~250,000 guesses/s** on one core here, and the 16-digit space is
+10^16 ≈ 2^53.2. So a single GPU could average-case it in weeks — but that is
+irrelevant, because you would first need `SALT` and `HASH`, which live in
+device-protected storage, and anyone who can extract those can simply clear the
+lock flag. **The code is a lookup, not a computation.**
+
+### Why the refusal is the safe behaviour
+
+A wrong NCK does not fail harmlessly on Samsung. AT&T's instructions state 5 or
+10 attempts depending on model; after that the baseband freezes and requires an
+**MCK**, which is *also* server-issued. A calculator that emitted
+plausible-looking 8-digit numbers would be a brick generator for exactly the
+phones its users are trying to save. Every "free Samsung MCK generator" I found
+in research is a scam or malware.
+
+### The AT&T model table
+
+`models/att-samsung.json` — 28 entries: 25 tagged `source: "att"` and 3 tagged
+`source: "press"`; 24 carry a model number, the remainder are phones AT&T lists
+without a number I could retrieve. `att` entries were read off AT&T's own
+device-support selector (which lists **115 Samsung phones**); `press` entries
+come from trade coverage and are **not** confirmed against AT&T. The self-test
+enforces that every entry is sourced and that model numbers are unique.
+
+```
+$ python3 samsung_att.py --models S26
+SM-S942U     Galaxy S26               2026 att
+SM-S947U     Galaxy S26 Plus          2026 att
+SM-S948U     Galaxy S26 Ultra         2026 att
+?            Galaxy S26 FE            2026 att
+```
+
+`SM-S942U/S947U/S948U` are the S26 / S26+ / S26 Ultra; `SM-F976U` (Z Fold8) and
+`SM-F776U` (Z Flip8) are flagged `press` because AT&T lists those phones without
+a model number I could capture. Entries with `model: null` are phones AT&T lists
+whose numbers I did not retrieve — I left them blank rather than guess.
+
+### AT&T eligibility (from att.com/legal, KM1258553)
+
+Not reported lost/stolen/fraud · contract or installment plan completed (pay off
+early, re-request after 24h) · not active on another AT&T account · 14 days
+after an early upgrade (30 for business) · **60 days of active service with no
+past-due balance** · AT&T PREPAID needs **6 months** · military exempt from
+installment/contract completion with TCS/PCS orders · business devices need
+company authorisation.
+
+Request at <https://www.att.com/deviceunlock>, confirm the email, then either
+nothing happens (OTA) or you get a code.
+
+---
+
+## 5. Bugs in the upstream Go repo
 
 Found by reading; the package cannot be compiled in this sandbox (no Go
 toolchain reachable — `go.dev`, `dl.google.com`, `storage.googleapis.com` and
@@ -216,7 +309,7 @@ executed.
 
 ---
 
-## 5. Running it
+## 6. Running it
 
 ```
 $ python3 unlock.py 351234567891239 C700
@@ -231,12 +324,14 @@ Alcatel C700 NCK  : 574001136
 Alcatel C700 SPCK : 3261320467
 H220m-class     : 30619753
 
-$ python3 unlock.py --self-test
-...
-0 failure(s)
+$ python3 unlock.py --self-test        # legacy algorithms
+$ python3 samsung_att.py --self-test   # Samsung/AT&T module
+$ python3 samsung_att.py --unlock S26  # AT&T process + matched models
+$ python3 samsung_att.py --check 2738272959528493
+modern-16: 16-digit code. Newer Samsung handsets (NCK, MCK or RGCK). ...
 ```
 
-`--self-test` re-runs every vector in section 2.
+Each `--self-test` re-runs every vector in its section.
 
 ---
 
@@ -247,6 +342,13 @@ $ python3 unlock.py --self-test
 - Huawei v1 reference: <https://hvera.wordpress.com/2010-08-09/unlock-huawei-modem/> and the E589 salt table on XDA
 - Modern ZTE-family algorithm: <https://github.com/kozik47/zte-imei-unlock>
 - Go `fmt` verb table: <https://pkg.go.dev/fmt>
+- AT&T device selector: <https://www.att.com/device-support/selector/Samsung/>
+- AT&T unlock instructions (PDF): <https://www.att.com/idpassets/support/pdf/ATTDeviceUnlockCodeInstructions.pdf>
+- AT&T eligibility requirements: <https://www.att.com/legal/modal/idpassets/fragment/legal/prod/legalmodal/support/smallbusinesskms/km125/km1258553.html>
+- 16-digit NCK/MCK/RGCK format: <https://www.cellunlocker.net/unlock-samsung/instructions/>
+- SHA-256-chain / trim-area scheme: <https://forum.xda-developers.com/showthread.php?page=2&t=931313>
+- IMEI Luhn vectors: <https://github.com/arthurdejong/python-stdnum/blob/master/stdnum/imei.py>
+- 2026 model numbers: <https://www.androidauthority.com/samsung-galaxy-2026-3616973/>
 
 > These algorithms are documented, public and long obsolete. Use them only on
 > hardware you own and are entitled to unlock.

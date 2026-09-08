@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "carrier": "AT&T (US)",
+    "vendor": "Samsung",
+    "retrieved": "2026-09-08",
+    "note": "The `U` suffix marks Samsung's US carrier-variant SKUs; AT&T firmware images are commonly `U` with carrier CSC, while `U1` is the US factory-unlocked SKU. Model numbers marked source=att were read off AT&T's own device-support selector (att.com/device-support/selector/Samsung/, which lists 115 Samsung phones). Entries marked source=press come from trade coverage and were NOT confirmed against AT&T; treat them as unverified.",
+    "sources": {
+      "att": "https://www.att.com/device-support/selector/Samsung/",
+      "press": "https://www.androidauthority.com/samsung-galaxy-2026-3616973/"
+    }
+  },
+  "models": [
+    { "model": "SM-S942U", "name": "Galaxy S26",          "year": 2026, "source": "att" },
+    { "model": "SM-S947U", "name": "Galaxy S26 Plus",         "year": 2026, "source": "att" },
+    { "model": "SM-S948U", "name": "Galaxy S26 Ultra",    "year": 2026, "source": "att" },
+    { "model": null,       "name": "Galaxy S26 FE",       "year": 2026, "source": "att", "note": "listed by AT&T; model number not captured" },
+
+    { "model": "SM-S731U", "name": "Galaxy S25 FE",       "year": 2025, "source": "att" },
+    { "model": "SM-S931U", "name": "Galaxy S25",          "year": 2025, "source": "att" },
+    { "model": "SM-S936U", "name": "Galaxy S25 Plus",         "year": 2025, "source": "att" },
+    { "model": "SM-S938U", "name": "Galaxy S25 Ultra",    "year": 2025, "source": "att" },
+    { "model": "SM-S937U", "name": "Galaxy S25 Edge",     "year": 2025, "source": "press", "note": "AT&T lists the phone; SM-S937 comes from trade coverage" },
+
+    { "model": "SM-S921U", "name": "Galaxy S24",          "year": 2024, "source": "att" },
+    { "model": "SM-S926U", "name": "Galaxy S24 Plus",         "year": 2024, "source": "att" },
+    { "model": "SM-S928U", "name": "Galaxy S24 Ultra",    "year": 2024, "source": "att" },
+
+    { "model": "SM-F976U", "name": "Galaxy Z Fold8",      "year": 2026, "source": "press", "note": "AT&T lists 'Galaxy Z Fold8'; SM-F976 from trade coverage" },
+    { "model": null,       "name": "Galaxy Z Fold8 Ultra","year": 2026, "source": "att", "note": "listed by AT&T; model number not captured" },
+    { "model": "SM-F776U", "name": "Galaxy Z Flip8",      "year": 2026, "source": "press", "note": "AT&T lists 'Galaxy Z Flip8'; SM-F776 from trade coverage" },
+    { "model": "SM-F966U", "name": "Galaxy Z Fold7",      "year": 2025, "source": "att" },
+    { "model": "SM-F766U", "name": "Galaxy Z Flip7",      "year": 2025, "source": "att" },
+    { "model": "SM-F956U", "name": "Galaxy Z Fold6",      "year": 2024, "source": "att" },
+    { "model": "SM-F741U", "name": "Galaxy Z Flip6",      "year": 2024, "source": "att" },
+
+    { "model": "SM-G766U", "name": "Galaxy XCover 7 Pro", "year": 2025, "source": "att" },
+
+    { "model": "SM-A176U", "name": "Galaxy A17 5G",       "year": 2026, "source": "att" },
+    { "model": null,       "name": "Galaxy A57 5G",       "year": 2026, "source": "att", "note": "listed by AT&T; model number not captured" },
+    { "model": "SM-A376U", "name": "Galaxy A37 5G",       "year": 2026, "source": "att" },
+    { "model": null,       "name": "Galaxy A36 5G",       "year": 2025, "source": "att", "note": "listed by AT&T; model number not captured" },
+    { "model": "SM-A356U", "name": "Galaxy A35 5G",       "year": 2024, "source": "att" },
+    { "model": "SM-A166U", "name": "Galaxy A16 5G",       "year": 2024, "source": "att" },
+    { "model": "SM-A156U", "name": "Galaxy A15 5G",       "year": 2023, "source": "att" },
+
+    { "model": "SM-J260A", "name": "Galaxy J2 Dash",      "year": null, "source": "att", "note": "legacy handset visible on the first page of AT&T's selector (which lists 115 Samsung phones in total); included as the only clearly pre-2020 entry captured" }
+  ]
+}
