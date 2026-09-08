@@ -24,7 +24,7 @@
 
     { "model": "SM-A536U", "name": "Galaxy A53 5G",       "year": 2022, "source": "att",
       "tac": "35001262",
-      "tac_source": "user-reported 2026-09-08; NOT confirmed against the GSMA database",
+      "tac_source": "Swappa TAC catalog (swappa.com/imei/tac/35001262): 'TAC 35001262 appears to be used by 1 device in Swappa's catalog' -> Samsung Galaxy A53 5G. Retrieved 2026-09-08. Not the GSMA database, but an independent catalogue.",
       "note": "AT&T keeps a dedicated support record for SM-A536U (att.com KM1479322). TAC 35001262 is an 8-digit TAC with a live unit population -- do NOT read it as pre-2004 6-digit TAC 350012 + FAC 62." },
 
     { "model": "SM-S921U", "name": "Galaxy S24",          "year": 2024, "source": "att" },

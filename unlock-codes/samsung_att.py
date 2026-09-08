@@ -387,8 +387,10 @@ def self_test():
     check('...but NOT applied', d['tac_is_8_digit'], True)
     check('TAC resolves in the model table',
           [m['model'] for m in d['matched_models']], ['SM-A536U'])
-    check('unverified TAC provenance is surfaced', d['tac_source'] is not None
-          and 'NOT confirmed' in d['tac_source'], True)
+    check('TAC binding always carries provenance',
+          all(m.get('tac_source') for m in data['models'] if m.get('tac')), True)
+    check('provenance is surfaced in the report',
+          'Swappa TAC catalog' in report_imei('350012623050961'), True)
     check('report warns about the stale-DB trap',
           'pre-2004' in report_imei('350012623050961'), True)
     # an IMEI outside the legacy range must not be flagged at all
