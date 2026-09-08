@@ -211,7 +211,7 @@ does. `samsung_att_nck()` raises `NotCalculable` rather than returning a number.
 | --- | --- | --- |
 | NCK length | 8 digits | **16 digits** (e.g. `NCK=2738272959528493`) |
 | Companion codes | SPCK | **MCK** (defreeze) and **RGCK** (regional) |
-| Where the code comes from | `f(IMEI)`, computable offline | **AT&T/Samsung server**, after an eligibility check |
+| Where the code comes from | **stored in EFS** at a fixed offset, not derived | **AT&T/Samsung server**, after an eligibility check |
 | Alternate path | none | **server-side / OTA unlock** — nothing is typed at all |
 | Entry sequence | `#7465625*638*CODE#`, `#0111*CODE#` | `*#865625#` → Network Lock → 16 digits |
 | Attempts | ~4–5 | **5 or 10** depending on model, then frozen |
@@ -219,6 +219,47 @@ does. `samsung_att_nck()` raises `NotCalculable` rather than returning a number.
 Sources: AT&T's own `ATTDeviceUnlockCodeInstructions.pdf` documents the
 `*#865625#` flow and the 16-digit code; a code vendor documents the
 NCK/MCK/RGCK triple at 16 digits.
+
+### There is no Samsung keygen, and there never was
+
+This is the one brand where the keygen instinct is simply misapplied. For ZTE,
+Huawei, Alcatel and the H220m-class devices in `unlock.py`, the handset *derived*
+its code from the IMEI, so recovering the algorithm gives you a generator.
+Samsung never did that. Samsung **stored** the code as eight ASCII digits inside
+the EFS partition, written at the factory. There is no function to invert.
+
+The proof is in the two canonical Galaxy S 4G tools, both public and both
+GPL-3.0, which I read rather than summarised:
+
+* `fbis251/sgs4g-unlock-code-finder` (ANSI C) — `readUnlockCode()` does `fseek`
+  to `CODE_LOCATION` and `fread`s 13 bytes. That is the whole mechanism.
+* `fbis251/Galaxy-S-Unlocker-for-PC` (D) — same layout, plus validation.
+
+`grep -i imei` across both projects returns **nothing**. Neither program accepts
+an IMEI as an argument, because an IMEI would be useless to them.
+
+The layout, from `unlocker.h` and `unlocker.d` verbatim:
+
+```
+0x1468   0xFF                     validation byte
+0x1469   byte 0 of 13             lock status: 0x00 unlocked, 0x01 locked
+0x146E   8 bytes, ASCII '0'-'9'   THE UNLOCK CODE   (0x1469 + 5)
+```
+
+`samsung_nvdata.py` ports this — extractor plus the stricter validation — with
+27 self-checks. It reads the code back out of an `nv_data.bin` for
+SGH-T959V / SGH-T959W:
+
+```
+$ python3 samsung_nvdata.py nv_data.bin
+code at 0x146E  : 27382729
+lock status   : Locked
+```
+
+That is the closest thing to a Samsung keygen that has ever existed, and note
+what it is: a *reader*. It recovers a value that was already sitting there. Every
+model after this generation stopped exposing the code as plaintext, and from
+there the only copy is on the carrier server — which is the state the A53 is in.
 
 ### Why a calculator cannot exist here
 
@@ -426,6 +467,12 @@ $ python3 samsung_att.py --self-test   # Samsung/AT&T module
 $ python3 samsung_att.py --unlock S26  # AT&T process + matched models
 $ python3 samsung_att.py --check 2738272959528493
 modern-16: 16-digit code. Newer Samsung handsets (NCK, MCK or RGCK). ...
+
+$ python3 samsung_nvdata.py nv_data.bin  # read a stored legacy Samsung NCK
+$ python3 samsung_nvdata.py --self-test  # 27 checks
+$ python3 a53_att.py                     # AT&T Galaxy A53 walkthrough
+$ python3 a53_att.py --check CODE        # verify a code before typing it
+$ python3 a53_att.py --self-test         # 59 checks
 ```
 
 Each `--self-test` re-runs every vector in its section.
@@ -445,6 +492,7 @@ Each `--self-test` re-runs every vector in its section.
 - 16-digit NCK/MCK/RGCK format: <https://www.cellunlocker.net/unlock-samsung/instructions/>
 - SHA-256-chain / trim-area scheme: <https://forum.xda-developers.com/showthread.php?page=2&t=931313>
 - IMEI Luhn vectors: <https://github.com/arthurdejong/python-stdnum/blob/master/stdnum/imei.py>
+- Legacy Samsung code **stored**, not derived — read from `nv_data.bin` at `0x146E`: <https://github.com/fbis251/sgs4g-unlock-code-finder> (ANSI C, GPL-3.0) and <https://github.com/fbis251/Galaxy-S-Unlocker-for-PC> (D). Neither references the IMEI.
 - 2026 model numbers: <https://www.androidauthority.com/samsung-galaxy-2026-3616973/>
 
 > These algorithms are documented, public and long obsolete. Use them only on
