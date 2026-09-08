@@ -271,6 +271,48 @@ SM-S948U     Galaxy S26 Ultra         2026 att
 ?            Galaxy S26 FE            2026 att
 ```
 
+The table is **not exhaustive** — `_meta.complete` is `false` and the self-test
+asserts it stays that way. A model missing from this file is a gap in the file,
+not a fact about the device. It originally started at 2023 and silently missed
+the 2022 Galaxy A53 5G (`SM-A536U`), which is now included.
+
+### A TAC-reading trap worth recording
+
+Reading a device off its IMEI has one sharp edge. Before 2004 the TAC was 6
+digits plus a 2-digit Final Assembly Code, and the usual heuristic for legacy
+IMEIs is:
+
+```
+starts '01' and first8 < '01015900'  -> 6-digit TAC
+starts '35' and first8 < '35150100'  -> 6-digit TAC
+```
+
+That rule disambiguates genuinely old handsets. **It is not a claim that the
+8-digit space below those thresholds is frozen** — GSMA allocates 8-digit TACs
+there today. `350012623050961` is a 2022 AT&T Galaxy A53 5G with 8-digit TAC
+`35001262`; run through the legacy rule it becomes 6-digit TAC `350012` + FAC
+`62`, and a stale 2018 phone-types list maps `350012` to "Kapsch AG GSM-R MT",
+a railway cab radio. That misidentification was stated here with full
+confidence and was wrong.
+
+`samsung_att.py` now defaults to 8 digits, *flags* the legacy reading when the
+number falls in that range without applying it, and explains the trap in the
+output. `--imei` is the entry point:
+
+```
+$ python3 samsung_att.py --imei 350012623050961
+IMEI        : 350012623050961
+  TAC       : 35001262   (8 digits -- the default and correct reading)
+  model     : Galaxy A53 5G (SM-A536U)
+  tac source: user-reported 2026-09-08; NOT confirmed against the GSMA database
+  ...
+```
+
+TAC coverage in the JSON is deliberately sparse, and every TAC carries a
+`tac_source` field naming where the binding came from. The self-test asserts
+that an unverified TAC always surfaces its provenance rather than presenting
+itself as a database hit.
+
 `SM-S942U/S947U/S948U` are the S26 / S26+ / S26 Ultra; `SM-F976U` (Z Fold8) and
 `SM-F776U` (Z Flip8) are flagged `press` because AT&T lists those phones without
 a model number I could capture. Entries with `model: null` are phones AT&T lists

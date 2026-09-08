@@ -89,6 +89,81 @@ def tac(imei):
     return digits[:8]
 
 
+# The pre-2004 TAC ambiguity, and the trap it sets.
+#
+# Before 2004 the TAC was 6 digits plus a 2-digit Final Assembly Code, and a
+# common heuristic for reading *legacy* IMEIs is:
+#
+#     starts '01' and first8 < '01015900'  -> 6-digit TAC
+#     starts '35' and first8 < '35150100'  -> 6-digit TAC
+#
+# That rule disambiguates genuinely old handsets. It is NOT a claim that the
+# 8-digit space below those thresholds is frozen. GSMA allocates 8-digit TACs
+# in that range today, so applying it to a modern IMEI sends you into stale
+# databases and produces confident nonsense. This file made exactly that
+# mistake once: 35001262 was read as 6-digit TAC 350012 ("Kapsch AG GSM-R MT",
+# from a 2018 phone-types list) when it is an 8-digit TAC with a live unit
+# population on a 2022 Galaxy A53 5G.
+#
+# Default to 8 digits. Only consider the 6-digit reading when there is
+# independent evidence the handset predates 2004.
+PRE2004_6DIGIT_TAC = ("starts '01' and first8 < 01015900, or "
+                      "starts '35' and first8 < 35150100")
+
+
+def describe_imei(imei):
+    """Split and describe an IMEI without applying the legacy heuristic."""
+    digits = ''.join(c for c in imei if c.isdigit())
+    if not imei_valid(digits):
+        raise ValueError('%r is not a valid 15-digit IMEI (Luhn check failed)' % imei)
+    d = {
+        'imei': digits,
+        'tac': digits[:8],
+        'serial': digits[8:14],
+        'check_digit': digits[14],
+        'tac_is_8_digit': True,
+        'legacy_6digit_reading_possible': (digits[:2] in ('01', '35')) and (
+            (digits[:2] == '01' and digits[:8] < '01015900')
+            or (digits[:2] == '35' and digits[:8] < '35150100')),
+    }
+    d['legacy_6digit_tac'] = digits[:6] if d['legacy_6digit_reading_possible'] else None
+    d['legacy_fac'] = digits[6:8] if d['legacy_6digit_reading_possible'] else None
+    d['matched_models'] = lookup_tac(digits[:8])
+    d['tac_source'] = d['matched_models'][0].get('tac_source') if d['matched_models'] else None
+    return d
+
+
+def report_imei(imei):
+    d = describe_imei(imei)
+    lines = [
+        'IMEI        : %s' % d['imei'],
+        '  TAC       : %s   (8 digits -- the default and correct reading)' % d['tac'],
+        '  serial    : %s' % d['serial'],
+        '  check     : %s   (Luhn OK)' % d['check_digit'],
+    ]
+    if d['matched_models']:
+        lines.append('  model     : ' + ', '.join(
+            '%s (%s)' % (m['name'], m['model'] or '?') for m in d['matched_models']))
+        if d['tac_source']:
+            lines.append('  tac source: %s' % d['tac_source'])
+    else:
+        lines.append('  model     : TAC not in models/att-samsung.json. That file is'
+                     ' NOT exhaustive (see _meta.complete=false) and holds very few'
+                     ' TACs at all -- a miss says nothing about the device.')
+    if d['legacy_6digit_reading_possible']:
+        lines += [
+            '',
+            '  NOTE: this IMEI falls in the pre-2004 range (%s), so a 6-digit' % PRE2004_6DIGIT_TAC,
+            '  reading is *arithmetically* possible: TAC %s + FAC %s.' % (
+                d['legacy_6digit_tac'], d['legacy_fac']),
+            '  Do NOT use it unless the handset verifiably predates 2004. Stale TAC',
+            '  databases map those 6-digit codes to long-dead equipment and will',
+            '  happily misidentify a modern phone.',
+        ]
+    return '\n'.join(lines)
+
+
+
 # --------------------------------------------------------------------------
 # Code formats
 # --------------------------------------------------------------------------
@@ -135,6 +210,19 @@ def lookup(query):
         if q in hay:
             out.append(m)
     return out
+
+
+def lookup_tac(tac8):
+    """Find a model by 8-digit TAC.
+
+    TAC coverage in this table is sparse and each hit carries a `tac_source`
+    field describing where the binding came from. A miss means the TAC is not
+    in this file, not that the device is unidentifiable.
+    """
+    tac8 = ''.join(c for c in tac8 if c.isdigit())
+    if len(tac8) != 8:
+        raise ValueError('TAC is 8 digits')
+    return [m for m in load_models()['models'] if m.get('tac') == tac8]
 
 
 # --------------------------------------------------------------------------
@@ -280,6 +368,8 @@ def self_test():
     check('Galaxy S26 Ultra model', names['Galaxy S26 Ultra']['model'], 'SM-S948U')
     check('Galaxy S25 model', names['Galaxy S25']['model'], 'SM-S931U')
     check('Galaxy Z Fold7 model', names['Galaxy Z Fold7']['model'], 'SM-F966U')
+    check('Galaxy A53 5G present (2022)', names['Galaxy A53 5G']['model'], 'SM-A536U')
+    check('table declares itself incomplete', data['_meta']['complete'], False)
     check('lookup("S26") hits', sorted(m['name'] for m in lookup('S26')),
           ['Galaxy S26', 'Galaxy S26 FE', 'Galaxy S26 Plus', 'Galaxy S26 Ultra'])
     check('every entry sourced', all(m['source'] in ('att', 'press') for m in data['models']), True)
@@ -288,6 +378,22 @@ def self_test():
     check('model numbers are unique',
           len({m['model'] for m in data['models'] if m['model']})
           == len([m for m in data['models'] if m['model']]), True)
+
+    print('\nTAC interpretation (the bug this guards against)')
+    d = describe_imei('350012623050961')          # AT&T Galaxy A53 5G, SM-A536U
+    check('TAC is read as 8 digits', d['tac'], '35001262')
+    check('serial / check digit split', (d['serial'], d['check_digit']), ('305096', '1'))
+    check('legacy 6-digit reading is flagged', d['legacy_6digit_reading_possible'], True)
+    check('...but NOT applied', d['tac_is_8_digit'], True)
+    check('TAC resolves in the model table',
+          [m['model'] for m in d['matched_models']], ['SM-A536U'])
+    check('unverified TAC provenance is surfaced', d['tac_source'] is not None
+          and 'NOT confirmed' in d['tac_source'], True)
+    check('report warns about the stale-DB trap',
+          'pre-2004' in report_imei('350012623050961'), True)
+    # an IMEI outside the legacy range must not be flagged at all
+    check('modern TAC not flagged', describe_imei('356868000041418')['legacy_6digit_reading_possible'], False)
+    check('modern TAC has no legacy fields', describe_imei('356868000041418')['legacy_6digit_tac'], None)
 
     print('\nno local generator (this is the point)')
     try:
@@ -324,12 +430,24 @@ def main(argv):
     if len(argv) < 2:
         print(__doc__)
         print('usage: samsung_att.py --self-test')
+        print('       samsung_att.py --imei <15-digit IMEI>')
         print('       samsung_att.py --models [fragment]')
         print('       samsung_att.py --unlock [model fragment]')
         print('       samsung_att.py --check <code>')
         return 2
     cmd = argv[1]
-    if cmd == '--models':
+    if cmd == '--imei':
+        if len(argv) < 3:
+            print('give me an IMEI')
+            return 2
+        try:
+            print(report_imei(argv[2]))
+        except ValueError as exc:
+            print('ERROR: %s' % exc)
+            return 1
+        print()
+        print(att_instructions())
+    elif cmd == '--models':
         frag = argv[2] if len(argv) > 2 else ''
         for m in (lookup(frag) if frag else load_models()['models']):
             print('%-12s %-24s %s %s' % (m['model'] or '?', m['name'],

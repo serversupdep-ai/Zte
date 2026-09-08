@@ -3,7 +3,8 @@
     "carrier": "AT&T (US)",
     "vendor": "Samsung",
     "retrieved": "2026-09-08",
-    "note": "The `U` suffix marks Samsung's US carrier-variant SKUs; AT&T firmware images are commonly `U` with carrier CSC, while `U1` is the US factory-unlocked SKU. Model numbers marked source=att were read off AT&T's own device-support selector (att.com/device-support/selector/Samsung/, which lists 115 Samsung phones). Entries marked source=press come from trade coverage and were NOT confirmed against AT&T; treat them as unverified.",
+    "complete": false,
+    "note": "NOT EXHAUSTIVE. AT&T's selector lists 115 Samsung phones; this file holds a subset. If a model is missing that is a gap in this file, not evidence about the device. The `U` suffix marks Samsung's US carrier-variant SKUs; `U1` is the US factory-unlocked SKU.",
     "sources": {
       "att": "https://www.att.com/device-support/selector/Samsung/",
       "press": "https://www.androidauthority.com/samsung-galaxy-2026-3616973/"
@@ -20,6 +21,11 @@
     { "model": "SM-S936U", "name": "Galaxy S25 Plus",         "year": 2025, "source": "att" },
     { "model": "SM-S938U", "name": "Galaxy S25 Ultra",    "year": 2025, "source": "att" },
     { "model": "SM-S937U", "name": "Galaxy S25 Edge",     "year": 2025, "source": "press", "note": "AT&T lists the phone; SM-S937 comes from trade coverage" },
+
+    { "model": "SM-A536U", "name": "Galaxy A53 5G",       "year": 2022, "source": "att",
+      "tac": "35001262",
+      "tac_source": "user-reported 2026-09-08; NOT confirmed against the GSMA database",
+      "note": "AT&T keeps a dedicated support record for SM-A536U (att.com KM1479322). TAC 35001262 is an 8-digit TAC with a live unit population -- do NOT read it as pre-2004 6-digit TAC 350012 + FAC 62." },
 
     { "model": "SM-S921U", "name": "Galaxy S24",          "year": 2024, "source": "att" },
     { "model": "SM-S926U", "name": "Galaxy S24 Plus",         "year": 2024, "source": "att" },
