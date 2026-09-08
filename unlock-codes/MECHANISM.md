@@ -318,6 +318,30 @@ itself as a database hit.
 a model number I could capture. Entries with `model: null` are phones AT&T lists
 whose numbers I did not retrieve — I left them blank rather than guess.
 
+### Practical helper: `a53_att.py`
+
+Since the code itself cannot be produced, the useful work is removing every
+other obstacle. `a53_att.py` is a guided walkthrough for one specific handset —
+the AT&T Galaxy A53 5G — with sources cited inline.
+
+The detail that actually changes the procedure: **the A53 has no eSIM, in any
+region.** Samsung's A-series did not get eSIM until the A54 (March 2023). So the
+unlock cannot be tested or completed with an eSIM — a physical nano-SIM from
+another carrier has to be in hand before starting. Carrier variants are also
+single-SIM, so there is no second slot to test with.
+
+```
+$ python3 a53_att.py                 # full walkthrough
+$ python3 a53_att.py frozen          # jump to a failure path
+$ python3 a53_att.py --self-test     # 20 checks, 0 failures
+```
+
+It covers: model confirmation against all 11 A53 variants, the lock-status check
+to run *first*, AT&T's eligibility rules, the request flow including the 24-hour
+email expiry, code entry (MCK first if supplied — it reports "unsuccessful" by
+design and costs nothing), and five failure paths. Its self-test asserts that
+nothing in it advises guessing a code.
+
 ### AT&T eligibility (from att.com/legal, KM1258553)
 
 Not reported lost/stolen/fraud · contract or installment plan completed (pay off
