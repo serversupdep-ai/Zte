@@ -1,2 +1,5 @@
 __pycache__/
 *.py[cod]
+
+# Per-user state written by a53_att.py's attempt tracker. Local only.
+.a53_attempts.json*

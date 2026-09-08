@@ -18,10 +18,15 @@ Model profile facts, with sources:
     16-digit with the 2019 models (S10/Note 10 on AT&T). The A53 is 2022.
   * Released 2022-03-24, Exynos 1280.
 
-Run:  python3 a53_att.py            (guided walkthrough)
+Run:  python3 a53_att.py                       (guided walkthrough)
+      python3 a53_att.py --check CODE [--imei N]   (verify before you type it)
+      python3 a53_att.py --attempts            (attempts left before a freeze)
       python3 a53_att.py --self-test
 """
 
+import json
+import os
+import re
 import sys
 
 MODEL = 'SM-A536U'
@@ -154,13 +159,262 @@ def entering_code():
     ]
 
 
+# --------------------------------------------------------------------------
+# Code verifier -- the last gate before a code costs you an attempt
+# --------------------------------------------------------------------------
+#
+# The NCK cannot be computed, and it cannot be retrieved from anywhere. The
+# only place it exists is the email AT&T sends after approving a request.
+# Everything this tool can still do for you is make that one entry count:
+# catch the failure modes that waste attempts, which are overwhelmingly
+# transcription errors and codes bought from resellers.
+
+ATTEMPT_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            '.a53_attempts.json')
+
+# Codes resellers and "free NCK" pages hand out. These are not real NCKs; they
+# are the same handful of values served to everyone. Entering one on an A53
+# burns an attempt and, repeated, freezes the baseband.
+KNOWN_BAD = {
+    '0000000000000000': 'all zeros -- placeholder',
+    '1111111111111111': 'all ones -- placeholder',
+    '8888888888888888': 'all eights -- placeholder',
+    '9999999999999999': 'all nines -- placeholder',
+    '1234567890123456': 'ascending sequence -- placeholder',
+    '0123456789012345': 'ascending sequence -- placeholder',
+    '0987654321098765': 'descending sequence -- placeholder',
+    '1212121212121212': 'repeating pattern -- placeholder',
+    '0000000000000001': 'placeholder',
+}
+
+
+def _digit_runs(digits, run=6):
+    """True if the string contains an ascending or descending run of >= `run`."""
+    asc = dsc = 1
+    for i in range(1, len(digits)):
+        a, b = digits[i - 1], digits[i]
+        asc = asc + 1 if ord(b) == ord(a) + 1 else 1
+        dsc = dsc + 1 if ord(b) == ord(a) - 1 else 1
+        if asc >= run or dsc >= run:
+            return True
+    return False
+
+
+def _same_digit_run(digits, run=6):
+    m = re.search(r'(.)\1{%d,}' % (run - 1), digits)
+    return m.group(0) if m else None
+
+
+def check_code(code, imei=None, model=MODEL, expect=CODE_DIGITS):
+    """Verdict on a candidate code BEFORE it is typed into the handset.
+
+    Returns a dict: digits, verdict ('enter'|'caution'|'do not enter'),
+    blocks, warnings, notes. A clean code yields no blocks and no warnings.
+
+    This never confirms a code is correct -- nothing can. It only catches
+    the wrong-shape and known-junk cases, which is where attempts actually die.
+    """
+    raw = code.strip()
+    letters = [c for c in raw if c.isalpha()]
+    digits = ''.join(c for c in raw if c.isdigit())
+
+    blocks, warnings, notes = [], [], []
+
+    if letters:
+        blocks.append(
+            'contains %d letter(s) (%s). A Samsung NCK is digits only. A code '
+            'with letters in it is a serial number, a hex placeholder, or a '
+            'code for different hardware.' % (len(letters), ''.join(letters)))
+
+    stripped = len(raw) - len(digits) - len(letters)
+    if stripped > 0 and not letters:
+        notes.append('stripped %d separator character(s) -- enter digits only, '
+                     'no spaces or dashes' % stripped)
+
+    if len(digits) != expect:
+        if len(digits) == 8:
+            blocks.append(
+                '8 digits. That is the pre-2019 Samsung format, and it is what '
+                'most third-party resellers sell. The %s is a 2022 handset and '
+                'takes a %d-digit code. If AT&T itself sent you 8 digits, that '
+                'is a mismatch worth raising with them before typing anything.'
+                % (model, expect))
+        elif len(digits) == 15:
+            blocks.append(
+                '15 digits is IMEI length, not code length. You were probably '
+                'sent or are about to retype the IMEI.')
+        elif len(digits) == 0:
+            blocks.append('no digits at all.')
+        else:
+            blocks.append(
+                '%d digits. AT&T/Samsung codes for this handset are %d. Do not '
+                'enter it.' % (len(digits), expect))
+
+    if digits.lower() in KNOWN_BAD:
+        blocks.append('known junk value (%s)' % KNOWN_BAD[digits.lower()])
+
+    if imei:
+        idig = ''.join(c for c in imei if c.isdigit())
+        if idig and digits:
+            if idig in digits:
+                blocks.append('contains the full IMEI %s -- a real NCK never '
+                              'does.' % idig)
+            elif digits in idig:
+                blocks.append('is a substring of the IMEI -- not a code.')
+            elif len(digits) >= 8 and len(idig) >= 8:
+                # Same-position head or tail overlap. Deliberately positional:
+                # the dead calculators emitted digits derived from the IMEI's
+                # own ends, so an exact end match is the signature to catch.
+                if digits[-8:] == idig[-8:]:
+                    blocks.append('the last 8 digits are the IMEI\'s last 8 (%s) '
+                                  '-- looks derived from it.' % idig[-8:])
+                elif digits[:8] == idig[:8]:
+                    blocks.append('the first 8 digits are the IMEI\'s TAC (%s) '
+                                  '-- looks derived from it.' % idig[:8])
+
+    # Numeric part of the model designation: 'SM-A536U' -> '536'.
+    suffix = model.split('-')[-1] if '-' in model else model
+    tail = ''.join(c for c in suffix if c.isdigit())
+    if len(tail) >= 3 and digits:
+        if len(digits) >= 8 and digits[-len(tail):] == tail:
+            lead = digits[:-len(tail)]
+            if set(lead) <= {'0'}:
+                blocks.append('is the model number %s padded with zeros -- a '
+                              'filler value, not a code.' % tail)
+            else:
+                warnings.append('ends in the model number %s. A %d-digit match '
+                                'like that is a 1-in-%d coincidence, so it is '
+                                'usually a placeholder.'
+                                % (tail, len(tail), 10 ** len(tail)))
+
+    run = _same_digit_run(digits)
+    if run:
+        blocks.append('%d identical digits in a row (%s) -- real NCKs are '
+                      'effectively random.' % (len(run), run))
+    if len(digits) >= 8 and _digit_runs(digits):
+        warnings.append('contains a long ascending or descending run -- real '
+                        'NCKs are uniformly random, so this is unusual.')
+    if digits and len(set(digits)) == 1:
+        blocks.append('every digit identical.')
+    if digits == digits[::-1] and len(digits) >= 8:
+        warnings.append('palindrome -- not impossible, but worth a double check '
+                        'against the source.')
+
+    if blocks:
+        verdict = 'do not enter'
+    elif warnings:
+        verdict = 'caution'
+    else:
+        verdict = 'enter'
+
+    return {'input': raw, 'digits': digits, 'n': len(digits), 'expect': expect,
+            'verdict': verdict, 'blocks': blocks, 'warnings': warnings,
+            'notes': notes}
+
+
+def code_report(result):
+    """Human-readable version of check_code()."""
+    head = {'enter': 'VERDICT: safe to enter',
+            'caution': 'VERDICT: probably fine, but check the source first',
+            'do not enter': 'VERDICT: DO NOT ENTER -- this will cost an attempt'}
+    out = ['code      : %s' % (result['digits'] or '(empty)'),
+           'length    : %d (expected %d)' % (result['n'], result['expect']),
+           head[result['verdict']]]
+    for b in result['blocks']:
+        out.append('  BLOCK  %s' % b)
+    for w in result['warnings']:
+        out.append('  WARN   %s' % w)
+    for n in result['notes']:
+        out.append('  note   %s' % n)
+    if result['verdict'] == 'enter':
+        out += ['',
+                'Clean shape says nothing about correctness -- only AT&T\'s own',
+                'server knows that. What it does tell you is that you did not',
+                'mangle the transcription, which is the common failure.',
+                '',
+                'Before you type it: MCK first if you were given one (it will',
+                'report failure by design and costs nothing), Wi-Fi off, and',
+                'enter all %d digits in one go.' % CODE_DIGITS]
+    elif result['verdict'] == 'do not enter':
+        out += ['',
+                'Every wrong entry spends one of %d-%d attempts, then the'
+                % ATTEMPT_BUDGET,
+                'baseband freezes and only an AT&T MCK resets it. Where did',
+                'this code come from? If not from AT&T\'s unlock email, it is',
+                'not a code for this phone.']
+    return out
+
+
+# --------------------------------------------------------------------------
+# Attempt tracker
+# --------------------------------------------------------------------------
+def _load_attempts(path=None):
+    path = path or ATTEMPT_FILE
+    if not os.path.exists(path):
+        return {'failures': [], 'success': False}
+    try:
+        with open(path) as fh:
+            return json.load(fh)
+    except (ValueError, OSError):
+        return {'failures': [], 'success': False}
+
+
+def _save_attempts(state, path=None):
+    path = path or ATTEMPT_FILE
+    with open(path, 'w') as fh:
+        json.dump(state, fh, indent=2, sort_keys=True)
+        fh.write('\n')
+
+
+def attempts_left(state):
+    """(remaining_at_worst_case, remaining_at_best_case) given the budget."""
+    used = len(state['failures'])
+    return (max(0, ATTEMPT_BUDGET[0] - used), max(0, ATTEMPT_BUDGET[1] - used))
+
+
+def log_attempt(digest, outcome='fail', path=None):
+    state = _load_attempts(path)
+    if outcome == 'success':
+        state['success'] = True
+    else:
+        state['failures'].append(digest)
+    _save_attempts(state, path)
+    return state
+
+
+def attempts_report(path=None):
+    state = _load_attempts(path)
+    worst, best = attempts_left(state)
+    out = ['Attempt tracker for %s' % MODEL,
+           '  logged failures : %d' % len(state['failures']),
+           '  attempt budget  : %d-%d before the baseband freezes' % ATTEMPT_BUDGET]
+    if state['success']:
+        out.append('  status          : a successful entry is logged. Done.')
+    elif worst <= 0:
+        out += ['  status          : STOP. On the strict reading you have used the',
+                '                  whole budget. Treat the phone as frozen and get',
+                '                  an MCK from AT&T rather than trying again.']
+    else:
+        out.append('  remaining       : %d to %d tries' % (worst, best))
+    if not state['failures'] and not state['success']:
+        out.append('  (nothing logged yet -- use --log-fail / --log-success)')
+    return out
+
+
 TROUBLESHOOTING = {
     'no prompt': [
-        'Phone does not ask for a code after inserting a foreign SIM:',
-        '  - It is most likely already unlocked. Dial %s and check' % LOCK_STATUS_CODE,
-        '    Network / Subset / SP lock are all OFF.',
-        '  - Wi-Fi off, then reboot with the foreign SIM.',
+        'Phone does not ask for a code, or shows "SIM Not Supported":',
+        '  - "SIM Not Supported" IS the network lock on this model. It is the',
+        '    same condition as being asked for a code; the firmware just shows',
+        '    a banner instead of a keypad. You still need the NCK from AT&T.',
+        '  - It is most likely already unlocked if the foreign SIM registers',
+        '    at all. Dial %s and check Network / Subset / SP lock are OFF.'
+        % LOCK_STATUS_CODE,
+        '  - Wi-Fi off, then reboot with the foreign SIM already inserted.',
+        '  - Toggle airplane mode on and off with the foreign SIM in place.',
         '  - Try %s to reach the prompt directly.' % ALT_LOCK_STATUS,
+        '  - Confirm the SIM itself is active on its own network. A dead or',
+        '    inactive SIM is not detected as foreign and triggers no prompt.',
     ],
     'code error': [
         '"Code Error" or "SIM Network Unlock Unsuccessful" on a code AT&T sent:',
@@ -248,6 +502,99 @@ def self_test():
               for l in entering_code()), True)
     check('MCK-is-expected-to-fail note present',
           any('unsuccessful' in l.lower() for l in entering_code()), True)
+    check('SIM Not Supported alert documented',
+          any('SIM Not Supported' in l for l in TROUBLESHOOTING['no prompt']), True)
+
+    print('\ncode verifier')
+    good = '2738272959528493'
+    check('a clean 16-digit code passes', check_code(good)['verdict'], 'enter')
+    check('clean code has no blocks', check_code(good)['blocks'], [])
+    check('clean code has no warnings', check_code(good)['warnings'], [])
+    check('separators are stripped and noted',
+          check_code('2738 2729-5952 8493')['verdict'], 'enter')
+    check('separator stripping is reported',
+          bool(check_code('2738-2729-5952-8493')['notes']), True)
+    check('8-digit legacy code is blocked',
+          check_code('40760382')['verdict'], 'do not enter')
+    check('8-digit block names the real reason',
+          any('pre-2019' in b for b in check_code('40760382')['blocks']), True)
+    check('15-digit IMEI-shaped input is blocked',
+          check_code('350012623050961')['verdict'], 'do not enter')
+    check('all-zero placeholder is blocked',
+          check_code('0000000000000000')['verdict'], 'do not enter')
+    check('KNOWN_BAD entries are all blocked',
+          [check_code(c)['verdict'] for c in KNOWN_BAD],
+          ['do not enter'] * len(KNOWN_BAD))
+    check('a digit run is blocked',
+          check_code('2738000000008493')['verdict'], 'do not enter')
+    check('a long ascending run warns',
+          check_code('2738270123458493')['verdict'], 'caution')
+    imei = '350012623050961'
+    check('the IMEI itself is caught',
+          check_code(imei, imei=imei)['verdict'], 'do not enter')
+    check('the IMEI padded to 16 is caught',
+          check_code(imei + '7', imei=imei)['verdict'], 'do not enter')
+    check('the IMEI block names the IMEI',
+          any(imei in b for b in check_code(imei + '7', imei=imei)['blocks']), True)
+    check('IMEI tail reuse is caught',
+          check_code('27382729' + imei[-8:], imei=imei)['verdict'], 'do not enter')
+    check('IMEI head (TAC) reuse is caught',
+          check_code(imei[:8] + '29595284', imei=imei)['verdict'], 'do not enter')
+    check('an unrelated 16-digit code is not flagged as IMEI-derived',
+          check_code(good, imei=imei)['verdict'], 'enter')
+    check('letters are blocked, not silently stripped',
+          check_code('0123456789ABCDEF')['verdict'], 'do not enter')
+    check('the letter block says digits only',
+          any('digits only' in b for b in check_code('0123456789ABCDEF')['blocks']), True)
+    check('model-number filler is caught',
+          check_code('0000000000053600')['verdict'], 'do not enter')
+    # The line above would also pass on the zero-run detector alone, so pin the
+    # model check itself with a lead that has no digit run and is not all zeros.
+    # With a real lead the model check warns rather than blocks, which is the
+    # intended split: zeros + model number = filler (block), otherwise flag it.
+    check('model check fires on its own, not via the zero-run detector',
+          any('model number' in w
+              for w in check_code('7979797979797536')['warnings']), True)
+    check('model check warns rather than blocks on a non-zero lead',
+          check_code('7979797979797536')['verdict'], 'caution')
+    check('model check blocks only when the lead is all zeros',
+          any('model number' in b
+              for b in check_code('0000000000000536')['blocks']), True)
+    check('model-number suffix warns',
+          check_code('2738272959580536')['verdict'], 'caution')
+    check('the suffix warning names the model tail',
+          any('536' in w for w in check_code('2738272959580536')['warnings']), True)
+    check('verifier never claims correctness',
+          any('correct' in l for l in code_report(check_code(good))
+              if 'nothing about correctness' not in l), False)
+    check('blocked verdict says do not enter',
+          'DO NOT ENTER' in '\n'.join(code_report(check_code('40760382'))), True)
+    check('empty input is blocked', check_code('')['verdict'], 'do not enter')
+
+    print('\nattempt tracker')
+    tmp = ATTEMPT_FILE + '.selftest'
+    if os.path.exists(tmp):
+        os.remove(tmp)
+    fresh = _load_attempts(tmp)
+    check('fresh state has no failures', len(fresh['failures']), 0)
+    check('fresh budget is the documented range', attempts_left(fresh), ATTEMPT_BUDGET)
+    s1 = log_attempt('aaaa', 'fail', tmp)
+    check('a failure is logged', len(s1['failures']), 1)
+    check('worst case drops by one', attempts_left(s1)[0], ATTEMPT_BUDGET[0] - 1)
+    s5 = s1
+    for i in range(4):
+        s5 = log_attempt('bbbb%d' % i, 'fail', tmp)
+    check('after 5 failures worst case is 0', attempts_left(s5)[0], 0)
+    check('after 5 failures the report says STOP',
+          any('STOP' in l for l in attempts_report(tmp)), True)
+    s6 = log_attempt('good', 'success', tmp)
+    check('success is recorded', s6['success'], True)
+    check('state survives a reload', _load_attempts(tmp)['success'], True)
+    os.remove(tmp)
+    check('default attempt file is gitignored',
+          os.path.basename(ATTEMPT_FILE) in
+          open(os.path.join(os.path.dirname(ATTEMPT_FILE), '..', '.gitignore')).read(),
+          True)
 
     print('\ntroubleshooting routing')
     for key in TROUBLESHOOTING:
@@ -263,16 +610,69 @@ def self_test():
     return 1 if failures else 0
 
 
+def usage():
+    print('usage: a53_att.py [options]')
+    print('')
+    print('  (no args)                 guided walkthrough')
+    print('  --check CODE [--imei N]   verify a code BEFORE typing it')
+    print('  --log-fail CODE           record a failed attempt')
+    print('  --log-success             record that the phone unlocked')
+    print('  --attempts                show the attempt budget left')
+    print('  --reset-attempts          clear the attempt log')
+    print('  <symptom>                 jump to a troubleshooting path')
+    print('  --self-test               run the checks')
+    print('')
+    print('symptoms: ' + ', '.join(TROUBLESHOOTING))
+    return 0
+
+
 def main(argv):
     if '--self-test' in argv:
         return self_test()
-    if len(argv) > 1 and argv[1] == '--help':
-        print('usage: a53_att.py [--self-test | --help | <troubleshooting key>]')
-        print('troubleshooting keys: ' + ', '.join(TROUBLESHOOTING))
+    if '--help' in argv or '-h' in argv:
+        return usage()
+
+    def arg_after(flag):
+        if flag in argv:
+            i = argv.index(flag)
+            if i + 1 < len(argv):
+                return argv[i + 1]
+        return None
+
+    code = arg_after('--check')
+    if code is not None:
+        res = check_code(code, imei=arg_after('--imei'))
+        print('\n'.join(code_report(res)))
+        return {'enter': 0, 'caution': 1, 'do not enter': 2}[res['verdict']]
+
+    code = arg_after('--log-fail')
+    if code is not None:
+        digits = ''.join(c for c in code if c.isdigit())
+        # Store only a prefix -- enough to spot a repeated mistake, not the code.
+        log_attempt(digits[:4] + '...' if digits else '(empty)', 'fail')
+        print('\n'.join(attempts_report()))
+        return 2
+
+    if '--log-success' in argv:
+        log_attempt('', 'success')
+        print('\n'.join(attempts_report()))
         return 0
-    if len(argv) > 1:
-        print('\n'.join(troubleshooting(' '.join(argv[1:]))))
+
+    if '--reset-attempts' in argv:
+        if os.path.exists(ATTEMPT_FILE):
+            os.remove(ATTEMPT_FILE)
+        print('attempt log cleared.')
         return 0
+
+    if '--attempts' in argv:
+        print('\n'.join(attempts_report()))
+        return 0
+
+    rest = [a for a in argv[1:] if not a.startswith('--')]
+    if rest:
+        print('\n'.join(troubleshooting(' '.join(rest))))
+        return 0
+
     guided()
     return 0
 

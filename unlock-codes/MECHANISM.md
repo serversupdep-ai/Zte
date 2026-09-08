@@ -333,7 +333,7 @@ single-SIM, so there is no second slot to test with.
 ```
 $ python3 a53_att.py                 # full walkthrough
 $ python3 a53_att.py frozen          # jump to a failure path
-$ python3 a53_att.py --self-test     # 20 checks, 0 failures
+$ python3 a53_att.py --self-test     # 59 checks, 0 failures
 ```
 
 It covers: model confirmation against all 11 A53 variants, the lock-status check
@@ -341,6 +341,37 @@ to run *first*, AT&T's eligibility rules, the request flow including the 24-hour
 email expiry, code entry (MCK first if supplied — it reports "unsuccessful" by
 design and costs nothing), and five failure paths. Its self-test asserts that
 nothing in it advises guessing a code.
+
+#### The code verifier — the one thing that can still go wrong for you
+
+Since the NCK exists only in AT&T's email, the residual risk is entirely at the
+point of entry: a mistyped digit, or a code bought from a reseller. Both cost an
+attempt out of 5–10, and the budget is not recoverable without another
+server-issued code (the MCK). So `a53_att.py --check` gates that entry.
+
+```
+$ python3 a53_att.py --check 40760382
+code      : 40760382
+length    : 8 (expected 16)
+VERDICT: DO NOT ENTER -- this will cost an attempt
+  BLOCK  8 digits. That is the pre-2019 Samsung format, and it is what most
+         third-party resellers sell. ...
+```
+
+It blocks: wrong length, letters in the code, all-same-digit runs, known
+placeholder values, anything containing or derived from the IMEI (the signature
+of the dead 2010-era calculators), and model-number filler. It warns on long
+ascending/descending runs and palindromes — statistically odd for a real NCK,
+but not impossible, so they are flagged rather than refused. Exit status is 0
+for enter, 1 for caution, 2 for do-not-enter, so it can be used as a gate.
+
+Crucially it never claims a code is *correct*. Nothing outside AT&T's server can
+know that. What it establishes is that the transcription is clean and the value
+is not one of the well-known junk patterns — which is where attempts actually go.
+
+`--log-fail` / `--log-success` / `--attempts` track the budget in
+`.a53_attempts.json` (gitignored), storing only a 4-digit prefix per failure so
+the file is not a list of codes.
 
 ### AT&T eligibility (from att.com/legal, KM1258553)
 
