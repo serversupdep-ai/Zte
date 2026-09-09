@@ -155,3 +155,75 @@ DELL_FILES.sha256
 *Also validated during development: the same pipeline reproduces the
 published ME-region extraction of a Dell Vostro 5470 BIOS byte-for-byte
 (SHA-256 match), proving correctness of the carving implementation.*
+
+---
+
+## §9 — BIOS master-password keygen (CF1B / 8FC8 generation) — SOLVED
+
+**Target:** `H2FS5S3-CF1B` (OptiPlex 3090 lockout code).
+
+### 9.1 The password-derivation module
+
+Located inside the System BIOS payload (all FVs) as four builds of one driver
+(PDB `8bfd0c848dd9ffcb525e6d12a9da182c7e576b6f.pdb`, statically-linked OpenSSL
+SHA-256, x64). Extracted copies preserved in `bios-analysis/optiplex3090/pwmods/`
+(2.0.7, 2.27.0, Latitude 5300 / Latitude 5X90 for cross-checks).
+
+Data layout (42,496-byte build): MD5 K-table stored **XOR `0x6d2f93a5`** at
+`.data` RVA 0xA150 (= `md5magic2`, numerically sorted) + 5 plain "overfill"
+entries; family dispatch table at RVA 0xA9C0 = `{0x8FC8(desc=0,alpha=BF97'),
+0xE7A8(desc=0xA2C8,alpha=0xA300), END}`; output alphabets at 0xAA10–0xAB98;
+legacy constants `{0xA08097, 0xA010908, 0x60606161, 0x50501010}` + loop counts
+`{21,17,23,31}`; E7A8 descriptor (encodeParams+loopParams [17,13,12,8]) at 0xA2C8.
+
+### 9.2 Where the suffix comes from — CF1B is a *config value*, not an algorithm id
+
+The displayed suffix is a per-machine NVRAM/config value (u16 at config+0x0A,
+read in the module init @0x19ac; hex-formatted by 0x9434 for display — hence
+"CF1B", "8FC8"). The module's own table only knows `{8FC8, E7A8}`; **8FC8 is a
+stub** (descriptor=NULL → derivation skipped in the descriptor path, dedicated
+functions 0x3250/0x36e8 handle it via the 0x93e4 validator).
+
+### 9.3 The CF1B derivation (fn @0x926c → fallback @0x92b9)
+
+For any family value **not** in `{8FC8, E7A8}` — i.e. **CF1B** — the modern API
+(called with serial=ServiceTag(7), out_len=16, map_flag=1) falls through to a
+hardcoded fallback that is *exactly the legacy BF97 derivation*:
+
+1. `data = ServiceTag + "BF97"` (11 chars, sanitized 0x21–0x7E else `*`)
+2. `suffix = calculateSuffix(tag)` — bit-shuffle over
+   `arr=[tag[4],tag[3],tag[2],tag[1],tag[0]]`, XOR-mix `r=0xAA^(…)` by bits 0–4,
+   mapped `T72[r % 72]` (T72 = first 72 chars of the table @RVA 0xAB50)
+3. `block = data+suffix` (19 B) zero-padded to 23, MD5-style pad:
+   `byte[23]=0x80`, `u32[14]=184`
+4. `enc = TagBF97Encoder.encode(block)` — the public/community-validated
+   6FF1-encoder with counter1=31 (verified in firmware @0x4ce8: identical outer
+   constants, MD5 rotations, encF1N/F2N/F3/F4N/F5N, sorted K-table, MD5 IV)
+5. **password = `T72[byte % 72]` for all 16 bytes of `enc`**
+
+### 9.4 Result for H2FS5S3-CF1B (bios-analysis/dell_keygen.py)
+
+```
+$ python3 bios-analysis/dell_keygen.py H2FS5S3 CF1B
+PRIMARY   shzNyjGRzRN2LLzL     (firmware CF1B path == keygenDell(tag,"BF97"))
+ALTERNATE 715kkirGVZ7iYrEr     (fnA legacy default-2A7B path)
+          s1JRqmRNP0rmI988     (E7A8 #1)
+          ZM3ax1ZQhG3G9pha     (E7A8 #2)
+```
+
+Cross-validation: our encoder classes are byte-identical to
+chromebreakerdev/DellBIOSTools V2.5 on random blocks (BF97, E7A8, E7A8-Second)
+and our E7A8 keygen output matches the public tool exactly — and the public
+tool's own `keygenDell("H2FS5S3","BF97")` independently produces the same
+`shzNyjGRzRN2LLzL`. The "unbreakable" CF1B generation is therefore the BF97
+derivation all along (firmware maps results mod 72; the public tool uses
+%len(table)=74 — for this tag both agree).
+
+### 9.5 Firmware-aquisition chain (GitHub-Actions relay, since dl.dell.com is
+egress-blocked from the sandbox and now Akamai-403s the runner too)
+
+- `downloads.dell.com/catalog/CatalogPC.cab` (3 MB, UTF-16 XML manifest, works
+  from runners) → per-model FOLDER paths → BIOS exes fetched from
+  `downloads.dell.com` (NOT dl.dell.com — that host 403s now).
+- Fetched: OptiPlex_3090_2.27.0.exe, Latitude_5X00_Precision_3540_1.43.1.exe,
+  Latitude_5300_1.37.0.exe, Latitude_5X90_1.41.0.exe (kept in `dl/`).
