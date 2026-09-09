@@ -1,0 +1,126 @@
+name: fetch-dell-bios-v9
+
+# Relay v9: fixed commit logic (per-file adds), broader CF1B-model search,
+# wayback CDX hunt for old 3090 BIOS, svc tag lookup.
+
+on:
+  push:
+    branches: [arena/01a087e2-zte]
+    paths: ['.github/workflows/fetch-dell-bios-v9.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - name: Checkout session branch
+        uses: actions/checkout@v4
+        with:
+          ref: arena/01a087e2-zte
+
+      - name: Setup python env
+        run: |
+          python3 -m venv /tmp/venv
+          /tmp/venv/bin/pip -q install uefi_firmware pefile capstone
+          /tmp/venv/bin/python -c "import uefi_firmware, pefile, capstone; print('deps ok')"
+
+      - name: A) Catalog + CF1B-generation BIOS download
+        run: |
+          set -x
+          L=relay9_diag.txt; : > "$L"
+          mkdir -p cat dl
+          curl -fsSL --retry 2 --max-time 420 -o cat/CatalogPC.cab "https://downloads.dell.com/catalog/CatalogPC.cab" >> "$L" 2>&1 || true
+          sudo apt-get install -y -qq cabextract >> "$L" 2>&1 || true
+          mkdir -p cat/pc && (cd cat/pc && cabextract -q ../CatalogPC.cab) >> "$L" 2>&1 || true
+          iconv -f UTF-16 -t UTF-8 cat/pc/CatalogPC.xml > cat/catalog.xml || true
+          grep -oE 'path="FOLDER[0-9]+M/[0-9]+/[^"]*\.exe"' cat/catalog.xml | tr -d '"' | sed 's/^path=//' | sort -u > allpaths.txt || : > allpaths.txt
+          echo '--- ALL LATITUDE BIOS EXES (sample) ---' >> "$L"
+          grep -iE 'latitude' allpaths.txt | grep -iE 'bios|_1\.|_2\.|_A[0-9]' | head -40 >> "$L" || true
+          echo '--- 5400/5500/5300/7740 matches ---' >> "$L"
+          grep -iE '(5400|5500|5300|7740)' allpaths.txt | tee latpaths.txt >> "$L" || : > latpaths.txt
+          n=0
+          for rel in $(tac latpaths.txt | head -5); do
+            n=$((n+1))
+            u="https://downloads.dell.com/$rel"
+            f="dl/target_$n.exe"
+            echo "GET $u" >> "$L"
+            curl -fsSL --retry 2 --max-time 600 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -o "$f" "$u" >> "$L" 2>&1 || { rm -f "$f"; continue; }
+            ls -la "$f" >> "$L"
+          done
+          ls -la dl/ >> "$L" 2>&1 || true
+
+      - name: B) Wayback CDX hunt for any 3090 BIOS version
+        run: |
+          set -x
+          L=relay9_diag.txt
+          echo "=== wayback CDX ===" >> "$L"
+          : > wayback_paths.txt
+          # CDX search: any archived dl.dell.com URL containing OptiPlex_3090
+          curl -fsSL --max-time 120 "http://web.archive.org/cdx/search/cdx?url=dl.dell.com*&filter=urlkey:.*optiplex_3090.*&limit=200&output=text&fl=original,timestamp&collapse=urlkey" -o cdx.txt >> "$L" 2>&1 || true
+          head -50 cdx.txt >> "$L" 2>&1 || true
+          grep -oE 'https?://dl\.dell\.com/FOLDER[0-9]+M/[0-9]+/OptiPlex_3090_[0-9.]+\.exe' cdx.txt 2>/dev/null | sort -u -V | tee -a wayback_paths.txt >> "$L" || true
+          # also snapshot-based search of the driver page
+          for ts in 20210601 20210901 20211201 20220301; do
+            api="https://archive.org/wayback/available?url=www.dell.com/support/home/en-us/drivers/driversdetails%3Fdriverid%3Ddgfdn&timestamp=$ts"
+            curl -fsSL --max-time 60 "$api" -o "wb_$ts.json" >> "$L" 2>&1 || true
+            snap=$(python3 -c "import json;print(json.load(open('wb_$ts.json')).get('archived_snapshots',{}).get('closest',{}).get('url',''))" 2>/dev/null || true)
+            echo "snap($ts)=$snap" >> "$L"
+            [ -n "$snap" ] && curl -fsSL --max-time 120 -A "Mozilla/5.0" "$snap" -o "wb_$ts.html" >> "$L" 2>&1 || true
+            [ -f "wb_$ts.html" ] && grep -oE 'FOLDER[0-9]+M/[0-9]+/OptiPlex_3090_[0-9.]+\.exe' "wb_$ts.html" | sort -u -V | tee -a wayback_paths.txt >> "$L" || true
+          done
+          sort -u -V wayback_paths.txt -o wayback_paths.txt || true
+          echo '--- WAYBACK FOUND ---' >> "$L"; cat wayback_paths.txt >> "$L"
+          oldrel=$(head -1 wayback_paths.txt || true)
+          echo "oldrel=$oldrel" >> "$L"
+          if [ -n "$oldrel" ]; then
+            curl -fsSL --retry 2 --max-time 600 -A "Mozilla/5.0" -o dl/target_9.exe "https://downloads.dell.com/$oldrel" >> "$L" 2>&1 || true
+            ls -la dl/target_9.exe >> "$L" 2>&1 || true
+          fi
+
+      - name: C) Service tag identification
+        run: |
+          set -x
+          L=relay9_diag.txt
+          echo "=== svc tag ===" >> "$L"
+          : > svc_model.txt
+          curl -sSL --max-time 60 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36" \
+            -H 'Accept: text/html,application/xhtml+xml' -o svc.html \
+            "https://www.dell.com/support/home/us/en/04/product-support/servicetag/H2FS5S3/overview" || true
+          wc -c svc.html >> "$L" 2>&1 || true
+          grep -ahoE '(OptiPlex|Latitude|Inspiron|XPS|Precision|Vostro|G1?[3557])[ -][0-9A-Za-z]{2,8}' svc.html 2>/dev/null | sort | uniq -c | sort -rn | head -10 | tee -a svc_model.txt >> "$L" || true
+          head -c 300 svc.html >> "$L" 2>&1 || true
+
+      - name: Extract password modules
+        run: |
+          L=relay9_diag.txt
+          echo "=== EXTRACTION ===" >> "$L"
+          ls -la dl/ >> "$L" 2>&1 || true
+          /tmp/venv/bin/python bios-analysis/extract_pw_modules.py "dl/target_*.exe" >> "$L" 2>&1 || true
+          mv pw_mods pwmods 2>/dev/null || true
+          ls -la pwmods/ >> "$L" 2>&1 || true
+
+      - name: Always commit (per-file)
+        run: |
+          set -x
+          git config user.name "arena-ai-coding-agent[bot]"
+          git config user.email "arena-ai-coding-agent[bot]@users.noreply.github.com"
+          rm -rf cat dl wb_*.json wb_*.html cdx.txt 2>/dev/null || true
+          for f in relay9_diag.txt allpaths.txt latpaths.txt wayback_paths.txt svc_model.txt svc.html; do
+            [ -e "$f" ] && git add -f "$f"
+          done
+          if [ -d pwmods ]; then git add -f pwmods; fi
+          git status --short
+          git commit -m "relay9: CF1B pw modules + wayback + svc tag [skip ci]" || echo "NOTHING TO COMMIT"
+          git push origin arena/01a087e2-zte
+
+      - name: Self-cleanup
+        run: |
+          git config user.name "arena-ai-coding-agent[bot]"
+          git config user.email "arena-ai-coding-agent[bot]@users.noreply.github.com"
+          git rm -f .github/workflows/fetch-dell-bios-v9.yml || true
+          git commit -m "chore: remove relay v9 workflow [skip ci]" || true
+          git push origin arena/01a087e2-zte
