@@ -1,0 +1,5 @@
+VendorName=Dell Inc.
+OemString=Model_File
+SystemName=OptiPlex 3090
+Version=2.0.7
+Model=0B8A,0B8B
