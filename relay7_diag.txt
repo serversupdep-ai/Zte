@@ -1,0 +1,73 @@
+date: Wed Sep  9 22:15:04 UTC 2026
+Selecting previously unselected package cabextract.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 201676 files and directories currently installed.)
+Preparing to unpack .../cabextract_1.11-2_amd64.deb ...
+Unpacking cabextract (1.11-2) ...
+Setting up cabextract (1.11-2) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Not building database; man-db/auto-update is not 'true'.
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+../CatalogPC.cab: WARNING; possible 10432 extra bytes at end of file.
+28795248 cat/catalog.xml
+=== 3090 exe paths ===
+FOLDER13463969M/1/OptiPlex_3090_2.27.0.exe
+FOLDER13468665M/1/OptiPlex_3090_UFF_1.38.0.exe
+FOLDER14479813M/1/OptiPlex_3090_UFF_1.42.0.exe
+=== all OptiPlex exe paths (sample) ===
+FOLDER05274658M/1/OptiPlex_9020_AIO_A19.exe
+FOLDER05274862M/1/OptiPlex_9030_AIO_A21.exe
+FOLDER05644520M/1/OptiPlex_3030_AIO_A15.exe
+FOLDER07563732M/1/OptiPlex_3240_1.13.0.exe
+FOLDER08337268M/1/OptiPlex_5040_1.22.0.exe
+FOLDER08362795M/1/OptiPlex_7440_1.19.0.exe
+FOLDER08778208M/1/OptiPlex_3040_1.20.1.exe
+FOLDER08778257M/1/OptiPlex_3046_1.17.0.exe
+FOLDER08841839M/1/OptiPlex_7040_1.24.0.exe
+FOLDER10281804M/1/OptiPlex_5250_1.27.0.exe
+FOLDER10627333M/1/OptiPlex_7050_1.27.0.exe
+FOLDER11809218M/1/OptiPlex_5260_1.35.0.exe
+FOLDER11817280M/1/OptiPlex_7450_1.34.0.exe
+FOLDER12075535M/1/OptiPlex_5050_1.32.0.exe
+FOLDER12075822M/1/OptiPlex_3050_1.32.0.exe
+FOLDER12077034M/1/OptiPlex_7060_1.32.0.exe
+FOLDER12272166M/1/OptiPlex_5060_1.32.0.exe
+FOLDER12272205M/1/OptiPlex_3060_1.32.0.exe
+FOLDER12307417M/1/OptiPlex_3050_1.35.0.exe
+FOLDER12474035M/1/OptiPlex_5055_A_Series_1.15.0.exe
+FOLDER12474854M/1/OptiPlex_5055_Ryzen_APU_BIOS_1.15.0.exe
+FOLDER12475169M/1/OptiPlex_5055_Ryzen_CPU_1.15.0.exe
+FOLDER13436507M/1/OptiPlex_7000_1.33.2.exe
+FOLDER13463825M/1/OptiPlex_3080_2.33.0.exe
+FOLDER13463969M/1/OptiPlex_3090_2.27.0.exe
+FOLDER13468665M/1/OptiPlex_3090_UFF_1.38.0.exe
+FOLDER13468722M/1/OptiPlex_7090_UFF_1.38.0.exe
+FOLDER13482372M/1/OptiPlex_5270_1.40.0.exe
+FOLDER13482392M/1/OptiPlex_7770_7470_1.40.0.exe
+FOLDER13541748M/1/OptiPlex_5000_1.34.1.exe
+FOLDER13541757M/1/OptiPlex_3000_1.34.1.exe
+FOLDER13592536M/1/OptiPlex_7020_1.20.0_SEMB.exe
+FOLDER13596855M/1/OptiPlex_7071_1.35.0.exe
+FOLDER13601510M/1/OptiPlex_7070_1.35.0.exe
+FOLDER13601562M/1/OptiPlex_5070_1.35.0.exe
+FOLDER13601596M/1/OptiPlex_3070_1.35.0.exe
+FOLDER13925418M/1/OptiPlex_3280_1.42.0.exe
+FOLDER13929079M/1/OptiPlex_7780_7480_1.43.0.exe
+FOLDER13929542M/1/OptiPlex_5080_1.34.0.exe
+FOLDER13929670M/1/OptiPlex_5480_1.43.0.exe
+=== count ===
+3 paths3090.txt
+REL=FOLDER13463969M/1/OptiPlex_3090_2.27.0.exe
+U=https://downloads.dell.com/FOLDER13463969M/1/OptiPlex_3090_2.27.0.exe
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 88 37.6M   88 33.2M    0     0  27.7M      0  0:00:01  0:00:01 --:--:-- 27.7M100 37.6M  100 37.6M    0     0  29.3M      0  0:00:01  0:00:01 --:--:-- 29.3M
+-rw-r--r-- 1 runner runner 39488240 Sep  9 22:15 OptiPlex_3090_latest.exe
