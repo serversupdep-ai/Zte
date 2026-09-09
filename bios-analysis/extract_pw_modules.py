@@ -36,22 +36,29 @@ def walk(obj, sink):
 
 
 def find_dub(data):
-    """Find the zlib stream that decompresses to the DellUpdateBinary (PFS)."""
+    """Find the zlib stream that decompresses to the LARGEST DellUpdateBinary.
+
+    There can be several zlib streams inside a Dell package (resources, small
+    payloads); the System BIOS lives in the big one.
+    """
     i = 0
     n = len(data)
-    while True:
+    best = None
+    tries = 0
+    while tries < 4000:
         j = data.find(b'x\x9c', i)
         if j < 0:
-            return None
+            break
+        i = j + 1
+        tries += 1
         try:
-            d = zlib.decompressobj().decompress(data[j:])
+            d = zlib.decompressobj().decompress(data[j:], 400_000_000)
             if b'PFS' in d[:0x10000] and len(d) > 1000000:
-                return d
+                if best is None or len(d) > len(best):
+                    best = d
         except Exception:
             pass
-        i = j + 1
-        if i >= n:
-            return None
+    return best
 
 
 def carve_pe(c, log):
@@ -111,31 +118,11 @@ def process(exe_path, tag, log):
     sink = []
     walk(f, sink)
     log('  objects: %d' % len(sink))
-    sysbios = None
-    for c in sink:
-        if len(c) > 15000000 and c.find(b'_FVH') >= 0:
-            sysbios = c
-            break
-    if sysbios is None:
-        for c in sink:
-            if 15000000 < len(c) < 18000000:
-                sysbios = c
-                break
-    if sysbios is None:
-        log('  no system bios payload')
-        return
-    log('  system bios: %d bytes' % len(sysbios))
-    fb = AutoParser(sysbios).parse()
-    if not fb:
-        log('  bios parse fail')
-        return
-    sink2 = []
-    walk(fb, sink2)
-    log('  bios objects: %d' % len(sink2))
+    # Scan every object (recursively) for password-module markers.
     os.makedirs('pw_mods', exist_ok=True)
     n = 0
     seen = set()
-    for c in sink2:
+    for c in sink:
         if b'Q92G0drk' not in c and not (b'\xc8\x8f\x00\x00' in c and b'\xa8\xe7\x00\x00' in c):
             continue
         pe = carve_pe(c, log)
