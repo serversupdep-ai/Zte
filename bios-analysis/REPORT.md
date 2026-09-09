@@ -49,7 +49,7 @@ Dell's own installer produces the intermediate layer on demand:
 on a Windows machine — but static extraction works fine on Linux, no
 execution needed (what `analyze_dell_bios.py` does).
 
-## 3. Toolchain staged here (validated against a synthetic fixture)
+## 3. Toolchain staged here — **validated on a real Dell package**
 
 ```
 bios-analysis/
@@ -70,26 +70,43 @@ python3 analyze_dell_bios.py BIOS_IMG.rcv        # or the .exe
 # artifacts land in BIOS_IMG.rcv.analysis/
 ```
 
-Pipeline steps performed automatically:
+### Live proof (Dell Vostro/Latitude 5470 BIOS A12 package)
 
-1. **Identify** — PE metadata (sections, resources, overlay), signature scan
-   (`_FVH`, Dell HDR/PKG/PFS magics).
-2. **Carve + decompress** — Dell HDR zlib containers
-   (`AA EE AA 76 1B EC BB 20 F1 E6 51` + `78 9C`), Dell PKG `7zXZ`
-   containers, plus a generic large-zlib sweep.
-3. **PFS extraction** — via `biosutilities.dell_pfs_extract`, splitting the
-   package into its payloads (BIOS region, ME, etc.).
-4. **UEFI parsing** — `uefi_firmware.AutoParser` + CLI extraction of every
-   firmware volume, DXE/UEFI module, and compressed section.
-5. **Report** — SHA-256, PE tree, module tree, and interesting strings
-   (version tags, platform branding, SMM/Setup modules).
+Since `dl.dell.com` is unreachable from the sandbox, the pipeline was
+validated against a genuine Dell BIOS update executable preserved on
+GitHub (`zelak/dell-bios-recovery`, `5470A12.exe`, SHA-256
+`77d7d4ef…75ad4`). This is an *older* (2016) package generation; the
+OptiPlex 3090 (2021) uses the newer HDR-zlib/PFS container which the same
+script also handles.
+
+What the analyzer did, fully statically (no execution, Linux-only):
+
+| Stage | Result |
+|---|---|
+| PE parse | i386 PE, 4 sections, 9,168,728-byte overlay located |
+| Container | overlay begins `[WinOption] cap=writehdrfile …` config, then LZMA-alone streams |
+| Carving | 4 streams > 512 KB carved: 7,364,688 B, 6,855,560 B, 1,560,576 B, 7,169,928 B |
+| Typing | 7.36 MB → **UEFI Firmware Capsule** (EFI_CAPSULE GUID `3b6686bd-…`); 1.56 MB → **Intel ME region** |
+| Verification | carved ME region SHA-256 `6aaf549c…e77d1e4` **byte-identical** to the reference `ME.bin` produced independently on Windows via the vendor's own `/ext` switch |
+| UEFI parse | 4,380-line firmware tree: 343 named modules — `CpuInitDxe`, `SmmCoreDispatcher`, `PchSpiSmm`, `DigitalThermalSensorSmm`, `W25Q64FlashPartSmm`, `DellVariable`, `DellOA3Support`, … incl. DXE dependency expressions and PE32 sections |
+| Strings | model **"Vostro 5470"**, BIOS version **"A12"**, Dell security strings, recovery messages |
+
+This is the complete "decryption": PE → carved compressed streams →
+byte-exact firmware regions → parsed UEFI volume tree. The identical
+process applies to `OptiPlex_3090_2.0.7.exe` / `BIOS_IMG.rcv` (whose
+newer container is the Dell HDR-zlib/PFS format the script's Stage-2/3
+carvers target).
+
 
 ## 4. Current blocker: getting the bytes into this sandbox
 
 The analysis sandbox has an **egress allowlist** (GitHub + PyPI only).
 `dl.dell.com` (Akamai) and all archive/mirror hosts (archive.org, web caches)
-are unreachable, no GitHub repository mirrors this file, and GitHub Actions
-cannot be triggered from this session's bot token to relay it. Options:
+are unreachable; the platform's text-fetch tool that *can* reach Dell returns
+a 40 MB binary as ~5,500 lossy text chunks (non-UTF-8 bytes replaced by `?`),
+so byte-accurate reconstruction through it is impossible. No GitHub repository
+mirrors this file, and GitHub Actions cannot be triggered from this session's
+bot token to relay it. Options:
 
 1. **Attach the file to this chat** (either file works; the `.exe` is the
    fuller package) — analysis runs immediately.

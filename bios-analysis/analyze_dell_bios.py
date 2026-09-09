@@ -213,6 +213,30 @@ def carve_streams(data: bytes, outdir: str):
             carved.append((p, blob))
             log(f'  [carve] Dell PKG xz @0x{start:X} -> {len(blob):,} bytes')
 
+    # -- LZMA-alone streams (older Dell DUP overlays) ------------------------
+    import lzma
+    for m in re.finditer(re.escape(b'\x5D\x00\x00'), data):
+        off = m.start()
+        hdr = data[off:off + 13]
+        if len(hdr) < 13:
+            continue
+        dict_sz = int.from_bytes(hdr[1:5], 'little')
+        if dict_sz not in (0x00800000, 0x01000000, 0x00200000, 0x00400000,
+                           0x10000000, 0x02000000, 0x08000000, 0x20000000,
+                           0x40000000):
+            continue  # implausible dict size
+        d = lzma.LZMADecompressor(format=lzma.FORMAT_ALONE)
+        try:
+            blob = d.decompress(data[off:])
+        except lzma.LZMAError:
+            continue
+        if len(blob) > 512 * 1024:
+            p = os.path.join(outdir, f'carved_lzma_{off:08x}.bin')
+            with open(p, 'wb') as f:
+                f.write(blob)
+            carved.append((p, blob))
+            log(f'  [carve] LZMA-alone @0x{off:X} -> {len(blob):,} bytes')
+
     # -- generic large zlib streams ------------------------------------------
     seen = set()
     for hdr_magic in (b'\x78\x9C', b'\x78\xDA', b'\x78\x01'):
