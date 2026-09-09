@@ -1,0 +1,88 @@
+date: Wed Sep  9 22:12:12 UTC 2026
+pwd: /home/runner/work/Zte/Zte
+--- dns ---
+getent dl.dell.com:
+2600:1418:a000:5::1728:6376 a1996.dscapi1.akamai.net dl.dell.com dl.dell.com-stls-dd.edgesuite.net
+2600:1418:a000:5::1728:6372 a1996.dscapi1.akamai.net dl.dell.com dl.dell.com-stls-dd.edgesuite.net
+getent downloads.dell.com:
+2600:1407:7400:2082::3148 e12616.dscd.akamaiedge.net downloads.dell.com downloads.dell-cidr.akadns.net downloads-int.dell-cidr.akadns.net downloads.dell.com-v2-dd.edgekey.net
+2600:1407:7400:208b::3148 e12616.dscd.akamaiedge.net downloads.dell.com downloads.dell-cidr.akadns.net downloads-int.dell-cidr.akadns.net downloads.dell.com-v2-dd.edgekey.net
+getent www.dell.com:
+184.29.98.91    e13665.x.akamaiedge.net www.dell.com www1.dell-cidr.akadns.net cdn-www.dell.com-v2.edgekey.net
+getent www.bing.com:
+2600:1418:a000:c::17c1:c888 e86303.dscx.akamaiedge.net www.bing.com www-www.bing.com.trafficmanager.net www.bing.com.edgekey.net
+2600:1418:a000:c::17c1:c890 e86303.dscx.akamaiedge.net www.bing.com www-www.bing.com.trafficmanager.net www.bing.com.edgekey.net
+2600:1418:a000:c::17c1:c88a e86303.dscx.akamaiedge.net www.bing.com www-www.bing.com.trafficmanager.net www.bing.com.edgekey.net
+2600:1418:a000:c::17c1:c883 e86303.dscx.akamaiedge.net www.bing.com www-www.bing.com.trafficmanager.net www.bing.com.edgekey.net
+2600:1418:a000:c::17c1:c88b e86303.dscx.akamaiedge.net www.bing.com www-www.bing.com.trafficmanager.net www.bing.com.edgekey.net
+getent api.github.com:
+140.82.113.6    api.github.com
+--- known-good control (v1 URL) ---
+HTTP/2 403 
+server: AkamaiGHost
+mime-version: 1.0
+content-type: text/html
+content-length: 434
+expires: Wed, 09 Sep 2026 22:12:12 GMT
+date: Wed, 09 Sep 2026 22:12:12 GMT
+akamai-request-bc: [a=23.202.88.70,b=1292650202,c=g,n=US_TX_DALLAS,o=20940]
+alt-svc: h3=":443"; ma=93600
+strict-transport-security: max-age=86400
+akamai-grn: 0.4658ca17.1788991932.4d0c46da
+
+--- catalog probes ---
+HEAD https://dl.dell.com/catalog/CatalogPC.cab
+HTTP/2 403 
+server: AkamaiGHost
+mime-version: 1.0
+content-type: text/html
+content-length: 394
+expires: Wed, 09 Sep 2026 22:12:12 GMT
+date: Wed, 09 Sep 2026 22:12:12 GMT
+akamai-request-bc: [a=23.202.88.74,b=382152294,c=g,n=US_TX_DALLAS,o=20940]
+HEAD https://downloads.dell.com/catalog/CatalogPC.cab
+HTTP/2 200 
+content-length: 3064394
+content-type: application/vnd.ms-cab-compressed
+last-modified: Tue, 23 Jun 2026 14:36:45 GMT
+accept-ranges: bytes
+etag: "e4ed21b71d3dd1:0"
+report-to: {"group":"network-errors","max_age":3600,"endpoints":[{"url":"https://www.dell.com/support/onlineapi/nellogger/log"}]}
+nel: {"report_to":"network-errors","max_age":3600}
+HEAD https://downloads.dell.com/catalog/OptiPlex_3090.cab
+HTTP/2 404 
+content-length: 1245
+content-type: text/html
+report-to: {"group":"network-errors","max_age":3600,"endpoints":[{"url":"https://www.dell.com/support/onlineapi/nellogger/log"}]}
+nel: {"report_to":"network-errors","max_age":3600}
+x-set: dc-05
+x-powered-by: ARR/3.0
+x-powered-by: ASP.NET
+--- download catalog ---
+GET https://downloads.dell.com/catalog/CatalogPC.cab
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 18 2992k   18  539k    0     0  3006k      0 --:--:-- --:--:-- --:--:-- 2995k100 2992k  100 2992k    0     0  12.1M      0 --:--:-- --:--:-- --:--:-- 12.1M
+ok=https://downloads.dell.com/catalog/CatalogPC.cab
+Selecting previously unselected package cabextract.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 201818 files and directories currently installed.)
+Preparing to unpack .../cabextract_1.11-2_amd64.deb ...
+Unpacking cabextract (1.11-2) ...
+Setting up cabextract (1.11-2) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Not building database; man-db/auto-update is not 'true'.
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+../CatalogPC.cab: WARNING; possible 10432 extra bytes at end of file.
+cat/pc/CatalogPC.xml
+harvested:
+--- pick url ---
+URL=
