@@ -578,3 +578,50 @@ Consequences:
 - Remaining static-analysis hop (optional, for documentation completeness):
   enumerate the event-0x1A subscriber list behind 0xDFDF8 to name the
   response-builder function for the record.
+
+### 12.8 Session 4: EC emulation (Unicorn) + full wire protocol + protocol state machine
+
+**Tooling (committed):** `bios-analysis/ec_emulate.py` (ARM Cortex-M Thumb
+emulation harness; maps PHCM body at 0xD0000, SRAM 0x100000, MMIO 0x40000000;
+call/MMIO/RAM-write tracing; BLX-reg target resolution; `--validate` runs the
+0x910 engine). `bios-analysis/extract_ec_payloads.py` + relay v2 workflow
+(runner downloads Dell package, extracts PHCM payloads, commits them to the
+branch — Azure artifact downloads are blocked from the sandbox).
+
+**Emulation results (5X90 EC 1.00.51, byte-exact via Unicorn):**
+- Engine 0xEFEBC semantics CONFIRMED by execution: state0+role1 stores 8
+  payload bytes at RAM 0x1196BA (state->1); state1+role2 compares them
+  byte-exact (match -> state 2 + status reg [0x400F0104] bit cleared;
+  mismatch -> error, state stays 1, [0x400F0100]=0xFF); second role-1 store
+  in state 1 is rejected; role-3 restarts the sequence (state->1, payload
+  regs preserved for host readback).
+- svc-0x22 gate 0xDEBBC dispatches by captured message type via event 0x1A:
+  0xED -> 0xDE794, 0xEE -> 0xDE644, 0xC3 -> 0xE022E. 0xED/0xEE are the
+  **EC firmware update protocol** (24-bit flash address < 0x40000 from
+  packet payload, 0xD1CFC = flash read, 256-byte pages, RAM staging
+  0x1183A8) — NOT the password challenge.
+
+**Host wire protocol (from the 3090 SMM provider PE, byte-exact):**
+```
+selectors (port 0x910 = index, 0x911 = data; provider table @RVA 0x5320 = identity+0x10):
+  sel 0x00        doorbell: write cmd (0x17/0x21), poll until 0 (ack)
+  win[0..0x1F] = sel 0x10..0x2F  (win[2]=0x12 handshake, win[3]=0x13 count,
+                                   win[4..11]=0x14..0x1B payload, win[16..]=0x20.. response)
+cmd 0x17 xfer_write: sel 0x13<-0, sel 0x12<-0, sel 0x00<-0x17, poll;
+  per <=8B packet: data at sel 0x14+, sel 0x13<-len, sel 0x12<-1, poll;
+  end: sel 0x13<-0, sel 0x12<-1
+cmd 0x17 xfer_read: same doorbell; loop { count=sel 0x13; if count: read
+  sel 0x14+ count bytes; sel 0x13<-0; sel 0x12<-0 } until len
+```
+EC-side window RAM = 0x118F90+ (sel 0x10..0x2F); service record @ 0x118FAC
+(sel 0x2C); doorbell/status = MMIO 0x400F0100 (sel 0x00).
+
+**Protocol state machine located:** 0xE0544 — TBH dispatch on state byte
+(range 0..0xB0, table @0xE0554), state struct at RAM 0x118FE4/0x118FE9,
+fed by the byte-capture handler 0xE0C38 (captures message bytes 0x80-0x84,
+writes 0x79/0x66 status to the doorbell reg, counter at 0x118DA0), sub-command
+handler 0xE0AD0 (states 1-5/8/0x16/0x19, writes a u16 at [0x118FE4-struct]).
+Reached via svc-0x18 (cmd 0x17) subscriber 0xE0FE1 -> 0xE0D1C -> 0xE0C38.
+**Next step:** drive 0xE0544/0xE0AD0 in ec_emulate.py with the exact cmd-0x21
+provider sequence (doorbell 0x21, sub, type, X packets, read) and capture the
+response computation - this is the remaining hop to the algorithm.

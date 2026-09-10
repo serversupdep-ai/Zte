@@ -116,9 +116,17 @@ class Emu:
                     off -= 0x400000
                 tgt = addr + 4 + 2 * off
                 self.calls.append((addr, tgt & ~1))
-        # BLX reg: 0100 0111 1xxx 10xx? (0x47F8/0x4778 patterns)
+        # BLX Rm (0x4780 | Rm<<3): resolve register value at runtime
         elif (h & 0xFF87) == 0x4780:
-            self.calls.append((addr, -1))  # register target unknown here
+            rm = (h >> 3) & 7
+            try:
+                val = uc.reg_read(UC_ARM_REG_R0 + rm)
+            except Exception:
+                val = 0
+            if val:
+                self.calls.append((addr, val & ~1))
+            else:
+                self.calls.append((addr, -1))
 
     def _watched(self, addr):
         for lo, hi, _ in RAM_WATCH:
@@ -145,20 +153,27 @@ class Emu:
             b = struct.pack("<I", b)
         self.uc.mem_write(a, b)
 
-    def call(self, addr, r0=0, r1=0, r2=0, r3=0, count=8_000_000):
+    def call(self, addr, r0=0, r1=0, r2=0, r3=0, count=8_000_000, arm_port=True):
         uc = self.uc
+        if arm_port:
+            # eSPI I/O window: "trapped port" register must read 0x0910<<16
+            self.wr(0x400F3400 + 0x33C, 0x09100001)
         uc.reg_write(UC_ARM_REG_SP, STACK_TOP)
         uc.reg_write(UC_ARM_REG_R0, r0)
         uc.reg_write(UC_ARM_REG_R1, r1)
         uc.reg_write(UC_ARM_REG_R2, r2)
         uc.reg_write(UC_ARM_REG_R3, r3)
         uc.reg_write(UC_ARM_REG_LR, SENTINEL | 1)
+        self.stop = False
         try:
             uc.emu_start(addr | 1, SENTINEL, timeout=0, count=count)
         except UcError as e:
             pc = uc.reg_read(UC_ARM_REG_PC)
             return f"EXC {e} @ {sym(pc)}"
-        return "ok" if self.stop else "count-exhausted"
+        pc = uc.reg_read(UC_ARM_REG_PC)
+        if self.stop or (pc & ~1) == SENTINEL:
+            return "ok"
+        return f"stopped @ {sym(pc)}"
 
 
 def load(path):
