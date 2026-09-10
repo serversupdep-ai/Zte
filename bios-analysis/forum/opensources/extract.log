@@ -1,406 +1,76 @@
-=== /tmp/keep/ifix_05.rar ===
+=== /tmp/keep/ifix_01.rar ===
 
 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
  64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
 
 Scanning the drive for archives:
-1 file, 759115 bytes (742 KiB)
+1 file, 11065375 bytes (11 MiB)
 
-Extracting archive: /tmp/keep/ifix_05.rar
+Extracting archive: /tmp/keep/ifix_01.rar
+--- retry without password ---
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 11065375 bytes (11 MiB)
+
+Extracting archive: /tmp/keep/ifix_01.rar
+=== /tmp/keep/ifix_02.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 17152175 bytes (17 MiB)
+
+Extracting archive: /tmp/keep/ifix_02.rar
 --
-Path = /tmp/keep/ifix_05.rar
+Path = /tmp/keep/ifix_02.rar
 Type = Rar5
-Physical Size = 759115
-Solid = -
-Blocks = 1
-Encrypted = -
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Size:       797781
-Compressed: 759115
-=== /tmp/keep/ifix_06.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 14045050 bytes (14 MiB)
-
-Extracting archive: /tmp/keep/ifix_06.rar
---
-Path = /tmp/keep/ifix_06.rar
-Type = Rar5
-Physical Size = 14045050
-Characteristics = Solid Lock
-Solid = +
-Blocks = 1
-Encrypted = -
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Folders: 2
-Files: 64
-Size:       59353660
-Compressed: 14045050
-=== /tmp/keep/ifix_07.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 31185817 bytes (30 MiB)
-
-Extracting archive: /tmp/keep/ifix_07.rar
---
-Path = /tmp/keep/ifix_07.rar
-Type = Rar5
-Physical Size = 31185817
-Characteristics = Solid Lock
-Solid = +
-Blocks = 1
-Encrypted = -
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Folders: 2
-Files: 87
-Size:       398880768
-Compressed: 31185817
-=== /tmp/keep/ifix_09.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 1398809 bytes (1367 KiB)
-
-Extracting archive: /tmp/keep/ifix_09.rar
---
-Path = /tmp/keep/ifix_09.rar
-Type = Rar
-Physical Size = 1398809
-Solid = -
-Blocks = 1
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Size:       1455642
-Compressed: 1398809
-=== /tmp/keep/ifix_18.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 788661 bytes (771 KiB)
-
-Extracting archive: /tmp/keep/ifix_18.rar
---
-Path = /tmp/keep/ifix_18.rar
-Type = Rar
-Physical Size = 788661
-Solid = -
-Blocks = 1
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Size:       821369
-Compressed: 788661
-=== /tmp/keep/ifix_24.zip ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 494881 bytes (484 KiB)
-
-Extracting archive: /tmp/keep/ifix_24.zip
---
-Path = /tmp/keep/ifix_24.zip
-Type = zip
-Physical Size = 494881
-
-Everything is Ok
-
-Size:       517696
-Compressed: 494881
-=== /tmp/keep/ifix_25.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 1228046 bytes (1200 KiB)
-
-Extracting archive: /tmp/keep/ifix_25.rar
---
-Path = /tmp/keep/ifix_25.rar
-Type = Rar
-Physical Size = 1228046
-Solid = -
-Blocks = 1
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Size:       1252373
-Compressed: 1228046
-=== /tmp/keep/ifix_26.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 967574 bytes (945 KiB)
-
-Extracting archive: /tmp/keep/ifix_26.rar
---
-Path = /tmp/keep/ifix_26.rar
-Type = Rar
-Physical Size = 967574
-Solid = -
-Blocks = 1
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Size:       1027654
-Compressed: 967574
-=== /tmp/keep/ifix_30.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 1688480 bytes (1649 KiB)
-
-Extracting archive: /tmp/keep/ifix_30.rar
---
-Path = /tmp/keep/ifix_30.rar
-Type = Rar
-Physical Size = 1688480
-Solid = -
-Blocks = 1
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Size:       1800025
-Compressed: 1688480
-=== /tmp/keep/ifix_31.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 764408 bytes (747 KiB)
-
-Extracting archive: /tmp/keep/ifix_31.rar
---
-Path = /tmp/keep/ifix_31.rar
-Type = Rar
-Physical Size = 764408
-Solid = -
-Blocks = 40
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Folders: 6
-Files: 34
-Size:       5784175
-Compressed: 764408
-=== /tmp/keep/ifix_33.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 1376964 bytes (1345 KiB)
-
-Extracting archive: /tmp/keep/ifix_33.rar
---
-Path = /tmp/keep/ifix_33.rar
-Type = Rar
-Physical Size = 1376964
-Solid = -
-Blocks = 1
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Size:       1427083
-Compressed: 1376964
-=== /tmp/keep/ifix_34.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 5436503 bytes (5310 KiB)
-
-Extracting archive: /tmp/keep/ifix_34.rar
---
-Path = /tmp/keep/ifix_34.rar
-Type = Rar5
-Physical Size = 5436503
-Solid = -
-Blocks = 55
-Encrypted = -
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Folders: 7
-Files: 48
-Size:       11337168
-Compressed: 5436503
-=== /tmp/keep/ifix_38.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 570264 bytes (557 KiB)
-
-Extracting archive: /tmp/keep/ifix_38.rar
---
-Path = /tmp/keep/ifix_38.rar
-Type = Rar
-Physical Size = 570264
-Solid = -
-Blocks = 1
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Size:       591722
-Compressed: 570264
-=== /tmp/keep/ifix_40.zip ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 1575334 bytes (1539 KiB)
-
-Extracting archive: /tmp/keep/ifix_40.zip
---
-Path = /tmp/keep/ifix_40.zip
-Type = zip
-Physical Size = 1575334
-
-Everything is Ok
-
-Folders: 9
-Files: 113
-Size:       11644492
-Compressed: 1575334
-=== /tmp/keep/ifix_41.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 1765018 bytes (1724 KiB)
-
-Extracting archive: /tmp/keep/ifix_41.rar
---
-Path = /tmp/keep/ifix_41.rar
-Type = Rar
-Physical Size = 1765018
-Solid = -
-Blocks = 1
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Size:       1808710
-Compressed: 1765018
-=== /tmp/keep/ifix_42.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 479282 bytes (469 KiB)
-
-Extracting archive: /tmp/keep/ifix_42.rar
---
-Path = /tmp/keep/ifix_42.rar
-Type = Rar5
-Physical Size = 479282
-Characteristics = Solid
-Solid = +
-Blocks = 1
-Encrypted = -
-Multivolume = -
-Volumes = 1
-Comment = 
-{
-ASRock 990FX Extreme9 boardview (*.fz)
-rev: 1.04 (70-MXGPB0-A01)
-}
-
-Everything is Ok
-
-Size:       504151
-Compressed: 479282
-=== /tmp/keep/ifix_50.rar ===
-
-7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
- 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
-
-Scanning the drive for archives:
-1 file, 1341483 bytes (1311 KiB)
-
-Extracting archive: /tmp/keep/ifix_50.rar
---
-Path = /tmp/keep/ifix_50.rar
-Type = Rar
-Physical Size = 1341483
+Physical Size = 17152175
 Solid = -
 Blocks = 2
+Encrypted = -
 Multivolume = -
 Volumes = 1
 
 Everything is Ok
 
 Files: 2
-Size:       1399975
-Compressed: 1341483
-=== /tmp/keep/ifix_52.rar ===
+Size:       67108864
+Compressed: 17152175
+=== /tmp/keep/ifix_03.zip ===
 
 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
  64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
 
 Scanning the drive for archives:
-1 file, 653464 bytes (639 KiB)
+1 file, 12133764 bytes (12 MiB)
 
-Extracting archive: /tmp/keep/ifix_52.rar
+Extracting archive: /tmp/keep/ifix_03.zip
 --
-Path = /tmp/keep/ifix_52.rar
+Path = /tmp/keep/ifix_03.zip
+Type = zip
+Physical Size = 12133764
+
+Everything is Ok
+
+Size:       33554432
+Compressed: 12133764
+=== /tmp/keep/ifix_04.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 2877557 bytes (2811 KiB)
+
+Extracting archive: /tmp/keep/ifix_04.rar
+--
+Path = /tmp/keep/ifix_04.rar
 Type = Rar
-Physical Size = 653464
+Physical Size = 2877557
 Solid = -
 Blocks = 1
 Multivolume = -
@@ -408,23 +78,64 @@ Volumes = 1
 
 Everything is Ok
 
-Size:       755603
-Compressed: 653464
-=== /tmp/keep/ifix_54.rar ===
+Size:       3544122
+Compressed: 2877557
+=== /tmp/keep/ifix_05.rar ===
 
 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
  64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
 
 Scanning the drive for archives:
-1 file, 24345551 bytes (24 MiB)
+1 file, 8714156 bytes (8510 KiB)
 
-Extracting archive: /tmp/keep/ifix_54.rar
+Extracting archive: /tmp/keep/ifix_05.rar
+--- retry without password ---
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 8714156 bytes (8510 KiB)
+
+Extracting archive: /tmp/keep/ifix_05.rar
+=== /tmp/keep/ifix_06.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 11205072 bytes (11 MiB)
+
+Extracting archive: /tmp/keep/ifix_06.rar
 --
-Path = /tmp/keep/ifix_54.rar
+Path = /tmp/keep/ifix_06.rar
 Type = Rar5
-Physical Size = 24345551
-Characteristics = Solid Lock
-Solid = +
+Physical Size = 11205072
+Solid = -
+Blocks = 2
+Encrypted = -
+Multivolume = -
+Volumes = 1
+
+Everything is Ok
+
+Files: 2
+Size:       33554558
+Compressed: 11205072
+=== /tmp/keep/ifix_07.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 18776836 bytes (18 MiB)
+
+Extracting archive: /tmp/keep/ifix_07.rar
+--
+Path = /tmp/keep/ifix_07.rar
+Type = Rar5
+Physical Size = 18776836
+Solid = -
 Blocks = 1
 Encrypted = -
 Multivolume = -
@@ -432,125 +143,696 @@ Volumes = 1
 
 Everything is Ok
 
+Size:       67108864
+Compressed: 18776836
+=== /tmp/keep/ifix_08.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 8104542 bytes (7915 KiB)
+
+Extracting archive: /tmp/keep/ifix_08.rar
+--- retry without password ---
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 8104542 bytes (7915 KiB)
+
+Extracting archive: /tmp/keep/ifix_08.rar
+=== /tmp/keep/ifix_09.zip ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 13924212 bytes (14 MiB)
+
+Extracting archive: /tmp/keep/ifix_09.zip
+--
+Path = /tmp/keep/ifix_09.zip
+Type = zip
+Physical Size = 13924212
+
+Everything is Ok
+
+Size:       33554432
+Compressed: 13924212
+=== /tmp/keep/ifix_11.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 8623147 bytes (8422 KiB)
+
+Extracting archive: /tmp/keep/ifix_11.rar
+--- retry without password ---
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 8623147 bytes (8422 KiB)
+
+Extracting archive: /tmp/keep/ifix_11.rar
+=== /tmp/keep/ifix_12.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 22262454 bytes (22 MiB)
+
+Extracting archive: /tmp/keep/ifix_12.rar
+--
+Path = /tmp/keep/ifix_12.rar
+Type = Rar5
+Physical Size = 22262454
+Solid = -
+Blocks = 2
+Encrypted = -
+Multivolume = -
+Volumes = 1
+
+Everything is Ok
+
+Files: 2
+Size:       67108864
+Compressed: 22262454
+=== /tmp/keep/ifix_13.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 7963681 bytes (7778 KiB)
+
+Extracting archive: /tmp/keep/ifix_13.rar
+--
+Path = /tmp/keep/ifix_13.rar
+Type = Rar5
+Physical Size = 7963681
+Solid = -
+Blocks = 1
+Encrypted = -
+Multivolume = -
+Volumes = 1
+
+Everything is Ok
+
+Size:       33554432
+Compressed: 7963681
+=== /tmp/keep/ifix_14.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 22352464 bytes (22 MiB)
+
+Extracting archive: /tmp/keep/ifix_14.rar
+--
+Path = /tmp/keep/ifix_14.rar
+Type = Rar5
+Physical Size = 22352464
+Solid = -
+Blocks = 2
+Encrypted = -
+Multivolume = -
+Volumes = 1
+
+Everything is Ok
+
+Files: 2
+Size:       67108864
+Compressed: 22352464
+=== /tmp/keep/ifix_15.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 16232667 bytes (16 MiB)
+
+Extracting archive: /tmp/keep/ifix_15.rar
+--- retry without password ---
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 16232667 bytes (16 MiB)
+
+Extracting archive: /tmp/keep/ifix_15.rar
+=== /tmp/keep/ifix_16.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 16942422 bytes (17 MiB)
+
+Extracting archive: /tmp/keep/ifix_16.rar
+--- retry without password ---
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 16942422 bytes (17 MiB)
+
+Extracting archive: /tmp/keep/ifix_16.rar
+=== /tmp/keep/ifix_17.zip ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 24462397 bytes (24 MiB)
+
+Extracting archive: /tmp/keep/ifix_17.zip
+--
+Path = /tmp/keep/ifix_17.zip
+Type = zip
+Physical Size = 24462397
+
+Everything is Ok
+
+Files: 3
+Size:       67108864
+Compressed: 24462397
+=== /tmp/keep/ifix_18.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 2642983 bytes (2582 KiB)
+
+Extracting archive: /tmp/keep/ifix_18.rar
+--
+Path = /tmp/keep/ifix_18.rar
+Type = Rar5
+Physical Size = 2642983
+Solid = -
+Blocks = 1
+Encrypted = -
+Multivolume = -
+Volumes = 1
+
+Everything is Ok
+
+Size:       3881469
+Compressed: 2642983
+=== /tmp/keep/ifix_19.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 22710072 bytes (22 MiB)
+
+Extracting archive: /tmp/keep/ifix_19.rar
+--
+Path = /tmp/keep/ifix_19.rar
+Type = Rar5
+Physical Size = 22710072
+Solid = -
+Blocks = 3
+Encrypted = -
+Multivolume = -
+Volumes = 1
+
+Everything is Ok
+
+Folders: 1
+Files: 2
+Size:       67108864
+Compressed: 22710072
+=== /tmp/keep/ifix_20.zip ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 28972664 bytes (28 MiB)
+
+Extracting archive: /tmp/keep/ifix_20.zip
+--
+Path = /tmp/keep/ifix_20.zip
+Type = zip
+Physical Size = 28972664
+
+Everything is Ok
+
+Size:       64360390
+Compressed: 28972664
+=== /tmp/keep/ifix_21.zip ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 7717537 bytes (7537 KiB)
+
+Extracting archive: /tmp/keep/ifix_21.zip
+--
+Path = /tmp/keep/ifix_21.zip
+Type = zip
+Physical Size = 7717537
+
+Everything is Ok
+
+Size:       33554432
+Compressed: 7717537
+=== /tmp/keep/ifix_22.zip ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 20513726 bytes (20 MiB)
+
+Extracting archive: /tmp/keep/ifix_22.zip
+--
+Path = /tmp/keep/ifix_22.zip
+Type = zip
+Physical Size = 20513726
+
+Everything is Ok
+
+Size:       67108864
+Compressed: 20513726
+=== /tmp/keep/ifix_23.zip ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 14100279 bytes (14 MiB)
+
+Extracting archive: /tmp/keep/ifix_23.zip
+--
+Path = /tmp/keep/ifix_23.zip
+Type = zip
+Physical Size = 14100279
+
+Everything is Ok
+
+Size:       33554432
+Compressed: 14100279
+=== /tmp/keep/ifix_25.zip ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 14047090 bytes (14 MiB)
+
+Extracting archive: /tmp/keep/ifix_25.zip
+--
+Path = /tmp/keep/ifix_25.zip
+Type = zip
+Physical Size = 14047090
+
+Everything is Ok
+
+Size:       33554432
+Compressed: 14047090
+=== /tmp/keep/ifix_26.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 1603862 bytes (1567 KiB)
+
+Extracting archive: /tmp/keep/ifix_26.rar
+--
+Path = /tmp/keep/ifix_26.rar
+Type = Rar
+Physical Size = 1603862
+Solid = -
+Blocks = 1
+Multivolume = -
+Volumes = 1
+
+Everything is Ok
+
+Size:       1664810
+Compressed: 1603862
+=== /tmp/keep/ifix_28.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 8069527 bytes (7881 KiB)
+
+Extracting archive: /tmp/keep/ifix_28.rar
+--
+Path = /tmp/keep/ifix_28.rar
+Type = Rar5
+Physical Size = 8069527
+Solid = -
+Blocks = 1
+Encrypted = -
+Multivolume = -
+Volumes = 1
+
+Everything is Ok
+
+Size:       16777216
+Compressed: 8069527
+=== /tmp/keep/ifix_29.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 8761808 bytes (8557 KiB)
+
+Extracting archive: /tmp/keep/ifix_29.rar
+--- retry without password ---
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 8761808 bytes (8557 KiB)
+
+Extracting archive: /tmp/keep/ifix_29.rar
+=== /tmp/keep/ifix_30.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 5260715 bytes (5138 KiB)
+
+Extracting archive: /tmp/keep/ifix_30.rar
+--
+Path = /tmp/keep/ifix_30.rar
+Type = Rar5
+Physical Size = 5260715
+Solid = -
+Blocks = 4
+Encrypted = -
+Multivolume = -
+Volumes = 1
+
+Everything is Ok
+
 Folders: 2
-Files: 100
-Size:       322468928
-Compressed: 24345551
-=== /tmp/keep/ifix_55.rar ===
+Files: 2
+Size:       10485760
+Compressed: 5260715
+=== /tmp/keep/ifix_31.rar ===
 
 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
  64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
 
 Scanning the drive for archives:
-1 file, 911848 bytes (891 KiB)
+1 file, 5565766 bytes (5436 KiB)
 
-Extracting archive: /tmp/keep/ifix_55.rar
+Extracting archive: /tmp/keep/ifix_31.rar
 --
-Path = /tmp/keep/ifix_55.rar
-Type = Rar
-Physical Size = 911848
+Path = /tmp/keep/ifix_31.rar
+Type = Rar5
+Physical Size = 5565766
 Solid = -
 Blocks = 1
+Encrypted = -
 Multivolume = -
 Volumes = 1
 
 Everything is Ok
 
-Size:       964611
-Compressed: 911848
-=== /tmp/keep/ifix_56.rar ===
+Size:       6211345
+Compressed: 5565766
+=== /tmp/keep/ifix_32.rar ===
 
 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
  64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
 
 Scanning the drive for archives:
-1 file, 1262561 bytes (1233 KiB)
+1 file, 4442677 bytes (4339 KiB)
 
-Extracting archive: /tmp/keep/ifix_56.rar
---
-Path = /tmp/keep/ifix_56.rar
-Type = Rar
-Physical Size = 1262561
-Solid = -
-Blocks = 1
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Size:       1346817
-Compressed: 1262561
-=== /tmp/keep/ifix_58.rar ===
+Extracting archive: /tmp/keep/ifix_32.rar
+--- retry without password ---
 
 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
  64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
 
 Scanning the drive for archives:
-1 file, 666565 bytes (651 KiB)
+1 file, 4442677 bytes (4339 KiB)
 
-Extracting archive: /tmp/keep/ifix_58.rar
---
-Path = /tmp/keep/ifix_58.rar
-Type = Rar
-Physical Size = 666565
-Solid = -
-Blocks = 1
-Multivolume = -
-Volumes = 1
-
-Everything is Ok
-
-Size:       714176
-Compressed: 666565
-=== /tmp/keep/ifix_60.rar ===
+Extracting archive: /tmp/keep/ifix_32.rar
+=== /tmp/keep/ifix_33.rar ===
 
 7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
  64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
 
 Scanning the drive for archives:
-1 file, 1367876 bytes (1336 KiB)
+1 file, 9901966 bytes (9670 KiB)
 
-Extracting archive: /tmp/keep/ifix_60.rar
+Extracting archive: /tmp/keep/ifix_33.rar
 --
-Path = /tmp/keep/ifix_60.rar
-Type = Rar
-Physical Size = 1367876
+Path = /tmp/keep/ifix_33.rar
+Type = Rar5
+Physical Size = 9901966
 Solid = -
-Blocks = 1
+Blocks = 980
+Encrypted = -
 Multivolume = -
 Volumes = 1
 
 Everything is Ok
 
-Size:       1428510
-Compressed: 1367876
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/Other/8.1.65.1586_5MB_PRE_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/Other/8.1.52.1496_5MB_PRE_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/Other/8.1.20.1336_5MB_PRE_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/Other/8.1.2.1318_5MB_PRE_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/Other/8.1.10.1286_5MB_PRE_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/Other/8.1.0.1265_5MB_PRE_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/Other/8.1.0.1220_5MB_PRE_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/Other/8.1.0.1143_5MB_PRE_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/Other/8.0.0.1178_5MB_PRE_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.70.1590_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.65.1586_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.60.1561_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.57.1556_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.55.1506_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.52.1496_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.51.1471_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.50.1456_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.40.1416_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.31.1351_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.30.1350_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.20.1336_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.2.1318_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.10.1286_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.0.1265_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.0.1220_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.1.0.1143_5MB_PRD_RGN.bin
-7843840 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/8.0.0.1178_5MB_PRD_RGN.bin
-6385664 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/Other/8.1.0.1035_5MB_PRE_RGN.bin
-6385664 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/Other/8.0.4.1441_5MB_PRE_RGN.bin
-6385664 /tmp/ex/ifix_07/Intel ME 8 Firmware Repository Pack r11/Other/8.0.3.1427_5MB_PRE_RGN.bin
+Folders: 38
+Files: 942
+Size:       24070291
+Compressed: 9901966
+=== /tmp/keep/ifix_34.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 5813517 bytes (5678 KiB)
+
+Extracting archive: /tmp/keep/ifix_34.rar
+--
+Path = /tmp/keep/ifix_34.rar
+Type = Rar5
+Physical Size = 5813517
+Solid = -
+Blocks = 1
+Encrypted = -
+Multivolume = -
+Volumes = 1
+
+Everything is Ok
+
+Size:       16777216
+Compressed: 5813517
+=== /tmp/keep/ifix_35.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 11874698 bytes (12 MiB)
+
+Extracting archive: /tmp/keep/ifix_35.rar
+--- retry without password ---
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 11874698 bytes (12 MiB)
+
+Extracting archive: /tmp/keep/ifix_35.rar
+=== /tmp/keep/ifix_36.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 2187556 bytes (2137 KiB)
+
+Extracting archive: /tmp/keep/ifix_36.rar
+--
+Path = /tmp/keep/ifix_36.rar
+Type = Rar5
+Physical Size = 2187556
+Solid = -
+Blocks = 2
+Encrypted = -
+Multivolume = -
+Volumes = 1
+
+Everything is Ok
+
+Files: 2
+Size:       4718592
+Compressed: 2187556
+=== /tmp/keep/ifix_37.zip ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 10466817 bytes (10222 KiB)
+
+Extracting archive: /tmp/keep/ifix_37.zip
+--
+Path = /tmp/keep/ifix_37.zip
+Type = zip
+Physical Size = 10466817
+
+Everything is Ok
+
+Files: 4
+Size:       19005440
+Compressed: 10466817
+=== /tmp/keep/ifix_38.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 14585132 bytes (14 MiB)
+
+Extracting archive: /tmp/keep/ifix_38.rar
+--- retry without password ---
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 14585132 bytes (14 MiB)
+
+Extracting archive: /tmp/keep/ifix_38.rar
+=== /tmp/keep/ifix_39.rar ===
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 8195029 bytes (8003 KiB)
+
+Extracting archive: /tmp/keep/ifix_39.rar
+--
+Path = /tmp/keep/ifix_39.rar
+Type = Rar5
+Physical Size = 8195029
+Solid = -
+Blocks = 1
+Encrypted = -
+Multivolume = -
+Volumes = 1
+Comment = 
+{
+www.indiafix.in - schematic, boardview, bios dump
+**************************************************
+Complete free Download
+With our login
+************************************
+No subscription
+https://indiafix.in
+************************************
+regularly update: schematic, boardview, bios 
+***********************************
+htttp://www.indiafix.in
+*********************************
+File password-indiafix.in
+
+}
+
+ERROR: Wrong password : Dell PFS Extractor v7.1.exe
+
+Sub items Errors: 1
+
+Archives with Errors: 1
+
+Sub items Errors: 1
+--- retry without password ---
+
+7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:4 OPEN_MAX:65536
+
+Scanning the drive for archives:
+1 file, 8195029 bytes (8003 KiB)
+
+Extracting archive: /tmp/keep/ifix_39.rar
+--
+Path = /tmp/keep/ifix_39.rar
+Type = Rar5
+Physical Size = 8195029
+Solid = -
+Blocks = 1
+Encrypted = -
+Multivolume = -
+Volumes = 1
+Comment = 
+{
+www.indiafix.in - schematic, boardview, bios dump
+**************************************************
+Complete free Download
+With our login
+************************************
+No subscription
+https://indiafix.in
+************************************
+regularly update: schematic, boardview, bios 
+***********************************
+htttp://www.indiafix.in
+*********************************
+File password-indiafix.in
+
+}
+
+
+Enter password (will not be echoed):
+
+Archives with Errors: 1
+
+
+
+Break signaled
+67108864 /tmp/ex/ifix_22/Dell Pro 14 Plus Dell_Pro_Plus_PB13255_PB14255_PB16255_1.11.0 AMD.bin
+67108864 /tmp/ex/ifix_07/W25Q512NW@WSON8 8X6_20260423_181304 OFF.bin
+64360390 /tmp/ex/ifix_20/Dell_8FC8_Patcher.exe
+33554432 /tmp/ex/ifix_25/optiplex_3090.bin
+33554432 /tmp/ex/ifix_23/32MB.BIN
+33554432 /tmp/ex/ifix_21/Alienware Aurora R110  IPCML-SH REV A00.bin
+33554432 /tmp/ex/ifix_19/Dell Precision 3640 IPCML-RT/Precision 3640 Tower_1.bin
+33554432 /tmp/ex/ifix_19/Dell Precision 3640 IPCML-RT/Precision 3640 Tower TRY FIRST IF NOT WORK TRY _1.bin
+33554432 /tmp/ex/ifix_17/OK BACKUP 32MB.BIN
+33554432 /tmp/ex/ifix_14/OptiPlex 3090 main_ok try First IF not Power On Try Another.bin
+33554432 /tmp/ex/ifix_14/OptiPlex 3090 main_New ok.bin
+33554432 /tmp/ex/ifix_13/Alienware Aurora R12 .bin
+33554432 /tmp/ex/ifix_12/Clean cseme.bin
+33554432 /tmp/ex/ifix_12/3090 Bios Password Unlocked.bin
+33554432 /tmp/ex/ifix_09/OptiPlex 7480 All-In-One ipcml-gz uma 1.10.0.bin
+33554432 /tmp/ex/ifix_06/3090 Bios Password Unlocked.bin
+33554432 /tmp/ex/ifix_03/2 TroyAdl_16.1.27.2176_EVT_64 v1.17.0 -- 1 System BIOS with BiosGuard v1.17.0.bin
+33554432 /tmp/ex/ifix_02/Clean me.bin
+33554432 /tmp/ex/ifix_02/BACKUP.BIN
+16777216 /tmp/ex/ifix_34/11.0.0.1205_CON_LP_C_NPDM_PRD_RGN_outimage.bin
+16777216 /tmp/ex/ifix_28/Dell XPS 13 9350 AAZ80 LA-C881P DINO2 MB 1.0 A00 Clear me.bin
+16777216 /tmp/ex/ifix_17/Optiplex 7000 micro UNLOCKED.bin
+16777216 /tmp/ex/ifix_17/OK BACKUP.BIN
+16776186 /tmp/ex/ifix_01/DELL OPTIPLEX 70000 TOWER  D31M UNLOCK 32MB BIOS/DELL optiplex 70000 GD25Q256C@SOP16_20250823_183534.BIN
+8388608 /tmp/ex/ifix_37/ok.BIN
+8388608 /tmp/ex/ifix_37/8MB.bin
+8388608 /tmp/ex/ifix_30/ok 6520 Main+EC/BIOS/ok  E6520 LA-6562p.BIN
+6211345 /tmp/ex/ifix_31/IPCML-GZ.pdf
+6093816 /tmp/ex/ifix_33/Dell BiosTools/_internal/python313.dll
+5232408 /tmp/ex/ifix_33/Dell BiosTools/_internal/libcrypto-3.dll
