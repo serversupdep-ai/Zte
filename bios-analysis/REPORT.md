@@ -835,3 +835,69 @@ one EC salt, one per-family legacy salt set — parameterized only by which
 family the BIOS box advertises. The keygen (`dell_keygen.py`) and probe
 (`dell_cf1b_probe.c`) need no per-model changes; the database provides the
 salt for any family code encountered.
+
+## 13.9 Forum real-machine dumps: EC bins from the CF1B generation (verified)
+
+Per the standing directive (collect real data from the internet, no machines
+asked), real SPI dumps of CF1B-generation machines were collected from free
+repair-forum sources into `bios-analysis/forum/opensources/` (badcaps,
+vinafix and dr-bios attachments are paywalled — the free sources are the
+indiafix repair-blog Google-Drive archives; a wayback/CDX pass over badcaps
+attachments yielded nothing). `analyze_forum_dumps.py` processes every dump
+and commits the analysis as source data under `bios-analysis/forum/analysis/`
+(`summary.json`, `report.md`, per-dump `info.json`, new binaries).
+
+### What the real machines contain (headline results)
+
+| real machine dump | flash layout | EC firmware (PHCM) slots | pw modules |
+|---|---|---|---|
+| **OptiPlex 3090** "Password Unlocked" (ifix_06/12) | BIOS 16–32 MB, ME, GbE | slot A @0x1000 = 102,048 B and slot B @0x410000 = 102,096 B — **byte-identical to `collected/OptiPlex_3090_2.0.7/ec_3` and `ec_4`** | 5/5 identical to `collected/OptiPlex_3090_2.0.7` (pw_23k/24k/31k/42k/87k) — the machine runs BIOS 2.0.7 |
+| **OptiPlex 7480 AIO 1.10.0** (ifix_09) | BIOS 16–32 MB, ME, GbE | 89,312 / 88,848 B — new EC images (7480 not in catalog) | pw_23k/24k/31k shared with 3090 2.0.7 **+ new-generation 43,008 B CF1B-family module** (`a9eb964a…`, new to corpus) + 85,504 B module |
+| **Vostro 3681** (ifix_02) | BIOS 16–32 MB, ME | 100,384 / 98,704 B — new EC images | pw_42k/31k/24k/23k identical to 3090 2.0.7 (shared 10th-gen platform code) + model-specific 87,040 B module |
+| Alienware Aurora R12 (ifix_13) | BIOS 20–32 MB, ME | none stored raw | — |
+
+**Verification value:** the EC bins collected from Dell's update packages are
+**exactly what real machines run** — on the real 3090 both EC slots hold
+byte-for-byte the package EC payloads, and the password-module set pins the
+machine's BIOS version precisely. The EC images sit raw (uncompressed) in the
+SPI at fixed offsets (0x1000 and 0x410000 on 3090-class boards), trimmed by
+flash 0xFF padding; per-machine new EC images (Vostro 3681, 7480 AIO) are
+committed under `forum/analysis/` as new corpus data.
+
+### X_enrolled in real dumps
+
+All freely available dumps are *unlocked/cleaned* images: the NVRAM record
+store carries **zero** password records (no 6e978d37-… record-GUID hits with
+the proven §13.7 encodings, raw or decompressed), consistent with §13.7 —
+unlocking clears the enrolled record. A genuinely *locked* dump (with
+X_enrolled intact) remains paywalled (vinafix returns 403 to datacenter IPs,
+badcaps requires premium membership); the record-store scan
+(`analyze_forum_dumps.py` / `dell_keygen.py --findxenrolled`) is ready and
+will extract X_enrolled the moment a locked dump lands in the corpus.
+
+### Full archive pass (91 unique dumps analyzed by the runner)
+
+| machine (archive source) | EC firmware (PHCM) slots | pw modules |
+|---|---|---|
+| **OptiPlex 3090** (ifix_25) | both slots **byte-identical to `collected/OptiPlex_3090_2.0.7/ec_3`/`ec_4`** — second machine confirming | 2.0.7 set (pw_5 = 7080 1.37.0 variant) |
+| **OptiPlex 3090** (ifix_23, ifix_14 ×2) | newer EC images (102,048+32 / 102,096 / 102,560 B) — same PHCM family, later versions than any package in the catalog | 2.0.7 set + 7080 pw_5 variant |
+| **OptiPlex 7000 micro** UNLOCKED (ifix_17) | **205,280 / 205,328 B** — double-size EC images, new EC class committed | 8 modules, all new (45,056/37,888/28,672/... B) |
+| **Precision 3640 Tower** (ifix_19 ×2) | 88,928 / 83,216 B new EC images | 7080 pw_5 + **new-generation 43,008 B CF1B module (distinct build from 7480's and Latitude's)** + new 23,552 B |
+| **OptiPlex 3000** "TroyAdl" 1.17.0 (ifix_03) | EC not stored raw in this dump | 8 modules, all new (52,736/45,568/39,424/... B) — 2022 Alder-Lake generation |
+| OptiPlex 7480 AIO / Vostro 3681 (dumps/, see above) | 4 new EC images | new-gen 43,008 B module + Vostro 87,040 B |
+
+24 new EC images and 25 new password modules from real machines are committed
+under `bios-analysis/forum/analysis/`. The three known 43,008 B new-generation
+modules (Latitude 5X00 package, OptiPlex 7480 machine, Precision 3640
+machine) are *distinct builds of the same module* — same construction, same
+salt (8dfc7b25), per-model binaries. `dell_salts_db.py` was regenerated over
+the combined corpus (packages + real machines, 52 modules): the salt universe
+remains exactly `{"0001","1D3B","2A7B","BF97"}` (legacy, = ASCII family
+codes) ∪ `{8dfc7b25}` (EC path, universal).
+
+### Fleet conclusion (§13.8 + §13.9 combined)
+
+One challenge construction, one EC salt (8dfc7b25), two pw-module
+generations — and now confirmed against **real hardware**: the firmware
+Dell ships in packages is the firmware machines run, EC images included.
+The recovery matrix of §13.6 applies unchanged to real-world 3090s.
