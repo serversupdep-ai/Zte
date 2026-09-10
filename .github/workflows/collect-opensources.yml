@@ -2,7 +2,7 @@ name: Collect open-source dumps
 on:
   push:
     branches: [arena/01a087e2-zte]
-    paths: ['.github/workflows/collect-opensources.yml']
+    paths: ['.github/workflows/collect-opensources.yml', 'relay/opensource_urls.txt']
   workflow_dispatch:
 
 concurrency:
@@ -38,17 +38,18 @@ jobs:
               echo "$name FAIL http-size=$sz magic=$m <- $url" >> /tmp/status.log; rm -f "$f.bin"
             fi
           }
-          # --- dr-bios.com attachments (guest; fallback = wayback copy) ---
-          for A in \
-            "https://dr-bios.com/attachments/optiplex-3080-zip.65613/" \
-            "https://dr-bios.com/attachments/dell-3080-zip.64345/" \
-            "https://dr-bios.com/attachments/optiplex-3090-zip.75198/" ; do
-            n="drbios_$(echo "$A" | grep -oE '[0-9]+$')"
+          # --- catalog: dr-bios + vinafix (direct, wayback fallback per URL) ---
+          grep -vE '^#|^$' relay/opensource_urls.txt | while IFS='|' read -r A n d; do
+            A=$(echo "$A" | xargs); n=$(echo "$n" | xargs)
+            [ -z "$A" ] && continue
             try "$A" "$n"
-            # wayback fallback if direct failed
             if ! ls /tmp/keep/$n.* >/dev/null 2>&1; then
               ts=$(curl -s --max-time 60 "https://archive.org/wayback/available?url=$A" | grep -oE '"timestamp":"[0-9]+"' | head -1 | grep -oE '[0-9]+')
-              [ -n "$ts" ] && try "https://web.archive.org/web/${ts}id_/$A" "$n" || echo "$name wayback: none" >> /tmp/status.log
+              if [ -n "$ts" ]; then
+                try "https://web.archive.org/web/${ts}id_/$A" "$n"
+              else
+                echo "$n wayback: no snapshot" >> /tmp/status.log
+              fi
             fi
           done
           # --- indiafix.in: search posts, extract external download links ---

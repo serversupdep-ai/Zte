@@ -1,0 +1,23 @@
+# Open-source real dump URLs (forums with visible attachment links) — CF1B generation.
+# Format: <url> | <slug> | <description>
+# dr-bios.com (staff-posted tested BIOS; guest access unknown -> wayback fallback)
+https://dr-bios.com/attachments/optiplex-3080-zip.65613/ | drbios_65613 | OptiPlex 3080 BIOS (support team)
+https://dr-bios.com/attachments/dell-3080-zip.64345/ | drbios_64345 | OptiPlex 3080 BIOS alt (support team)
+https://dr-bios.com/attachments/optiplex-3090-zip.75198/ | drbios_75198 | OptiPlex 3090 BIOS (support team)
+# vinafix.com — LOCKED machines (8FC8 family; unlock service quoted "8fc8 patch $15-35")
+https://vinafix.com/attachments/dell-optiplex-3090-gd25q256c-sop16_20231010_101512-bin.301025/ | vinafix_301025 | OptiPlex 3090 LOCKED (password removal request, 8FC8)
+https://vinafix.com/attachments/mx25l25673g-soic16-bin.337928/ | vinafix_337928 | OptiPlex 3090 LOCKED ("can you unlock?")
+https://vinafix.com/attachments/mx25l25633f-wson8_bkp_ok-bin.355520/ | vinafix_355520 | OptiPlex 3090 manufacturing-mode dump
+https://vinafix.com/attachments/mx25l25633f-wson8_20220211_131704-bin.193448/ | vinafix_193448 | OptiPlex 3080 LOCKED (password clear request)
+https://vinafix.com/attachments/mx25l25633f-wson8_20220329_204157-bin.200762/ | vinafix_200762 | OptiPlex 3080 micro LOCKED tag 5XC8H73 (8FC8)
+https://vinafix.com/attachments/dell-optiplex-3080-bin.204017/ | vinafix_204017 | OptiPlex 3080 dump
+https://vinafix.com/attachments/optiplex3080-dump-bin.182844/ | vinafix_182844 | OptiPlex 3080 dump (post-update no display)
+# vinafix.com — clean / rebuilt / staff
+https://vinafix.com/attachments/outimage-confarme-ok-bin.183098/ | vinafix_183098 | OptiPlex 3080 rebuilt OK image
+https://vinafix.com/attachments/v2-2-1-zip.169404/ | vinafix_169404 | OptiPlex 3080 IPCML-CT v2.2.1
+https://vinafix.com/attachments/32-zip.298513/ | vinafix_298513 | OptiPlex 3090 micro BIOS (staff)
+https://vinafix.com/attachments/buildsss-zip.182850/ | vinafix_182850 | OptiPlex 3090 build 32MB
+# vinafix.com — via attachment-id anchors (slug guessed, xenforo redirects on id)
+https://vinafix.com/attachments/x.235299/ | vinafix_235299 | OptiPlex 3090 212037-1 32MB.BIN.zip
+https://vinafix.com/attachments/x.378057/ | vinafix_378057 | OptiPlex 3090 212037-1 32MB.BIN(1)
+https://vinafix.com/attachments/x.458135/ | vinafix_458135 | OptiPlex 3090 XM25QH256B dump
