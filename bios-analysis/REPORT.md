@@ -625,3 +625,19 @@ Reached via svc-0x18 (cmd 0x17) subscriber 0xE0FE1 -> 0xE0D1C -> 0xE0C38.
 **Next step:** drive 0xE0544/0xE0AD0 in ec_emulate.py with the exact cmd-0x21
 provider sequence (doorbell 0x21, sub, type, X packets, read) and capture the
 response computation - this is the remaining hop to the algorithm.
+
+### 12.9 Session 4 addendum: capture pipeline live, 0x80-0x84 gate
+
+Feeding 0xE0C38 via the eSPI capture regs (MMIO 0x400F1000: +0x104 status
+bit3 = byte ready, +0x108 captured byte, +0x100 doorbell/status out) works in
+emulation: bytes land at RAM 0x118FE8+ with counter 0x118FE4 (max 4). The
+0xE0544 TBH state machine only engages when the FIRST captured byte is in
+0x80..0x84 (control-byte protocol layer); other bytes fall through to the
+module-reset helper 0xE0520 (semaphore waits = the observed emulation stalls;
+harmless - raise the instruction budget or skip the tail).
+
+Remaining mechanical step for the algorithm: emulate the eSPI IRQ engine
+0xEFEBC once per HOST PORT WRITE of the provider sequence (set
+[0x400F3400+0x33C] = 0x0910/0x0911<<16 and the captured message regs
+accordingly per write), which routes the cmd-0x21 doorbell and X packets into
+the correct handlers; then trace the response computation end-to-end.
