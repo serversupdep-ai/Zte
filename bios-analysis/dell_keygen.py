@@ -488,8 +488,12 @@ def interpret_8fc8_response(hexstr):
             print("  [tail-ascii]     ", tail.decode())
 
 
-SALT_227 = bytes.fromhex("8dfc7b25")   # 2.27.0 pw_43k @RVA 0xA658 (REPORT §13)
-SALT_207 = b"0001"                    # 2.0.7 pw_23k @RVA 0x5AA0 (REPORT §13)
+SALT_227 = bytes.fromhex("8dfc7b25")   # EC-path salt, 2.27.0 pw_43k @0xA658 AND
+                                      # 2.0.7 pw_42k @0xA648 — same value both
+                                      # generations (REPORT §13.5); covers 8FC8
+                                      # (2.0.7) and CF1B (2.27.0).
+SALT_207 = b"0001"                    # pw_23k only (legacy/local module — NOT
+                                      # the EC path; kept for reference).
 
 
 def challenge_hash(data: bytes, salt: bytes = SALT_227) -> bytes:

@@ -24,7 +24,9 @@
  *   => --password <P> turns this tool into a definitive password VALIDATOR:
  *      it computes X itself (built-in SHA-256 + salt) and checks R. Loop it
  *      over candidates from Linux — no setup screen, no brick risk.
- *      (2.0.7/8FC8 machines: salt is "0001" — see --salt.)
+ *      SAME construction and SAME salt (8dfc7b25) for 8FC8 on 2.0.7
+ *      (pw_42k fn 0x3250) and CF1B on 2.27.0 (pw_43k fn 0x3314) — use
+ *      --family 8FC8 for the 8FC8 suffix on a 2.0.7 machine.
  *
  * Mailbox transport (REPORT.md §10.3): port 0x910 = index, 0x911 = data;
  * selector 0x00 = command doorbell (poll until 0), selectors 0x10..0x2F =
@@ -247,7 +249,9 @@ int main(int argc, char **argv)
                             "[--type 0..6] [--x 64hex]\n"
                             "  --password P : validate candidate P (computes X=SHA256(P16||salt),\n"
                             "                 checks R == SHA256(X||salt))  [REPORT §13]\n"
-                            "  --salt       : default 8dfc7b25 (2.27.0); use 30303031 (\"0001\") on 2.0.7\n", argv[0]);
+                            "  --salt       : 8dfc7b25 — correct for BOTH 8FC8/2.0.7 and\n"
+                            "                 CF1B/2.27.0 (verified in pw_42k + pw_43k)\n"
+                            "  --family     : default CF1B; use 8FC8 on a 2.0.7 machine\n", argv[0]);
             return 1;
         }
     }

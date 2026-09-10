@@ -718,3 +718,45 @@ The password decision reduces to **SHA256(P ‖ salt) == X_enrolled** with a
 Salts and lengths: type 3 hashes EXACTLY 16 bytes of the candidate buffer
 (zero-pad shorter passwords; `--pwlen`/`--pad` to vary). Types 0-2 use a
 length-prefixed candidate ({len, data}).
+
+### 13.5 Unification: 8FC8 (2.0.7) and CF1B (2.27.0) are the SAME construction — same salt
+
+Reversal of the correct 2.0.7 module (`pwmods/optiplex3090_2.0.7_pw_42k.efi`
+— the 42 KB main pw module; earlier this session I briefly analysed the
+23k/24k siblings by mistake) shows its verify fn 0x3250 is instruction-for-
+instruction the same function as 2.27.0's 0x3314:
+
+```
+X  = SHA256(candidate[0..16] || salt)         salt = 8d fc 7b 25 (@RVA 0xA648)
+session 0x21 {sub=1, type, family} ; write X(32) ; [type 3: write family u16]
+R  = read(32)
+PASS iff R == SHA256(X || salt)
+```
+
+- SHA-256 K-table @0xAC30; hash wrapper 0x1b28 (= 2.27.0's 0x1bb4);
+  memset/compare/copy = 0x4430/0x43D0/0x43F0.
+- Platform-GUID tables are byte-identical between 2.0.7 pw_42k (@0xA500) and
+  2.27.0 pw_43k (@0xA510): types 0..6; type 3 = 38c1b06e-bdca-45cd-
+  b6e8-bf45845671fa (the GUID listed in §13.2 from a mis-decoded RVA is
+  corrected here). (§10.2's "10-GUID table" was the same 7-entry table.)
+- **Salt correction:** "0001" (pw_23k @0x5AA0) belongs to a legacy/local
+  module, NOT the EC path. The EC-path salt is 8dfc7b25 on BOTH generations.
+
+**§10.2 correction:** X is not "a 16-byte config value read from the Dell
+config store (GUID 000094c0-…, key 8dfc7b25)" — that GUID/key pair was the
+salt constant flowing through the hash pipeline (fns 0x1b28/0x3b70/0x3c48/
+0x3d50 = wrapper/SHA-256 init/update/final). X is computed from the
+candidate; the enrolled reference is the SHA-256 image, and the comparison
+is `R == SHA256(X ‖ salt)`, not `R == X`.
+
+### 13.6 The bottom line for the 3090 (either firmware)
+
+- **2.0.7 + 8FC8 (the machine as delivered):**
+  `sudo ./dell_cf1b_probe --family 8FC8 --password <P>` — PASS iff P is the
+  password. Salt 8dfc7b25 (default). Candidate is P padded to 16 bytes.
+- **2.27.0 + CF1B:** same command with `--family CF1B`.
+- Offline: `dell_keygen.py --brute227 <X_enrolled>` once X_enrolled
+  (= SHA256(P_true ‖ 8dfc7b25)) is obtained from the machine's EC/NVRAM.
+- The construction (OpenSSL SHA-256, per the embedded
+  "SHA-256 part of OpenSSL 1.0.2zk  3 Sep 2024" build string) is now fully
+  dump-derived; only the per-machine enrolled hash is not in any image.
