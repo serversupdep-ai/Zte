@@ -516,3 +516,65 @@ offline computation is impossible by design and the cmd-0x21 **probe**
    table dump, disassembly). EC payload re-extraction:
    `PFSFile`-walk `dl/Latitude_5X90.exe` sections for `PHCM` magic (see
    ec_analysis.py docstring).
+
+### 12.6 Deep-trace results (session 3): the EC-side challenge engine
+
+Full annotated reversal of the port-0x910 data path (5X90 EC 1.00.51):
+
+**eSPI I/O window register file (MMIO 0x400F0100 block) — host→EC byte slots:**
+```
+[0x400F0110] = message/sync marker  (0x78 = data packet; also 0xC, 0xED, 0xEE, 0xC3 types)
+[0x400F0111] = sequence tag
+[0x400F0112] = role/step byte       (1 = store, 2 = compare, 3 = status)
+[0x400F0113..0x400F011A] = 8-byte payload
+[0x400F0100] = status out (0xFF = busy/err)
+```
+This maps 1:1 onto the BIOS-side provider packet layout (win[2] sub, win[3]
+count, win[4..11] payload — section 10.3), confirming the probe tools' packet
+format.
+
+**Engine 0xEFEBC (port-0x910 IRQ handler), state byte @RAM 0x1196C2:**
+- State 0: {sync 0x78, role 1, payload[8]} → payload copied to **RAM 0x1196BA**, regs cleared, state→1.
+- State 1: {sync 0x78, role 2, payload[8]} → **byte-exact compare** payload vs 0x1196BA (8 individual compares). All equal → state→2 + status set (0xDECC0); any mismatch → error post (0xDEC9C(2), 0xDBBF4).
+- State 2: role 3 → status sequencing; role 2 → clear.
+- Helper 0xEFEA0 clears roles/payload; 0xEFE94 resets the state byte.
+
+**Service wiring:** svc-0x22 subscriber 0xDEBBC watches [0x400F0110] for
+non-data message types (0xED/0xEE/0xC3), invokes the engine, posts event 0x1A
+(via 0xDFDF8 with context 0x400F0110), and gates on flag pair 0x1182D0/D1
+(also consumed by task code @0xDC414/0xDC46C with 500 ms waits and a
+command-0x16 dispatch when [0x400F0110]==0xC). RAM 0x1196BA/0x1196C2 are
+referenced NOWHERE else in the image — the compare machine is self-contained.
+
+**Cleared dead ends (do not re-trace):** 0xDEEED queue complex + 0xDED78 =
+LED/indicator event plumbing; UART 0x40006400 + CRC-8 protocol (0xEB2E4/
+0xEB3C6/0xEB4BC) = battery/charger serial link (caller 0xEED1C = battery
+temperature query); 0xF1E7C/0xF1E8C tables = 8042 KBC scancode sets;
+0xDF5CA/0xDFC2C = GPIO config; RAM 0x1196B0 neighborhood = ADC/charge state.
+
+### 12.7 Verdict on the dump-only keygen
+
+Everything statically visible on the challenge path is **transport + a
+byte-exact comparator**. The response-construction function f(machine,
+family, X) is not statically visible where expected: no hash tables exist in
+the image, and the pieces that could produce a machine-derived value sit
+behind the event-0x1A subscriber chain (0xDFDF8 dispatch, one more hop) and
+the KCDSA/ECDSA key-page (A0) machinery. Combined with the BIOS-side facts
+(response zeroed after compare; compare against a stored 16-byte config
+value), the evidence indicates a **verify-by-compare design with a keyed or
+enrolled expected value — not a deterministic in-image formula**.
+
+Consequences:
+- An **offline keygen from firmware dumps alone is not achievable** for
+  8FC8/CF1B-generation challenges (the value is enrolled/keyed per machine,
+  and on the 3090/5300 ECs the firmware itself is AES-encrypted on top).
+- The **cmd-0x21 session (dell_cf1b_probe.c / dell_8fc8_probe.c) remains the
+  practical keygen**: the machine's own security processor computes/holds the
+  expected value; the probes speak the exact packet format now independently
+  confirmed from both ends of the wire (SMM provider win[] layout ↔ EC eSPI
+  window register file, sync 0x78, 8-byte payloads, role bytes 1/2/3).
+- If the probes show ECHO mode (R == X), the design is verify-only and the
+  remaining route is the physical one (section 8) or a decrypted EC dump.
+- Remaining static-analysis hop (optional, for documentation completeness):
+  enumerate the event-0x1A subscriber list behind 0xDFDF8 to name the
+  response-builder function for the record.
