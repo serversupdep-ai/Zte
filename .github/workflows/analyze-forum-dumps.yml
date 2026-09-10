@@ -1,0 +1,63 @@
+name: Analyze forum dumps
+# Runs analyze_forum_dumps.py over ALL collected forum archives (7z unpack,
+# needs p7zip-rar) and commits the analysis (new EC/pw binaries + info.json
+# + summary). Only new material is committed; corpus-identical payloads are
+# recorded by sha256. Follows the opensources collectors' race-safe pattern.
+
+on:
+  push:
+    branches: [arena/01a087e2-zte]
+    paths: ['bios-analysis/analyze_forum_dumps.py', '.github/workflows/analyze-forum-dumps.yml']
+  workflow_dispatch:
+
+concurrency:
+  group: analyze-forum-dumps
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/01a087e2-zte
+
+      - name: Setup
+        run: |
+          python3 -m pip -q install uefi_firmware pefile
+          sudo apt-get -qq update
+          sudo apt-get -qq install -y --no-install-recommends p7zip-full p7zip-rar > /dev/null
+
+      - name: Analyze all forum dumps (incl. archive unpack)
+        run: |
+          set -x
+          python3 bios-analysis/analyze_forum_dumps.py --unpack-archives 2>&1 | tee forum-analysis.log
+          du -sh bios-analysis/forum/analysis || true
+
+      - name: Commit analysis
+        run: |
+          git config user.name "relay-bot"
+          git config user.email "relay@localhost"
+          git pull --rebase origin arena/01a087e2-zte || true
+          git add bios-analysis/forum/analysis/ forum-analysis.log || true
+          if git diff --cached --quiet; then
+            echo "nothing new to commit"
+          else
+            git commit -q -m "analyze: forum dump analysis over all archives [skip ci]"
+            git push origin arena/01a087e2-zte || {
+              git pull --rebase origin arena/01a087e2-zte && git push origin arena/01a087e2-zte
+            }
+          fi
+
+      - name: Upload log (best effort)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forum-analysis-log
+          path: forum-analysis.log
+          if-no-files-found: ignore
+        continue-on-error: true
