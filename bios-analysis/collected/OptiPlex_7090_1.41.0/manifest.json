@@ -1,0 +1,50 @@
+{
+ "url": "https://downloads.dell.com/FOLDER14367732M/1/OptiPlex_7090_1.41.0.exe",
+ "entries": [
+  {
+   "file": "bios-analysis/collected/OptiPlex_7090_1.41.0/ec_1_205328.bin",
+   "kind": "ec",
+   "size": 205328,
+   "sha256": "7777d7af7c1ba46da0a246d603e282173938f6c66376151590b7f98c3a7b5b56"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_7090_1.41.0/ec_2_205328.bin",
+   "kind": "ec",
+   "size": 205328,
+   "sha256": "4d7888b14fdd909e4e33ff88a3b09c45673d0ada14f1066d399874a3661d98b9"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_7090_1.41.0/ec_3_205328.bin",
+   "kind": "ec",
+   "size": 205328,
+   "sha256": "cd6d32643ace8a6a325cd1d4b92f75bc205ba070c051fad26af3b30ddd8e0cd7"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_7090_1.41.0/ec_4_205328.bin",
+   "kind": "ec",
+   "size": 205328,
+   "sha256": "12b3b728f20057c0f361d235264012a7f65ca3a6387e58f18b74fbcf4082ae03"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_7090_1.41.0/pw_1_18432.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 18432,
+   "sha256": "3f8302b2a2dcb4d2dffb27d78db6135cc56eabc4df1e98472dd152ef0e986d03"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_7090_1.41.0/pw_2_35456.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 35456,
+   "sha256": "e17a26a0f6a31a84ddf45a1ad5baf049bf9c219be2c8ee7705a56f35eb029470"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_7090_1.41.0/pw_3_38912.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 38912,
+   "sha256": "308bfefc72690c51dd7b8792cf95213172dc168032d40915951f8e23ce5e6616"
+  }
+ ]
+}

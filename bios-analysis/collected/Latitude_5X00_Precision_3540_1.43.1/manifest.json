@@ -1,0 +1,132 @@
+{
+ "url": "https://downloads.dell.com/FOLDER13970198M/1/Latitude_5X00_Precision_3540_1.43.1.exe",
+ "entries": [
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/ec_1_167248.bin",
+   "kind": "ec",
+   "size": 167248,
+   "sha256": "b0d944da1c05469c97347bc178d509dec26d2ec4ca03afc90d9241f42ed894ae"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/ec_2_172032.bin",
+   "kind": "ec",
+   "size": 172032,
+   "sha256": "ae9e06b98276bb12d4a2f3d68382bd481b55763e281eacd86bc3b7c3f4989d46"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/ec_3_175360.bin",
+   "kind": "ec",
+   "size": 175360,
+   "sha256": "1e0c4285563ccf9b7dcfd31afcc138018488d6426408e2f333addc0ee7ead4a5"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/ec_4_175360.bin",
+   "kind": "ec",
+   "size": 175360,
+   "sha256": "1cb33bf1ea74dbb6d995b4219d264a3620a7b86737d2dcb255b9ea87c250998f"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/ec_5_175376.bin",
+   "kind": "ec",
+   "size": 175376,
+   "sha256": "c9281acd38802013eef9468eb64dc7a89c7c71650c992d884d3fb752e027c963"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/ec_6_175376.bin",
+   "kind": "ec",
+   "size": 175376,
+   "sha256": "b56d38fb8a8bdef139a8f9b29ab2868bce937c7a0b10bb855acc7a84a981b84b"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_1_9216.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 9216,
+   "sha256": "44e67c3e0f89e1afc6da82d713c7b1204a999f449048f0d5b3ec9d9a5d2845c1"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_2_12800.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 12800,
+   "sha256": "3d37c9885ccdc46f062020dc59b1ae9d04b062ce870471097a27686a52bed431"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_3_16896.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 16896,
+   "sha256": "27b94e0a832fda8ab70f2798c5353121e56e82e9ac238e830120a2f6a70e892f"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_4_23552.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 23552,
+   "sha256": "0bb9634e944f9189a98fe439ddc91a79f8884992a8aa3575f2d3bd976571cf71"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_5_24576.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 24576,
+   "sha256": "68abc3a78de743a7d046a38ae710510267e705993730b4c0202ff6c67d16727f"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_6_25600.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 25600,
+   "sha256": "5539c3c2250584fb026ec9959b4a99e0218403dba65dfd1ae1a6c9a97ce25188"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_7_30208.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 30208,
+   "sha256": "3c5987d15c4273e0e8dbffca9d84a66e2fa558b882575011c808b2dfdf5c5ee6"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_8_31744.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 31744,
+   "sha256": "bf35c4a2805ff3f0f92b1f6068965695f8fa65d0c3780ae36607dd3e90faf434"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_9_33792.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 33792,
+   "sha256": "bd330b3b5781945285ceaa97280cb887b1b21b2a077c06b431ce04f484b16de2"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_10_37376.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 37376,
+   "sha256": "f58b08d62f38069e671badd649b8b69f7a96d201fc146cb927bb3f6803871bf7"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_11_42496.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 42496,
+   "sha256": "6a4b1c8c596921d5474e17b7878449440f1de92dbb47bc2f4d30c3483c356f1b"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_12_43008.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 43008,
+   "sha256": "25af06756e91ade2726f89c09eece23031ee6e0522bdebfc09c0cb7324c62934"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_13_87040.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 87040,
+   "sha256": "9355de901c8508ff5f1801a71e971d1365a9469eee583948fa3bbed76932ca1f"
+  }
+ ]
+}
