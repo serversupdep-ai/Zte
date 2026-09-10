@@ -425,3 +425,94 @@ Options: `--family 1B58|9ABE|3FE2|8FC8`, `--sub 0|1|2`, `--type 0..6`,
 implemented (brick risk).
 
 Run on bare metal as root: `gcc -O2 -o dell_cf1b_probe dell_cf1b_probe.c && sudo ./dell_cf1b_probe`
+
+## 12. EC firmware analysis — the 8FC8/CF1B challenge algorithm location
+
+Goal: reverse the challenge algorithm from firmware dumps alone (no machine).
+Result: the **Latitude 5X90 EC firmware is PLAINTEXT** and its host-mailbox
+stack has been fully located and structurally reversed. The crypto core is the
+remaining piece (path identified below).
+
+### 12.1 EC payload encryption status (PHCM containers)
+
+| Machine | EC build | PHCM ver | header | body |
+|---|---|---|---|---|
+| OptiPlex 3090 2.0.7 | 1.0.21 | 01018403 | 192 B | **AES-encrypted** (entropy 8.0) |
+| Latitude 5300 1.37.0 | — | 00018003 | 128 B | **AES-encrypted** |
+| **Latitude 5X90 1.41.0** | 1.00.51 (2023) | 00010003 | 128 B | **PLAINTEXT ARM Cortex-M Thumb** |
+
+Extraction: PFS section with `PHCM` magic; body = n×64 B chunks (n @+0x10,
+header size @+0x14). The 5X90 body carries debug strings (`read_service_tag()`,
+`host is up! mbx:%x %x %x`, `VerifyEcKcdsaSignature`, `ecsdsa_verify_from_A0`,
+`bBOOT %08lx`, …) — a fully analyzable image.
+
+### 12.2 Memory map and host-mailbox transport (5X90 EC 1.00.51)
+
+```
+flash 0x00000000-0x0FFFFF  (PHCM body maps at 0xD0000; code 0xD0000-0xF0000+)
+RAM   0x00100000-          (mailbox window @ 0x118F90, 32 B;
+                            service record @ 0x118FAC = window+0x1C:
+                            {u16 svc, u8 requester, u8 valid};
+                            per-service flags @ 0x118FAC + 4*svc)
+MMIO  0x40000000-          (NPCX-style; eSPI I/O window module @ 0x400F3400)
+```
+
+Port 0x910/0x911 transport, EC side:
+
+- **Init fn @0xD19F8**: writes I/O range traps {0x2E, **0x910**, 0xB10, 0x80}
+  into window regs +0x334/+0x33C/+0x34C/+0x350 of MMIO 0x400F3400, registers
+  the RAM window (0x118F90) at +0x348, clears the three channel modules
+  (0x400F0C00/0x400F1000/0x400F1400).
+- **IRQ engine @0xEFEBC**: reads the trapped port from [0x400F3400+0x33C]>>16,
+  **rejects unless == 0x910**, then runs a 3-state machine (states 0/1/2) with
+  0x78 sync bytes, 8-byte collects into the window, and byte-exact compare
+  (verify) sequences.
+- **Service layer**: the engine deposits a service request (u16 ID at
+  window+0x1C); the task loop (fn @0xDFB68, ", setting service flag" /
+  ", call handler(%d)" logs) locks the service (timeout 5000 ms), marks it
+  pending, and dispatches via **table @0xF1FDC** (28-byte entries):
+  `handler = [entry+0x444]` (trampoline), `arg = [entry+0x438]` (subscriber
+  list), log flag @+0x44C. Trampolines: 0xDFF99 (4-byte fn array),
+  0xDFF6D/0xE000D ({fn,arg} pair variants). **Valid service IDs are EVEN.**
+
+### 12.3 The challenge service
+
+| BIOS mailbox cmd | EC service | trampoline | subscribers |
+|---|---|---|---|
+| 0x17 (data transfer) | 0x18 | 0xDFF6D | 8 functions (list @0xF2F10) |
+| **0x21 (password challenge)** | **0x22** | 0xDFF6D | **single: fn 0xDEBBC, arg 0x1182D0** |
+
+`0xDEBBC` is a state gate (states 0xED/0xEE/0xC3, log tag 0x1A) guarding the
+actual computation — the response builder sits behind it (next step below).
+
+### 12.4 Crypto inventory + the decisive open question
+
+- No plaintext SHA-256/SHA-1/MD5 constant tables exist anywhere in the EC
+  image → the challenge hash (if any) uses computed tables or a non-standard
+  construction.
+- The EC implements **KCDSA/ECDSA signature verification**
+  (`VerifyEcKcdsaSignature`, `ecsdsa_verify_from_A0`, `A0` = key page) — used
+  at least for EC-firmware update authentication.
+- A **64-char mixed alphabet** `012345679abc…9ABC…0` @0xF245EC is referenced
+  from THREE code sites — candidate output renderer for challenge responses
+  (64-char = 6-bit mapping, vs the BIOS-side 72-char alphabets).
+
+**Open question that decides everything:** whether the cmd-0x21 response is
+(a) a deterministic transform of machine data (service tag/UUID + family) —
+then finishing this RE yields a full **offline keygen**; or (b) an ECC
+signature / keyed value using a per-machine secret in the EC key store — then
+offline computation is impossible by design and the cmd-0x21 **probe**
+(dell_cf1b_probe.c, section 11) remains the only route to the expected value.
+
+### 12.5 Remaining path (mechanical)
+
+1. Trace svc-0x22 state machine: 0xDEBBC (states 0xED/0xEE/0xC3) → response
+   builder; identify inputs (window payload, service tag via `read_service_tag`
+   @ strings 0xF1F98/0xF1FAC, key-page reads).
+2. Check the 64-char alphabet call sites (0x1BAD8/0x1BC0C/0x1C088 pools) for
+   the response rendering.
+3. If ECC: identify the key source (A0 page) and stop — switch to probe route.
+4. Tooling: `bios-analysis/ec_analysis.py` (PHCM parse, Thumb xref, service
+   table dump, disassembly). EC payload re-extraction:
+   `PFSFile`-walk `dl/Latitude_5X90.exe` sections for `PHCM` magic (see
+   ec_analysis.py docstring).
