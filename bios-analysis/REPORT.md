@@ -796,3 +796,42 @@ each marker; `--brute227` then recovers the password offline
 (SHA256(P16‖8dfc7b25) == X_enrolled). Without an SPI dump, the on-machine
 validator (`dell_cf1b_probe --family 8FC8|CF1B --password <P>`) remains the
 no-tools route — per §13.6.
+
+## 13.8 Internet-wide validation: the salt database (real data, no machines)
+
+Per the standing directive — collect real dump/firmware data from the internet,
+never ask for machine access — the collection pipeline is now fully automated
+and its results are committed source code:
+
+- `relay/catalog.txt` — 28 real `downloads.dell.com` package URLs (OptiPlex
+  3000–7000 families 2020–2023, previous generation, CF1B-era legacy boxes,
+  Latitude 5X90/5X00/5300, plus both 3090 reference packages).
+- `bios-analysis/collect_from_catalog.py` — downloader + extractor
+  (DellPfsExtract → carve/PFS/FV recursion → EC PHCM payloads + pw modules).
+- `.github/workflows/collect-dell-data.yml` — a GitHub Actions runner
+  downloads the catalog from the internet and commits the corpus.
+- `bios-analysis/collected/` — **the real corpus**: 27 of 28 packages
+  harvested (only the 2016-era OptiPlex 9020 AIO A19 uses pre-PFS legacy
+  packaging); EC firmware bins + password modules per model, `manifest.json`
+  with SHA-256s, 16 MB total.
+- `bios-analysis/build_salts_db.py` — generator that extracts the
+  challenge-construction facts from every module (salt constants via the
+  `lea rdx,[rip+X]; mov r8d,4; call` update sites, family membership lists,
+  OpenSSL build strings, platform GUID tables).
+- `bios-analysis/dell_salts_db.py` — **generated database** (import
+  `DB`, `challenge_hash`, `all_salts`), 38 password modules.
+
+### Fleet-wide conclusions from the real corpus
+
+| fact | value | evidence |
+|---|---|---|
+| module generations | exactly two: OpenSSL `1.0.2k 26 Jan 2017` (EC list `[8FC8]`) and `1.0.2zk 3 Sep 2024` (EC list `[1B58, 9ABE, 3FE2, CF1B, 8FC8]`) | 26 + 11 + 1 modules |
+| EC-path salt | `8dfc7b25` — **universal across the entire fleet**, both generations, Latitude and OptiPlex alike | 10 main modules |
+| legacy local salts | exactly 4, each the ASCII family code: `"0001"` (E7A8-era setup), `"1D3B"`, `"2A7B"`, `"BF97"` | 38 modules, 5 distinct salts total |
+| challenge primitive | OpenSSL SHA-256, `SHA256(data ‖ salt)` | build strings embedded in every pw module |
+
+The 3090 analysis (§13, §13.5) therefore holds fleet-wide: one construction,
+one EC salt, one per-family legacy salt set — parameterized only by which
+family the BIOS box advertises. The keygen (`dell_keygen.py`) and probe
+(`dell_cf1b_probe.c`) need no per-model changes; the database provides the
+salt for any family code encountered.
