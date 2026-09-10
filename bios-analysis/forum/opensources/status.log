@@ -1,0 +1,59 @@
+drbios_65613 FAIL http-size=36751 magic=<!DO <- https://dr-bios.com/attachments/optiplex-3080-zip.65613/
+drbios_65613 wayback: no snapshot
+drbios_64345 FAIL http-size=36743 magic=<!DO <- https://dr-bios.com/attachments/dell-3080-zip.64345/
+drbios_64345 wayback: no snapshot
+drbios_75198 FAIL http-size=36751 magic=<!DO <- https://dr-bios.com/attachments/optiplex-3090-zip.75198/
+drbios_75198 wayback: no snapshot
+vinafix_301025 FAIL http-size=34103 magic=<!DO <- https://vinafix.com/attachments/dell-optiplex-3090-gd25q256c-sop16_20231010_101512-bin.301025/
+vinafix_301025 wayback: no snapshot
+vinafix_337928 FAIL http-size=34144 magic=<!DO <- https://vinafix.com/attachments/mx25l25673g-soic16-bin.337928/
+vinafix_337928 wayback: no snapshot
+vinafix_355520 FAIL http-size=33947 magic=<!DO <- https://vinafix.com/attachments/mx25l25633f-wson8_bkp_ok-bin.355520/
+vinafix_355520 wayback: no snapshot
+vinafix_193448 FAIL http-size=34001 magic=<!DO <- https://vinafix.com/attachments/mx25l25633f-wson8_20220211_131704-bin.193448/
+vinafix_193448 wayback: no snapshot
+vinafix_200762 FAIL http-size=34018 magic=<!DO <- https://vinafix.com/attachments/mx25l25633f-wson8_20220329_204157-bin.200762/
+vinafix_200762 wayback: no snapshot
+vinafix_204017 FAIL http-size=33911 magic=<!DO <- https://vinafix.com/attachments/dell-optiplex-3080-bin.204017/
+vinafix_204017 wayback: no snapshot
+vinafix_182844 FAIL http-size=33905 magic=<!DO <- https://vinafix.com/attachments/optiplex3080-dump-bin.182844/
+vinafix_182844 wayback: no snapshot
+vinafix_183098 FAIL http-size=33923 magic=<!DO <- https://vinafix.com/attachments/outimage-confarme-ok-bin.183098/
+vinafix_183098 wayback: no snapshot
+vinafix_169404 FAIL http-size=33856 magic=<!DO <- https://vinafix.com/attachments/v2-2-1-zip.169404/
+vinafix_169404 wayback: no snapshot
+vinafix_298513 FAIL http-size=33832 magic=<!DO <- https://vinafix.com/attachments/32-zip.298513/
+vinafix_298513 wayback: no snapshot
+vinafix_182850 FAIL http-size=33868 magic=<!DO <- https://vinafix.com/attachments/buildsss-zip.182850/
+vinafix_182850 wayback: no snapshot
+vinafix_235299 FAIL http-size=33840 magic=<!DO <- https://vinafix.com/attachments/x.235299/
+vinafix_235299 wayback: no snapshot
+vinafix_378057 FAIL http-size=33995 magic=<!DO <- https://vinafix.com/attachments/x.378057/
+vinafix_378057 wayback: no snapshot
+vinafix_458135 FAIL http-size=34002 magic=<!DO <- https://vinafix.com/attachments/x.458135/
+vinafix_458135 wayback: no snapshot
+ifix_1 FAIL http-size=0 magic= <- https://drive.usercontent.google.com/download?id=1D9sYhHF1G55Aa3FP_-szqm5bKjToO96e&export=download&confirm=t
+ifix_2 FAIL http-size=0 magic= <- https://drive.usercontent.google.com/download?id=1PalH-H6FJkcsor5kVf4AwS0OvUuP2mFO&export=download&confirm=t
+ifix_3 FAIL http-size=646091 magic=Rar! <- https://drive.usercontent.google.com/download?id=1--ZPgzfvmRrJN36K9qFxH8_G1S-9xmXR&export=download&confirm=t
+ifix_4 FAIL http-size=98684 magic=Rar! <- https://drive.usercontent.google.com/download?id=1-1oV6CSg9dP1cAjK95PIUhW88yDxiiRP&export=download&confirm=t
+ifix_5 OK 1943645 <- https://drive.usercontent.google.com/download?id=1-4dPBTsFsuR5mrqoyRiVlMIQaCP8Vo44&export=download&confirm=t
+ifix_6 FAIL http-size=273571 magic=PK <- https://drive.usercontent.google.com/download?id=1-5OmIKzfBc06WZuEUb5WHhoGeVlowH4s&export=download&confirm=t
+ifix_7 FAIL http-size=759115 magic=Rar! <- https://drive.usercontent.google.com/download?id=1-6GYBB0UhChO9qv-rJRGVe0zZi1QLaNl&export=download&confirm=t
+ifix_8 OK 14045050 <- https://drive.usercontent.google.com/download?id=1-7zuPx9X-2CsjIl3kiI3p0eZC3KsA3Uy&export=download&confirm=t
+ifix_9 OK 31185817 <- https://drive.usercontent.google.com/download?id=1-8GAD4AqgYjma5oVlMFFgPl2R6iCiDO0&export=download&confirm=t
+ifix_10 FAIL http-size=288195 magic=Rar! <- https://drive.usercontent.google.com/download?id=1-8h4MGkJ4c6rvwqPToRvrkLv1ph3AUSJ&export=download&confirm=t
+ifix_11 OK 2202837 <- https://drive.usercontent.google.com/download?id=1-Ao5I4wns2u4zZoG0uIyEDjlzQdaDfTg&export=download&confirm=t
+ifix_12 OK 1398809 <- https://drive.usercontent.google.com/download?id=1-AsnHwAWYsBgOlxRLRFjY54feWE_2OCi&export=download&confirm=t
+ifix_13 FAIL http-size=100452 magic=Rar! <- https://drive.usercontent.google.com/download?id=1-B2Falx46osV9NZsMACKG-LBht1jZWaL&export=download&confirm=t
+ifix_14 FAIL http-size=126766 magic=Rar! <- https://drive.usercontent.google.com/download?id=1-Bmhi81OlxAx2ze1HEOkXYZWcyPuCzHY&export=download&confirm=t
+ifix_15 FAIL http-size=368632 magic=Rar! <- https://drive.usercontent.google.com/download?id=1-CNkC1ck2ZGH9RjRFIcAttu5cyQD5Z8e&export=download&confirm=t
+ifix_16 FAIL http-size=88429 magic=Rar! <- https://drive.usercontent.google.com/download?id=1-Dc7jY3XiYl74fHCxuxOQfRZoy2rIfRj&export=download&confirm=t
+ifix_17 FAIL http-size=132286 magic=Rar! <- https://drive.usercontent.google.com/download?id=1-ErnGgz7r2ywjctqkGTAwXg-cXUasutR&export=download&confirm=t
+ifix_18 FAIL http-size=86395 magic=Rar! <- https://drive.usercontent.google.com/download?id=1-FC5HPoA4jxF_9A0_9mIKYt27UdCI8db&export=download&confirm=t
+ifix_19 OK 1158831 <- https://drive.usercontent.google.com/download?id=1-Fbw7PmJg9ZO6aoSrv6o3wFsx5nLQ_bJ&export=download&confirm=t
+ifix_20 FAIL http-size=262159 magic=PK <- https://drive.usercontent.google.com/download?id=1-Iu2eG3mbMW3TyVaDGOq4gBxFy35ZG8S&export=download&confirm=t
+ifix_21 FAIL http-size=317467 magic=PK <- https://drive.usercontent.google.com/download?id=1-K-7PR_0bv1zmmqWDmWeP6HDLUwsSRCA&export=download&confirm=t
+ifix_22 FAIL http-size=788661 magic=Rar! <- https://drive.usercontent.google.com/download?id=1-RFzreQcP_xUrtLxYl1BhbcT6bC3TZwt&export=download&confirm=t
+ifix_23 FAIL http-size=76665 magic=Rar! <- https://drive.usercontent.google.com/download?id=1-RMRQVMnJ1WOjzCZtzuOFI6XU3Vo3jvb&export=download&confirm=t
+ifix_24 FAIL http-size=134715 magic=Rar! <- https://drive.usercontent.google.com/download?id=1-Rm46XbtjTw-XXdX1NCPdiLP3wsIXAdz&export=download&confirm=t
+ifix_25 FAIL http-size=379018 magic=PK <- https://drive.usercontent.google.com/download?id=1-SemOo0g0SGD3wcHovNSxeytB5U10RFJ&export=download&confirm=t
