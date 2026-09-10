@@ -515,6 +515,49 @@ def cmd_challenge(args):
     print(f"expected R: {r.hex()}   <- probe PASS iff R == this")
 
 
+def cmd_findxenrolled(args):
+    """--findxenrolled <flash/nvram-dump.bin> [more dumps...]
+
+    Locate X_enrolled = SHA256(P_true || salt) in a raw SPI/BIOS dump.
+    The enrolled hash lives in Dell's NVRAM record store (REPORT §13.7):
+    records tagged by GUID 6e978d37-2ec3-43b6-8ceb-cc9aa215109e (record
+    ids 0x10..0x1F), serialized in the flash NVRAM region. This tool scans
+    for the GUID (both field orders) and lists plausible 32-byte hash
+    records around it; feed candidates to --brute227.
+    """
+    if len(args) < 1:
+        print(__doc__); return
+    RECG = bytes.fromhex("378d976e2ec3b6438cebcc9aa215109e")   # as stored (mixed-endian)
+    RECG_R = bytes.fromhex("6e978d37c32e43b68cebcc9aa215109e")  # swapped first 3 fields
+    STORE = bytes.fromhex("d177a7b7b66e9e46ad1f1165eb92b3ff")
+    for path in args:
+        try:
+            d = open(path, "rb").read()
+        except OSError as e:
+            print(f"{path}: {e}"); continue
+        print(f"=== {path} ({len(d)} bytes) ===")
+        marks = {}
+        for name, pat in (("record-GUID", RECG), ("record-GUID(swapped)", RECG_R),
+                          ("store-protocol-GUID", STORE)):
+            i = d.find(pat)
+            while i >= 0:
+                marks.setdefault(i, []).append(name)
+                i = d.find(pat, i + 1)
+        if not marks:
+            print("  no record/store GUID markers found (dump the full SPI, incl. NVRAM region)")
+            continue
+        for off in sorted(marks):
+            print(f"  @{off:#x}: {', '.join(marks[off])}")
+            for delta in (0x10, 0x14, 0x18, 0x1c, 0x20, 0x24, 0x28, 0x30, 0x34):
+                cand = d[off+delta:off+delta+32]
+                if len(cand) < 32:
+                    continue
+                if cand.count(0) > 24 or cand.count(0xFF) > 24:
+                    continue
+                print(f"    +{delta:#04x}: {cand.hex()}")
+        print("  -> try each candidate: python3 dell_keygen.py --brute227 <hash-hex>")
+
+
 def cmd_brute227(args):
     """--brute227 <X_enrolled-hex> [charset] [minlen] [maxlen] [salt-hex]
 
@@ -556,6 +599,9 @@ def main():
         return
     if args[0] == '--brute227':
         cmd_brute227(args)
+        return
+    if args[0] == '--findxenrolled':
+        cmd_findxenrolled(args)
         return
     tag = args[0].upper()
     suffix = args[1].upper() if len(args) > 1 else "CF1B"

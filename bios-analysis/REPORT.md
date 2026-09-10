@@ -760,3 +760,39 @@ is `R == SHA256(X ‖ salt)`, not `R == X`.
 - The construction (OpenSSL SHA-256, per the embedded
   "SHA-256 part of OpenSSL 1.0.2zk  3 Sep 2024" build string) is now fully
   dump-derived; only the per-machine enrolled hash is not in any image.
+
+### 13.7 Where X_enrolled lives — the Dell NVRAM record store (and how to get it)
+
+Reversing the local verify path (2.27.0 fn 0x24c0 → 0x217c; identical
+machinery in 2.0.7 pw_42k) identified the storage of enrolled password
+material:
+
+- **Store access protocol** (LocateProtocol'd into the pw module):
+  `b7a777d1-6eb6-469e-ad1f-1165eb92b3ff` (2.27.0 @RVA 0xA4D0, 2.0.7 @0xA4C0).
+  241 modules in the 2.0.7 System BIOS consume it — Dell's NVRAM record
+  store.
+- **Record type** for password records: GUID `6e978d37-2ec3-43b6-8ceb-
+  cc9aa215109e` (pw modules @RVA 0xA818/0x9208), record **ids 0x10..0x1F**
+  (fn 0x217c scans ids 0x10+i, i<0x10, for a size match).
+- Read shape: `obj->read(id, &recordGUID, &len, buf)`; legacy/local families
+  store a **0x14-byte (20-byte, space-padded)** record; the EC families'
+  enroll (cmd 0x21 sub 3) writes the **32-byte SHA-256 image** X_enrolled.
+- **Backing storage is SMM-guarded**: the provider-side modules implement the
+  store via Dell's NVRAM SMI mailbox (variables `NvramMailBox` /
+  `NvramSmiBuffer`; 98 KB provider modules in the System BIOS). The records
+  are therefore NOT exposed to the OS via efivarfs — by design.
+
+**Extraction for offline brute-force (one-time, physical):** dump the SPI
+flash (§8 route), then:
+
+```
+python3 bios-analysis/dell_keygen.py --findxenrolled <spidump.bin>
+python3 bios-analysis/dell_keygen.py --brute227 <candidate-hash-hex>
+```
+
+`--findxenrolled` scans for the record GUID (both field orders) and the
+store-protocol GUID, and lists every plausible 32-byte hash record around
+each marker; `--brute227` then recovers the password offline
+(SHA256(P16‖8dfc7b25) == X_enrolled). Without an SPI dump, the on-machine
+validator (`dell_cf1b_probe --family 8FC8|CF1B --password <P>`) remains the
+no-tools route — per §13.6.
