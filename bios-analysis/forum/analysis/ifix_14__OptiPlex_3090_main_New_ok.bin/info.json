@@ -1,0 +1,70 @@
+{
+ "src": "ifix_14",
+ "file": "OptiPlex 3090 main_New ok.bin",
+ "size": 33554432,
+ "sha256": "244ba6c663e5fd2b48bfd3c5678e9ba713f1032100f5677a6aa2fa05b0966d36",
+ "regions": {
+  "bios": [
+   16777216,
+   33554431
+  ],
+  "me": [
+   1060864,
+   16777215
+  ],
+  "gbe": [
+   1052672,
+   1060863
+  ]
+ },
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [
+  {
+   "file": "ec_slot_0001000_102560.bin",
+   "size": 102560,
+   "sha256": "21b0467a303bc032ed5fae337fc6254b4ff3489ba26bf856bef26f4c030a74e0",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "ec_slot_0041000_102096.bin",
+   "size": 102096,
+   "sha256": "e4f7ba6b9692d125ddd02ba8c21a500486ee57dcbfd4696e741b9966a9db5b44",
+   "matches_package": null,
+   "saved": true
+  }
+ ],
+ "pw_modules": [
+  {
+   "file": "pw_b65a35c0_87040.efi",
+   "size": 87040,
+   "sha256": "b65a35c0f7761c81b30f9620a966539dc9b09f6282e1f8d8d7eda01919b63aae",
+   "matches_package": "collected/OptiPlex_3090_2.0.7/pw_5_87040.efi"
+  },
+  {
+   "file": "pw_b450d139_42496.efi",
+   "size": 42496,
+   "sha256": "b450d139757440a11b93abf98410b46b5a9b7ec74981d05b55e9c2ab73e05cd8",
+   "matches_package": "collected/OptiPlex_3090_2.0.7/pw_4_42496.efi"
+  },
+  {
+   "file": "pw_bf35c4a2_31744.efi",
+   "size": 31744,
+   "sha256": "bf35c4a2805ff3f0f92b1f6068965695f8fa65d0c3780ae36607dd3e90faf434",
+   "matches_package": "collected/OptiPlex_3090_2.0.7/pw_3_31744.efi"
+  },
+  {
+   "file": "pw_f9cdf127_23552.efi",
+   "size": 23552,
+   "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
+   "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+  },
+  {
+   "file": "pw_4cba53c8_24576.efi",
+   "size": 24576,
+   "sha256": "4cba53c8ace9962875f3499b66b07791e6cad41b4e064b7b73b9f2a5fe5967f7",
+   "matches_package": "collected/OptiPlex_3090_2.0.7/pw_2_24576.efi"
+  }
+ ]
+}

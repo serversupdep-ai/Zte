@@ -1,5 +1,5 @@
 {
- "n_dumps": 7,
+ "n_dumps": 91,
  "dumps": [
   {
    "src": "dumps",
@@ -384,6 +384,1938 @@
      16781311
     ]
    },
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_03",
+   "file": "2 TroyAdl_16.1.27.2176_EVT_64 v1.17.0 -- 1 System BIOS with BiosGuard v1.17.0.bin",
+   "size": 33554432,
+   "sha256": "05dfe72baa0dddda50fd5865dc1f2dd06ffc32d5f2633d1d6ffa04605d1c6393",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": [
+    {
+     "file": "pw_3660c5cf_52736.efi",
+     "size": 52736,
+     "sha256": "3660c5cf065c168ead0de8d6123334292604ccb1b16ab88a782c0271db74aa1f",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_db8defcd_18432.efi",
+     "size": 18432,
+     "sha256": "db8defcd6bdfcf2c10348db7d7b9a5679fefd417df0143e3eec157db3a9a35dc",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_4d40d53b_23040.efi",
+     "size": 23040,
+     "sha256": "4d40d53b986ab095d0c4af7f3b660213373a87199f17495b4a258b0005d6adaf",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_36d9ceea_28672.efi",
+     "size": 28672,
+     "sha256": "36d9ceea7688521daf4d445bc41c9bdcf4234228ab5d302437848fdf0e435ff5",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_b706ecc3_20992.efi",
+     "size": 20992,
+     "sha256": "b706ecc3cf8fc5b63c0b8332a7dc74e20d38349d35411e89fc1a5ade5d21f030",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_1678be77_45568.efi",
+     "size": 45568,
+     "sha256": "1678be77f0e6521ada7e050ef467d8fd1285a05895cfa44003a0f18fd07eaffc",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_1cb7f92b_17408.efi",
+     "size": 17408,
+     "sha256": "1cb7f92bd63b770a1c5f822246529116ba292de3820f6b0ccc862cfaf97594c0",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_66d4b9d4_39424.efi",
+     "size": 39424,
+     "sha256": "66d4b9d4c38ca9acb4f8d1f407e8cca628141289822f555818e20b83d029137e",
+     "matches_package": null,
+     "saved": true
+    }
+   ]
+  },
+  {
+   "src": "ifix_14",
+   "file": "OptiPlex 3090 main_ok try First IF not Power On Try Another.bin",
+   "size": 33554432,
+   "sha256": "ce6cfe3722a2a92911777764afd981e1dd4986bc88cdba7de796a406c8228dfd",
+   "regions": {
+    "bios": [
+     16777216,
+     33554431
+    ],
+    "me": [
+     1060864,
+     16777215
+    ],
+    "gbe": [
+     1052672,
+     1060863
+    ]
+   },
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [
+    {
+     "file": "ec_slot_0001000_102560.bin",
+     "size": 102560,
+     "sha256": "21b0467a303bc032ed5fae337fc6254b4ff3489ba26bf856bef26f4c030a74e0",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "ec_slot_0041000_102096.bin",
+     "size": 102096,
+     "sha256": "e4f7ba6b9692d125ddd02ba8c21a500486ee57dcbfd4696e741b9966a9db5b44",
+     "matches_package": null,
+     "saved": true
+    }
+   ],
+   "pw_modules": [
+    {
+     "file": "pw_9355de90_87040.efi",
+     "size": 87040,
+     "sha256": "9355de901c8508ff5f1801a71e971d1365a9469eee583948fa3bbed76932ca1f",
+     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_5_87040.efi"
+    },
+    {
+     "file": "pw_b450d139_42496.efi",
+     "size": 42496,
+     "sha256": "b450d139757440a11b93abf98410b46b5a9b7ec74981d05b55e9c2ab73e05cd8",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_4_42496.efi"
+    },
+    {
+     "file": "pw_bf35c4a2_31744.efi",
+     "size": 31744,
+     "sha256": "bf35c4a2805ff3f0f92b1f6068965695f8fa65d0c3780ae36607dd3e90faf434",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_3_31744.efi"
+    },
+    {
+     "file": "pw_f9cdf127_23552.efi",
+     "size": 23552,
+     "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
+     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+    },
+    {
+     "file": "pw_4cba53c8_24576.efi",
+     "size": 24576,
+     "sha256": "4cba53c8ace9962875f3499b66b07791e6cad41b4e064b7b73b9f2a5fe5967f7",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_2_24576.efi"
+    }
+   ]
+  },
+  {
+   "src": "ifix_14",
+   "file": "OptiPlex 3090 main_New ok.bin",
+   "size": 33554432,
+   "sha256": "244ba6c663e5fd2b48bfd3c5678e9ba713f1032100f5677a6aa2fa05b0966d36",
+   "regions": {
+    "bios": [
+     16777216,
+     33554431
+    ],
+    "me": [
+     1060864,
+     16777215
+    ],
+    "gbe": [
+     1052672,
+     1060863
+    ]
+   },
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [
+    {
+     "file": "ec_slot_0001000_102560.bin",
+     "size": 102560,
+     "sha256": "21b0467a303bc032ed5fae337fc6254b4ff3489ba26bf856bef26f4c030a74e0",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "ec_slot_0041000_102096.bin",
+     "size": 102096,
+     "sha256": "e4f7ba6b9692d125ddd02ba8c21a500486ee57dcbfd4696e741b9966a9db5b44",
+     "matches_package": null,
+     "saved": true
+    }
+   ],
+   "pw_modules": [
+    {
+     "file": "pw_b65a35c0_87040.efi",
+     "size": 87040,
+     "sha256": "b65a35c0f7761c81b30f9620a966539dc9b09f6282e1f8d8d7eda01919b63aae",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_5_87040.efi"
+    },
+    {
+     "file": "pw_b450d139_42496.efi",
+     "size": 42496,
+     "sha256": "b450d139757440a11b93abf98410b46b5a9b7ec74981d05b55e9c2ab73e05cd8",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_4_42496.efi"
+    },
+    {
+     "file": "pw_bf35c4a2_31744.efi",
+     "size": 31744,
+     "sha256": "bf35c4a2805ff3f0f92b1f6068965695f8fa65d0c3780ae36607dd3e90faf434",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_3_31744.efi"
+    },
+    {
+     "file": "pw_f9cdf127_23552.efi",
+     "size": 23552,
+     "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
+     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+    },
+    {
+     "file": "pw_4cba53c8_24576.efi",
+     "size": 24576,
+     "sha256": "4cba53c8ace9962875f3499b66b07791e6cad41b4e064b7b73b9f2a5fe5967f7",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_2_24576.efi"
+    }
+   ]
+  },
+  {
+   "src": "ifix_17",
+   "file": "Optiplex 7000 micro UNLOCKED.bin",
+   "size": 16777216,
+   "sha256": "d981b34dc806041e394aa1ce43f6c1236ccefe7cde18927005b8661d91c991e4",
+   "regions": {
+    "me": [
+     1060864,
+     10948607
+    ],
+    "gbe": [
+     1052672,
+     1060863
+    ]
+   },
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [
+    {
+     "file": "ec_slot_0001000_205280.bin",
+     "size": 205280,
+     "sha256": "480332b0e244528a336a6d66b18e33d7d1cd40d35f9466f48932d8f0f13a3099",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "ec_slot_0041000_205328.bin",
+     "size": 205328,
+     "sha256": "fc6fb13d04556bf8509649fca98b939efe07056c92b2c2e7e00dba28f71328cb",
+     "matches_package": null,
+     "saved": true
+    }
+   ],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_17",
+   "file": "OK BACKUP.BIN",
+   "size": 16777216,
+   "sha256": "5d158745b4c5b9864be25361eda920cfffd9ca4510218e0d7968626e23a4e969",
+   "regions": {
+    "me": [
+     1060864,
+     10948607
+    ],
+    "gbe": [
+     1052672,
+     1060863
+    ]
+   },
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [
+    {
+     "file": "ec_slot_0001000_205280.bin",
+     "size": 205280,
+     "sha256": "fdeeed49380c353f2e65e8bc8fd7bd3039f34e2799259a2bbcbf6f4ae2dbdc39",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "ec_slot_0041000_205328.bin",
+     "size": 205328,
+     "sha256": "fc6fb13d04556bf8509649fca98b939efe07056c92b2c2e7e00dba28f71328cb",
+     "matches_package": null,
+     "saved": true
+    }
+   ],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_17",
+   "file": "OK BACKUP 32MB.BIN",
+   "size": 33554432,
+   "sha256": "2b26e9a89b6b08245412cde55c7ef5ba7c4e5cf8247f1a39c7f0e2fef05d3c3b",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": [
+    {
+     "file": "pw_d34e4bf7_37888.efi",
+     "size": 37888,
+     "sha256": "d34e4bf74d51eb13a8e07f0ec2554bea8bfa84622dd0fdcb60a01058801461b1",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_6ab0e65f_18432.efi",
+     "size": 18432,
+     "sha256": "6ab0e65f176d50d22360a0fa0134dab7e7bc5983e2bcff1d4a30e150423a0560",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_fa100de5_23040.efi",
+     "size": 23040,
+     "sha256": "fa100de56dc7952f2f32a793e6945844d8c4e3efd1f1aea4594ca76355f2bf2e",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_51d0f56a_28672.efi",
+     "size": 28672,
+     "sha256": "51d0f56a73ff147a27dc55fe49a74a8f7290522417853a7cf480f72385684694",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_5e2e5282_20992.efi",
+     "size": 20992,
+     "sha256": "5e2e52826e2f8550faa865a5bb9a536df3a8237155a70e31fe14eb38686fc161",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_06a8cb22_45056.efi",
+     "size": 45056,
+     "sha256": "06a8cb22de60c8393db3c57eaf5b809f18ed4389f224d4b3bc78a841533c9eb4",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_63f30308_17408.efi",
+     "size": 17408,
+     "sha256": "63f303085344f4065e2f22c3b1bdfd23fb75d0250da65ae111d033b9b87d3333",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_fe3b77c1_39424.efi",
+     "size": 39424,
+     "sha256": "fe3b77c1474cbc89fa49c8ffe906065d226af396da67ff77cadb92b44e13b2e8",
+     "matches_package": null,
+     "saved": true
+    }
+   ]
+  },
+  {
+   "src": "ifix_19",
+   "file": "Precision 3640 Tower TRY FIRST IF NOT WORK TRY _1.bin",
+   "size": 33554432,
+   "sha256": "ce337d491a6850e34d228a92861a3d920f923d6215f7e763be7db846c73a0440",
+   "regions": {
+    "bios": [
+     16777216,
+     33554431
+    ],
+    "me": [
+     1060864,
+     16777215
+    ],
+    "gbe": [
+     1052672,
+     1060863
+    ]
+   },
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [
+    {
+     "file": "ec_slot_0001000_88928.bin",
+     "size": 88928,
+     "sha256": "bb02aabd7cd915cbd63ad7021c1e36fae0f5e054602ef0a0c08d6a99a54d6a0d",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "ec_slot_0041000_83216.bin",
+     "size": 83216,
+     "sha256": "30cf3250e6b3576ca2d2bf6abacb9f9b18284c30cbdb2040912b612af7d591df",
+     "matches_package": null,
+     "saved": true
+    }
+   ],
+   "pw_modules": [
+    {
+     "file": "pw_9355de90_87040.efi",
+     "size": 87040,
+     "sha256": "9355de901c8508ff5f1801a71e971d1365a9469eee583948fa3bbed76932ca1f",
+     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_5_87040.efi"
+    },
+    {
+     "file": "pw_a9eb964a_43008.efi",
+     "size": 43008,
+     "sha256": "a9eb964a8a08bf8fe01c47f8a79957a63428e2c86aca7e4d83bed8792046945a",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_bf35c4a2_31744.efi",
+     "size": 31744,
+     "sha256": "bf35c4a2805ff3f0f92b1f6068965695f8fa65d0c3780ae36607dd3e90faf434",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_3_31744.efi"
+    },
+    {
+     "file": "pw_a6dbab71_23552.efi",
+     "size": 23552,
+     "sha256": "a6dbab710bd3fe55ed6e0122fd35a95566ce4e78bfdc27afe0a592721aa082be",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_4cba53c8_24576.efi",
+     "size": 24576,
+     "sha256": "4cba53c8ace9962875f3499b66b07791e6cad41b4e064b7b73b9f2a5fe5967f7",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_2_24576.efi"
+    }
+   ]
+  },
+  {
+   "src": "ifix_19",
+   "file": "Precision 3640 Tower_1.bin",
+   "size": 33554432,
+   "sha256": "9008024447fed7eb8994823a36681d91fad6396d64f9c8b595aae05afb7eadcc",
+   "regions": {
+    "bios": [
+     16777216,
+     33554431
+    ],
+    "me": [
+     1060864,
+     16777215
+    ],
+    "gbe": [
+     1052672,
+     1060863
+    ]
+   },
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [
+    {
+     "file": "ec_slot_0001000_88928.bin",
+     "size": 88928,
+     "sha256": "bb02aabd7cd915cbd63ad7021c1e36fae0f5e054602ef0a0c08d6a99a54d6a0d",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "ec_slot_0041000_83216.bin",
+     "size": 83216,
+     "sha256": "30cf3250e6b3576ca2d2bf6abacb9f9b18284c30cbdb2040912b612af7d591df",
+     "matches_package": null,
+     "saved": true
+    }
+   ],
+   "pw_modules": [
+    {
+     "file": "pw_9355de90_87040.efi",
+     "size": 87040,
+     "sha256": "9355de901c8508ff5f1801a71e971d1365a9469eee583948fa3bbed76932ca1f",
+     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_5_87040.efi"
+    },
+    {
+     "file": "pw_a9eb964a_43008.efi",
+     "size": 43008,
+     "sha256": "a9eb964a8a08bf8fe01c47f8a79957a63428e2c86aca7e4d83bed8792046945a",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_bf35c4a2_31744.efi",
+     "size": 31744,
+     "sha256": "bf35c4a2805ff3f0f92b1f6068965695f8fa65d0c3780ae36607dd3e90faf434",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_3_31744.efi"
+    },
+    {
+     "file": "pw_a6dbab71_23552.efi",
+     "size": 23552,
+     "sha256": "a6dbab710bd3fe55ed6e0122fd35a95566ce4e78bfdc27afe0a592721aa082be",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "pw_4cba53c8_24576.efi",
+     "size": 24576,
+     "sha256": "4cba53c8ace9962875f3499b66b07791e6cad41b4e064b7b73b9f2a5fe5967f7",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_2_24576.efi"
+    }
+   ]
+  },
+  {
+   "src": "ifix_21",
+   "file": "Alienware Aurora R110  IPCML-SH REV A00.bin",
+   "size": 33554432,
+   "sha256": "b0e98a7b56a551662a10b6a66d041eb1a7d372cf6faf3b5f0f5091d736d018d9",
+   "regions": {
+    "bios": [
+     22020096,
+     33554431
+    ],
+    "me": [
+     4096,
+     16781311
+    ]
+   },
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_22",
+   "file": "Dell Pro 14 Plus Dell_Pro_Plus_PB13255_PB14255_PB16255_1.11.0 AMD.bin",
+   "size": 67108864,
+   "sha256": "b536fbb6aae4e02339241795da927c0cd83d5054fc58a288449cd0dc4ea19fd6",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [
+    {
+     "file": "ec_slot_0081000_261888.bin",
+     "size": 261888,
+     "sha256": "3f72c70a30708bea0a1948fa7e983c9747d33617e3db40c060adb2db9bd88138",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "ec_slot_0091080_211104.bin",
+     "size": 211104,
+     "sha256": "fc00540316acfb9bf2571cb2340dcfbfad27f24804103901aef097c7afddc444",
+     "matches_package": null,
+     "saved": true
+    }
+   ],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_23",
+   "file": "32MB.BIN",
+   "size": 33554432,
+   "sha256": "390c0bef44c33ee72d89b139e2ad13c63faf93e5a22041524d02daee736e294a",
+   "regions": {
+    "bios": [
+     16777216,
+     33554431
+    ],
+    "me": [
+     1060864,
+     16777215
+    ],
+    "gbe": [
+     1052672,
+     1060863
+    ]
+   },
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [
+    {
+     "file": "ec_slot_0001000_102048.bin",
+     "size": 102048,
+     "sha256": "67bd6123d86e78df98853d22c11108a4f195bf86d25be324c044006faa0c0ffc",
+     "matches_package": null,
+     "saved": true
+    },
+    {
+     "file": "ec_slot_0041000_102096.bin",
+     "size": 102096,
+     "sha256": "e4f7ba6b9692d125ddd02ba8c21a500486ee57dcbfd4696e741b9966a9db5b44",
+     "matches_package": null,
+     "saved": true
+    }
+   ],
+   "pw_modules": [
+    {
+     "file": "pw_9355de90_87040.efi",
+     "size": 87040,
+     "sha256": "9355de901c8508ff5f1801a71e971d1365a9469eee583948fa3bbed76932ca1f",
+     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_5_87040.efi"
+    },
+    {
+     "file": "pw_b450d139_42496.efi",
+     "size": 42496,
+     "sha256": "b450d139757440a11b93abf98410b46b5a9b7ec74981d05b55e9c2ab73e05cd8",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_4_42496.efi"
+    },
+    {
+     "file": "pw_bf35c4a2_31744.efi",
+     "size": 31744,
+     "sha256": "bf35c4a2805ff3f0f92b1f6068965695f8fa65d0c3780ae36607dd3e90faf434",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_3_31744.efi"
+    },
+    {
+     "file": "pw_f9cdf127_23552.efi",
+     "size": 23552,
+     "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
+     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+    },
+    {
+     "file": "pw_4cba53c8_24576.efi",
+     "size": 24576,
+     "sha256": "4cba53c8ace9962875f3499b66b07791e6cad41b4e064b7b73b9f2a5fe5967f7",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_2_24576.efi"
+    }
+   ]
+  },
+  {
+   "src": "ifix_25",
+   "file": "optiplex_3090.bin",
+   "size": 33554432,
+   "sha256": "27b7054bf14d2e967630e62e08b87748aee90b5e8fdd112dd0202b4fb49db167",
+   "regions": {
+    "bios": [
+     16777216,
+     33554431
+    ],
+    "me": [
+     1060864,
+     16777215
+    ],
+    "gbe": [
+     1052672,
+     1060863
+    ]
+   },
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [
+    {
+     "file": "ec_slot_0001000_102048.bin",
+     "size": 102048,
+     "sha256": "e96f2c0a27264c092a3bd5d0b0b5b641dc73eb8ba1add74e302467092e89c2f9",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/ec_3_102080.bin (machine image = package image prefix, pkg 102,080 B)"
+    },
+    {
+     "file": "ec_slot_0041000_102096.bin",
+     "size": 102096,
+     "sha256": "a31359167e0307b0b8a38d3f64b30c2ebd6aad40170c8e53f0817ed0144b421c",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/ec_4_102096.bin"
+    }
+   ],
+   "pw_modules": [
+    {
+     "file": "pw_9355de90_87040.efi",
+     "size": 87040,
+     "sha256": "9355de901c8508ff5f1801a71e971d1365a9469eee583948fa3bbed76932ca1f",
+     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_5_87040.efi"
+    },
+    {
+     "file": "pw_b450d139_42496.efi",
+     "size": 42496,
+     "sha256": "b450d139757440a11b93abf98410b46b5a9b7ec74981d05b55e9c2ab73e05cd8",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_4_42496.efi"
+    },
+    {
+     "file": "pw_bf35c4a2_31744.efi",
+     "size": 31744,
+     "sha256": "bf35c4a2805ff3f0f92b1f6068965695f8fa65d0c3780ae36607dd3e90faf434",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_3_31744.efi"
+    },
+    {
+     "file": "pw_f9cdf127_23552.efi",
+     "size": 23552,
+     "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
+     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+    },
+    {
+     "file": "pw_4cba53c8_24576.efi",
+     "size": 24576,
+     "sha256": "4cba53c8ace9962875f3499b66b07791e6cad41b4e064b7b73b9f2a5fe5967f7",
+     "matches_package": "collected/OptiPlex_3090_2.0.7/pw_2_24576.efi"
+    }
+   ]
+  },
+  {
+   "src": "ifix_28",
+   "file": "Dell XPS 13 9350 AAZ80 LA-C881P DINO2 MB 1.0 A00 Clear me.bin",
+   "size": 16777216,
+   "sha256": "8adfcf83cdd80315cae19bf1d095f4a2cc6e558afaeabd09122e191bf48018e7",
+   "regions": {
+    "bios": [
+     7340032,
+     16777215
+    ],
+    "me": [
+     4096,
+     7340031
+    ]
+   },
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_30",
+   "file": "ok  E6520 LA-6562p.BIN",
+   "size": 8388608,
+   "sha256": "0a4c7be9d06aec30556212d067e5f767e22ce505d865123b34c4b4df274f48a8",
+   "regions": {
+    "bios": [
+     6291456,
+     8388607
+    ],
+    "me": [
+     20480,
+     6291455
+    ],
+    "gbe": [
+     4096,
+     20479
+    ]
+   },
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_30",
+   "file": "ok EC E6520 LA-6562p.BIN",
+   "size": 2097152,
+   "sha256": "96371485dc66b047d41af368df9863cfdadd94d74dac2c9daabaca40f3d1c6db",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_34",
+   "file": "11.0.0.1205_CON_LP_C_NPDM_PRD_RGN_outimage.bin",
+   "size": 16777216,
+   "sha256": "de4aafd707cde68606737343fc138ecb02bf67c71623c9c696611bf195cf08e2",
+   "regions": {
+    "bios": [
+     7340032,
+     16777215
+    ],
+    "me": [
+     4096,
+     7340031
+    ]
+   },
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_36",
+   "file": "W25Q32_20161217_50656.BIN",
+   "size": 4194304,
+   "sha256": "52e56f5d98c354046c075da577d9a26002b011b11997824f4a8a7bc1b7845a3c",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": [
+    {
+     "file": "pw_ea17b214_63168.efi",
+     "size": 63168,
+     "sha256": "ea17b214bb40c09920d79430759cb6508a6fb8f35aafcf210bc3f789089c9555",
+     "matches_package": null,
+     "saved": true
+    }
+   ]
+  },
+  {
+   "src": "ifix_37",
+   "file": "8MB.bin",
+   "size": 8388608,
+   "sha256": "94dc5a7c904607c3e3751c2ae54af7b453f525cce12f437e88abd64018e88da2",
+   "regions": {
+    "bios": [
+     6291456,
+     8388607
+    ],
+    "me": [
+     20480,
+     6291455
+    ],
+    "gbe": [
+     4096,
+     20479
+    ]
+   },
+   "guid_hits": [
+    {
+     "guid": "record_guid",
+     "offset": 6296537
+    },
+    {
+     "guid": "record_guid",
+     "offset": 6362031
+    }
+   ],
+   "nvram": [
+    {
+     "offset": 6296537,
+     "snippet": "nvram_record_guid_06013d9.bin",
+     "xenrolled_candidates": [
+      {
+       "rel_offset": 16,
+       "hex": "fddf63699cab04a214632236591ef90b2537c6c961945d06ffc065a214632236"
+      },
+      {
+       "rel_offset": 17,
+       "hex": "df63699cab04a214632236591ef90b2537c6c961945d06ffc065a21463223659"
+      },
+      {
+       "rel_offset": 18,
+       "hex": "63699cab04a214632236591ef90b2537c6c961945d06ffc065a214632236591e"
+      },
+      {
+       "rel_offset": 19,
+       "hex": "699cab04a214632236591ef90b2537c6c961945d06ffc065a214632236591efa"
+      },
+      {
+       "rel_offset": 20,
+       "hex": "9cab04a214632236591ef90b2537c6c961945d06ffc065a214632236591efafe"
+      },
+      {
+       "rel_offset": 21,
+       "hex": "ab04a214632236591ef90b2537c6c961945d06ffc065a214632236591efafeff"
+      },
+      {
+       "rel_offset": 22,
+       "hex": "04a214632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8"
+      },
+      {
+       "rel_offset": 23,
+       "hex": "a214632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8"
+      },
+      {
+       "rel_offset": 24,
+       "hex": "14632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9"
+      },
+      {
+       "rel_offset": 25,
+       "hex": "632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f943"
+      },
+      {
+       "rel_offset": 26,
+       "hex": "2236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f"
+      },
+      {
+       "rel_offset": 27,
+       "hex": "36591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e"
+      },
+      {
+       "rel_offset": 28,
+       "hex": "591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f"
+      },
+      {
+       "rel_offset": 29,
+       "hex": "1ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f75"
+      },
+      {
+       "rel_offset": 30,
+       "hex": "f90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574"
+      },
+      {
+       "rel_offset": 31,
+       "hex": "0b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db"
+      },
+      {
+       "rel_offset": 32,
+       "hex": "2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02"
+      },
+      {
+       "rel_offset": 33,
+       "hex": "37c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db0201"
+      },
+      {
+       "rel_offset": 34,
+       "hex": "c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c"
+      },
+      {
+       "rel_offset": 35,
+       "hex": "c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00"
+      },
+      {
+       "rel_offset": 36,
+       "hex": "61945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d0"
+      },
+      {
+       "rel_offset": 37,
+       "hex": "945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041"
+      },
+      {
+       "rel_offset": 38,
+       "hex": "5d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d04103"
+      },
+      {
+       "rel_offset": 39,
+       "hex": "06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a"
+      },
+      {
+       "rel_offset": 40,
+       "hex": "ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a00"
+      },
+      {
+       "rel_offset": 41,
+       "hex": "c065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a0000"
+      },
+      {
+       "rel_offset": 42,
+       "hex": "65a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a000000"
+      },
+      {
+       "rel_offset": 43,
+       "hex": "a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a00000000"
+      },
+      {
+       "rel_offset": 44,
+       "hex": "14632236591efafefff8f8f9436f6e4f7574db02010c00d041030a0000000001"
+      },
+      {
+       "rel_offset": 45,
+       "hex": "632236591efafefff8f8f9436f6e4f7574db02010c00d041030a000000000101"
+      },
+      {
+       "rel_offset": 46,
+       "hex": "2236591efafefff8f8f9436f6e4f7574db02010c00d041030a00000000010106"
+      },
+      {
+       "rel_offset": 47,
+       "hex": "36591efafefff8f8f9436f6e4f7574db02010c00d041030a0000000001010600"
+      },
+      {
+       "rel_offset": 48,
+       "hex": "591efafefff8f8f9436f6e4f7574db02010c00d041030a000000000101060000"
+      },
+      {
+       "rel_offset": 49,
+       "hex": "1efafefff8f8f9436f6e4f7574db02010c00d041030a00000000010106000001"
+      },
+      {
+       "rel_offset": 50,
+       "hex": "fafefff8f8f9436f6e4f7574db02010c00d041030a0000000001010600000101"
+      },
+      {
+       "rel_offset": 51,
+       "hex": "fefff8f8f9436f6e4f7574db02010c00d041030a000000000101060000010101"
+      },
+      {
+       "rel_offset": 52,
+       "hex": "fff8f8f9436f6e4f7574db02010c00d041030a00000000010106000001010106"
+      },
+      {
+       "rel_offset": 53,
+       "hex": "f8f8f9436f6e4f7574db02010c00d041030a0000000001010600000101010600"
+      },
+      {
+       "rel_offset": 54,
+       "hex": "f8f9436f6e4f7574db02010c00d041030a000000000101060000010101060000"
+      },
+      {
+       "rel_offset": 55,
+       "hex": "f9436f6e4f7574db02010c00d041030a00000000010106000001010106000000"
+      },
+      {
+       "rel_offset": 56,
+       "hex": "436f6e4f7574db02010c00d041030a0000000001010600000101010600000002"
+      },
+      {
+       "rel_offset": 57,
+       "hex": "6f6e4f7574db02010c00d041030a000000000101060000010101060000000203"
+      },
+      {
+       "rel_offset": 58,
+       "hex": "6e4f7574db02010c00d041030a00000000010106000001010106000000020308"
+      },
+      {
+       "rel_offset": 59,
+       "hex": "4f7574db02010c00d041030a0000000001010600000101010600000002030800"
+      },
+      {
+       "rel_offset": 60,
+       "hex": "7574db02010c00d041030a000000000101060000010101060000000203080000"
+      },
+      {
+       "rel_offset": 61,
+       "hex": "74db02010c00d041030a00000000010106000001010106000000020308000001"
+      },
+      {
+       "rel_offset": 62,
+       "hex": "db02010c00d041030a0000000001010600000101010600000002030800000101"
+      },
+      {
+       "rel_offset": 63,
+       "hex": "02010c00d041030a000000000101060000010101060000000203080000010180"
+      },
+      {
+       "rel_offset": 64,
+       "hex": "010c00d041030a0000000001010600000101010600000002030800000101807f"
+      }
+     ]
+    },
+    {
+     "offset": 6362031,
+     "snippet": "nvram_record_guid_06113af.bin",
+     "xenrolled_candidates": [
+      {
+       "rel_offset": 16,
+       "hex": "fddf63699cab04a214632236591ef90b2537c6c961945d06ffc065a214632236"
+      },
+      {
+       "rel_offset": 17,
+       "hex": "df63699cab04a214632236591ef90b2537c6c961945d06ffc065a21463223659"
+      },
+      {
+       "rel_offset": 18,
+       "hex": "63699cab04a214632236591ef90b2537c6c961945d06ffc065a214632236591e"
+      },
+      {
+       "rel_offset": 19,
+       "hex": "699cab04a214632236591ef90b2537c6c961945d06ffc065a214632236591efa"
+      },
+      {
+       "rel_offset": 20,
+       "hex": "9cab04a214632236591ef90b2537c6c961945d06ffc065a214632236591efafe"
+      },
+      {
+       "rel_offset": 21,
+       "hex": "ab04a214632236591ef90b2537c6c961945d06ffc065a214632236591efafeff"
+      },
+      {
+       "rel_offset": 22,
+       "hex": "04a214632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8"
+      },
+      {
+       "rel_offset": 23,
+       "hex": "a214632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8"
+      },
+      {
+       "rel_offset": 24,
+       "hex": "14632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9"
+      },
+      {
+       "rel_offset": 25,
+       "hex": "632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f943"
+      },
+      {
+       "rel_offset": 26,
+       "hex": "2236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f"
+      },
+      {
+       "rel_offset": 27,
+       "hex": "36591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e"
+      },
+      {
+       "rel_offset": 28,
+       "hex": "591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f"
+      },
+      {
+       "rel_offset": 29,
+       "hex": "1ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f75"
+      },
+      {
+       "rel_offset": 30,
+       "hex": "f90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574"
+      },
+      {
+       "rel_offset": 31,
+       "hex": "0b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db"
+      },
+      {
+       "rel_offset": 32,
+       "hex": "2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02"
+      },
+      {
+       "rel_offset": 33,
+       "hex": "37c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db0201"
+      },
+      {
+       "rel_offset": 34,
+       "hex": "c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c"
+      },
+      {
+       "rel_offset": 35,
+       "hex": "c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00"
+      },
+      {
+       "rel_offset": 36,
+       "hex": "61945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d0"
+      },
+      {
+       "rel_offset": 37,
+       "hex": "945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041"
+      },
+      {
+       "rel_offset": 38,
+       "hex": "5d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d04103"
+      },
+      {
+       "rel_offset": 39,
+       "hex": "06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a"
+      },
+      {
+       "rel_offset": 40,
+       "hex": "ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a00"
+      },
+      {
+       "rel_offset": 41,
+       "hex": "c065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a0000"
+      },
+      {
+       "rel_offset": 42,
+       "hex": "65a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a000000"
+      },
+      {
+       "rel_offset": 43,
+       "hex": "a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a00000000"
+      },
+      {
+       "rel_offset": 44,
+       "hex": "14632236591efafefff8f8f9436f6e4f7574db02010c00d041030a0000000001"
+      },
+      {
+       "rel_offset": 45,
+       "hex": "632236591efafefff8f8f9436f6e4f7574db02010c00d041030a000000000101"
+      },
+      {
+       "rel_offset": 46,
+       "hex": "2236591efafefff8f8f9436f6e4f7574db02010c00d041030a00000000010106"
+      },
+      {
+       "rel_offset": 47,
+       "hex": "36591efafefff8f8f9436f6e4f7574db02010c00d041030a0000000001010600"
+      },
+      {
+       "rel_offset": 48,
+       "hex": "591efafefff8f8f9436f6e4f7574db02010c00d041030a000000000101060000"
+      },
+      {
+       "rel_offset": 49,
+       "hex": "1efafefff8f8f9436f6e4f7574db02010c00d041030a00000000010106000001"
+      },
+      {
+       "rel_offset": 50,
+       "hex": "fafefff8f8f9436f6e4f7574db02010c00d041030a0000000001010600000101"
+      },
+      {
+       "rel_offset": 51,
+       "hex": "fefff8f8f9436f6e4f7574db02010c00d041030a000000000101060000010101"
+      },
+      {
+       "rel_offset": 52,
+       "hex": "fff8f8f9436f6e4f7574db02010c00d041030a00000000010106000001010106"
+      },
+      {
+       "rel_offset": 53,
+       "hex": "f8f8f9436f6e4f7574db02010c00d041030a0000000001010600000101010600"
+      },
+      {
+       "rel_offset": 54,
+       "hex": "f8f9436f6e4f7574db02010c00d041030a000000000101060000010101060000"
+      },
+      {
+       "rel_offset": 55,
+       "hex": "f9436f6e4f7574db02010c00d041030a00000000010106000001010106000000"
+      },
+      {
+       "rel_offset": 56,
+       "hex": "436f6e4f7574db02010c00d041030a0000000001010600000101010600000002"
+      },
+      {
+       "rel_offset": 57,
+       "hex": "6f6e4f7574db02010c00d041030a000000000101060000010101060000000203"
+      },
+      {
+       "rel_offset": 58,
+       "hex": "6e4f7574db02010c00d041030a00000000010106000001010106000000020308"
+      },
+      {
+       "rel_offset": 59,
+       "hex": "4f7574db02010c00d041030a0000000001010600000101010600000002030800"
+      },
+      {
+       "rel_offset": 60,
+       "hex": "7574db02010c00d041030a000000000101060000010101060000000203080000"
+      },
+      {
+       "rel_offset": 61,
+       "hex": "74db02010c00d041030a00000000010106000001010106000000020308000001"
+      },
+      {
+       "rel_offset": 62,
+       "hex": "db02010c00d041030a0000000001010600000101010600000002030800000101"
+      },
+      {
+       "rel_offset": 63,
+       "hex": "02010c00d041030a000000000101060000010101060000000203080000010180"
+      },
+      {
+       "rel_offset": 64,
+       "hex": "010c00d041030a0000000001010600000101010600000002030800000101807f"
+      }
+     ]
+    }
+   ],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.10.1027_5MB_DT_PRD_UPD.bin",
+   "size": 4214752,
+   "sha256": "4262bc3f2f50950c78509c97e187e9bb75473b47898139d869e43371db41e37a",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.0.1022_5MB_DT_PRD_UPD.bin",
+   "size": 4214736,
+   "sha256": "9289e8d7b1b42dee4df62779bcdd9d64538bcdfdcfc46e7750863ed3f4f04870",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.3.1219_5MB_MB_PRD_UPD.bin",
+   "size": 4219168,
+   "sha256": "5cd00f5ce95e25f465875cf5e90478191fb2a300d8ffd977e1200bb0eec1d1c8",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.0.1042_5MB_DT_PRD_UPD.bin",
+   "size": 4215136,
+   "sha256": "e43c610d6bf65743be43e5832f18df877f5b16b955e8f99b9840195d1707c9ef",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.20.1059_5MB_MB_PRD_UPD.bin",
+   "size": 4219360,
+   "sha256": "2672a16846167bdd3399ba82eff645812f3293aedb255a865e64427e1fffafe0",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.20.1035_5MB_MB_PRD_UPD.bin",
+   "size": 4219424,
+   "sha256": "db3f625babcf26d4b09162010054b6ad09337e3034c5224b179993b87e6a836d",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.0.1022_5MB_MB_PRD_UPD.bin",
+   "size": 4219424,
+   "sha256": "7107f2998352c0a955208d5525e934d6b7e1d9bdf0b75b7f53d52412b7dd0353",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.4.1205_5MB_MB_PRD_UPD.bin",
+   "size": 4219168,
+   "sha256": "15ca228418732d07b972d97a7414ff2addd08fb283f6592bbabffc7a87cd2414",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.41.1216_5MB_MB_PRD_UPD.bin",
+   "size": 4219168,
+   "sha256": "457faa89caface1f1fc694562a0a081392e02979582f5f8be0e3f85c37814a9c",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.31.1208_5MB_MB_PRD_UPD.bin",
+   "size": 4219168,
+   "sha256": "60448b5e53d172af2d21d5798fb07df2310100948d3b431cae6465ffeced6f49",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.60.1066_5MB_DT_PRD_UPD.bin",
+   "size": 4214752,
+   "sha256": "a8ddaaba01d2e0ac827b8b6c73d215cb3ce520de6b39f8c8e02b37d2b5f4921a",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.1.1045_5MB_DT_PRD_UPD.bin",
+   "size": 4215136,
+   "sha256": "d3b9374df64cdec20f6b37f1b1fb6816b64e565de244369be6bb4527c667b0c5",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.40.1215_5MB_DT_PRD_UPD.bin",
+   "size": 4214944,
+   "sha256": "58133148b6430a9bdb8cbe97a4fc5c44bceb932cb19eeb8653b6002fac057d00",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.30.1203_5MB_MB_PRD_UPD.bin",
+   "size": 4219168,
+   "sha256": "9cdc24a8994a59e94aaa42e4764f0a8f132b5d421999d0f0300a6bac36ebbfd1",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.32.1076_5MB_DT_PRD_UPD.bin",
+   "size": 4215136,
+   "sha256": "6e3caf91cda6a8c62fa4ba2358563d5eefcd174c69d4a409161ad979cdebf132",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.2.1194_5MB_DT_PRD_UPD.bin",
+   "size": 4214944,
+   "sha256": "1bf6500d68cccfeee2122f319056d568f5b279f189e73a2d2c49b1801571676a",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.2.1194_5MB_MB_PRD_UPD.bin",
+   "size": 4219168,
+   "sha256": "e7fa2f5573e9368e1307b72518b24e2629c51d13773b633ec415d8058daeff77",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.30.1074_5MB_DT_PRD_UPD.bin",
+   "size": 4215136,
+   "sha256": "6cfd7724c2c081a7cd698f2be6ebd3de18298b42db679193f064e94b2a09c7c7",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.10.1027_5MB_MB_PRD_UPD.bin",
+   "size": 4219424,
+   "sha256": "994a0d621fb6b244ae35d61be1db9c68c2c1c8ffeca6abf78e54c6c26bbf1b2a",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.0.1042_5MB_MB_PRD_UPD.bin",
+   "size": 4219360,
+   "sha256": "484e73c625330ab935aebe8860e30b2f78052344682900cb8ee8f5b99f48eeac",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.30.1203_5MB_DT_PRD_UPD.bin",
+   "size": 4214944,
+   "sha256": "1e7c75ca681ea0fa08ce3f83ebfc9b713ec22b60a48407d32eefe2a32a2c1f7d",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.10.1052_5MB_MB_PRD_UPD.bin",
+   "size": 4219360,
+   "sha256": "22c2b7ea6d913db1b2d6b52b5e7b45bbdbd926af3d617ca7169b7d406bbf61ee",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.3.1195_5MB_DT_PRD_UPD.bin",
+   "size": 4214928,
+   "sha256": "92cc472bc9373cecfb0d12bb780c039704c507ea6015f655fe1b354f336064bd",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.60.1066_5MB_MB_PRD_UPD.bin",
+   "size": 4219424,
+   "sha256": "158b0affc534c92c489467856b5226b66934d08f6f6a0234e7df1ada207cc267",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.20.1035_5MB_DT_PRD_UPD.bin",
+   "size": 4214752,
+   "sha256": "861d87add2dac9dff357e297bd4cd61a5a7b71274994c3eb20173cc6f1437808",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.31.1075_5MB_MB_PRD_UPD.bin",
+   "size": 4219360,
+   "sha256": "bac68bed93665e7dc97f2382149f871f8dbbc90f51e68a17725658b65a354aa0",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.0.1184_5MB_MB_PRD_UPD.bin",
+   "size": 4219168,
+   "sha256": "143c74776eb75977a1c4227fb53c43c09457540c0f40eca12a511930ea07f664",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.30.1040_5MB_DT_PRD_UPD.bin",
+   "size": 4214736,
+   "sha256": "fafc4c61b8af101854a047feb779fb4c624def5bf91177e6ea6d79d209a85760",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.10.1052_5MB_DT_PRD_UPD.bin",
+   "size": 4215120,
+   "sha256": "9ebfad6ed3f7cf2241cc6ac790e4e540e963b9d76951110ba824065551548657",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.0.1184_5MB_DT_PRD_UPD.bin",
+   "size": 4214944,
+   "sha256": "45cc007b97c6e5883bba0f27d5e3b264157b7833a321f7c02eb548922f2a4b34",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.40.1045_5MB_MB_PRD_UPD.bin",
+   "size": 4219424,
+   "sha256": "2383f9ed9d71a8a7d513a1dbc7f9e78075821090349e1c779ef09e4ad25444f2",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.50.1062_5MB_DT_PRD_UPD.bin",
+   "size": 4214752,
+   "sha256": "b4c88b922f1e713fcdf344a645bc9cf47f4da2684f00000d3bdf9ff00d78e12d",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.20.1059_5MB_DT_PRD_UPD.bin",
+   "size": 4215136,
+   "sha256": "1c9c6526c559a1f4b87b078383a1d882eabfc6203ca14737c0d56fc0e5b5e999",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.50.1062_5MB_MB_PRD_UPD.bin",
+   "size": 4219424,
+   "sha256": "6016255c75228cbd744859fc298843ebb80a257a6e2418f588cde54a7994ee38",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.32.1076_5MB_MB_PRD_UPD.bin",
+   "size": 4219360,
+   "sha256": "b93ce1509ebc4c75416f5cfd72a168ac620d21b8b59ec4e1a5f71bcd9e498221",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.30.1074_5MB_MB_PRD_UPD.bin",
+   "size": 4219360,
+   "sha256": "9b3857e5b79c9a517249bce8a8bc8ce360b3158cbcc2b6c52b1ad3c5a7f9740f",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.31.1208_5MB_DT_PRD_UPD.bin",
+   "size": 4214944,
+   "sha256": "e387590776b0d28fdfa600266111557f184745c4931550ff576c098cda6a8494",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.30.1040_5MB_MB_PRD_UPD.bin",
+   "size": 4219424,
+   "sha256": "df0a0812035fd6adc8020fb8d942aaf4f6ecca7ef148ce18c42e0efb77da6bea",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.0.1042_5MB_MB_PRD_EXTR.bin",
+   "size": 6279168,
+   "sha256": "b6d0c995aef32454abe67277ee0c231f0252b339fa9a4b4e9518d86721b7cdf0",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.0.1115_5MB_DT_PRE_UPD.bin",
+   "size": 4214624,
+   "sha256": "b7bc8f1c436528dc4e7d2973a1b78481bde0868aab01da72b662e88b486a8a5c",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.10.1052_5MB_MB_PRD_EXTR.bin",
+   "size": 5185536,
+   "sha256": "0e53ca7f0d666026e9016ded6d90dfb86e38d7fa7e3e1df6faf478c3edcba35e",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.10.1027_5MB_DT_PRD_EXTR.bin",
+   "size": 3436544,
+   "sha256": "8c2dc12bfab86bd4e7fbdf3f2d631af1e0a97557fd53c7b40db7bbf6fc53be8b",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.0.1115_5MB_MB_PRE_UPD.bin",
+   "size": 4218784,
+   "sha256": "4f16a51fe959af8bca93c4bee8cc78a9c8f4f5efefa28e468c5ad2a07d5114da",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.0.1184_5MB_DT_PRD_RGN.bin",
+   "size": 5185536,
+   "sha256": "a359ac5243161eedd2cf1c4992176d380dc595bd25555e97f9f276f0e550c8d2",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.2.50.1062_5MB_DT_PRD_EXTR.bin",
+   "size": 3440640,
+   "sha256": "e67da5363a904eb2001c9f8a41d572fd738342f6e44db42667107429ec2c1a43",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.0.1115_5MB_DT_PRE_RGN.bin",
+   "size": 5185536,
+   "sha256": "25f94e721e029833f34633293957bdc85d4a07864eca533b2c9988c66f6d5733",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.0.1038_5MB_MB_PRD_EXTR.bin",
+   "size": 4173824,
+   "sha256": "6a314a6562e362cd1ef84d044575fd27707c66715f510849370dd722d535e164",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.2.1194_5MB_DT_PRD_EXTR.bin",
+   "size": 3473408,
+   "sha256": "757891ef66dd03a21c6560e4f95e92440a485960cecb344f1d78b7dddd087ce0",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.3.1195_5MB_MB_PRD_EXTR.bin",
+   "size": 6287360,
+   "sha256": "05e1f73ebde25a9454445c9b7ae28a32d918850ea918068cdac8afe6c79655e0",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.0.1042_5MB_DT_PRD_EXTR.bin",
+   "size": 3510272,
+   "sha256": "dab68c79b6b1631ab88c8d59f69b33edf1228f2e05f93b0b1465b4f8efff9a6e",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.32.1076_5MB_DT_PRD_EXTR.bin",
+   "size": 3510272,
+   "sha256": "62757e9b6a3dbb54f96e6622a00a002225a18a0b41a3f9a109ed517a5e210a30",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.30.1203_5MB_MB_PRD_RGN.bin",
+   "size": 5185536,
+   "sha256": "655968be6b01dd3da588156c36da5d95c134d651405138938dee97292f54d6dd",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.3.7143_5MB_MB_PRE_UPD.bin",
+   "size": 4219168,
+   "sha256": "33beeddfc705f95d7dd8da7ea8b68d260edc9290940bdd2a1ac50f30f18abbc8",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.30.1203_5MB_DT_PRD_RGN.bin",
+   "size": 5185536,
+   "sha256": "c3232aec6503ea3efbf72e2b358b955b2ee39bc3cc9b8b362d75f50160d8b2be",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.0.1115_5MB_MB_PRE_RGN.bin",
+   "size": 5185536,
+   "sha256": "c2ad45b958ec2658d6c243a4736a0888586a4ba1c4b3f0b86b28efd1c17464fb",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.20.1059_5MB_DT_PRD_EXTR.bin",
+   "size": 5746688,
+   "sha256": "0e9d15d093b6169863d7cac5d1a447ba90f32884292fba575f01a98ed83fe412",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.3.1195_5MB_DT_PRD_EXTR.bin",
+   "size": 3473408,
+   "sha256": "8ecdcd4217a1b0f2c98fbc34f7f66ea9741d65f8498aec5a67c14e5c9195068f",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.0.1184_5MB_MB_PRD_RGN.bin",
+   "size": 5185536,
+   "sha256": "42e17b1f995dd83ac88af4845218a04984446e74bdf5a716a3a40db9f9daed40",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.1.1045_5MB_MB_PRD_EXTR.bin",
+   "size": 5185536,
+   "sha256": "ff13d899214f0e2593691ed240a350d5f53e5172dc5f9006a45de7a8f729ca7d",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.31.1208_5MB_MB_PRD_EXTR.bin",
+   "size": 4128768,
+   "sha256": "f5bb4c8762fa7fca643b42787659520d86fc2e8bf4fbe30710cbf69781ad0e25",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.40.1215_5MB_DT_PRD_EXTR.bin",
+   "size": 5185536,
+   "sha256": "dd12b3324041f5628e3d9f7fa7d450dbc0cbe5c7395b3d3a48964496504ff461",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.31.1208_5MB_DT_PRD_EXTR.bin",
+   "size": 3477504,
+   "sha256": "e6d4b53d1061ec0c0b13dba2ab584253d91b9ee95ab1b7461c7951cc670f4111",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.40.1215_5MB_MB_PRD_EXTR.bin",
+   "size": 4132864,
+   "sha256": "04d7f7bec604c495e9492260836265f0b9bfc6393628684e2ebf77984370b1f8",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.0.2.1194_5MB_MB_PRD_EXTR.bin",
+   "size": 4128768,
+   "sha256": "df6fc623cb7cf390d4bf054dba6addf09f3bc3d1642218d0f69d419a7bb2c136",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.10.1052_5MB_DT_PRD_EXTR.bin",
+   "size": 5304320,
+   "sha256": "01ee1f102be4ebf8d2d5b4e10df84a5bfd4743e92c82458ead1061ca7d011eba",
+   "regions": null,
+   "guid_hits": [],
+   "nvram": [],
+   "ec_payloads": [],
+   "pw_modules": []
+  },
+  {
+   "src": "ifix_54",
+   "file": "6.1.1.1045_5MB_DT_PRD_EXTR.bin",
+   "size": 3510272,
+   "sha256": "1141383b5807198cb648e50e88ca8489dfbd02f10d60d448185df6faf4bb2519",
+   "regions": null,
    "guid_hits": [],
    "nvram": [],
    "ec_payloads": [],

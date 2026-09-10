@@ -1,0 +1,19 @@
+{
+ "src": "ifix_36",
+ "file": "W25Q32_20161217_50656.BIN",
+ "size": 4194304,
+ "sha256": "52e56f5d98c354046c075da577d9a26002b011b11997824f4a8a7bc1b7845a3c",
+ "regions": null,
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [],
+ "pw_modules": [
+  {
+   "file": "pw_ea17b214_63168.efi",
+   "size": 63168,
+   "sha256": "ea17b214bb40c09920d79430759cb6508a6fb8f35aafcf210bc3f789089c9555",
+   "matches_package": null,
+   "saved": true
+  }
+ ]
+}
