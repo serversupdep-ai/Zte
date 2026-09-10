@@ -1,0 +1,71 @@
+name: Fetch Dell package relay
+on:
+  workflow_dispatch:
+    inputs:
+      driverid:
+        description: 'Dell driver id (driversdetails?driverid=)'
+        required: true
+        default: '4mc55'
+      filename:
+        description: 'Exact file name to fetch'
+        required: true
+        default: 'Latitude_5X90_1.41.0.exe'
+      sha256:
+        description: 'Expected SHA-256 (empty to skip verify)'
+        required: false
+        default: 'e24b8f8f719ccd8f8b8ebdc8a6178d89c15121df6806f7e112020964484b840b'
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve download URL
+        id: url
+        run: |
+          set -x
+          NAME='${{ inputs.filename }}'
+          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
+          : > url.txt
+          # strategy 1: scrape the driver page (several locales)
+          for loc in en-us en-uk en-ee en-in de-de; do
+            curl -sL --max-time 90 -A "$UA" \
+              "https://www.dell.com/support/home/$loc/drivers/driversdetails?driverid=${{ inputs.driverid }}" -o page.html || true
+            grep -oE "https://[a-z0-9.]*dell\.com/[^\"'<>\\\\ ]*$NAME" page.html | head -1 >> url.txt || true
+            [ -s url.txt ] && break
+          done
+          # strategy 2: search engines
+          if [ ! -s url.txt ]; then
+            curl -sL --max-time 60 -A "$UA" "https://html.duckduckgo.com/html/?q=%22dl.dell.com%2FFOLDER%22+%22$NAME%22" -o ddg.html || true
+            grep -oE "https://dl\.dell\.com/[^\"'<>\\\\ ]*$NAME" ddg.html | head -1 >> url.txt || true
+          fi
+          if [ ! -s url.txt ]; then
+            curl -sL --max-time 60 -A "$UA" "https://www.bing.com/search?q=%22dl.dell.com%22+%22$NAME%22" -o bing.html || true
+            grep -oE "https://dl\.dell\.com/[^\"'<>\\\\ ]*$NAME" bing.html | head -1 >> url.txt || true
+          fi
+          URL=$(head -1 url.txt)
+          if [ -z "$URL" ]; then
+            mkdir -p diag && cp page.html ddg.html bing.html diag/ 2>/dev/null || true
+            echo "URL resolution failed - see diag artifact"; exit 1
+          fi
+          echo "Resolved: $URL"
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+      - name: Download and verify
+        run: |
+          curl -L --retry 3 --max-time 900 -A 'Mozilla/5.0' -o pkg.bin "${{ steps.url.outputs.url }}"
+          ls -la pkg.bin
+          if [ -n '${{ inputs.sha256 }}' ]; then
+            echo '${{ inputs.sha256 }}  pkg.bin' | sha256sum -c - || exit 1
+          fi
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: dell-package
+          path: pkg.bin
+          retention-days: 7
+      - name: Upload diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diag
+          path: diag/
+          if-no-files-found: ignore
