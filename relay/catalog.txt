@@ -1,0 +1,44 @@
+# relay/catalog.txt — real Dell firmware packages to collect (one URL per line).
+# '#' starts a comment. Fetched + extracted by .github/workflows/collect-dell-data.yml
+# (runner) or locally: python3 bios-analysis/collect_from_catalog.py \
+#                        --catalog relay/catalog.txt --out bios-analysis/collected --download
+# Results are committed to bios-analysis/collected/<tag>/ (EC PHCM payloads,
+# password modules, manifest with sha256s).
+
+# --- user's machine family (OptiPlex 3000/5000/7000, 2020-2023) ---
+https://downloads.dell.com/FOLDER13463969M/1/OptiPlex_3090_2.27.0.exe
+https://downloads.dell.com/FOLDER13463825M/1/OptiPlex_3080_2.33.0.exe
+https://downloads.dell.com/FOLDER14479370M/1/OptiPlex_7090_1.42.0.exe
+https://downloads.dell.com/FOLDER14367732M/1/OptiPlex_7090_1.41.0.exe
+https://downloads.dell.com/FOLDER14479813M/1/OptiPlex_3090_UFF_1.42.0.exe
+https://downloads.dell.com/FOLDER14479861M/1/OptiPlex_7090_UFF_1.42.0.exe
+https://downloads.dell.com/FOLDER14473829M/1/OptiPlex_5490_AIO_1.47.0.exe
+https://downloads.dell.com/FOLDER14473519M/1/OptiPlex_7490_AIO_1.47.0.exe
+https://downloads.dell.com/FOLDER14471289M/1/OptiPlex_5090_1.42.0.exe
+https://downloads.dell.com/FOLDER14479578M/1/OptiPlex_5000_1.40.0.exe
+https://downloads.dell.com/FOLDER14483638M/1/OptiPlex_XE4_1.40.0.exe
+https://downloads.dell.com/FOLDER14482985M/1/OptiPlex_TC_1.34.0.exe
+
+# --- previous generation (2019-2020, 8FC8 lineage) ---
+https://downloads.dell.com/FOLDER13601596M/1/OptiPlex_3070_1.35.0.exe
+https://downloads.dell.com/FOLDER13601562M/1/OptiPlex_5070_1.35.0.exe
+https://downloads.dell.com/FOLDER13601510M/1/OptiPlex_7070_1.35.0.exe
+https://downloads.dell.com/FOLDER13932023M/1/OptiPlex_7080_1.37.0.exe
+https://downloads.dell.com/FOLDER13929542M/1/OptiPlex_5080_1.34.0.exe
+https://downloads.dell.com/FOLDER13929670M/1/OptiPlex_5480_1.43.0.exe
+
+# --- CF1B-era legacy (for the BF97/CF1B lineage) ---
+https://downloads.dell.com/FOLDER07563732M/1/OptiPlex_3240_1.13.0.exe
+https://downloads.dell.com/FOLDER12075822M/1/OptiPlex_3050_1.32.0.exe
+https://downloads.dell.com/FOLDER10281804M/1/OptiPlex_5250_1.27.0.exe
+https://downloads.dell.com/FOLDER08841839M/1/OptiPlex_7040_1.24.0.exe
+https://downloads.dell.com/FOLDER08778208M/1/OptiPlex_3040_1.20.1.exe
+https://downloads.dell.com/FOLDER05274658M/1/OptiPlex_9020_AIO_A19.exe
+
+# --- Latitude family (challenge-EC proxies) ---
+https://downloads.dell.com/FOLDER12975937M/1/Latitude_5X90_1.41.0.exe
+https://downloads.dell.com/FOLDER13498661M/1/Latitude_5300_1.37.0.exe
+https://downloads.dell.com/FOLDER13970198M/1/Latitude_5X00_Precision_3540_1.43.1.exe
+
+# --- original packages (reference) ---
+https://downloads.dell.com/FOLDER07958771M/2/OptiPlex_3090_2.0.7.exe

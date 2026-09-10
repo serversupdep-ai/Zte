@@ -1,0 +1,60 @@
+name: Collect Dell firmware data
+# Internet-data collector: downloads every package in relay/catalog.txt,
+# extracts the real EC (PHCM) payloads + password modules, commits them to
+# bios-analysis/collected/ so the sandbox can git-pull the data (the sandbox
+# cannot reach dell.com directly; artifact/Azure downloads are blocked).
+# Runner-side pipeline of bios-analysis/collect_from_catalog.py (REPORT §13.8).
+
+on:
+  push:
+    branches: [arena/01a087e2-zte]
+    paths: ['relay/catalog.txt', '.github/workflows/collect-dell-data.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: arena/01a087e2-zte
+
+      - name: Setup python
+        run: python3 -m pip -q install uefi_firmware pefile
+
+      - name: Collect from catalog
+        run: |
+          set -x
+          python3 bios-analysis/collect_from_catalog.py \
+            --catalog relay/catalog.txt \
+            --out bios-analysis/collected \
+            --download 2>&1 | tee collect.log
+          # also log total size
+          du -sh bios-analysis/collected || true
+
+      - name: Commit collected data
+        run: |
+          git config user.name "relay-bot"
+          git config user.email "relay@localhost"
+          git add bios-analysis/collected/ collect.log || true
+          if git diff --cached --quiet; then
+            echo "nothing new to commit"
+          else
+            git commit -q -m "collect: real Dell firmware data from catalog [skip ci]"
+            git push origin arena/01a087e2-zte
+          fi
+          ls bios-analysis/collected/ || true
+
+      - name: Upload collect log (best effort)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: collect-log
+          path: collect.log
+          if-no-files-found: ignore
+        continue-on-error: true

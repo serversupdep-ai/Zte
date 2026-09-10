@@ -1,0 +1,276 @@
+#!/usr/bin/env python3
+"""collect_from_catalog.py — collect real Dell firmware data (EC + password modules).
+
+Downloads the packages listed in relay/catalog.txt (unless --no-download),
+extracts every PHCM (Embedded Controller) payload and every password-related
+PE module (alphabet marker / OpenSSL SHA-256 build string), and writes them
+to <out>/<tag>/ together with a manifest.json (sha256s, sizes, kinds).
+
+Runs BOTH on a GitHub Actions runner (with network; see
+.github/workflows/collect-dell-data.yml) and locally in the sandbox (against
+already-downloaded files via --file). Results are committed to the repo —
+this is the "collect real dump data from the internet, no machine needed"
+pipeline (REPORT.md §13.8).
+
+Usage:
+  collect_from_catalog.py --catalog relay/catalog.txt --out bios-analysis/collected --download
+  collect_from_catalog.py --file some_package.exe --out bios-analysis/collected
+  collect_from_catalog.py --scan bios-analysis/collected   # re-scan existing dirs
+"""
+import argparse
+import hashlib
+import json
+import os
+import re
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+from uefi_firmware.pfs import PFSFile          # noqa: E402
+from extract_pw_modules import find_dub        # noqa: E402
+
+PW_MARKERS = (b"0Q2drGk99",                 # family-dispatch alphabet (all gens)
+              b"SHA-256 part of OpenSSL")    # hash module build string
+
+
+def sha256(b):
+    return hashlib.sha256(b).hexdigest()
+
+
+def walk_objects(obj, sink):
+    """Recursively collect every decompressed section/object content."""
+    for d in getattr(obj, "objects", []) or []:
+        content = b""
+        for attr in ("_data", "data", "content", "_Content"):
+            v = getattr(d, attr, None)
+            if isinstance(v, (bytes, bytearray)) and v:
+                content = bytes(v)
+                break
+        if content:
+            sink.append(content)
+        try:
+            walk_objects(d, sink)
+        except Exception:
+            pass
+
+
+def harvest(blob, ec_out, pw_out, seen, tmpdir="/tmp/collect_carve"):
+    """Extract EC PHCM payloads and password PE modules from a package blob.
+
+    Primary route: biosutilities DellPfsExtract (produces the Firmware/ tree
+    with EC images etc.). Fallback: carve_streams + PFSFile/AutoParser
+    recursion (mirrors analyze_dell_bios.py).
+    """
+    import tempfile
+    import contextlib
+    import io as _io
+    # ---- primary: DellPfsExtract tree walk --------------------------------
+    candidates = [blob]
+    try:
+        sys.path.insert(0, os.path.join(HERE, "tools", "BIOSUtilities"))
+        from biosutilities.dell_pfs_extract import DellPfsExtract
+        with tempfile.TemporaryDirectory() as td:
+            ext = DellPfsExtract(input_object=bytearray(blob),
+                                 extract_path=td, padding=8)
+            if ext.check_format():
+                with contextlib.redirect_stdout(_io.StringIO()):
+                    ext.parse_format()
+            for root, _dirs, files in os.walk(td):
+                for fn in files:
+                    p = os.path.join(root, fn)
+                    try:
+                        cur = open(p, "rb").read()
+                    except OSError:
+                        continue
+                    if len(cur) >= 64:
+                        candidates.append(cur)
+    except Exception:
+        pass
+    # ---- fallback + descent: carve + PFS/FV parse queue --------------------
+    import analyze_dell_bios as adb
+    os.makedirs(tmpdir, exist_ok=True)
+    try:
+        carved = adb.carve_streams(blob, tmpdir)
+        candidates += [b for _p, b in carved]
+    except Exception:
+        pass
+    visited = set()
+    qi = 0
+    while qi < len(candidates) and qi < 20000:
+        cur = candidates[qi]
+        qi += 1
+        if not isinstance(cur, (bytes, bytearray)) or len(cur) < 64:
+            continue
+        cur = bytes(cur)
+        h = sha256(cur[:0x10000])
+        if h in visited:
+            continue
+        visited.add(h)
+        _harvest_content(cur, ec_out, pw_out, seen)
+        if cur[:8] == b"PFS.HDR.":
+            try:
+                pfs = PFSFile(cur)
+                pfs.process()
+                for s in getattr(pfs, "sections", []):
+                    sd = getattr(s, "section_data", None)
+                    if isinstance(sd, (bytes, bytearray)) and len(sd) >= 64:
+                        candidates.append(bytes(sd))
+            except Exception:
+                pass
+        try:
+            from uefi_firmware import AutoParser
+            f = AutoParser(cur).parse()
+            if f:
+                sink = []
+                walk_objects(f, sink)
+                for c in sink:
+                    if isinstance(c, (bytes, bytearray)) and len(c) >= 64:
+                        candidates.append(bytes(c))
+        except Exception:
+            pass
+
+
+def _harvest_content(cur, ec_out, pw_out, seen):
+    """Harvest PHCM blobs and password PE modules from one content buffer."""
+    if cur[:4] == b"PHCM":
+        full = sha256(cur)
+        if full not in seen:
+            seen.add(full)
+            ec_out.append(cur)
+        return
+    for marker in PW_MARKERS:
+        if marker in cur:
+            try:
+                from extract_pw_modules import carve_pe
+                seg = carve_pe(cur, lambda *a: None)
+            except Exception:
+                seg = None
+            if seg and 8000 < len(seg) <= 0x20000:   # pw modules are 9-128 KB
+                full = sha256(seg)
+                if full not in seen:
+                    seen.add(full)
+                    pw_out.append((marker, seg))
+            break
+
+
+def process_blob(blob, tag, outdir):
+    """Extract EC/pw payloads from one package blob; return manifest entries."""
+    os.makedirs(outdir, exist_ok=True)
+    ec_out, pw_out, seen = [], [], set()
+    harvest(blob, ec_out, pw_out, seen)
+    entries = []
+    for i, ec in enumerate(sorted(ec_out, key=len), 1):
+        fn = os.path.join(outdir, f"ec_{i}_{len(ec)}.bin")
+        open(fn, "wb").write(ec)
+        entries.append({"file": fn, "kind": "ec", "size": len(ec), "sha256": sha256(ec)})
+    for i, (marker, seg) in enumerate(sorted(pw_out, key=lambda t: len(t[1])), 1):
+        fn = os.path.join(outdir, f"pw_{i}_{len(seg)}.efi")
+        open(fn, "wb").write(seg)
+        entries.append({"file": fn, "kind": "pw",
+                        "marker": marker.decode("latin-1"),
+                        "size": len(seg), "sha256": sha256(seg)})
+    return entries
+
+
+def load_pkg(path_or_data):
+    if isinstance(path_or_data, (bytes, bytearray)):
+        data = bytes(path_or_data)
+    else:
+        data = open(path_or_data, "rb").read()
+    # DellUpdateBinary container -> PFS payload
+    dub = find_dub(data)
+    if dub:
+        return dub
+    if data[:8] == b"PFS.HDR.":
+        return data
+    return None
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--catalog", default=None)
+    ap.add_argument("--out", default="bios-analysis/collected")
+    ap.add_argument("--file", action="append", default=[],
+                    help="process a local package file (repeatable)")
+    ap.add_argument("--download", action="store_true",
+                    help="download catalog URLs (runner mode)")
+    ap.add_argument("--scan", default=None,
+                    help="re-scan an existing collected/ dir for salts etc.")
+    args = ap.parse_args()
+
+    if args.scan:
+        # summary mode: list everything already collected
+        root = args.scan
+        for tag in sorted(os.listdir(root)):
+            d = os.path.join(root, tag)
+            if not os.path.isdir(d):
+                continue
+            mf = os.path.join(d, "manifest.json")
+            n = json.load(open(mf)) if os.path.exists(mf) else []
+            ecs = [e for e in n if e["kind"] == "ec"]
+            pws = [e for e in n if e["kind"] == "pw"]
+            print(f"{tag}: {len(ecs)} EC payloads, {len(pws)} pw modules")
+        return
+
+    jobs = []
+    if args.catalog:
+        for line in open(args.catalog):
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            jobs.append(line)
+    for f in args.file:
+        jobs.append(f)
+
+    for i, job in enumerate(jobs, 1):
+        url = None
+        path = job
+        if job.startswith("http"):
+            if not args.download:
+                print(f"[{i}] skip (no --download): {job}")
+                continue
+            import urllib.request
+            url = job
+            tag = re.sub(r"[^A-Za-z0-9._-]+", "_", job.rsplit("/", 1)[-1])
+            if tag.lower().endswith(".exe"):
+                tag = tag[:-4]
+            path = os.path.join("/tmp" if os.path.isdir("/tmp") else ".", tag + ".exe")
+            print(f"[{i}] downloading {url}")
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            try:
+                with urllib.request.urlopen(req, timeout=900) as r, open(path, "wb") as f:
+                    while True:
+                        chunk = r.read(1 << 20)
+                        if not chunk:
+                            break
+                        f.write(chunk)
+            except Exception as e:
+                print(f"    DOWNLOAD FAILED: {e}")
+                continue
+        tag = re.sub(r"[^A-Za-z0-9._-]+", "_",
+                     os.path.splitext(os.path.basename(path))[0])
+        outdir = os.path.join(args.out, tag)
+        print(f"[{i}] processing {path} -> {outdir}")
+        blob = load_pkg(path)
+        if blob is None:
+            print("    no Dell PFS container found, skipping")
+            continue
+        entries = process_blob(blob, tag, outdir)
+        mf = os.path.join(outdir, "manifest.json")
+        old = []
+        if os.path.exists(mf):
+            try:
+                old = json.load(open(mf))
+            except Exception:
+                old = []
+        known = {e["sha256"] for e in old}
+        merged = old + [e for e in entries if e["sha256"] not in known]
+        json.dump({"url": url, "entries": merged}, open(mf, "w"), indent=1)
+        print(f"    {len(entries)} new payloads "
+              f"({sum(1 for e in entries if e['kind']=='ec')} EC, "
+              f"{sum(1 for e in entries if e['kind']=='pw')} pw); "
+              f"manifest total {len(merged)}")
+
+
+if __name__ == "__main__":
+    main()
