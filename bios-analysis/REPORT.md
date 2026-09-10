@@ -354,3 +354,74 @@ Run the probe on bare metal as root (not in a VM — VMs trap/forward 0x910).
 If it reports **echo mode** (pure verifier, no leak), the remaining routes
 are the physical ones already documented in §8 (SPI dump + Unlocker patch),
 plus EC-firmware analysis on a decrypted dump.
+
+## 11. CF1B on current firmware (2.27.0): EC-challenge routing — correction to §9
+
+Re-examination of the **2.27.0** password module
+(`pwmods/optiplex3090_2.27.0_pw_43k.efi`) found a decisive change versus 2.0.7:
+
+### 11.1 The family membership list grew from one entry to five
+
+The list behind the EC-challenge validator (fn 0x9580, table @RVA 0xA3C8):
+
+```
+2.0.7  (42k module @0xA354): [0x8FC8]                      <- verify via EC only for 8FC8
+2.27.0 (43k module @0xA3C8): [0x1B58, 0x9ABE, 0x3FE2, 0xCF1B, 0x8FC8]
+```
+
+On 2.27.0, **password verification AND change for CF1B route to the EC/SMM
+security service** (cmd 0x21) — the same path 8FC8 uses. The local legacy
+fallback (§9's BF97 derivation) is *not consulted* for these families on
+current firmware.
+
+**Consequence / correction of §9:** the BF97-derived password is valid only
+on firmware generations where CF1B ∉ the membership list (≤ 2.0.7 era). On a
+3090 running 2.27.0 with a CF1B challenge, the accepted value is computed
+inside the EC with per-machine secrets — an offline keygen from the BIOS
+image is impossible for this configuration. If the legacy password did not
+work on the machine, this is why.
+
+### 11.2 The 2.27.0 CF1B verify session (fn 0x3314, platform type 3)
+
+```
+platform type := match machine GUID against 10-GUID table (fn 0x30e8)
+type 3 (family-aware — the OptiPlex 3090 class):
+    win[0]=0x21, win[2]=1 (sub=verify), win[3]=3   -> doorbell
+    write X  (16 bytes: stored config value, key 0x10, fn 0x1bb4)
+    write family u16 from global @0xA788           (0xCF1B on a CF1B machine)
+    read  R  (32 bytes)
+    re-read X from config; pass iff CompareMem(R, X, 16) == 0
+    zeroize X, R                                      <- response is hidden
+```
+
+Other cmd-0x21 sub-commands present in the module (doorbell sites
+0x328e/0x33b3/0x366c/0x3820):
+
+| sub | fn | purpose |
+|---|---|---|
+| 0 | 0x3250 | capability query (method +0x20 variant) |
+| 1 | 0x3314 | verify (above) |
+| 2 | 0x3514 | secondary check — sends config values, gets a 1-byte status (types 0,1,2,4,5 only), zeroizes |
+| 3 | 0x37ac | **change/enroll** — writes new password material (destructive; excluded from our tooling) |
+
+None of the read paths ever receive the expected value from the EC — the
+service is verify-only by design, and every response buffer is zeroed after
+the comparison.
+
+### 11.3 The CF1B-specific solution (no legacy algorithm involved)
+
+`bios-analysis/dell_cf1b_probe.c` — a CF1B-purpose probe that performs the
+exact verify session (sub=1, type=3, family=0xCF1B by default) with an
+arbitrary 16-byte X and **prints the 32-byte response** instead of zeroing
+it, for X=00..00 and X=random:
+
+- **Input-independent R** → R[0:16] is this machine's expected CF1B value;
+  render with `dell_keygen.py --interpret8fc8 <hex>` and try the renderings.
+- **Echo mode** (R==X) → pure verifier; remaining routes are physical
+  (§8 SPI patch) or EC-firmware analysis on a decrypted dump.
+
+Options: `--family 1B58|9ABE|3FE2|8FC8`, `--sub 0|1|2`, `--type 0..6`,
+`--full` (full family×sub×type matrix). Sub 3 (enroll) is intentionally not
+implemented (brick risk).
+
+Run on bare metal as root: `gcc -O2 -o dell_cf1b_probe dell_cf1b_probe.c && sudo ./dell_cf1b_probe`
