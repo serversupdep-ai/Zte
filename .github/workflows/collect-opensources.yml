@@ -19,130 +19,126 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install extractors
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq p7zip-full p7zip-rar > /dev/null
-      - name: Gather archives from open sources
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq p7zip-full p7zip-rar > /dev/null
+          7z i 2>/dev/null | grep -i rar || echo "NO RAR SUPPORT"
+      - name: Gather archives from indiafix (Blogger, gdrive links)
         run: |
           set +e
-          mkdir -p /tmp/keep && : > /tmp/status.log
+          mkdir -p /tmp/keep /tmp/ifix && : > /tmp/status.log && : > /tmp/provenance.txt
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0 Safari/537.36"
-          try() { # try <url> <name> [password]
-            local url="$1" name="$2" pw="${3:-}"
-            local f="/tmp/keep/$name" m
-            curl -sL --max-time 420 --retry 2 -A "$UA" -o "$f.bin" "$url"
-            local sz=$(stat -c%s "$f.bin" 2>/dev/null || echo 0)
-            m=$(head -c4 "$f.bin" 2>/dev/null)
-            if [ "$sz" -gt 900000 ] && { [ "${m:0:2}" = "PK" ] || [ "${m:0:3}" = "Rar" ]; }; then
-              case "${m:0:3}" in "Rar") mv "$f.bin" "$f.rar";; *) mv "$f.bin" "$f.zip";; esac
-              echo "$name OK $sz <- $url" >> /tmp/status.log
-            else
-              echo "$name FAIL http-size=$sz magic=$m <- $url" >> /tmp/status.log; rm -f "$f.bin"
-            fi
-          }
-          # --- catalog: dr-bios + vinafix (direct, wayback fallback per URL) ---
-          grep -vE '^#|^$' relay/opensource_urls.txt | while IFS='|' read -r A n d; do
-            A=$(echo "$A" | xargs); n=$(echo "$n" | xargs)
-            [ -z "$A" ] && continue
-            try "$A" "$n"
-            if ! ls /tmp/keep/$n.* >/dev/null 2>&1; then
-              ts=$(curl -s --max-time 60 "https://archive.org/wayback/available?url=$A" | grep -oE '"timestamp":"[0-9]+"' | head -1 | grep -oE '[0-9]+')
-              if [ -n "$ts" ]; then
-                try "https://web.archive.org/web/${ts}id_/$A" "$n"
-              else
-                echo "$n wayback: no snapshot" >> /tmp/status.log
-              fi
-            fi
-          done
-          # --- indiafix.in: search posts, extract external download links ---
-          mkdir -p /tmp/ifix && cd /tmp/ifix
-          for Q in "optiplex+3090" "optiplex+3080" "optiplex+7090" "optiplex+3000" "optiplex+5000" "optiplex+7000" "latitude+5490" "optiplex+3080+micro"; do
+          cd /tmp/ifix
+          # collect post URLs: on-site search + label page + known posts
+          : > posts.txt
+          for Q in "optiplex+3090" "optiplex+3080" "optiplex+7090" "optiplex+3000" "optiplex+5000" "optiplex+7000" "optiplex+3080+micro" "optiplex+3090+micro" "ipcml" "latitude+5490" "latitude+5x90" "precision+3540" "vostro+3400" "dell+bios+bin"; do
             curl -sL --max-time 120 -A "$UA" "https://www.indiafix.in/search?q=$Q" | grep -oE 'https://www\.indiafix\.in/20[0-9]{2}/[0-9]{2}/[a-zA-Z0-9_-]+\.html' >> posts.txt
           done
-          sort -u posts.txt -o posts.txt; wc -l posts.txt
-          i=0
+          curl -sL --max-time 120 -A "$UA" "https://www.indiafix.in/search/label/DELL" | grep -oE 'https://www\.indiafix\.in/20[0-9]{2}/[0-9]{2}/[a-zA-Z0-9_-]+\.html' >> posts.txt
+          cat >> posts.txt << 'KNOWN'
+          https://www.indiafix.in/2026/03/dell-optiplex-3090-212037-1-bios-bin-ok.html
+          https://www.indiafix.in/2024/02/ipcml-ct.html
+          https://www.indiafix.in/2024/12/dell-optiplex-3000-202040-1-bios-dump.html
+          KNOWN
+          sort -u posts.txt -o posts.txt; echo "posts found: $(wc -l < posts.txt)" >> /tmp/status.log
+          # extract download links per post (gdrive + mediafire + shorteners)
+          : > links.txt
           while read -r P; do
-            i=$((i+1)); [ $i -gt 40 ] && break
             HTML=$(curl -sL --max-time 120 -A "$UA" "$P")
-            echo "$HTML" | grep -oE 'https?://[^"<> ]+' | grep -E 'drive\.google|mediafire|bit\.ly|tinyurl|gplinks|devdrive|sflx|mix\.co' | grep -vE '\.css|\.js|schema' >> links.txt
-            echo "$P" >> sources.txt
+            for L in $(echo "$HTML" | grep -oE 'https?://[^"<> ]+' | grep -E 'drive\.google|mediafire|bit\.ly|tinyurl|gplinks|devdrive|sflx|mix\.co' | grep -vE '\.css|\.js'); do
+              echo "$L $P" >> links.txt
+            done
           done < posts.txt
-          [ -f links.txt ] && sort -u links.txt -o links.txt && wc -l links.txt
-          j=0
-          while read -r L; do
-            j=$((j+1)); [ $j -gt 25 ] && break
+          sort -u links.txt -o links.txt; echo "links found: $(wc -l < links.txt)" >> /tmp/status.log
+          # resolve + download each
+          n=0
+          while read -r L P; do
+            n=$((n+1)); [ $n -gt 60 ] && break
+            D=""
             case "$L" in
-              *drive.google.com*)
-                ID=$(echo "$L" | grep -oE '[-0-9A-Za-z_]{25,}' | head -1)
-                try "https://drive.usercontent.google.com/download?id=$ID&export=download&confirm=t" "ifix_$j" ;;
+              *drive.google.com*) ID=$(echo "$L" | grep -oE '[-0-9A-Za-z_]{25,}' | head -1)
+                D="https://drive.usercontent.google.com/download?id=$ID&export=download&confirm=t" ;;
               *bit.ly*|*tinyurl*|*gplinks*|*mix.co*|*sflx*)
                 R=$(curl -sIL --max-time 90 -A "$UA" -o /dev/null -w '%{url_effective}' "$L")
                 echo "short $L -> $R" >> /tmp/status.log
                 case "$R" in
                   *drive.google.com*) ID=$(echo "$R" | grep -oE '[-0-9A-Za-z_]{25,}' | head -1)
-                    try "https://drive.usercontent.google.com/download?id=$ID&export=download&confirm=t" "ifix_$j" ;;
-                  *mediafire.com*) MF=$(curl -sL --max-time 90 -A "$UA" "$R" | grep -oE 'https://download[0-9]+\.mediafire\.com/[^"]+' | head -1)
-                    [ -n "$MF" ] && try "$MF" "ifix_$j" ;;
+                    D="https://drive.usercontent.google.com/download?id=$ID&export=download&confirm=t" ;;
+                  *mediafire.com*) D=$(curl -sL --max-time 90 -A "$UA" "$R" | grep -oE 'https://download[0-9]+\.mediafire\.com/[^"]+' | head -1) ;;
                 esac ;;
-              *mediafire.com*)
-                MF=$(curl -sL --max-time 90 -A "$UA" "$L" | grep -oE 'https://download[0-9]+\.mediafire\.com/[^"]+' | head -1)
-                [ -n "$MF" ] && try "$MF" "ifix_$j" ;;
+              *mediafire.com*) D=$(curl -sL --max-time 90 -A "$UA" "$L" | grep -oE 'https://download[0-9]+\.mediafire\.com/[^"]+' | head -1) ;;
             esac
+            [ -z "$D" ] && continue
+            f="/tmp/keep/ifix_$(printf %02d $n)"
+            curl -sL --max-time 420 --retry 2 -A "$UA" -o "$f.bin" "$D"
+            sz=$(stat -c%s "$f.bin" 2>/dev/null || echo 0); m=$(head -c4 "$f.bin" 2>/dev/null)
+            if [ "$sz" -gt 400000 ] && { [ "${m:0:2}" = "PK" ] || [ "${m:0:3}" = "Rar" ]; }; then
+              case "${m:0:3}" in "Rar") mv "$f.bin" "$f.rar";; *) mv "$f.bin" "$f.zip";; esac
+              echo "ifix_$(printf %02d $n) OK $sz <- $L ($P)" >> /tmp/status.log
+              echo "ifix_$(printf %02d $n) | $L | $P" >> /tmp/provenance.txt
+            else
+              echo "ifix_$(printf %02d $n) FAIL size=$sz magic=$m <- $L" >> /tmp/status.log; rm -f "$f.bin"
+            fi
           done < links.txt
           cd - > /dev/null
-          cat /tmp/status.log
-      - name: Extract and classify
+          echo "archives kept: $(ls /tmp/keep | wc -l)" >> /tmp/status.log
+          cp /tmp/status.log /tmp/ifix/status.log
+      - name: Extract (verbose, always keep archives)
         run: |
+          set +e
           mkdir -p /tmp/ex
+          : > /tmp/extract.log
           for a in /tmp/keep/*; do
+            [ -f "$a" ] || continue
             id=$(basename "$a" | sed 's/\.[a-z0-9]*$//')
-            7z x -y -pindiafix -o"/tmp/ex/$id" "$a" > /dev/null 2>&1 || 7z x -y -o"/tmp/ex/$id" "$a" > /dev/null 2>&1 || true
+            echo "=== $a ===" >> /tmp/extract.log
+            7z x -y -pindiafix -o"/tmp/ex/$id" "$a" >> /tmp/extract.log 2>&1
+            if [ $? -ne 0 ]; then
+              echo "--- retry without password ---" >> /tmp/extract.log
+              7z x -y -o"/tmp/ex/$id" "$a" >> /tmp/extract.log 2>&1
+            fi
           done
+          find /tmp/ex -type f -printf '%s %p\n' | sort -rn | head -30 >> /tmp/extract.log
+      - name: Commit archives + extracted bins + logs
+        run: |
+          mkdir -p bios-analysis/forum/opensources/archives
+          cp /tmp/keep/* bios-analysis/forum/opensources/archives/ 2>/dev/null || true
+          cp /tmp/ifix/status.log bios-analysis/forum/opensources/status.log 2>/dev/null || true
+          cp /tmp/extract.log bios-analysis/forum/opensources/extract.log 2>/dev/null || true
+          cp /tmp/provenance.txt bios-analysis/forum/opensources/provenance.txt 2>/dev/null || true
           python3 - <<'PYEOF'
-          import os, json, hashlib, re, glob
+          import os, json, hashlib, re, glob, shutil
           PW_GUID = bytes.fromhex('378d976e2ec3b6438cebcc9aa215109e')
           STORE_GUID = bytes.fromhex('d177a7b7b66e9e46ad1f1165eb92b3ff')
-          MODELS = re.compile(rb'(OptiPlex|Latitude|Precision)\s*-?\s*([0-9]{3,4}[A-Z]{0,3})')
-          CF1B = {'3080','3090','7080','7090','5000','5090','5080','7000','5490','7490','XE4','5300','5400','5500','5410','3540','3420','5420','5520','7420','7520','5480','3000'}
-          out = []
+          MODELS = re.compile(rb'(OptiPlex|Latitude|Precision|Vostro)\s*-?\s*([0-9]{3,4}[A-Z]{0,3})')
+          out, kept = [], 0
+          os.makedirs('bios-analysis/forum/opensources/dumps', exist_ok=True)
           for d in sorted(glob.glob('/tmp/ex/*')):
-            for f in glob.glob(d + '/**/*', recursive=True):
+            for f in sorted(glob.glob(d + '/**/*', recursive=True), key=lambda p: -os.path.getsize(p) if os.path.isfile(p) else 0):
               try:
                 sz = os.path.getsize(f)
-                if sz < 8000000 or not os.path.isfile(f): continue
+                if sz < 4000000 or not os.path.isfile(f): continue
                 data = open(f, 'rb').read()
               except Exception: continue
-              models = set(m[0].decode()+m[1].decode() for m in MODELS.findall(data))
+              models = sorted(set(m[0].decode()+m[1].decode() for m in MODELS.findall(data)))
               e = {'src': os.path.basename(d), 'file': os.path.basename(f), 'size': sz,
                    'sha256': hashlib.sha256(data).hexdigest(),
                    'spi_descriptor': data[0x10:0x14] == bytes.fromhex('5aa5f00f'),
                    'pw_record_guid_count': data.count(PW_GUID),
                    'store_guid_count': data.count(STORE_GUID),
-                   'models': sorted(models),
-                   'cf1b_generation': bool(models & {p+m for p in ('OptiPlex','Latitude','Precision') for m in CF1B})}
+                   'models': models,
+                   'dell_like': data[0x10:0x14] == bytes.fromhex('5aa5f00f') or PW_GUID in data or b'Dell Inc' in data[:0x1000000]}
               out.append(e)
-          json.dump(out, open('/tmp/classify.json','w'), indent=1)
-          print(f"{len(out)} files classified")
+              if e['dell_like'] and kept < 8:
+                dst = f"bios-analysis/forum/opensources/dumps/{e['src']}__{e['file'][:60]}"
+                shutil.copy(f, dst); kept += 1
+          json.dump(out, open('bios-analysis/forum/opensources/classify.json','w'), indent=1)
+          print(f"{len(out)} big files, {kept} Dell-like committed")
           for e in out: print(e)
-          PYEOF
-      - name: Commit classified dumps
-        run: |
-          mkdir -p bios-analysis/forum/opensources
-          cp /tmp/classify.json bios-analysis/forum/opensources/classify.json 2>/dev/null || echo "[]" > bios-analysis/forum/opensources/classify.json
-          cp /tmp/status.log bios-analysis/forum/opensources/status.log 2>/dev/null || true
-          python3 - <<'PYEOF'
-          import json, os, shutil, glob
-          cls = json.load(open('/tmp/classify.json')) if os.path.exists('/tmp/classify.json') else []
-          kept = 0
-          for e in cls:
-            if kept >= 12: break
-            if e['cf1b_generation'] and (e['spi_descriptor'] or e['pw_record_guid_count'] or e['store_guid_count']):
-              srcs = glob.glob(f"/tmp/ex/{e['src']}/**/{e['file']}", recursive=True)
-              if srcs:
-                os.makedirs(f"bios-analysis/forum/opensources/{e['src']}", exist_ok=True)
-                shutil.copy(srcs[0], f"bios-analysis/forum/opensources/{e['src']}/{e['file']}")
-                kept += 1
-          print("committed:", kept)
           PYEOF
           git config user.name "collect-bot" && git config user.email "bot@users.noreply.github.com"
           git add bios-analysis/forum/opensources/
-          git diff --cached --quiet && echo "nothing new" && exit 0
-          git commit -q -m "opensources: dr-bios + indiafix real dumps (CF1B gen) [skip ci]" && git push
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -q -m "opensources: indiafix gdrive archives + extraction + classification [skip ci]"
+          git pull --rebase -q origin arena/01a087e2-zte || true
+          git push || { git pull --rebase -q origin arena/01a087e2-zte && git push; }
