@@ -11,15 +11,20 @@
  *   The expected value is computed inside the EC with per-machine secrets
  *   and never appears in the BIOS image.
  *
- *   The BIOS verify (pw module fn 0x3314, platform type 3) does:
+ *   The BIOS verify (pw module fn 0x3314, platform type 3 — REPORT §13,
+ *   fully reversed from the dumps) does:
+ *       X  = SHA256(candidate[0..16] || salt)        (salt 8dfc7b25, 2.27.0)
  *       win[0]=0x21 win[2]=1(sub) win[3]=3(type)  -> doorbell
- *       write X (16 bytes, stored config value)
- *       write family u16 (e.g. 0xCF1B)
- *       read  R (32 bytes)
- *       pass  iff R[0:16] == X          (R is then zeroed — Dell hides it)
- *   This tool performs the same session with an X of your choosing and
- *   SHOWS the response instead of zeroing it. If R is input-independent,
- *   R[0:16] is the machine's expected value for that family.
+ *       xfer_write(X, 32); xfer_write(family u16)
+ *       R  = xfer_read(32)
+ *       pass iff R == SHA256(X || salt)
+ *   i.e. the EC holds X_enrolled = SHA256(true_password || salt) and returns
+ *   the confirmation hash only when the sent X matches it.
+ *
+ *   => --password <P> turns this tool into a definitive password VALIDATOR:
+ *      it computes X itself (built-in SHA-256 + salt) and checks R. Loop it
+ *      over candidates from Linux — no setup screen, no brick risk.
+ *      (2.0.7/8FC8 machines: salt is "0001" — see --salt.)
  *
  * Mailbox transport (REPORT.md §10.3): port 0x910 = index, 0x911 = data;
  * selector 0x00 = command doorbell (poll until 0), selectors 0x10..0x2F =
@@ -146,11 +151,69 @@ static void dump(const char *label, const unsigned char *b, int n)
     printf("|\n");
 }
 
+/* ---- compact SHA-256 (for --password mode; REPORT §13) ------------------ */
+typedef struct { uint32_t h[8]; uint64_t len; unsigned char buf[64]; size_t n; } sha256_ctx;
+
+static const uint32_t sha_k[64] = {
+0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
+0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
+0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
+0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
+0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
+0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
+0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
+0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2};
+
+#define ROR(x,n) (((x)>>(n))|((x)<<(32-(n))))
+static void sha_block(sha256_ctx *c, const unsigned char *p)
+{
+    uint32_t w[64], a,b,d,e,f,g,hh,cc,t1,t2; int i;
+    for (i=0;i<16;i++) w[i]=(p[4*i]<<24)|(p[4*i+1]<<16)|(p[4*i+2]<<8)|p[4*i+3];
+    for (;i<64;i++){uint32_t s0=ROR(w[i-15],7)^ROR(w[i-15],18)^(w[i-15]>>3),
+                    s1=ROR(w[i-2],17)^ROR(w[i-2],19)^(w[i-2]>>10);
+                    w[i]=w[i-16]+s0+w[i-7]+s1;}
+    a=c->h[0];b=c->h[1];cc=c->h[2];d=c->h[3];e=c->h[4];f=c->h[5];g=c->h[6];hh=c->h[7];
+    for (i=0;i<64;i++){
+        uint32_t S1=ROR(e,6)^ROR(e,11)^ROR(e,25), ch=(e&f)^((~e)&g);
+        t1=hh+S1+ch+sha_k[i]+w[i];
+        uint32_t S0=ROR(a,2)^ROR(a,13)^ROR(a,22), maj=(a&b)^(a&cc)^(b&cc);
+        t2=S0+maj;
+        hh=g;g=f;f=e;e=d+t1;d=cc;cc=b;b=a;a=t1+t2;
+    }
+    c->h[0]+=a;c->h[1]+=b;c->h[2]+=cc;c->h[3]+=d;c->h[4]+=e;c->h[5]+=f;c->h[6]+=g;c->h[7]+=hh;
+}
+static void sha256_init(sha256_ctx *c){c->h[0]=0x6a09e667;c->h[1]=0xbb67ae85;c->h[2]=0x3c6ef372;c->h[3]=0xa54ff53a;c->h[4]=0x510e527f;c->h[5]=0x9b05688c;c->h[6]=0x1f83d9ab;c->h[7]=0x5be0cd19;c->len=0;c->n=0;}
+static void sha256_update(sha256_ctx *c, const unsigned char *p, size_t n){
+    c->len+=n;
+    while(n){ size_t k=64-c->n; if(k>n)k=n; memcpy(c->buf+c->n,p,k); c->n+=k; p+=k; n-=k;
+        if(c->n==64){sha_block(c,c->buf);c->n=0;} }
+}
+static void sha256_final(sha256_ctx *c, unsigned char out[32]){
+    uint64_t bits=c->len*8; unsigned char pad=0x80; int i;
+    sha256_update(c,&pad,1);
+    unsigned char z=0; while(c->n!=56) sha256_update(c,&z,1);
+    unsigned char l[8]; for(i=0;i<8;i++) l[i]=(unsigned char)(bits>>(56-8*i));
+    sha256_update(c,l,8);
+    for(i=0;i<8;i++){out[4*i]=c->h[i]>>24;out[4*i+1]=c->h[i]>>16;out[4*i+2]=c->h[i]>>8;out[4*i+3]=c->h[i];}
+}
+/* the challenge primitive: SHA256(data || salt) — REPORT §13, fn 0x1bb4 */
+static void challenge_hash(const unsigned char *data, size_t n,
+                           const unsigned char salt[4], unsigned char out[32])
+{
+    sha256_ctx c; sha256_init(&c);
+    sha256_update(&c, data, n);
+    sha256_update(&c, salt, 4);
+    sha256_final(&c, out);
+}
+
 int main(int argc, char **argv)
 {
     unsigned family = 0xCF1B, sub = 1, type = 3;
-    int full = 0, i;
-    unsigned char x[16] = {0}, xr[16], r_zero[32], r_rand[32];
+    int full = 0, i, pwlen = 16;
+    unsigned char x[32] = {0}, xr[32], r_zero[32], r_rand[32];
+    unsigned char salt[4] = { 0x8d, 0xfc, 0x7b, 0x25 };   /* 2.27.0 (REPORT §13) */
+    const char *password = NULL;
+    int xlen = 16;
 
     for (i = 1; i < argc; i++) {
         if (!strcmp(argv[i], "--full")) full = 1;
@@ -160,15 +223,31 @@ int main(int argc, char **argv)
             sub = (unsigned)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--type") && i+1 < argc)
             type = (unsigned)strtoul(argv[++i], NULL, 0);
+        else if (!strcmp(argv[i], "--password") && i+1 < argc)
+            password = argv[++i];
+        else if (!strcmp(argv[i], "--pwlen") && i+1 < argc)
+            pwlen = atoi(argv[++i]);
+        else if (!strcmp(argv[i], "--salt") && i+1 < argc) {
+            const char *h = argv[++i];
+            for (int k = 0; k < 4 && h[2*k] && h[2*k+1]; k++) {
+                char b[3] = { h[2*k], h[2*k+1], 0 };
+                salt[k] = (unsigned char)strtoul(b, NULL, 16);
+            }
+        }
         else if (!strcmp(argv[i], "--x") && i+1 < argc) {
             const char *h = argv[++i];
-            for (int k = 0; k < 16 && h[2*k] && h[2*k+1]; k++) {
+            for (int k = 0; k < 32 && h[2*k] && h[2*k+1]; k++) {
                 char b[3] = { h[2*k], h[2*k+1], 0 };
                 x[k] = (unsigned char)strtoul(b, NULL, 16);
             }
+            xlen = 32;
         } else {
-            fprintf(stderr, "usage: %s [--full] [--family XXXX] [--sub 0|1|2] "
-                            "[--type 0..6] [--x 32hex]\n", argv[0]);
+            fprintf(stderr, "usage: %s [--password <P>] [--pwlen N] [--salt 8hex]\n"
+                            "              [--full] [--family XXXX] [--sub 0|1|2] "
+                            "[--type 0..6] [--x 64hex]\n"
+                            "  --password P : validate candidate P (computes X=SHA256(P16||salt),\n"
+                            "                 checks R == SHA256(X||salt))  [REPORT §13]\n"
+                            "  --salt       : default 8dfc7b25 (2.27.0); use 30303031 (\"0001\") on 2.0.7\n", argv[0]);
             return 1;
         }
     }
@@ -180,23 +259,44 @@ int main(int argc, char **argv)
     if (!IO_INIT()) { perror("iopl"); return 1; }
 
     puts("Dell CF1B/family challenge probe — mailbox 0x910/0x911, cmd 0x21");
-    puts("Read-only subs only (0/1/2). Bare metal, root. REPORT.md §10–11.\n");
+    puts("Read-only subs only (0/1/2). Bare metal, root. REPORT.md §10-11, §13.\n");
+
+    if (password) {
+        unsigned char p16[16] = {0}, X[32], expect[32], R[32];
+        int n = (int)strlen(password); if (n > pwlen) n = pwlen;
+        memcpy(p16, password, n);
+        challenge_hash(p16, 16, salt, X);
+        challenge_hash(X, 32, salt, expect);
+        printf("password candidate: \"%s\" (padded to %d)\n", password, pwlen);
+        dump("X = SHA256(P||salt)", X, 32);
+        int nr = session(sub, type, X, 32, family, type == 3, R);
+        if (nr < 0) { printf("no response (%d)\n", nr); return 1; }
+        dump("R (EC response)", R, nr);
+        dump("expected R", expect, 32);
+        if (nr >= 32 && !memcmp(R, expect, 32)) {
+            puts(">>> PASSWORD CONFIRMED: R == SHA256(X||salt). This is the password.");
+        } else {
+            puts(">>> not this password (R != SHA256(X||salt)).");
+        }
+        return 0;
+    }
 
     if (!full) {
         printf("family=0x%04X sub=%u type=%u\n", family, sub, type);
-        for (int k = 0; k < 16; k++) xr[k] = (unsigned char)(rand() & 0xFF);
-        int n1 = session(sub, type, x, 16, family, type == 3, r_zero);
+        for (int k = 0; k < 32; k++) xr[k] = (unsigned char)(rand() & 0xFF);
+        int n1 = session(sub, type, x, xlen, family, type == 3, r_zero);
         if (n1 < 0) { printf("no response (%d). Try --type 0..2, or --full.\n", n1); return 1; }
-        int n2 = session(sub, type, xr, 16, family, type == 3, r_rand);
+        int n2 = session(sub, type, xr, 32, family, type == 3, r_rand);
         dump("R (X=00..00)", r_zero, n1);
         if (n2 > 0) dump("R (X=random)", r_rand, n2);
-        if (n2 > 0 && !memcmp(r_zero, r_rand, 16) && memcmp(r_zero, x, 16)) {
-            puts(">>> INPUT-INDEPENDENT RESPONSE: R[0:16] is this machine's");
-            puts(">>> expected value for this family. Render it:");
-            puts(">>>   python3 bios-analysis/dell_keygen.py --interpret8fc8 <hex>");
-        } else if (n2 > 0 && !memcmp(r_rand, xr, 16)) {
+        if (n2 > 0 && !memcmp(r_zero, r_rand, 32)) {
+            puts(">>> INPUT-INDEPENDENT R — likely error/status. See REPORT §13.");
+        } else if (n2 > 0 && !memcmp(r_rand, xr, 32)) {
             puts(">>> ECHO mode: EC validates only (no leak via this sub).");
-            puts(">>> Try --sub 0 / --sub 2 / other --type, then physical routes.");
+            puts(">>> Use --password <P> to validate candidates (REPORT §13).");
+        } else if (n2 > 0) {
+            puts(">>> R varies with X — challenge transform present.");
+            puts(">>> Validate candidates: --password <P>  (REPORT §13)");
         }
         return 0;
     }

@@ -641,3 +641,80 @@ Remaining mechanical step for the algorithm: emulate the eSPI IRQ engine
 [0x400F3400+0x33C] = 0x0910/0x0911<<16 and the captured message regs
 accordingly per write), which routes the cmd-0x21 doorbell and X packets into
 the correct handlers; then trace the response computation end-to-end.
+
+## 13. THE CHALLENGE ALGORITHM — BIOS side fully reversed from dumps (no machine)
+
+Session 5 cracked the entire BIOS-side construction by reversing the 2.27.0
+password module (`optiplex3090_2.27.0_pw_43k.efi`) at port level, unified with
+the EC transport (§12) and the provider PE.
+
+### 13.1 The hash primitive (fn 0x1bb4)
+
+```
+0x1bb4(rcx=data, rdx=len, r8=out32, r9=&outlen):
+    out = SHA256( data[0..len] || salt[4] )      ; outlen = 0x20
+```
+- SHA-256 implementation in-module: K-table @RVA 0xAC40 (2.27.0) /
+  0x59A0 (2.0.7 pw_23k, build string "26 Jan 2017"); init/update/final =
+  0x3C34/0x3D0C/0x3E14.
+- **Salt (static, per firmware generation):**
+  - 2.27.0: `8d fc 7b 25` (@RVA 0xA658)
+  - 2.0.7 (8FC8 era): `30 30 30 31` = "0001" (@RVA 0x5AA0, pw_23k)
+
+### 13.2 The verify session (cmd 0x21 sub 1, fn 0x3314) — corrected §11.2
+
+```
+type = 0x30e8(machine GUID)            ; 7-GUID table @0xA510.. (types 0..6)
+                                       ; type 3 GUID f2c68b35-9114-4528-ac75-5adf2ebd6dab
+if type unsupported (FF,4,5,6): fail
+X = SHA256(candidate || salt)          ; type 3: exactly 0x10 bytes of the
+                                       ;   candidate buffer (16 B, zero-padded);
+                                       ; types 0/1/2: len-prefixed arg {len,data}
+win[0]=0x21, win[2]=1(sub), win[3]=type -> doorbell (session helper = prim 0x3924:
+    sync win[2..3] to sels 0x12/0x13, then doorbell 0x21 via sel 0x00)
+xfer_write(X, 32)                       ; 4 packets = engine role-1 stores
+xfer_write(family u16 @0xA788)          ; e.g. 0xCF1B
+R = xfer_read(32)                       ; 4 packets from the EC
+X2 = SHA256(X[0..len] || salt)
+PASS iff CompareMem(R, X2, len) == 0
+```
+**Correction of §11.2/§11.3:** X is NOT "the stored config value" — 0x1bb4 is
+the hash, 0x10 is the input length. And the old oracle interpretation
+("R[0:16] = the expected CF1B value, render with --interpret8fc8") is WRONG:
+the EC must return **R = SHA256(X ‖ salt)** — i.e. R is a *confirmation
+value*, not the expected password.
+
+### 13.3 What the EC holds (the security model)
+
+The only construction consistent with both sides: at password-set time
+(cmd 0x21 sub 3, fn 0x37ac — enroll) the BIOS enrolls
+**X_enrolled = SHA256(P_true ‖ salt)** into the EC (and mirrors it in BIOS
+NVRAM; sub 2, fn 0x3514, re-sends value pairs + SHA256(salt) as an integrity
+check). At verify, the EC compares the received X against X_enrolled and
+returns R = SHA256(X ‖ salt) only on match (garbage/zeros otherwise). The
+5X90 engine (§12.6: store / byte-exact compare / role-3 readback) is exactly
+this machinery; the 3090's EC adds the SHA-256 confirmation and is
+AES-encrypted (PHCM hdr 0x40-0x9F = 96 B signature/wrapped-key, no ECB
+patterns) — its internals stay hidden, but they no longer matter:
+
+### 13.4 Keygen / recovery implications (the "no machines" answer)
+
+The password decision reduces to **SHA256(P ‖ salt) == X_enrolled** with a
+*static, dump-derived* salt. Therefore:
+
+1. **Offline brute-force** (needs only X_enrolled): given the machine's
+   X_enrolled (BIOS NVRAM variable / SPI dump per §8, or any EC readback),
+   brute-force P offline — `dell_keygen.py --brute227 <X_enrolled-hex>`.
+2. **On-machine validator without the setup screen**: `dell_cf1b_probe.c
+   --password <P>` computes X = SHA256(P‖salt) in the probe (built-in
+   SHA-256 + salt), runs the sub-1/type-3 session and checks
+   R == SHA256(X‖salt) — a definitive PASS/FAIL per guess, no brick risk,
+   no enroll. A loop over candidate passwords from Linux = the recovery
+   process; the machine only supplies the enrolled reference (per-machine
+   data — fundamentally not derivable from dumps).
+3. The 2.0.7/8FC8 construction is the same scheme with salt "0001"
+   (verify against the 2.0.7 module's own compare before use on ≤2.0.7).
+
+Salts and lengths: type 3 hashes EXACTLY 16 bytes of the candidate buffer
+(zero-pad shorter passwords; `--pwlen`/`--pad` to vary). Types 0-2 use a
+length-prefixed candidate ({len, data}).

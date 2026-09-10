@@ -488,6 +488,57 @@ def interpret_8fc8_response(hexstr):
             print("  [tail-ascii]     ", tail.decode())
 
 
+SALT_227 = bytes.fromhex("8dfc7b25")   # 2.27.0 pw_43k @RVA 0xA658 (REPORT §13)
+SALT_207 = b"0001"                    # 2.0.7 pw_23k @RVA 0x5AA0 (REPORT §13)
+
+
+def challenge_hash(data: bytes, salt: bytes = SALT_227) -> bytes:
+    """SHA256(data || salt) — the 2.27.0/2.0.7 challenge primitive (fn 0x1bb4)."""
+    import hashlib
+    return hashlib.sha256(data + salt).digest()
+
+
+def cmd_challenge(args):
+    """--challenge <password> [salt-hex] : compute X and the expected EC response R."""
+    pw = args[1].encode("latin-1")
+    salt = bytes.fromhex(args[2]) if len(args) > 2 else SALT_227
+    pw16 = pw[:16].ljust(16, b"\x00")          # type 3: exactly 16 bytes
+    x = challenge_hash(pw16, salt)
+    r = challenge_hash(x, salt)
+    print(f"salt      : {salt.hex()}  ({salt!r})")
+    print(f"candidate : {pw16.hex()}  (type 3, 16 B zero-padded)")
+    print(f"X         : {x.hex()}   <- send this via dell_cf1b_probe --x")
+    print(f"expected R: {r.hex()}   <- probe PASS iff R == this")
+
+
+def cmd_brute227(args):
+    """--brute227 <X_enrolled-hex> [charset] [minlen] [maxlen] [salt-hex]
+
+    Offline recovery: find P with SHA256(P16 || salt) == X_enrolled.
+    X_enrolled comes from the machine's NVRAM/SPI dump (per-machine data).
+    """
+    import hashlib
+    import itertools
+    if len(args) < 1:
+        print(__doc__); return
+    target = bytes.fromhex(args[0])
+    charset = args[1] if len(args) > 1 else "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    lo = int(args[2]) if len(args) > 2 else 4
+    hi = int(args[3]) if len(args) > 3 else 8
+    salt = bytes.fromhex(args[4]) if len(args) > 4 else SALT_227
+    print(f"target X_enrolled: {target.hex()}")
+    print(f"charset: {charset!r}  len {lo}..{hi}  salt {salt.hex()}")
+    tried = 0
+    for n in range(lo, hi + 1):
+        for tup in itertools.product(charset.encode(), repeat=n):
+            pw = bytes(tup)
+            if hashlib.sha256(pw.ljust(16, b"\x00") + salt).digest() == target:
+                print(f"FOUND after {tried} tries: password = {pw.decode()!r}")
+                return
+            tried += 1
+    print(f"not found ({tried} tries)")
+
+
 def main():
     args = sys.argv[1:]
     if not args or args[0] == '--selftest':
@@ -495,6 +546,12 @@ def main():
         return
     if args[0] == '--interpret8fc8':
         interpret_8fc8_response(args[1] if len(args) > 1 else "")
+        return
+    if args[0] == '--challenge':
+        cmd_challenge(args)
+        return
+    if args[0] == '--brute227':
+        cmd_brute227(args)
         return
     tag = args[0].upper()
     suffix = args[1].upper() if len(args) > 1 else "CF1B"
