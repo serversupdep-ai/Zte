@@ -227,3 +227,130 @@ egress-blocked from the sandbox and now Akamai-403s the runner too)
   `downloads.dell.com` (NOT dl.dell.com — that host 403s now).
 - Fetched: OptiPlex_3090_2.27.0.exe, Latitude_5X00_Precision_3540_1.43.1.exe,
   Latitude_5300_1.37.0.exe, Latitude_5X90_1.41.0.exe (kept in `dl/`).
+
+## 10. The 8FC8 family — architecture, and why it cannot be keygen'd offline
+
+Goal: reverse the real 8FC8 algorithm (per-machine, no reuse of the legacy
+BF97/E7A8 paths). Result: the algorithm is **not in the BIOS image at all** —
+it lives behind an EC/SMM mailbox. Full chain of evidence below.
+
+### 10.1 The pw module's 8FC8 entry is a deliberate stub (all builds)
+
+Dispatch table (`{u16 family, u16 pad, u64 descriptor, u64 alphabet}`, 24-byte
+entries; e.g. @RVA 0xA9C0 in the 42k build):
+
+```
+entry0: family=0x8FC8  descriptor=NULL      alphabet=0xA280  <- LIVE alphabet, dead descriptor
+entry1: family=0xE7A8  descriptor=0xA2C8    alphabet=0xA300  <- fully local algorithm
+entry2: family=0xFFFF  (END)
+```
+
+Checked in all 13 dispatch-table-carrying pw modules (3090 2.0.7 + 2.27.0,
+Latitude 5300, Latitude 5X90): **8FC8 always has descriptor = NULL**. The
+descriptor path (fn 0x8ef4) bails with `EFI_INVALID_PARAMETER` when the
+descriptor is NULL, so generation for 8FC8 is intentionally disabled
+module-side. The 8FC8 output alphabet is present and distinct:
+
+```
+0xA280: "0Q2drGk99WLJ1EGnqR5y3DGr16hN4seZPRM2zz2pzcU7JaBXIjbkGZrkQFMxN[Z638myIL2r"
+```
+
+(72 chars; different from both the E7A8 alphabet and the 78-byte T72/BF97
+table.)
+
+### 10.2 8FC8 verify/change delegate to a hidden service
+
+Exported functions of the pw module:
+
+| fn | role | 8FC8 path |
+|---|---|---|
+| 0x1e18 | generate challenge password | dispatch 0x926c → 8FC8 → 0x8ef4 → **bails (NULL descriptor)** |
+| 0x1f28 | verify | flag@0xAEBE && family∈{8FC8} (list @0xA354) → **fn 0x3250** |
+| 0x1fdc | change password | same test → **fn 0x36e8** |
+
+fn 0x3250 (verify), deobfuscated:
+
+1. read a 16-byte config value X from the Dell config store
+   (GUID `000094c0-0000-0000-8dfc-7b2555000000`, 4-byte key `8d fc 7b 25`,
+   via fns 0x1b28/0x3b70/0x3c48/0x3d50);
+2. submit **command 0x21** `{sub=1, platform-type 0..6}` to a service object;
+3. write X (16 bytes) to it; if platform-type==3 also write the family u16
+   (0x8FC8);
+4. read a **32-byte response R**;
+5. read X again from the config store, `CompareMem(R, X, len)` — verify passes
+   iff R[0:len] == X. The response is then **zeroed** — the module hides it.
+
+Platform type comes from a 10-GUID platform-ID table (@0xA500, fn 0x3068).
+
+### 10.3 Where the service lives: SMM/EC mailbox at ports 0x910/0x911
+
+The service object is located through `EFI_SMM_BASE2`
+(`f4ccbfb7-f6e0-47fd-9dd4-10a8f150c191`, GUID@0xA5B0) → SMST →
+`LocateProtocol(7310e28e-96ea-4360-946e-5adc6be8f531)` (GUID@0xA5A0).
+The provider of **7310e28e** was identified in the System-BIOS FFS walk
+(module 21.7 KB, PDB `3afdd5e0…`, preserved as
+`pwmods/optiplex3090_2.0.7_smm_mailbox_provider.efi`): it installs the
+interface (vtable @RVA 0x53b0) whose methods +0x38/+0x40/+0x48 implement
+submit/write/read over an **indexed I/O-port mailbox**:
+
+```
+port 0x910 = register select     port 0x911 = data
+selector 0x00        : command doorbell (write cmd, poll read==0 for ACK)
+selectors 0x10..0x2F : 32-byte message window (window byte i ↔ selector 0x10+i)
+    win[2] = flags/sub-command    win[3] = count/platform-type
+    win[4..11] = packet payload (≤8 bytes per packet)
+command 0x17 = data transfer (write & read, packetized as above)
+command 0x21 = 8FC8 password challenge
+```
+
+A second wrapper module (9.4 KB, PDB `4166f0de…`,
+`pwmods/optiplex3090_2.0.7_smm_mailbox_twin.efi`) exposes the same window to
+other consumers; 15+ modules consume protocol 7310e28e (Setup, EDIAGS, the
+boot-flow module, an 83 KB "BackingStore" service, …). A separate 37 KB module
+(`pwmods/optiplex3090_2.0.7_abt_nonce_auth.efi`) implements an
+Nonce/AuthKey/MessageMailbox state machine using `EFI_RUNTIME_CRYPT_PROTOCOL`
+— Dell's anti-breach authentication, adjacent to this stack.
+
+### 10.4 Who answers: not in the BIOS image
+
+- No other module in the 16 MB System BIOS references ports 0x910/0x911
+  (all apparent hits were `call/jmp` rel32 displacement false positives), and
+  no SMM io-trap registration names 0x910 (the io-trap consumers register
+  0x820/dynamic ranges).
+- No module anywhere in the image contains the 8FC8 alphabet or crypto
+  constants beyond the pw modules' own stubbed copy.
+- The **EC firmware payloads** (v1.0.20/v1.0.21, `PHCM`-container, 96-102 KB)
+  are **fully AES-encrypted** (entropy ≈ 8.0 across the whole image; the key
+  is held by the EC boot ROM). The mailbox handshake (doorbell + poll-ack +
+  8-byte packets) is characteristic of an independent MCU.
+
+Conclusion: **the 8FC8 generator runs inside the EC (or an SMM handler with
+runtime-assigned trap addresses), using a per-machine secret that never
+appears in the BIOS image.** That is why 8FC8 has resisted offline keygens —
+there is nothing to keygen from in the image, and why commercial tools sell
+"Dell 8FC8 Latest" as their flagship feature.
+
+### 10.5 The practical route: the cmd-0x21 oracle (probe tool included)
+
+The BIOS-side verify *compares the service's 32-byte response* against the
+stored config value. That makes command 0x21 a **recompute oracle**: any code
+with port-I/O access can send the 0x21 challenge (with any 16-byte X) and
+**read the machine's expected value directly from the mailbox** — the pw
+module merely chooses to zero it afterwards. If the response is
+input-independent (testable by sending two different X values), the first 16
+bytes are the machine's 8FC8 key material, rendered through the 8FC8 alphabet
+(or already ASCII).
+
+Tooling delivered:
+
+- `bios-analysis/dell_8fc8_probe.c` — Linux (iopl) / FreeDOS build; performs
+  the full mailbox session for cmd 0x21 on platform types 0–6, sends
+  X=00..00 and X=random, and dumps both 32-byte responses, flagging
+  oracle-vs-echo mode automatically.
+- `python3 bios-analysis/dell_keygen.py --interpret8fc8 <hex>` — renders a
+  captured response as direct-ASCII and through the 8FC8/T72/E7A8 alphabets.
+
+Run the probe on bare metal as root (not in a VM — VMs trap/forward 0x910).
+If it reports **echo mode** (pure verifier, no leak), the remaining routes
+are the physical ones already documented in §8 (SPI dump + Unlocker patch),
+plus EC-firmware analysis on a decrypted dump.

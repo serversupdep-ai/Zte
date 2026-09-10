@@ -30,6 +30,8 @@ Usage:
     python3 dell_keygen.py H2FS5S3 CF1B        # firmware CF1B path (primary)
     python3 dell_keygen.py <tag> <suffix> --all
     python3 dell_keygen.py --selftest          # E7A8 cross-validation vs public tool
+    python3 dell_keygen.py --interpret8fc8 <64+hex>   # render cmd-0x21 mailbox
+                                                # response (see dell_8fc8_probe.c)
 """
 import sys
 import hashlib
@@ -451,10 +453,48 @@ def selftest():
     print("  (compare against DellBiosTools 'Password Generator' E7A8 output)")
 
 
+# 8FC8 output alphabet (72 chars, dispatch-table entry +0x10 for family 0x8FC8,
+# .data RVA 0xA280 in the 42k pw module) — currently unused by the module's
+# stubbed descriptor path, but the EC-side 8FC8 generator likely maps through it.
+ALPHA_8FC8 = ("0Q2drGk99WLJ1EGnqR5y3DGr16hN4seZPRM2zz2pzcU7JaBXIjbkGZrkQFMxN[Z638myIL2r")
+
+
+def interpret_8fc8_response(hexstr):
+    """Interpret the 32-byte cmd-0x21 mailbox response (see dell_8fc8_probe.c).
+
+    The pw module compares response[0:16] against a stored config value and
+    discards the response. If the response is input-independent (an oracle),
+    its first 16 bytes ARE the machine's expected 8FC8 value. Depending on how
+    the EC renders it, try: direct ASCII, or mapped through the candidate
+    alphabets (b % 72).
+    """
+    hexstr = hexstr.replace(" ", "").replace(":", "")
+    if len(hexstr) % 2:
+        hexstr += "0"
+    b = bytes.fromhex(hexstr)[:32]
+    print(f"response ({len(b)} bytes): {b.hex()}")
+    head = b[:16]
+    if all(0x20 <= c < 0x7f for c in head):
+        print("  [direct-ascii]   ", head.decode())
+    for name, table in (("8FC8-alphabet", ALPHA_8FC8),
+                        ("T72/BF97", T72),
+                        ("E7A8", E7A8_TABLE)):
+        pw = ''.join(table[c % 72] for c in head)
+        print(f"  [{name:14s}]   {pw}")
+    if len(b) == 32:
+        tail = b[16:]
+        print(f"  tail[16:32]:      {tail.hex()}")
+        if all(0x20 <= c < 0x7f for c in tail):
+            print("  [tail-ascii]     ", tail.decode())
+
+
 def main():
     args = sys.argv[1:]
     if not args or args[0] == '--selftest':
         selftest()
+        return
+    if args[0] == '--interpret8fc8':
+        interpret_8fc8_response(args[1] if len(args) > 1 else "")
         return
     tag = args[0].upper()
     suffix = args[1].upper() if len(args) > 1 else "CF1B"
