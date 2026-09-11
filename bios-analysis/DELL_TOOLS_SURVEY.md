@@ -16,7 +16,7 @@ Date of survey: 2026-09-11. All repository activity data checked live on this da
 | # | Finding | What it is | Verified how |
 |---|---|---|---|
 | **#1a** | **R3n5k1/dellpwn** — github.com/R3n5k1/dellpwn | Rust tool: recovers Dell BIOS admin/user passwords from an SPI dump (DVAR XOR, CVE-2026-40639), rolls back SIVB vaults, clears E7250-style stores | source read line-by-line; mechanism re-implemented and executed over 8 real dumps (§9 below); published CVE + Dell advisory DSA-2026-197 + MDSec/AmberWolf writeups with per-model results |
-| **#1b** | **Legacy keygen lineage**: dogbert/bios-pwgen → bacher09/pwgen-for-bios (bios-pw.org) → chromebreakerdev/DellBIOSTools (+ its ancestor Rex98 GUI) | Master-password generators for the suffix era (595B/D35B/A95B/2A7B/1D3B/3A5B/1F5A/1F66/6FF1/BF97/E7A8), ~2005–2018 laptops | 8/8 suffix vectors + full 6FF1 password vector from pwgen-for-bios' own spec reproduced with our primitives; E7A8 output byte-identical across 3 implementations (§13.12); encoders/tables byte-identical to Dell firmware (§13.12) |
+| **#1b** | **Legacy keygen lineage**: dogbert/bios-pwgen → bacher09/pwgen-for-bios (bios-pw.org) → chromebreakerdev/DellBIOSTools (+ its ancestor Rex98 GUI) | Master-password generators for the suffix era (595B/D35B/A95B/2A7B/1D3B/3A5B/1F5A/1F66/6FF1/BF97/E7A8), ~2005–2018 laptops | **18/18 full-password vectors + 8/8 suffix vectors** from pwgen-for-bios' own spec reproduced by our `keygen_dell_legacy` (all 9 public families implemented); E7A8 byte-identical across 3 implementations (§13.12); encoders/tables byte-identical to Dell firmware (§13.12) |
 | **#2** | **8FC8-generation patchers**: craigsblackie/8FC8_Patcher, Rexer98/Rex98-Dell-8fc8-Patcher, DellBIOSTools "BIOS Unlocker" | Record-disable patch (00FC/00FD → 00) for 2019+ 8FC8/CF1B machines; needs SPI programmer | source read (Blackie's = the code DellBIOSTools ships); identical semantics to our independently reversed rex98_patcher.py (§13.10, byte-exact on a real locked dump) |
 | **#3** | **Dell-specific firmware analysis**: platomav/BIOSUtilities (DellPfsExtract), LongSoft/PFSExtractor (archived), uefi_firmware, UEFITool/UEFIExtract | Unpack Dell update packages / PFS images to BIOS+EC components — the acquisition step for every dump-based route | used daily in this repo's own pipeline (§13.8); maintained (BIOSUtilities pushed 2025-07) |
 | **#4** | Generic UEFI/SPI toolchain: Ghidra (+efiXplorer), IDA, CHIPSEC, binwalk, flashrom | Static RE, SPI read/write | industry-standard; Ghidra is what the MDSec/AmberWolf researchers used on SystemPwSmm |
@@ -136,7 +136,15 @@ screen. No dump needed.
 **Verification performed in this survey (independent, multi-example):**
 - 8/8 `calculateSuffix` vectors from pwgen-for-bios' spec (2A7B, 1D3B, 6FF1, 1F66,
   1F5A ×2, BF97 ×2) reproduced exactly with our firmware-derived primitives.
-- Full password vector `7G9C0G2-6FF1 → 35c0b0tVb32Z6ivD` reproduced exactly.
+- **18/18 full-password vectors reproduced** — this survey prompted us to
+  implement the complete public family set in `dell_keygen.py`
+  (`keygen_dell_legacy`: 595B, D35B, A95B, 2A7B, 1D3B, 1F66, 1F5A, 6FF1,
+  BF97, E7A8 — encoders ported from pwgen-for-bios' `encode.ts`, including
+  the 595B/D35B/A95B scancode-output path where the suffix maps through
+  `encscans[r%36]` and the password through `scanCodes`), e.g.
+  `7G9C0G2-6FF1 → 35c0b0tVb32Z6ivD`, `OPENSRC-1D3B → S3yJ91q0Gar3O72I`,
+  `1234567-595B → 46rg65ky`, `1234567-BF97 → 2r09GZhU[r0kW2zr`.
+  (3A5B remains dogbert-only, no published vectors.)
 - Documented vectors `OPENSRC-1D3B → S3yJ91q0Gar3O72I`, `ABCDEFG-1D3B →
   xvn0qEeftqyrkG52` are reproducible with the reference tools (1D3B uses its own
   encoder variant; our 3090-firmware-derived keygen intentionally implements only
