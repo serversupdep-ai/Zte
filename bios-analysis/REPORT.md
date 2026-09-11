@@ -993,3 +993,34 @@ enrollment material is EC-sealed in every CF1B-generation machine: offline
 password recovery from the SPI dump is closed; the record-disable patch
 (`rex98_patcher.py --patch`) and the live §13 challenge remain the two
 working routes.
+
+## 13.11 External-tool cross-validation: the public state of the art
+
+Cross-checked against the strongest public Dell tool found
+(`chromebreakerdev/DellBIOSTools` v2.5, referenced from badcaps' 8FC8 RE
+thread as the successor of Rex98's work):
+
+- **Password generator**: legacy suffix families only — 595B, D35B, 1D3B,
+  1F66, 6FF1, 1F5A, BF97, E7A8 (MD5-based serial keygen, the classic
+  construction). The tool itself states: *"For 8FC8 suffixes, use the
+  'BIOS Unlocker' tool instead."* — **no public tool computes 8FC8/CF1B
+  passwords**. The §13 challenge route (probe + SHA256 construction) is
+  unique to this work.
+- **Family cross-reference**: their generator set vs. our extracted facts —
+  the pw-module local lists we extracted (E7A8, BF97, 6FF1, 1F66, 1D3B,
+  2A7B) match their keygen families almost exactly (they additionally
+  cover older laptop-only 595B/D35B/1F5A; we additionally found 2A7B as a
+  salted local family in the newer modules). Mutual confirmation that the
+  legacy families are the complete pre-8FC8 universe.
+- **8FC8/CF1B unlocker**: byte-for-byte Rex98's route — same anchored
+  regexes (`^00FCAA…000000…` / `^00FDAA…`), same `00FC00`/`00FD00`
+  replacement (their variant zeroes 6 bytes instead of 3; same semantics).
+  Independent confirmation that the public unlock route for the CF1B
+  generation is record-disable via an external programmer — complementary
+  to, and consistent with, §13.10.
+
+EC-firmware encryption note: community reporting (Hackaday, 2022) confirms
+Dell EC firmware keys are **fused in EC silicon** — consistent with §13.9/
+§13.10: the 3090-class EC bodies and the AA-record payloads are not
+statically decryptable; the practical routes remain (a) record-disable
+patch (programmer), (b) live challenge (§13 keygen, no programmer).
