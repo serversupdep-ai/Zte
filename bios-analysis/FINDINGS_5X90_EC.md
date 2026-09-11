@@ -155,3 +155,43 @@ RAM: 0x118F44 encBlock(64B)  0x118E44 record staging   0x1193E2 X(32B)
      flags: 0x1193E0/E1, 0x119403 (bit0=4-enrolled,1=5,3=X,5=0x15), 0x119408
 tables: ascii72 @0xF456C, upper36 @0xF458F
 ```
+
+---
+
+## 9. Fleet census addendum (post-reversal validation)
+
+Reproducible via `ec_fleet_census.py` (this run: 122 PHCM EC payloads).
+
+**EC inspectability census.** Of 122 EC firmware payloads extracted from Dell
+BIOS packages across 29 OptiPlex/Latitude models (2016-2024), only the
+Latitude 5X90 1.41.0 pair is plaintext (H≈6.9, full engine visible). The
+other 118 — including every OptiPlex 3090 era (2.0.7, 2.27.0, 2.30.0, UFF
+1.42/1.44) and its 3080/5080/7080/3000-series siblings — are sealed bodies
+(H≈7.99, chi-square ≈ 255±60 of df=255 = statistically uniform, no zlib/LZMA
+structure): AES-grade encryption, not compression. Consequences:
+
+* The 3090's own EC code cannot be inspected from the update capsule — the
+  5X90 engine reversal remains the only direct window into Dell's EC password
+  store, and it shows a store-and-compare design (no derivation).
+* Encrypted-PHCM containers are recognisable: PHCM header 192 B (vs 128 B
+  plaintext), version word `01 01 84 03`, body base 0x000E0000, and the
+  16-byte ec_2-style trailer `...00000001 21436587 01002000` before 0xFF
+  padding (magic 0x21436587).
+
+**pw-module era diff (2.0.7 -> 2.27.0, OptiPlex 3090).** pw_1 is
+byte-identical across 2.0.7/2.27.0/2.30.0 (sha256 f9cdf127…). pw_4 changed
+only cosmetically-plus-one-policy-change:
+
+* ALL seven password-family tables + ascii72 + the aa`` mask table are
+  byte-identical (2.27.0 copies shifted +0x10 in .data) — the CF1B/BF97
+  master-password CONSTRUCTION is unchanged across the era boundary.
+* UTF-16 "local" strings (x2 in 2.0.7) are REMOVED in 2.27.0; an enum/field
+  changed 6 -> 8; OpenSSL 1.0.2k (2017) -> 1.0.2zk (Sep 2024) rebuild.
+* Interpretation: the era change removed the module's "local" verification
+  mode (check delegated to the EC), while the generation tables stayed.
+
+**Net effect on the delivered answer (H2FS5S3-CF1B):** the family master
+construction is invariant across 2.0.7 -> 2.30.0 (identical tables in the
+shipping modules, and no derivation exists EC-side per the engine reversal),
+so `shzNyjGRzRN2LLzL` remains the expected-valid master for both eras; the
+era boundary only changes where the comparison is performed.
