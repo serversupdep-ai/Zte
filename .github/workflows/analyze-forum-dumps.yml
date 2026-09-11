@@ -40,28 +40,35 @@ jobs:
 
       - name: EC record-store census (password records) across all dumps
         run: |
-          set -x
-          mkdir -p /tmp/storecensus
-          : > bios-analysis/forum/analysis/store-census.txt
-          find /tmp -name '*.BIN' -o -name '*.bin' 2>/dev/null | true
-          # dumps/ dir first
+          set +e
+          CENSUS=bios-analysis/forum/analysis/store-census.txt
+          : > "$CENSUS"
           for f in bios-analysis/forum/opensources/dumps/*; do
             [ -f "$f" ] || continue
-            echo "### $f" >> bios-analysis/forum/analysis/store-census.txt
-            python3 bios-analysis/rex98_patcher.py --store "$f" >> bios-analysis/forum/analysis/store-census.txt 2>&1 || true
+            echo "### $f" >> "$CENSUS"
+            timeout 600 python3 bios-analysis/rex98_patcher.py --store "$f" >> "$CENSUS" 2>&1
           done
-          # archives (7z to temp)
+          i=0
           for a in bios-analysis/forum/opensources/archives/*; do
-            case "$a" in *.zip) 7z x -y -o/tmp/storecensus/$(basename "$a" .zip) -pindiafix "$a" >/dev/null 2>&1 || 7z x -y -o/tmp/storecensus/$(basename "$a" .zip) -p "$a" >/dev/null 2>&1;; esac
-            case "$a" in *.rar) 7z x -y -o/tmp/storecensus/$(basename "$a" .rar) -pindiafix "$a" >/dev/null 2>&1 || 7z x -y -o/tmp/storecensus/$(basename "$a" .rar) -p "$a" >/dev/null 2>&1;; esac
+            i=$((i+1))
+            out=/tmp/storecensus/$i
+            mkdir -p "$out"
+            timeout 600 7z x -y -o"$out" -pindiafix "$a" >/dev/null 2>&1
+            timeout 600 7z x -y -o"$out" -p "$a" >/dev/null 2>&1
           done
-          find /tmp/storecensus -type f \( -iname '*.bin' -o -iname '*.BIN' \) -size +2M | while read f; do
-            echo "### $f" >> bios-analysis/forum/analysis/store-census.txt
-            python3 bios-analysis/rex98_patcher.py --store "$f" >> bios-analysis/forum/analysis/store-census.txt 2>&1 || true
+          find /tmp/storecensus -type f -size +2M 2>/dev/null | while read f; do
+            case "$(echo "$f" | tr 'A-Z' 'a-z')" in
+              *.bin|*.rom|*.img)
+                echo "### $f" >> "$CENSUS"
+                timeout 900 python3 bios-analysis/rex98_patcher.py --store "$f" >> "$CENSUS" 2>&1
+                ;;
+            esac
           done
-          grep -c 'PASSWORD RECORD' bios-analysis/forum/analysis/store-census.txt || true
+          echo "census done, exit ok"
+          exit 0
 
       - name: Commit analysis
+        if: always()
         run: |
           git config user.name "relay-bot"
           git config user.email "relay@localhost"
