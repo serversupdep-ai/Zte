@@ -1335,3 +1335,63 @@ Our-corpus confirmation: 6/8 real dumps contain DVAR stores; the 8FC8/SIVB-era
 dumps contain zero XOR records (matching the published not-vulnerable matrix),
 and the port reproduces dellpwn's mechanics + false-positive surface on real
 flash layouts.
+
+### §14 addendum — dellpwn port census over all 102 dumps (real recoveries found)
+
+The read-only dellpwn port (`dvar_scan_port.py`, now covering the DVAR+XOR
+scan, the SIVB block finder and the E7250-style store finder — all
+line-referenced to dellpwn's `dvar.rs`/`sivb.rs`, synthetic self-tests
+committed) was run by the workflow over **every dump in the corpus**
+(`forum/analysis/dvar-sivb-census.txt`, 126 files incl. archive-extracted
+variants). Results, with honest classification:
+
+**Confirmed real recovery — Dell Latitude E6520 (ifix_30/37, "ok 6520
+Main+EC", indiafix 2025-09):**
+- `ok E6520 LA-6562p.BIN`: two records → `~jTH|Q8Y6W`, `l^1Mznnth`
+  (18/20 unique key bytes each).
+- `8MB.bin`: `cocka` and `speed10`, each appearing at TWO offset pairs
+  (0x6013eb/0x60145e and 0x6113c1/0x611434) — the **log-structured DVAR
+  history pattern** of CVE-2026-40639: old password records persist after
+  a password change, and the repeated identical pairs are the same
+  enrollment seen through the store's history. `cocka` / `speed10` are
+  unmistakably human-set passwords.
+- The E6520 is a 2011 Sandy-Bridge Latitude — the same AMI-Aptio DVAR+XOR
+  generation the researchers validated (E7250, XPS 9560). **The ported
+  algorithm recovers real passwords from a real locked laptop in our
+  corpus** — the strongest validation of the survey's #1 tool short of
+  running the Rust binary itself.
+
+**Candidate — Dell Pro 14 Plus (PB14255, 1.11.0, 2026 AMD, ifix_22):**
+three distinct high-entropy printable passwords (`c9CU)5p`,
+``.zX/`D\\t3H``, `|1K5FYM1`), unique per record, no cross-machine
+duplication. Plausible real DVAR records on pre-fix 2026 firmware
+(DSA-2026-197 fixes began shipping 2026-06); cannot be confirmed without
+the machine.
+
+**Systematic false positives — cross-machine repeats (new finding):**
+`#=,lIr4xY_^C` appears in BOTH the OptiPlex 7000-micro dump (ifix_17) and
+the OptiPlex 3000 TroyAdl dump (ifix_03) at similar offsets; `L0V` /
+`9Xkp5{nVf3` appear identically in the 7480-AIO, 3090 and Precision-3640
+dumps. A password cannot be identical across different machines — these
+are **shared firmware code/data patterns that mimic valid DVAR records**.
+Corpus-level dedup is therefore a practical false-positive filter for
+dellpwn-style scans: any "password" that recurs across independent
+machines of the same firmware generation is a firmware artifact, not a
+recovered secret. (dellpwn's own entropy/null/wrap filters reduce but do
+not eliminate these; the full tool additionally grades uncertainty.)
+
+**SIVB blocks** (dellpwn `clear-sivb` targets) are present with live data
+in the Vostro 3681, OptiPlex 3090 (×2 unlocked dumps) and OptiPlex 7480
+AIO images — the vault mechanism spans the 8FC8/SIVB era, so dellpwn's
+vault-rollback operation has targets on this corpus generation too.
+No E7250-style `06 78` stores were detected (that store predates every
+machine in the corpus except the E6520, whose records are plain DVAR+XOR).
+
+**Laptop EC transport check (§13 extension):** port 0x910 (`b1 09`) —
+the §12 EC-doorbell I/O port — is present in the code-bearing EC payloads
+of **every laptop family collection**: Latitude 5300, Latitude 5X00 /
+Precision 3540 (6 payloads), Latitude 5X90 — the same machines whose pw
+modules carry the {1B58, 9ABE, 3FE2, CF1B, 8FC8} dispatch lists and the
+universal `8dfc7b25` salt. The §13 EC-challenge construction is therefore
+laptop-wide, not OptiPlex-only: same transport, same dispatch families,
+same salt.
