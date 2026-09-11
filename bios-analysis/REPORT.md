@@ -1024,3 +1024,13 @@ Dell EC firmware keys are **fused in EC silicon** — consistent with §13.9/
 §13.10: the 3090-class EC bodies and the AA-record payloads are not
 statically decryptable; the practical routes remain (a) record-disable
 patch (programmer), (b) live challenge (§13 keygen, no programmer).
+
+**Thread evidence (badcaps "Thoughts on RE 8FC8 suffix logic", Dec 2024 →
+Jun 2026):** community RE'ers extracted the 8FC8 chartables via Ghidra from
+full 16 MB dumps and identified SystemPwSmm / PasswordMgrDxe (our pw
+modules) as the relevant code, but reported "exhausted the static
+references" with no algorithm recovered; repeated "any success?" posts
+remained unanswered through Jun 2026. This matches our finding that the
+BIOS-side modules never compute the master password — the validation is the
+EC challenge (§13), which is invisible to BIOS-only static RE and is exactly
+the wall the community hit.
