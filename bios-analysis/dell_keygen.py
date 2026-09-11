@@ -645,29 +645,229 @@ def _result_to_string(arr16, tag):
     return out
 
 
-def keygen_dell_legacy(serial, tag):
-    """keygenDell(serial, tag, ServiceTag) — the public legacy construction,
-    now for ALL families with published vectors. Returns list of passwords
-    (E7A8 returns two). Validated 18/18 against pwgen-for-bios dell.spec.ts."""
+def keygen_dell_legacy(serial, tag, mode="service"):
+    """keygenDell(serial, tag, type) — the public legacy construction, for
+    ALL families with published vectors. mode: "service" (7-char Service
+    Tag) or "hdd" (11-char drive serial). Returns list of passwords (E7A8
+    returns two). Validated against pwgen-for-bios dell.spec.ts (see
+    selftest)."""
     tag = tag.upper()
     serial = serial.upper()
+    if tag == "A95B":
+        full = (serial + "595B") if mode == "service" \
+            else (serial[3:] + "\0\0\0" + "595B")
+    else:
+        full = serial + tag
     if tag == "E7A8":
         return keygen_e7a8(serial)
     if tag not in LEGACY_ENCODERS:
         raise ValueError(f"unsupported legacy tag {tag!r} "
                          "(3A5B: dogbert-only, no published vectors)")
-    full = serial + ("595B" if tag == "A95B" else tag)
     full_arr = [ord(c) for c in full]
+    # suffix index arrays (public calculateSuffix):
+    #   service: arr1=[1,2,3,4],  arr2=[4,3,2]   -> arr=[fs4,fs3,fs2,fs1,fs0]
+    #   hdd:     arr1=[1,10,9,8], arr2=[8,9,10]  -> arr=[fs8,fs9,fs10,fs1,fs0]
+    if mode == "hdd":
+        arr = [full_arr[8], full_arr[9], full_arr[10], full_arr[1], full_arr[0]]
+    else:
+        arr = [full_arr[4], full_arr[3], full_arr[2], full_arr[1], full_arr[0]]
     if tag in EXTRA_CHARACTERS:      # chartable families: table[r % 72]
         sfx = [ord(c) for c in calculateSuffix_fw(
-            full, EXTRA_CHARACTERS[tag], 72)]
+            full, EXTRA_CHARACTERS[tag], 72, arr=arr)]
     else:                            # 595B/D35B/A95B: encscans[r % 36]
         enc_tab = [chr(x) for x in ENCSCANS]
-        sfx = [ord(c) for c in calculateSuffix_fw(full, enc_tab, 36)]
+        sfx = [ord(c) for c in calculateSuffix_fw(full, enc_tab, 36, arr=arr)]
     enc_block = _legacy_pad(full_arr + sfx)
     enc16 = intArrayToByte(LEGACY_ENCODERS[tag].encode(enc_block))
     pw = _result_to_string(enc16, tag)
     return [pw] if pw else []
+
+
+# ----------------------------------------------------------------------------
+# HDD PASSWORDS + OLD HDD SCHEME + LATITUDE 3540 (Insyde) — same public
+# construction (bacher09/pwgen-for-bios), all with published vectors (§14).
+# ----------------------------------------------------------------------------
+def keygen_hdd_old(serial):
+    """keygenHddOld: pre-suffix-era Dell HDD master password from the drive
+    serial (11 chars). Vector: 12345678901 -> yyyyyhnn."""
+    sa = [ord(c) for c in serial]
+    ret = [49, 49, 49, 49, 49,
+           sa[1] >> 1,
+           ((sa[1] >> 6) | (sa[0] << 2)) & 0xFF,
+           sa[0] >> 3]
+    out = []
+    for i in range(8):
+        r = 0xAA
+        if ret[i] & 8:
+            r ^= sa[1]
+        if ret[i] & 16:
+            r ^= sa[0]
+        out.append(SCAN_CODES[ENCSCANS[(r & 0xFF) % len(ENCSCANS)]])
+    return ''.join(out)
+
+
+class _DES:
+    """DES-ECB, faithful port of pwgen-for-bios latitude.ts (non-standard
+    subkey/output bit order — do NOT substitute a FIPS-DES library)."""
+
+    IP = [58, 50, 42, 34, 26, 18, 10, 2, 60, 52, 44, 36, 28, 20, 12, 4,
+          62, 54, 46, 38, 30, 22, 14, 6, 64, 56, 48, 40, 32, 24, 16, 8,
+          57, 49, 41, 33, 25, 17, 9, 1, 59, 51, 43, 35, 27, 19, 11, 3,
+          61, 53, 45, 37, 29, 21, 13, 5, 63, 55, 47, 39, 31, 23, 15, 7]
+    FP = [40, 8, 48, 16, 56, 24, 64, 32, 39, 7, 47, 15, 55, 23, 63, 31,
+          38, 6, 46, 14, 54, 22, 62, 30, 37, 5, 45, 13, 53, 21, 61, 29,
+          36, 4, 44, 12, 52, 20, 60, 28, 35, 3, 43, 11, 51, 19, 59, 27,
+          34, 2, 42, 10, 50, 18, 58, 26, 33, 1, 41, 9, 49, 17, 57, 25]
+    PC1 = [57, 49, 41, 33, 25, 17, 9, 1, 58, 50, 42, 34, 26, 18, 10, 2,
+           59, 51, 43, 35, 27, 19, 11, 3, 60, 52, 44, 36, 63, 55, 47, 39,
+           31, 23, 15, 7, 62, 54, 46, 38, 30, 22, 14, 6, 61, 53, 45, 37,
+           29, 21, 13, 5, 28, 20, 12, 4]
+    PC2 = [14, 17, 11, 24, 1, 5, 3, 28, 15, 6, 21, 10, 23, 19, 12, 4,
+           26, 8, 16, 7, 27, 20, 13, 2, 41, 52, 31, 37, 47, 55, 30, 40,
+           51, 45, 33, 48, 44, 49, 39, 56, 34, 53, 46, 42, 50, 36, 29, 32]
+    EXPANSION = [32, 1, 2, 3, 4, 5, 4, 5, 6, 7, 8, 9, 8, 9, 10, 11, 12, 13,
+                 12, 13, 14, 15, 16, 17, 16, 17, 18, 19, 20, 21, 20, 21, 22,
+                 23, 24, 25, 24, 25, 26, 27, 28, 29, 28, 29, 30, 31, 32, 1]
+    POST_SBOX = [16, 7, 20, 21, 29, 12, 28, 17, 1, 15, 23, 26, 5, 18, 31,
+                 10, 2, 8, 24, 14, 32, 27, 3, 9, 19, 13, 30, 6, 22, 11, 4, 25]
+    ITERATION_SHIFT = [1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1]
+    SBOX = [
+        14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7,
+        0, 15, 7, 4, 14, 2, 13, 1, 10, 6, 12, 11, 9, 5, 3, 8,
+        4, 1, 14, 8, 13, 6, 2, 11, 15, 12, 9, 7, 3, 10, 5, 0,
+        15, 12, 8, 2, 4, 9, 1, 7, 5, 11, 3, 14, 10, 0, 6, 13,
+        15, 1, 8, 14, 6, 11, 3, 4, 9, 7, 2, 13, 12, 0, 5, 10,
+        3, 13, 4, 7, 15, 2, 8, 14, 12, 0, 1, 10, 6, 9, 11, 5,
+        0, 14, 7, 11, 10, 4, 13, 1, 5, 8, 12, 6, 9, 3, 2, 15,
+        13, 8, 10, 1, 3, 15, 4, 2, 11, 6, 7, 12, 0, 5, 14, 9,
+        10, 0, 9, 14, 6, 3, 15, 5, 1, 13, 12, 7, 11, 4, 2, 8,
+        13, 7, 0, 9, 3, 4, 6, 10, 2, 8, 5, 14, 12, 11, 15, 1,
+        13, 6, 4, 9, 8, 15, 3, 0, 11, 1, 2, 12, 5, 10, 14, 7,
+        1, 10, 13, 0, 6, 9, 8, 7, 4, 15, 14, 3, 11, 5, 2, 12,
+        7, 13, 14, 3, 0, 6, 9, 10, 1, 2, 8, 5, 11, 12, 4, 15,
+        13, 8, 11, 5, 6, 15, 0, 3, 4, 7, 2, 12, 1, 10, 14, 9,
+        10, 6, 9, 0, 12, 11, 7, 13, 15, 1, 3, 14, 5, 2, 8, 4,
+        3, 15, 0, 6, 10, 1, 13, 8, 9, 4, 5, 11, 12, 7, 2, 14,
+        2, 12, 4, 1, 7, 10, 11, 6, 8, 5, 3, 15, 13, 0, 14, 9,
+        14, 11, 2, 12, 4, 7, 13, 1, 5, 0, 15, 10, 3, 9, 8, 6,
+        4, 2, 1, 11, 10, 13, 7, 8, 15, 9, 12, 5, 6, 3, 0, 14,
+        11, 8, 12, 7, 1, 14, 2, 13, 6, 15, 0, 9, 10, 4, 5, 3,
+        12, 1, 10, 15, 9, 2, 6, 8, 0, 13, 3, 4, 14, 7, 5, 11,
+        10, 15, 4, 2, 7, 12, 9, 5, 6, 1, 13, 14, 0, 11, 3, 8,
+        9, 14, 15, 5, 2, 8, 12, 3, 7, 0, 4, 10, 1, 13, 11, 6,
+        4, 3, 2, 12, 9, 5, 15, 10, 11, 14, 1, 7, 6, 0, 8, 13,
+        4, 11, 2, 14, 15, 0, 8, 13, 3, 12, 9, 7, 5, 10, 6, 1,
+        13, 0, 11, 7, 4, 9, 1, 10, 14, 3, 5, 12, 2, 15, 8, 6,
+        1, 4, 11, 13, 12, 3, 7, 14, 10, 15, 6, 8, 0, 5, 9, 2,
+        6, 11, 13, 8, 1, 4, 10, 7, 9, 5, 0, 15, 14, 2, 3, 12,
+        13, 2, 8, 4, 6, 15, 11, 1, 10, 9, 3, 14, 5, 0, 12, 7,
+        1, 15, 13, 8, 10, 3, 7, 4, 12, 5, 6, 11, 0, 14, 9, 2,
+        7, 11, 4, 1, 9, 12, 14, 2, 0, 6, 10, 13, 15, 3, 5, 8,
+        2, 1, 14, 7, 4, 10, 8, 13, 15, 12, 9, 0, 3, 5, 6, 11]
+
+    def __init__(self, key):
+        assert len(key) == 8
+        self.key = bytes(key)
+        self.subkeys = [0] * 32
+        self._generate_subkeys()
+
+    @classmethod
+    def _func(cls, data, subkey2, subkey1):
+        part1 = part2 = 0
+        for i in range(48):
+            index = cls.EXPANSION[i] - 1
+            if i < 32:
+                part1 |= ((data >> index) & 1) << i
+            else:
+                part2 |= ((data >> index) & 1) << (i - 32)
+        part2 ^= subkey2
+        part1 ^= subkey1
+
+        def ebit(ix):
+            return (part1 >> ix) & 1 if ix < 32 else (part2 >> (ix - 32)) & 1
+
+        temp = 0
+        for i in range(0, 48, 6):
+            row = (ebit(i) << 1) | ebit(i + 5)
+            col = (ebit(i + 1) << 3) | (ebit(i + 2) << 2) | \
+                (ebit(i + 3) << 1) | ebit(i + 4)
+            temp = (temp << 4) | cls.SBOX[((i // 6) << 6) | (row << 4) | col]
+        output = 0
+        for i in range(32):
+            index = 32 - cls.POST_SBOX[i]
+            output |= ((temp >> index) & 1) << i
+        return output
+
+    def _generate_subkeys(self):
+        leftpart = rightpart = 0
+        for i in range(56):
+            index = self.PC1[i] - 1
+            bit = (self.key[index >> 3] >> (7 - (index & 7))) & 1
+            if i < 28:
+                leftpart |= bit << i
+            else:
+                rightpart |= bit << (i - 28)
+
+        def rshift(part, val):
+            return ((part >> val) | (part << (28 - val))) & 0xFFFFFFF
+
+        for rnd in range(16):
+            leftpart = rshift(leftpart, self.ITERATION_SHIFT[rnd])
+            rightpart = rshift(rightpart, self.ITERATION_SHIFT[rnd])
+            p1 = p2 = 0
+            for i in range(48):
+                index = self.PC2[i] - 1
+                bit = ((leftpart >> index) if index < 28
+                       else (rightpart >> (index - 28))) & 1
+                if i < 32:
+                    p1 |= bit << i
+                else:
+                    p2 |= bit << (i - 32)
+            self.subkeys[rnd << 1] = p2
+            self.subkeys[(rnd << 1) | 1] = p1
+
+    def _crypt_block(self, inp, encrypt=True):
+        leftpart = rightpart = 0
+        for i in range(64):
+            index = self.IP[i] - 1
+            bit = (inp[index >> 3] >> (7 - (index & 7))) & 1
+            if i < 32:
+                leftpart |= bit << i
+            else:
+                rightpart |= bit << (i - 32)
+        rng = range(16) if encrypt else range(15, -1, -1)
+        for rnd in rng:
+            temp = rightpart
+            rightpart = leftpart ^ self._func(
+                rightpart, self.subkeys[rnd << 1], self.subkeys[(rnd << 1) | 1])
+            leftpart = temp
+        out = bytearray(8)
+        for i in range(64):
+            index = self.FP[i] - 1
+            bit = ((rightpart >> index) & 1) if index < 32 \
+                else ((leftpart >> (index - 32)) & 1)
+            out[i >> 3] |= bit << (7 - (i & 7))
+        return bytes(out)
+
+    def encrypt_block(self, inp):
+        return self._crypt_block(inp, True)
+
+    def decrypt_block(self, inp):
+        return self._crypt_block(inp, False)
+
+
+def latitude_3540_keygen(hash16, tag):
+    """Dell Latitude 3540 (Insyde BIOS) master password.
+    hash16 = 16 hex digits shown on the lockout screen, tag = service tag.
+    Vectors: 5F3988D5E0ACE4BF/7QH8602 -> 98072364 etc."""
+    master_key = b"23AAFFAD"
+    block2 = bytes(int(hash16[i * 2:i * 2 + 2], 16) for i in range(8))
+    block1 = bytearray(8)
+    block1[0] = ord(tag[-1])
+    key2 = _DES(master_key).encrypt_block(bytes(block1))
+    pwd = _DES(key2).decrypt_block(block2)
+    s = pwd.decode('latin-1')
+    return s if all(c in "0123456789abcdefABCDEF" for c in s) else None
 
 def selftest():
     """Cross-validate our E7A8 implementation against the public algorithm."""
@@ -703,7 +903,8 @@ def selftest():
     print("  bank checks passed")
 
     # --- full legacy keygen vs public vectors (pwgen-for-bios dell.spec.ts) ---
-    print("Legacy keygen vs public test vectors (18):")
+    print("Legacy keygen vs public test vectors (48 = service-tag 21 + "
+          "E7A8 7 + HDD 14 + hddOld 1 + DES 1 + Latitude3540 4):")
     vectors = [
         ("1234567", "595B", "46rg65ky"),
         ("1234567", "D35B", "5tc8q9re"),
@@ -731,8 +932,85 @@ def selftest():
         ok += bool(m)
         if not m:
             print(f"  MISMATCH {serial}-{tag}: expected {expected!r} got {got!r}")
-    print(f"  {ok}/{len(vectors)} public vectors reproduced"
-          + (" — ALL PASS" if ok == len(vectors) else " <<< FAILURES"))
+    # extended service-tag vectors (BF97) + HDD + hddOld + Latitude 3540
+    for serial, tag, expected in [
+        ("OPENSRC", "BF97", "Dp29XkbyMrkBrp6Z"),
+        ("ABCDEFG", "BF97", "kr9Z1cmPpahGzsQ["),
+        ("DELLSUX", "BF97", "rrNM2LrbD8nGsd2P"),
+    ]:
+        got = keygen_dell_legacy(serial, tag)
+        m = got and got[0] == expected
+        ok += bool(m)
+        if not m:
+            print(f"  MISMATCH {serial}-{tag}: expected {expected!r} got {got!r}")
+    extra_st_count = 3
+    e7a8_vectors = [
+        ("1234567", ["Qk3LkU22kPeyq2jd", "rLIqjUy59IG2JU2R"]),
+        ("D875TG2", ["rLZc96rMZyGQ2GMG", "1Q6rxIWMGUznXZNy"]),
+        ("2XSX273", ["rPQ0DGLdqckG2kUZ", "0ZaP6RzW9qk73rmq"]),
+        ("CZXKYX2", ["RGWD2BIR9UB9ZdIy", "38Gr7brmRGBPPIkz"]),
+        ("6651WZ2", ["PBjMMMsZUQR2MhmR", "Q1N6k2sLRkGGGrEN"]),
+        ("9M2JTG2", ["J2yR66N1kdn2N17m"]),
+        ("1219P73", ["ksM02GskJ341hnDx"]),
+    ]
+    for serial, expected in e7a8_vectors:
+        got = keygen_dell_legacy(serial, "E7A8")
+        m = all(e in got for e in expected)
+        ok += m
+        if not m:
+            print(f"  MISMATCH {serial}-E7A8: expected {expected} got {got}")
+    hdd_vectors = [
+        ("1234567890A", "595B", "nyoap4lq"),
+        ("1234567890A", "D35B", "dc14blrd"),
+        ("1234567890A", "2A7B", "h6lwdi91qluUyt3u"),
+        ("1234567890A", "A95B", "qr0s6x4n"),
+        ("1234567890A", "1D3B", "6JQ1WacHNNR0Taia"),
+        ("1234567890A", "1F66", "vP0M31x066Z7Rq9p"),
+        ("1234567890A", "6FF1", "5enLLpM3Immfb8CK"),
+        ("1234567890A", "1F5A", "L9IJjYoUIXeY5wOy"),
+        ("12345678901", "1F5A", "QwO5Dki1zeR1n1t2"),
+        ("12345678901", "BF97", "nDrmUU6U5DI9ZLMI"),
+        ("1234567890A", "BF97", "pRrky3r9ryEPNNJz"),
+        ("234567890AB", "BF97", "h2RDrReN37I1NLmr"),
+        ("1234567890A", "E7A8", ["rN2rE2RBQh[X00yr", "G1bFzRGzjXIGzr22"]),
+        ("1234567890B", "E7A8", ["Ic18yqyXXZI5Qj22", "kzzMazZrz53sRZJm"]),
+    ]
+    for serial, tag, expected in hdd_vectors:
+        got = keygen_dell_legacy(serial, tag, mode="hdd")
+        if isinstance(expected, list):
+            m = sorted(got) == sorted(expected)
+        else:
+            m = got and got[0] == expected
+        ok += bool(m)
+        if not m:
+            print(f"  MISMATCH HDD {serial}-{tag}: expected {expected!r} got {got!r}")
+    # old HDD scheme
+    m = keygen_hdd_old("12345678901") == "yyyyyhnn"
+    ok += m
+    if not m:
+        print(f"  MISMATCH hddOld: {keygen_hdd_old('12345678901')!r}")
+    # Latitude 3540 (DES)
+    d = _DES(b"12345678")
+    m = list(d.encrypt_block(b"12345678")) == [150, 208, 2, 136, 120, 213, 140, 137]
+    ok += m
+    if not m:
+        print(f"  MISMATCH DES vector: {list(d.encrypt_block(b'12345678'))}")
+    lat_vectors = [
+        ("5F3988D5E0ACE4BF", "7QH8602", "98072364"),
+        ("76A7D90FD9563C5F", "3FN2J22", "60485207"),
+        ("1B6DD24D26E7B566", "BJVDG22", "99937880"),
+        ("1B6DD24D26E7C566", "BJVDG22", None),
+    ]
+    for h, t, expected in lat_vectors:
+        got = latitude_3540_keygen(h, t)
+        m = got == expected
+        ok += m
+        if not m:
+            print(f"  MISMATCH latitude3540 {h}/{t}: {got!r}")
+    total = (len(vectors) + extra_st_count + len(e7a8_vectors) +
+             len(hdd_vectors) + 1 + 1 + len(lat_vectors))
+    print(f"  {ok}/{total} public vectors reproduced"
+          + (" — ALL PASS" if ok == total else " <<< FAILURES"))
 
 
 # 8FC8 output alphabet (72 chars, dispatch-table entry +0x10 for family 0x8FC8,
@@ -884,6 +1162,21 @@ def main():
         return
     if args[0] == '--findxenrolled':
         cmd_findxenrolled(args)
+        return
+    if args[0] == '--legacy':
+        # --legacy <TAG> <SUFFIX> [hdd]
+        serial = args[1]
+        tag = args[2].upper() if len(args) > 2 else "BF97"
+        mode = "hdd" if len(args) > 3 and args[3].lower() == "hdd" else "service"
+        for p in keygen_dell_legacy(serial, tag, mode):
+            print(p)
+        return
+    if args[0] == '--hdd-old':
+        print(keygen_hdd_old(args[1]))
+        return
+    if args[0] == '--lat3540':
+        # --lat3540 <16-hex code> <service tag>
+        print(latitude_3540_keygen(args[1], args[2]))
         return
     tag = args[0].upper()
     suffix = args[1].upper() if len(args) > 1 else "CF1B"

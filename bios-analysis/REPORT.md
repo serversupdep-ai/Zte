@@ -1316,11 +1316,13 @@ dellpwn verification port `bios-analysis/dvar_scan_port.py`). Headlines:
   recovers (not disables) passwords from dumps.
 - **Legacy keygen lineage** (dogbert/bios-pwgen → bacher09/pwgen-for-bios =
   bios-pw.org → chromebreakerdev/DellBIOSTools v2.6-beta, 2026-08): suffix-era
-  generators (595B…E7A8). Verified here: **18/18 of their published
-  full-password vectors + 8/8 suffix vectors reproduced** by our extended
-  `dell_keygen.py` (`keygen_dell_legacy` — all 9 public families implemented,
-  incl. the scancode-output 595B/D35B/A95B path) + E7A8 byte-identical
-  (§13.12) + tables byte-identical to real firmware (§13.12).
+  generators (595B…E7A8). Verified here: **48/48 of their published
+  vectors reproduced** by our extended `dell_keygen.py`
+  (`keygen_dell_legacy` — all 9 public families incl. the scancode-output
+  595B/D35B/A95B path, HDD master-password mode, the old pre-suffix HDD
+  scheme, and the Latitude 3540 Insyde/DES construction) + 8/8 suffix
+  vectors + E7A8 byte-identical (§13.12) + tables byte-identical to real
+  firmware (§13.12).
 - **8FC8/CF1B generation**: craigsblackie/8FC8_Patcher (Blackie = MDSec CVE
   co-author; the code DellBIOSTools ships), Rex98's original — record-disable
   patches; no public generator exists for this generation (§13.11–13.13), the
