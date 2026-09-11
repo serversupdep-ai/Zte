@@ -471,6 +471,204 @@ def keygen_e7a8(serial):
     return out
 
 
+
+# ----------------------------------------------------------------------------
+# FULL LEGACY KEYGEN (all public families) — REPORT §14 / DELL_TOOLS_SURVEY
+# keygen_dell_legacy(serial, tag) implements the public keygenDell() of
+# bacher09/pwgen-for-bios (= bios-pw.org), which is the continuation of
+# dogbert's bios-pwgen. All families with published test vectors:
+#   595B D35B A95B 2A7B 1D3B 1F66 1F5A 6FF1 BF97 E7A8
+# (3A5B exists only in dogbert's dell.c as a distinct blockEncode3A5B, with
+#  no published vectors in either tool — not implemented here.)
+# Validated against pwgen-for-bios' own dell.spec.ts vectors: 18/18 (§14).
+# ----------------------------------------------------------------------------
+SCAN_CODES = (chr(0) + chr(27) + "1234567890-=" + chr(8) + chr(9) +
+              "qwertyuiop[]" + chr(13) + chr(255) + "asdfghjkl;'`" +
+              chr(255) + chr(92) + "zxcvbnm,./")
+ENCSCANS = [0x05, 0x10, 0x13, 0x09, 0x32, 0x03, 0x25, 0x11, 0x1F, 0x17,
+            0x06, 0x15, 0x30, 0x19, 0x26, 0x22, 0x0A, 0x02, 0x2C, 0x2F,
+            0x16, 0x14, 0x07, 0x18, 0x24, 0x23, 0x31, 0x20, 0x1E, 0x08,
+            0x2D, 0x21, 0x04, 0x0B, 0x12, 0x2E]
+
+EXTRA_CHARACTERS = {          # public extraCharacters map == TABLE_BANK
+    "2A7B": TABLE_BANK["2A7B"][0],
+    "1F5A": TABLE_BANK["1F5A"][0],
+    "1D3B": TABLE_BANK["1D3B"][0],
+    "1F66": TABLE_BANK["1F66"][0],
+    "6FF1": TABLE_BANK["6FF1"][0],
+    "BF97": TABLE_BANK["BF97"][0],
+}
+
+
+class TagD35BEncoder(Tag595BEncoder):
+    f1 = staticmethod(encF1)
+    f2 = staticmethod(encF2)
+    f3 = staticmethod(encF3)
+    f4 = staticmethod(encF4)
+    f5 = staticmethod(encF5)
+
+
+class Tag1D3BEncoder(Tag595BEncoder):
+    def makeEncode(self):
+        for j in range(21):
+            self.A |= 0x97
+            self.B ^= 0x8
+            self.C |= mask32(0x60606161 - j)
+            self.D ^= mask32(0x50501010 + j)
+            Tag595BEncoder.makeEncode(self)
+
+
+class Tag1F66Encoder(Tag595BEncoder):
+    md5table = md5magic2
+
+    def makeEncode(self):
+        for j in range(17):
+            self.A |= 0x100097
+            self.B ^= 0xA0008
+            self.C |= mask32(0x60606161 - j)
+            self.D ^= mask32(0x50501010 + j)
+            for i in range(64):
+                w = i >> 4
+                if w == 0:
+                    t = self.calculate(self.f2, i & 15, mask32(i + 16))
+                elif w == 1:
+                    t = self.calculate(self.f3, (i * 5 + 1) & 15,
+                                       mask32(i + 32))
+                elif w == 2:
+                    t = self.calculate(self.f4, (i * 3 + 5) & 15,
+                                       mask32(i - 2 * (i & 12) + 12))
+                else:
+                    t = self.calculate(self.f5, (i * 7) & 15,
+                                       mask32(2 * (i & 3) - (i & 15) + 12))
+                self.A, self.D, self.C = self.D, self.C, self.B
+                self.B = mask32(self.B + rol(t, rotationTable[w][i & 3]))
+            self.incrementData()
+        for j in range(21):
+            self.A |= 0x97
+            self.B ^= 0x8
+            self.C |= mask32(0x50501010 - j)
+            self.D ^= mask32(0x60606161 + j)
+            for i in range(64):
+                w = i >> 4
+                if w == 0:
+                    t = self.calculate(self.f4, (i * 3 + 5) & 15,
+                                       mask32(2 * (i & 3) - i + 44))
+                elif w == 1:
+                    t = self.calculate(self.f5, (i * 7) & 15,
+                                       mask32(2 * (i & 3) - i + 76))
+                elif w == 2:
+                    t = self.calculate(self.f2, i & 15, i & 15)
+                else:
+                    t = self.calculate(self.f3, (i * 5 + 1) & 15,
+                                       mask32(i - 32))
+                g = w + 2
+                self.A, self.D, self.C = self.D, self.C, self.B
+                self.B = mask32(self.B + rol(t, rotationTable[g & 3][i & 3]))
+            self.incrementData()
+
+
+class Tag1F5AEncoder(Tag595BEncoder):
+    md5table = md5magic2
+
+    def makeEncode(self):
+        for _ in range(5):
+            for j in range(64):
+                w = j >> 4
+                k = 12 + (j & 3) - (j & 12)
+                if w == 0:
+                    t = self.calculate(self.f2, j & 15, j)
+                elif w == 1:
+                    t = self.calculate(self.f3, (j * 5 + 1) & 15, j)
+                elif w == 2:
+                    t = self.calculate(self.f4, (j * 3 + 5) & 15,
+                                       mask32(k + 0x20))
+                else:
+                    t = self.calculate(self.f5, (j * 7) & 15,
+                                       mask32(k + 0x30))
+                # register order: B=D, D=A, A=C, C=rol(t)+C
+                self.B, self.D, self.A, self.C = (self.D, self.A, self.C,
+                                                  mask32(self.C + rol(
+                                                      t, rotationTable[w][j & 3])))
+            self.incrementData()
+
+    def incrementData(self):
+        # swapped accumulation vs 595B
+        self.encData[0] = mask32(self.encData[0] + self.B)
+        self.encData[1] = mask32(self.encData[1] + self.C)
+        self.encData[2] = mask32(self.encData[2] + self.A)
+        self.encData[3] = mask32(self.encData[3] + self.D)
+
+    def calculate(self, func, key1, key2):
+        tmp = func(self.C, self.A, self.D)
+        combined = (self.md5table[key2 % len(self.md5table)] +
+                    self.encBlock[key1]) & 0xFFFFFFFF
+        return (self.B + self.f1(tmp, combined)) & 0xFFFFFFFF
+
+
+LEGACY_ENCODERS = {
+    "595B": Tag595BEncoder, "2A7B": Tag595BEncoder, "A95B": Tag595BEncoder,
+    "1D3B": Tag1D3BEncoder, "D35B": TagD35BEncoder, "1F66": Tag1F66Encoder,
+    "6FF1": Tag6FF1Encoder, "1F5A": Tag1F5AEncoder, "BF97": TagBF97Encoder,
+}
+
+
+def _legacy_pad(arr):
+    """keygenDell block pad: ints -> 24 bytes ([23]=0x80) -> 16 LE u32,
+    encBlock[14] = bitcount 184, [15] = 0."""
+    a = list(arr)
+    cnt = 23
+    while len(a) <= cnt:
+        a.append(0)
+    a[cnt] = 0x80
+    enc = []
+    for i in range(len(a) // 4):
+        enc.append(a[i * 4] | (a[i * 4 + 1] << 8) | (a[i * 4 + 2] << 16) |
+                   (a[i * 4 + 3] << 24))
+    while len(enc) < 16:
+        enc.append(0)
+    enc[14] = cnt << 3
+    enc[15] = 0
+    return enc
+
+
+def _result_to_string(arr16, tag):
+    """public resultToString: chartable families map every byte; 595B/D35B/
+    A95B map via scanCodes from start index arr[0]%9 (max 8 chars)."""
+    r = arr16[0] % 9
+    out = ""
+    table = EXTRA_CHARACTERS.get(tag)
+    for i in range(16):
+        if table is not None:
+            out += table[arr16[i] % len(table)]
+        elif r <= i and len(out) < 8:
+            out += SCAN_CODES[ENCSCANS[arr16[i] % len(ENCSCANS)]]
+    return out
+
+
+def keygen_dell_legacy(serial, tag):
+    """keygenDell(serial, tag, ServiceTag) — the public legacy construction,
+    now for ALL families with published vectors. Returns list of passwords
+    (E7A8 returns two). Validated 18/18 against pwgen-for-bios dell.spec.ts."""
+    tag = tag.upper()
+    serial = serial.upper()
+    if tag == "E7A8":
+        return keygen_e7a8(serial)
+    if tag not in LEGACY_ENCODERS:
+        raise ValueError(f"unsupported legacy tag {tag!r} "
+                         "(3A5B: dogbert-only, no published vectors)")
+    full = serial + ("595B" if tag == "A95B" else tag)
+    full_arr = [ord(c) for c in full]
+    if tag in EXTRA_CHARACTERS:      # chartable families: table[r % 72]
+        sfx = [ord(c) for c in calculateSuffix_fw(
+            full, EXTRA_CHARACTERS[tag], 72)]
+    else:                            # 595B/D35B/A95B: encscans[r % 36]
+        enc_tab = [chr(x) for x in ENCSCANS]
+        sfx = [ord(c) for c in calculateSuffix_fw(full, enc_tab, 36)]
+    enc_block = _legacy_pad(full_arr + sfx)
+    enc16 = intArrayToByte(LEGACY_ENCODERS[tag].encode(enc_block))
+    pw = _result_to_string(enc16, tag)
+    return [pw] if pw else []
+
 def selftest():
     """Cross-validate our E7A8 implementation against the public algorithm."""
     print("E7A8 self-test (known-good serials):")
@@ -503,6 +701,38 @@ def selftest():
     else:
         print("  (module file not present — skipped byte-verification)")
     print("  bank checks passed")
+
+    # --- full legacy keygen vs public vectors (pwgen-for-bios dell.spec.ts) ---
+    print("Legacy keygen vs public test vectors (18):")
+    vectors = [
+        ("1234567", "595B", "46rg65ky"),
+        ("1234567", "D35B", "5tc8q9re"),
+        ("1234567", "2A7B", "J1KuwWpSUgnDarfi"),
+        ("1234567", "A95B", "46rg65ky"),
+        ("1234567", "1D3B", "Sn4fkF8bS57NymZl"),
+        ("1234567", "1F66", "kIpTBzx0m3s10JDR"),
+        ("1234567", "6FF1", "Rzn1wGe555H5bM2r"),
+        ("OPENSRC", "1D3B", "S3yJ91q0Gar3O72I"),
+        ("ABCDEFG", "1D3B", "xvn0qEeftqyrkG52"),
+        ("7G9C0G2", "6FF1", "35c0b0tVb32Z6ivD"),
+        ("DELLSUX", "1F66", "qHXaL0ntli6Gu4c0"),
+        ("CRPP562", "1F66", "8i5qLGa9woA919Ys"),
+        ("CDG8T32", "1F66", "4Ke3y2L3kTP2f6Vo"),
+        ("8M5RQ32", "1F66", "3rlrbaSj46Iw221g"),
+        ("1234567", "1F5A", "2ls2b8GiP9H032kx"),
+        ("OPENSRC", "1F5A", "ZC3j2t56eIe4Thgi"),
+        ("ABCDEFG", "1F5A", "x2zL5n7jj2Gl2TIh"),
+        ("1234567", "BF97", "2r09GZhU[r0kW2zr"),
+    ]
+    ok = 0
+    for serial, tag, expected in vectors:
+        got = keygen_dell_legacy(serial, tag)
+        m = got and got[0] == expected
+        ok += bool(m)
+        if not m:
+            print(f"  MISMATCH {serial}-{tag}: expected {expected!r} got {got!r}")
+    print(f"  {ok}/{len(vectors)} public vectors reproduced"
+          + (" — ALL PASS" if ok == len(vectors) else " <<< FAILURES"))
 
 
 # 8FC8 output alphabet (72 chars, dispatch-table entry +0x10 for family 0x8FC8,
