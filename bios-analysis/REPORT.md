@@ -968,3 +968,28 @@ sequence (3090: vars 01–12, password records 13 (FD) + 14 (FC); 7480: vars
 20–2E, password record 2F). The 3090-unlocked pair (49 B/48 B payloads) and
 the 7480-locked record (64 B) are all AES-block-sized — consistent with the
 sealed-payload finding above.
+
+### Record-store census across the whole forum corpus (§13.10)
+
+`rex98_patcher.py --store` was run by the workflow over all 102 real dumps
+(`forum/analysis/store-census.txt`, sealed payloads included). Live (type-AA)
+password records found — i.e., genuinely **locked** machines in the corpus:
+
+| dump | live AA records | sealed payload |
+|---|---|---|
+| Vostro 3681 BACKUP (+3 copies) | FD idx=0F, 48 B | `7edb2a07…0a3c` |
+| OptiPlex 7480 AIO 1.10.0 (+1 copy) | FD idx=2F, 64 B | `08187503…e98c` |
+| **OptiPlex 3090 optiplex_3090.bin** | FD idx=12, 33 B + FC idx=14, 80 B | `b5dad263…4224`, `cdbc6e16…3a31` |
+| **OptiPlex 3090 32MB.BIN (ifix_23)** | FD idx=14, 49 B + FC idx=15, 48 B | `1d367878…9524`, `7a1f1c8f…60d8` |
+| OptiPlex 3080-Micro EC chip (IPCML-RN) | FD idx=10, 32 B | `78fadabf…32be` |
+
+Sealing test (final): every 32-byte window of every live record was tested
+against `SHA256(P16 ‖ salt)` and 8 other constructions, across all five
+salts and the legacy ASCII salts, with common-password and service-tag
+guess lists plus a ~1.2-billion-candidate brute (A–Z0–9 / a–z0–9 / mixed
+≤5, digits ≤8) — **zero hits**. Even the exactly-32-byte record (IPCML-RN)
+is sealed. Combined with the AES-block-aligned payload sizes (16n+1), the
+enrollment material is EC-sealed in every CF1B-generation machine: offline
+password recovery from the SPI dump is closed; the record-disable patch
+(`rex98_patcher.py --patch`) and the live §13 challenge remain the two
+working routes.
