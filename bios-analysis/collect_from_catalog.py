@@ -276,6 +276,9 @@ def lvfs_fetch(url):
                            if i.tag.endswith("id") and i.text}
                     guids = {g.text.strip().lower() for g in el.iter()
                              if g.tag.endswith("firmware") and g.text}
+                    nm = el.find("{*}name")
+                    name = nm.text.strip() if nm is not None and nm.text \
+                        else None
                     rels = []
                     for rel in el.iter():
                         if rel.tag.endswith("release"):
@@ -285,7 +288,7 @@ def lvfs_fetch(url):
                                     loc.text.strip().endswith(".cab"):
                                 rels.append((ver, loc.text.strip()))
                     if rels:
-                        comps.append((ids, guids, rels))
+                        comps.append((ids, guids, rels, name))
                     el.clear()
             _LVFS_META_CACHE[mu] = comps
             return comps
@@ -294,21 +297,21 @@ def lvfs_fetch(url):
     def _cab_from_metadata(slug, guid):
         """Fallback when the device page 403s: pull the release list from
         the official fwupd remote metadata (firmware.xml[.zst|.gz]) and
-        return the newest .cab URL for this device. The device-page slug is
-        the fwupd component id (e.g. com.dell.uefic9284bf6.firmware); match
-        it against <id>, and also accept the bare GUID against <provides>
-        <firmware type="flashed"> entries."""
+        return the newest (cab_url, version, model_name) for this device.
+        The device-page slug is the fwupd component id (e.g.
+        com.dell.uefic9284bf6.firmware); match it against <id>, and also
+        accept the bare GUID against <provides><firmware type="flashed">."""
         comps = _load_metadata()
         want_slug, want_guid = slug.lower(), guid.lower()
         comp = []
-        for ids, guids, rels in comps:
+        for ids, guids, rels, name in comps:
             if want_slug in ids or want_guid in guids:
-                comp.extend(rels)
+                comp.extend((v, u, name) for v, u in rels)
         if comp:
             comp.sort(key=lambda x: [int(p) if p.isdigit() else 0
                                      for p in x[0].split(".")])
-            return comp[-1][1], comp[-1][0]
-        return None, None
+            return comp[-1][1], comp[-1][0], comp[-1][2]
+        return None, None, None
 
     model = version = None
     if "/lvfs/devices/" in url:
@@ -318,7 +321,7 @@ def lvfs_fetch(url):
             html = _get(url, binary=False)
         except Exception as e:
             print(f"    device page: {e} — falling back to LVFS metadata")
-            cab_url, ver = _cab_from_metadata(slug, guid)
+            cab_url, ver, mname = _cab_from_metadata(slug, guid)
             if not cab_url:
                 raise
             # AppStream <location> is often a bare filename — join it with
@@ -326,7 +329,7 @@ def lvfs_fetch(url):
             if "://" not in cab_url:
                 cab_url = "https://cdn.fwupd.org/downloads/" + cab_url
             url, version = cab_url, ver or "latest"
-            model = guid
+            model = mname or guid
         else:
             t = _re.search(r"<title>LVFS:\s*([^<]+)</title>", html)
             v = _re.search(r"##\s*Version\s*([0-9][0-9A-Za-z.+-]*)", html)
@@ -363,6 +366,7 @@ def lvfs_fetch(url):
             break
     if data is None:
         raise last
+    print(f"    downloaded {len(data)} bytes")
     if data[:4] != b"MSCF":
         name = url.rsplit("/", 1)[-1]
         tag = _re.sub(r"^[0-9a-f]{64}-", "", name)
@@ -372,12 +376,13 @@ def lvfs_fetch(url):
     with _tempfile.TemporaryDirectory() as td:
         cab = os.path.join(td, "fw.cab")
         open(cab, "wb").write(data)
-        r = _subprocess.run(["7z", "x", "-y", f"-o{td}\fw", cab],
+        fwdir = os.path.join(td, "fw")
+        r = _subprocess.run(["7z", "x", "-y", f"-o{fwdir}", cab],
                             capture_output=True, timeout=900)
         if r.returncode != 0:
             print(f"    7z failed: {r.stderr.decode()[:200]}")
             return []
-        for root, _dirs, files in os.walk(os.path.join(td, "fw")):
+        for root, _dirs, files in os.walk(fwdir):
             for fn in files:
                 fp = os.path.join(root, fn)
                 if os.path.getsize(fp) < 1024 * 1024:
@@ -389,6 +394,10 @@ def lvfs_fetch(url):
                     tag = _re.sub(r"[^A-Za-z0-9._-]+", "_", fn)
                 tag = _re.sub(r"[^A-Za-z0-9._-]+", "_", tag)
                 out.append((tag, blob))
+        if not out:
+            found = [f for r, _d, fs in os.walk(fwdir) for f in fs]
+            print(f"    cab extracted {len(found)} files but none >= 1 MB; "
+                  f"first: {found[:8]}")
     return out
 
 
