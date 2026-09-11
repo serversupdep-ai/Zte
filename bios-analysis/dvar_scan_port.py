@@ -139,17 +139,99 @@ def scan_file(path):
     return region, scan_for_passwords(data, *region)
 
 
+# --- SIVB (Security Information Vault Block) — port of dellpwn sivb.rs:43 ---
+SIVB_SIG = b"SIVB"
+SIVB_TOTAL_SIZE = 5552          # header + data (sivb.rs:20)
+
+
+def find_sivb(data):
+    """dellpwn find_sivb (sivb.rs:43): locate SIVB blocks; the 4 bytes
+    before the signature are a little-endian header (hash_size u16,
+    blob_size u16; typical 0x20 / 0x1540). has_data = block contains
+    >10 bytes that are neither 0x00 nor 0xFF."""
+    results = []
+    i = data.find(SIVB_SIG)
+    while i >= 0 and i + 4 <= len(data):
+        block_end = min(i + SIVB_TOTAL_SIZE, len(data))
+        non_trivial = sum(1 for b in data[i + 4:block_end]
+                          if b not in (0x00, 0xFF))
+        pushed = False
+        if i >= 4:
+            hash_size = data[i - 4] | (data[i - 3] << 8)
+            blob_size = data[i - 2] | (data[i - 1] << 8)
+            if hash_size == 0x20 and blob_size > 0:
+                results.append({'offset': i - 4, 'hash_size': hash_size,
+                                'blob_size': blob_size,
+                                'has_data': non_trivial > 10})
+                pushed = True
+        if not pushed:
+            if not results or results[-1]['offset'] != i - 4:
+                results.append({'offset': i, 'hash_size': 0,
+                                'blob_size': 0,
+                                'has_data': non_trivial > 10})
+        i = data.find(SIVB_SIG, i + 1)
+    return results
+
+
+# --- E7250-style password stores — port of dellpwn sivb.rs:111 ---
+def find_password_stores(data):
+    """dellpwn find_password_stores (sivb.rs:111): 4KB-aligned records with
+    header 06 78 F* FF 03 00 00 00 plus 0x84/0x85/0xFF markers at +0xD0/+0xE0.
+    has_password = >20 non-FF bytes in the 4KB page."""
+    results = []
+    offset = 0
+    while offset + 8 < len(data):
+        if (data[offset] == 0x06 and data[offset + 1] == 0x78
+                and (data[offset + 2] & 0xF0) == 0xF0
+                and data[offset + 3] == 0xFF
+                and data[offset + 4:offset + 8] == b'\x03\x00\x00\x00'):
+            has_markers = False
+            for check_off in (0xD0, 0xE0):
+                if offset + check_off < len(data):
+                    if data[offset + check_off] in (0x84, 0x85, 0xFF):
+                        has_markers = True
+            if has_markers:
+                store_data = data[offset:min(offset + 0x1000, len(data))]
+                non_ff = sum(1 for b in store_data if b != 0xFF)
+                results.append({'offset': offset, 'non_ff_bytes': non_ff,
+                                'has_password': non_ff > 20,
+                                'counter': data[offset + 2]})
+        offset += 0x1000
+    return results
+
+
+def full_scan(path):
+    """dellpwn-equivalent read-only scan: DVAR passwords + SIVB blocks +
+    E7250-style stores."""
+    data = open(path, 'rb').read()
+    out = {'size': len(data)}
+    region = find_dvar_region(data)
+    out['dvar'] = (region, scan_for_passwords(data, *region)) if region else None
+    out['sivb'] = find_sivb(data)
+    out['e7250'] = find_password_stores(data)
+    return out
+
+
 def main():
     for path in sys.argv[1:]:
-        region, results = scan_file(path)
+        r = full_scan(path)
         name = path.split('/')[-1]
-        if not region:
-            print(f"{name}: no DVAR store")
-            continue
-        print(f"{name}: DVAR store {region[0]:#x}-{region[1]:#x}"
-              f"  passwords: {len(results)}")
-        for off, pw, key in results:
-            print(f"    [{off:#x}] {pw!r}  key={key}")
+        print(f"{name} ({r['size']} bytes)")
+        if r['dvar']:
+            (s, e), pws = r['dvar']
+            print(f"  DVAR store {s:#x}-{e:#x}: {len(pws)} password(s)")
+            for off, pw, key in pws:
+                print(f"    [{off:#x}] {pw!r}  key={key}")
+        else:
+            print("  DVAR store: none")
+        if r['sivb']:
+            for b in r['sivb']:
+                print(f"  SIVB block @{b['offset']:#x} hash_size={b['hash_size']:#x}"
+                      f" blob_size={b['blob_size']:#x} has_data={b['has_data']}")
+        if r['e7250']:
+            for b in r['e7250']:
+                print(f"  E7250-style store @{b['offset']:#x} counter={b['counter']:#x}"
+                      f" non_ff={b['non_ff_bytes']} has_password={b['has_password']}")
 
 
 if __name__ == '__main__':

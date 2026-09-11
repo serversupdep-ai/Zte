@@ -7,7 +7,7 @@ name: Analyze forum dumps
 on:
   push:
     branches: [arena/01a087e2-zte]
-    paths: ['bios-analysis/analyze_forum_dumps.py', 'bios-analysis/rex98_patcher.py', '.github/workflows/analyze-forum-dumps.yml']
+    paths: ['bios-analysis/analyze_forum_dumps.py', 'bios-analysis/rex98_patcher.py', 'bios-analysis/dvar_scan_port.py', '.github/workflows/analyze-forum-dumps.yml']
   workflow_dispatch:
 
 concurrency:
@@ -65,6 +65,31 @@ jobs:
             esac
           done
           echo "census done, exit ok"
+          exit 0
+
+      - name: dellpwn-equivalent scan census (DVAR XOR / SIVB / E7250 stores)
+        # runs the read-only dellpwn port (dvar_scan_port.py) over every
+        # dump — documents which corpus machines the CVE-2026-40639 DVAR
+        # recovery / SIVB rollback / E7250 clear operations would apply to
+        run: |
+          set +e
+          CENSUS2=bios-analysis/forum/analysis/dvar-sivb-census.txt
+          : > "$CENSUS2"
+          for f in bios-analysis/forum/opensources/dumps/*; do
+            [ -f "$f" ] || continue
+            echo "### $f" >> "$CENSUS2"
+            timeout 600 python3 bios-analysis/dvar_scan_port.py "$f" >> "$CENSUS2" 2>&1
+          done
+          # archives extracted to /tmp/storecensus by the store-census step
+          find /tmp/storecensus -type f -size +1M 2>/dev/null | while read f; do
+            case "$(echo "$f" | tr 'A-Z' 'a-z')" in
+              *.bin|*.rom|*.img)
+                echo "### $f" >> "$CENSUS2"
+                timeout 600 python3 bios-analysis/dvar_scan_port.py "$f" >> "$CENSUS2" 2>&1
+                ;;
+            esac
+          done
+          grep -c '###' "$CENSUS2" || true
           exit 0
 
       - name: Commit analysis
