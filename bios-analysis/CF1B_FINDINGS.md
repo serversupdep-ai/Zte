@@ -87,13 +87,27 @@ sends the EC exactly the identity string the EC engine stores.
 
 ## 6. CF1B-exclusive recovery routes (no legacy algorithm involved)
 
-1. **R-read + double-SHA256 grind** (`dell_cf1b_r.py`): the verify session
-   returns R *before* the PASS/FAIL compare — `dell_cf1b_probe.c` reads it
-   from the OS on the live (authorized) machine. Given R, the password is
-   any `pw` with `SHA256(SHA256(pw16‖salt)‖salt) == R`. Preimage is hopeless
-   for long passwords but tractable for short ones (≤6–7 chars over a
-   constrained charset). This is CF1B's own arithmetic, validated
-   firmware-side (selftest emulates the real 0x1BB4 under unicorn).
+1. **R-read + double-SHA256 grind** (`dell_cf1b_r.py` for X/Y arithmetic,
+   `dell_cf1b_grind.c` for the search): the verify session returns R
+   *before* the PASS/FAIL compare — `dell_cf1b_probe.c` reads it from the OS
+   on the live (authorized) machine. Given R, the password is any `pw` with
+   `SHA256(SHA256(pw16‖salt)‖salt) == R`. This is CF1B's own arithmetic,
+   validated firmware-side (selftest executes the real 0x1BB4 under
+   unicorn; the C grinder matches the Python byte-exactly).
+
+   Performance: each candidate costs exactly **2 SHA-256 compressions**
+   (both messages — 16+4 and 32+4 bytes — fit a single block). Measured
+   ~1.9 M cand/s/core on the analysis sandbox (shared, throttled); expect
+   5–10 M/s/core on a desktop with `-march=native`. Practical ranges with
+   a 36-char charset on an 8-thread desktop (~40 M/s): len ≤ 6 in ~1 min,
+   len 7 in ~30 min; full 95-printable charset: len 6 ~11 h. `--list`
+   wordlist mode covers dictionary-based owner passwords of any length.
+   ```
+   gcc -O3 -march=native -pthread -o dell_cf1b_grind dell_cf1b_grind.c
+   sudo ./dell_cf1b_probe ...        # read R from the authorized machine
+   ./dell_cf1b_grind <R_hex> --maxlen 7          # charset brute force
+   ./dell_cf1b_grind <R_hex> --list < words.txt  # wordlist mode
+   ```
 2. **EC flash dump** (hardware step): the enrolled values live in the EC's
    internal NVRAM (records 4/5/0x15 = plaintext password strings on the
    5X90-class engine). The 3090's EC firmware is AES-sealed in transit, but
