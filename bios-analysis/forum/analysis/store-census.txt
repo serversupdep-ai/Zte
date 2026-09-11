@@ -16,6 +16,7 @@
     @0x00c3181 FD type=22 idx=0D flags=0001 payload=49B
     @0x00c31bd FD type=22 idx=0E flags=0001 payload=49B
     @0x00c31f9 FD type=AA idx=0F flags=0004 payload=48B <== PASSWORD RECORD
+        sealed: 7edb2a07ceefea88c4b42119979356ddafec7727d3952f4c7e8bd2376e4b8ee03f46a1ad151de070e9908c632adf0a3c
 ### bios-analysis/forum/opensources/dumps/ifix_02__Clean me.bin
 === ifix_02__Clean me.bin: 15 records ===
   types: {'FD/22': 14, 'FD/AA': 1}
@@ -34,6 +35,7 @@
     @0x00c3181 FD type=22 idx=0D flags=0001 payload=49B
     @0x00c31bd FD type=22 idx=0E flags=0001 payload=49B
     @0x00c31f9 FD type=AA idx=0F flags=0004 payload=48B <== PASSWORD RECORD
+        sealed: 7edb2a07ceefea88c4b42119979356ddafec7727d3952f4c7e8bd2376e4b8ee03f46a1ad151de070e9908c632adf0a3c
 ### bios-analysis/forum/opensources/dumps/ifix_06__3090 Bios Password Unlocked.bin
 === ifix_06__3090 Bios Password Unlocked.bin: 20 records ===
   types: {'FC/00': 1, 'FD/00': 1, 'FD/22': 18}
@@ -79,6 +81,7 @@
     @0x00c420d FD type=22 idx=2D flags=0000 payload=49B
     @0x00c4249 FD type=22 idx=2E flags=0002 payload=65B
     @0x00c4295 FD type=AA idx=2F flags=0000 payload=64B <== PASSWORD RECORD
+        sealed: 08187503a954ae8cacf53e75179286164e63107fdddd1d480c84a700b65f548aeaa4654f138aba1b56ddf95a7b590cf32dc6a4e1f186c9681b5ced8e73d3e98c
 ### bios-analysis/forum/opensources/dumps/ifix_12__3090 Bios Password Unlocked.bin
 === ifix_12__3090 Bios Password Unlocked.bin: 20 records ===
   types: {'FC/00': 1, 'FD/00': 1, 'FD/22': 18}
@@ -147,6 +150,7 @@
     @0x00c420d FD type=22 idx=2D flags=0000 payload=49B
     @0x00c4249 FD type=22 idx=2E flags=0002 payload=65B
     @0x00c4295 FD type=AA idx=2F flags=0000 payload=64B <== PASSWORD RECORD
+        sealed: 08187503a954ae8cacf53e75179286164e63107fdddd1d480c84a700b65f548aeaa4654f138aba1b56ddf95a7b590cf32dc6a4e1f186c9681b5ced8e73d3e98c
 ### /tmp/storecensus/17/Optiplex 7000 micro UNLOCKED.bin
 === Optiplex 7000 micro UNLOCKED.bin: 0 records ===
   types: {}
@@ -411,8 +415,10 @@
     @0x00c3309 FC type=22 idx=12 flags=0000 payload=49B
     @0x00c3345 FD type=22 idx=11 flags=0002 payload=33B
     @0x00c3371 FD type=AA idx=12 flags=0003 payload=33B <== PASSWORD RECORD
+        sealed: b5dad263a0485f67215d199b082d6af93d85674cb457b2cfff3acc83a545244224
     @0x00c339d FC type=22 idx=13 flags=0000 payload=49B
     @0x00c33d9 FC type=AA idx=14 flags=0001 payload=80B <== PASSWORD RECORD
+        sealed: cdbc6e16f0c89bb8fd9e68c84f5b3d4abc6d42815d2c2aabc317a8cea40f2659ae3df2341a6289dc14204a22fb40890dfb1cd24568e6f5cdbc055390993c7d3a31dabf6aa17d00a7a4191aba6fdf469b
 ### /tmp/storecensus/2/Clean me.bin
 === Clean me.bin: 15 records ===
   types: {'FD/22': 14, 'FD/AA': 1}
@@ -431,6 +437,7 @@
     @0x00c3181 FD type=22 idx=0D flags=0001 payload=49B
     @0x00c31bd FD type=22 idx=0E flags=0001 payload=49B
     @0x00c31f9 FD type=AA idx=0F flags=0004 payload=48B <== PASSWORD RECORD
+        sealed: 7edb2a07ceefea88c4b42119979356ddafec7727d3952f4c7e8bd2376e4b8ee03f46a1ad151de070e9908c632adf0a3c
 ### /tmp/storecensus/2/BACKUP.BIN
 === BACKUP.BIN: 15 records ===
   types: {'FD/22': 14, 'FD/AA': 1}
@@ -449,6 +456,7 @@
     @0x00c3181 FD type=22 idx=0D flags=0001 payload=49B
     @0x00c31bd FD type=22 idx=0E flags=0001 payload=49B
     @0x00c31f9 FD type=AA idx=0F flags=0004 payload=48B <== PASSWORD RECORD
+        sealed: 7edb2a07ceefea88c4b42119979356ddafec7727d3952f4c7e8bd2376e4b8ee03f46a1ad151de070e9908c632adf0a3c
 ### /tmp/storecensus/36/W25Q32_20161217_50656.BIN
 === W25Q32_20161217_50656.BIN: 0 records ===
   types: {}
@@ -471,6 +479,7 @@
     @0x00c31ed FD type=22 idx=0E flags=0004 payload=33B
     @0x00c3219 FD type=22 idx=0F flags=0000 payload=33B
     @0x00c3245 FD type=AA idx=10 flags=0004 payload=32B <== PASSWORD RECORD
+        sealed: 78fadabf8b51e29d153775c52e0caf47e6e7729428a3b21e4a5103ccfab232be
 ### /tmp/storecensus/34/11.0.0.1205_CON_LP_C_NPDM_PRD_RGN_outimage.bin
 === 11.0.0.1205_CON_LP_C_NPDM_PRD_RGN_outimage.bin: 0 records ===
   types: {}
@@ -497,7 +506,9 @@
     @0x00c327d FD type=22 idx=12 flags=0002 payload=33B
     @0x00c32a9 FD type=22 idx=13 flags=0002 payload=49B
     @0x00c32e5 FD type=AA idx=14 flags=0000 payload=49B <== PASSWORD RECORD
+        sealed: 1d3678785b02ea573b328d8e7a31dab09f3b69315953251e6d6351c7c0b53adfb2f7fcf48a5f7cc20f30d273101ada9524
     @0x00c3321 FC type=AA idx=15 flags=0004 payload=48B <== PASSWORD RECORD
+        sealed: 7a1f1c8f0e2ba2ecb7a76c39f8da5e746b942ed3e7ad5e5db4c00abd0c5d24014e92d57a78c8fa2cf388cb377abf60d8
 ### /tmp/storecensus/28/Dell XPS 13 9350 AAZ80 LA-C881P DINO2 MB 1.0 A00 Clear me.bin
 === Dell XPS 13 9350 AAZ80 LA-C881P DINO2 MB 1.0 A00 Clear me.bin: 0 records ===
   types: {}
