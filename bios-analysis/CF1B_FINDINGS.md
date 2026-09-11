@@ -132,3 +132,57 @@ it is NOT the basis of the CF1B answer.
 0xA577 16-B type-4 constant         0xA658 salt 8D FC 7B 25
 globals: 0xA788 family, 0xAEBC provider-installed flag
 ```
+
+---
+
+## 8. FULL KEYGEN (dell_pwgen.py) — cross-model, executed-firmware proven
+
+Corpus scan (collected/*/pw_*.efi) of the whole CF1B generation:
+
+| Module shape | Models (packages) | CF1B behavior |
+|---|---|---|
+| 42496 old-era (lookup sentinel `mov eax,0xFF; ret`) | OptiPlex 3090 2.0.7 pw_4 (API @0x926C); **Latitude 5400/5500/Precision 3540 1.43.1 pw_11 (API @0x927C — still in the LATEST package)** | **natural local generation**, status 0 |
+| 43008 new-era (sentinel 0xFFFF) | 3090 2.27.0/2.30.0, 3080 2.33/2.35, 5080, 7080, 5480, 3280 AIO, 7780/7480 AIO, 5X00 pw_12 — **all byte-identical (sha256 25af0675…)** | natural = EFI_INVALID_PARAMETER; intact fallback (je→jmp) generates |
+| 42496 family-first API | Latitude 5300 1.37.0 pw_7 (API @0x85B4: is_ec_routed check first, lookup sentinel 0xFFFF) | routes CF1B to the EC; no local generation |
+| 38912 compact | 3090 UFF 1.42/1.44, 5090, 7090, XE4, 5000, 5490/7490 AIO pw_3 | same construction constants (BF97 sites + cmp rax,0xff/0xffff) |
+
+Cross-model execution proof (pw_fw_exec harness):
+* 3090 2.0.7 pw_4 vs Latitude 5X00 1.43.1 pw_11 — **6/6 tags byte-identical
+  64-byte outputs** (H2FS5S3, 9LNT2Z2, 8XKP5Y2, 4J5SCF4, 3BJJ9C3, 9B1N0R3);
+  pure-Python port (dell_keygen.keygen_cf1b) matches 6/6 as well.
+* The construction is therefore **tag-determined, model- and BIOS-version
+  independent** — one master per service tag for this generation.
+* Sibling unification (executed): families 1B58, 9ABE, 3FE2 and CF1B all
+  produce the SAME master for a tag (fallback hardcodes the family
+  constant); 8FC8 refuses (table stub, desc=NULL → EFI_INVALID_PARAMETER —
+  its algorithm is EC-side only, consistent with all prior findings).
+
+Generated masters for publicly documented locked machines (Reddit r/Dell
+"Bios password reset" thread, Aug–Sep 2025 — tags posted by the owners;
+passwords computed here, field validation pending):
+
+| Service tag | Machine (as posted) | Master (primary) |
+|---|---|---|
+| H2FS5S3 | OptiPlex 3090 (this survey's machine) | `shzNyjGRzRN2LLzL` |
+| 9LNT2Z2 | Latitude 5500 | `yE9R322hGQkm55Jn` |
+| 8XKP5Y2 | Latitude 5400 | `cxMI6I[yzPJkZQkh` |
+| 4J5SCF4 | (CF1B lock) | `kG7RMPzr50yINas0` |
+| 3BJJ9C3 | (CF1B lock) | `r10DGr2cz3rZFkZy` |
+| 9B1N0R3 | "dell latitude 3090" | `rQXhLUBGMb1I9x3U` |
+
+Tool: `dell_pwgen.py`
+```
+python3 dell_pwgen.py 9LNT2Z2-CF1B                 # pwgen-style CLI
+python3 dell_pwgen.py <TAG> CF1B --firmware <pw_module.efi>
+        # generate by EXECUTING the real firmware (API auto-located;
+        # new-era modules run via the branch-forced fallback)
+python3 dell_pwgen.py --batch tags.txt
+python3 dell_pwgen.py --selftest                    # ALL PASS
+```
+Validation status: construction = executed-firmware-proven on two
+independent module builds (different models, different BIOS eras) plus the
+byte-identical 43008 class; H2FS5S3 master delivered from the same path.
+The other tags are computed for the documented machines; machine-side
+acceptance not yet reported. On current (EC-routed) firmware the master is
+accepted through the EC's enrolled record; owner-set passwords remain
+covered by §6 routes.
