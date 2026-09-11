@@ -351,6 +351,25 @@ to the committed Rex98-faithful `rex98_patcher.py`; on dual-class dumps it
 clears both marker classes (superset). Synthetic-image test: exactly the
 marker bytes 0xAA→0x00 change, nothing else.
 
+**Cross-validation (2026-09, fourth implementation):** chromebreakerdev/
+DellBIOSTools V2.5/2.6 (the most-recommended public tool in the field
+threads) has its unlocker tab explicitly labeled **"Dell BIOS Unlocker
+8FC8/CF1B"** — same two patterns (`00FCAA…000000…`→`00FC00`,
+`00FDAA…`→`00FD00`), no third pattern, no CF1B-specific variant: the same
+mechanism covers CF1B. Two independent confirmations of the negative
+theorem come with it: (a) the tool's password generator supports only the
+legacy families (595B, D35B, 2A7B, 1D3B, 1F66, 6FF1, 1F5A, BF97, E7A8 —
+exactly our §8 corpus) and (b) it shows a red note for 8FC8-class suffixes:
+"For 8FC8 suffixes, use the 'BIOS Unlocker' tool instead." Its first-boot
+guidance matches ours: "The Service Tag has not been programmed…" → input
+service tag → reboot → OS boots. Implementation differences across the
+four (Rex98, craigsblackie, SMDFlea, DellBIOSTools): DellBIOSTools writes
+6 bytes per marker (also zeroing the 3 var bytes after it) and scans only
+the first 0x160000 of the image; the others write 3 bytes. Both variants
+are field-proven; `dell_unlock_image.py` defaults to the minimal 3-byte
+write (full-image scan) and offers `--patch <dump> --wide` for the
+DellBIOSTools-style 6-byte write.
+
 **Fallback method (also implemented): `--wipe-store`** — essaadi's
 independently field-validated variant (badcaps, Latitude 5400, tags
 4YNG2Z2 + HZKF2Z2): FF-fill the whole record-store region

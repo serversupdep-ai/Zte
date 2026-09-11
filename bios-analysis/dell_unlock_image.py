@@ -34,10 +34,18 @@ badcaps confirms the SAME method for CF1B ("It is not 8FC8, it is CF1B …
 It's the same method") and on modern OptiPlex desktops ("Dell Optiplex 7000
 … Tried this patch to reset the BIOS. It did. No password anymore").
 
-This tool ports and extends that mechanism (core patterns identical to
-rex98_patcher.py — the faithful Rex98 port committed earlier — cross-checked
-against craigsblackie/8FC8_Patcher.py, which is byte-for-byte the same
-algorithm) and adds:
+This tool ports and extends that mechanism. FOUR independent field-proven
+implementations now agree on it (cross-validated 2026-09): Rex98's tool
+(faithful port in this repo: rex98_patcher.py), craigsblackie/8FC8_Patcher
+(byte-for-byte the same algorithm), SMDFlea's badcaps patcher, and
+chromebreakerdev/DellBIOSTools V2.5/2.6 — whose unlocker tab is explicitly
+labeled "8FC8/CF1B" and whose password generator redirects 8FC8-class
+suffixes to the patcher (independent confirmation that no keygen exists
+for this lock class). Differences across the four: Rex98/craigsblackie and
+this tool write the minimal 3 bytes (AA->00); DellBIOSTools writes 6 bytes
+(also zeroing the 3 var bytes after the marker) — both variants are
+field-proven; this tool defaults to the minimal write and offers the
+6-byte variant via `--patch <dump> --wide`. This tool adds:
 
   * full flash-image analysis (descriptor, size class, PHCM/EC regions)
   * EC record-store decode with the engine semantics from our 5X90 EC
@@ -52,7 +60,8 @@ algorithm) and adds:
 USAGE
 -----
   python3 dell_unlock_image.py --analyze <dump.bin> [more.bin ...]
-  python3 dell_unlock_image.py --patch   <dump.bin>            # -> patched_<name>
+  python3 dell_unlock_image.py --patch   <dump.bin> [--wide]  # -> patched_<name>
+                                        # --wide = DellBIOSTools-style 6-byte write
   python3 dell_unlock_image.py --wipe-store <dump.bin> [START:END]  # fallback
   python3 dell_unlock_image.py --store   <dump.bin>            # record-store decode
   python3 dell_unlock_image.py --guide   H2FS5S3-CF1B          # tailored procedure
@@ -218,7 +227,14 @@ def analyze(path):
     return 0 if (fc or fd or recs) else 1
 
 
-def patch(path):
+def patch(path, wide=False):
+    """Clear the enrolled-password markers.
+
+    Default: minimal 3-byte write (00 FC|FD AA -> 00 FC|FD 00), identical
+    to Rex98/craigsblackie. --wide: 6-byte write (also zeroes the 3 var
+    bytes after the marker), matching DellBIOSTools V2.5/2.6 — use if the
+    minimal write doesn't take on a particular model.
+    """
     d = bytearray(open(path, "rb").read())
     if not descriptor_offsets(bytes(d)):
         print("no Intel descriptor signature — not a full SPI image; abort")
@@ -230,12 +246,17 @@ def patch(path):
         return 2
     for off in fc:
         d[off + 2] = 0x00
+        if wide:
+            d[off + 3:off + 6] = b"\x00\x00\x00"
     for off in fd:
         d[off + 2] = 0x00
+        if wide:
+            d[off + 3:off + 6] = b"\x00\x00\x00"
     out = os.path.join(os.path.dirname(path) or ".",
                        "patched_" + os.path.basename(path))
     open(out, "wb").write(bytes(d))
-    print(f"patched {len(fc)} x 00FCAA + {len(fd)} x 00FDAA marker(s) -> {out}")
+    print(f"patched {len(fc)} x 00FCAA + {len(fd)} x 00FDAA marker(s) "
+          f"({'6-byte wide' if wide else '3-byte minimal'} write) -> {out}")
     print_post_flash()
     return 0
 
@@ -403,7 +424,7 @@ def main():
     if mode == "--analyze":
         return max((analyze(p) for p in rest), default=0)
     if mode == "--patch":
-        return patch(rest[0])
+        return patch(rest[0], wide=("--wide" in rest or "wide" in rest))
     if mode == "--wipe-store":
         return wipe_store(rest[0], rest[1] if len(rest) > 1 else None)
     if mode == "--store":
