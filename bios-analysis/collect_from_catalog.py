@@ -287,8 +287,8 @@ def main():
     jobs = []
     if args.catalog:
         for line in open(args.catalog):
-            line = line.strip()
-            if not line or line.startswith("#"):
+            line = line.split("#", 1)[0].strip()   # strip inline comments
+            if not line:
                 continue
             jobs.append(line)
     for f in args.file:
@@ -345,7 +345,8 @@ def main():
         old = []
         if os.path.exists(mf):
             try:
-                old = json.load(open(mf))
+                _j = json.load(open(mf))
+                old = _j["entries"] if isinstance(_j, dict) else _j
             except Exception:
                 old = []
         known = {e["sha256"] for e in old}
