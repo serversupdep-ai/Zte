@@ -1056,3 +1056,99 @@ System/Boot password): **FD and FC are the two class stores**, which is why
 Rex98's patcher tests both patterns (`00FCAA…` first, then `00FDAA…`) and the
 chromebreaker variant clears whichever it finds. A locked machine with both
 passwords set needs both records disabled.
+
+## 13.12 E7A8 keygen cross-validation (PASS) and the seven-table bank
+
+Executable proof: `bios-analysis/crossval_e7a8.py` (run `python3
+bios-analysis/crossval_e7a8.py`; self-contained — a verified snapshot of the
+public tool is committed at `bios-analysis/collected/DellBiosTools.pyw`,
+origin `chromebreakerdev/DellBIOSTools` @ main).
+
+### Method
+
+The public tool is a wxWidgets GUI whose module header runs
+`subprocess`/`ctypes`/`open()` at import time (it silently kills headless
+processes). The cross-validator therefore AST-extracts only the pure
+algorithm core — functions, classes, and call-free literal assignments
+(`encscans`, `extraCharacters`, `scanCodes`, `DellTag`, the encoders) — and
+execs that. Both sides then run the same inputs:
+
+- **public**: `keygenDell(serial, "E7A8", …)` → `calculateE7A8` with
+  `TagE7A8Encoder` and `TagE7A8EncoderSecond`
+- **ours**: `dell_keygen.keygen_e7a8(serial)` (§2, the firmware-0x8ef4 path)
+
+### Result — byte-identical on every serial, both encoders
+
+| serial | enc1 (public == ours) | enc2 (public == ours) |
+|---|---|---|
+| 1A2B3C4 | `QmWh2L5Na2QEp7ZM` | `GUQGJ6brGDGWqkQr` |
+| 7QJ4H42 | `hqrD9j8qbQGX6ZGJ` | `NsMLk0x0G2LZZyrz` |
+| H2FS5S3 | `s1JRqmRNP0rmI988` | `ZM3ax1ZQhG3G9pha` |
+| 5W91H73 (badcaps 3080 dump tag) | `JGh32I8RNLnzkbR9` | `2EzaFrdr7W96yILz` |
+| 62QB9R3 (vinafix 8FC8 thread tag) | `c9hIkZUFr6Be9RGZ` | `hcyRrzMGF1zQ94Zh` |
+
+**PASS.** The E7A8 construction — `fullSerial = serial+"E7A8"` → LE u32
+array zero-padded to 16 → encoder → SHA-256 → output char
+`table[(digest[i+16]+digest[i]) % 72]` — is confirmed independently by the
+strongest public tool.
+
+### The open table question, resolved
+
+§13.11 left one ambiguity: E7A8 is absent from the public tool's
+`extraCharacters` map, and its generic fallback is `encscans` (a 36-int
+*scancode index* list, not an alphabet). Resolution, read from their code:
+
+- `calculateE7A8()` **hardcodes** the 72-char table
+  `Q92G0drk9…GbaIjkZ` — the same table as their "default" and as the
+  module's `.data` @ RVA 0xA300 (our `E7A8_TABLE`). E7A8 never touches
+  `encscans`.
+- The `encscans` fallback fires only in `calculateSuffix`/`resultToString`
+  for legacy tags with no `extraCharacters` entry (A95B/595B/2A3B) — those
+  emit keyboard-scancode "scan characters", a different output domain.
+- Their `%len(codesTable)` vs our firmware-faithful `%72` is **equivalent
+  on every 72-char table**; the divergence exists only on the encscans
+  path, which E7A8/CF1B/8FC8 never use.
+
+### The seven-table bank (new finding)
+
+Scanning the pw modules for high-entropy 72-byte windows finds exactly
+**seven** 72-char tables — a complete family→alphabet bank, identical in
+2.0.7 `pw_42k` and 2.27.0 `pw_43k`:
+
+| RVA (pw_42k / pw_43k) | table (first 16) | family | in public tool? |
+|---|---|---|---|
+| 0xA280 / 0xA280 | `0Q2drGk99WLJ1EGn` | **8FC8** (dispatch entry +0x10) | **NO** |
+| 0xA300 / 0xA300 | `Q92G0drk9y63r5DG` | E7A8 (default) | yes (hardcoded) |
+| 0xAA10 / 0xAA20 | `012345679abcdefgh` | 2A7B / 1F5A (asciiPrintable) | yes |
+| 0xAA60 / 0xAA70 | `0BfIUG1kuPvc8A9N` | 1D3B | yes |
+| 0xAAB0 / 0xAAC0 | `0ewr3d4xtUG1ku0B` | 1F66 | yes |
+| 0xAB00 / 0xAB10 | `08rptBxfbGVMz38I` | 6FF1 | yes |
+| 0xAB50 / 0xAB60 | `0Q2drGk99rkQFMxN` | BF97 (also §9's T72 for CF1B ≤2.0.7) | yes |
+
+The six public tables are **byte-identical** to the public tool's — the
+public tables were extracted from exactly these modules. The seventh,
+@0xA280, is the 8FC8 family's output alphabet (our `ALPHA_8FC8`,
+§9/§10): a **fresh permutation of the same 72-char multiset** as the BF97
+table (9-char prefix `0Q2drGk99` in common, same charset, different order —
+18/63 positions coincide beyond the prefix). No public tool contains it:
+independent, table-level confirmation of §13.11 — *the public generators
+cannot even represent 8FC8 passwords*, let alone compute them, because the
+8FC8 alphabet postdates every public extraction.
+
+**Corpus-wide scan (163 unique pw modules in this repo): 90 carry the
+complete, byte-identical seven-table bank — and zero carry a partial
+bank.** The bank spans 26 machine collections from OptiPlex 3040 1.20.1
+(2015, Skylake) through 7090/XE4 1.42.0, including Latitude 5300/5X90,
+Precision 3540, and both 3090 firmware lines — every alphabet-bearing
+module in the corpus. The 8FC8 permutation therefore shipped **fleet-wide
+years before the first 8FC8-suffix machine existed**: the table bank is
+universal firmware infrastructure, the "family" being selected at runtime
+by dispatch (§13.5), not by module variant. (The remaining modules are the
+OpenSSL `SHA-256` hash-side modules and name-only glob matches — none
+contains any 72-char alphabet.)
+
+Consistency with §13.5: on 8FC8/CF1B machines the local tag-derived path is
+dead (dispatch entry 0 → EC routing), so the @0xA280 bank entry is dormant
+on those machines — but its presence pins the 8FC8 family's alphabet for
+the §13 challenge construction and dates the family split: Dell kept the
+entire legacy keygen machinery and swapped in one new table.
