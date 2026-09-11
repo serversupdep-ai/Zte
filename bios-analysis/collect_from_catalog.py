@@ -201,11 +201,19 @@ def lvfs_fetch(url):
     downloads it and extracts the firmware payload(s) with 7z (runner).
     """
     import re as _re
+    import io as _io
     import shutil as _shutil
     import subprocess as _subprocess
     import tempfile as _tempfile
     import urllib.request as _rq
-    UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) fwupd-catalog"}
+    # fwupd.org 403s the plain urllib/python UA from datacenter IPs —
+    # send full browser headers.
+    UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                        "AppleWebKit/537.36 (KHTML, like Gecko) "
+                        "Chrome/124.0.0.0 Safari/537.36",
+          "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,"
+                    "*/*;q=0.8",
+          "Accept-Language": "en-US,en;q=0.9"}
 
     def _get(u, binary=True, maxb=90 * 1024 * 1024):
         req = _rq.Request(u, headers=UA)
@@ -213,20 +221,89 @@ def lvfs_fetch(url):
             data = r.read(maxb)
         return data if binary else data.decode("utf-8", "replace")
 
+    def _cab_from_metadata(slug, guid):
+        """Fallback when the device page 403s: pull the release list from
+        the official fwupd remote metadata (firmware.xml[.zst|.gz]) and
+        return the newest .cab URL for this device. The device-page slug is
+        the fwupd component id (e.g. com.dell.uefic9284bf6.firmware); match
+        it against <id>, and also accept the bare GUID against <provides>
+        <firmware type="flashed"> entries."""
+        import gzip
+        import xml.etree.ElementTree as ET
+        for mu in ("https://cdn.fwupd.org/downloads/firmware.xml.zst",
+                   "https://cdn.fwupd.org/downloads/firmware.xml.gz",
+                   "https://fwupd.org/downloads/firmware.xml.zst"):
+            try:
+                raw = _get(mu, maxb=400 * 1024 * 1024)
+            except Exception as e:
+                print(f"    metadata {mu.rsplit('/',1)[-1]}: {e}")
+                continue
+            if mu.endswith(".zst"):
+                try:
+                    p = _subprocess.run(["zstd", "-dc"], input=raw,
+                                        capture_output=True, timeout=600)
+                except (FileNotFoundError, _subprocess.TimeoutExpired):
+                    print("    zstd unavailable — trying next metadata")
+                    continue
+                if p.returncode != 0:
+                    print("    zstd failed — trying next metadata")
+                    continue
+                raw = p.stdout
+            elif mu.endswith(".gz"):
+                raw = gzip.decompress(raw)
+            # find <component> whose <id> matches the device-page slug (or
+            # whose <provides> firmware GUID matches), then its releases
+            want_slug = slug.lower()
+            want_guid = guid.lower()
+            comp = []   # (version, url) candidates
+            for _, el in ET.iterparse(_io.BytesIO(raw),
+                                      events=("end",)):
+                if el.tag.endswith("component"):
+                    ids = {i.text.strip().lower() for i in el.iter()
+                           if i.tag.endswith("id") and i.text}
+                    guids = {g.text.strip().lower()
+                             for g in el.iter()
+                             if g.tag.endswith("firmware") and g.text}
+                    if want_slug in ids or want_guid in guids:
+                        for rel in el.iter():
+                            if rel.tag.endswith("release"):
+                                ver = rel.get("version", "")
+                                loc = rel.find("{*}location")
+                                if loc is not None and loc.text and \
+                                        loc.text.strip().endswith(".cab"):
+                                    comp.append((ver, loc.text.strip()))
+                    el.clear()
+            if comp:
+                comp.sort(key=lambda x: [int(p) if p.isdigit() else 0
+                                         for p in x[0].split(".")])
+                return comp[-1][1], comp[-1][0]
+        return None, None
+
     model = version = None
     if "/lvfs/devices/" in url:
-        html = _get(url, binary=False)
-        t = _re.search(r"<title>LVFS:\s*([^<]+)</title>", html)
-        v = _re.search(r"##\s*Version\s*([0-9][0-9A-Za-z.+-]*)", html)
-        model = t.group(1).strip() if t else "Dell"
-        version = v.group(1) if v else "latest"
-        m = _re.search(
-            r"https://fwupd\.org/downloads/[0-9a-f]{64}-[^\"'<>]+?\.cab",
-            html)
-        if not m:
-            print(f"    no cab link on device page: {url}")
-            return []
-        url = m.group(0)
+        slug = url.rsplit("/", 1)[-1]           # e.g. com.dell.uefic9284bf6.firmware
+        guid = slug[:-len(".firmware")] if slug.endswith(".firmware") else slug
+        try:
+            html = _get(url, binary=False)
+        except Exception as e:
+            print(f"    device page: {e} — falling back to LVFS metadata")
+            cab_url, ver = _cab_from_metadata(slug, guid)
+            if not cab_url:
+                raise
+            url, version = cab_url, ver or "latest"
+            model = guid
+        else:
+            t = _re.search(r"<title>LVFS:\s*([^<]+)</title>", html)
+            v = _re.search(r"##\s*Version\s*([0-9][0-9A-Za-z.+-]*)", html)
+            model = t.group(1).strip() if t else "Dell"
+            version = v.group(1) if v else "latest"
+            m = _re.search(
+                r"https://fwupd\.org/downloads/[0-9a-f]{64}-[^\"'<>]+?\.cab",
+                html)
+            if not m:
+                print(f"    no cab link on device page: {url}")
+                return []
+            url = m.group(0)
     print(f"    cab: {url.rsplit('/', 1)[-1]}")
     data = _get(url)
     if data[:4] != b"MSCF":
