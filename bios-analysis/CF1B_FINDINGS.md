@@ -351,6 +351,20 @@ to the committed Rex98-faithful `rex98_patcher.py`; on dual-class dumps it
 clears both marker classes (superset). Synthetic-image test: exactly the
 marker bytes 0xAA→0x00 change, nothing else.
 
+**Fallback method (also implemented): `--wipe-store`** — essaadi's
+independently field-validated variant (badcaps, Latitude 5400, tags
+4YNG2Z2 + HZKF2Z2): FF-fill the whole record-store region
+(0x45000..0x48FFF on the 5400) instead of surgically clearing markers.
+`--wipe-store <dump> [START:END]` auto-locates the record cluster
+(page-aligned bounding box) or takes an explicit hex span; same MPM exit
+procedure afterwards. Use it if `--patch` finds no FC/FD markers on a
+3090 dump (layout drift) but `--analyze` shows the record cluster.
+
+Recovery note: this round the workspace was reset to the base commit
+(fbb7085) by an external snapshot restore; the branch was restored
+byte-identically from the remote tip 4485fde (all 60 pre-session files
+verified identical/superseded) — no work lost.
+
 End-to-end for H2FS5S3-CF1B (OptiPlex 3090, latest firmware):
 1. CH341A + SOIC8 clip → `flashrom -p ch341a_spi -r orig.bin` twice, verify
    identical (keep the original!).

@@ -53,6 +53,7 @@ USAGE
 -----
   python3 dell_unlock_image.py --analyze <dump.bin> [more.bin ...]
   python3 dell_unlock_image.py --patch   <dump.bin>            # -> patched_<name>
+  python3 dell_unlock_image.py --wipe-store <dump.bin> [START:END]  # fallback
   python3 dell_unlock_image.py --store   <dump.bin>            # record-store decode
   python3 dell_unlock_image.py --guide   H2FS5S3-CF1B          # tailored procedure
 
@@ -239,6 +240,54 @@ def patch(path):
     return 0
 
 
+def wipe_store(path, span=None):
+    """FF-fill the EC record-store region (essaadi/badcaps method).
+
+    Field-validated on Latitude 5400 (8FC8, service tags 4YNG2Z2 and
+    HZKF2Z2): the record store occupied 0x45000..0x48FFF; filling it with
+    0xFF cleared the lock, then the standard MPM exit (write service tag,
+    disable Absolute, Alt+F). Fallback for when --patch finds no FC/FD
+    markers (layout drift) but --analyze/--store shows the record cluster.
+    Without an explicit span, wipes the page-aligned bounding box of the
+    decoded records (bounded to 0x8000).
+    """
+    d = bytearray(open(path, "rb").read())
+    if not descriptor_offsets(bytes(d)):
+        print("no Intel descriptor signature — not a full SPI image; abort")
+        return 1
+    if span:
+        try:
+            # offsets are hex (field reports use 00045000-style); accept
+            # both "45000" and "0x45000"
+            s, e = (int(x, 16) for x in span.split(":", 1))
+        except ValueError:
+            print("span must be START:END in hex (e.g. 45000:49000)")
+            return 1
+    else:
+        recs = decode_store(bytes(d))
+        if not recs:
+            print("no records decoded and no span given — nothing to wipe; "
+                  "run --analyze first (or pass an explicit START:END span "
+                  "from a matching model's field report, e.g. 45000:49000 "
+                  "for Latitude 5400)")
+            return 2
+        lo = min(r["offset"] for r in recs)
+        hi = max(r["offset"] + 11 + len(r["payload"]) for r in recs)
+        s = lo & ~0xFFF
+        e = min((hi + 0xFFF) & ~0xFFF, s + 0x8000)
+    if not (0x1000 <= s < e <= len(d)):
+        print(f"invalid span {s:#x}:{e:#x} for a {len(d)}-byte image")
+        return 1
+    d[s:e] = b"\xff" * (e - s)
+    out = os.path.join(os.path.dirname(path) or ".",
+                       "patched_" + os.path.basename(path))
+    open(out, "wb").write(bytes(d))
+    print(f"FF-filled record-store region {s:#x}..{e:#x} ({e - s:#x} B) -> {out}")
+    print("  (essaadi/badcaps method: region 45000:49000 on Latitude 5400)")
+    print_post_flash()
+    return 0
+
+
 def store(path):
     d = open(path, "rb").read()
     recs = decode_store(d)
@@ -355,6 +404,8 @@ def main():
         return max((analyze(p) for p in rest), default=0)
     if mode == "--patch":
         return patch(rest[0])
+    if mode == "--wipe-store":
+        return wipe_store(rest[0], rest[1] if len(rest) > 1 else None)
     if mode == "--store":
         return max((store(p) for p in rest), default=0)
     if mode == "--guide":
