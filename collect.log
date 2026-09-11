@@ -203,36 +203,106 @@ Data does not container the footer magic (b'PFS.FTR.').
 [1] LVFS https://fwupd.org/lvfs/devices/com.dell.uefic9284bf6.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 52867cc9d04f339de5db508304dfc3d57e8d1f8b11f730f16438c9176ed4c7bc-OptiPlex_3090_2.30.0_firmware.cab
+    downloaded 21648544 bytes
+  [carve] Dell HDR zlib @0x363C00 -> 33,301,542 bytes
+  [carve] generic zlib @0x2D3410 -> 1,449,491 bytes
+  [carve] generic zlib @0x363C10 -> 33,301,542 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    OptiPlex_3090_2.30.0: 9 payloads
 [2] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi10d19ee4.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 118bf96591b7b43fc209b6f0b8a4953f43e1fb2d43df1fc3998c158493253ba9-OptiPlex_3080_2.35.0_firmware.cab
+    downloaded 17799247 bytes
+  [carve] Dell HDR zlib @0x391800 -> 25,145,390 bytes
+  [carve] generic zlib @0x2D3410 -> 1,641,215 bytes
+  [carve] generic zlib @0x391810 -> 25,145,390 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    OptiPlex_3080_2.35.0: 9 payloads
 [3] LVFS https://fwupd.org/lvfs/devices/com.dell.uefia3ef064d.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 3aff4d6f333d08bdcf6d20ea249b104ddff9e8a062559df5464ca16ce859e112-firmware.cab
+    downloaded 22170237 bytes
+  [carve] Dell HDR zlib @0x35C400 -> 34,219,165 bytes
+  [carve] generic zlib @0x2D3410 -> 1,418,702 bytes
+  [carve] generic zlib @0x35C410 -> 34,219,165 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    OptiPlex_7780_7480_AIO_1.45.0: 9 payloads
 [4] LVFS https://fwupd.org/lvfs/devices/com.dell.uefibdaa7a9d.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 6800af07ee7752e7b461a52d40c3bcf76f346b61fe7c4cf2a9ee8167f7f531a4-TroyAdl_16.1.42.2872_EVT_firmware.lvfs.cab
+    downloaded 20587253 bytes
+  [carve] Dell HDR zlib @0x390400 -> 39,374,787 bytes
+  [carve] generic zlib @0x30DC10 -> 1,534,023 bytes
+  [carve] generic zlib @0x390410 -> 39,374,787 bytes
+    OptiPlex_3000_1.42.0: 7 payloads
 [5] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi1de8ec66.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 9b41436f2da9f9dd1ca74898530d9bf269d7ec58b911380458df2ee2ab0122e1-firmware.cab
+    downloaded 18761310 bytes
+  [carve] Dell HDR zlib @0x35C400 -> 26,513,714 bytes
+  [carve] generic zlib @0x2D3410 -> 1,418,638 bytes
+  [carve] generic zlib @0x35C410 -> 26,513,714 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    OptiPlex_3280_AIO_1.43.0: 9 payloads
 [6] LVFS https://fwupd.org/lvfs/devices/com.dell.uefif5d534f4.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 89f12fa8329caede80db8f540155f3e34fe9cc0526ddc1410fcfe01f163ef40d-firmware.cab
+    downloaded 22203582 bytes
+  [carve] Dell HDR zlib @0x35C400 -> 34,219,060 bytes
+  [carve] generic zlib @0x2D3410 -> 1,418,638 bytes
+  [carve] generic zlib @0x35C410 -> 34,219,060 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    OptiPlex_5480_AIO_1.45.0: 9 payloads
 [7] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi09c795fe.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 4b0b3b9127de2655af19977ba317b6c90fb71e03d01f89a89c31299b94f5273a-PronghornRkl_15.0.56.2834_EVT_firmware.cab
+    downloaded 22963843 bytes
+  [carve] Dell HDR zlib @0x396800 -> 31,045,775 bytes
+  [carve] generic zlib @0x30DC10 -> 1,560,565 bytes
+  [carve] generic zlib @0x396810 -> 31,045,775 bytes
+    OptiPlex_5490_AIO_1.48.0: 7 payloads
 [8] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi7839b795.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: de23ef8d4975a35344beb00f14c2067cba50ee202f110c88a450d8dfc602ed56-GiraffeRkl_15.0.56.2834_EVT_firmware.cab
+    downloaded 22959570 bytes
+  [carve] Dell HDR zlib @0x396800 -> 31,495,567 bytes
+  [carve] generic zlib @0x30DC10 -> 1,560,565 bytes
+  [carve] generic zlib @0x396810 -> 31,495,567 bytes
+    OptiPlex_7490_AIO_1.48.0: 7 payloads
 [9] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi9e83f146.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 3ed072c36d5c34f17e29ea1ff41e9997d2c70f7e83578e0482aa5cb7c6dd1a4b-CaribouRkl_QS_15.0.56.2834_EVT_firmware.cab
+    downloaded 22781773 bytes
+  [carve] Dell HDR zlib @0x390400 -> 31,179,507 bytes
+  [carve] generic zlib @0x30DC10 -> 1,534,023 bytes
+  [carve] generic zlib @0x390410 -> 31,179,507 bytes
+    OptiPlex_5090_1.44.0: 7 payloads
 [10] LVFS https://fwupd.org/lvfs/devices/com.dell.uefibc0a94e3.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 33278626b785c9ff675f41684a49cc87b81a6ec0a6bc6cef997038c28a2309a8-OptiPlex_3090_UFF_1.44.0_LVFS.cab
+    downloaded 17381469 bytes
+  [carve] Dell HDR zlib @0x38D800 -> 23,579,495 bytes
+  [carve] generic zlib @0x30DC10 -> 1,514,567 bytes
+  [carve] generic zlib @0x38D810 -> 23,579,495 bytes
+    OptiPlex_3090_UFF_1.44.0: 7 payloads
 [11] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi7557a0f4.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: a338aff9dd9d10c2bbb46ddade27d822f17ea3da4c711992a363341ddfc4d900-PlymouthAdl_16.1.42.2872_EVT_X02_firmware.lvfs.cab
+    downloaded 24754142 bytes
+  [carve] Dell HDR zlib @0x38E400 -> 45,745,889 bytes
+  [carve] generic zlib @0x30DC10 -> 1,373,951 bytes
+  [carve] generic zlib @0x38E410 -> 45,745,889 bytes
+    OptiPlex_5000_1.42.0: 7 payloads
 [12] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi896e9574.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 64c738397e2846acfad79f02f5245d0d639f0c04f8953c17513bd4843b2e53e0-KyotoAdl_16.1.42.2872_EVT_X02_firmware.lvfs.cab
+    downloaded 24731400 bytes
+  [carve] Dell HDR zlib @0x38E400 -> 46,232,624 bytes
+  [carve] generic zlib @0x30DC10 -> 1,374,015 bytes
+  [carve] generic zlib @0x38E410 -> 46,232,624 bytes
+    OptiPlex_7000_OptiPlex_XE4_series_1.42.0: 7 payloads
