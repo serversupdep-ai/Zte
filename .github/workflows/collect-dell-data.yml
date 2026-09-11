@@ -8,7 +8,7 @@ name: Collect Dell firmware data
 on:
   push:
     branches: [arena/01a087e2-zte]
-    paths: ['relay/catalog.txt', '.github/workflows/collect-dell-data.yml']
+    paths: ['relay/catalog.txt', 'relay/lvfs_catalog.txt', '.github/workflows/collect-dell-data.yml']
   workflow_dispatch:
 
 permissions:
@@ -24,8 +24,11 @@ jobs:
         with:
           ref: arena/01a087e2-zte
 
-      - name: Setup python
-        run: python3 -m pip -q install uefi_firmware pefile
+      - name: Setup python + 7z
+        run: |
+          python3 -m pip -q install uefi_firmware pefile
+          sudo apt-get -qq update
+          sudo apt-get -qq install -y --no-install-recommends p7zip-full > /dev/null
 
       - name: Collect from catalog
         run: |
@@ -34,6 +37,10 @@ jobs:
             --catalog relay/catalog.txt \
             --out bios-analysis/collected \
             --download 2>&1 | tee collect.log
+          python3 bios-analysis/collect_from_catalog.py \
+            --catalog relay/lvfs_catalog.txt \
+            --out bios-analysis/collected \
+            --download 2>&1 | tee -a collect.log
           # also log total size
           du -sh bios-analysis/collected || true
 

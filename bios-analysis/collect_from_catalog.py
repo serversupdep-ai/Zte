@@ -20,7 +20,7 @@ Usage:
 import argparse
 import hashlib
 import json
-import os
+import os as _os
 import re
 import sys
 
@@ -94,6 +94,12 @@ def harvest(blob, ec_out, pw_out, seen, tmpdir="/tmp/collect_carve"):
         candidates += [b for _p, b in carved]
     except Exception:
         pass
+    # capsule-wrapped PFS: add slices starting at every PFS.HDR. magic
+    for off in range(0, min(len(blob), 0x100000)):
+        if blob[off:off + 8] == b"PFS.HDR.":
+            candidates.append(blob[off:])
+            if sum(1 for c in candidates if c[:8] == b"PFS.HDR.") > 8:
+                break
     visited = set()
     qi = 0
     while qi < len(candidates) and qi < 20000:
@@ -186,6 +192,72 @@ def load_pkg(path_or_data):
     return None
 
 
+
+
+def lvfs_fetch(url):
+    """LVFS device page (or direct cab URL) -> [(tag, blob), ...].
+
+    Scrapes the newest 'Download Archive' .cab from the device page,
+    downloads it and extracts the firmware payload(s) with 7z (runner).
+    """
+    import re as _re
+    import shutil as _shutil
+    import subprocess as _subprocess
+    import tempfile as _tempfile
+    import urllib.request as _rq
+    UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) fwupd-catalog"}
+
+    def _get(u, binary=True, maxb=90 * 1024 * 1024):
+        req = _rq.Request(u, headers=UA)
+        with _rq.urlopen(req, timeout=900) as r:
+            data = r.read(maxb)
+        return data if binary else data.decode("utf-8", "replace")
+
+    model = version = None
+    if "/lvfs/devices/" in url:
+        html = _get(url, binary=False)
+        t = _re.search(r"<title>LVFS:\s*([^<]+)</title>", html)
+        v = _re.search(r"##\s*Version\s*([0-9][0-9A-Za-z.+-]*)", html)
+        model = t.group(1).strip() if t else "Dell"
+        version = v.group(1) if v else "latest"
+        m = _re.search(
+            r"https://fwupd\.org/downloads/[0-9a-f]{64}-[^\"'<>]+?\.cab",
+            html)
+        if not m:
+            print(f"    no cab link on device page: {url}")
+            return []
+        url = m.group(0)
+    print(f"    cab: {url.rsplit('/', 1)[-1]}")
+    data = _get(url)
+    if data[:4] != b"MSCF":
+        name = url.rsplit("/", 1)[-1]
+        tag = _re.sub(r"^[0-9a-f]{64}-", "", name)
+        tag = _re.sub(r"[^A-Za-z0-9._-]+", "_", tag)
+        return [(tag, data)]
+    out = []
+    with _tempfile.TemporaryDirectory() as td:
+        cab = _os.path.join(td, "fw.cab")
+        open(cab, "wb").write(data)
+        r = _subprocess.run(["7z", "x", "-y", f"-o{td}\fw", cab],
+                            capture_output=True, timeout=900)
+        if r.returncode != 0:
+            print(f"    7z failed: {r.stderr.decode()[:200]}")
+            return []
+        for root, _dirs, files in _os.walk(_os.path.join(td, "fw")):
+            for fn in files:
+                fp = _os.path.join(root, fn)
+                if _os.path.getsize(fp) < 1024 * 1024:
+                    continue
+                blob = open(fp, "rb").read()
+                if model:
+                    tag = f"{model}_{version}"
+                else:
+                    tag = _re.sub(r"[^A-Za-z0-9._-]+", "_", fn)
+                tag = _re.sub(r"[^A-Za-z0-9._-]+", "_", tag)
+                out.append((tag, blob))
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--catalog", default=None)
@@ -225,6 +297,19 @@ def main():
     for i, job in enumerate(jobs, 1):
         url = None
         path = job
+        if "fwupd.org/lvfs/devices/" in job or job.endswith(".cab"):
+            if not args.download:
+                print(f"[{i}] skip (no --download): {job}")
+                continue
+            print(f"[{i}] LVFS {job}")
+            try:
+                for tag, blob in lvfs_fetch(job):
+                    entries = process_blob(blob, tag,
+                                           os.path.join(args.out, tag))
+                    print(f"    {tag}: {len(entries)} payloads")
+            except Exception as e:
+                print(f"    LVFS FAILED: {e}")
+            continue
         if job.startswith("http"):
             if not args.download:
                 print(f"[{i}] skip (no --download): {job}")
