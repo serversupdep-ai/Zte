@@ -1,10 +1,37 @@
+[1] downloading https://downloads.dell.com/FOLDER13463969M/1/OptiPlex_3090_2.27.0.exe
+[1] processing /tmp/OptiPlex_3090_2.27.0.exe -> bios-analysis/collected/OptiPlex_3090_2.27.0
+  [carve] Dell HDR zlib @0x68 -> 33,301,542 bytes
+  [carve] Dell HDR zlib @0x113D9D9 -> 33,301,542 bytes
+  [carve] generic zlib @0x78 -> 33,301,542 bytes
+  [carve] generic zlib @0x113D9E9 -> 33,301,542 bytes
 Traceback (most recent call last):
-  File "/home/runner/work/Zte/Zte/bios-analysis/collect_from_catalog.py", line 27, in <module>
-    HERE = os.path.dirname(os.path.abspath(__file__))
-           ^^
-NameError: name 'os' is not defined. Did you mean: '_os'? Or did you forget to import 'os'?
-Traceback (most recent call last):
-  File "/home/runner/work/Zte/Zte/bios-analysis/collect_from_catalog.py", line 27, in <module>
-    HERE = os.path.dirname(os.path.abspath(__file__))
-           ^^
-NameError: name 'os' is not defined. Did you mean: '_os'? Or did you forget to import 'os'?
+  File "/home/runner/work/Zte/Zte/bios-analysis/collect_from_catalog.py", line 361, in <module>
+    main()
+  File "/home/runner/work/Zte/Zte/bios-analysis/collect_from_catalog.py", line 351, in main
+    known = {e["sha256"] for e in old}
+             ~^^^^^^^^^^
+TypeError: string indices must be integers, not 'str'
+[1] LVFS https://fwupd.org/lvfs/devices/com.dell.uefic9284bf6.firmware    # OptiPlex 3090 2.30.0 (newest CF1B-era)
+    LVFS FAILED: URL can't contain control characters. '/lvfs/devices/com.dell.uefic9284bf6.firmware    ' (found at least ' ')
+[2] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi10d19ee4.firmware    # OptiPlex 3080 2.35.0 (2026)
+    LVFS FAILED: URL can't contain control characters. '/lvfs/devices/com.dell.uefi10d19ee4.firmware    ' (found at least ' ')
+[3] LVFS https://fwupd.org/lvfs/devices/com.dell.uefia3ef064d.firmware    # OptiPlex 7780/7480 AIO 1.45.0 (new model)
+    LVFS FAILED: URL can't contain control characters. '/lvfs/devices/com.dell.uefia3ef064d.firmware    ' (found at least ' ')
+[4] LVFS https://fwupd.org/lvfs/devices/com.dell.uefibdaa7a9d.firmware    # OptiPlex 3000 1.42.0 (new model)
+    LVFS FAILED: URL can't contain control characters. '/lvfs/devices/com.dell.uefibdaa7a9d.firmware    ' (found at least ' ')
+[5] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi1de8ec66.firmware    # OptiPlex 3280 AIO 1.43.0 (new model)
+    LVFS FAILED: URL can't contain control characters. '/lvfs/devices/com.dell.uefi1de8ec66.firmware    ' (found at least ' ')
+[6] LVFS https://fwupd.org/lvfs/devices/com.dell.uefif5d534f4.firmware    # OptiPlex 5480 AIO 1.45.0
+    LVFS FAILED: URL can't contain control characters. '/lvfs/devices/com.dell.uefif5d534f4.firmware    ' (found at least ' ')
+[7] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi09c795fe.firmware    # OptiPlex 5490 AIO 1.48.0
+    LVFS FAILED: URL can't contain control characters. '/lvfs/devices/com.dell.uefi09c795fe.firmware    ' (found at least ' ')
+[8] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi7839b795.firmware    # OptiPlex 7490 AIO 1.48.0
+    LVFS FAILED: URL can't contain control characters. '/lvfs/devices/com.dell.uefi7839b795.firmware    ' (found at least ' ')
+[9] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi9e83f146.firmware    # OptiPlex 5090 1.44.0
+    LVFS FAILED: URL can't contain control characters. '/lvfs/devices/com.dell.uefi9e83f146.firmware    ' (found at least ' ')
+[10] LVFS https://fwupd.org/lvfs/devices/com.dell.uefibc0a94e3.firmware    # OptiPlex 3090 UFF 1.44.0
+    LVFS FAILED: URL can't contain control characters. '/lvfs/devices/com.dell.uefibc0a94e3.firmware    ' (found at least ' ')
+[11] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi7557a0f4.firmware    # OptiPlex 5000 1.42.0
+    LVFS FAILED: URL can't contain control characters. '/lvfs/devices/com.dell.uefi7557a0f4.firmware    ' (found at least ' ')
+[12] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi896e9574.firmware    # OptiPlex 7000/XE4 1.42.0
+    LVFS FAILED: URL can't contain control characters. '/lvfs/devices/com.dell.uefi896e9574.firmware    ' (found at least ' ')
