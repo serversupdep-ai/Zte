@@ -285,19 +285,30 @@ the pw modules; flashrom + CH341A to read a machine's SPI.
    full-password vector `7G9C0G2-6FF1 → 35c0b0tVb32Z6ivD`.
 2. **E7A8:** byte-identical across pwgen-for-bios / DellBIOSTools / Rex98 GUI /
    our implementation (5 serials × 2 encoders, §13.12).
-3. **dellpwn core re-execution:** faithful port of `dvar.rs`' short path + filters
-   (committed as `bios-analysis/dvar_scan_port.py`, line-referenced) run over the
-   8 full-size real forum dumps in the repo:
-   - 6/8 contain a DVAR store (Vostro 3681, OptiPlex 3090 ×4, OptiPlex 7480 AIO).
-   - The 8FC8/SIVB-era dumps (3090, Vostro 3681): **zero XOR password records** —
-     exactly matching the published not-vulnerable matrix (their passwords live
-     in the EC record store / SIVB vault, §13.7/§13.10).
-   - The 2018-era 7480 AIO dump: 2 candidate records whose keys look like x86
-     code bytes — i.e., the scan's known false-positive surface on code regions;
-     the full tool's obfuscation-correction/uncertainty stages (not ported) plus
-     operator judgment handle these. Honest result: no confirmed DVAR-XOR
-     password in our corpus (it is SIVB/EC-era), and the port reproduces the
-     algorithm's mechanics and filter behavior on real flash layouts.
+3. **dellpwn re-execution over the FULL corpus (126 files, all 102 dumps —
+   census committed as `forum/analysis/dvar-sivb-census.txt`; the port
+   `bios-analysis/dvar_scan_port.py` now covers the DVAR+XOR scan, SIVB
+   finder and E7250-store finder, all line-referenced + self-tested):**
+   - **CONFIRMED REAL RECOVERY — Dell Latitude E6520** (ifix_30/37, "ok
+     6520 Main+EC"): the ported algorithm recovers `~jTH|Q8Y6W`,
+     `l^1Mznnth` (main dump) and **`cocka` / `speed10`** (8MB dump, each
+     at two offset pairs = the CVE's log-structured DVAR history pattern).
+     A 2011 Sandy-Bridge laptop, the exact DVAR+XOR generation the
+     researchers validated. Real passwords from a real locked machine in
+     the corpus — the tool works as published.
+   - **Candidate — Dell Pro 14 Plus (2026 AMD, 1.11.0)**: 3 distinct
+     high-entropy passwords; plausible pre-fix DVAR records.
+   - **False-positive signature (new finding):** identical "passwords"
+     recurring across DIFFERENT machines of the same firmware generation
+     (`#=,lIr4xY_^C` in OptiPlex 3000 + 7000-micro; `L0V`/`9Xkp5{nVf3` in
+     7480-AIO + 3090 + Precision 3640) are shared firmware code patterns,
+     not secrets — corpus-level dedup is a practical FP filter for
+     dellpwn-style scans.
+   - The 8FC8-era machines (3090, Vostro 3681, Precision 3640) carry
+     SIVB vault blocks with live data (dellpwn `clear-sivb` targets) but
+     their BIOS passwords live in the EC record store (§13.7/§13.10),
+     consistent with the published not-vulnerable matrix for the DVAR
+     scan itself.
 
 ---
 
