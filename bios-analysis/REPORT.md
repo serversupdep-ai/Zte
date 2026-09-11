@@ -1301,3 +1301,33 @@ EC-doorbell transport is common to the whole 2015–2026 corpus. Dell
 updates the EC only per platform generation, so the §13 challenge
 construction (and any probe built against it) is stable for the useful
 lifetime of each machine family.
+
+## 14. Existing-tools survey (external solutions, laptops-first)
+
+A dedicated survey of EXISTING public Dell-BIOS-password solutions — repositories
+inspected at source level, verified against their own test vectors and our real
+corpus — is committed as **`bios-analysis/DELL_TOOLS_SURVEY.md`** (with the
+dellpwn verification port `bios-analysis/dvar_scan_port.py`). Headlines:
+
+- **dellpwn** (R3n5k1/dellpwn, MIT, 2026-07) — the CVE-2026-40639 / DSA-2026-197
+  tool: recovers BIOS admin/user passwords from SPI dumps of DVAR-era Dell
+  client platforms (Latitude E7250/7490, XPS 9560, Wyse 5070 + advisory list),
+  rolls back SIVB vaults, clears E7250-style stores. The only existing tool that
+  recovers (not disables) passwords from dumps.
+- **Legacy keygen lineage** (dogbert/bios-pwgen → bacher09/pwgen-for-bios =
+  bios-pw.org → chromebreakerdev/DellBIOSTools v2.6-beta, 2026-08): suffix-era
+  generators (595B…E7A8), verified here 8/8 on their own spec vectors + the
+  7G9C0G2-6FF1 vector + E7A8 byte-identical (§13.12) + tables byte-identical to
+  real firmware (§13.12).
+- **8FC8/CF1B generation**: craigsblackie/8FC8_Patcher (Blackie = MDSec CVE
+  co-author; the code DellBIOSTools ships), Rex98's original — record-disable
+  patches; no public generator exists for this generation (§13.11–13.13), the
+  live EC challenge (§13) remains the only non-programmer route.
+- Dell-specific acquisition tooling: platomav/BIOSUtilities DellPfsExtract
+  (maintained), LongSoft PFSExtractor (archived), UEFITool; generic chain:
+  Ghidra+efiXplorer, flashrom, CHIPSEC, binwalk.
+
+Our-corpus confirmation: 6/8 real dumps contain DVAR stores; the 8FC8/SIVB-era
+dumps contain zero XOR records (matching the published not-vulnerable matrix),
+and the port reproduces dellpwn's mechanics + false-positive surface on real
+flash layouts.
