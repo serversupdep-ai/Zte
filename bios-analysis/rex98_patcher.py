@@ -30,6 +30,7 @@ treat the machine as having no BIOS password. This is the patch route; the
 Usage:
   python3 rex98_patcher.py --detect <dump.bin> [...]   # report records
   python3 rex98_patcher.py --patch <locked.bin>        # write patched_<name>
+  python3 rex98_patcher.py --store <dump.bin> [...]    # decode EC record store
 """
 import os
 import re
@@ -49,6 +50,40 @@ def pattern_at(data, rx, window=WINDOW):
         h = data[i:i + window].hex().upper()
         if rx.match(h):
             out.append(i)
+    return out
+
+
+def decode_store(data, lo=0x1000, hi=None):
+    """Decode the EC-owned record store: 00 FC|FD <type> <idx> 00000000
+    <flags u16> FF <payload>. Returns list of dicts. Records are packed
+    (28-byte type-0x22, 60-byte type-0xAA/0x00) — we scan for headers."""
+    hi = hi or len(data)
+    out = []
+    i = lo
+    bad_types = (0xFC, 0xFD)
+    while i < hi - 12:
+        if data[i] == 0 and data[i + 1] in (0xFC, 0xFD) \
+                and data[i + 4:i + 8] == b"\x00" * 4 and data[i + 10] == 0xFF \
+                and data[i + 2] not in bad_types:
+            # plausible header; bound payload by next header or 0xFF padding
+            j = i + 11
+            while j < hi - 12:
+                if data[j:j + 8] == b"\xff" * 8:
+                    break
+                if data[j] == 0 and data[j + 1] in (0xFC, 0xFD) \
+                        and data[j + 4:j + 8] == b"\x00" * 4 \
+                        and data[j + 10] == 0xFF and data[j + 2] not in bad_types:
+                    break
+                j += 1
+            payload = data[i + 11:j]
+            if len(payload) <= 0x100 and payload[:4] != b"\xff" * 4:
+                out.append(dict(offset=i, cls=f"{data[i+1]:02X}", type=data[i + 2],
+                                idx=data[i + 3], flags=int.from_bytes(
+                                    data[i + 8:i + 10], "little"),
+                                payload=payload))
+            i = j if j > i + 11 else i + 1
+        else:
+            i += 1
     return out
 
 
@@ -94,12 +129,28 @@ def patch(path):
 
 def main():
     args = sys.argv[1:]
-    if not args or args[0] not in ("--detect", "--patch"):
+    if not args or args[0] not in ("--detect", "--patch", "--store"):
         print(__doc__)
         return 0
     mode, paths = args[0], args[1:]
     if mode == "--patch":
         return patch(paths[0])
+    if mode == "--store":
+        for p in paths:
+            d = open(p, "rb").read()
+            recs = decode_store(d, 0x1000, 0x101000)   # EC-owned hole
+            print(f"=== {os.path.basename(p)}: {len(recs)} records ===")
+            types = {}
+            for r in recs:
+                types.setdefault(f"{r['cls']}/{r['type']:02X}", 0)
+                types[f"{r['cls']}/{r['type']:02X}"] += 1
+            print("  types:", {k: v for k, v in sorted(types.items())})
+            for r in recs:
+                mark = " <== PASSWORD RECORD" if r["type"] == 0xAA else ""
+                print(f"    @{r['offset']:#09x} {r['cls']} type={r['type']:02X} "
+                      f"idx={r['idx']:02X} flags={r['flags']:04X} "
+                      f"payload={len(r['payload'])}B{mark}")
+        return 0
     for p in paths:
         d = open(p, "rb").read()
         sigs, fc, fd, fcc, fdc = detect(d)

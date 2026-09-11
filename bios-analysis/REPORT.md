@@ -958,3 +958,13 @@ One more fleet fact from this pass: the newest pw modules (OptiPlex 3000
 banner — SHA-256 is inlined — but carry the **same salt set** and the same
 `lea rdx,[rip+X]; mov r8d,4` update sites: the construction survives into
 the newest generation.
+
+**Store decoder addendum (§13.10):** `rex98_patcher.py --store` decodes the
+full EC-owned record store. Layout across real machines: a run of type-0x22
+variables (17/33/49/65-byte payloads = 16n+1, AES-block-aligned + 1 tag byte)
+followed by the password record(s). Store base varies by model (0xC3000 on
+3090/Vostro, 0xC4000 on 7480 AIO); record indices continue the variable
+sequence (3090: vars 01–12, password records 13 (FD) + 14 (FC); 7480: vars
+20–2E, password record 2F). The 3090-unlocked pair (49 B/48 B payloads) and
+the 7480-locked record (64 B) are all AES-block-sized — consistent with the
+sealed-payload finding above.
