@@ -20,7 +20,7 @@ Usage:
 import argparse
 import hashlib
 import json
-import os as _os
+import os
 import re
 import sys
 
@@ -236,17 +236,17 @@ def lvfs_fetch(url):
         return [(tag, data)]
     out = []
     with _tempfile.TemporaryDirectory() as td:
-        cab = _os.path.join(td, "fw.cab")
+        cab = os.path.join(td, "fw.cab")
         open(cab, "wb").write(data)
         r = _subprocess.run(["7z", "x", "-y", f"-o{td}\fw", cab],
                             capture_output=True, timeout=900)
         if r.returncode != 0:
             print(f"    7z failed: {r.stderr.decode()[:200]}")
             return []
-        for root, _dirs, files in _os.walk(_os.path.join(td, "fw")):
+        for root, _dirs, files in os.walk(os.path.join(td, "fw")):
             for fn in files:
-                fp = _os.path.join(root, fn)
-                if _os.path.getsize(fp) < 1024 * 1024:
+                fp = os.path.join(root, fn)
+                if os.path.getsize(fp) < 1024 * 1024:
                     continue
                 blob = open(fp, "rb").read()
                 if model:
