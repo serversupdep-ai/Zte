@@ -133,7 +133,8 @@ def main():
     roots = sys.argv[1:]
     if not roots:
         roots = [os.path.join(HERE, "collected"),
-                 os.path.join(HERE, "optiplex3090", "pwmods")]
+                 os.path.join(HERE, "optiplex3090", "pwmods"),
+                 os.path.join(HERE, "forum", "analysis")]
     modules = []
     for root in roots:
         for pat in ("**/*.efi", "**/pw_*.bin"):
@@ -141,7 +142,9 @@ def main():
     db = []
     seen_files = set()
     for p in sorted(set(modules)):
-        key = os.path.basename(p)
+        # dedupe by real path (NOT basename — pw_1_23552.efi etc. recur in
+        # every collection and basename-dedup would drop whole collections)
+        key = os.path.realpath(p)
         if key in seen_files:
             continue
         try:

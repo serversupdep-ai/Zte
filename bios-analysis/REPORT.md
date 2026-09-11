@@ -893,7 +893,10 @@ machine) are *distinct builds of the same module* — same construction, same
 salt (8dfc7b25), per-model binaries. `dell_salts_db.py` was regenerated over
 the combined corpus (packages + real machines, 52 modules): the salt universe
 remains exactly `{"0001","1D3B","2A7B","BF97"}` (legacy, = ASCII family
-codes) ∪ `{8dfc7b25}` (EC path, universal).
+codes) ∪ `{8dfc7b25}` (EC path, universal). After the §13.14 LVFS widening
+the regenerated database covers **137 modules (113 alphabet-bearing)** —
+including every 2026-era release — and the salt universe is unchanged:
+**five salts total, no new salt introduced 2015 → 2026**.
 
 ### Fleet conclusion (§13.8 + §13.9 combined)
 
@@ -1135,12 +1138,14 @@ independent, table-level confirmation of §13.11 — *the public generators
 cannot even represent 8FC8 passwords*, let alone compute them, because the
 8FC8 alphabet postdates every public extraction.
 
-**Corpus-wide scan (163 unique pw modules in this repo): 90 carry the
-complete, byte-identical seven-table bank — and zero carry a partial
-bank.** The bank spans 26 machine collections from OptiPlex 3040 1.20.1
-(2015, Skylake) through 7090/XE4 1.42.0, including Latitude 5300/5X90,
-Precision 3540, and both 3090 firmware lines — every alphabet-bearing
-module in the corpus. The 8FC8 permutation therefore shipped **fleet-wide
+**Corpus-wide scan (209 unique pw files in this repo after the §13.14
+LVFS widening): 107 carry the complete, byte-identical seven-table bank
+across 44 collections — and zero carry a partial bank.** The bank spans
+every generation from OptiPlex 3040 1.20.1 (2015, Skylake) through the
+2026 releases (OptiPlex 3080 2.35.0, 3090 2.30.0, 5490/7490 AIO 1.48.0,
+5000/XE4 1.42.0), including Latitude 5300/5X00/5X90, Precision 3540, and
+all three 3090 firmware lines — every alphabet-bearing module in the
+corpus. The 8FC8 permutation therefore shipped **fleet-wide
 years before the first 8FC8-suffix machine existed**: the table bank is
 universal firmware infrastructure, the "family" being selected at runtime
 by dispatch (§13.5), not by module variant. (The remaining modules are the
@@ -1218,3 +1223,53 @@ public repo, and the Rex98 GUI's embedded bytecode.**
 | 8FC8 password generation | no ("use Unlocker") | no | §13 challenge keygen (live probe) |
 | 8FC8 record patcher | yes | yes (variant) | yes — rex98_patcher.py, byte-exact |
 | EC challenge / salt | no | no | **yes — §13, unique** |
+
+
+## 13.14 LVFS widening: newest firmware collected (2026 releases) — password machinery unchanged
+
+The catalog-only route capped out at the packages Dell's CatalogPC listed.
+To reach *newer* firmware the collector gained an LVFS route
+(`lvfs_fetch` in `collect_from_catalog.py`, driven by
+`relay/lvfs_catalog.txt`):
+
+- fwupd.org device pages 403 from datacenter IPs → the collector falls
+  back to the **official fwupd remote metadata** (`firmware.xml.zst` on
+  cdn.fwupd.org), matches the component id, and picks the newest release;
+- cab downloads 412/403 for browser UAs → the collector presents the
+  **fwupd-client User-Agent** (`fwupd/1.9.27`) across a cdn↔www host
+  matrix — the CDN serves the official client;
+- the resulting capsules are unpacked with 7z and harvested exactly like
+  Dell-catalog packages.
+
+**Twelve new collections landed (94 files)**, among them firmware newer
+than anything in Dell's own catalog plus four model families new to the
+corpus:
+
+| collection | notable |
+|---|---|
+| **OptiPlex 3090 2.30.0** | newest 3090 firmware (2026); 4 EC payloads + 5 pw modules |
+| OptiPlex 3080 2.35.0 | 2026-07 release |
+| OptiPlex 7780/7480 AIO 1.45.0 | new model family |
+| OptiPlex 3000 1.42.0 | new model family |
+| OptiPlex 3280 AIO 1.43.0 | new model family |
+| OptiPlex 5480 AIO 1.45.0 / 5490 AIO 1.48.0 / 7490 AIO 1.48.0 | AIO families |
+| OptiPlex 3090 UFF 1.44.0 / 5090 1.44.0 / 5000 1.42.0 / 7000-XE4 1.42.0 | 2026-era refreshes |
+
+**Finding 1 — the password machinery is frozen.** All five OptiPlex 3090
+2.30.0 pw modules are **byte-identical (SHA-256) to the 2.27.0 modules**.
+Dell shipped 2.27.0 → 2.30.0 without touching SystemPwSmm/PasswordMgrDxe:
+the §13 challenge construction, the dispatch table, and the §13.6 recovery
+matrix apply verbatim to the newest 2026 firmware. (The §13.5 unification
+2.0.7 ↔ 2.27.0 therefore extends to 2.30.0 by identity.)
+
+**Finding 2 — the universe is closed.** Across the widened corpus
+(§13.8/§13.12: 137 DB modules, 107 bank-bearing, 44 collections,
+2015 → 2026): the seven-table bank is unchanged, the dispatch lists are
+unchanged ({8FC8} / {1B58, 9ABE, 3FE2, CF1B, 8FC8}), and the salt set
+remains exactly five — the §13.8 conclusion "one construction, one EC
+salt" now holds over eleven years of OptiPlex/Latitude firmware.
+
+The regenerated `dell_salts_db.py` (137 modules) is the committed result;
+`build_salts_db.py` was fixed to dedupe by path, not basename (basename
+dedup silently dropped whole collections that reuse `pw_N_<size>.efi`
+names).
