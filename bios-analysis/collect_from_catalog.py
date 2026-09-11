@@ -194,6 +194,9 @@ def load_pkg(path_or_data):
 
 
 
+_LVFS_META_CACHE = {}
+
+
 def lvfs_fetch(url):
     """LVFS device page (or direct cab URL) -> [(tag, blob), ...].
 
@@ -206,37 +209,52 @@ def lvfs_fetch(url):
     import subprocess as _subprocess
     import tempfile as _tempfile
     import urllib.request as _rq
-    # fwupd.org 403s the plain urllib/python UA from datacenter IPs —
-    # send full browser headers.
-    UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                        "AppleWebKit/537.36 (KHTML, like Gecko) "
-                        "Chrome/124.0.0.0 Safari/537.36",
-          "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,"
-                    "*/*;q=0.8",
-          "Accept-Language": "en-US,en;q=0.9"}
+    # The LVFS CDN serves the fwupd *client*; browser UAs from datacenter
+    # IPs get 403/412 from its anti-bot. Try the official client UA first,
+    # then full browser headers (with Referer, for hotlink-style checks).
+    HEADERS = (
+        {"User-Agent": "fwupd/1.9.27", "Accept": "*/*"},
+        {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                       "AppleWebKit/537.36 (KHTML, like Gecko) "
+                       "Chrome/124.0.0.0 Safari/537.36",
+         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,"
+                   "*/*;q=0.8",
+         "Accept-Language": "en-US,en;q=0.9",
+         "Referer": "https://fwupd.org/"},
+    )
 
-    def _get(u, binary=True, maxb=90 * 1024 * 1024):
-        req = _rq.Request(u, headers=UA)
+    def _get_with(u, hdr, binary=True, maxb=90 * 1024 * 1024):
+        req = _rq.Request(u, headers=hdr)
         with _rq.urlopen(req, timeout=900) as r:
             data = r.read(maxb)
         return data if binary else data.decode("utf-8", "replace")
 
-    def _cab_from_metadata(slug, guid):
-        """Fallback when the device page 403s: pull the release list from
-        the official fwupd remote metadata (firmware.xml[.zst|.gz]) and
-        return the newest .cab URL for this device. The device-page slug is
-        the fwupd component id (e.g. com.dell.uefic9284bf6.firmware); match
-        it against <id>, and also accept the bare GUID against <provides>
-        <firmware type="flashed"> entries."""
+    def _get(u, binary=True, maxb=90 * 1024 * 1024):
+        last = None
+        for hdr in HEADERS:
+            try:
+                return _get_with(u, hdr, binary, maxb)
+            except _rq.HTTPError as e:
+                last = e
+                if e.code == 404:
+                    raise            # genuinely missing — no UA will fix it
+            except Exception as e:
+                last = e
+        raise last
+
+    def _load_metadata():
+        """firmware.xml[.zst|.gz] -> [(ids, guids, [(ver, cabloc)...]), ...]
+        (parsed once, cached across lvfs_fetch calls)."""
         import gzip
         import xml.etree.ElementTree as ET
         for mu in ("https://cdn.fwupd.org/downloads/firmware.xml.zst",
-                   "https://cdn.fwupd.org/downloads/firmware.xml.gz",
-                   "https://fwupd.org/downloads/firmware.xml.zst"):
+                   "https://cdn.fwupd.org/downloads/firmware.xml.gz"):
+            if mu in _LVFS_META_CACHE:
+                return _LVFS_META_CACHE[mu]
             try:
                 raw = _get(mu, maxb=400 * 1024 * 1024)
             except Exception as e:
-                print(f"    metadata {mu.rsplit('/',1)[-1]}: {e}")
+                print(f"    metadata {mu.rsplit('/', 1)[-1]}: {e}")
                 continue
             if mu.endswith(".zst"):
                 try:
@@ -249,34 +267,47 @@ def lvfs_fetch(url):
                     print("    zstd failed — trying next metadata")
                     continue
                 raw = p.stdout
-            elif mu.endswith(".gz"):
+            else:
                 raw = gzip.decompress(raw)
-            # find <component> whose <id> matches the device-page slug (or
-            # whose <provides> firmware GUID matches), then its releases
-            want_slug = slug.lower()
-            want_guid = guid.lower()
-            comp = []   # (version, url) candidates
-            for _, el in ET.iterparse(_io.BytesIO(raw),
-                                      events=("end",)):
+            comps = []
+            for _, el in ET.iterparse(_io.BytesIO(raw), events=("end",)):
                 if el.tag.endswith("component"):
                     ids = {i.text.strip().lower() for i in el.iter()
                            if i.tag.endswith("id") and i.text}
-                    guids = {g.text.strip().lower()
-                             for g in el.iter()
+                    guids = {g.text.strip().lower() for g in el.iter()
                              if g.tag.endswith("firmware") and g.text}
-                    if want_slug in ids or want_guid in guids:
-                        for rel in el.iter():
-                            if rel.tag.endswith("release"):
-                                ver = rel.get("version", "")
-                                loc = rel.find("{*}location")
-                                if loc is not None and loc.text and \
-                                        loc.text.strip().endswith(".cab"):
-                                    comp.append((ver, loc.text.strip()))
+                    rels = []
+                    for rel in el.iter():
+                        if rel.tag.endswith("release"):
+                            ver = rel.get("version", "")
+                            loc = rel.find("{*}location")
+                            if loc is not None and loc.text and \
+                                    loc.text.strip().endswith(".cab"):
+                                rels.append((ver, loc.text.strip()))
+                    if rels:
+                        comps.append((ids, guids, rels))
                     el.clear()
-            if comp:
-                comp.sort(key=lambda x: [int(p) if p.isdigit() else 0
-                                         for p in x[0].split(".")])
-                return comp[-1][1], comp[-1][0]
+            _LVFS_META_CACHE[mu] = comps
+            return comps
+        return []
+
+    def _cab_from_metadata(slug, guid):
+        """Fallback when the device page 403s: pull the release list from
+        the official fwupd remote metadata (firmware.xml[.zst|.gz]) and
+        return the newest .cab URL for this device. The device-page slug is
+        the fwupd component id (e.g. com.dell.uefic9284bf6.firmware); match
+        it against <id>, and also accept the bare GUID against <provides>
+        <firmware type="flashed"> entries."""
+        comps = _load_metadata()
+        want_slug, want_guid = slug.lower(), guid.lower()
+        comp = []
+        for ids, guids, rels in comps:
+            if want_slug in ids or want_guid in guids:
+                comp.extend(rels)
+        if comp:
+            comp.sort(key=lambda x: [int(p) if p.isdigit() else 0
+                                     for p in x[0].split(".")])
+            return comp[-1][1], comp[-1][0]
         return None, None
 
     model = version = None
@@ -309,19 +340,29 @@ def lvfs_fetch(url):
                 return []
             url = m.group(0)
     print(f"    cab: {url.rsplit('/', 1)[-1]}")
-    try:
-        data = _get(url)
-    except Exception as e:
-        # host fallback: cdn.fwupd.org <-> fwupd.org (either may 403/404)
-        alt = (url.replace("https://cdn.fwupd.org/",
-                           "https://fwupd.org/")
-                  if "cdn.fwupd.org" in url
-                  else url.replace("https://fwupd.org/downloads/",
-                                   "https://cdn.fwupd.org/downloads/"))
-        if alt == url:
-            raise
-        print(f"    cab fetch: {e} — retrying via {alt.split('/')[2]}")
-        data = _get(alt)
+    # try both hosts (cdn <-> www) x both header sets — the CDN anti-bot
+    # is picky about UA from datacenter IPs (403/412)
+    name = url.rsplit("/", 1)[-1]
+    tries = [url]
+    for h in ("https://cdn.fwupd.org/downloads/",
+              "https://fwupd.org/downloads/"):
+        if h + name not in tries:
+            tries.append(h + name)
+    data = None
+    last = None
+    for u in tries:
+        for hdr in HEADERS:
+            try:
+                data = _get_with(u, hdr)
+                break
+            except Exception as e:
+                last = e
+        if data is not None:
+            if u != url:
+                print(f"    fetched via {u.split('/')[2]}")
+            break
+    if data is None:
+        raise last
     if data[:4] != b"MSCF":
         name = url.rsplit("/", 1)[-1]
         tag = _re.sub(r"^[0-9a-f]{64}-", "", name)
