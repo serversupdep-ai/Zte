@@ -1395,3 +1395,37 @@ modules carry the {1B58, 9ABE, 3FE2, CF1B, 8FC8} dispatch lists and the
 universal `8dfc7b25` salt. The §13 EC-challenge construction is therefore
 laptop-wide, not OptiPlex-only: same transport, same dispatch families,
 same salt.
+
+## §9.6 Addendum — the CF1B answer, executed from the real firmware (pw_fw_exec.py)
+
+`bios-analysis/pw_fw_exec.py` loads the actual OptiPlex 3090 pw_4 PE modules
+into a unicorn x86-64 emulator and calls the modern keygen API
+(`serial, serial_len, out, out_len, family, map_flag`):
+
+| module | API RVA | call | result |
+|--------|---------|------|--------|
+| 2.0.7 pw_4_42496 | 0x926C | `H2FS5S3`, family 0xCF1B, map 1 | **status 0, out `shzNyjGRzRN2LLzL`** |
+| 2.0.7 pw_4_42496 | 0x926C | tags 1A2B3C4 / 7QH8602 / ZZ9ZZ9Z | == `dell_keygen.keygen_cf1b` (3/3 MATCH) |
+| 2.0.7 pw_4_42496 | 0x926C | family 0x8FC8 (table stub) | EFI_INVALID_PARAMETER (§10 confirmed) |
+| 2.27.0 pw_4_43008 | 0x9408 | `H2FS5S3`, family 0xCF1B, natural | EFI_INVALID_PARAMETER (era gate) |
+| 2.27.0 pw_4_43008 | 0x9408 | same, fallback branch forced | **status 0, out `shzNyjGRzRN2LLzL`** |
+
+The **era gate is a single constant**: the family-dispatch lookup's not-found
+sentinel.  2.0.7 lookup @0x7FA0 ends `mov eax, 0xFF; ret`; the 2.27.0 rebuild
+@0x8060 ends `mov rax, r9` (r9=0xFFFF); the caller in both eras still tests
+`cmp rax, 0xFF; je <BF97-fallback>`.  The dispatch TABLE itself is identical
+in both eras ({8FC8 stub, E7A8 live, END} @0xA9C0/0xA9D0) — CF1B is in neither.
+So on ≤2.0.7 an unknown family (CF1B) reaches the hardcoded BF97 fallback and
+the module generates the master locally; on 2.27.0+ the sentinel change makes
+the branch unreachable, generation falls into the descriptor path
+(EFI_INVALID_PARAMETER), and CF1B verification is delegated to the EC session
+(§11; its router keeps its own family list @0xA3C8).
+
+The BF97 fallback itself ships UNCHANGED in 2.27.0 (`mov ebp, 0xBF97` @0x94BA,
+same 2.0.7 layout shifted ~0x9F) and, when its branch is taken, produces the
+byte-identical `shzNyjGRzRN2LLzL`.  Together with the EC-engine reversal
+(FINDINGS_5X90_EC.md: the EC stores/compares but never derives) this closes
+the loop: **the master for H2FS5S3-CF1B is the BF97-construction password in
+every firmware era; only the check's location moved.**
+
+Raw encoder output (map_flag=0) for H2FS5S3-CF1B: `38f26d9f13d346356d7de7b67621b82e`.
