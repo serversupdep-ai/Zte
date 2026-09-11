@@ -3,3 +3,4 @@
 5470A12.analysis/
 *.analysis/
 test_fixture*
+__pycache__/

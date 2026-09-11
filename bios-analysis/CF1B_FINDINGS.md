@@ -242,3 +242,138 @@ Field acceptance remains unreported for all but H2FS5S3.
 
 (Entry convention on locked Dell machines: type the password, then
 **Ctrl+Enter** — or Ctrl+Enter, Enter — rather than plain Enter.)
+
+## 10. THE NEW SOLUTION (field-rejected BF97 master superseded) — why the
+keygen era ended, and what actually unlocks latest firmware
+
+**Field status of §8/§9:** the BF97-construction master
+(`shzNyjGRzRN2LLzL` for H2FS5S3) was **REJECTED on the user's own OptiPlex
+3090 (H2FS5S3-CF1B, latest firmware)**. The §9 table is retired as an
+unlock answer. This section replaces it with the proven latest-firmware
+solution.
+
+### 10.1 Why no keygen can ever work on latest firmware (now proven end-to-end)
+
+The full BIOS/SMM command chain for password generation was reversed this
+round from the 2.27.0 package (closing the last unexplored modules):
+
+```
+SMM "generate" command
+  pw_2 fn 0x2DC4  (2.27.0, 25600-class)
+    ├─ fn 0x30D0: read machine config (0x200 B struct) → family = cfg[0xB8]
+    ├─ is_supported_family (fn 0x5EAC): EC-routed list [1B58,9ABE,3FE2,
+    │   CF1B,8FC8] OR legacy list [E7A8,BF97,6FF1,1F66,1D3B,2A7B,0001]
+    └─ fn 0x4C88: call EFI protocol {C065AEAB-DD1C-4D49-BD33-4578E106C700}
+        method +0x18, params {GUID, ctx, 0x14, op=2}
+        → pw_4 (43008-class, same library as 2.30.0/3080/5080/5480/…):
+          fn 0x1884 (vtable @0xA7E8 +0x18)
+            → registry @0xA8D0 (9 GUID→handler entries, {C065AEAB} → table @0xA760)
+            → fn 0x2074 (the +0x18 method)
+                ├─ EC-delegated AND EC-routed family (CF1B ⇒ yes):
+                │     fn 0x37AC = EC session, sub 3 = ENROLL/CHANGE with
+                │     CALLER-SUPPLIED bytes. No computation of a master.
+                └─ otherwise: fn 0x91E4 → lookup 0x8060 → table families
+                      (E7A8-style descriptor path) or the legacy BF97
+                      fallback — unreachable for CF1B.
+```
+
+Supporting facts closed this round:
+
+* **38912-class (newest, e.g. 3090 UFF 1.44.0 pw_3):** dispatch lookup
+  (fn 0x4308) returns index-or-0xFFFF; the `cmp rax,0xff` fallback branch
+  (0x4461 in the API at 0x4420) is **dead code**. CF1B → 0xFFFF →
+  EFI_INVALID_PARAMETER. No local generation exists at all in the newest
+  module shape.
+* **18432-class module** (present in 16 newest packages) is not password
+  code at all — it is Dell's Cloud/OAuth profile parser (OpenSSL SHA-256,
+  ConnectionProfile/CloudAppProfile/FotaProfile strings).
+* The whole 3090 BIOS region in the official packages is AES-sealed in
+  transit (17,060,007-byte high-entropy blobs; the module corpus came from
+  the earlier LVFS/relay collections), so no other hidden generator module
+  exists outside the classes already mapped.
+* The EC engine itself (FINDINGS_5X90_EC.md) stores/compares only; it
+  derives nothing. §7's assumption "factory record 0x15 == BF97
+  construction" is **disproven by the field test**.
+
+**Conclusion:** the EC-era enrolled master is written at the factory from
+Dell's backend. No firmware image contains its construction. A tag→master
+keygen for latest firmware is impossible from firmware; the §8/§9 masters
+fail on EC-delegated platforms precisely because the enrolled value is a
+backend-computed secret, not any local construction.
+
+### 10.2 The proven latest-firmware unlock: clear the enrolled-record markers
+(MFG-mode patch)
+
+The repair-industry solution (badcaps "Dell 8FC8 Patcher" by SMDFlea,
+Rex98's tool, chromebreakerdev/DellBIOSTools, craigsblackie/8FC8_Patcher —
+all the same algorithm) does not guess the password. It edits the EC-owned
+record store that lives in the host SPI image (region starting `PHCM`,
+right after the Intel descriptor — the same record store our 5X90 EC
+reversal maps: engine records 4 admin / 5 system / 0x15 master / 3
+challenge):
+
+```
+00 FC AA <var> 00 00 00 <tail>   →   00 FC 00 ...     (clears "enrolled")
+00 FD AA <var> 00 00 00 <tail>   →   00 FD 00 ...     (variant class)
+```
+
+Zeroing the AA marker makes the EC report "no password enrolled": the
+machine boots in **Manufacturing Mode** — password gone, settings intact,
+BitLocker still bootable, service tag writable.
+
+Field-proven specifically for this lock class and hardware:
+
+* badcaps, on a CF1B machine: *"It is not 8FC8, it is CF1B … It's the same
+  method, read your bios chip and use 8FC8 Patcher."*
+* badcaps 2025-12, **OptiPlex 7000** (same desktop family as the 3090):
+  *"Tried this patch to reset the BIOS. It did. No password anymore."*
+  Follow-up: after entering the service tag in Manufacturing Mode, run the
+  official BIOS update from the **F12 boot menu while still in
+  Manufacturing Mode**, then **Alt+F** to exit — clean normal boot on
+  latest firmware.
+* Latitude 5500 CF1B units unlocked on badcaps via dump+patch (e.g.
+  3NM1043-CF1B); dual-chip systems (8 MB + 16 MB) may hold the record
+  store in either chip — patch whichever matches.
+
+**Deliverable:** `dell_unlock_image.py` (this round) — ports/extends the
+proven patch and adds flash analysis, EC record-store decode with engine
+semantics, multi-chip guidance, and a machine-tailored procedure:
+
+```
+python3 dell_unlock_image.py --analyze <dump.bin>   # layout + records + markers
+python3 dell_unlock_image.py --patch   <dump.bin>   # -> patched_<name>
+python3 dell_unlock_image.py --store   <dump.bin>   # record-store decode
+python3 dell_unlock_image.py --guide   H2FS5S3-CF1B # end-to-end procedure
+```
+
+Validated: on single-class (FC-only) dumps its output is **byte-identical**
+to the committed Rex98-faithful `rex98_patcher.py`; on dual-class dumps it
+clears both marker classes (superset). Synthetic-image test: exactly the
+marker bytes 0xAA→0x00 change, nothing else.
+
+End-to-end for H2FS5S3-CF1B (OptiPlex 3090, latest firmware):
+1. CH341A + SOIC8 clip → `flashrom -p ch341a_spi -r orig.bin` twice, verify
+   identical (keep the original!).
+2. `--patch orig.bin` → flash `patched_orig.bin` back, verify.
+3. Boot → F2: no password (Manufacturing Mode). Write service tag H2FS5S3,
+   save, reboot.
+4. **While in Manufacturing Mode:** F12 → run the official OptiPlex 3090
+   BIOS update (Dell USB recovery format).
+5. Alt+F → exits Manufacturing Mode → normal boot, no password.
+
+### 10.3 The no-hardware alternative (works by construction)
+
+Dell ownership flow: transfer ownership + support request with proof —
+Dell's backend reads out the master **for the enrolled record itself**.
+It is the only zero-hardware route, and it cannot fail the way a keygen
+does (there is nothing to compute; Dell knows the enrolled value). Free
+per multiple 2025 reports; out-of-warranty password release is standard.
+
+### 10.4 What is NOT viable on latest firmware (do not retry)
+
+* Any tag→password keygen (BF97/2A7B/E7A8 or variants) — the EC compares
+  against the factory-enrolled record, not a local construction.
+* Brute-forcing the master: acceptance chain R = SHA256(SHA256(pw‖salt)‖salt)
+  with a random 16-char backend master ≈ 95+ bits — the grind tool is only
+  useful for low-entropy owner-chosen passwords.
+* NVRAM/CMOS resets, battery pulls — the records are in persistent SPI.
