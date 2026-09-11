@@ -1034,3 +1034,25 @@ remained unanswered through Jun 2026. This matches our finding that the
 BIOS-side modules never compute the master password — the validation is the
 EC challenge (§13), which is invisible to BIOS-only static RE and is exactly
 the wall the community hit.
+
+### FC/FD record classes = the two Dell password classes (§13.10)
+
+Cross-referencing every store in the census reveals a consistent pattern:
+
+| machine | FD record | FC record | interpretation |
+|---|---|---|---|
+| Vostro 3681 (locked) | 48 B | — | one password enrolled |
+| OptiPlex 7480 AIO (locked) | 64 B | — | one password enrolled |
+| Precision 3640 (locked) | 64 B | — | one password enrolled |
+| OptiPlex 3080-Micro EC chip (locked) | 32 B | — | one password enrolled |
+| OptiPlex 3090 32MB.BIN (locked) | 49 B | 48 B | both passwords enrolled |
+| OptiPlex 3090 optiplex_3090.bin (locked) | 33 B | 80 B | both (different BIOS version) |
+| OptiPlex 3090 "Unlocked" ×3 (cleared) | 49 B | 48 B | both records present, types zeroed |
+
+FD-only machines carry a single enrolled password; every 3090 — locked or
+unlocked — carries an FD+FC pair with model/BIOS-fixed payload sizes. This
+maps directly onto Dell's two password classes (Setup/Admin password and
+System/Boot password): **FD and FC are the two class stores**, which is why
+Rex98's patcher tests both patterns (`00FCAA…` first, then `00FDAA…`) and the
+chromebreaker variant clears whichever it finds. A locked machine with both
+passwords set needs both records disabled.
