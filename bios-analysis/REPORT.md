@@ -1152,3 +1152,69 @@ dead (dispatch entry 0 → EC routing), so the @0xA280 bank entry is dormant
 on those machines — but its presence pins the 8FC8 family's alphabet for
 the §13 challenge construction and dates the family split: Dell kept the
 entire legacy keygen machinery and swapped in one new table.
+
+## 13.13 The Rex98 GUI v1.0 ("Dell BIOS Tools V2.1") — collected and reversed
+
+The last uncollected Rex98-lineage artifact (Google Drive id
+`1WNXqjGMXc43uimmi-L6hbkAPgyuUWFlR`) is now in the repo:
+`bios-analysis/forum/patcher_analysis/rex98_gui_v1.0/` (archive.rar +
+extracted tree, relay-fetched by `.github/workflows/fetch-rex98-gui.yml`,
+run 34597647715). Reproducible analysis:
+`python3 bios-analysis/extract_rex98_gui.py`.
+
+### What it is
+
+`Dell BiosTools/DellBiosTools.exe` — a **PyInstaller onedir, Python 3.13,
+Tkinter** application, "Dell BIOS Tools V2.1", three tabs:
+
+1. **Password Generator** — the legacy keygen (Common Tags: 595B, D35B,
+   2A7B, 1D3B, 1F66, 6FF1, 1F5A, BF97, E7A8; "For E7A8 tags, you may
+   receive two possible passwords — try both"). UI text: *"For 8FC8
+   suffixes, use the 'BIOS Unlocker' tool instead."*
+2. **BIOS Unlocker** — "English Version of the Rex98-8FC8-Patcher, Based
+   on the original tool by Rex98 & Techshack Cebu": the §13.10 patcher
+   (Intel-sig gate `5AA5F00F03`, patterns
+   `^00FCAA…000000…` / `^00FDAA…`, scan window ≤ 0x160000 — matching our
+   `rex98_patcher.py` and the IFD region-8 store at 0xC3000/0xC4000).
+3. **Service Tag Extractor** — UTF-16LE uppercase-alnum scan of BIOS
+   dumps with occurrence counts and region ranges.
+
+### Lineage settled
+
+The embedded main script is compiled from **`DellBiosTools.pyw`** — the
+same source filename as the `chromebreakerdev/DellBIOSTools` repository,
+and its `calculateE7A8` is **instruction-for-instruction identical**
+(xdis disassembly): same hardcoded `Q92G0drk9…` table, `encode →
+intArrayToByte → sha256 → table[(digest[i+16]+digest[i]) % len]`. The
+public wxWidgets repo is a later front-end of this same codebase, so the
+§13.12 cross-validation (byte-identical E7A8 against our keygen) extends
+to this ancestor: **three independent implementations agree — ours, the
+public repo, and the Rex98 GUI's embedded bytecode.**
+
+### Three findings that strengthen §13.11/§13.12
+
+- **The 8FC8 alphabet is absent here too.** Of the seven-table bank
+  (§13.12), the GUI carries exactly the six public tables; the 8FC8
+  permutation (`0Q2drGk99WLJ1EGn…`, module @0xA280) is missing — its
+  `0Q2drGk99` string is the BF97 table. Even the tool family that owns
+  the 8FC8 patcher cannot generate 8FC8 passwords — at table level, not
+  just algorithm level.
+- **Zero EC-challenge knowledge.** None of `8dfc7b25` (salt),
+  `b7a777d1`/`6e978d37` (record-store GUIDs), `challenge`, `salt`,
+  `SMM`, `probe`, `0x910` (EC port) appear anywhere in the bytecode.
+  The §13 challenge construction was never public.
+- **The 8FC8 handling is patch-only by design**: the generator tab's own
+  help text routes 8FC8 users to the record-disable patcher — the
+  commercial route eBay sellers resell (§13.11), now confirmed inside
+  the tool itself.
+
+### Consolidated public-tool matrix (final)
+
+| capability | Rex98 GUI v1.0 (V2.1) | chromebreakerdev v2.5 | this work |
+|---|---|---|---|
+| legacy keygen (595B…E7A8) | yes | yes | yes — §2/§9, firmware-faithful %72 |
+| E7A8 dual-encoder | yes | yes | yes — byte-identical (§13.12) |
+| 8FC8 output alphabet | **no** | **no** | **yes** — ALPHA_8FC8, §13.12 |
+| 8FC8 password generation | no ("use Unlocker") | no | §13 challenge keygen (live probe) |
+| 8FC8 record patcher | yes | yes (variant) | yes — rex98_patcher.py, byte-exact |
+| EC challenge / salt | no | no | **yes — §13, unique** |
