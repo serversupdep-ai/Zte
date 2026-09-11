@@ -201,26 +201,50 @@ Data does not container the footer magic (b'PFS.FTR.').
   [carve] generic zlib @0x112DA94 -> 34,441,252 bytes
     9 new payloads (4 EC, 5 pw); manifest total 9
 [1] LVFS https://fwupd.org/lvfs/devices/com.dell.uefic9284bf6.firmware
-    LVFS FAILED: HTTP Error 403: Forbidden
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 52867cc9d04f339de5db508304dfc3d57e8d1f8b11f730f16438c9176ed4c7bc-OptiPlex_3090_2.30.0_firmware.cab
+    LVFS FAILED: unknown url type: '52867cc9d04f339de5db508304dfc3d57e8d1f8b11f730f16438c9176ed4c7bc-OptiPlex_3090_2.30.0_firmware.cab'
 [2] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi10d19ee4.firmware
-    LVFS FAILED: HTTP Error 403: Forbidden
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 118bf96591b7b43fc209b6f0b8a4953f43e1fb2d43df1fc3998c158493253ba9-OptiPlex_3080_2.35.0_firmware.cab
+    LVFS FAILED: unknown url type: '118bf96591b7b43fc209b6f0b8a4953f43e1fb2d43df1fc3998c158493253ba9-OptiPlex_3080_2.35.0_firmware.cab'
 [3] LVFS https://fwupd.org/lvfs/devices/com.dell.uefia3ef064d.firmware
-    LVFS FAILED: HTTP Error 403: Forbidden
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 3aff4d6f333d08bdcf6d20ea249b104ddff9e8a062559df5464ca16ce859e112-firmware.cab
+    LVFS FAILED: unknown url type: '3aff4d6f333d08bdcf6d20ea249b104ddff9e8a062559df5464ca16ce859e112-firmware.cab'
 [4] LVFS https://fwupd.org/lvfs/devices/com.dell.uefibdaa7a9d.firmware
-    LVFS FAILED: HTTP Error 403: Forbidden
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: c406e3ff1cd013c2567d23ba763ff7312ba313dffc00901d6935574eda65f9b2-TroyAdl_16.1.42.2872_EVT_firmware.cab
+    LVFS FAILED: unknown url type: 'c406e3ff1cd013c2567d23ba763ff7312ba313dffc00901d6935574eda65f9b2-TroyAdl_16.1.42.2872_EVT_firmware.cab'
 [5] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi1de8ec66.firmware
-    LVFS FAILED: HTTP Error 403: Forbidden
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 9b41436f2da9f9dd1ca74898530d9bf269d7ec58b911380458df2ee2ab0122e1-firmware.cab
+    LVFS FAILED: unknown url type: '9b41436f2da9f9dd1ca74898530d9bf269d7ec58b911380458df2ee2ab0122e1-firmware.cab'
 [6] LVFS https://fwupd.org/lvfs/devices/com.dell.uefif5d534f4.firmware
-    LVFS FAILED: HTTP Error 403: Forbidden
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 89f12fa8329caede80db8f540155f3e34fe9cc0526ddc1410fcfe01f163ef40d-firmware.cab
+    LVFS FAILED: unknown url type: '89f12fa8329caede80db8f540155f3e34fe9cc0526ddc1410fcfe01f163ef40d-firmware.cab'
 [7] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi09c795fe.firmware
-    LVFS FAILED: HTTP Error 403: Forbidden
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 4b0b3b9127de2655af19977ba317b6c90fb71e03d01f89a89c31299b94f5273a-PronghornRkl_15.0.56.2834_EVT_firmware.cab
+    LVFS FAILED: unknown url type: '4b0b3b9127de2655af19977ba317b6c90fb71e03d01f89a89c31299b94f5273a-PronghornRkl_15.0.56.2834_EVT_firmware.cab'
 [8] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi7839b795.firmware
-    LVFS FAILED: HTTP Error 403: Forbidden
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: de23ef8d4975a35344beb00f14c2067cba50ee202f110c88a450d8dfc602ed56-GiraffeRkl_15.0.56.2834_EVT_firmware.cab
+    LVFS FAILED: unknown url type: 'de23ef8d4975a35344beb00f14c2067cba50ee202f110c88a450d8dfc602ed56-GiraffeRkl_15.0.56.2834_EVT_firmware.cab'
 [9] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi9e83f146.firmware
-    LVFS FAILED: HTTP Error 403: Forbidden
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 3ed072c36d5c34f17e29ea1ff41e9997d2c70f7e83578e0482aa5cb7c6dd1a4b-CaribouRkl_QS_15.0.56.2834_EVT_firmware.cab
+    LVFS FAILED: unknown url type: '3ed072c36d5c34f17e29ea1ff41e9997d2c70f7e83578e0482aa5cb7c6dd1a4b-CaribouRkl_QS_15.0.56.2834_EVT_firmware.cab'
 [10] LVFS https://fwupd.org/lvfs/devices/com.dell.uefibc0a94e3.firmware
-    LVFS FAILED: HTTP Error 403: Forbidden
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 33278626b785c9ff675f41684a49cc87b81a6ec0a6bc6cef997038c28a2309a8-OptiPlex_3090_UFF_1.44.0_LVFS.cab
+    LVFS FAILED: unknown url type: '33278626b785c9ff675f41684a49cc87b81a6ec0a6bc6cef997038c28a2309a8-OptiPlex_3090_UFF_1.44.0_LVFS.cab'
 [11] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi7557a0f4.firmware
-    LVFS FAILED: HTTP Error 403: Forbidden
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 7f023315a07ee1f0b8a4e313df289d70795c8af135480b50eb4a2d2f1f185fa0-PlymouthAdl_16.1.42.2872_EVT_X02_firmware.cab
+    LVFS FAILED: unknown url type: '7f023315a07ee1f0b8a4e313df289d70795c8af135480b50eb4a2d2f1f185fa0-PlymouthAdl_16.1.42.2872_EVT_X02_firmware.cab'
 [12] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi896e9574.firmware
-    LVFS FAILED: HTTP Error 403: Forbidden
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 64c738397e2846acfad79f02f5245d0d639f0c04f8953c17513bd4843b2e53e0-KyotoAdl_16.1.42.2872_EVT_X02_firmware.lvfs.cab
+    LVFS FAILED: unknown url type: '64c738397e2846acfad79f02f5245d0d639f0c04f8953c17513bd4843b2e53e0-KyotoAdl_16.1.42.2872_EVT_X02_firmware.lvfs.cab'
