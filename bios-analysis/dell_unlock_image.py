@@ -256,15 +256,18 @@ def store(path):
 
 def print_post_flash():
     print("""
-POST-FLASH PROCEDURE (field-proven, incl. OptiPlex on latest firmware):
+POST-FLASH PROCEDURE (field-proven — including on the OptiPlex 3090
+itself, badcaps 'dell optiplex 3090 bios issue' thread):
   1. Flash the patched image back (programmer, verify twice).
   2. Boot -> F2. Password prompt is GONE (Manufacturing Mode).
      Settings are intact; BitLocker still boots; service tag is writable.
-  3. Enter the service tag (e.g. H2FS5S3), save, reboot.
+  3. In BIOS: DISABLE Absolute (Computrace), write the service tag
+     (e.g. H2FS5S3), save, reboot.   <-- exact badcaps 3090 procedure
   4. LATEST-FIRMWARE STEP (OptiPlex 7000 field report, 2025-12): while
      still in Manufacturing Mode, run the official BIOS update from the
-     F12 boot menu (USB, FAT32, renamed per Dell recovery procedure).
-     This re-normalizes the firmware before leaving factory mode.
+     F12 boot menu (USB, FAT32, per Dell recovery procedure). Exiting
+     factory mode on latest firmware WITHOUT this re-flash has caused
+     black-screens; the in-mode update normalizes the firmware first.
   5. Alt+F to exit Manufacturing Mode -> normal boot, no password.
 """)
 
@@ -284,11 +287,20 @@ SITUATION
   (badcaps/SMDFlea/Rex98 method — same method for 8FC8 and CF1B).
 
 HARDWARE
-  SPI programmer: CH341A + SOIC8/SOP8 clip (~10 USD), or Raspberry Pi
-  (flashrom). OptiPlex 3090: locate the SPI flash (Winbond/Macronix 25-series,
-  16 or 32 MB — --analyze reports the class). Power unplugged, battery/CMOS
-  disconnected if applicable, clip seated; read at 1.8V ONLY if the chip is
-  a 1.8V part (W25Q128FW etc.) — use the correct adapter.
+  SPI programmer: CH341A + clip (~10 USD), or Raspberry Pi (flashrom).
+  OptiPlex 3090-class boards: Winbond 25-series — sibling OptiPlex 7090
+  micro uses a 32 MB W25Q256FV in WSON8 (needs a WSON8 clip or hot-air);
+  SFF/UFF variants may use SOIC8 (standard clip). --analyze reports the
+  size class once dumped. 1.8V parts (W25Q*FW/*JW) need the 1.8V adapter
+  on the CH341A — check the chip suffix before connecting. Power off and
+  unplugged; on the 3090 UFF/MFF the board is accessible after the
+  service cover comes off.
+
+  NOTE: this generation has NO PSWD/password-clear jumper and NO RTC-reset
+  jumper (Dell: jumper reset applies only to desktops shipped before
+  April 2020; the 3090 manual says 'contact Dell technical support').
+  CMOS battery removal does NOT clear the lock (passwords live in
+  persistent EC-managed flash) — do not waste time on it.
 
 STEP 1 — DUMP (always keep the original)
   flashrom -p ch341a_spi -r orig1.bin
@@ -304,22 +316,30 @@ STEP 3 — FLASH BACK
   flashrom -p ch341a_spi -w patched_orig1.bin
   # verify: flashrom -p ch341a_spi -v patched_orig1.bin
 
-STEP 4 — FIRST BOOT
-  F2 -> no password (Manufacturing Mode) -> write service tag {tag} -> save
-  -> reboot.
+STEP 4 — FIRST BOOT (exact badcaps OptiPlex 3090 procedure)
+  F2 -> no password (Manufacturing Mode) -> DISABLE Absolute (Computrace)
+  -> write service tag {tag} -> save -> reboot.
 
 STEP 5 — LATEST-FIRMWARE FINISHING (important)
   While in Manufacturing Mode: F12 -> run the official Dell BIOS update
   (OptiPlex 3090 latest, FAT32 USB prepared per Dell recovery guide).
   Then Alt+F to exit Manufacturing Mode -> clean normal boot.
+  (Field-proven on this exact model: badcaps 3090 unlocks — service tags
+  2RCDXM3, 4JD7KN3, 8LHR0N3 — patched dump, disable Absolute, write tag,
+  Alt+F. OptiPlex 7000 report confirms the in-mode BIOS update is needed
+  on latest firmware before exiting Manufacturing Mode.)
 
 NOTES
   * BitLocker: the patch preserves settings; suspend BitLocker before
     starting if you want zero risk.
   * If the pattern is not in the first chip: patch the other chip's dump.
   * No-hardware alternative: Dell ownership-transfer + support request —
-    Dell's backend reads out the master for the enrolled record (works by
-    construction, free with proof of ownership).
+    Dell's backend reads out a recovery key for the enrolled record (works
+    by construction; confirmed working even OUT of warranty for 8FC8-era
+    machines). Entry convention: type the key, then Ctrl+Enter+Enter.
+  * There is NO password-clear jumper on this generation and a CMOS
+    battery pull does nothing — the only two real routes are the patch
+    above and the Dell-support readout.
 =====================================================================
 """)
     return 0

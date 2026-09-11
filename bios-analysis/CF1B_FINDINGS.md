@@ -377,3 +377,45 @@ per multiple 2025 reports; out-of-warranty password release is standard.
   with a random 16-char backend master ≈ 95+ bits — the grind tool is only
   useful for low-entropy owner-chosen passwords.
 * NVRAM/CMOS resets, battery pulls — the records are in persistent SPI.
+
+### 10.5 Zero-hardware routes — now definitively ranked (2026-09 field sweep)
+
+**Closed: motherboard jumpers.** This generation has none:
+
+* Dell's own guidance: *"Dell desktop computers launched prior to this
+  document have a motherboard jumper-based reset function. If your product
+  was shipped prior to April 2020 and is not listed above, then the
+  computer will most likely have a jumper-based reset."* — the OptiPlex
+  3090 shipped 2021+.
+* OptiPlex 3090 SFF service manual: *"To clear the system or BIOS
+  passwords, contact Dell technical support"* — no jumper procedure.
+* OptiPlex 3090 MFF board (Foxconn IPCML-RN/ZB): no RTC-reset, no
+  password-reset, no service-mode jumper positions populated (winraid
+  board inspection, 2022).
+* Older OptiPlex (e.g. 3070) DO have the PW_CLR/PSWD jumper — that era
+  ends with the 3080/3090 generation.
+
+**Closed: CMOS/NVRAM battery pulls.** 3090 SFF owner: battery removed
+with power disconnected for extended time — lock persists. Exactly as the
+EC-engine model predicts: password records live in persistent EC-managed
+flash, not in battery-backed CMOS. (5X90 EC reversal, sub-1 cold-flags
+path wipes records 4/5/3 only when the EC itself receives the wipe
+command — no host-side electrical event triggers it.)
+
+**Open and free: Dell support readout.** Dell issues a recovery key for
+the enrolled record with proof of ownership — confirmed working even
+**out of warranty** for 8FC8-era machines (multiple 2023–2025 reports).
+Entry convention: type the key, then **Ctrl+Enter+Enter**.
+
+**Open, field-proven on the OptiPlex 3090 itself: the §10.2 patch.**
+badcaps "dell optiplex 3090 bios issue" thread (2022–2023): owners of
+locked 3090s (service tags 2RCDXM3, 4JD7KN3, 8LHR0N3) uploaded SPI dumps
+and received unlocked images back, with the exact procedure our
+`dell_unlock_image.py --guide` reproduces: *"First boot go to Bios Menu,
+disable absolute, write your Service Tag, save, and Press ALT+F to bypass
+(Manufacturing Mode)."*
+
+Chip intelligence for the 3090 class: the sibling OptiPlex 7090 micro
+carries a **32 MB Winbond W25Q256FV in WSON8** (badcaps dumps); expect
+the same class on 3090 variants (SOIC8 on some), 1.8V suffixes need the
+CH341A 1.8V adapter.
