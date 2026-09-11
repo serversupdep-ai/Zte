@@ -290,6 +290,10 @@ def lvfs_fetch(url):
             cab_url, ver = _cab_from_metadata(slug, guid)
             if not cab_url:
                 raise
+            # AppStream <location> is often a bare filename — join it with
+            # the LVFS downloads base (prefer the CDN).
+            if "://" not in cab_url:
+                cab_url = "https://cdn.fwupd.org/downloads/" + cab_url
             url, version = cab_url, ver or "latest"
             model = guid
         else:
@@ -305,7 +309,19 @@ def lvfs_fetch(url):
                 return []
             url = m.group(0)
     print(f"    cab: {url.rsplit('/', 1)[-1]}")
-    data = _get(url)
+    try:
+        data = _get(url)
+    except Exception as e:
+        # host fallback: cdn.fwupd.org <-> fwupd.org (either may 403/404)
+        alt = (url.replace("https://cdn.fwupd.org/",
+                           "https://fwupd.org/")
+                  if "cdn.fwupd.org" in url
+                  else url.replace("https://fwupd.org/downloads/",
+                                   "https://cdn.fwupd.org/downloads/"))
+        if alt == url:
+            raise
+        print(f"    cab fetch: {e} — retrying via {alt.split('/')[2]}")
+        data = _get(alt)
     if data[:4] != b"MSCF":
         name = url.rsplit("/", 1)[-1]
         tag = _re.sub(r"^[0-9a-f]{64}-", "", name)
