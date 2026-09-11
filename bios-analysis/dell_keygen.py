@@ -86,6 +86,33 @@ T72 = TABLE_9550[:72]
 # E7A8 alphabet @ RVA 0xA300 (raw 0x8d00)
 E7A8_TABLE = "Q92G0drk9y63r5DG1hLqJGW1EnRk[QxrFMNZ328I6myLr4MsPNeZR2z72czpzUJBGXbaIjkZ"
 
+# ----------------------------------------------------------------------------
+# THE SEVEN-TABLE BANK (REPORT §13.12)
+# Every alphabet-bearing pw module in the corpus (90 modules, 26 collections,
+# OptiPlex 3040 1.20.1 -> 7090/XE4 1.42.0) carries these SEVEN identical
+# 72-char tables in .data; the family is selected at runtime by dispatch.
+# RVA column = 2.0.7 pw_42k (2.27.0 pw_43k differs by <= 0x10 from 0xAA20 on).
+# The 8FC8 table is absent from every public tool (Rex98 GUI v1.0 included,
+# §13.13): same 72-char multiset as BF97, fresh permutation.
+# ----------------------------------------------------------------------------
+TABLE_BANK = {
+    "8FC8": ("0Q2drGk99WLJ1EGnqR5y3DGr16hN4seZPRM2zz2pzcU7JaBXIjbkGZrkQFMxN[Z638myIL2r", 0xA280),
+    "E7A8": ("Q92G0drk9y63r5DG1hLqJGW1EnRk[QxrFMNZ328I6myLr4MsPNeZR2z72czpzUJBGXbaIjkZ", 0xA300),
+    "2A7B": ("012345679abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0", 0xAA10),
+    "1D3B": ("0BfIUG1kuPvc8A9Nl5DLZYSno7Ka6HMgqsJWm65yCQR94b21OTp7VFX2z0jihE33d4xtrew0", 0xAA60),
+    "1F66": ("0ewr3d4xtUG1ku0BfIp7VFb21OTSno7KDLZYqsJWa6HMgCQR94m65y9Nl5Pvc8AjihE3X2z0", 0xAAB0),
+    "6FF1": ("08rptBxfbGVMz38IiSoeb360MKcLf4QtBCbWVzmH5wmZUcRR5DZG2xNCEv1nFtzsZB2bw1X0", 0xAB00),
+    "BF97": ("0Q2drGk99rkQFMxN[Z5y3DGr16h638myIL2rzz2pzcU7JWLJ1EGnqRN4seZPRM2aBXIjbkGZ", 0xAB50),
+    # 1F5A shares 2A7B's asciiPrintable table (public tools: extraCharacters)
+    "1F5A": ("012345679abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0", 0xAA10),
+}
+
+
+def table_for(suffix):
+    """Return the 72-char output alphabet for a 4-char family suffix
+    (e.g. 'BF97', 'E7A8', '8FC8'). Raises KeyError for unknown families."""
+    return TABLE_BANK[suffix.upper()][0]
+
 
 def mask32(x):
     return x & 0xFFFFFFFF
@@ -451,6 +478,31 @@ def selftest():
         pws = keygen_e7a8(serial)
         print(f"  {serial}: primary={pws[0]}  second={pws[1]}")
     print("  (compare against DellBiosTools 'Password Generator' E7A8 output)")
+
+    # --- seven-table bank (REPORT §13.12) ---
+    print("Seven-table bank self-test:")
+    assert all(len(t) == 72 for t, _rva in TABLE_BANK.values())
+    assert table_for("BF97") == T72
+    assert table_for("E7A8") == E7A8_TABLE
+    assert table_for("8FC8") == ALPHA_8FC8
+    assert sorted(TABLE_BANK["8FC8"][0]) == sorted(TABLE_BANK["BF97"][0]), \
+        "8FC8 table must be a permutation of the BF97 multiset"
+    import os
+    mod = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                       "optiplex3090", "pwmods",
+                       "optiplex3090_2.0.7_pw_42k.efi")
+    if os.path.isfile(mod):
+        import pefile
+        img = bytes(pefile.PE(data=open(mod, "rb").read(),
+                              fast_load=True).get_memory_mapped_image())
+        for fam, (t, rva) in TABLE_BANK.items():
+            assert img[rva:rva + 72] == t.encode("latin1"), \
+                f"{fam} table mismatch at RVA {rva:#x}"
+        print(f"  all 7 tables byte-verified against pw_42k module "
+              f"({os.path.basename(mod)})")
+    else:
+        print("  (module file not present — skipped byte-verification)")
+    print("  bank checks passed")
 
 
 # 8FC8 output alphabet (72 chars, dispatch-table entry +0x10 for family 0x8FC8,
