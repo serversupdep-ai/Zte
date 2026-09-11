@@ -1273,3 +1273,31 @@ The regenerated `dell_salts_db.py` (137 modules) is the committed result;
 `build_salts_db.py` was fixed to dedupe by path, not basename (basename
 dedup silently dropped whole collections that reuse `pw_N_<size>.efi`
 names).
+
+### EC-side freeze (§13.14 addendum)
+
+Hashing every EC payload in the widened corpus shows the EC firmware is
+**frozen at platform-family granularity** — BIOS updates ship the *same*
+EC images:
+
+- **OptiPlex 3090: 2.27.0 → 2.30.0 all four EC payloads byte-identical**
+  (92cd06e7…, bf7a26f8…, 846e2196…, 63bb3c88…) — combined with the
+  identical pw modules, the *entire password path* (BIOS + EC) is
+  unchanged in the newest 2026 firmware; the §13.6 recovery matrix
+  applies verbatim.
+- The 3090's EC quartet is **shared with OptiPlex 5080 1.34.0 and
+  7080 1.37.0** — one EC build for the whole 10th-gen SFF/tower family,
+  which is why CF1B-suffix machines across that family behave
+  identically (§13.5's unification, now at EC-binary level).
+- Same pattern everywhere: 3080 2.33.0 ↔ 2.35.0 identical; 3090 UFF
+  1.42.0 ↔ 1.44.0 identical; 5490 AIO ↔ 7490 AIO identical (1.47.0 ↔
+  1.48.0 within each); 5480 AIO ↔ 7780/7480 AIO ↔ 5480 share their
+  quartet; 5090 ↔ 7090 ↔ 7090 UFF share theirs; the 3000/5000/7000/XE4
+  cluster shares bodies across versions.
+
+The `b1 09` (I/O port 0x910) transport constant of the §12 EC engine is
+present in the code-bearing payloads of every new collection — the
+EC-doorbell transport is common to the whole 2015–2026 corpus. Dell
+updates the EC only per platform generation, so the §13 challenge
+construction (and any probe built against it) is stable for the useful
+lifetime of each machine family.
