@@ -901,3 +901,60 @@ One challenge construction, one EC salt (8dfc7b25), two pw-module
 generations — and now confirmed against **real hardware**: the firmware
 Dell ships in packages is the firmware machines run, EC images included.
 The recovery matrix of §13.6 applies unchanged to real-world 3090s.
+
+## 13.10 The Rex98 8FC8 patcher reversed — EC password record located in real dumps
+
+The corpus archives included the freeware unlocker itself (indiafix mirror of
+**Rex_8FC8_patcher.exe**, 64 MB). Unpacked (zip → 52 MB overlay @0x936E00 →
+embedded .NET PE at overlay+0x200, class `_8FC8_Patcher.Module8FC8`, VB.NET,
+saved as `forum/patcher_analysis/embedded_Module8FC8.exe`), its CIL was
+disassembled with dncil/dnfile — `rex98_patcher.py` is the faithful Python
+port. The algorithm:
+
+1. require Intel flash-descriptor signature `5A A5 F0 0F 03` in the dump;
+2. scan every offset: take a 22-byte window (`regex-string length / 2`),
+   hexify, test `^00FCAA([0-9A-Fa-f]{2,4})000000([0-9A-Fa-f]{2,})$`
+   (then the `00FDAA…` variant);
+3. on a match, overwrite the 3-byte header `00 FC AA` → `00 FC 00`
+   (i.e. **zero the record-type byte**), save as `patched_<name>`.
+
+### What this reveals about the storage (validated against real dumps)
+
+The password records live at ~**0xC3000** — inside the EC-owned flash hole
+(outside every IFD region; the EC firmware slots at 0x1000/0x410000 live in
+the same hole). Record format, decoded from the real stores:
+
+    00 FC|FD <type> <idx> 00 00 00 00 <flags u16> FF <payload>
+
+- `type 0x22` = ordinary EC variables (28-byte records, sequential idx);
+- `type 0xAA` = **password-enrolled record** (60-byte records);
+- the patcher (and every working unlock flow) clears `<type>` to 0x00.
+
+Empirical cross-checks on the real dumps:
+
+| dump | records | state |
+|---|---|---|
+| OptiPlex 3090 "Password Unlocked" ×2 | idx 0x13 (FD) + 0x14 (FC) | **type byte already 00** — unlocked exactly the Rex98 way, payloads still present |
+| Vostro 3681 BACKUP (locked original) | idx 0x0F (FD) | **live AA record**, 49-byte payload `7e db 2a …` |
+| OptiPlex 7480 AIO 1.10.0 | idx 0x2F (FD) | **live AA record**, 49-byte payload |
+
+The AA-record payload was tested against the §13.5 construction
+(`SHA256(P16 ‖ 8dfc7b25)` and 8 other forms, incl. the R-chain): a
+560-million-candidate sweep (A–Z0–9 ≤5 chars, digits 6–8, service tags,
+common passwords, all salts incl. legacy ASCII) found **no plaintext hash** —
+the 49-byte payload is **sealed** (EC-side encryption, same class as the
+AES-encrypted EC firmware bodies). Conclusion, folding into the §13 model:
+
+- X_enrolled is enrolled **into the EC's own flash record store** (AA record),
+  sealed — not extractable as a raw hash from the SPI dump;
+- the practical offline unlock is therefore the **record-disable** route
+  (`rex98_patcher.py --patch`, byte-exact equivalent of the commercial
+  freeware), while the **password-recovery** route stays the §13 challenge
+  (probe + keygen) — the two routes are complementary, and both are now
+  grounded in real locked/unlocked machine dumps.
+
+One more fleet fact from this pass: the newest pw modules (OptiPlex 3000
+"TroyAdl" 1.17.0, 7000 micro, 3090 UFF 1.42.0) drop the OpenSSL version
+banner — SHA-256 is inlined — but carry the **same salt set** and the same
+`lea rdx,[rip+X]; mov r8d,4` update sites: the construction survives into
+the newest generation.
