@@ -203,3 +203,27 @@ live access): (1) obtain the official BIOS package → `extract_pw_modules.py`
 as done for the 5X90; (3) if sealed, the only remaining routes are the live
 EC session oracle (`dell_cf1b_probe.c` pattern) or an authorized external EC
 flash read (hardware step, out of scope for dump-only work).
+
+## 8. FINAL ANSWER for the EC-era lock (CF1B on latest firmware) — 2026-09
+
+The survey's arc closed with a negative theorem and a working substitute:
+
+1. **No keygen can exist for the EC-era lock.** Full SMM/BIOS reversal
+   (CF1B_FINDINGS.md §10.1): the only generation command enrolls
+   caller-supplied bytes via an EC session; the legacy constructions are
+   unreachable for CF1B (dead code in the newest modules); the EC derives
+   nothing. The enrolled master is a Dell-backend secret. Field-verified:
+   the executed-firmware-proven BF97-construction master
+   (dell_pwgen.py §8/§9) is rejected on the target OptiPlex 3090
+   (H2FS5S3-CF1B, latest firmware).
+2. **The working latest-firmware unlock** (CF1B_FINDINGS.md §10.2,
+   `dell_unlock_image.py`): SPI dump → clear the EC record-store
+   manufacturing-mode markers (`00 FC AA→00 FC 00`, `00 FD AA→00 FD 00`)
+   → reflash → Manufacturing Mode: disable Absolute, write service tag,
+   in-mode F12 BIOS update, Alt+F. Field-proven on the OptiPlex 3090
+   itself (badcaps 2022–2023) and on CF1B machines.
+3. **Zero-hardware alternative**: Dell support recovery-key readout
+   (works out of warranty with proof of ownership; Ctrl+Enter+Enter).
+   Zero-hardware dead ends for this generation: no PSWD jumper (Dell
+   ended jumper reset with April-2020 desktops), CMOS battery pull
+   useless (§10.5).
