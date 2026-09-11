@@ -81,5 +81,12 @@ jobs:
           git add bios-analysis/forum/patcher_analysis/rex98_gui_v1.0/
           if git diff --cached --quiet; then echo "nothing new"; else
             git commit -q -m "rex98: fetch GUI v1.0 release from Drive [skip ci]"
-            git push origin arena/01a087e2-zte
+            ok=0
+            for i in 1 2 3 4 5; do
+              if git pull --rebase origin arena/01a087e2-zte && \
+                 git push origin arena/01a087e2-zte; then ok=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              sleep 15
+            done
+            [ "$ok" = 1 ] || { echo "PUSH FAILED after retries"; exit 1; }
           fi

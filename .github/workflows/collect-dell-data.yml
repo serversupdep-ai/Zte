@@ -53,7 +53,15 @@ jobs:
             echo "nothing new to commit"
           else
             git commit -q -m "collect: real Dell firmware data from catalog [skip ci]"
-            git push origin arena/01a087e2-zte
+            # race-proof push: the sandbox may push to the branch while we run
+            ok=0
+            for i in 1 2 3 4 5; do
+              if git pull --rebase origin arena/01a087e2-zte && \
+                 git push origin arena/01a087e2-zte; then ok=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              sleep 15
+            done
+            [ "$ok" = 1 ] || { echo "PUSH FAILED after retries"; exit 1; }
           fi
           ls bios-analysis/collected/ || true
 
