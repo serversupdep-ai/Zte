@@ -370,6 +370,19 @@ are field-proven; `dell_unlock_image.py` defaults to the minimal 3-byte
 write (full-image scan) and offers `--patch <dump> --wide` for the
 DellBIOSTools-style 6-byte write.
 
+**Store location + factory-state semantics (tool-integrated):** on this
+generation the record store sits in the PHCM-prefixed region within the
+**first 1 MB** of the host SPI dump — the badcaps patcher carves
+0x1000..0x101000; essaadi's Latitude 5400 store measured 0x45000..0x48FFF;
+DellBIOSTools scans the first 0x160000. Factory images carry **cleared
+markers only** (00FC00/00FD00) — census across 120 collected EC payloads:
+zero AA markers anywhere; AA exists only on password-enrolled machines.
+The patch therefore restores factory state. `--analyze` now reports a
+window check (markers/PHCM presence in the first 1 MB) and, if a PHCM
+region exists without AA markers, points to `--wipe-store` as the next
+step. Expected first-boot signal that the patch took (DellBIOSTools
+wording): *"The Service Tag has not been programmed..."*
+
 **Fallback method (also implemented): `--wipe-store`** — essaadi's
 independently field-validated variant (badcaps, Latitude 5400, tags
 4YNG2Z2 + HZKF2Z2): FF-fill the whole record-store region

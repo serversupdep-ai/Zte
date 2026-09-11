@@ -223,6 +223,23 @@ def analyze(path):
              ("no locked markers — machine unlocked or wrong chip "
               "(try the other chip on dual-chip systems)" if not (fcc or fdc)
               else "markers already cleared")))
+    # window intelligence: on this generation the record store lives in the
+    # PHCM-prefixed region within the FIRST 1 MB of the dump (badcaps carve
+    # 0x1000..0x101000; essaadi's Latitude 5400 store sat at 0x45000..0x48FFF;
+    # DellBIOSTools scans the first 0x160000). Factory images carry CLEARED
+    # markers only — AA appears only on password-enrolled machines.
+    if not (fc or fd):
+        fc_win = [x for x in fc if x < 0x101000]
+        fd_win = [x for x in fd if x < 0x101000]
+        phcm_win = [x for x in ph if x < 0x101000]
+        print(f"  window check (first 1 MB, badcaps carve 0x1000..0x101000): "
+              f"markers={len(fc_win)+len(fd_win)} PHCM={len(phcm_win)}")
+        if (fc_win or fd_win):
+            print("    -> markers are in the expected window — proceed")
+        elif phcm_win:
+            print("    -> PHCM region present but no AA markers: machine may "
+                  "be unlocked, or layout drifted — if locked, try "
+                  "--wipe-store on the PHCM cluster")
     print()
     return 0 if (fc or fd or recs) else 1
 
@@ -386,9 +403,20 @@ STEP 3 — FLASH BACK
   flashrom -p ch341a_spi -w patched_orig1.bin
   # verify: flashrom -p ch341a_spi -v patched_orig1.bin
 
+STEP 3.5 — WHERE THE RECORDS LIVE (expected)
+  On this generation the record store sits in the PHCM-prefixed region
+  within the FIRST 1 MB of the dump (badcaps patcher carves
+  0x1000..0x101000; Latitude 5400 store measured at 0x45000..0x48FFF).
+  --patch scans the WHOLE image, so nothing is missed either way.
+  Factory images carry CLEARED markers only (00FC00/00FD00) — the AA
+  marker exists only on password-enrolled machines; the patch restores
+  factory state.
+
 STEP 4 — FIRST BOOT (exact badcaps OptiPlex 3090 procedure)
-  F2 -> no password (Manufacturing Mode) -> DISABLE Absolute (Computrace)
-  -> write service tag {tag} -> save -> reboot.
+  Expected signal that the patch took (DellBIOSTools wording): "The
+  Service Tag has not been programmed..." — then F2 -> no password
+  (Manufacturing Mode) -> DISABLE Absolute (Computrace) -> write service
+  tag {tag} -> save -> reboot.
 
 STEP 5 — LATEST-FIRMWARE FINISHING (important)
   While in Manufacturing Mode: F12 -> run the official Dell BIOS update
