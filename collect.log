@@ -203,60 +203,36 @@ Data does not container the footer magic (b'PFS.FTR.').
 [1] LVFS https://fwupd.org/lvfs/devices/com.dell.uefic9284bf6.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 52867cc9d04f339de5db508304dfc3d57e8d1f8b11f730f16438c9176ed4c7bc-OptiPlex_3090_2.30.0_firmware.cab
-    cab fetch: HTTP Error 412: PRECONDITION FAILED — retrying via fwupd.org
-    LVFS FAILED: HTTP Error 412: Precondition Failed
 [2] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi10d19ee4.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 118bf96591b7b43fc209b6f0b8a4953f43e1fb2d43df1fc3998c158493253ba9-OptiPlex_3080_2.35.0_firmware.cab
-    cab fetch: HTTP Error 412: PRECONDITION FAILED — retrying via fwupd.org
-    LVFS FAILED: HTTP Error 412: Precondition Failed
 [3] LVFS https://fwupd.org/lvfs/devices/com.dell.uefia3ef064d.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 3aff4d6f333d08bdcf6d20ea249b104ddff9e8a062559df5464ca16ce859e112-firmware.cab
-    cab fetch: HTTP Error 412: PRECONDITION FAILED — retrying via fwupd.org
-    LVFS FAILED: HTTP Error 412: Precondition Failed
 [4] LVFS https://fwupd.org/lvfs/devices/com.dell.uefibdaa7a9d.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 6800af07ee7752e7b461a52d40c3bcf76f346b61fe7c4cf2a9ee8167f7f531a4-TroyAdl_16.1.42.2872_EVT_firmware.lvfs.cab
-    cab fetch: HTTP Error 412: PRECONDITION FAILED — retrying via fwupd.org
-    LVFS FAILED: HTTP Error 412: Precondition Failed
 [5] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi1de8ec66.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 9b41436f2da9f9dd1ca74898530d9bf269d7ec58b911380458df2ee2ab0122e1-firmware.cab
-    cab fetch: HTTP Error 412: PRECONDITION FAILED — retrying via fwupd.org
-    LVFS FAILED: HTTP Error 412: Precondition Failed
 [6] LVFS https://fwupd.org/lvfs/devices/com.dell.uefif5d534f4.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 89f12fa8329caede80db8f540155f3e34fe9cc0526ddc1410fcfe01f163ef40d-firmware.cab
-    cab fetch: HTTP Error 412: PRECONDITION FAILED — retrying via fwupd.org
-    LVFS FAILED: HTTP Error 412: Precondition Failed
 [7] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi09c795fe.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 4b0b3b9127de2655af19977ba317b6c90fb71e03d01f89a89c31299b94f5273a-PronghornRkl_15.0.56.2834_EVT_firmware.cab
-    cab fetch: HTTP Error 412: PRECONDITION FAILED — retrying via fwupd.org
-    LVFS FAILED: HTTP Error 412: Precondition Failed
 [8] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi7839b795.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: de23ef8d4975a35344beb00f14c2067cba50ee202f110c88a450d8dfc602ed56-GiraffeRkl_15.0.56.2834_EVT_firmware.cab
-    cab fetch: HTTP Error 412: PRECONDITION FAILED — retrying via fwupd.org
-    LVFS FAILED: HTTP Error 412: Precondition Failed
 [9] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi9e83f146.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 3ed072c36d5c34f17e29ea1ff41e9997d2c70f7e83578e0482aa5cb7c6dd1a4b-CaribouRkl_QS_15.0.56.2834_EVT_firmware.cab
-    cab fetch: HTTP Error 412: PRECONDITION FAILED — retrying via fwupd.org
-    LVFS FAILED: HTTP Error 412: Precondition Failed
 [10] LVFS https://fwupd.org/lvfs/devices/com.dell.uefibc0a94e3.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 33278626b785c9ff675f41684a49cc87b81a6ec0a6bc6cef997038c28a2309a8-OptiPlex_3090_UFF_1.44.0_LVFS.cab
-    cab fetch: HTTP Error 412: PRECONDITION FAILED — retrying via fwupd.org
-    LVFS FAILED: HTTP Error 412: Precondition Failed
 [11] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi7557a0f4.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: a338aff9dd9d10c2bbb46ddade27d822f17ea3da4c711992a363341ddfc4d900-PlymouthAdl_16.1.42.2872_EVT_X02_firmware.lvfs.cab
-    cab fetch: HTTP Error 412: PRECONDITION FAILED — retrying via fwupd.org
-    LVFS FAILED: HTTP Error 412: Precondition Failed
 [12] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi896e9574.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 64c738397e2846acfad79f02f5245d0d639f0c04f8953c17513bd4843b2e53e0-KyotoAdl_16.1.42.2872_EVT_X02_firmware.lvfs.cab
-    cab fetch: HTTP Error 412: PRECONDITION FAILED — retrying via fwupd.org
-    LVFS FAILED: HTTP Error 412: Precondition Failed
