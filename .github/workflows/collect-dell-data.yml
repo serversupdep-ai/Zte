@@ -8,7 +8,7 @@ name: Collect Dell firmware data
 on:
   push:
     branches: [arena/01a087e2-zte]
-    paths: ['relay/catalog.txt', 'relay/lvfs_catalog.txt', '.github/workflows/collect-dell-data.yml']
+    paths: ['relay/catalog.txt', 'relay/lvfs_catalog.txt', 'bios-analysis/collect_from_catalog.py', '.github/workflows/collect-dell-data.yml']
   workflow_dispatch:
 
 permissions:
