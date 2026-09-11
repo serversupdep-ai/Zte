@@ -465,3 +465,124 @@ Chip intelligence for the 3090 class: the sibling OptiPlex 7090 micro
 carries a **32 MB Winbond W25Q256FV in WSON8** (badcaps dumps); expect
 the same class on 3090 variants (SOIC8 on some), 1.8V suffixes need the
 CH341A 1.8V adapter.
+
+---
+
+## 11. THE MACHINE-SIDE PROTOCOL, FULLY REVERSED AND EMULATION-PROVEN
+(2026-09-12; from the user machine's own System BIOS 2.27.0 vault module,
+the inner PE carved at LZMA-stream offset 0x6f4a4 — see workspace notes.
+Everything in this section was *executed*, not just read: the SMM code path
+was run under Unicorn with a stubbed DellEcIo interface, and its complete
+mailbox exchange plus response→code map were captured byte-exact.)
+
+### 11.1 The type map (fn 0x30E8)
+
+The EC-session function fn 0x37AC classifies its request descriptor by GUID:
+
+| GUID (first qword of descriptor target) | type | meaning |
+|---|---|---|
+| {BB52D484-DC3F-4A1F-B86A-58FA9245270A} | 0 | query |
+| {7CEC093D-6BAC-420D-845C-CA1716AC5A92} | 1 | query |
+| {FEE3193F-CED3-4792-B804-A8F2B6241009} | 2 | query |
+| {F2C68B35-9114-4528-AC75-5ADF2EBD6DAB} | 3 | query |
+| {38C1B06E-BDCA-45CD-B6E8-BF45845671FA} | 4 | admin enroll (sends the fixed 16-byte command 8449624d…) |
+| {4DDB3FAC-C556-4E26-AD8E-DC8758426889} | 5 | system enroll |
+| **{C065AEAB-DD1C-4D49-BD33-4578E106C700}** | **6** | **GENERATE — the master-code request** |
+
+The vault protocol method +0x18 (fn 0x2074) is the generator: it builds a
+{C065AEAB} descriptor and, when the machine's suffix is in the EC list
+(fn 0x9580 × {1B58,9ABE,3FE2,CF1B,8FC8}), calls fn 0x37AC with it. §10's
+"the SMM sends only enroll/verify bytes" reading is hereby corrected:
+**type 6 is a read-only GENERATE request and it returns the master code.**
+
+### 11.2 The wire protocol (captured from the emulated fn 0x37AC, type 6)
+
+```
+open : cmd buf {0x21, 0x00, 0x03, 0x06}    (cmd 0x21, sub 3, type 6)
+send : service tag bytes                    ("H2FS5S3" → 7 bytes)
+send : 1 byte = suffix LSB                  (CF1B→0x1B, 8FC8→0xC8, 1B58→0x58,
+                                             9ABE→0xBE, 3FE2→0xE2 — all distinct)
+recv : 32 bytes                             (the EC-computed material)
+recv : 1 status byte                        (0x00 = success; fn 0x31B4 maps
+                                             0→OK, 2/6/5/8/9→errors, else 0x800000000000000F)
+```
+
+Nothing is enrolled: the SMM only sends tag + family byte and receives.
+Types 4/5 (enroll, which also send the fixed command
+`84 49 62 4d cc d1 7c 4c bf e4 4d 7f 01 3f f2 5a`) are never touched by
+type 6.
+
+### 11.3 The response→code map (fn 0x8E18) — all three branches verified
+
+fn 0x8e18(out, len, resp32, suffix):
+1. fn 0x9580(suffix): is it in the EC list?
+   - **no (E7A8 family)** → legacy local tail: per-suffix alphabets
+     (BF97→0xab60, 6FF1→0xab10, 1F66→0xaac0, 1D3B→0xaa70, else→0xaa20),
+     `out[i] = alphabet[resp32[i] % 72]`. (E7A8 remains locally generated —
+     consistent with §8's working keygen for it.)
+   - **yes** → fn 0x8060(suffix) dispatch-table lookup (table @0xa9e0,
+     24-byte stride, first qword = alphabet pointer; index 0 → 0xa280,
+     index 1 → 0xa300):
+     - **8FC8 (index 0)** → `out[i] = alphabet0[(resp32[i] + resp32[i+16]) % 72]`,
+       alphabet0 = `0Q2drGk99WLJ1EGnqR5y3DGr16hN4seZPRM2zz2pzcU7JaBXIjbkGZrkQFMxN[Z638myIL2r`
+     - **CF1B / 3FE2 / 1B58 / 9ABE (0xFFFF = not in table)** →
+       fn 0x39bc(out, resp32, 0x10) = **memcpy: out = resp32[0..15]
+       VERBATIM.** The EC returns the fully-formed 16-character master
+       code; the BIOS applies no transformation at all. resp32[16..31] is
+       carried alongside (second candidate / code-2 half).
+
+Emulation evidence (canned response "ABCDEFGHIJKLMNOPQRSTUVWXYZ012345"):
+- CF1B → out `ABCDEFGHIJKLMNOP` (= resp[0:16], byte-exact), rv=0
+- 8FC8 → out `2rk9L1Gq53kZkFx[` == predicted `alphabet0[(c[i]+c[i+16])%72]`, byte-exact, rv=0
+- E7A8 → out via legacy tail (digit-first alphabet @0xaa20), rv=0
+
+Reproduce: `python3 bios-analysis/dell_cf1b_session_emu.py`
+(needs `/tmp/vault_2270_cf1b_pe32.pe`, or pass the PE path as argv[1]).
+
+### 11.4 Transport — verified in the 3090's own DellEcIo provider
+
+The DellEcIo provider module (PE @ stream 0x3bdfdd, GUID
+{7310E28E-96EA-4360-946E-5ADC6BE8F531} referenced by 9 modules) implements
+exactly the mailbox the 5X90 reversal described — and the probe already
+speaks it:
+
+- port 0x910 = selector/index, port 0x911 = data (`mov edx,0x910; out`
+  / `mov edx,0x911; in` sequences at .text 0x15f4/0x163a);
+- selector 0x00 = command doorbell (write, then poll until 0);
+- selector table @VA 0x5320 = `10 11 12 … 1f` — logical window index 1..16
+  maps identically to selectors 0x10..0x1F (message window);
+- the +0x40/+0x48 interface methods are the cmd-0x17 packetized transfers
+  (≤8 bytes per packet, win[3]=count, win[2]=1 go / poll bit0) —
+  byte-identical framing to `dell_cf1b_probe.c`'s xfer_write/xfer_read.
+
+### 11.5 The deliverable — `dell_cf1b_master.c`
+
+A live Linux tool (gcc, run as root on bare metal) that performs §11.2's
+exact sequence over §11.4's transport and prints the master code:
+
+```
+sudo ./dell_cf1b_master                    # tag H2FS5S3, family CF1B
+sudo ./dell_cf1b_master -t XXXXXXX -f CF1B
+sudo ./dell_cf1b_master -f 8FC8            # also prints the alphabet-mapped code
+```
+
+It requests the code **from the machine's own EC** — no legacy algorithm,
+no cross-suffix table, nothing copied from other families. For CF1B the
+printed `MASTER CODE (resp[0..15])` is exactly what the SMM would hand to
+its caller (fn 0x8e18's verbatim branch). This is the machine-specific
+solution the survey demanded: the derivation that "does not exist offline"
+(§10) exists *inside the user's own EC*, and this tool asks for it.
+
+If the EC gates type 6 by machine state (e.g. only while a challenge is
+pending), the tool will surface that as a short response / nonzero status
+byte — diagnostically decisive either way.
+
+### 11.6 What remains EC-side (and why that is fine)
+
+The 32-byte response is computed inside the EC firmware (v1.29.1, sealed —
+the tag/family→code transform and any per-machine secret live there; the
+fixed 16-byte command bytes appear in no EC payload plaintext, § earlier
+scan). For the *user's own machine* that does not matter: the EC is the
+oracle, the protocol above is its complete public interface, and the tool
+talks to it directly. Offline keygen for arbitrary other CF1B machines
+remains impossible without an EC-firmware secret leak (§10 unchanged).

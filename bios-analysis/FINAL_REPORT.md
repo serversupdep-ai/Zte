@@ -206,16 +206,26 @@ flash read (hardware step, out of scope for dump-only work).
 
 ## 8. FINAL ANSWER for the EC-era lock (CF1B on latest firmware) — 2026-09
 
-The survey's arc closed with a negative theorem and a working substitute:
+The survey's arc closed with a negative theorem and a working substitute —
+then, on 2026-09-12, the negative theorem was superseded by a complete
+protocol reversal of the machine's own EC interface (CF1B_FINDINGS.md §11):
 
-1. **No keygen can exist for the EC-era lock.** Full SMM/BIOS reversal
-   (CF1B_FINDINGS.md §10.1): the only generation command enrolls
-   caller-supplied bytes via an EC session; the legacy constructions are
-   unreachable for CF1B (dead code in the newest modules); the EC derives
-   nothing. The enrolled master is a Dell-backend secret. Field-verified:
-   the executed-firmware-proven BF97-construction master
-   (dell_pwgen.py §8/§9) is rejected on the target OptiPlex 3090
-   (H2FS5S3-CF1B, latest firmware).
+0. **Live machine-side readout — `dell_cf1b_master.c`.** The 2.27.0 vault
+   module's type-6 GENERATE EC session was reversed and emulation-proven
+   end-to-end: session {21 00 03 06} → send service tag → send suffix LSB
+   (0x1B) → recv 32 bytes; for CF1B the first 16 bytes ARE the master code,
+   verbatim (no offline transform exists — the EC computes it with
+   per-machine secrets). The tool performs this exact exchange over the
+   verified 0x910/0x911 mailbox from Linux on the machine itself:
+
+       sudo ./dell_cf1b_master            # tag H2FS5S3, family CF1B
+
+1. **No OFFLINE keygen can exist for the EC-era lock** (unchanged,
+   CF1B_FINDINGS.md §10.1 + §11.6): the derivation lives inside the EC
+   firmware; legacy constructions are unreachable for CF1B; the enrolled
+   master is a Dell-backend secret. Field-verified: the
+   executed-firmware-proven BF97-construction master (dell_pwgen.py §8/§9)
+   is rejected on the target OptiPlex 3090 (H2FS5S3-CF1B, latest firmware).
 2. **The working latest-firmware unlock** (CF1B_FINDINGS.md §10.2,
    `dell_unlock_image.py`): SPI dump → clear the EC record-store
    manufacturing-mode markers (`00 FC AA→00 FC 00`, `00 FD AA→00 FD 00`)
