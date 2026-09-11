@@ -186,3 +186,59 @@ The other tags are computed for the documented machines; machine-side
 acceptance not yet reported. On current (EC-routed) firmware the master is
 accepted through the EC's enrolled record; owner-set passwords remain
 covered by §6 routes.
+
+## 9. Field intelligence (public threads, mined to exhaustion 2026-09)
+
+* r/Dell "Bios password reset" (1mni7p9, Aug 2025–Aug 2026) and "Bios master
+  password" (iks99h, 2020) fully read (mirror fetch). Findings:
+  - The only public helper with a working generator (u/Captain_Zomaru,
+    proprietary tool) **refuses every CF1B / 9ABE / 3FE2 / 8FC8 request**
+    ("beyond our current ability to generate a code … no known way without a
+    bios chip flash"). No CF1B/9ABE/3FE2 password has ever been posted
+    publicly. Our dell_pwgen.py is the only generator for this generation.
+  - **E7A8 anchor (field-validated)**: the 2020 thread's published pair
+    `1JGPCK2-E7A8 → 67M[kP4k92yG4nMQ / RGRb5UBrrEa8hrGL` is reproduced
+    EXACTLY by our keygen_e7a8 — proving that thread's passwords were
+    genuine Dell masters and our implementations reproduce field-verified
+    data. The same helper's 8FC8 attempt failed on-machine ("It doesnt,
+    have tried them both") — consistent with 8FC8 being EC-side.
+  - Old-suffix machines accept the BF97-construction master regardless of
+    their displayed suffix (multiple reports, e.g. -1F66 machine unlocked
+    with the BF97 line) — the same construction the CF1B fallback executes.
+  - A **MasterPasswordLockout** victim (Precision 7740, BIOS 1.45.1,
+    suffix -CF1B, tag withheld "XXXXX73") reports Dell refusing transfer and
+    requiring a motherboard: matches the `MasterPasswordLockout` attribute
+    in pw_5 (§ pw_5 note); when lockout is armed, master-password unlock is
+    disabled machine-side — our master cannot help there either.
+  - New suffix sighting: `-8FCA` (Precision 3591 class) — beyond the
+    1B58/9ABE/3FE2/CF1B/8FC8 list in this firmware generation; treat as
+    EC-side until firmware says otherwise.
+
+### Computed masters for every publicly documented CF1B-generation machine
+
+Owners of these machines posted their tags publicly asking for help; the
+masters below are computed by the firmware-proven keygen (dell_pwgen.py).
+Field acceptance remains unreported for all but H2FS5S3.
+
+| Service tag | Suffix | Machine (as posted) | Master (computed) |
+|---|---|---|---|
+| H2FS5S3 | CF1B | OptiPlex 3090 (this survey's machine) | `shzNyjGRzRN2LLzL` |
+| 9LNT2Z2 | CF1B | Latitude 5500 | `yE9R322hGQkm55Jn` |
+| 8XKP5Y2 | CF1B | Latitude 5400 | `cxMI6I[yzPJkZQkh` |
+| 4J5SCF4 | CF1B | (not stated) | `kG7RMPzr50yINas0` |
+| 3BJJ9C3 | CF1B | (not stated) | `r10DGr2cz3rZFkZy` |
+| 9B1N0R3 | CF1B | "dell latitude 3090" | `rQXhLUBGMb1I9x3U` |
+| JY6TVD3 | CF1B | OptiPlex 3080 MFF | `Fz6xGZcQkZrjdZq0` |
+| 9Y6TVD3 | CF1B | OptiPlex 3080 MFF | `R9UDLpmppeq26D88` |
+| C7ZRYZ2 | CF1B | Latitude 5300 | `rZ[jL61JWpRk6MjE` |
+| CVW2Q13 | CF1B | Precision 7540 | `8yWGMQ30zQIzQR2N` |
+| G45BC93 | CF1B | Latitude 5410 | `yxkrJxG8UJJJ12zX` |
+| 6RMTP33 | CF1B | Latitude 5400 | `PGkz6c3r6sqI89Z2` |
+| CNXJQB3 | CF1B | OptiPlex 3080 | `hFW0mEGE2z3L2MyN` |
+| 6DRBM34 | 9ABE | (not stated) | `Z7kzX3bpkNNLDr6Q` |
+| J1GVS14 | 9ABE | Latitude 5540 | `ZL3XEcZr6[Grc297` |
+| 2V7P224 | 9ABE | (not stated) | `RDGc1Lr4aU2M4666` |
+| 2W255W3 | 3FE2 | Latitude 7430 | `k2LhDndx34IP1GL6` |
+
+(Entry convention on locked Dell machines: type the password, then
+**Ctrl+Enter** — or Ctrl+Enter, Enter — rather than plain Enter.)
