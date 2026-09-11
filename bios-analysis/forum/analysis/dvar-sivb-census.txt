@@ -1,0 +1,423 @@
+### bios-analysis/forum/opensources/dumps/ifix_02__BACKUP.BIN
+ifix_02__BACKUP.BIN (33554432 bytes)
+  DVAR store 0x10c1000-0x1101000: 0 password(s)
+  SIVB block @0x407000 hash_size=0x20 blob_size=0x1480 has_data=True
+### bios-analysis/forum/opensources/dumps/ifix_02__Clean me.bin
+ifix_02__Clean me.bin (33554432 bytes)
+  DVAR store 0x10c1000-0x1101000: 0 password(s)
+### bios-analysis/forum/opensources/dumps/ifix_06__3090 Bios Password Unlocked.bin
+ifix_06__3090 Bios Password Unlocked.bin (33554432 bytes)
+  DVAR store 0x10c1000-0x1101000: 0 password(s)
+  SIVB block @0x891000 hash_size=0x20 blob_size=0x2680 has_data=True
+### bios-analysis/forum/opensources/dumps/ifix_07__W25Q512NW@WSON8 8X6_20260423_181304 OFF.bin
+ifix_07__W25Q512NW@WSON8 8X6_20260423_181304 OFF.bin (67108864 bytes)
+  DVAR store: none
+### bios-analysis/forum/opensources/dumps/ifix_09__OptiPlex 7480 All-In-One ipcml-gz uma 1.10.0.bin
+ifix_09__OptiPlex 7480 All-In-One ipcml-gz uma 1.10.0.bin (33554432 bytes)
+  DVAR store 0x1ea70bc-0x1ee70bc: 2 password(s)
+    [0x1eb70e4] 'L0V'  key=1442e88afeffff8b7424148bf8eb1933d28d4c24
+    [0x1ecc838] '9Xkp5{nVf3'  key=1a770539421c7613396a42e94bffffff39722072
+  SIVB block @0x893000 hash_size=0x20 blob_size=0x2740 has_data=True
+### bios-analysis/forum/opensources/dumps/ifix_12__3090 Bios Password Unlocked.bin
+ifix_12__3090 Bios Password Unlocked.bin (33554432 bytes)
+  DVAR store 0x10c1000-0x1101000: 0 password(s)
+  SIVB block @0x891000 hash_size=0x20 blob_size=0x2680 has_data=True
+### bios-analysis/forum/opensources/dumps/ifix_12__Clean cseme.bin
+ifix_12__Clean cseme.bin (33554432 bytes)
+  DVAR store 0x10c1000-0x1101000: 0 password(s)
+### bios-analysis/forum/opensources/dumps/ifix_13__Alienware Aurora R12 .bin
+ifix_13__Alienware Aurora R12 .bin (33554432 bytes)
+  DVAR store: none
+### /tmp/storecensus/10/OptiPlex 7480 All-In-One ipcml-gz uma 1.10.0.bin
+OptiPlex 7480 All-In-One ipcml-gz uma 1.10.0.bin (33554432 bytes)
+  DVAR store 0x1ea70bc-0x1ee70bc: 2 password(s)
+    [0x1eb70e4] 'L0V'  key=1442e88afeffff8b7424148bf8eb1933d28d4c24
+    [0x1ecc838] '9Xkp5{nVf3'  key=1a770539421c7613396a42e94bffffff39722072
+  SIVB block @0x893000 hash_size=0x20 blob_size=0x2740 has_data=True
+### /tmp/storecensus/17/Optiplex 7000 micro UNLOCKED.bin
+Optiplex 7000 micro UNLOCKED.bin (16777216 bytes)
+  DVAR store: none
+  SIVB block @0x2d0004 hash_size=0x0 blob_size=0x0 has_data=True
+### /tmp/storecensus/17/OK BACKUP.BIN
+OK BACKUP.BIN (16777216 bytes)
+  DVAR store: none
+  SIVB block @0x2d0004 hash_size=0x0 blob_size=0x0 has_data=True
+### /tmp/storecensus/17/OK BACKUP 32MB.BIN
+OK BACKUP 32MB.BIN (33554432 bytes)
+  DVAR store 0x1b21b25-0x1b61b25: 5 password(s)
+    [0x1b24821] '#=,lIr4xY_^C'  key=ffff84c07507b80200008056578bf28bf9e8e3fb
+    [0x1b2d5f7] '#=,lIr4xY_^C'  key=ffff84c07507b80200008056578bf28bf9e884fd
+    [0x1b3189e] '7pWvB:tx'  key=50ff743704ff3437088d44241c508d44241c8bd5
+    [0x1b5198f] '#=,lIr4xY_^C'  key=ffff84c07507b80200008056578bf28bf9e8befd
+    [0x1b5d974] '#=,lIr4xY_^C'  key=ffff84c07507b80200008056578bf28bf9e84efd
+### /tmp/storecensus/22/Dell Pro 14 Plus Dell_Pro_Plus_PB13255_PB14255_PB16255_1.11.0 AMD.bin
+Dell Pro 14 Plus Dell_Pro_Plus_PB13255_PB14255_PB16255_1.11.0 AMD.bin (67108864 bytes)
+  DVAR store 0x22cf9f4-0x230f9f4: 4 password(s)
+    [0x22cfe16] "/M$G!tf'"  key=95ddfa4a768b01df1917c0c797dd3a23bba5655f
+    [0x22d5536] 'c9CU)5p'  key=ebfadb2ebcb9e198c2f07501f240ab78bcb58a0b
+    [0x22e79e4] '.zX/`D\\t3H'  key=6a75d3af5de3f965f5aeb7086faea01868e36717
+    [0x22f0594] '|1K5FYM1'  key=6c6a7e89120671985211c625c271583f1229f3c2
+### /tmp/storecensus/21/Alienware Aurora R110  IPCML-SH REV A00.bin
+Alienware Aurora R110  IPCML-SH REV A00.bin (33554432 bytes)
+  DVAR store: none
+### /tmp/storecensus/13/Alienware Aurora R12 .bin
+Alienware Aurora R12 .bin (33554432 bytes)
+  DVAR store: none
+### /tmp/storecensus/6/3090 Bios Password Unlocked.bin
+3090 Bios Password Unlocked.bin (33554432 bytes)
+  DVAR store 0x10c1000-0x1101000: 0 password(s)
+  SIVB block @0x891000 hash_size=0x20 blob_size=0x2680 has_data=True
+### /tmp/storecensus/7/W25Q512NW@WSON8 8X6_20260423_181304 OFF.bin
+W25Q512NW@WSON8 8X6_20260423_181304 OFF.bin (67108864 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.0.1022_1.5MB_PRD_UPD.bin
+6.2.0.1022_1.5MB_PRD_UPD.bin (1319840 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.10.1027_5MB_DT_PRD_UPD.bin
+6.2.10.1027_5MB_DT_PRD_UPD.bin (4214752 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.40.1045_1.5MB_PRD_UPD.bin
+6.2.40.1045_1.5MB_PRD_UPD.bin (1319840 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.0.1022_5MB_DT_PRD_UPD.bin
+6.2.0.1022_5MB_DT_PRD_UPD.bin (4214736 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.3.1219_5MB_MB_PRD_UPD.bin
+6.0.3.1219_5MB_MB_PRD_UPD.bin (4219168 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.0.1042_5MB_DT_PRD_UPD.bin
+6.1.0.1042_5MB_DT_PRD_UPD.bin (4215136 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.0.1184_1.5MB_PRD_UPD.bin
+6.0.0.1184_1.5MB_PRD_UPD.bin (1319840 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.20.1059_5MB_MB_PRD_UPD.bin
+6.1.20.1059_5MB_MB_PRD_UPD.bin (4219360 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.20.1035_5MB_MB_PRD_UPD.bin
+6.2.20.1035_5MB_MB_PRD_UPD.bin (4219424 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.0.1022_5MB_MB_PRD_UPD.bin
+6.2.0.1022_5MB_MB_PRD_UPD.bin (4219424 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.4.1205_5MB_MB_PRD_UPD.bin
+6.0.4.1205_5MB_MB_PRD_UPD.bin (4219168 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.41.1216_5MB_MB_PRD_UPD.bin
+6.0.41.1216_5MB_MB_PRD_UPD.bin (4219168 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.31.1208_5MB_MB_PRD_UPD.bin
+6.0.31.1208_5MB_MB_PRD_UPD.bin (4219168 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.50.1062_1.5MB_PRD_UPD.bin
+6.2.50.1062_1.5MB_PRD_UPD.bin (1319840 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.60.1066_5MB_DT_PRD_UPD.bin
+6.2.60.1066_5MB_DT_PRD_UPD.bin (4214752 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.31.1075_1.5MB_PRD_UPD.bin
+6.1.31.1075_1.5MB_PRD_UPD.bin (1319840 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.30.1040_1.5MB_PRD_UPD.bin
+6.2.30.1040_1.5MB_PRD_UPD.bin (1319840 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.1.1045_5MB_DT_PRD_UPD.bin
+6.1.1.1045_5MB_DT_PRD_UPD.bin (4215136 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.40.1215_5MB_DT_PRD_UPD.bin
+6.0.40.1215_5MB_DT_PRD_UPD.bin (4214944 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.30.1203_5MB_MB_PRD_UPD.bin
+6.0.30.1203_5MB_MB_PRD_UPD.bin (4219168 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.3.1195_1.5MB_PRD_UPD.bin
+6.0.3.1195_1.5MB_PRD_UPD.bin (1319840 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.30.1203_1.5MB_PRD_UPD.bin
+6.0.30.1203_1.5MB_PRD_UPD.bin (1319840 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.31.1208_1.5MB_PRD_UPD.bin
+6.0.31.1208_1.5MB_PRD_UPD.bin (1319840 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.32.1076_5MB_DT_PRD_UPD.bin
+6.1.32.1076_5MB_DT_PRD_UPD.bin (4215136 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.2.1194_5MB_DT_PRD_UPD.bin
+6.0.2.1194_5MB_DT_PRD_UPD.bin (4214944 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.2.1194_5MB_MB_PRD_UPD.bin
+6.0.2.1194_5MB_MB_PRD_UPD.bin (4219168 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.30.1074_5MB_DT_PRD_UPD.bin
+6.1.30.1074_5MB_DT_PRD_UPD.bin (4215136 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.10.1027_5MB_MB_PRD_UPD.bin
+6.2.10.1027_5MB_MB_PRD_UPD.bin (4219424 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.0.1042_5MB_MB_PRD_UPD.bin
+6.1.0.1042_5MB_MB_PRD_UPD.bin (4219360 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.30.1203_5MB_DT_PRD_UPD.bin
+6.0.30.1203_5MB_DT_PRD_UPD.bin (4214944 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.10.1052_5MB_MB_PRD_UPD.bin
+6.1.10.1052_5MB_MB_PRD_UPD.bin (4219360 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.10.1052_1.5MB_PRD_UPD.bin
+6.1.10.1052_1.5MB_PRD_UPD.bin (1319840 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.0.1042_5MB_MB_PRD_EXTR.bin
+6.1.0.1042_5MB_MB_PRD_EXTR.bin (6279168 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.3.1195_1.5MB_PRD_RGN.bin
+6.0.3.1195_1.5MB_PRD_RGN.bin (1515520 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.2.0.1022_1.5MB_PRD_EXTR.bin
+6.2.0.1022_1.5MB_PRD_EXTR.bin (1560576 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.0.1115_5MB_DT_PRE_UPD.bin
+6.0.0.1115_5MB_DT_PRE_UPD.bin (4214624 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.10.1052_5MB_MB_PRD_EXTR.bin
+6.1.10.1052_5MB_MB_PRD_EXTR.bin (5185536 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.2.10.1027_5MB_DT_PRD_EXTR.bin
+6.2.10.1027_5MB_DT_PRD_EXTR.bin (3436544 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.0.1115_5MB_MB_PRE_UPD.bin
+6.0.0.1115_5MB_MB_PRE_UPD.bin (4218784 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.0.1184_5MB_DT_PRD_RGN.bin
+6.0.0.1184_5MB_DT_PRD_RGN.bin (5185536 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.2.50.1062_5MB_DT_PRD_EXTR.bin
+6.2.50.1062_5MB_DT_PRD_EXTR.bin (3440640 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.10.1052_1.5MB_PRD_EXTR.bin
+6.1.10.1052_1.5MB_PRD_EXTR.bin (1560576 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.0.1115_5MB_DT_PRE_RGN.bin
+6.0.0.1115_5MB_DT_PRE_RGN.bin (5185536 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.0.1038_5MB_MB_PRD_EXTR.bin
+6.1.0.1038_5MB_MB_PRD_EXTR.bin (4173824 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.2.1194_5MB_DT_PRD_EXTR.bin
+6.0.2.1194_5MB_DT_PRD_EXTR.bin (3473408 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.3.1195_5MB_MB_PRD_EXTR.bin
+6.0.3.1195_5MB_MB_PRD_EXTR.bin (6287360 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.0.1042_5MB_DT_PRD_EXTR.bin
+6.1.0.1042_5MB_DT_PRD_EXTR.bin (3510272 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.32.1076_5MB_DT_PRD_EXTR.bin
+6.1.32.1076_5MB_DT_PRD_EXTR.bin (3510272 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.30.1203_5MB_MB_PRD_RGN.bin
+6.0.30.1203_5MB_MB_PRD_RGN.bin (5185536 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.2.1194_1.5MB_PRD_EXTR.bin
+6.0.2.1194_1.5MB_PRD_EXTR.bin (1429504 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.3.7143_5MB_MB_PRE_UPD.bin
+6.0.3.7143_5MB_MB_PRE_UPD.bin (4219168 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.30.1203_5MB_DT_PRD_RGN.bin
+6.0.30.1203_5MB_DT_PRD_RGN.bin (5185536 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.20.1059_1.5MB_PRD_EXTR.bin
+6.1.20.1059_1.5MB_PRD_EXTR.bin (1560576 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.0.1115_5MB_MB_PRE_RGN.bin
+6.0.0.1115_5MB_MB_PRE_RGN.bin (5185536 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.30.1203_1.5MB_PRD_RGN.bin
+6.0.30.1203_1.5MB_PRD_RGN.bin (1515520 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.20.1059_5MB_DT_PRD_EXTR.bin
+6.1.20.1059_5MB_DT_PRD_EXTR.bin (5746688 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.3.1195_5MB_DT_PRD_EXTR.bin
+6.0.3.1195_5MB_DT_PRD_EXTR.bin (3473408 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.0.1184_5MB_MB_PRD_RGN.bin
+6.0.0.1184_5MB_MB_PRD_RGN.bin (5185536 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.1.1045_5MB_MB_PRD_EXTR.bin
+6.1.1.1045_5MB_MB_PRD_EXTR.bin (5185536 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.0.1184_1.5MB_PRD_RGN.bin
+6.0.0.1184_1.5MB_PRD_RGN.bin (1515520 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.31.1208_5MB_MB_PRD_EXTR.bin
+6.0.31.1208_5MB_MB_PRD_EXTR.bin (4128768 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.31.1208_1.5MB_PRD_EXTR.bin
+6.0.31.1208_1.5MB_PRD_EXTR.bin (1560576 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.40.1215_5MB_DT_PRD_EXTR.bin
+6.0.40.1215_5MB_DT_PRD_EXTR.bin (5185536 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.31.1208_5MB_DT_PRD_EXTR.bin
+6.0.31.1208_5MB_DT_PRD_EXTR.bin (3477504 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.40.1215_1.5MB_PRD_RGN.bin
+6.0.40.1215_1.5MB_PRD_RGN.bin (1515520 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.40.1215_5MB_MB_PRD_EXTR.bin
+6.0.40.1215_5MB_MB_PRD_EXTR.bin (4132864 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.2.1194_5MB_MB_PRD_EXTR.bin
+6.0.2.1194_5MB_MB_PRD_EXTR.bin (4128768 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.10.1052_5MB_DT_PRD_EXTR.bin
+6.1.10.1052_5MB_DT_PRD_EXTR.bin (5304320 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.1.1045_5MB_DT_PRD_EXTR.bin
+6.1.1.1045_5MB_DT_PRD_EXTR.bin (3510272 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.3.1195_5MB_DT_PRD_UPD.bin
+6.0.3.1195_5MB_DT_PRD_UPD.bin (4214928 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.40.1215_1.5MB_PRD_UPD.bin
+6.0.40.1215_1.5MB_PRD_UPD.bin (1319840 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.60.1066_5MB_MB_PRD_UPD.bin
+6.2.60.1066_5MB_MB_PRD_UPD.bin (4219424 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.20.1035_5MB_DT_PRD_UPD.bin
+6.2.20.1035_5MB_DT_PRD_UPD.bin (4214752 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.2.1194_1.5MB_PRD_UPD.bin
+6.0.2.1194_1.5MB_PRD_UPD.bin (1319840 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.31.1075_5MB_MB_PRD_UPD.bin
+6.1.31.1075_5MB_MB_PRD_UPD.bin (4219360 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.0.1184_5MB_MB_PRD_UPD.bin
+6.0.0.1184_5MB_MB_PRD_UPD.bin (4219168 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.30.1040_5MB_DT_PRD_UPD.bin
+6.2.30.1040_5MB_DT_PRD_UPD.bin (4214736 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.10.1052_5MB_DT_PRD_UPD.bin
+6.1.10.1052_5MB_DT_PRD_UPD.bin (4215120 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.0.1184_5MB_DT_PRD_UPD.bin
+6.0.0.1184_5MB_DT_PRD_UPD.bin (4214944 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.40.1045_5MB_MB_PRD_UPD.bin
+6.2.40.1045_5MB_MB_PRD_UPD.bin (4219424 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.50.1062_5MB_DT_PRD_UPD.bin
+6.2.50.1062_5MB_DT_PRD_UPD.bin (4214752 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.20.1035_1.5MB_PRD_UPD.bin
+6.2.20.1035_1.5MB_PRD_UPD.bin (1319840 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.20.1059_5MB_DT_PRD_UPD.bin
+6.1.20.1059_5MB_DT_PRD_UPD.bin (4215136 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.50.1062_5MB_MB_PRD_UPD.bin
+6.2.50.1062_5MB_MB_PRD_UPD.bin (4219424 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.32.1076_5MB_MB_PRD_UPD.bin
+6.1.32.1076_5MB_MB_PRD_UPD.bin (4219360 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.30.1074_5MB_MB_PRD_UPD.bin
+6.1.30.1074_5MB_MB_PRD_UPD.bin (4219360 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.31.1208_5MB_DT_PRD_UPD.bin
+6.0.31.1208_5MB_DT_PRD_UPD.bin (4214944 bytes)
+  DVAR store: none
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.30.1040_5MB_MB_PRD_UPD.bin
+6.2.30.1040_5MB_MB_PRD_UPD.bin (4219424 bytes)
+  DVAR store: none
+### /tmp/storecensus/26/optiplex_3090.bin
+optiplex_3090.bin (33554432 bytes)
+  DVAR store 0x1ea7c9c-0x1ee7c9c: 2 password(s)
+    [0x1eb8e64] 'L0V'  key=1442e88afeffff8b7424148bf8eb1933d28d4c24
+    [0x1ecc820] '9Xkp5{nVf3'  key=1a770539421c7613396a42e94bffffff39722072
+  SIVB block @0x891000 hash_size=0x20 blob_size=0x2680 has_data=True
+### /tmp/storecensus/2/Clean me.bin
+Clean me.bin (33554432 bytes)
+  DVAR store 0x10c1000-0x1101000: 0 password(s)
+### /tmp/storecensus/2/BACKUP.BIN
+BACKUP.BIN (33554432 bytes)
+  DVAR store 0x10c1000-0x1101000: 0 password(s)
+  SIVB block @0x407000 hash_size=0x20 blob_size=0x1480 has_data=True
+### /tmp/storecensus/36/W25Q32_20161217_50656.BIN
+W25Q32_20161217_50656.BIN (4194304 bytes)
+  DVAR store: none
+### /tmp/storecensus/15/IPCML-RN ZB MLK REV A00/IPCML-RN ZB MLK REV A00 READ  .Bin
+IPCML-RN ZB MLK REV A00 READ  .Bin (4194045 bytes)
+  DVAR store: none
+### /tmp/storecensus/34/11.0.0.1205_CON_LP_C_NPDM_PRD_RGN_outimage.bin
+11.0.0.1205_CON_LP_C_NPDM_PRD_RGN_outimage.bin (16777216 bytes)
+  DVAR store 0x7c0000-0x800000: 0 password(s)
+### /tmp/storecensus/23/32MB.BIN
+32MB.BIN (33554432 bytes)
+  DVAR store 0x10c1000-0x1101000: 0 password(s)
+  SIVB block @0x891000 hash_size=0x20 blob_size=0x2680 has_data=True
+### /tmp/storecensus/28/Dell XPS 13 9350 AAZ80 LA-C881P DINO2 MB 1.0 A00 Clear me.bin
+Dell XPS 13 9350 AAZ80 LA-C881P DINO2 MB 1.0 A00 Clear me.bin (16777216 bytes)
+  DVAR store 0x7c0000-0x800000: 0 password(s)
+### /tmp/storecensus/19/Dell Precision 3640 IPCML-RT/Precision 3640 Tower TRY FIRST IF NOT WORK TRY _1.bin
+Precision 3640 Tower TRY FIRST IF NOT WORK TRY _1.bin (33554432 bytes)
+  DVAR store 0x1ea8da4-0x1ee8da4: 2 password(s)
+    [0x1eb968c] 'L0V'  key=1442e88afeffff8b7424148bf8eb1933d28d4c24
+    [0x1ecc820] '9Xkp5{nVf3'  key=1a770539421c7613396a42e94bffffff39722072
+### /tmp/storecensus/19/Dell Precision 3640 IPCML-RT/Precision 3640 Tower_1.bin
+Precision 3640 Tower_1.bin (33554432 bytes)
+  DVAR store 0x1ea8da4-0x1ee8da4: 2 password(s)
+    [0x1eb96ac] 'L0V'  key=1442e88afeffff8b7424148bf8eb1933d28d4c24
+    [0x1ecc820] '9Xkp5{nVf3'  key=1a770539421c7613396a42e94bffffff39722072
+### /tmp/storecensus/12/Clean cseme.bin
+Clean cseme.bin (33554432 bytes)
+  DVAR store 0x10c1000-0x1101000: 0 password(s)
+### /tmp/storecensus/12/3090 Bios Password Unlocked.bin
+3090 Bios Password Unlocked.bin (33554432 bytes)
+  DVAR store 0x10c1000-0x1101000: 0 password(s)
+  SIVB block @0x891000 hash_size=0x20 blob_size=0x2680 has_data=True
+### /tmp/storecensus/14/OptiPlex 3090 main_ok try First IF not Power On Try Another.bin
+OptiPlex 3090 main_ok try First IF not Power On Try Another.bin (33554432 bytes)
+  DVAR store 0x10c1000-0x1101000: 0 password(s)
+### /tmp/storecensus/14/OptiPlex 3090 main_New ok.bin
+OptiPlex 3090 main_New ok.bin (33554432 bytes)
+  DVAR store 0x10c1000-0x1101000: 0 password(s)
+### /tmp/storecensus/3/2 TroyAdl_16.1.27.2176_EVT_64 v1.17.0 -- 1 System BIOS with BiosGuard v1.17.0.bin
+2 TroyAdl_16.1.27.2176_EVT_64 v1.17.0 -- 1 System BIOS with BiosGuard v1.17.0.bin (33554432 bytes)
+  DVAR store 0x1b22225-0x1b62225: 4 password(s)
+    [0x1b2527a] '#=,lIr4xY_^C'  key=ffff84c07507b80200008056578bf28bf9e85cfc
+    [0x1b2fa30] '<CM;`LpN'  key=c883c414884c24006a00ff74242ce8d7fbffff8a
+    [0x1b420a2] 'f;{^U-3'  key=b0aaee5ec3558bd6b0b1ee668bd1044dee668bd6
+    [0x1b42b07] 'f;{^U-3'  key=b0aaee5ec3558bd6b0b1ee668bd1044dee668bd6
+### /tmp/storecensus/30/ok 6520 Main+EC/BIOS/ok  E6520 LA-6562p.BIN
+ok  E6520 LA-6562p.BIN (8388608 bytes)
+  DVAR store 0x600000-0x640000: 2 password(s)
+    [0x621cc1] '~jTH|Q8Y6W'  key=cc93d2aa3e48da48aa7c0328e4cd08c6e7e19b5f
+    [0x627775] 'l^1Mznnth'  key=6b4b7df8045f5a88a76f7dae99ae2bc15d61291b
+### /tmp/storecensus/30/ok 6520 Main+EC/BIOS/ok EC E6520 LA-6562p.BIN
+ok EC E6520 LA-6562p.BIN (2097152 bytes)
+  DVAR store 0x1e611a-0x200000: 1 password(s)
+    [0x1fd44a] 'ei2mz} !"#44'  key=1b1c1d1e1f20212223242512131415161718191a
+### /tmp/storecensus/1/DELL OPTIPLEX 70000 TOWER  D31M UNLOCK 32MB BIOS/DELL optiplex 70000 GD25Q256C@SOP16_20250823_183534.BIN
+DELL optiplex 70000 GD25Q256C@SOP16_20250823_183534.BIN (16776186 bytes)
+  DVAR store: none
+### /tmp/storecensus/37/ok.BIN
+ok.BIN (8388608 bytes)
+  DVAR store 0x600000-0x640000: 2 password(s)
+    [0x621cc1] '~jTH|Q8Y6W'  key=cc93d2aa3e48da48aa7c0328e4cd08c6e7e19b5f
+    [0x627775] 'l^1Mznnth'  key=6b4b7df8045f5a88a76f7dae99ae2bc15d61291b
+### /tmp/storecensus/37/2mb.BIN
+2mb.BIN (2097152 bytes)
+  DVAR store 0x1e611a-0x200000: 1 password(s)
+    [0x1fd44a] 'ei2mz} !"#44'  key=1b1c1d1e1f20212223242512131415161718191a
+### /tmp/storecensus/37/8MB.bin
+8MB.bin (8388608 bytes)
+  DVAR store 0x600000-0x640000: 4 password(s)
+    [0x6013eb] 'cocka'  key=06ffc065a214632236591ef90b2537c6c961945d
+    [0x60145e] 'speed10'  key=c86452687fcfed2019b20de1ebefc62429be68a3
+    [0x6113c1] 'cocka'  key=06ffc065a214632236591ef90b2537c6c961945d
+    [0x611434] 'speed10'  key=c86452687fcfed2019b20de1ebefc62429be68a3

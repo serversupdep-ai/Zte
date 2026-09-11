@@ -58,7 +58,7 @@
    "file": "pw_f9cdf127_23552.efi",
    "size": 23552,
    "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
-   "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+   "matches_package": "collected/OptiPlex_3090_2.30.0/pw_1_23552.efi"
   },
   {
    "file": "pw_4cba53c8_24576.efi",

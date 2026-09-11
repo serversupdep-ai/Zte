@@ -58,7 +58,7 @@
      "file": "pw_f9cdf127_23552.efi",
      "size": 23552,
      "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_1_23552.efi"
     },
     {
      "file": "pw_4cba53c8_24576.efi",
@@ -125,7 +125,7 @@
      "file": "pw_f9cdf127_23552.efi",
      "size": 23552,
      "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_1_23552.efi"
     },
     {
      "file": "pw_4cba53c8_24576.efi",
@@ -193,7 +193,7 @@
      "file": "pw_f9cdf127_23552.efi",
      "size": 23552,
      "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_1_23552.efi"
     },
     {
      "file": "pw_4cba53c8_24576.efi",
@@ -291,7 +291,7 @@
      "file": "pw_f9cdf127_23552.efi",
      "size": 23552,
      "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_1_23552.efi"
     },
     {
      "file": "pw_4cba53c8_24576.efi",
@@ -359,7 +359,7 @@
      "file": "pw_f9cdf127_23552.efi",
      "size": 23552,
      "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_1_23552.efi"
     },
     {
      "file": "pw_4cba53c8_24576.efi",
@@ -499,7 +499,7 @@
      "file": "pw_9355de90_87040.efi",
      "size": 87040,
      "sha256": "9355de901c8508ff5f1801a71e971d1365a9469eee583948fa3bbed76932ca1f",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_5_87040.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_5_87040.efi"
     },
     {
      "file": "pw_b450d139_42496.efi",
@@ -517,7 +517,7 @@
      "file": "pw_f9cdf127_23552.efi",
      "size": 23552,
      "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_1_23552.efi"
     },
     {
      "file": "pw_4cba53c8_24576.efi",
@@ -587,7 +587,7 @@
      "file": "pw_f9cdf127_23552.efi",
      "size": 23552,
      "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_1_23552.efi"
     },
     {
      "file": "pw_4cba53c8_24576.efi",
@@ -777,7 +777,7 @@
      "file": "pw_9355de90_87040.efi",
      "size": 87040,
      "sha256": "9355de901c8508ff5f1801a71e971d1365a9469eee583948fa3bbed76932ca1f",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_5_87040.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_5_87040.efi"
     },
     {
      "file": "pw_a9eb964a_43008.efi",
@@ -849,7 +849,7 @@
      "file": "pw_9355de90_87040.efi",
      "size": 87040,
      "sha256": "9355de901c8508ff5f1801a71e971d1365a9469eee583948fa3bbed76932ca1f",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_5_87040.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_5_87040.efi"
     },
     {
      "file": "pw_a9eb964a_43008.efi",
@@ -967,7 +967,7 @@
      "file": "pw_9355de90_87040.efi",
      "size": 87040,
      "sha256": "9355de901c8508ff5f1801a71e971d1365a9469eee583948fa3bbed76932ca1f",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_5_87040.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_5_87040.efi"
     },
     {
      "file": "pw_b450d139_42496.efi",
@@ -985,7 +985,7 @@
      "file": "pw_f9cdf127_23552.efi",
      "size": 23552,
      "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_1_23552.efi"
     },
     {
      "file": "pw_4cba53c8_24576.efi",
@@ -1035,7 +1035,7 @@
      "file": "pw_9355de90_87040.efi",
      "size": 87040,
      "sha256": "9355de901c8508ff5f1801a71e971d1365a9469eee583948fa3bbed76932ca1f",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_5_87040.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_5_87040.efi"
     },
     {
      "file": "pw_b450d139_42496.efi",
@@ -1053,7 +1053,7 @@
      "file": "pw_f9cdf127_23552.efi",
      "size": 23552,
      "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6",
-     "matches_package": "collected/OptiPlex_7080_1.37.0/pw_1_23552.efi"
+     "matches_package": "collected/OptiPlex_3090_2.30.0/pw_1_23552.efi"
     },
     {
      "file": "pw_4cba53c8_24576.efi",

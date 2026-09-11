@@ -12,7 +12,7 @@
   - 87,040 B `6fc389b459e4` -> NO PACKAGE MATCH (new module!)
   - 42,496 B `b450d1397574` -> collected/OptiPlex_3090_2.0.7/pw_4_42496.efi
   - 31,744 B `bf35c4a2805f` -> collected/OptiPlex_3090_2.0.7/pw_3_31744.efi
-  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_7080_1.37.0/pw_1_23552.efi
+  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_3090_2.30.0/pw_1_23552.efi
   - 24,576 B `4cba53c8ace9` -> collected/OptiPlex_3090_2.0.7/pw_2_24576.efi
 
 ## dumps / ifix_02__Clean me.bin
@@ -27,7 +27,7 @@
   - 87,040 B `6fc389b459e4` -> NO PACKAGE MATCH (new module!)
   - 42,496 B `b450d1397574` -> collected/OptiPlex_3090_2.0.7/pw_4_42496.efi
   - 31,744 B `bf35c4a2805f` -> collected/OptiPlex_3090_2.0.7/pw_3_31744.efi
-  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_7080_1.37.0/pw_1_23552.efi
+  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_3090_2.30.0/pw_1_23552.efi
   - 24,576 B `4cba53c8ace9` -> collected/OptiPlex_3090_2.0.7/pw_2_24576.efi
 
 ## dumps / ifix_06__3090 Bios Password Unlocked.bin
@@ -42,7 +42,7 @@
   - 87,040 B `b65a35c0f776` -> collected/OptiPlex_3090_2.0.7/pw_5_87040.efi
   - 42,496 B `b450d1397574` -> collected/OptiPlex_3090_2.0.7/pw_4_42496.efi
   - 31,744 B `bf35c4a2805f` -> collected/OptiPlex_3090_2.0.7/pw_3_31744.efi
-  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_7080_1.37.0/pw_1_23552.efi
+  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_3090_2.30.0/pw_1_23552.efi
   - 24,576 B `4cba53c8ace9` -> collected/OptiPlex_3090_2.0.7/pw_2_24576.efi
 
 ## dumps / ifix_07__W25Q512NW@WSON8 8X6_20260423_181304 OFF.bin
@@ -66,7 +66,7 @@
   - 85,504 B `d53d4e274f27` -> NO PACKAGE MATCH (new module!)
   - 43,008 B `a9eb964a8a08` -> NO PACKAGE MATCH (new module!)
   - 31,744 B `bf35c4a2805f` -> collected/OptiPlex_3090_2.0.7/pw_3_31744.efi
-  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_7080_1.37.0/pw_1_23552.efi
+  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_3090_2.30.0/pw_1_23552.efi
   - 24,576 B `4cba53c8ace9` -> collected/OptiPlex_3090_2.0.7/pw_2_24576.efi
 
 ## dumps / ifix_12__Clean cseme.bin
@@ -81,7 +81,7 @@
   - 87,040 B `b65a35c0f776` -> collected/OptiPlex_3090_2.0.7/pw_5_87040.efi
   - 42,496 B `b450d1397574` -> collected/OptiPlex_3090_2.0.7/pw_4_42496.efi
   - 31,744 B `bf35c4a2805f` -> collected/OptiPlex_3090_2.0.7/pw_3_31744.efi
-  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_7080_1.37.0/pw_1_23552.efi
+  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_3090_2.30.0/pw_1_23552.efi
   - 24,576 B `4cba53c8ace9` -> collected/OptiPlex_3090_2.0.7/pw_2_24576.efi
 
 ## dumps / ifix_13__Alienware Aurora R12 .bin
@@ -114,10 +114,10 @@
   - 102,560 B `21b0467a303b` -> NO PACKAGE MATCH (new EC image!)
   - 102,096 B `e4f7ba6b9692` -> NO PACKAGE MATCH (new EC image!)
 - pw modules: 5
-  - 87,040 B `9355de901c85` -> collected/OptiPlex_7080_1.37.0/pw_5_87040.efi
+  - 87,040 B `9355de901c85` -> collected/OptiPlex_3090_2.30.0/pw_5_87040.efi
   - 42,496 B `b450d1397574` -> collected/OptiPlex_3090_2.0.7/pw_4_42496.efi
   - 31,744 B `bf35c4a2805f` -> collected/OptiPlex_3090_2.0.7/pw_3_31744.efi
-  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_7080_1.37.0/pw_1_23552.efi
+  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_3090_2.30.0/pw_1_23552.efi
   - 24,576 B `4cba53c8ace9` -> collected/OptiPlex_3090_2.0.7/pw_2_24576.efi
 
 ## ifix_14 / OptiPlex 3090 main_New ok.bin
@@ -132,7 +132,7 @@
   - 87,040 B `b65a35c0f776` -> collected/OptiPlex_3090_2.0.7/pw_5_87040.efi
   - 42,496 B `b450d1397574` -> collected/OptiPlex_3090_2.0.7/pw_4_42496.efi
   - 31,744 B `bf35c4a2805f` -> collected/OptiPlex_3090_2.0.7/pw_3_31744.efi
-  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_7080_1.37.0/pw_1_23552.efi
+  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_3090_2.30.0/pw_1_23552.efi
   - 24,576 B `4cba53c8ace9` -> collected/OptiPlex_3090_2.0.7/pw_2_24576.efi
 
 ## ifix_17 / Optiplex 7000 micro UNLOCKED.bin
@@ -177,7 +177,7 @@
   - 88,928 B `bb02aabd7cd9` -> NO PACKAGE MATCH (new EC image!)
   - 83,216 B `30cf3250e6b3` -> NO PACKAGE MATCH (new EC image!)
 - pw modules: 5
-  - 87,040 B `9355de901c85` -> collected/OptiPlex_7080_1.37.0/pw_5_87040.efi
+  - 87,040 B `9355de901c85` -> collected/OptiPlex_3090_2.30.0/pw_5_87040.efi
   - 43,008 B `a9eb964a8a08` -> NO PACKAGE MATCH (new module!)
   - 31,744 B `bf35c4a2805f` -> collected/OptiPlex_3090_2.0.7/pw_3_31744.efi
   - 23,552 B `a6dbab710bd3` -> NO PACKAGE MATCH (new module!)
@@ -192,7 +192,7 @@
   - 88,928 B `bb02aabd7cd9` -> NO PACKAGE MATCH (new EC image!)
   - 83,216 B `30cf3250e6b3` -> NO PACKAGE MATCH (new EC image!)
 - pw modules: 5
-  - 87,040 B `9355de901c85` -> collected/OptiPlex_7080_1.37.0/pw_5_87040.efi
+  - 87,040 B `9355de901c85` -> collected/OptiPlex_3090_2.30.0/pw_5_87040.efi
   - 43,008 B `a9eb964a8a08` -> NO PACKAGE MATCH (new module!)
   - 31,744 B `bf35c4a2805f` -> collected/OptiPlex_3090_2.0.7/pw_3_31744.efi
   - 23,552 B `a6dbab710bd3` -> NO PACKAGE MATCH (new module!)
@@ -222,10 +222,10 @@
   - 102,048 B `67bd6123d86e` -> NO PACKAGE MATCH (new EC image!)
   - 102,096 B `e4f7ba6b9692` -> NO PACKAGE MATCH (new EC image!)
 - pw modules: 5
-  - 87,040 B `9355de901c85` -> collected/OptiPlex_7080_1.37.0/pw_5_87040.efi
+  - 87,040 B `9355de901c85` -> collected/OptiPlex_3090_2.30.0/pw_5_87040.efi
   - 42,496 B `b450d1397574` -> collected/OptiPlex_3090_2.0.7/pw_4_42496.efi
   - 31,744 B `bf35c4a2805f` -> collected/OptiPlex_3090_2.0.7/pw_3_31744.efi
-  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_7080_1.37.0/pw_1_23552.efi
+  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_3090_2.30.0/pw_1_23552.efi
   - 24,576 B `4cba53c8ace9` -> collected/OptiPlex_3090_2.0.7/pw_2_24576.efi
 
 ## ifix_25 / optiplex_3090.bin
@@ -237,10 +237,10 @@
   - 102,048 B `e96f2c0a2726` -> collected/OptiPlex_3090_2.0.7/ec_3_102080.bin (machine image = package image prefix, pkg 102,080 B)
   - 102,096 B `a31359167e03` -> collected/OptiPlex_3090_2.0.7/ec_4_102096.bin
 - pw modules: 5
-  - 87,040 B `9355de901c85` -> collected/OptiPlex_7080_1.37.0/pw_5_87040.efi
+  - 87,040 B `9355de901c85` -> collected/OptiPlex_3090_2.30.0/pw_5_87040.efi
   - 42,496 B `b450d1397574` -> collected/OptiPlex_3090_2.0.7/pw_4_42496.efi
   - 31,744 B `bf35c4a2805f` -> collected/OptiPlex_3090_2.0.7/pw_3_31744.efi
-  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_7080_1.37.0/pw_1_23552.efi
+  - 23,552 B `f9cdf1278185` -> collected/OptiPlex_3090_2.30.0/pw_1_23552.efi
   - 24,576 B `4cba53c8ace9` -> collected/OptiPlex_3090_2.0.7/pw_2_24576.efi
 
 ## ifix_28 / Dell XPS 13 9350 AAZ80 LA-C881P DINO2 MB 1.0 A00 Clear me.bin
