@@ -150,6 +150,8 @@ def main():
                 print(f"    @{r['offset']:#09x} {r['cls']} type={r['type']:02X} "
                       f"idx={r['idx']:02X} flags={r['flags']:04X} "
                       f"payload={len(r['payload'])}B{mark}")
+                if r["type"] == 0xAA and len(r["payload"]) <= 128:
+                    print(f"        sealed: {r['payload'].hex()}")
         return 0
     for p in paths:
         d = open(p, "rb").read()

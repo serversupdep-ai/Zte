@@ -7,7 +7,7 @@ name: Analyze forum dumps
 on:
   push:
     branches: [arena/01a087e2-zte]
-    paths: ['bios-analysis/analyze_forum_dumps.py', '.github/workflows/analyze-forum-dumps.yml']
+    paths: ['bios-analysis/analyze_forum_dumps.py', 'bios-analysis/rex98_patcher.py', '.github/workflows/analyze-forum-dumps.yml']
   workflow_dispatch:
 
 concurrency:
