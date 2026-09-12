@@ -200,6 +200,25 @@ Data does not container the footer magic (b'PFS.FTR.').
   [carve] generic zlib @0x78 -> 34,441,252 bytes
   [carve] generic zlib @0x112DA94 -> 34,441,252 bytes
     9 new payloads (4 EC, 5 pw); manifest total 9
+[29] downloading https://dl.dell.com/FOLDER14468109M/1/Latitude_5440_Precision_3480_1.31.1.exe
+[29] processing /tmp/Latitude_5440_Precision_3480_1.31.1.exe -> bios-analysis/collected/Latitude_5440_Precision_3480_1.31.1
+    0 new payloads (0 EC, 0 pw); manifest total 0
+[30] downloading https://dl.dell.com/FOLDER11559391M/1/Latitude_3450_3550_1.3.1.exe
+[30] processing /tmp/Latitude_3450_3550_1.3.1.exe -> bios-analysis/collected/Latitude_3450_3550_1.3.1
+  [carve] Dell HDR zlib @0x58 -> 48,877,665 bytes
+  [carve] Dell HDR zlib @0x12ACFAB -> 43,776,833 bytes
+  [carve] generic zlib @0x68 -> 48,877,665 bytes
+  [carve] generic zlib @0x12ACFBB -> 43,776,833 bytes
+    8 new payloads (0 EC, 8 pw); manifest total 8
+[31] downloading https://dl.dell.com/FOLDER12134229M/1/Precision_3581_1.17.0.exe
+[31] processing /tmp/Precision_3581_1.17.0.exe -> bios-analysis/collected/Precision_3581_1.17.0
+    0 new payloads (0 EC, 0 pw); manifest total 0
+[32] downloading https://dl.dell.com/FOLDER12134428M/1/Precision_3580_Latitude_5540_1.17.0.exe
+[32] processing /tmp/Precision_3580_Latitude_5540_1.17.0.exe -> bios-analysis/collected/Precision_3580_Latitude_5540_1.17.0
+    0 new payloads (0 EC, 0 pw); manifest total 0
+[33] downloading https://dl.dell.com/FOLDER09760250M/1/Latitude_3440_3540_1.2.0.exe
+[33] processing /tmp/Latitude_3440_3540_1.2.0.exe -> bios-analysis/collected/Latitude_3440_3540_1.2.0
+    0 new payloads (0 EC, 0 pw); manifest total 0
 [1] LVFS https://fwupd.org/lvfs/devices/com.dell.uefic9284bf6.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 52867cc9d04f339de5db508304dfc3d57e8d1f8b11f730f16438c9176ed4c7bc-OptiPlex_3090_2.30.0_firmware.cab
