@@ -52,6 +52,6 @@ https://dl.dell.com/FOLDER12134229M/1/Precision_3581_1.17.0.exe
 https://dl.dell.com/FOLDER12134428M/1/Precision_3580_Latitude_5540_1.17.0.exe
 https://dl.dell.com/FOLDER09760250M/1/Latitude_3440_3540_1.2.0.exe
 # .rcv recovery images for the failed packages (different container path)
-https://dl.dell.com/FOLDER14481444M/1/BIOS_IMG_5440_3480.rcv
-https://dl.dell.com/FOLDER12134309M/1/BIOS_IMG_3581.rcv
-https://dl.dell.com/FOLDER12134544M/1/BIOS_IMG_3580_5540.rcv
+https://dl.dell.com/FOLDER14481444M/1/BIOS_IMG.rcv#tag=BIOS_IMG_rcv_5440_3480
+https://dl.dell.com/FOLDER12134309M/1/BIOS_IMG.rcv#tag=BIOS_IMG_rcv_3581
+https://dl.dell.com/FOLDER12134544M/1/BIOS_IMG.rcv#tag=BIOS_IMG_rcv_3580_5540

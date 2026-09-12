@@ -502,11 +502,14 @@ def main():
                 print(f"[{i}] skip (no --download): {job}")
                 continue
             import urllib.request
-            url = job
-            tag = re.sub(r"[^A-Za-z0-9._-]+", "_", job.rsplit("/", 1)[-1])
+            url, _, frag = job.partition("#")
+            tag = re.sub(r"[^A-Za-z0-9._-]+", "_", url.rsplit("/", 1)[-1])
+            if frag.startswith("tag="):
+                tag = re.sub(r"[^A-Za-z0-9._-]+", "_", frag[4:])
             if tag.lower().endswith(".exe"):
                 tag = tag[:-4]
-            path = os.path.join("/tmp" if os.path.isdir("/tmp") else ".", tag + ".exe")
+            path = os.path.join("/tmp" if os.path.isdir("/tmp") else ".",
+                                tag + ".pkg")
             print(f"[{i}] downloading {url}")
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
             try:
