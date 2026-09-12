@@ -18,12 +18,18 @@ The 3090's EC computes the master from (service tag, family byte) on request
 performs the identical exchange from Linux.
 
 1. Boot any Linux live USB (Ubuntu) on the 3090.
-2. Terminal:
+2. Terminal — either the C tool:
    ```bash
    sudo apt update && sudo apt install -y gcc
    gcc -O2 -o dell_cf1b_master dell_cf1b_master.c
    sudo ./dell_cf1b_master -t H2FS5S3 -f CF1B
    ```
+   or the all-families Python keygen (same session, plus local families):
+   ```bash
+   sudo python3 dell_master_keygen.py --tag H2FS5S3 --suffix CF1B
+   ```
+   (`--suffix E7A8` etc. works fully offline via module emulation;
+   `--selftest` validates the maps against the emulation vectors.)
 3. Read the `MASTER CODE (resp[0..15])` line.
 4. Reboot → BIOS password prompt → type the code → **Ctrl+Enter+Enter**.
 
