@@ -650,6 +650,20 @@ type-6 {C065AEAB} GUID, both alphabets — byte-identical markers to the
 3090's 2.27.0 module. Desktop and laptop, 2020→2026: one architecture, one
 sealed secret.
 
+**Host-side-decryption check (final avenue, 2026-09-12) — NEGATIVE.** If
+anything host-side decrypted the PHCM body, its key would be in code we
+already possess. Full scan of the 2.27.0 decompressed BIOS stream (5.7 MB):
+no "PHCM" ASCII anywhere (no host module parses the container); exactly two
+AES implementations exist — the OpenSSL UEFI module (cert/x509 strings) and
+one stripped crypto library (SHA-256 K-table + AES S-box in .data, **zero
+port I/O constants** in code — it cannot talk to hardware). No EC-update
+module touches the payload: the host hands the sealed blob to the EC, which
+decrypts it with the fused key. **Compression ruled out exhaustively** (the
+sealed body is ~60% the size of a plaintext EC, so compression had to be
+tested seriously): zlib/gzip/xz/zstd at all offsets + raw-LZMA1 with all 225
+lc/lp/pb property combinations — none produces firmware-like output. The
+body is encryption.
+
 **Therefore (offline campaign closure):** the tag→master transform for
 CF1B/9ABE/3FE2/1B58/8FC8 exists in exactly two places — Dell's backend and
 the sealed EC firmware. No public BIOS package, no public EC payload, and
