@@ -189,7 +189,51 @@ def load_pkg(path_or_data):
         return dub
     if data[:8] == b"PFS.HDR.":
         return data
+    # 2023+ "CPG" packages: SFX/zip/7z-wrapped or PFS at a non-zero offset.
+    # 1) any embedded PFS.HDR. (whole file)
+    off = data.find(b"PFS.HDR.")
+    if off >= 0:
+        return data[off:]
+    # 2) 7z/zip/SFX extraction, then recurse into the extracted files
+    import subprocess
+    import tempfile
+    import shutil
+    sz = shutil.which("7z") or shutil.which("7za") or shutil.which("7zr")
+    if sz:
+        try:
+            with tempfile.TemporaryDirectory() as td:
+                r = subprocess.run([sz, "x", "-y", f"-o{td}", "--", path_or_data
+                                    if isinstance(path_or_data, str) else "-"],
+                                   input=data if not isinstance(path_or_data, str) else None,
+                                   capture_output=True, timeout=600)
+                for root, _dirs, files in os.walk(td):
+                    for fn in sorted(files):
+                        p = os.path.join(root, fn)
+                        try:
+                            cur = open(p, "rb").read()
+                        except OSError:
+                            continue
+                        if len(cur) < 64:
+                            continue
+                        dub2 = find_dub(cur)
+                        if dub2:
+                            return dub2
+                        if cur[:8] == b"PFS.HDR.":
+                            return cur
+                        off2 = cur.find(b"PFS.HDR.")
+                        if off2 >= 0:
+                            return cur[off2:]
+        except Exception:
+            pass
     return None
+
+
+def load_pkg_diagnose(path):
+    """head bytes of a package + archive listing, for relay debugging."""
+    d = open(path, "rb").read(0x400)
+    info = {"size": os.path.getsize(path), "head64": d[:64].hex(),
+            "has_pfs": open(path, "rb").read().find(b"PFS.HDR.") >= 0}
+    return info
 
 
 
@@ -481,7 +525,11 @@ def main():
         print(f"[{i}] processing {path} -> {outdir}")
         blob = load_pkg(path)
         if blob is None:
-            print("    no Dell PFS container found, skipping")
+            try:
+                print(f"    no Dell PFS container found, skipping. "
+                      f"diag={json.dumps(load_pkg_diagnose(path))}")
+            except Exception:
+                print("    no Dell PFS container found, skipping")
             continue
         entries = process_blob(blob, tag, outdir)
         mf = os.path.join(outdir, "manifest.json")
