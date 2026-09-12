@@ -1,0 +1,64 @@
+{
+ "url": "https://downloads.dell.com/FOLDER13929542M/1/OptiPlex_5080_1.34.0.exe",
+ "entries": [
+  {
+   "file": "bios-analysis/collected/OptiPlex_5080_1.34.0/ec_1_100032.bin",
+   "kind": "ec",
+   "size": 100032,
+   "sha256": "92cd06e79830685262620719979e3dd086fcb652d863c856801e2590a99267ab"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_5080_1.34.0/ec_2_100048.bin",
+   "kind": "ec",
+   "size": 100048,
+   "sha256": "bf7a26f8261a4662d6466b4f508dbe7c0429fbb2daea444f469fbb497de6b5e2"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_5080_1.34.0/ec_3_103744.bin",
+   "kind": "ec",
+   "size": 103744,
+   "sha256": "846e2196d7f695dc6ae5c4475285ef5cf0bbdc6a49c39d96e25829498b09f5f8"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_5080_1.34.0/ec_4_103760.bin",
+   "kind": "ec",
+   "size": 103760,
+   "sha256": "63bb3c8885e1360399910a9ab095725271a37cfc75b69a88651790b2e64c500e"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_5080_1.34.0/pw_1_23552.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 23552,
+   "sha256": "f9cdf12781855193e7361f3e4b29a38644da0141e0be9336d159bfa43d4499b6"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_5080_1.34.0/pw_2_25600.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 25600,
+   "sha256": "5539c3c2250584fb026ec9959b4a99e0218403dba65dfd1ae1a6c9a97ce25188"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_5080_1.34.0/pw_3_30208.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 30208,
+   "sha256": "3c5987d15c4273e0e8dbffca9d84a66e2fa558b882575011c808b2dfdf5c5ee6"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_5080_1.34.0/pw_4_43008.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 43008,
+   "sha256": "25af06756e91ade2726f89c09eece23031ee6e0522bdebfc09c0cb7324c62934"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_5080_1.34.0/pw_5_87040.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 87040,
+   "sha256": "9355de901c8508ff5f1801a71e971d1365a9469eee583948fa3bbed76932ca1f"
+  }
+ ]
+}

@@ -1,0 +1,188 @@
+corpus index: 88 package files, 88 blobs
+  [carve] LZMA-alone @0x11410A8 -> 618,512 bytes
+  [carve] LZMA-alone @0x12597C8 -> 10,661,904 bytes
+  [carve] LZMA-alone @0x15E6C74 -> 4,677,648 bytes
+  dumps__ifix_02__BACKUP.BIN: size=33554432 regions=True guids=0 ec=2 pw=5
+  [carve] LZMA-alone @0x11410A8 -> 618,512 bytes
+  [carve] LZMA-alone @0x12597C8 -> 10,661,904 bytes
+  [carve] LZMA-alone @0x15E6C74 -> 4,677,648 bytes
+  dumps__ifix_02__Clean_me.bin: size=33554432 regions=True guids=0 ec=2 pw=5
+  [carve] LZMA-alone @0x11410A8 -> 618,512 bytes
+  [carve] LZMA-alone @0x12597C8 -> 11,505,680 bytes
+  [carve] LZMA-alone @0x1607724 -> 4,759,568 bytes
+  dumps__ifix_06__3090_Bios_Password_Unlocked.bin: size=33554432 regions=True guids=0 ec=2 pw=5
+  [carve] LZMA-alone @0x2E00A8 -> 23,396,368 bytes
+  [carve] LZMA-alone @0xA500A8 -> 786,448 bytes
+  [carve] LZMA-alone @0xB02038 -> 655,376 bytes
+  [carve] LZMA-alone @0xC000A8 -> 1,769,488 bytes
+  [carve] generic zlib @0x1AF8100 -> 4,826,304 bytes
+  [carve] generic zlib @0x1CE7100 -> 4,449,440 bytes
+  [carve] generic zlib @0x1ED6100 -> 1,135,824 bytes
+  [carve] generic zlib @0x20C5100 -> 1,296,512 bytes
+  [carve] generic zlib @0x22B4100 -> 6,110,976 bytes
+  [carve] generic zlib @0x3E20100 -> 2,162,688 bytes
+  [carve] generic zlib @0x3F10100 -> 2,162,688 bytes
+  dumps__ifix_07__W25Q512NW_WSON8_8X6_20260423_181304_OFF.bin: size=67108864 regions=False guids=0 ec=2 pw=0
+  [carve] LZMA-alone @0x11410A8 -> 626,704 bytes
+  [carve] LZMA-alone @0x1259628 -> 11,468,816 bytes
+  [carve] LZMA-alone @0x16155C4 -> 4,714,512 bytes
+  dumps__ifix_09__OptiPlex_7480_All-In-One_ipcml-gz_uma_1.10.0.bin: size=33554432 regions=True guids=0 ec=2 pw=5
+  [carve] LZMA-alone @0x11410A8 -> 618,512 bytes
+  [carve] LZMA-alone @0x12597C8 -> 11,505,680 bytes
+  [carve] LZMA-alone @0x1607724 -> 4,759,568 bytes
+  dumps__ifix_12__Clean_cseme.bin: size=33554432 regions=True guids=0 ec=2 pw=5
+  dumps__ifix_13__Alienware_Aurora_R12_.bin: size=33554432 regions=True guids=0 ec=0 pw=0
+  ! 7z failed on ifix_01.rar
+  [carve] LZMA-alone @0xB02038 -> 655,376 bytes
+  [carve] LZMA-alone @0xC000A8 -> 2,818,064 bytes
+  [carve] LZMA-alone @0x12700A8 -> 4,522,000 bytes
+  [carve] LZMA-alone @0x132A9F8 -> 7,274,512 bytes
+  [carve] LZMA-alone @0x15701D8 -> 1,769,488 bytes
+  [carve] LZMA-alone @0x16400A8 -> 1,441,920 bytes
+  [carve] LZMA-alone @0x17000A8 -> 2,293,776 bytes
+  [carve] LZMA-alone @0x17C00A8 -> 720,912 bytes
+  ifix_03__2_TroyAdl_16.1.27.2176_EVT_64_v1.17.0_--_1_System_BIOS_with_BiosGuard_v: size=33554432 regions=False guids=0 ec=0 pw=8
+  ! 7z failed on ifix_05.rar
+  ! 7z failed on ifix_08.rar
+  ! 7z failed on ifix_11.rar
+  [carve] LZMA-alone @0x11410A8 -> 622,608 bytes
+  [carve] LZMA-alone @0x1259928 -> 11,632,656 bytes
+  [carve] LZMA-alone @0x161A1D4 -> 5,120,016 bytes
+  ifix_14__OptiPlex_3090_main_ok_try_First_IF_not_Power_On_Try_Another.bin: size=33554432 regions=True guids=0 ec=2 pw=5
+  [carve] LZMA-alone @0x11410A8 -> 618,512 bytes
+  [carve] LZMA-alone @0x12597C8 -> 11,505,680 bytes
+  [carve] LZMA-alone @0x1607774 -> 4,759,568 bytes
+  ifix_14__OptiPlex_3090_main_New_ok.bin: size=33554432 regions=True guids=0 ec=2 pw=5
+  ! 7z failed on ifix_15.rar
+  ! 7z failed on ifix_16.rar
+  ifix_17__Optiplex_7000_micro_UNLOCKED.bin: size=16777216 regions=True guids=0 ec=2 pw=0
+  ifix_17__OK_BACKUP.BIN: size=16777216 regions=True guids=0 ec=2 pw=0
+  [carve] LZMA-alone @0xB000A8 -> 589,840 bytes
+  [carve] LZMA-alone @0xC000A8 -> 1,966,096 bytes
+  [carve] LZMA-alone @0x12700A8 -> 4,980,752 bytes
+  [carve] LZMA-alone @0x1343130 -> 7,012,368 bytes
+  [carve] LZMA-alone @0x15701D8 -> 1,769,488 bytes
+  [carve] LZMA-alone @0x16400A8 -> 1,441,920 bytes
+  [carve] LZMA-alone @0x17000A8 -> 2,359,312 bytes
+  [carve] LZMA-alone @0x17C00A8 -> 720,912 bytes
+  ifix_17__OK_BACKUP_32MB.BIN: size=33554432 regions=False guids=0 ec=0 pw=8
+  [carve] LZMA-alone @0x11610A8 -> 630,800 bytes
+  [carve] LZMA-alone @0x1279948 -> 11,657,232 bytes
+  [carve] LZMA-alone @0x164F754 -> 5,591,056 bytes
+  ifix_19__Precision_3640_Tower_TRY_FIRST_IF_NOT_WORK_TRY__1.bin: size=33554432 regions=True guids=0 ec=2 pw=5
+  [carve] LZMA-alone @0x11610A8 -> 630,800 bytes
+  [carve] LZMA-alone @0x1279A98 -> 11,665,424 bytes
+  [carve] LZMA-alone @0x164FA74 -> 5,591,056 bytes
+  ifix_19__Precision_3640_Tower_1.bin: size=33554432 regions=True guids=0 ec=2 pw=5
+  [carve] LZMA-alone @0x163DE48 -> 14,786,576 bytes
+  ifix_21__Alienware_Aurora_R110_IPCML-SH_REV_A00.bin: size=33554432 regions=True guids=0 ec=0 pw=0
+  [carve] LZMA-alone @0x2E00A8 -> 23,134,224 bytes
+  [carve] LZMA-alone @0xA500A8 -> 786,448 bytes
+  [carve] LZMA-alone @0xB02038 -> 655,376 bytes
+  [carve] LZMA-alone @0xC000A8 -> 1,769,488 bytes
+  [carve] generic zlib @0x197E100 -> 964,816 bytes
+  [carve] generic zlib @0x1B6D100 -> 1,275,536 bytes
+  [carve] generic zlib @0x1D5C100 -> 4,826,304 bytes
+  [carve] generic zlib @0x1F4B100 -> 4,449,440 bytes
+  [carve] generic zlib @0x213A100 -> 6,110,976 bytes
+  [carve] generic zlib @0x3E20100 -> 2,162,688 bytes
+  [carve] generic zlib @0x3F10100 -> 2,162,688 bytes
+  ifix_22__Dell_Pro_14_Plus_Dell_Pro_Plus_PB13255_PB14255_PB16255_1.11.0_AMD.bin: size=67108864 regions=False guids=0 ec=2 pw=0
+  [carve] LZMA-alone @0x11410A8 -> 622,608 bytes
+  [carve] LZMA-alone @0x12597C8 -> 11,505,680 bytes
+  [carve] LZMA-alone @0x1607B94 -> 5,103,632 bytes
+  ifix_23__32MB.BIN: size=33554432 regions=True guids=0 ec=2 pw=5
+  [carve] LZMA-alone @0x11410A8 -> 622,608 bytes
+  [carve] LZMA-alone @0x12597C8 -> 11,628,560 bytes
+  [carve] LZMA-alone @0x1619C34 -> 5,120,016 bytes
+  ifix_25__optiplex_3090.bin: size=33554432 regions=True guids=0 ec=2 pw=5
+  [carve] LZMA-alone @0x8FA410 -> 8,638,480 bytes
+  [carve] LZMA-alone @0xB54DA0 -> 2,818,064 bytes
+  ifix_28__Dell_XPS_13_9350_AAZ80_LA-C881P_DINO2_MB_1.0_A00_Clear_me.bin: size=16777216 regions=True guids=0 ec=0 pw=0
+  ! 7z failed on ifix_29.rar
+  [carve] LZMA-alone @0x641639 -> 6,318,306 bytes
+Cannot EFI decompress GUID (ae717c2f-1a42-4f2b-8861-78b79ca07e07), type (2), size (16515108)
+Cannot EFI decompress GUID (ae717c2f-1a42-4f2b-8861-78b79ca07e07), type (2), size (16515108)
+  ifix_30__ok_E6520_LA-6562p.BIN: size=8388608 regions=True guids=0 ec=0 pw=0
+  ifix_30__ok_EC_E6520_LA-6562p.BIN: size=2097152 regions=False guids=0 ec=0 pw=0
+  ! 7z failed on ifix_32.rar
+  [carve] LZMA-alone @0x8FA410 -> 8,646,672 bytes
+  [carve] LZMA-alone @0xB55DD0 -> 2,818,064 bytes
+  ifix_34__11.0.0.1205_CON_LP_C_NPDM_PRD_RGN_outimage.bin: size=16777216 regions=True guids=0 ec=0 pw=0
+  ! 7z failed on ifix_35.rar
+  [carve] LZMA-alone @0x34069 -> 8,388,624 bytes
+  ifix_36__W25Q32_20161217_50656.BIN: size=4194304 regions=False guids=0 ec=0 pw=1
+  [carve] LZMA-alone @0x661659 -> 6,065,413 bytes
+Cannot EFI decompress GUID (ae717c2f-1a42-4f2b-8861-78b79ca07e07), type (2), size (16515108)
+Cannot EFI decompress GUID (ae717c2f-1a42-4f2b-8861-78b79ca07e07), type (2), size (16515108)
+  ifix_37__8MB.bin: size=8388608 regions=True guids=2 ec=0 pw=0
+  ! 7z failed on ifix_38.rar
+  ! 7z failed on ifix_39.rar
+  ifix_54__6.2.10.1027_5MB_DT_PRD_UPD.bin: size=4214752 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.0.1022_5MB_DT_PRD_UPD.bin: size=4214736 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.3.1219_5MB_MB_PRD_UPD.bin: size=4219168 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.0.1042_5MB_DT_PRD_UPD.bin: size=4215136 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.20.1059_5MB_MB_PRD_UPD.bin: size=4219360 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.20.1035_5MB_MB_PRD_UPD.bin: size=4219424 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.0.1022_5MB_MB_PRD_UPD.bin: size=4219424 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.4.1205_5MB_MB_PRD_UPD.bin: size=4219168 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.41.1216_5MB_MB_PRD_UPD.bin: size=4219168 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.31.1208_5MB_MB_PRD_UPD.bin: size=4219168 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.60.1066_5MB_DT_PRD_UPD.bin: size=4214752 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.1.1045_5MB_DT_PRD_UPD.bin: size=4215136 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.40.1215_5MB_DT_PRD_UPD.bin: size=4214944 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.30.1203_5MB_MB_PRD_UPD.bin: size=4219168 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.32.1076_5MB_DT_PRD_UPD.bin: size=4215136 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.2.1194_5MB_DT_PRD_UPD.bin: size=4214944 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.2.1194_5MB_MB_PRD_UPD.bin: size=4219168 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.30.1074_5MB_DT_PRD_UPD.bin: size=4215136 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.10.1027_5MB_MB_PRD_UPD.bin: size=4219424 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.0.1042_5MB_MB_PRD_UPD.bin: size=4219360 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.30.1203_5MB_DT_PRD_UPD.bin: size=4214944 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.10.1052_5MB_MB_PRD_UPD.bin: size=4219360 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.3.1195_5MB_DT_PRD_UPD.bin: size=4214928 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.60.1066_5MB_MB_PRD_UPD.bin: size=4219424 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.20.1035_5MB_DT_PRD_UPD.bin: size=4214752 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.31.1075_5MB_MB_PRD_UPD.bin: size=4219360 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.0.1184_5MB_MB_PRD_UPD.bin: size=4219168 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.30.1040_5MB_DT_PRD_UPD.bin: size=4214736 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.10.1052_5MB_DT_PRD_UPD.bin: size=4215120 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.0.1184_5MB_DT_PRD_UPD.bin: size=4214944 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.40.1045_5MB_MB_PRD_UPD.bin: size=4219424 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.50.1062_5MB_DT_PRD_UPD.bin: size=4214752 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.20.1059_5MB_DT_PRD_UPD.bin: size=4215136 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.50.1062_5MB_MB_PRD_UPD.bin: size=4219424 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.32.1076_5MB_MB_PRD_UPD.bin: size=4219360 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.30.1074_5MB_MB_PRD_UPD.bin: size=4219360 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.31.1208_5MB_DT_PRD_UPD.bin: size=4214944 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.30.1040_5MB_MB_PRD_UPD.bin: size=4219424 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.0.1042_5MB_MB_PRD_EXTR.bin: size=6279168 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.0.1115_5MB_DT_PRE_UPD.bin: size=4214624 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.10.1052_5MB_MB_PRD_EXTR.bin: size=5185536 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.10.1027_5MB_DT_PRD_EXTR.bin: size=3436544 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.0.1115_5MB_MB_PRE_UPD.bin: size=4218784 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.0.1184_5MB_DT_PRD_RGN.bin: size=5185536 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.2.50.1062_5MB_DT_PRD_EXTR.bin: size=3440640 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.0.1115_5MB_DT_PRE_RGN.bin: size=5185536 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.0.1038_5MB_MB_PRD_EXTR.bin: size=4173824 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.2.1194_5MB_DT_PRD_EXTR.bin: size=3473408 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.3.1195_5MB_MB_PRD_EXTR.bin: size=6287360 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.0.1042_5MB_DT_PRD_EXTR.bin: size=3510272 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.32.1076_5MB_DT_PRD_EXTR.bin: size=3510272 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.30.1203_5MB_MB_PRD_RGN.bin: size=5185536 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.3.7143_5MB_MB_PRE_UPD.bin: size=4219168 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.30.1203_5MB_DT_PRD_RGN.bin: size=5185536 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.0.1115_5MB_MB_PRE_RGN.bin: size=5185536 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.20.1059_5MB_DT_PRD_EXTR.bin: size=5746688 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.3.1195_5MB_DT_PRD_EXTR.bin: size=3473408 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.0.1184_5MB_MB_PRD_RGN.bin: size=5185536 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.1.1045_5MB_MB_PRD_EXTR.bin: size=5185536 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.31.1208_5MB_MB_PRD_EXTR.bin: size=4128768 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.40.1215_5MB_DT_PRD_EXTR.bin: size=5185536 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.31.1208_5MB_DT_PRD_EXTR.bin: size=3477504 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.40.1215_5MB_MB_PRD_EXTR.bin: size=4132864 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.0.2.1194_5MB_MB_PRD_EXTR.bin: size=4128768 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.10.1052_5MB_DT_PRD_EXTR.bin: size=5304320 regions=False guids=0 ec=0 pw=0
+  ifix_54__6.1.1.1045_5MB_DT_PRD_EXTR.bin: size=3510272 regions=False guids=0 ec=0 pw=0
+
+wrote /home/runner/work/Zte/Zte/bios-analysis/forum/analysis/summary.json + report.md (91 dumps)

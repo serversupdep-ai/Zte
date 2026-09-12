@@ -1,0 +1,4 @@
+3090sff_RZ0624_clean http=403 size=25537 magic=3c21444f
+3090sff_DSVFYP3_8FC8_locked http=403 size=25537 magic=3c21444f
+3090micro_combine1 http=403 size=25537 magic=3c21444f
+3090micro_combine2 http=403 size=25537 magic=3c21444f

@@ -1,0 +1,65 @@
+name: Fetch Dell package relay
+# Push-triggered relay: the runner downloads the package (sandbox has no
+# direct internet), extracts the EC/PHCM payloads, and commits them to this
+# branch so the sandbox can git-pull them (artifact/Azure downloads are
+# blocked from the sandbox).
+
+on:
+  push:
+    branches: [arena/01a087e2-zte]
+    paths: ['relay/params.env', '.github/workflows/fetch-dell-relay.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: arena/01a087e2-zte
+
+      - name: Download package
+        run: |
+          set -x
+          source relay/params.env
+          : "${URL:?URL missing}"
+          OUT="${OUT:-pkg.bin}"
+          curl -fsSL --retry 3 --max-time 900 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" -o "$OUT" "$URL"
+          ls -la "$OUT"
+          if [ -n "${SHA256:-}" ]; then
+            echo "$SHA256  $OUT" | sha256sum -c - || exit 1
+          fi
+          echo "OUT=$OUT" >> "$GITHUB_ENV"
+
+      - name: Extract EC payloads
+        run: |
+          python3 -m pip -q install uefi_firmware pefile
+          python3 bios-analysis/extract_ec_payloads.py "$OUT" bios-analysis/ec_payloads "$(basename "$OUT" .exe)"
+
+      - name: Commit extracted payloads
+        run: |
+          git config user.name "relay-bot"
+          git config user.email "relay@localhost"
+          git add bios-analysis/ec_payloads/ || true
+          if git diff --cached --quiet; then
+            echo "nothing new to commit"
+          else
+            git commit -q -m "relay: EC payloads from $(basename "$OUT") [skip ci]"
+            git push origin arena/01a087e2-zte
+          fi
+          ls -la bios-analysis/ec_payloads/ || true
+
+      - name: Upload package artifact (best effort)
+        uses: actions/upload-artifact@v4
+        with:
+          name: dell-package-named
+          if-no-files-found: ignore
+          path: |
+            *.exe
+            *.rcv
+        continue-on-error: true

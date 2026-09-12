@@ -1,0 +1,433 @@
+[1] downloading https://downloads.dell.com/FOLDER13463969M/1/OptiPlex_3090_2.27.0.exe
+[1] processing /tmp/OptiPlex_3090_2.27.0.pkg -> bios-analysis/collected/OptiPlex_3090_2.27.0
+    container route: dub (36181226 bytes)
+  [carve] Dell HDR zlib @0x68 -> 33,301,542 bytes
+  [carve] Dell HDR zlib @0x113D9D9 -> 33,301,542 bytes
+  [carve] generic zlib @0x78 -> 33,301,542 bytes
+  [carve] generic zlib @0x113D9E9 -> 33,301,542 bytes
+    9 new payloads (4 EC, 5 pw); manifest total 9
+[2] downloading https://downloads.dell.com/FOLDER13463825M/1/OptiPlex_3080_2.33.0.exe
+[2] processing /tmp/OptiPlex_3080_2.33.0.pkg -> bios-analysis/collected/OptiPlex_3080_2.33.0
+    container route: dub (28133254 bytes)
+  [carve] Dell HDR zlib @0x68 -> 25,145,390 bytes
+  [carve] Dell HDR zlib @0xD673A4 -> 25,145,390 bytes
+  [carve] generic zlib @0x78 -> 25,145,390 bytes
+  [carve] generic zlib @0xD673B4 -> 25,145,390 bytes
+    9 new payloads (4 EC, 5 pw); manifest total 9
+[3] downloading https://downloads.dell.com/FOLDER14479370M/1/OptiPlex_7090_1.42.0.exe
+[3] processing /tmp/OptiPlex_7090_1.42.0.pkg -> bios-analysis/collected/OptiPlex_7090_1.42.0
+    container route: dub (47176769 bytes)
+  [carve] Dell HDR zlib @0x38E068 -> 32,118,471 bytes
+  [carve] Dell HDR zlib @0x1A09DE0 -> 32,118,513 bytes
+  [carve] generic zlib @0x30B878 -> 1,532,313 bytes
+  [carve] generic zlib @0x38E078 -> 32,118,471 bytes
+  [carve] generic zlib @0x19875F0 -> 1,532,313 bytes
+  [carve] generic zlib @0x1A09DF0 -> 32,118,513 bytes
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[4] downloading https://downloads.dell.com/FOLDER14367732M/1/OptiPlex_7090_1.41.0.exe
+[4] processing /tmp/OptiPlex_7090_1.41.0.pkg -> bios-analysis/collected/OptiPlex_7090_1.41.0
+    container route: dub (46712642 bytes)
+  [carve] Dell HDR zlib @0x354C68 -> 32,118,471 bytes
+  [carve] Dell HDR zlib @0x1998388 -> 32,118,513 bytes
+  [carve] generic zlib @0x2D2478 -> 1,392,160 bytes
+  [carve] generic zlib @0x354C78 -> 32,118,471 bytes
+  [carve] generic zlib @0x1915B98 -> 1,392,160 bytes
+  [carve] generic zlib @0x1998398 -> 32,118,513 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[5] downloading https://downloads.dell.com/FOLDER14479813M/1/OptiPlex_3090_UFF_1.42.0.exe
+[5] processing /tmp/OptiPlex_3090_UFF_1.42.0.pkg -> bios-analysis/collected/OptiPlex_3090_UFF_1.42.0
+    container route: dub (34754767 bytes)
+  [carve] Dell HDR zlib @0x38B468 -> 23,579,495 bytes
+  [carve] Dell HDR zlib @0x141B027 -> 23,579,541 bytes
+  [carve] generic zlib @0x30B878 -> 1,509,111 bytes
+  [carve] generic zlib @0x38B478 -> 23,579,495 bytes
+  [carve] generic zlib @0x139B437 -> 1,509,111 bytes
+  [carve] generic zlib @0x141B037 -> 23,579,541 bytes
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[6] downloading https://downloads.dell.com/FOLDER14479861M/1/OptiPlex_7090_UFF_1.42.0.exe
+[6] processing /tmp/OptiPlex_7090_UFF_1.42.0.pkg -> bios-analysis/collected/OptiPlex_7090_UFF_1.42.0
+    container route: dub (57737757 bytes)
+  [carve] Dell HDR zlib @0x38B468 -> 41,214,591 bytes
+  [carve] Dell HDR zlib @0x1F105CD -> 41,214,637 bytes
+  [carve] generic zlib @0x30B878 -> 1,509,111 bytes
+  [carve] generic zlib @0x38B478 -> 41,214,591 bytes
+  [carve] generic zlib @0x1E909DD -> 1,509,111 bytes
+  [carve] generic zlib @0x1F105DD -> 41,214,637 bytes
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[7] downloading https://downloads.dell.com/FOLDER14473829M/1/OptiPlex_5490_AIO_1.47.0.exe
+[7] processing /tmp/OptiPlex_5490_AIO_1.47.0.pkg -> bios-analysis/collected/OptiPlex_5490_AIO_1.47.0
+    container route: dub (45958761 bytes)
+  [carve] Dell HDR zlib @0x394468 -> 31,045,775 bytes
+  [carve] Dell HDR zlib @0x197BC5C -> 31,045,817 bytes
+  [carve] generic zlib @0x30B878 -> 1,558,855 bytes
+  [carve] generic zlib @0x394478 -> 31,045,775 bytes
+  [carve] generic zlib @0x18F306C -> 1,558,855 bytes
+  [carve] generic zlib @0x197BC6C -> 31,045,817 bytes
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[8] downloading https://downloads.dell.com/FOLDER14473519M/1/OptiPlex_7490_AIO_1.47.0.exe
+[8] processing /tmp/OptiPlex_7490_AIO_1.47.0.pkg -> bios-analysis/collected/OptiPlex_7490_AIO_1.47.0
+    container route: dub (45952847 bytes)
+  [carve] Dell HDR zlib @0x394468 -> 31,495,567 bytes
+  [carve] Dell HDR zlib @0x197A999 -> 31,495,609 bytes
+  [carve] generic zlib @0x30B878 -> 1,558,855 bytes
+  [carve] generic zlib @0x394478 -> 31,495,567 bytes
+  [carve] generic zlib @0x18F1DA9 -> 1,558,855 bytes
+  [carve] generic zlib @0x197A9A9 -> 31,495,609 bytes
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[9] downloading https://downloads.dell.com/FOLDER14471289M/1/OptiPlex_5090_1.42.0.exe
+[9] processing /tmp/OptiPlex_5090_1.42.0.pkg -> bios-analysis/collected/OptiPlex_5090_1.42.0
+    container route: dub (45594035 bytes)
+  [carve] Dell HDR zlib @0x38E068 -> 31,179,507 bytes
+  [carve] Dell HDR zlib @0x1948887 -> 31,179,549 bytes
+  [carve] generic zlib @0x30B878 -> 1,532,313 bytes
+  [carve] generic zlib @0x38E078 -> 31,179,507 bytes
+  [carve] generic zlib @0x18C6097 -> 1,532,313 bytes
+  [carve] generic zlib @0x1948897 -> 31,179,549 bytes
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[10] downloading https://downloads.dell.com/FOLDER14479578M/1/OptiPlex_5000_1.40.0.exe
+[10] processing /tmp/OptiPlex_5000_1.40.0.pkg -> bios-analysis/collected/OptiPlex_5000_1.40.0
+    container route: dub (49539178 bytes)
+  [carve] Dell HDR zlib @0x38BC68 -> 45,745,889 bytes
+  [carve] Dell HDR zlib @0x1B2848E -> 45,745,931 bytes
+  [carve] generic zlib @0x30B878 -> 1,372,217 bytes
+  [carve] generic zlib @0x38BC78 -> 45,745,889 bytes
+  [carve] generic zlib @0x1AA809E -> 1,372,217 bytes
+  [carve] generic zlib @0x1B2849E -> 45,745,931 bytes
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[11] downloading https://downloads.dell.com/FOLDER14483638M/1/OptiPlex_XE4_1.40.0.exe
+[11] processing /tmp/OptiPlex_XE4_1.40.0.pkg -> bios-analysis/collected/OptiPlex_XE4_1.40.0
+    container route: dub (49496060 bytes)
+  [carve] Dell HDR zlib @0x38BC68 -> 46,232,624 bytes
+  [carve] Dell HDR zlib @0x1B227AB -> 46,232,679 bytes
+  [carve] generic zlib @0x30B878 -> 1,372,281 bytes
+  [carve] generic zlib @0x38BC78 -> 46,232,624 bytes
+  [carve] generic zlib @0x1AA23BB -> 1,372,281 bytes
+  [carve] generic zlib @0x1B227BB -> 46,232,679 bytes
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[12] downloading https://downloads.dell.com/FOLDER14482985M/1/OptiPlex_TC_1.34.0.exe
+[12] processing /tmp/OptiPlex_TC_1.34.0.pkg -> bios-analysis/collected/OptiPlex_TC_1.34.0
+    container route: dub (22424245 bytes)
+  [carve] LZMA-alone @0x2F0110 -> 4,653,072 bytes
+  [carve] LZMA-alone @0x3E7630 -> 8,192,016 bytes
+  [carve] LZMA-alone @0x600110 -> 851,984 bytes
+  [carve] LZMA-alone @0x670110 -> 2,293,776 bytes
+  [carve] LZMA-alone @0x8920A0 -> 786,448 bytes
+  [carve] LZMA-alone @0x990110 -> 655,376 bytes
+  [carve] LZMA-alone @0x9D2374 -> 655,376 bytes
+  [carve] LZMA-alone @0xA22374 -> 655,376 bytes
+  [carve] LZMA-alone @0x13ED2B8 -> 1,048,592 bytes
+  [carve] LZMA-alone @0x1498A00 -> 1,179,664 bytes
+    1 new payloads (0 EC, 1 pw); manifest total 1
+[13] downloading https://downloads.dell.com/FOLDER13601596M/1/OptiPlex_3070_1.35.0.exe
+[13] processing /tmp/OptiPlex_3070_1.35.0.pkg -> bios-analysis/collected/OptiPlex_3070_1.35.0
+    container route: dub (24592752 bytes)
+  [carve] Dell HDR zlib @0x58 -> 24,750,365 bytes
+  [carve] Dell HDR zlib @0xBB64C6 -> 24,750,365 bytes
+  [carve] generic zlib @0x68 -> 24,750,365 bytes
+  [carve] generic zlib @0xBB64D6 -> 24,750,365 bytes
+    8 new payloads (0 EC, 8 pw); manifest total 8
+[14] downloading https://downloads.dell.com/FOLDER13601562M/1/OptiPlex_5070_1.35.0.exe
+[14] processing /tmp/OptiPlex_5070_1.35.0.pkg -> bios-analysis/collected/OptiPlex_5070_1.35.0
+    container route: dub (33415971 bytes)
+  [carve] Dell HDR zlib @0x58 -> 34,454,549 bytes
+  [carve] Dell HDR zlib @0xFEBCF5 -> 34,454,549 bytes
+  [carve] generic zlib @0x68 -> 34,454,549 bytes
+  [carve] generic zlib @0xFEBD05 -> 34,454,549 bytes
+    8 new payloads (0 EC, 8 pw); manifest total 8
+[15] downloading https://downloads.dell.com/FOLDER13601510M/1/OptiPlex_7070_1.35.0.exe
+[15] processing /tmp/OptiPlex_7070_1.35.0.pkg -> bios-analysis/collected/OptiPlex_7070_1.35.0
+    container route: dub (33504058 bytes)
+  [carve] Dell HDR zlib @0x58 -> 34,454,549 bytes
+  [carve] Dell HDR zlib @0xFF6167 -> 34,454,549 bytes
+  [carve] generic zlib @0x68 -> 34,454,549 bytes
+  [carve] generic zlib @0xFF6177 -> 34,454,549 bytes
+    8 new payloads (0 EC, 8 pw); manifest total 8
+[16] downloading https://downloads.dell.com/FOLDER13932023M/1/OptiPlex_7080_1.37.0.exe
+[16] processing /tmp/OptiPlex_7080_1.37.0.pkg -> bios-analysis/collected/OptiPlex_7080_1.37.0
+    container route: dub (36611617 bytes)
+  [carve] Dell HDR zlib @0x68 -> 33,980,746 bytes
+  [carve] Dell HDR zlib @0x1171D7B -> 33,980,746 bytes
+  [carve] generic zlib @0x78 -> 33,980,746 bytes
+  [carve] generic zlib @0x1171D8B -> 33,980,746 bytes
+    9 new payloads (4 EC, 5 pw); manifest total 9
+[17] downloading https://downloads.dell.com/FOLDER13929542M/1/OptiPlex_5080_1.34.0.exe
+[17] processing /tmp/OptiPlex_5080_1.34.0.pkg -> bios-analysis/collected/OptiPlex_5080_1.34.0
+    container route: dub (36512893 bytes)
+  [carve] Dell HDR zlib @0x68 -> 33,980,746 bytes
+  [carve] Dell HDR zlib @0x1165727 -> 33,980,746 bytes
+  [carve] generic zlib @0x78 -> 33,980,746 bytes
+  [carve] generic zlib @0x1165737 -> 33,980,746 bytes
+    9 new payloads (4 EC, 5 pw); manifest total 9
+[18] downloading https://downloads.dell.com/FOLDER13929670M/1/OptiPlex_5480_1.43.0.exe
+[18] processing /tmp/OptiPlex_5480_1.43.0.pkg -> bios-analysis/collected/OptiPlex_5480_1.43.0
+    container route: dub (37417770 bytes)
+  [carve] Dell HDR zlib @0x68 -> 34,219,060 bytes
+  [carve] Dell HDR zlib @0x11D42FE -> 34,219,060 bytes
+  [carve] generic zlib @0x78 -> 34,219,060 bytes
+  [carve] generic zlib @0x11D430E -> 34,219,060 bytes
+    9 new payloads (4 EC, 5 pw); manifest total 9
+[19] downloading https://downloads.dell.com/FOLDER07563732M/1/OptiPlex_3240_1.13.0.exe
+[19] processing /tmp/OptiPlex_3240_1.13.0.pkg -> bios-analysis/collected/OptiPlex_3240_1.13.0
+    container route: dub (11640462 bytes)
+    5 new payloads (0 EC, 5 pw); manifest total 5
+[20] downloading https://downloads.dell.com/FOLDER12075822M/1/OptiPlex_3050_1.32.0.exe
+[20] processing /tmp/OptiPlex_3050_1.32.0.pkg -> bios-analysis/collected/OptiPlex_3050_1.32.0
+    container route: dub (18267038 bytes)
+  [carve] Dell HDR zlib @0x58 -> 16,969,616 bytes
+  [carve] Dell HDR zlib @0x8B2270 -> 16,969,616 bytes
+  [carve] generic zlib @0x68 -> 16,969,616 bytes
+  [carve] generic zlib @0x8B2280 -> 16,969,616 bytes
+    5 new payloads (0 EC, 5 pw); manifest total 5
+[21] downloading https://downloads.dell.com/FOLDER10281804M/1/OptiPlex_5250_1.27.0.exe
+[21] processing /tmp/OptiPlex_5250_1.27.0.pkg -> bios-analysis/collected/OptiPlex_5250_1.27.0
+    container route: dub (18323868 bytes)
+  [carve] Dell HDR zlib @0x58 -> 16,969,612 bytes
+  [carve] Dell HDR zlib @0x8B9052 -> 16,969,612 bytes
+  [carve] generic zlib @0x68 -> 16,969,612 bytes
+  [carve] generic zlib @0x8B9062 -> 16,969,612 bytes
+    5 new payloads (0 EC, 5 pw); manifest total 5
+[22] downloading https://downloads.dell.com/FOLDER08841839M/1/OptiPlex_7040_1.24.0.exe
+[22] processing /tmp/OptiPlex_7040_1.24.0.pkg -> bios-analysis/collected/OptiPlex_7040_1.24.0
+    container route: dub (16965644 bytes)
+    5 new payloads (0 EC, 5 pw); manifest total 5
+[23] downloading https://downloads.dell.com/FOLDER08778208M/1/OptiPlex_3040_1.20.1.exe
+[23] processing /tmp/OptiPlex_3040_1.20.1.pkg -> bios-analysis/collected/OptiPlex_3040_1.20.1
+    container route: dub (11649044 bytes)
+    5 new payloads (0 EC, 5 pw); manifest total 5
+[24] downloading https://downloads.dell.com/FOLDER05274658M/1/OptiPlex_9020_AIO_A19.exe
+[24] processing /tmp/OptiPlex_9020_AIO_A19.pkg -> bios-analysis/collected/OptiPlex_9020_AIO_A19
+    container route: dub (15739333 bytes)
+  [carve] LZMA-alone @0x91DB1 -> 819,324 bytes
+  [carve] LZMA-alone @0xF00C1 -> 5,972,008 bytes
+  [carve] LZMA-alone @0x2A6A91 -> 2,252,848 bytes
+  [carve] LZMA-alone @0x3FF8F9 -> 1,413,664 bytes
+    [diag] no payloads via primary routes; magic census: {'PFS': 1}
+    0 new payloads (0 EC, 0 pw); manifest total 0
+[25] downloading https://downloads.dell.com/FOLDER12975937M/1/Latitude_5X90_1.41.0.exe
+[25] processing /tmp/Latitude_5X90_1.41.0.pkg -> bios-analysis/collected/Latitude_5X90_1.41.0
+    container route: dub (16713066 bytes)
+    7 new payloads (2 EC, 5 pw); manifest total 7
+[26] downloading https://downloads.dell.com/FOLDER13498661M/1/Latitude_5300_1.37.0.exe
+[26] processing /tmp/Latitude_5300_1.37.0.pkg -> bios-analysis/collected/Latitude_5300_1.37.0
+    container route: dub (51706201 bytes)
+    11 new payloads (4 EC, 7 pw); manifest total 11
+[27] downloading https://downloads.dell.com/FOLDER13970198M/1/Latitude_5X00_Precision_3540_1.43.1.exe
+[27] processing /tmp/Latitude_5X00_Precision_3540_1.43.1.pkg -> bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1
+    container route: dub (29519804 bytes)
+  [carve] Dell HDR zlib @0x58 -> 36,691,096 bytes
+  [carve] Dell HDR zlib @0x1237BA5 -> 16,712,721 bytes
+  [carve] generic zlib @0x68 -> 36,691,096 bytes
+  [carve] generic zlib @0x1237BB5 -> 16,712,721 bytes
+    19 new payloads (6 EC, 13 pw); manifest total 19
+[28] downloading https://downloads.dell.com/FOLDER07958771M/2/OptiPlex_3090_2.0.7.exe
+[28] processing /tmp/OptiPlex_3090_2.0.7.pkg -> bios-analysis/collected/OptiPlex_3090_2.0.7
+    container route: dub (36052959 bytes)
+  [carve] Dell HDR zlib @0x68 -> 34,441,252 bytes
+  [carve] Dell HDR zlib @0x112DA84 -> 34,441,252 bytes
+  [carve] generic zlib @0x78 -> 34,441,252 bytes
+  [carve] generic zlib @0x112DA94 -> 34,441,252 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    9 new payloads (4 EC, 5 pw); manifest total 9
+[29] downloading https://dl.dell.com/FOLDER14468109M/1/Latitude_5440_Precision_3480_1.31.1.exe
+[29] processing /tmp/Latitude_5440_Precision_3480_1.31.1.pkg -> bios-analysis/collected/Latitude_5440_Precision_3480_1.31.1
+    container route: dub (50734366 bytes)
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x77400 -> 50,734,366 bytes
+  [carve] generic zlib @0x10 -> 1,346,983 bytes
+  [carve] generic zlib @0x77410 -> 50,734,366 bytes
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[30] downloading https://dl.dell.com/FOLDER11559391M/1/Latitude_3450_3550_1.3.1.exe
+[30] processing /tmp/Latitude_3450_3550_1.3.1.pkg -> bios-analysis/collected/Latitude_3450_3550_1.3.1
+    container route: dub (37117239 bytes)
+  [carve] Dell HDR zlib @0x58 -> 48,877,665 bytes
+  [carve] Dell HDR zlib @0x12ACFAB -> 43,776,833 bytes
+  [carve] generic zlib @0x68 -> 48,877,665 bytes
+  [carve] generic zlib @0x12ACFBB -> 43,776,833 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    8 new payloads (0 EC, 8 pw); manifest total 8
+[31] downloading https://dl.dell.com/FOLDER12134229M/1/Precision_3581_1.17.0.exe
+[31] processing /tmp/Precision_3581_1.17.0.pkg -> bios-analysis/collected/Precision_3581_1.17.0
+    container route: dub (55087961 bytes)
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x7CA00 -> 55,087,961 bytes
+  [carve] generic zlib @0x210 -> 1,367,820 bytes
+  [carve] generic zlib @0x7CA10 -> 55,087,961 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[32] downloading https://dl.dell.com/FOLDER12134428M/1/Precision_3580_Latitude_5540_1.17.0.exe
+[32] processing /tmp/Precision_3580_Latitude_5540_1.17.0.pkg -> bios-analysis/collected/Precision_3580_Latitude_5540_1.17.0
+    container route: dub (60304874 bytes)
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x89200 -> 60,304,874 bytes
+  [carve] generic zlib @0x210 -> 1,420,135 bytes
+  [carve] generic zlib @0x89210 -> 60,304,874 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    11 new payloads (8 EC, 3 pw); manifest total 11
+[33] downloading https://dl.dell.com/FOLDER09760250M/1/Latitude_3440_3540_1.2.0.exe
+[33] processing /tmp/Latitude_3440_3540_1.2.0.pkg -> bios-analysis/collected/Latitude_3440_3540_1.2.0
+    container route: dub (44295699 bytes)
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x76000 -> 44,295,699 bytes
+  [carve] generic zlib @0x10 -> 1,338,313 bytes
+  [carve] generic zlib @0x76010 -> 44,295,699 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    16 new payloads (8 EC, 8 pw); manifest total 16
+[34] downloading https://dl.dell.com/FOLDER14481444M/1/BIOS_IMG.rcv
+[34] processing /tmp/BIOS_IMG_rcv_5440_3480.pkg -> bios-analysis/collected/BIOS_IMG_rcv_5440_3480
+    container route: dub (50734366 bytes)
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x77400 -> 50,734,366 bytes
+  [carve] generic zlib @0x10 -> 1,346,983 bytes
+  [carve] generic zlib @0x77410 -> 50,734,366 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[35] downloading https://dl.dell.com/FOLDER12134309M/1/BIOS_IMG.rcv
+[35] processing /tmp/BIOS_IMG_rcv_3581.pkg -> bios-analysis/collected/BIOS_IMG_rcv_3581
+    container route: dub (55087961 bytes)
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x7CA00 -> 55,087,961 bytes
+  [carve] generic zlib @0x210 -> 1,367,820 bytes
+  [carve] generic zlib @0x7CA10 -> 55,087,961 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[36] downloading https://dl.dell.com/FOLDER12134544M/1/BIOS_IMG.rcv
+[36] processing /tmp/BIOS_IMG_rcv_3580_5540.pkg -> bios-analysis/collected/BIOS_IMG_rcv_3580_5540
+    container route: dub (60304874 bytes)
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x89200 -> 60,304,874 bytes
+  [carve] generic zlib @0x210 -> 1,420,135 bytes
+  [carve] generic zlib @0x89210 -> 60,304,874 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    11 new payloads (8 EC, 3 pw); manifest total 11
+[37] downloading https://dl.dell.com/FOLDER09495728M/1/Latitude_5440_Precision_3480_1.0.1.exe
+[37] processing /tmp/Latitude_5440_Precision_3480_1.0.1.pkg -> bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1
+    container route: dub (50181372 bytes)
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x77400 -> 50,181,372 bytes
+  [carve] generic zlib @0x10 -> 1,342,329 bytes
+  [carve] generic zlib @0x77410 -> 50,181,372 bytes
+    12 new payloads (4 EC, 8 pw); manifest total 12
+[38] downloading https://dl.dell.com/FOLDER12810250M/1/Latitude_5440_Precision_3480_1.22.0.exe
+[38] processing /tmp/Latitude_5440_Precision_3480_1.22.0.pkg -> bios-analysis/collected/Latitude_5440_Precision_3480_1.22.0
+    container route: dub (49017264 bytes)
+  [carve] Dell HDR zlib @0x58 -> 50,717,950 bytes
+  [carve] Dell HDR zlib @0x175FA85 -> 50,717,895 bytes
+  [carve] generic zlib @0x68 -> 50,717,950 bytes
+  [carve] generic zlib @0x175FA95 -> 50,717,895 bytes
+    7 new payloads (4 EC, 3 pw); manifest total 7
+[1] LVFS https://fwupd.org/lvfs/devices/com.dell.uefic9284bf6.firmware
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 52867cc9d04f339de5db508304dfc3d57e8d1f8b11f730f16438c9176ed4c7bc-OptiPlex_3090_2.30.0_firmware.cab
+    downloaded 21648544 bytes
+  [carve] Dell HDR zlib @0x363C00 -> 33,301,542 bytes
+  [carve] generic zlib @0x2D3410 -> 1,449,491 bytes
+  [carve] generic zlib @0x363C10 -> 33,301,542 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    OptiPlex_3090_2.30.0: 9 payloads
+[2] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi10d19ee4.firmware
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 118bf96591b7b43fc209b6f0b8a4953f43e1fb2d43df1fc3998c158493253ba9-OptiPlex_3080_2.35.0_firmware.cab
+    downloaded 17799247 bytes
+  [carve] Dell HDR zlib @0x391800 -> 25,145,390 bytes
+  [carve] generic zlib @0x2D3410 -> 1,641,215 bytes
+  [carve] generic zlib @0x391810 -> 25,145,390 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    OptiPlex_3080_2.35.0: 9 payloads
+[3] LVFS https://fwupd.org/lvfs/devices/com.dell.uefia3ef064d.firmware
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 3aff4d6f333d08bdcf6d20ea249b104ddff9e8a062559df5464ca16ce859e112-firmware.cab
+    downloaded 22170237 bytes
+  [carve] Dell HDR zlib @0x35C400 -> 34,219,165 bytes
+  [carve] generic zlib @0x2D3410 -> 1,418,702 bytes
+  [carve] generic zlib @0x35C410 -> 34,219,165 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    OptiPlex_7780_7480_AIO_1.45.0: 9 payloads
+[4] LVFS https://fwupd.org/lvfs/devices/com.dell.uefibdaa7a9d.firmware
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 6800af07ee7752e7b461a52d40c3bcf76f346b61fe7c4cf2a9ee8167f7f531a4-TroyAdl_16.1.42.2872_EVT_firmware.lvfs.cab
+    downloaded 20587253 bytes
+  [carve] Dell HDR zlib @0x390400 -> 39,374,787 bytes
+  [carve] generic zlib @0x30DC10 -> 1,534,023 bytes
+  [carve] generic zlib @0x390410 -> 39,374,787 bytes
+    OptiPlex_3000_1.42.0: 7 payloads
+[5] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi1de8ec66.firmware
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 9b41436f2da9f9dd1ca74898530d9bf269d7ec58b911380458df2ee2ab0122e1-firmware.cab
+    downloaded 18761310 bytes
+  [carve] Dell HDR zlib @0x35C400 -> 26,513,714 bytes
+  [carve] generic zlib @0x2D3410 -> 1,418,638 bytes
+  [carve] generic zlib @0x35C410 -> 26,513,714 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    OptiPlex_3280_AIO_1.43.0: 9 payloads
+[6] LVFS https://fwupd.org/lvfs/devices/com.dell.uefif5d534f4.firmware
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 89f12fa8329caede80db8f540155f3e34fe9cc0526ddc1410fcfe01f163ef40d-firmware.cab
+    downloaded 22203582 bytes
+  [carve] Dell HDR zlib @0x35C400 -> 34,219,060 bytes
+  [carve] generic zlib @0x2D3410 -> 1,418,638 bytes
+  [carve] generic zlib @0x35C410 -> 34,219,060 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    OptiPlex_5480_AIO_1.45.0: 9 payloads
+[7] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi09c795fe.firmware
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 4b0b3b9127de2655af19977ba317b6c90fb71e03d01f89a89c31299b94f5273a-PronghornRkl_15.0.56.2834_EVT_firmware.cab
+    downloaded 22963843 bytes
+  [carve] Dell HDR zlib @0x396800 -> 31,045,775 bytes
+  [carve] generic zlib @0x30DC10 -> 1,560,565 bytes
+  [carve] generic zlib @0x396810 -> 31,045,775 bytes
+    OptiPlex_5490_AIO_1.48.0: 7 payloads
+[8] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi7839b795.firmware
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: de23ef8d4975a35344beb00f14c2067cba50ee202f110c88a450d8dfc602ed56-GiraffeRkl_15.0.56.2834_EVT_firmware.cab
+    downloaded 22959570 bytes
+  [carve] Dell HDR zlib @0x396800 -> 31,495,567 bytes
+  [carve] generic zlib @0x30DC10 -> 1,560,565 bytes
+  [carve] generic zlib @0x396810 -> 31,495,567 bytes
+    OptiPlex_7490_AIO_1.48.0: 7 payloads
+[9] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi9e83f146.firmware
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 3ed072c36d5c34f17e29ea1ff41e9997d2c70f7e83578e0482aa5cb7c6dd1a4b-CaribouRkl_QS_15.0.56.2834_EVT_firmware.cab
+    downloaded 22781773 bytes
+  [carve] Dell HDR zlib @0x390400 -> 31,179,507 bytes
+  [carve] generic zlib @0x30DC10 -> 1,534,023 bytes
+  [carve] generic zlib @0x390410 -> 31,179,507 bytes
+    OptiPlex_5090_1.44.0: 7 payloads
+[10] LVFS https://fwupd.org/lvfs/devices/com.dell.uefibc0a94e3.firmware
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 33278626b785c9ff675f41684a49cc87b81a6ec0a6bc6cef997038c28a2309a8-OptiPlex_3090_UFF_1.44.0_LVFS.cab
+    downloaded 17381469 bytes
+  [carve] Dell HDR zlib @0x38D800 -> 23,579,495 bytes
+  [carve] generic zlib @0x30DC10 -> 1,514,567 bytes
+  [carve] generic zlib @0x38D810 -> 23,579,495 bytes
+    OptiPlex_3090_UFF_1.44.0: 7 payloads
+[11] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi7557a0f4.firmware
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: a338aff9dd9d10c2bbb46ddade27d822f17ea3da4c711992a363341ddfc4d900-PlymouthAdl_16.1.42.2872_EVT_X02_firmware.lvfs.cab
+    downloaded 24754142 bytes
+  [carve] Dell HDR zlib @0x38E400 -> 45,745,889 bytes
+  [carve] generic zlib @0x30DC10 -> 1,373,951 bytes
+  [carve] generic zlib @0x38E410 -> 45,745,889 bytes
+    OptiPlex_5000_1.42.0: 7 payloads
+[12] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi896e9574.firmware
+    device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
+    cab: 64c738397e2846acfad79f02f5245d0d639f0c04f8953c17513bd4843b2e53e0-KyotoAdl_16.1.42.2872_EVT_X02_firmware.lvfs.cab
+    downloaded 24731400 bytes
+  [carve] Dell HDR zlib @0x38E400 -> 46,232,624 bytes
+  [carve] generic zlib @0x30DC10 -> 1,374,015 bytes
+  [carve] generic zlib @0x38E410 -> 46,232,624 bytes
+    OptiPlex_7000_OptiPlex_XE4_series_1.42.0: 7 payloads

@@ -1,0 +1,20 @@
+{
+ "src": "ifix_21",
+ "file": "Alienware Aurora R110  IPCML-SH REV A00.bin",
+ "size": 33554432,
+ "sha256": "b0e98a7b56a551662a10b6a66d041eb1a7d372cf6faf3b5f0f5091d736d018d9",
+ "regions": {
+  "bios": [
+   22020096,
+   33554431
+  ],
+  "me": [
+   4096,
+   16781311
+  ]
+ },
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [],
+ "pw_modules": []
+}

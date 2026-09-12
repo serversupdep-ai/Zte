@@ -1,0 +1,61 @@
+{
+ "url": "https://dl.dell.com/FOLDER11559391M/1/Latitude_3450_3550_1.3.1.exe",
+ "entries": [
+  {
+   "file": "bios-analysis/collected/Latitude_3450_3550_1.3.1/pw_1_17408.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 17408,
+   "sha256": "a228002bd3d5ca8942085c8a79d28d42c55a01f25f923189a858f1fa7886a3f3"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3450_3550_1.3.1/pw_2_18432.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 18432,
+   "sha256": "614f44cee9ae561e4330feed1c51d38d926e2dce2a9b50d00d8837c2dd01dad7"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3450_3550_1.3.1/pw_3_20992.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 20992,
+   "sha256": "1a0f2e469ecfb2b322d49cae3c517fdc880a8a5b840db7e48cdde7aef63c9495"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3450_3550_1.3.1/pw_4_23040.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 23040,
+   "sha256": "7b6f10b33b76bfb980ad7db5ce0f73ac10034221488743c2e0a264f0bd34eac1"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3450_3550_1.3.1/pw_5_28672.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 28672,
+   "sha256": "b618a5980e86ac3ef04fe7995937960748327eabc9fc93e53123d6ae342a65ca"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3450_3550_1.3.1/pw_6_37888.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 37888,
+   "sha256": "83b84b0c989d70be2de47b923abde4e592766b245ee7afddc1fa24f277a3506f"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3450_3550_1.3.1/pw_7_39424.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 39424,
+   "sha256": "e7ae8e2dab7bc924da36e3b9d4deed4f5eca6c71b1e05f68d64d47209bfe357f"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3450_3550_1.3.1/pw_8_47616.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 47616,
+   "sha256": "a544ad49a25683cfda0e506d89e61ae054c066b5a6d820f5cac8f7b24e802e01"
+  }
+ ]
+}

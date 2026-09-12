@@ -1,0 +1,68 @@
+{
+ "src": "ifix_17",
+ "file": "OK BACKUP 32MB.BIN",
+ "size": 33554432,
+ "sha256": "2b26e9a89b6b08245412cde55c7ef5ba7c4e5cf8247f1a39c7f0e2fef05d3c3b",
+ "regions": null,
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [],
+ "pw_modules": [
+  {
+   "file": "pw_d34e4bf7_37888.efi",
+   "size": 37888,
+   "sha256": "d34e4bf74d51eb13a8e07f0ec2554bea8bfa84622dd0fdcb60a01058801461b1",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_6ab0e65f_18432.efi",
+   "size": 18432,
+   "sha256": "6ab0e65f176d50d22360a0fa0134dab7e7bc5983e2bcff1d4a30e150423a0560",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_fa100de5_23040.efi",
+   "size": 23040,
+   "sha256": "fa100de56dc7952f2f32a793e6945844d8c4e3efd1f1aea4594ca76355f2bf2e",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_51d0f56a_28672.efi",
+   "size": 28672,
+   "sha256": "51d0f56a73ff147a27dc55fe49a74a8f7290522417853a7cf480f72385684694",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_5e2e5282_20992.efi",
+   "size": 20992,
+   "sha256": "5e2e52826e2f8550faa865a5bb9a536df3a8237155a70e31fe14eb38686fc161",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_06a8cb22_45056.efi",
+   "size": 45056,
+   "sha256": "06a8cb22de60c8393db3c57eaf5b809f18ed4389f224d4b3bc78a841533c9eb4",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_63f30308_17408.efi",
+   "size": 17408,
+   "sha256": "63f303085344f4065e2f22c3b1bdfd23fb75d0250da65ae111d033b9b87d3333",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_fe3b77c1_39424.efi",
+   "size": 39424,
+   "sha256": "fe3b77c1474cbc89fa49c8ffe906065d226af396da67ff77cadb92b44e13b2e8",
+   "matches_package": null,
+   "saved": true
+  }
+ ]
+}
