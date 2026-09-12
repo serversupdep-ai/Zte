@@ -42,3 +42,12 @@ https://downloads.dell.com/FOLDER13970198M/1/Latitude_5X00_Precision_3540_1.43.1
 
 # --- original packages (reference) ---
 https://downloads.dell.com/FOLDER07958771M/2/OptiPlex_3090_2.0.7.exe
+
+# --- 2023-25 EC-era field machines (9ABE/CF1B generation) — added for the
+#     offline-keygen EC pivot: hunt for a plaintext PHCM EC with the type-6
+#     GENERATE handler (CF1B_FINDINGS.md §11) ---
+https://dl.dell.com/FOLDER14468109M/1/Latitude_5440_Precision_3480_1.31.1.exe
+https://dl.dell.com/FOLDER11559391M/1/Latitude_3450_3550_1.3.1.exe
+https://dl.dell.com/FOLDER12134229M/1/Precision_3581_1.17.0.exe
+https://dl.dell.com/FOLDER12134428M/1/Precision_3580_Latitude_5540_1.17.0.exe
+https://dl.dell.com/FOLDER09760250M/1/Latitude_3440_3540_1.2.0.exe
