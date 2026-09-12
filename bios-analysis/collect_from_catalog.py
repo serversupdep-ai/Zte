@@ -94,6 +94,12 @@ def harvest(blob, ec_out, pw_out, seen, tmpdir="/tmp/collect_carve"):
         candidates += [b for _p, b in carved]
     except Exception:
         pass
+    # 2023+ "CPG" packages: xz/zstd-compressed payloads
+    try:
+        for s in _carve_xz_zstd(blob):
+            candidates.append(s)
+    except Exception:
+        pass
     # capsule-wrapped PFS: add slices starting at every PFS.HDR. magic
     for off in range(0, min(len(blob), 0x100000)):
         if blob[off:off + 8] == b"PFS.HDR.":
@@ -136,6 +142,59 @@ def harvest(blob, ec_out, pw_out, seen, tmpdir="/tmp/collect_carve"):
             pass
 
 
+MAGICS = {
+    "zstd": b"\x28\xb5\x2f\xfd",
+    "xz": b"\xfd7zXZ\x00",
+    "7z": b"7z\xbc\xaf\x27\x1c",
+    "zip": b"PK\x03\x04",
+    "PFS": b"PFS.HDR.",
+    "PHCM": b"PHCM",
+}
+
+
+def _magic_census(data, limit=None):
+    d = data if limit is None else data[:limit]
+    out = {}
+    for name, m in MAGICS.items():
+        c, i = 0, d.find(m)
+        while i >= 0 and c < 20:
+            c += 1
+            i = d.find(m, i + 1)
+        if c:
+            out[name] = c
+    return out
+
+
+def _carve_xz_zstd(data):
+    """Carve every xz/zstd stream in a blob; return decompressed buffers."""
+    import lzma
+    import io as _io
+    out = []
+    for name, magic in (("xz", b"\xfd7zXZ\x00"), ("zstd", b"\x28\xb5\x2f\xfd")):
+        i = data.find(magic)
+        while i >= 0 and len(out) <= 64:
+            raw = data[i:]
+            try:
+                if name == "xz":
+                    blob = lzma.LZMADecompressor(format=lzma.FORMAT_XZ)
+                    blob_out = blob.decompress(raw)
+                else:
+                    import zstandard as zstd
+                    try:
+                        blob_out = zstd.ZstdDecompressor().decompress(
+                            raw[:200_000_000], max_output_size=800_000_000)
+                    except Exception:
+                        r = zstd.ZstdDecompressor(read_across_frames=True).stream_reader(
+                            _io.BytesIO(raw), read_across_frames=True)
+                        blob_out = r.read()
+                if blob_out and len(blob_out) > 1024:
+                    out.append(blob_out)
+            except Exception:
+                pass
+            i = data.find(magic, i + 1)
+    return out
+
+
 def _harvest_content(cur, ec_out, pw_out, seen):
     """Harvest PHCM blobs and password PE modules from one content buffer."""
     if cur[:4] == b"PHCM":
@@ -159,11 +218,38 @@ def _harvest_content(cur, ec_out, pw_out, seen):
             break
 
 
-def process_blob(blob, tag, outdir):
+def process_blob(blob, tag, outdir, pkg_path=None):
     """Extract EC/pw payloads from one package blob; return manifest entries."""
     os.makedirs(outdir, exist_ok=True)
     ec_out, pw_out, seen = [], [], set()
     harvest(blob, ec_out, pw_out, seen)
+    if not ec_out and not pw_out:
+        print("    [diag] no payloads via primary routes; "
+              f"magic census: {_magic_census(blob, 0x1000000)}")
+        try:
+            raw = open(pkg_path, "rb").read() if isinstance(pkg_path, str) else pkg_path
+            for s in _carve_xz_zstd(raw):
+                harvest(s, ec_out, pw_out, seen)
+        except Exception as e:
+            print(f"    [diag] deep carve failed: {e}")
+        if not ec_out and not pw_out:
+            import shutil as _sh
+            import subprocess as _sp
+            import tempfile as _tf
+            sz = _sh.which("7z")
+            if sz and isinstance(pkg_path, str):
+                try:
+                    with _tf.TemporaryDirectory() as td:
+                        _sp.run([sz, "x", "-y", f"-o{td}", "--", pkg_path],
+                                capture_output=True, timeout=600)
+                        for root, _dirs, files in os.walk(td):
+                            for fn in sorted(files):
+                                p = os.path.join(root, fn)
+                                cur = open(p, "rb").read()
+                                if len(cur) >= 64:
+                                    harvest(cur, ec_out, pw_out, seen)
+                except Exception as e:
+                    print(f"    [diag] 7z fallback failed: {e}")
     entries = []
     for i, ec in enumerate(sorted(ec_out, key=len), 1):
         fn = os.path.join(outdir, f"ec_{i}_{len(ec)}.bin")
@@ -526,7 +612,8 @@ def main():
             try:
                 for tag, blob in lvfs_fetch(job):
                     entries = process_blob(blob, tag,
-                                           os.path.join(args.out, tag))
+                                           os.path.join(args.out, tag),
+                                           pkg_path=blob)
                     print(f"    {tag}: {len(entries)} payloads")
             except Exception as e:
                 print(f"    LVFS FAILED: {e}")
@@ -565,7 +652,7 @@ def main():
         if blob is None:
             print("    no container (route=none) — trying RAW package scan")
             blob = open(path, "rb").read()
-        entries = process_blob(blob, tag, outdir)
+        entries = process_blob(blob, tag, outdir, pkg_path=path)
         mf = os.path.join(outdir, "manifest.json")
         old = []
         if os.path.exists(mf):

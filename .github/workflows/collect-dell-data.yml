@@ -26,7 +26,7 @@ jobs:
 
       - name: Setup python + 7z
         run: |
-          python3 -m pip -q install uefi_firmware pefile
+          python3 -m pip -q install uefi_firmware pefile zstandard
           sudo apt-get -qq update
           sudo apt-get -qq install -y --no-install-recommends p7zip-full zstd > /dev/null
 

@@ -586,3 +586,57 @@ scan). For the *user's own machine* that does not matter: the EC is the
 oracle, the protocol above is its complete public interface, and the tool
 talks to it directly. Offline keygen for arbitrary other CF1B machines
 remains impossible without an EC-firmware secret leak (§10 unchanged).
+
+### 11.7 Offline-keygen campaign — status of the EC-firmware route (2026-09-12)
+
+Directive: derive the CF1B master OFFLINE from online-collected firmware; no
+live machine. The §11 result localizes the transform: the master = first 16
+bytes of the EC's type-6 response to (service tag, family byte). Therefore an
+offline keygen requires the EC-side algorithm — i.e. EC firmware code.
+
+**PHCM container (Dell EC update/SPI-region format) — reversed:**
+
+| field | format 1.0 (plaintext era) | format 1.1 (sealed era) |
+|---|---|---|
+| magic/version @0x00 | `PHCM` + `00 01 00 03` | `PHCM` + `01 01 84 03` |
+| body-offset field @0x14 | 0x80 (body at 0x80) | 0xC0 (body actually at 0x180) |
+| block count @0x10 | N (body = N×64 B) | N (body = N×64 B, file = 0x180+64N) |
+| @0x40 | 32 B = SHA-256(header[0:0x40]) — **verified** | same (shared by main+backup slots) |
+| @0x60 | zeros | 64 B per-image crypto material (zeroed in "Backup" slots) |
+| trailer | — | Backup slots carry +16 B (MAC/CRC) |
+| body | Cortex-M Thumb-2, plaintext | AES-sealed (entropy ≈ 7.97, χ² ≈ df, zero cross-version/cross-model block collisions ⇒ chained mode or per-image IV/keys) |
+
+**Fleet facts (census re-run on the extended corpus):**
+- Only the Latitude 5X90 1.41.0 pair is plaintext — and its engine is the OLD
+  store-and-compare design (subs 0/1/2/8; NO type-6 GENERATE).
+- The 3090 v1.29.1 EC body is byte-identical across OptiPlex 5080/7080/3090
+  (all BIOS 2024+ packages) — one shared firmware per desktop generation.
+- Every 2020+ EC payload in the corpus (now incl. Latitude 3450/3550 1.3.1
+  and the six 5400/5500-generation payloads) is sealed; no AES key in the
+  header (all standard key/IV interpretations + SHA/MD5 KDFs over header
+  material tested against a Cortex-M vector-table known-plaintext scorer —
+  zero hits; the key is fused in the EC).
+
+**Params-in-BIOS lead — CLOSED.** Full-table scan of all 178 collected
+pw/vault modules: 8FC8 always has params=NULL (alphabet-only, EC-routed);
+E7A8 always carries params (locally generated; two rotated sets on the 3450);
+9ABE/CF1B/3FE2/1B58 never appear in BIOS-module tables at all — not even as
+raw u16 words in the Latitude 3450/3550 (9ABE field family) image. The
+EC-list family secrets exist NOWHERE in any BIOS image.
+
+**2023-25 package extraction (in flight).** The 2023+ Latitude/Precision
+packages (Latitude 5440/Precision 3480 1.31.1, Precision 3581 1.17.0,
+Precision 3580/Latitude 5540 1.17.0, Latitude 3440/3540 1.2.0) are DUB
+containers whose ~50 MB payload yields nothing to the zlib-era parsers — a
+new compression layer ("CPG"). The collector now has 7z-SFX recursion,
+xz/zstd carving, raw-package fallback, magic-census diagnostics and #tag=
+support; their .rcv images are byte-identical to the .exe payloads. Two
+older 5440 versions (1.0.1 initial release Mar 2023, 1.22.0 Jul 2025) are
+queued — earlier packaging may still be zlib-era, and the field machines run
+older BIOSes whose EC firmware differs. **A single plaintext EC of the
+2023+ generation anywhere in this set exposes the GENERATE algorithm for
+the whole family list (CF1B included) — the offline keygen then follows
+directly.** If every 2023+ EC is sealed, the transform is unreachable from
+public data (key in EC silicon) and the offline keygen is provably blocked
+at that boundary; the working routes remain §11.5 (machine-side reader) and
+§10.2 (SPI patch).

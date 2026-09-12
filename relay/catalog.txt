@@ -55,3 +55,6 @@ https://dl.dell.com/FOLDER09760250M/1/Latitude_3440_3540_1.2.0.exe
 https://dl.dell.com/FOLDER14481444M/1/BIOS_IMG.rcv#tag=BIOS_IMG_rcv_5440_3480
 https://dl.dell.com/FOLDER12134309M/1/BIOS_IMG.rcv#tag=BIOS_IMG_rcv_3581
 https://dl.dell.com/FOLDER12134544M/1/BIOS_IMG.rcv#tag=BIOS_IMG_rcv_3580_5540
+# older 5440/3480 versions: 1.0.1 initial release (Mar 2023, old packaging?) + 1.22.0
+https://dl.dell.com/FOLDER09495728M/1/Latitude_5440_Precision_3480_1.0.1.exe
+https://dl.dell.com/FOLDER12810250M/1/Latitude_5440_Precision_3480_1.22.0.exe
