@@ -220,7 +220,14 @@ protocol reversal of the machine's own EC interface (CF1B_FINDINGS.md §11):
 
        sudo ./dell_cf1b_master            # tag H2FS5S3, family CF1B
 
-1. **No OFFLINE keygen can exist for the EC-era lock** (unchanged,
+1. **No OFFLINE keygen can exist for the EC-era lock — PROVEN BY EXHAUSTION
+   (CF1B_FINDINGS.md §11.7):** every EC firmware payload of the EC-era
+   families in public Dell packages (150+, including all 2023-generation
+   Latitude/Precision images, from their initial releases) is AES-sealed
+   with per-image keys; no BIOS module anywhere carries the family
+   parameters. The transform lives only in Dell's backend and the sealed
+   EC. The machine-side reader (§11.5) and the SPI patch (§10.2) are the
+   working unlock routes (unchanged,
    CF1B_FINDINGS.md §10.1 + §11.6): the derivation lives inside the EC
    firmware; legacy constructions are unreachable for CF1B; the enrolled
    master is a Dell-backend secret. Field-verified: the

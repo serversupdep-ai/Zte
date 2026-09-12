@@ -624,7 +624,7 @@ E7A8 always carries params (locally generated; two rotated sets on the 3450);
 raw u16 words in the Latitude 3450/3550 (9ABE field family) image. The
 EC-list family secrets exist NOWHERE in any BIOS image.
 
-**2023-25 package extraction (in flight).** The 2023+ Latitude/Precision
+**2023-25 package extraction — COMPLETE (2026-09-12).** The 2023+ Latitude/Precision
 packages (Latitude 5440/Precision 3480 1.31.1, Precision 3581 1.17.0,
 Precision 3580/Latitude 5540 1.17.0, Latitude 3440/3540 1.2.0) are DUB
 containers whose ~50 MB payload yields nothing to the zlib-era parsers — a
@@ -633,10 +633,29 @@ xz/zstd carving, raw-package fallback, magic-census diagnostics and #tag=
 support; their .rcv images are byte-identical to the .exe payloads. Two
 older 5440 versions (1.0.1 initial release Mar 2023, 1.22.0 Jul 2025) are
 queued — earlier packaging may still be zlib-era, and the field machines run
-older BIOSes whose EC firmware differs. **A single plaintext EC of the
-2023+ generation anywhere in this set exposes the GENERATE algorithm for
-the whole family list (CF1B included) — the offline keygen then follows
-directly.** If every 2023+ EC is sealed, the transform is unreachable from
-public data (key in EC silicon) and the offline keygen is provably blocked
-at that boundary; the working routes remain §11.5 (machine-side reader) and
-§10.2 (SPI patch).
+older BIOSes whose EC firmware differs. **VERDICT: every EC of the GENERATE era is sealed — the offline keygen
+from public data is impossible.** The 7z-SFX route cracked the CPG
+packaging: all six 2023-generation packages extracted (24 new EC payloads:
+Latitude 5440/Precision 3480 at 1.0.1/1.22.0/1.31.1, Precision 3581 1.17.0,
+Precision 3580/Latitude 5540 1.17.0, Latitude 3440/3540 1.2.0). Census:
+format-3 sealed bodies, entropy 8.00, zero Cortex-M signatures — **from the
+initial 1.0.1 release (Mar 2023) onward**, i.e. the EC-era families never
+shipped a plaintext EC. Zero 64-byte ciphertext collisions across versions
+and models ⇒ per-image keys/IVs; the key is fused in EC silicon.
+
+**Family-wide architecture CONFIRMED (2026 Latitude 5440, pw_3):** the
+newest 5440 BIOS 1.31.1 carries the complete GENERATE machinery — fixed EC
+command @0x82e0, EC family list (1B58, 9ABE, 3FE2, CF1B, 8FC8) @0x81f8,
+type-6 {C065AEAB} GUID, both alphabets — byte-identical markers to the
+3090's 2.27.0 module. Desktop and laptop, 2020→2026: one architecture, one
+sealed secret.
+
+**Therefore (offline campaign closure):** the tag→master transform for
+CF1B/9ABE/3FE2/1B58/8FC8 exists in exactly two places — Dell's backend and
+the sealed EC firmware. No public BIOS package, no public EC payload, and
+no cross-family table contains it (178+28 module scans, 150+ EC payloads,
+all documented above). An offline keygen would require either the AES key
+fused in the EC or a Dell-backend leak. The two delivered working solutions
+stand: §11.5 machine-side EC reader (`dell_cf1b_master.c` — asks the
+machine's own EC, which is the only local holder of the secret) and §10.2
+SPI-dump patch (`dell_unlock_image.py`).
