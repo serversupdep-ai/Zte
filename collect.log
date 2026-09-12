@@ -219,6 +219,12 @@ Data does not container the footer magic (b'PFS.FTR.').
 [33] downloading https://dl.dell.com/FOLDER09760250M/1/Latitude_3440_3540_1.2.0.exe
 [33] processing /tmp/Latitude_3440_3540_1.2.0.exe -> bios-analysis/collected/Latitude_3440_3540_1.2.0
     0 new payloads (0 EC, 0 pw); manifest total 0
+[34] downloading https://dl.dell.com/FOLDER14481444M/1/BIOS_IMG_5440_3480.rcv
+    DOWNLOAD FAILED: HTTP Error 404: Not Found
+[35] downloading https://dl.dell.com/FOLDER12134309M/1/BIOS_IMG_3581.rcv
+    DOWNLOAD FAILED: HTTP Error 404: Not Found
+[36] downloading https://dl.dell.com/FOLDER12134544M/1/BIOS_IMG_3580_5540.rcv
+    DOWNLOAD FAILED: HTTP Error 404: Not Found
 [1] LVFS https://fwupd.org/lvfs/devices/com.dell.uefic9284bf6.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 52867cc9d04f339de5db508304dfc3d57e8d1f8b11f730f16438c9176ed4c7bc-OptiPlex_3090_2.30.0_firmware.cab
