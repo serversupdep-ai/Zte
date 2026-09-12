@@ -33,7 +33,7 @@ from unicorn import *                                     # noqa: E402
 from unicorn.x86_const import *                           # noqa: E402
 from dell_v2_keygen import VaultEmu, BASE                 # noqa: E402
 
-PE = sys.argv[1] if len(sys.argv) > 1 else "/tmp/vault_2270_cf1b_pe32.pe"
+PE = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), "firmware", "vault_3090_2.27.0_cf1b.pe")
 FN_37AC = 0x37AC          # EC session (sub 3): type-6 branch = GENERATE
 GLB_IF = 0xafc0           # DellEcIo interface object pointer
 GLB_MODE = 0xaec8         # mode qword (type-4 branch only)
