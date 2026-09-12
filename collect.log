@@ -203,6 +203,7 @@ Data does not container the footer magic (b'PFS.FTR.').
   [carve] LZMA-alone @0xF00C1 -> 5,972,008 bytes
   [carve] LZMA-alone @0x2A6A91 -> 2,252,848 bytes
   [carve] LZMA-alone @0x3FF8F9 -> 1,413,664 bytes
+    [diag] no payloads via primary routes; magic census: {'PFS': 1}
     0 new payloads (0 EC, 0 pw); manifest total 0
 [25] downloading https://downloads.dell.com/FOLDER12975937M/1/Latitude_5X90_1.41.0.exe
 [25] processing /tmp/Latitude_5X90_1.41.0.pkg -> bios-analysis/collected/Latitude_5X90_1.41.0
@@ -227,11 +228,17 @@ Data does not container the footer magic (b'PFS.FTR.').
   [carve] Dell HDR zlib @0x112DA84 -> 34,441,252 bytes
   [carve] generic zlib @0x78 -> 34,441,252 bytes
   [carve] generic zlib @0x112DA94 -> 34,441,252 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
     9 new payloads (4 EC, 5 pw); manifest total 9
 [29] downloading https://dl.dell.com/FOLDER14468109M/1/Latitude_5440_Precision_3480_1.31.1.exe
 [29] processing /tmp/Latitude_5440_Precision_3480_1.31.1.pkg -> bios-analysis/collected/Latitude_5440_Precision_3480_1.31.1
     container route: dub (50734366 bytes)
-    0 new payloads (0 EC, 0 pw); manifest total 0
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x77400 -> 50,734,366 bytes
+  [carve] generic zlib @0x10 -> 1,346,983 bytes
+  [carve] generic zlib @0x77410 -> 50,734,366 bytes
+    7 new payloads (4 EC, 3 pw); manifest total 7
 [30] downloading https://dl.dell.com/FOLDER11559391M/1/Latitude_3450_3550_1.3.1.exe
 [30] processing /tmp/Latitude_3450_3550_1.3.1.pkg -> bios-analysis/collected/Latitude_3450_3550_1.3.1
     container route: dub (37117239 bytes)
@@ -239,31 +246,85 @@ Data does not container the footer magic (b'PFS.FTR.').
   [carve] Dell HDR zlib @0x12ACFAB -> 43,776,833 bytes
   [carve] generic zlib @0x68 -> 48,877,665 bytes
   [carve] generic zlib @0x12ACFBB -> 43,776,833 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
     8 new payloads (0 EC, 8 pw); manifest total 8
 [31] downloading https://dl.dell.com/FOLDER12134229M/1/Precision_3581_1.17.0.exe
 [31] processing /tmp/Precision_3581_1.17.0.pkg -> bios-analysis/collected/Precision_3581_1.17.0
     container route: dub (55087961 bytes)
-    0 new payloads (0 EC, 0 pw); manifest total 0
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x7CA00 -> 55,087,961 bytes
+  [carve] generic zlib @0x210 -> 1,367,820 bytes
+  [carve] generic zlib @0x7CA10 -> 55,087,961 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    7 new payloads (4 EC, 3 pw); manifest total 7
 [32] downloading https://dl.dell.com/FOLDER12134428M/1/Precision_3580_Latitude_5540_1.17.0.exe
 [32] processing /tmp/Precision_3580_Latitude_5540_1.17.0.pkg -> bios-analysis/collected/Precision_3580_Latitude_5540_1.17.0
     container route: dub (60304874 bytes)
-    0 new payloads (0 EC, 0 pw); manifest total 0
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x89200 -> 60,304,874 bytes
+  [carve] generic zlib @0x210 -> 1,420,135 bytes
+  [carve] generic zlib @0x89210 -> 60,304,874 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    11 new payloads (8 EC, 3 pw); manifest total 11
 [33] downloading https://dl.dell.com/FOLDER09760250M/1/Latitude_3440_3540_1.2.0.exe
 [33] processing /tmp/Latitude_3440_3540_1.2.0.pkg -> bios-analysis/collected/Latitude_3440_3540_1.2.0
     container route: dub (44295699 bytes)
-    0 new payloads (0 EC, 0 pw); manifest total 0
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x76000 -> 44,295,699 bytes
+  [carve] generic zlib @0x10 -> 1,338,313 bytes
+  [carve] generic zlib @0x76010 -> 44,295,699 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    16 new payloads (8 EC, 8 pw); manifest total 16
 [34] downloading https://dl.dell.com/FOLDER14481444M/1/BIOS_IMG.rcv
 [34] processing /tmp/BIOS_IMG_rcv_5440_3480.pkg -> bios-analysis/collected/BIOS_IMG_rcv_5440_3480
     container route: dub (50734366 bytes)
-    0 new payloads (0 EC, 0 pw); manifest total 0
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x77400 -> 50,734,366 bytes
+  [carve] generic zlib @0x10 -> 1,346,983 bytes
+  [carve] generic zlib @0x77410 -> 50,734,366 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    7 new payloads (4 EC, 3 pw); manifest total 7
 [35] downloading https://dl.dell.com/FOLDER12134309M/1/BIOS_IMG.rcv
 [35] processing /tmp/BIOS_IMG_rcv_3581.pkg -> bios-analysis/collected/BIOS_IMG_rcv_3581
     container route: dub (55087961 bytes)
-    0 new payloads (0 EC, 0 pw); manifest total 0
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x7CA00 -> 55,087,961 bytes
+  [carve] generic zlib @0x210 -> 1,367,820 bytes
+  [carve] generic zlib @0x7CA10 -> 55,087,961 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    7 new payloads (4 EC, 3 pw); manifest total 7
 [36] downloading https://dl.dell.com/FOLDER12134544M/1/BIOS_IMG.rcv
 [36] processing /tmp/BIOS_IMG_rcv_3580_5540.pkg -> bios-analysis/collected/BIOS_IMG_rcv_3580_5540
     container route: dub (60304874 bytes)
-    0 new payloads (0 EC, 0 pw); manifest total 0
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x89200 -> 60,304,874 bytes
+  [carve] generic zlib @0x210 -> 1,420,135 bytes
+  [carve] generic zlib @0x89210 -> 60,304,874 bytes
+Data does not container the footer magic (b'PFS.FTR.').
+Data does not container the footer magic (b'PFS.FTR.').
+    11 new payloads (8 EC, 3 pw); manifest total 11
+[37] downloading https://dl.dell.com/FOLDER09495728M/1/Latitude_5440_Precision_3480_1.0.1.exe
+[37] processing /tmp/Latitude_5440_Precision_3480_1.0.1.pkg -> bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1
+    container route: dub (50181372 bytes)
+    [diag] no payloads via primary routes; magic census: {'PFS': 4}
+  [carve] Dell HDR zlib @0x77400 -> 50,181,372 bytes
+  [carve] generic zlib @0x10 -> 1,342,329 bytes
+  [carve] generic zlib @0x77410 -> 50,181,372 bytes
+    12 new payloads (4 EC, 8 pw); manifest total 12
+[38] downloading https://dl.dell.com/FOLDER12810250M/1/Latitude_5440_Precision_3480_1.22.0.exe
+[38] processing /tmp/Latitude_5440_Precision_3480_1.22.0.pkg -> bios-analysis/collected/Latitude_5440_Precision_3480_1.22.0
+    container route: dub (49017264 bytes)
+  [carve] Dell HDR zlib @0x58 -> 50,717,950 bytes
+  [carve] Dell HDR zlib @0x175FA85 -> 50,717,895 bytes
+  [carve] generic zlib @0x68 -> 50,717,950 bytes
+  [carve] generic zlib @0x175FA95 -> 50,717,895 bytes
+    7 new payloads (4 EC, 3 pw); manifest total 7
 [1] LVFS https://fwupd.org/lvfs/devices/com.dell.uefic9284bf6.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 52867cc9d04f339de5db508304dfc3d57e8d1f8b11f730f16438c9176ed4c7bc-OptiPlex_3090_2.30.0_firmware.cab

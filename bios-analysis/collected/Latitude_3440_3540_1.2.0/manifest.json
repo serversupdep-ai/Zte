@@ -1,4 +1,109 @@
 {
  "url": "https://dl.dell.com/FOLDER09760250M/1/Latitude_3440_3540_1.2.0.exe",
- "entries": []
+ "entries": [
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/ec_1_250240.bin",
+   "kind": "ec",
+   "size": 250240,
+   "sha256": "f68169b7c99e6cd37eb7068c4259cffea65e4fb64f034c6bbad6ad43121574c6"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/ec_2_250240.bin",
+   "kind": "ec",
+   "size": 250240,
+   "sha256": "45db7a99f8f06ecd0ad4c2ea11288c429f3eb41ff9b0fe5d8546a91cdb34e460"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/ec_3_250240.bin",
+   "kind": "ec",
+   "size": 250240,
+   "sha256": "e3971a16e5489ea73a280075cfc07b6ac2338f850a492d3d132e15192bef5201"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/ec_4_250240.bin",
+   "kind": "ec",
+   "size": 250240,
+   "sha256": "abd2c59bf3cdf83950222d67da5109f448075d7e43b7be042922ff3b9e621152"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/ec_5_250256.bin",
+   "kind": "ec",
+   "size": 250256,
+   "sha256": "9d723ccc1d9dd8f9c3838e7a4751017b12fbfa176d8210e4287dfd2e4527d551"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/ec_6_250256.bin",
+   "kind": "ec",
+   "size": 250256,
+   "sha256": "41f2978421c7f6b268cfa13451d4657431f6b38b8b7aa310fc1e99545e00852b"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/ec_7_250256.bin",
+   "kind": "ec",
+   "size": 250256,
+   "sha256": "e9b9a049da7ebf74b1dbddaa49c4b9fa7409774f6a3b19b74546b6569e4e35b0"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/ec_8_250256.bin",
+   "kind": "ec",
+   "size": 250256,
+   "sha256": "4675d4e3aea0d0038fb30fd1fb4ffc5f6c1d37aea5be7da1c82d20dfe508c98d"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/pw_1_17408.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 17408,
+   "sha256": "513371258ff321446d3e22065170486fecc030fe0004e53a4ad02cb932648f1b"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/pw_2_18432.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 18432,
+   "sha256": "b51b4ee081d0e607f9229eeb306edc8bb88092a9abf9e2da98bec89e14199d3b"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/pw_3_20992.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 20992,
+   "sha256": "17de61d41d7baa346292fa039633af2d8358f738a8c1e2c66813e05f0f177c28"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/pw_4_23040.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 23040,
+   "sha256": "d02c2dd13c01ab2e067e43eae36ed8d5980c6fb64276ed364f801f1048f6944b"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/pw_5_28672.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 28672,
+   "sha256": "03f657e2c76449ced5077df37e2afeab3ba208c5550bcffc7b82ef864a65a11c"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/pw_6_37888.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 37888,
+   "sha256": "83b84b0c989d70be2de47b923abde4e592766b245ee7afddc1fa24f277a3506f"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/pw_7_39424.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 39424,
+   "sha256": "fe3b77c1474cbc89fa49c8ffe906065d226af396da67ff77cadb92b44e13b2e8"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_3440_3540_1.2.0/pw_8_47616.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 47616,
+   "sha256": "9bffcdf98505acd83ffaf16b7a18dda8b7fa6cd2fe7af1f2d66f625b64e68649"
+  }
+ ]
 }

@@ -1,4 +1,50 @@
 {
  "url": "https://dl.dell.com/FOLDER12134229M/1/Precision_3581_1.17.0.exe",
- "entries": []
+ "entries": [
+  {
+   "file": "bios-analysis/collected/Precision_3581_1.17.0/ec_1_308224.bin",
+   "kind": "ec",
+   "size": 308224,
+   "sha256": "76664f3c51826a3491f1f1a69c96907a3e1f2c97bbad81ba31bf188785589e6f"
+  },
+  {
+   "file": "bios-analysis/collected/Precision_3581_1.17.0/ec_2_308224.bin",
+   "kind": "ec",
+   "size": 308224,
+   "sha256": "3624aad7efd5c430eda45c3ee7033ca73b116da45fb529cd7508ac3596812488"
+  },
+  {
+   "file": "bios-analysis/collected/Precision_3581_1.17.0/ec_3_308240.bin",
+   "kind": "ec",
+   "size": 308240,
+   "sha256": "7eb6b547cd41a54a498c61ffab0ce935f519fbe6884e3d2c87564ddbd9c429b4"
+  },
+  {
+   "file": "bios-analysis/collected/Precision_3581_1.17.0/ec_4_308240.bin",
+   "kind": "ec",
+   "size": 308240,
+   "sha256": "00d497a54f8b2cfbd1f148ee89b66600a1d6ae412945ec07af5b9c876f870f5c"
+  },
+  {
+   "file": "bios-analysis/collected/Precision_3581_1.17.0/pw_1_18432.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 18432,
+   "sha256": "2ebedaeb763e898f14ece3e29d1202a4aae25f0efa65eba2e3e30e02ef5bf08e"
+  },
+  {
+   "file": "bios-analysis/collected/Precision_3581_1.17.0/pw_2_37888.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 37888,
+   "sha256": "83b84b0c989d70be2de47b923abde4e592766b245ee7afddc1fa24f277a3506f"
+  },
+  {
+   "file": "bios-analysis/collected/Precision_3581_1.17.0/pw_3_39424.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 39424,
+   "sha256": "bf3fc7284fc7958427c82ce2f2c32a511261b24d47f79a90430d7c6cf26b5c8a"
+  }
+ ]
 }

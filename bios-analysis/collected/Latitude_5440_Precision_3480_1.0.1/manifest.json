@@ -1,0 +1,85 @@
+{
+ "url": "https://dl.dell.com/FOLDER09495728M/1/Latitude_5440_Precision_3480_1.0.1.exe",
+ "entries": [
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/ec_1_308224.bin",
+   "kind": "ec",
+   "size": 308224,
+   "sha256": "30a65ff5fa044e1eb660339911c2b67ae579b6b3ef6b5c9da98e140aad9b4532"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/ec_2_308224.bin",
+   "kind": "ec",
+   "size": 308224,
+   "sha256": "d5cecd9a486eff23908fcff3fcc64d8abcd6797d6276a8a47e5cd627e5007709"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/ec_3_308240.bin",
+   "kind": "ec",
+   "size": 308240,
+   "sha256": "9b6f4557adf52f5beac5f64fca1101c2077d58502f9e198dbc22d8853b29e9ef"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/ec_4_308240.bin",
+   "kind": "ec",
+   "size": 308240,
+   "sha256": "7c897c6bed335d7250dd2f3df908b5bc59d1270e20c4fe692df59c40fb231cf2"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/pw_1_17408.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 17408,
+   "sha256": "513371258ff321446d3e22065170486fecc030fe0004e53a4ad02cb932648f1b"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/pw_2_18432.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 18432,
+   "sha256": "8d5f7ac8d70f9ad5f080a8c6d28c657c5fc205ed1e57df85c1b4a91c645ecb7a"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/pw_3_20992.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 20992,
+   "sha256": "17de61d41d7baa346292fa039633af2d8358f738a8c1e2c66813e05f0f177c28"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/pw_4_23040.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 23040,
+   "sha256": "d02c2dd13c01ab2e067e43eae36ed8d5980c6fb64276ed364f801f1048f6944b"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/pw_5_28672.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 28672,
+   "sha256": "03f657e2c76449ced5077df37e2afeab3ba208c5550bcffc7b82ef864a65a11c"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/pw_6_37888.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 37888,
+   "sha256": "83b84b0c989d70be2de47b923abde4e592766b245ee7afddc1fa24f277a3506f"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/pw_7_39424.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 39424,
+   "sha256": "fe3b77c1474cbc89fa49c8ffe906065d226af396da67ff77cadb92b44e13b2e8"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/pw_8_47616.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 47616,
+   "sha256": "9bffcdf98505acd83ffaf16b7a18dda8b7fa6cd2fe7af1f2d66f625b64e68649"
+  }
+ ]
+}
