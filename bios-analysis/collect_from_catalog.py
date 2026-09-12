@@ -179,6 +179,7 @@ def process_blob(blob, tag, outdir):
 
 
 def load_pkg(path_or_data):
+    """Return (blob, route) for a Dell package (any of the 3 container eras)."""
     if isinstance(path_or_data, (bytes, bytearray)):
         data = bytes(path_or_data)
     else:
@@ -186,45 +187,75 @@ def load_pkg(path_or_data):
     # DellUpdateBinary container -> PFS payload
     dub = find_dub(data)
     if dub:
-        return dub
+        return dub, "dub"
     if data[:8] == b"PFS.HDR.":
-        return data
-    # 2023+ "CPG" packages: SFX/zip/7z-wrapped or PFS at a non-zero offset.
-    # 1) any embedded PFS.HDR. (whole file)
+        return data, "pfs@0"
+
+    def pfs_ok(cand):
+        try:
+            pfs = PFSFile(cand)
+            pfs.process()
+            return len(getattr(pfs, "sections", [])) > 0
+        except Exception:
+            return False
+
+    # 2023+ "CPG" packages are 7z/zip SFX archives: extract FIRST, recurse.
+    inner = _try_archive(path_or_data, data)
+    if inner is not None:
+        blob, route = inner
+        return blob, "7z:" + route
+
+    # PFS at a non-zero offset (validated so a chance magic match doesn't win)
     off = data.find(b"PFS.HDR.")
+    if off >= 0 and pfs_ok(data[off:]):
+        return data[off:], f"pfs@{off:#x}"
+    # last resort: unvalidated PFS slice is still better than nothing
     if off >= 0:
-        return data[off:]
-    # 2) 7z/zip/SFX extraction, then recurse into the extracted files
+        return data[off:], f"pfs-unvalidated@{off:#x}"
+    return None, "none"
+
+
+def _try_archive(path_or_data, data):
+    """7z/zip extraction of SFX packages; recurse into extracted files.
+    Returns (blob, inner-route) or None."""
     import subprocess
     import tempfile
     import shutil
     sz = shutil.which("7z") or shutil.which("7za") or shutil.which("7zr")
-    if sz:
-        try:
-            with tempfile.TemporaryDirectory() as td:
-                r = subprocess.run([sz, "x", "-y", f"-o{td}", "--", path_or_data
-                                    if isinstance(path_or_data, str) else "-"],
-                                   input=data if not isinstance(path_or_data, str) else None,
-                                   capture_output=True, timeout=600)
-                for root, _dirs, files in os.walk(td):
-                    for fn in sorted(files):
-                        p = os.path.join(root, fn)
-                        try:
-                            cur = open(p, "rb").read()
-                        except OSError:
-                            continue
-                        if len(cur) < 64:
-                            continue
-                        dub2 = find_dub(cur)
-                        if dub2:
-                            return dub2
-                        if cur[:8] == b"PFS.HDR.":
-                            return cur
-                        off2 = cur.find(b"PFS.HDR.")
-                        if off2 >= 0:
-                            return cur[off2:]
-        except Exception:
-            pass
+    if not sz:
+        return None
+    try:
+        with tempfile.TemporaryDirectory() as td:
+            args = [sz, "x", "-y", f"-o{td}"]
+            if isinstance(path_or_data, str):
+                args.append(path_or_data)
+                subprocess.run(args, capture_output=True, timeout=600)
+            else:
+                p = os.path.join(td, "in.bin")
+                open(p, "wb").write(data)
+                subprocess.run(args + [p], capture_output=True, timeout=600)
+                os.remove(p)
+            for root, _dirs, files in os.walk(td):
+                for fn in sorted(files):
+                    p = os.path.join(root, fn)
+                    try:
+                        cur = open(p, "rb").read()
+                    except OSError:
+                        continue
+                    if len(cur) < 64:
+                        continue
+                    dub2 = find_dub(cur)
+                    if dub2:
+                        return dub2, f"{fn}:dub"
+                    if cur[:8] == b"PFS.HDR.":
+                        return cur, f"{fn}:pfs@0"
+                    off2 = cur.find(b"PFS.HDR.")
+                    if off2 >= 0:
+                        return cur[off2:], f"{fn}:pfs@{off2:#x}"
+                    if cur[:4] == b"PHCM":
+                        return cur, f"{fn}:phcm"
+    except Exception:
+        pass
     return None
 
 
@@ -473,11 +504,14 @@ def main():
 
     jobs = []
     if args.catalog:
-        for line in open(args.catalog):
-            line = line.split("#", 1)[0].strip()   # strip inline comments
-            if not line:
+        for raw in open(args.catalog):
+            raw = raw.strip()
+            if not raw or raw.startswith("#"):
                 continue
-            jobs.append(line)
+            m = re.match(r"^(\S+)(#tag=[A-Za-z0-9._-]+)?\s*(#.*)?$", raw)
+            if not m:
+                continue
+            jobs.append(m.group(1) + (m.group(2) or ""))
     for f in args.file:
         jobs.append(f)
 
@@ -526,14 +560,11 @@ def main():
                      os.path.splitext(os.path.basename(path))[0])
         outdir = os.path.join(args.out, tag)
         print(f"[{i}] processing {path} -> {outdir}")
-        blob = load_pkg(path)
+        blob, route = load_pkg(path)
+        print(f"    container route: {route} ({len(blob) if blob else 0} bytes)")
         if blob is None:
-            try:
-                print(f"    no Dell PFS container found, skipping. "
-                      f"diag={json.dumps(load_pkg_diagnose(path))}")
-            except Exception:
-                print("    no Dell PFS container found, skipping")
-            continue
+            print("    no container (route=none) — trying RAW package scan")
+            blob = open(path, "rb").read()
         entries = process_blob(blob, tag, outdir)
         mf = os.path.join(outdir, "manifest.json")
         old = []
