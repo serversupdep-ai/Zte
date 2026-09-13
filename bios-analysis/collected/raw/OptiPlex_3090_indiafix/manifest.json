@@ -13,12 +13,12 @@
    "sha256": "d141695a5c8177724a5b4825c417476055baf1dde3761ec5318cdca334c65f9a"
   },
   "manifest.json": {
-   "bytes": 1329,
-   "sha256": "2fc3cd66f5e0ebe055a78022ebaf5d54ef1c8fe74ebd4e097f12a797f7db2dc0"
+   "bytes": 1327,
+   "sha256": "14877c55dfac60249ce42cc1d0c387fc3364b6e6394b98e58af645635899e88d"
   },
   "page.html": {
-   "bytes": 3224,
-   "sha256": "780ae02d6a523a235f558a8fa0905ae1d08980a511e6c12efd98ecf46d46cf4c"
+   "bytes": 176060,
+   "sha256": "abe88e7314a330f842335af8d7b2f04f7e0a2f537b0e927b69e57427c372fbff"
   },
   "extracted_drive_2.bin.rar/3090 Bios Password Unlocked.bin": {
    "bytes": 33554432,

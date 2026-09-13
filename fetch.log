@@ -1,17 +1,20 @@
 [PAGE] https://www.indiafix.in/2024/08/fdz41-la-j371p-rev-10-bios-dump-ok.html -> raw/Latitude_5410_LA-J371P
     [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] Latitude_5410_LA-J371P/page.html (181147 bytes, sha256 d5288c60a8875a09…)
+    [saved] Latitude_5410_LA-J371P/page.html (181147 bytes, sha256 0b2d1b758beb7f24…)
     [links] 3 candidates
     [saved] Latitude_5410_LA-J371P/drive_0.bin via gdown (11665938 bytes)
     [saved] Latitude_5410_LA-J371P/drive_1.bin via gdown (9343727 bytes)
     [saved] Latitude_5410_LA-J371P/drive_2.bin via gdown (35372190 bytes)
 [PAGE] https://www.indiafix.in/2024/02/ipcml-rn-zb.html -> raw/OptiPlex_3090_indiafix
-    [page head] '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">\n<html>\n<head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="initial-scale=1"><title>https://www.indiafix.in/2024/02/ipcml-rn-'
-    [saved] OptiPlex_3090_indiafix/page.html (3224 bytes, sha256 780ae02d6a523a23…)
-    [links] 0 candidates
+    [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
+    [saved] OptiPlex_3090_indiafix/page.html (176060 bytes, sha256 abe88e7314a330f8…)
+    [links] 3 candidates
+    [saved] OptiPlex_3090_indiafix/drive_0.bin via gdown (14047090 bytes)
+    [saved] OptiPlex_3090_indiafix/drive_1.bin via gdown (16232667 bytes)
+    [saved] OptiPlex_3090_indiafix/drive_2.bin via gdown (11205072 bytes)
 [PAGE] https://www.indiafix.in/2025/01/dell-latitude-3440-quakel14rpl-213247-1.html -> raw/Latitude_3440_QUAKEL14
     [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] Latitude_3440_QUAKEL14/page.html (233639 bytes, sha256 841e6bdab6760cbc…)
+    [saved] Latitude_3440_QUAKEL14/page.html (233639 bytes, sha256 6d769deb1f58a04e…)
     [links] 3 candidates
     [saved] Latitude_3440_QUAKEL14/drive_0.bin via gdown (13193025 bytes)
     [saved] Latitude_3440_QUAKEL14/drive_1.bin via gdown (56944734 bytes)
@@ -28,20 +31,20 @@
     [fetch failed 400] https://www.uploadfiles.io/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file
 [PAGE] https://web.archive.org/web/2025/https://www.indiafix.in/2024/08/fdz41-la-j371p-rev-10-bios-dump-ok.html -> raw/Latitude_5410_LA-J371P_wb
     [page head] '<!DOCTYPE html>\n<html class="v2" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">\n<head><script src='
-    [saved] Latitude_5410_LA-J371P_wb/page.html (197191 bytes, sha256 6408ccc694f4ce8d…)
+    [saved] Latitude_5410_LA-J371P_wb/page.html (197190 bytes, sha256 43969a09360b9372…)
     [links] 2 candidates
     [saved] Latitude_5410_LA-J371P_wb/drive_0.bin via gdown (11665938 bytes)
     [saved] Latitude_5410_LA-J371P_wb/drive_1.bin via gdown (9343727 bytes)
 [PAGE] https://web.archive.org/web/2025/https://www.indiafix.in/2024/02/ipcml-rn-zb.html -> raw/OptiPlex_3090_indiafix_wb
     [page head] '<!DOCTYPE html>\n<html class="v2" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">\n<head><script src='
-    [saved] OptiPlex_3090_indiafix_wb/page.html (197457 bytes, sha256 96cd635ed49ccd2d…)
+    [saved] OptiPlex_3090_indiafix_wb/page.html (197460 bytes, sha256 25c5bba50558674e…)
     [links] 3 candidates
     [saved] OptiPlex_3090_indiafix_wb/drive_0.bin via gdown (14047090 bytes)
     [saved] OptiPlex_3090_indiafix_wb/drive_1.bin via gdown (16232667 bytes)
     [saved] OptiPlex_3090_indiafix_wb/drive_2.bin via gdown (11205072 bytes)
 [PAGE] https://web.archive.org/web/2025/https://www.indiafix.in/2025/01/dell-latitude-3440-quakel14rpl-213247-1.html -> raw/Latitude_3440_QUAKEL14_wb
     [page head] '<!DOCTYPE html>\n<html class="v2" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">\n<head><script src='
-    [saved] Latitude_3440_QUAKEL14_wb/page.html (243490 bytes, sha256 eddf4ec8622c9481…)
+    [saved] Latitude_3440_QUAKEL14_wb/page.html (243488 bytes, sha256 997c4277fc2a75ef…)
     [links] 2 candidates
     [saved] Latitude_3440_QUAKEL14_wb/drive_0.bin via gdown (13193025 bytes)
     [saved] Latitude_3440_QUAKEL14_wb/drive_1.bin via gdown (13163675 bytes)
@@ -59,19 +62,19 @@
     [links] 0 candidates
 [PAGE] https://www.indiafix.in/2025/04/dell-optiplex-7070-bison-mlk-mt-17509-3.html -> raw/OptiPlex_7070_BISON
     [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] OptiPlex_7070_BISON/page.html (176716 bytes, sha256 81fb83601caa8976…)
+    [saved] OptiPlex_7070_BISON/page.html (176716 bytes, sha256 b741eb3293047907…)
     [links] 3 candidates
     [saved] OptiPlex_7070_BISON/drive_0.bin via gdown (7034693 bytes)
     [saved] OptiPlex_7070_BISON/drive_1.bin via gdown (10473947 bytes)
     [saved] OptiPlex_7070_BISON/drive_2.bin via gdown (21922705 bytes)
 [PAGE] https://www.indiafix.in/2025/08/dell-optiplex-7070-micro-ipcfl-bsek.html -> raw/OptiPlex_7070_Micro_IPCFL
     [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] OptiPlex_7070_Micro_IPCFL/page.html (175545 bytes, sha256 7136a57a6a6f5af0…)
+    [saved] OptiPlex_7070_Micro_IPCFL/page.html (175545 bytes, sha256 5b8d5e9013951e8e…)
     [links] 1 candidates
     [saved] OptiPlex_7070_Micro_IPCFL/drive_0.bin via gdown (21922629 bytes)
 [PAGE] https://www.indiafix.in/2023/06/dell-optiplex-3070-ipcfl-cg-bios.html -> raw/OptiPlex_3070_IPCFL
     [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] OptiPlex_3070_IPCFL/page.html (171710 bytes, sha256 dc3f97ba958289a3…)
+    [saved] OptiPlex_3070_IPCFL/page.html (171710 bytes, sha256 707b4f1651e924a1…)
     [links] 2 candidates
     [saved] OptiPlex_3070_IPCFL/drive_0.bin via gdown (7034669 bytes)
     [saved] OptiPlex_3070_IPCFL/drive_1.bin via gdown (198579 bytes)
@@ -85,27 +88,27 @@
     [links] 0 candidates
 [PAGE] https://old.reddit.com/r/PcBuild/comments/1pdrlnf/.json -> raw/Latitude_3410_old_json
     [page head] '<!doctype html>\n     <html>\n  <head>\n    <title>Blocked</title>\n    <style>\n      body {\n          font: small verdana, arial, helvetica, sans-serif;\n          width: 600px;\n          margin: 0 auto;\n      }\n\n      h1 {\n          height: 40'
-    [saved] Latitude_3410_old_json/page.html (1522 bytes, sha256 398a4970b8d4a054…)
+    [saved] Latitude_3410_old_json/page.html (1522 bytes, sha256 8326dd96c9bfaaa3…)
     [links] 0 candidates
 [PAGE] https://old.reddit.com/r/Dell/comments/1pdrs3b/.json -> raw/Latitude_3410_old_json_b
     [page head] '<!doctype html>\n     <html>\n  <head>\n    <title>Blocked</title>\n    <style>\n      body {\n          font: small verdana, arial, helvetica, sans-serif;\n          width: 600px;\n          margin: 0 auto;\n      }\n\n      h1 {\n          height: 40'
-    [saved] Latitude_3410_old_json_b/page.html (1522 bytes, sha256 88799facbb656709…)
+    [saved] Latitude_3410_old_json_b/page.html (1522 bytes, sha256 0a929dd03ead4df3…)
     [links] 0 candidates
 [PAGE] https://r.jina.ai/https://www.reddit.com/r/PcBuild/comments/1pdrlnf/ -> raw/Latitude_3410_jina
     [page head] '<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><m'
-    [saved] Latitude_3410_jina/page.html (5827 bytes, sha256 0442758ef36c6a05…)
+    [saved] Latitude_3410_jina/page.html (5827 bytes, sha256 34f4909efce7e4c2…)
     [links] 0 candidates
 [PAGE] https://redlib.catsarch.com/r/PcBuild/comments/1pdrlnf -> raw/Latitude_3410_redlib
     [page head] '<!doctype html><html lang="en"><head><title>Oh noes!</title><link rel="stylesheet" href="/.within.website/x/xess/xess.min.css?cachebuster=v1.27.0"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" con'
-    [saved] Latitude_3410_redlib/page.html (2424 bytes, sha256 cd9d393592dd6789…)
+    [saved] Latitude_3410_redlib/page.html (2424 bytes, sha256 15196addc5c1d848…)
     [links] 0 candidates
 [PAGE] https://api.pullpush.io/reddit/search/submission/?ids=1pdrlnf -> raw/Latitude_3410_pullpush
     [page head] '<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><m'
-    [saved] Latitude_3410_pullpush/page.html (5681 bytes, sha256 a1c6297e473e7d5f…)
+    [saved] Latitude_3410_pullpush/page.html (5681 bytes, sha256 e24919c9f92fbe05…)
     [links] 0 candidates
 [PAGE] https://api.pullpush.io/reddit/search/submission/?ids=1pdrs3b -> raw/Latitude_3410_pullpush_b
     [page head] '<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><m'
-    [saved] Latitude_3410_pullpush_b/page.html (5681 bytes, sha256 831b99013e8227f1…)
+    [saved] Latitude_3410_pullpush_b/page.html (5681 bytes, sha256 23da38ef156af531…)
     [links] 0 candidates
 [PAGE] https://arctic-shift.photon-reddit.com/api/posts/1pdrlnf -> raw/Latitude_3410_arctic
     [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>Error</title>\n</head>\n<body>\n<pre>Cannot GET /api/posts/1pdrlnf</pre>\n<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c'
@@ -127,20 +130,20 @@
     [saved] Latitude_3410_arctic2_b/folder_dl/* (Drive folder, 2 entries)
 [PAGE] https://web.archive.org/web/2026/https://www.reddit.com/r/PcBuild/comments/1pdrlnf/ -> raw/Latitude_3410_wayback
     [page head] '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <title>Wayback Machine</title>\n    <script>\n    /*\n    @licstart  The following is the entire license notice for the JavaScript code in this page.\n\n    Copyright (C) 2020 Internet Archive\n\n    T'
-    [saved] Latitude_3410_wayback/page.html (142279 bytes, sha256 40763636a306d2e3…)
+    [saved] Latitude_3410_wayback/page.html (142279 bytes, sha256 c45f161d7a26f6a3…)
     [links] 0 candidates
 [PAGE] https://web.archive.org/web/2026/https://www.reddit.com/r/Dell/comments/1pdrs3b/ -> raw/Latitude_3410_wayback_b
     [page head] '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <title>Wayback Machine</title>\n    <script>\n    /*\n    @licstart  The following is the entire license notice for the JavaScript code in this page.\n\n    Copyright (C) 2020 Internet Archive\n\n    T'
-    [saved] Latitude_3410_wayback_b/page.html (142270 bytes, sha256 d43f8a7f6f1f06ef…)
+    [saved] Latitude_3410_wayback_b/page.html (142269 bytes, sha256 4fb038086993834c…)
     [links] 0 candidates
 [FILE] https://drive.google.com/drive/folders/1XsUVBIwf9d6nmHbDzeUk-m_w7VGXzgEi -> raw/Latitude_3410_ECfolder/folder
     [saved] Latitude_3410_ECfolder/folder_dl/* (Drive folder, 2 entries)
 [PAGE] https://drive.google.com/drive/folders/1XsUVBIwf9d6nmHbDzeUk-m_w7VGXzgEi -> raw/Latitude_3410_ECfolder_page
     [page head] '<!DOCTYPE html><html lang="en" dir="ltr" class="a-Lk"><head><meta name="format-detection" content="telephone=no"><meta name="google" value="notranslate"><meta property="og:site_name" content="Google Drive"><meta name="viewport" content="wid'
-    [saved] Latitude_3410_ECfolder_page/page.html (333363 bytes, sha256 f8c768bee2108fe7…)
+    [saved] Latitude_3410_ECfolder_page/page.html (333549 bytes, sha256 789cb8ebcb8d1cb3…)
     [links] 23 candidates
     [saved] Latitude_3410_ECfolder_page/folder_dl/* (Drive folder, 2 entries)
-    [saved] Latitude_3410_ECfolder_page/drive_1.bin via gdown (169719 bytes)
+    [saved] Latitude_3410_ECfolder_page/drive_1.bin via gdown (169635 bytes)
     [saved] Latitude_3410_ECfolder_page/drive_2.bin via gdown (695343 bytes)
     [gdown-folder failed] https://accounts.google.com/ServiceLogin?hl=en&passive=true&continue=https://drive.google.com/drive/folders/1XsUVBIwf9d6nmHbDzeUk-m_w7VGXzgEi&service=writely&ec=GAZAMQ: er/.cache/gdown/cookies.txt
 Retrieving folder contents
@@ -151,13 +154,13 @@ Failed to retrieve folder contents for folder ID: ServiceLogin (status code 404)
     [saved] Latitude_3410_ECfolder_page/drive_6.bin via gdown (8032 bytes)
     [saved] Latitude_3410_ECfolder_page/drive_7.bin via gdown (8027 bytes)
     [saved] Latitude_3410_ECfolder_page/drive_8.bin via gdown (8023 bytes)
-    [saved] Latitude_3410_ECfolder_page/drive_9.bin via gdown (1248615 bytes)
-    [saved] Latitude_3410_ECfolder_page/drive_10.bin via gdown (1248077 bytes)
+    [saved] Latitude_3410_ECfolder_page/drive_9.bin via gdown (1249514 bytes)
+    [saved] Latitude_3410_ECfolder_page/drive_10.bin via gdown (1248242 bytes)
     [saved] Latitude_3410_ECfolder_page/drive_11.bin via gdown (695343 bytes)
     [saved] Latitude_3410_ECfolder_page/drive_12.bin via gdown (521 bytes)
-    [saved] Latitude_3410_ECfolder_page/drive_13.bin via gdown (1247719 bytes)
+    [saved] Latitude_3410_ECfolder_page/drive_13.bin via gdown (1247684 bytes)
     [saved] Latitude_3410_ECfolder_page/folder_dl/* (Drive folder, 2 entries)
-    [saved] Latitude_3410_ECfolder_page/drive_15.bin via gdown (1247966 bytes)
+    [saved] Latitude_3410_ECfolder_page/drive_15.bin via gdown (1247555 bytes)
     [saved] Latitude_3410_ECfolder_page/drive_16.bin via gdown (9104 bytes)
     [saved] Latitude_3410_ECfolder_page/drive_17.bin via gdown (8023 bytes)
     [saved] Latitude_3410_ECfolder_page/drive_18.bin via gdown (3161 bytes)
@@ -165,12 +168,126 @@ Failed to retrieve folder contents for folder ID: ServiceLogin (status code 404)
     [saved] Latitude_3410_ECfolder_page/drive_20.bin via gdown (8023 bytes)
     [saved] Latitude_3410_ECfolder_page/drive_21.bin via gdown (8031 bytes)
     [saved] Latitude_3410_ECfolder_page/drive_22.bin via gdown (8032 bytes)
+[PAGE] https://drive.google.com/file/d/1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu/view -> raw/Latitude_3410_drive_child1
+    [page head] '<!DOCTYPE html><html dir="ltr"><head><script nonce="SaYfzZBSKmQPOcF2UIGl3A"> window[\'_DRIVE_VIEWER_ctiming\']={}; </script><meta name="google" content="notranslate"><meta http-equiv="X-UA-Compatible" content="IE=edge;"><style nonce="9vn6baLb'
+    [saved] Latitude_3410_drive_child1/page.html (129272 bytes, sha256 d89299f483549c69…)
+    [links] 12 candidates
+    [gdown failed] https://drive.google.com/file/d/1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu/view?usp=embed_facebook: th the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu
+
+but Gdown can't. Please check connections and permissions.
+
+    [saved] Latitude_3410_drive_child1/drive_1.bin via gdown (1247290 bytes)
+    [saved] Latitude_3410_drive_child1/drive_2.bin via gdown (695343 bytes)
+    [saved] Latitude_3410_drive_child1/drive_3.bin via gdown (3187 bytes)
+    [gdown failed] https://drive.google.com/file/d/1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu/edit: th the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu
+
+but Gdown can't. Please check connections and permissions.
+
+    [saved] Latitude_3410_drive_child1/drive_5.bin via gdown (1652 bytes)
+    [saved] Latitude_3410_drive_child1/drive_6.bin via gdown (9103 bytes)
+    [gdown failed] https://drive.google.com/file/d/1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu/view: th the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu
+
+but Gdown can't. Please check connections and permissions.
+
+    [saved] Latitude_3410_drive_child1/drive_8.bin via gdown (9104 bytes)
+    [saved] Latitude_3410_drive_child1/drive_9.bin via gdown (1695 bytes)
+    [gdown failed] https://accounts.google.com/ServiceLogin?service=wise&passive=1209600&osid=1&continue=https://drive.google.com/file/d/1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu/view&followup=https://drive.google.com/file/d/1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu/view&ec=GAZAGQ: th the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu
+
+but Gdown can't. Please check connections and permissions.
+
+    [gdown failed] https://drive.google.com/file/d/1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu/view?usp=embed_googleplus: th the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu
+
+but Gdown can't. Please check connections and permissions.
+
+[PAGE] https://drive.google.com/file/d/1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU/view -> raw/Latitude_3410_drive_child2
+    [page head] '<!DOCTYPE html><html dir="ltr"><head><script nonce="3ZXk8gcNuzfwUx7nbBCaMg"> window[\'_DRIVE_VIEWER_ctiming\']={}; </script><meta name="google" content="notranslate"><meta http-equiv="X-UA-Compatible" content="IE=edge;"><style nonce="Qee7ImmA'
+    [saved] Latitude_3410_drive_child2/page.html (128968 bytes, sha256 490713c7ad1b0167…)
+    [links] 12 candidates
+    [gdown failed] https://drive.google.com/file/d/1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU/view?usp=embed_facebook: th the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU
+
+but Gdown can't. Please check connections and permissions.
+
+    [saved] Latitude_3410_drive_child2/drive_1.bin via gdown (1247771 bytes)
+    [saved] Latitude_3410_drive_child2/drive_2.bin via gdown (695343 bytes)
+    [saved] Latitude_3410_drive_child2/drive_3.bin via gdown (3187 bytes)
+    [gdown failed] https://drive.google.com/file/d/1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU/edit: th the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU
+
+but Gdown can't. Please check connections and permissions.
+
+    [saved] Latitude_3410_drive_child2/drive_5.bin via gdown (1652 bytes)
+    [saved] Latitude_3410_drive_child2/drive_6.bin via gdown (9103 bytes)
+    [gdown failed] https://drive.google.com/file/d/1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU/view: th the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU
+
+but Gdown can't. Please check connections and permissions.
+
+    [saved] Latitude_3410_drive_child2/drive_8.bin via gdown (9104 bytes)
+    [saved] Latitude_3410_drive_child2/drive_9.bin via gdown (1695 bytes)
+    [gdown failed] https://accounts.google.com/ServiceLogin?service=wise&passive=1209600&osid=1&continue=https://drive.google.com/file/d/1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU/view&followup=https://drive.google.com/file/d/1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU/view&ec=GAZAGQ: th the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU
+
+but Gdown can't. Please check connections and permissions.
+
+    [gdown failed] https://drive.google.com/file/d/1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU/view?usp=embed_googleplus: th the link', or have had many accesses.
+	Check FAQ in https://github.com/wkentaro/gdown?tab=readme-ov-file#faq.
+
+You may still be able to access the file from the browser:
+
+	https://drive.google.com/uc?id=1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU
+
+but Gdown can't. Please check connections and permissions.
+
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
 [EXTRACT-PASS] Latitude_3410_arctic2
 [EXTRACT-PASS] Latitude_3410_arctic2_b
 [EXTRACT-PASS] Latitude_3410_arctic_b
+[EXTRACT-PASS] Latitude_3410_drive_child1
+[EXTRACT-PASS] Latitude_3410_drive_child2
 [EXTRACT-PASS] Latitude_3410_jina
 [EXTRACT-PASS] Latitude_3410_old_json
 [EXTRACT-PASS] Latitude_3410_old_json_b
