@@ -14,11 +14,11 @@
   },
   "manifest.json": {
    "bytes": 2399,
-   "sha256": "81581e1d47012eea5162cf4da68d8013c22b892ab1f8540fc7c683128d13b4a5"
+   "sha256": "77e74d927320b66f5ed850dd720cca8023e27d37d96d67993404de97d5b715b8"
   },
   "page.html": {
    "bytes": 233639,
-   "sha256": "b60f29bdf0d6a3e3f018824f360b7ffa7ee81be00fef91d87e6297062c9804ba"
+   "sha256": "841e6bdab6760cbcfa0577b1f7825059fe6f7100ee51988abfc5f046bbd83f08"
   },
   "extracted_drive_2.bin.rar/213247-1 W36MN$JA OK TESTED.bin": {
    "bytes": 33554432,

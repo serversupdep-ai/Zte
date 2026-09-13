@@ -10,11 +10,11 @@
   },
   "manifest.json": {
    "bytes": 874,
-   "sha256": "e96d117959f4b1a2a1b191a39be787000058239c5040ce4691d914019fab4fb5"
+   "sha256": "d9264a358843788bb32afec42b0b8172b9caee6604c11917dbe15c125cdda085"
   },
   "page.html": {
-   "bytes": 243488,
-   "sha256": "7a6cbebd488eb85f89b2bb5d1974e8fb643071b9928437bdeca4e6130f667301"
+   "bytes": 243490,
+   "sha256": "eddf4ec8622c948177e3604b4e387a144c19a9fb77b839aac84149cd7774fb8a"
   },
   "extracted_drive_1.bin.zip/Latitude 3540 213247-1.bin": {
    "bytes": 33554432,
