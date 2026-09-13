@@ -1,8 +1,24 @@
 {
  "files": {
+  "drive_0.bin": {
+   "bytes": 13193025,
+   "sha256": "d16228922beecde6cf19e1595bcee62baeb950d61ecdd81ddae64f220c1b8bad"
+  },
+  "drive_1.bin": {
+   "bytes": 56944734,
+   "sha256": "622e3d1a3554fd1e3ffb2d48e10256becf7302c381883022c7b497ba7761e0a8"
+  },
+  "drive_2.bin": {
+   "bytes": 11303740,
+   "sha256": "4abfd18eb3aaf753731d56cca4fbaedc9103bd8b25678e93298dec32091c60a2"
+  },
+  "manifest.json": {
+   "bytes": 139,
+   "sha256": "0ff6e14194b58a48b0da0a52e85036064971461195b9b9aca6e54bc1b1ca3998"
+  },
   "page.html": {
    "bytes": 233639,
-   "sha256": "8c4585427b354a3f718001fd08e7acfdae7545a21b9a8653ec20839ae7bcf7e6"
+   "sha256": "b08bf5c4d4027244d03544b6cbf97b12941bb16f92a1d8af051cf9586ed85c58"
   }
  }
 }
