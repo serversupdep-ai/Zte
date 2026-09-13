@@ -697,10 +697,34 @@ Targets queued (relay/fetchlist.txt, `fetch-files.yml` relay stage):
 - Latitude 3410 Mockingbird-L (2020): Reddit-shared Google-Drive folder with
   the "19746-1 pass 8mb.bin" EC chip dump
 
-Analysis plan once a dump lands: locate the Cortex-M image (or EC vendor
-ROM layout), run the §11 emulation harness against the EC's mailbox
-handlers (the SMM side is already proven), isolate the type-6 GENERATE
-implementation and its key material, integrate into
-`dell_master_keygen.py` as the CF1B local implementation, and validate
-against any field-verified (tag, code) pairs from the pwgen-for-bios
-issue corpus (8FC8 machines).
+**Result of the first dump batch (2026-09-13) — architecture mapped, engine
+NOT in SPI.** Fetched + extracted via the new relay stage
+(`relay/fetch_files.py` + `fetch-files.yml`): real chip dumps of the
+OptiPlex 3090 (32 MB READ + 32 MB password-UNLOCKED with README confirming
+the §10.2 manufacturing-mode flow), Latitude 5410 LA-J371P (16 MB main +
+8 MB companion + three 32 MB single-chip variants, incl.
+"8FC8_Cleared"), and six Latitude 3440/3540 QUAKEL14 32 MB dumps.
+Findings:
+- The 8 MB "EC" companion chip (5410) = CSME regions (RBEP/FTPR/OEMP) +
+  two sealed PHCM slots + BIOS NVRAM ("UserProfile", "OverClocking").
+- Every board exposes an "EC region" in SPI: a 6-dword Nuvoton-class boot
+  descriptor {7, len, 0x8040e000, len2, SP, entry} + a **~0x8150-byte
+  plaintext Thumb-2 boot block** (vector table + sparse handlers) + sealed
+  0xf5c-byte app blocks (entropy ~8, per-block crypto headers).
+- **The 5410 (2020 laptop) and the 3090 (desktop) vector tables are
+  byte-identical** — one EC codebase across the EC-era family, matching
+  the §11.7 PHCM result.
+- The GENERATE engine is NOT in the SPI region: reset vector and app code
+  live in the EC chip's INTERNAL flash; the SPI region is boot + sealed
+  staging. The 3440 (2023) has no EC region in SPI at all (fully
+  internal). No AES/SHA tables or family bytes anywhere in the SPI EC
+  regions (boot block is the only plaintext code; ~33 KB).
+- The 3090's two dumps differ in EC-boot-block content (0x8148 vs 0x6a60
+  bytes populated) — region state varies per machine/EC version.
+
+**Next target: EC-internal flash dumps** ("EC程序", RT809H/EFD reads of the
+Nuvoton EC chip itself) — shared by board-repair techs; that is the only
+artifact that carries the decrypted app firmware with the GENERATE engine.
+Tooling ready: `dell_ec_region.py` (region locator/mapper), the §11
+emulation harness, and `dell_master_keygen.py`'s CF1B slot awaiting the
+engine.
