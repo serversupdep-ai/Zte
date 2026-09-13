@@ -9,12 +9,12 @@
    "sha256": "b9c02dc666e8dcea1d9368ef7aeb4da3c590b901d403d11da4ab351fb0b445aa"
   },
   "manifest.json": {
-   "bytes": 767,
-   "sha256": "9e29b193c044568dbab0de4b4ef5d19b4b4ea0c986a446e2a65fbaf8b24f007a"
+   "bytes": 890,
+   "sha256": "46c46b735e354d0f45a3db0085ac86631b6ae925015289ef4dc52092bb348b39"
   },
   "page.html": {
    "bytes": 171710,
-   "sha256": "707b4f1651e924a1be4d7dc86351b66f2bc47df3d3e441df61e65c68d4734c0b"
+   "sha256": "716d4dd9177199b1ae61b28c608c1b3fb7191b8546549314b122bf484e69ba96"
   },
   "extracted_drive_0.bin.rar/OptiPlex_3070_IPCFL-CG_TESTED OK/OptOptiPlex_3070_IPCFL-CG_TESTED OK.bin": {
    "bytes": 33555200,

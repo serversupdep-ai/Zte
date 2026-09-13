@@ -14,11 +14,11 @@
   },
   "manifest.json": {
    "bytes": 2027,
-   "sha256": "fcdf7b3b2cd709739a7469d6602c5353741315cfb561e2b25d55bb4ff34645ee"
+   "sha256": "b3ccfc8c83dd07a19860c318758c2bd61bc69cee2a9f69410b8d19cc160d4bd2"
   },
   "page.html": {
    "bytes": 181147,
-   "sha256": "b93b51f4fe456aa40a100b8e7c03c13e0d53fd046ab2e5904f28139b983fbecf"
+   "sha256": "0b2d1b758beb7f24ceae45102b727f3cf6d038f0287bc82ddb0a14dddcf86269"
   },
   "extracted_drive_2.bin.rar/DELL Latitude 5410 FDZ41_ LA-J371P REV 1.0 2020-03-10/5410_clean.bin": {
    "bytes": 33554432,
