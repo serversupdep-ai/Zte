@@ -48,3 +48,7 @@ PAGE|https://old.reddit.com/r/PcBuild/comments/1pdrlnf/.json|Latitude_3410_old_j
 PAGE|https://old.reddit.com/r/Dell/comments/1pdrs3b/.json|Latitude_3410_old_json_b
 PAGE|https://r.jina.ai/https://www.reddit.com/r/PcBuild/comments/1pdrlnf/|Latitude_3410_jina
 PAGE|https://redlib.catsarch.com/r/PcBuild/comments/1pdrlnf|Latitude_3410_redlib
+PAGE|https://api.pullpush.io/reddit/search/submission/?ids=1pdrlnf|Latitude_3410_pullpush
+PAGE|https://api.pullpush.io/reddit/search/submission/?ids=1pdrs3b|Latitude_3410_pullpush_b
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/1pdrlnf|Latitude_3410_arctic
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/1pdrs3b|Latitude_3410_arctic_b
