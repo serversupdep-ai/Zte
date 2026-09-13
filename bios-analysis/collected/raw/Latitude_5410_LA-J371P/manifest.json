@@ -1,24 +1,24 @@
 {
  "files": {
-  "drive_0.bin": {
+  "drive_0.bin.rar": {
    "bytes": 11665938,
    "sha256": "db951d2829fbc1f0ced04e3ba520ba3099f80abfe5e12529c21c57328bde54f9"
   },
-  "drive_1.bin": {
+  "drive_1.bin.rar": {
    "bytes": 9343727,
    "sha256": "767a4f64fafd551800f753cdf7ee03d6c9d8acac5cb544c134a14041719fb74a"
   },
-  "drive_2.bin": {
+  "drive_2.bin.rar": {
    "bytes": 35372190,
    "sha256": "549c0e9dcf556db02164f2f8746dedf134ddd56f86928ae10682d6ad40a50ca8"
   },
   "manifest.json": {
-   "bytes": 139,
-   "sha256": "114d81d1ba4f3ccb9f33754856578609899d41433ad340310e8fa83432aa1770"
+   "bytes": 639,
+   "sha256": "8e426a1801a8eed2bffae703be99dd1e93b0424fd7897d4e7c9facc1d4462034"
   },
   "page.html": {
    "bytes": 181147,
-   "sha256": "88654522a02dedb2d0e32a3196555ad3eea7cbab707df89761c536aa7480b527"
+   "sha256": "018270cc51c83b9a272b3d693149669718f432899530bc144c71f1b820878c63"
   }
  }
 }

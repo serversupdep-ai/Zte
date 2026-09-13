@@ -1,20 +1,20 @@
 [PAGE] https://www.indiafix.in/2024/08/fdz41-la-j371p-rev-10-bios-dump-ok.html -> raw/Latitude_5410_LA-J371P
     [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] Latitude_5410_LA-J371P/page.html (181147 bytes, sha256 88654522a02dedb2…)
+    [saved] Latitude_5410_LA-J371P/page.html (181147 bytes, sha256 018270cc51c83b9a…)
     [links] 3 candidates
     [saved] Latitude_5410_LA-J371P/drive_0.bin via gdown (11665938 bytes)
     [saved] Latitude_5410_LA-J371P/drive_1.bin via gdown (9343727 bytes)
     [saved] Latitude_5410_LA-J371P/drive_2.bin via gdown (35372190 bytes)
 [PAGE] https://www.indiafix.in/2024/02/ipcml-rn-zb.html -> raw/OptiPlex_3090_indiafix
     [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] OptiPlex_3090_indiafix/page.html (176060 bytes, sha256 c98fa9f4476a3510…)
+    [saved] OptiPlex_3090_indiafix/page.html (176060 bytes, sha256 52e8fe9687ccfa3c…)
     [links] 3 candidates
     [saved] OptiPlex_3090_indiafix/drive_0.bin via gdown (14047090 bytes)
     [saved] OptiPlex_3090_indiafix/drive_1.bin via gdown (16232667 bytes)
     [saved] OptiPlex_3090_indiafix/drive_2.bin via gdown (11205072 bytes)
 [PAGE] https://www.indiafix.in/2025/01/dell-latitude-3440-quakel14rpl-213247-1.html -> raw/Latitude_3440_QUAKEL14
     [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] Latitude_3440_QUAKEL14/page.html (233639 bytes, sha256 b08bf5c4d4027244…)
+    [saved] Latitude_3440_QUAKEL14/page.html (233639 bytes, sha256 c38dc811d4503956…)
     [links] 3 candidates
     [saved] Latitude_3440_QUAKEL14/drive_0.bin via gdown (13193025 bytes)
     [saved] Latitude_3440_QUAKEL14/drive_1.bin via gdown (56944734 bytes)
@@ -31,33 +31,45 @@
     [fetch failed 400] https://www.uploadfiles.io/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file
 [PAGE] https://web.archive.org/web/2025/https://www.indiafix.in/2024/08/fdz41-la-j371p-rev-10-bios-dump-ok.html -> raw/Latitude_5410_LA-J371P_wb
     [page head] '<!DOCTYPE html>\n<html class="v2" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">\n<head><script src='
-    [saved] Latitude_5410_LA-J371P_wb/page.html (197193 bytes, sha256 eb6c8aa556fdf6c9…)
+    [saved] Latitude_5410_LA-J371P_wb/page.html (197191 bytes, sha256 7ba4ac7e7da2a241…)
     [links] 2 candidates
     [saved] Latitude_5410_LA-J371P_wb/drive_0.bin via gdown (11665938 bytes)
     [saved] Latitude_5410_LA-J371P_wb/drive_1.bin via gdown (9343727 bytes)
 [PAGE] https://web.archive.org/web/2025/https://www.indiafix.in/2024/02/ipcml-rn-zb.html -> raw/OptiPlex_3090_indiafix_wb
     [page head] '<!DOCTYPE html>\n<html class="v2" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">\n<head><script src='
-    [saved] OptiPlex_3090_indiafix_wb/page.html (197460 bytes, sha256 4245ce073e55d0d6…)
+    [saved] OptiPlex_3090_indiafix_wb/page.html (197459 bytes, sha256 bf5442b2ba64e119…)
     [links] 3 candidates
     [saved] OptiPlex_3090_indiafix_wb/drive_0.bin via gdown (14047090 bytes)
     [saved] OptiPlex_3090_indiafix_wb/drive_1.bin via gdown (16232667 bytes)
     [saved] OptiPlex_3090_indiafix_wb/drive_2.bin via gdown (11205072 bytes)
 [PAGE] https://web.archive.org/web/2025/https://www.indiafix.in/2025/01/dell-latitude-3440-quakel14rpl-213247-1.html -> raw/Latitude_3440_QUAKEL14_wb
     [page head] '<!DOCTYPE html>\n<html class="v2" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">\n<head><script src='
-    [saved] Latitude_3440_QUAKEL14_wb/page.html (243488 bytes, sha256 caf02259d5d36864…)
+    [saved] Latitude_3440_QUAKEL14_wb/page.html (243488 bytes, sha256 9e14df087906b1a3…)
     [links] 2 candidates
     [saved] Latitude_3440_QUAKEL14_wb/drive_0.bin via gdown (13193025 bytes)
     [saved] Latitude_3440_QUAKEL14_wb/drive_1.bin via gdown (13163675 bytes)
 [PAGE] https://www.indiafix.in/feeds/posts/default?alt=json&q=LA-J371P -> raw/Latitude_5410_LA-J371P_feed
     [page head] '{"version":"1.0","encoding":"UTF-8","feed":{"xmlns":"http://www.w3.org/2005/Atom","xmlns$openSearch":"http://a9.com/-/spec/opensearchrss/1.0/","xmlns$blogger":"http://schemas.google.com/blogger/2008","xmlns$georss":"http://www.georss.org/ge'
-    [saved] Latitude_5410_LA-J371P_feed/page.html (41569 bytes, sha256 c8e80845fd809fea…)
+    [saved] Latitude_5410_LA-J371P_feed/page.html (41569 bytes, sha256 5ad5041cbcecb409…)
     [links] 0 candidates
 [PAGE] https://www.indiafix.in/feeds/posts/default?alt=json&q=IPCML-RN -> raw/OptiPlex_3090_indiafix_feed
     [page head] '{"version":"1.0","encoding":"UTF-8","feed":{"xmlns":"http://www.w3.org/2005/Atom","xmlns$openSearch":"http://a9.com/-/spec/opensearchrss/1.0/","xmlns$blogger":"http://schemas.google.com/blogger/2008","xmlns$georss":"http://www.georss.org/ge'
-    [saved] OptiPlex_3090_indiafix_feed/page.html (13449 bytes, sha256 96079071ca9d94ac…)
+    [saved] OptiPlex_3090_indiafix_feed/page.html (13449 bytes, sha256 5639ed4521b45634…)
     [links] 0 candidates
 [PAGE] https://www.indiafix.in/feeds/posts/default?alt=json&q=QUAKEL14 -> raw/Latitude_3440_QUAKEL14_feed
     [page head] '{"version":"1.0","encoding":"UTF-8","feed":{"xmlns":"http://www.w3.org/2005/Atom","xmlns$openSearch":"http://a9.com/-/spec/opensearchrss/1.0/","xmlns$blogger":"http://schemas.google.com/blogger/2008","xmlns$georss":"http://www.georss.org/ge'
-    [saved] Latitude_3440_QUAKEL14_feed/page.html (4130 bytes, sha256 965e522398b4fd63…)
+    [saved] Latitude_3440_QUAKEL14_feed/page.html (4130 bytes, sha256 4da2e3da45a61d3a…)
     [links] 0 candidates
+[EXTRACT-PASS] Latitude_3410_reddit
+[EXTRACT-PASS] Latitude_3410_reddit_b
+[EXTRACT-PASS] Latitude_3410_uploadfiles
+[EXTRACT-PASS] Latitude_3440_QUAKEL14
+[EXTRACT-PASS] Latitude_3440_QUAKEL14_feed
+[EXTRACT-PASS] Latitude_3440_QUAKEL14_wb
+[EXTRACT-PASS] Latitude_5410_LA-J371P
+[EXTRACT-PASS] Latitude_5410_LA-J371P_feed
+[EXTRACT-PASS] Latitude_5410_LA-J371P_wb
+[EXTRACT-PASS] OptiPlex_3090_indiafix
+[EXTRACT-PASS] OptiPlex_3090_indiafix_feed
+[EXTRACT-PASS] OptiPlex_3090_indiafix_wb
 done
