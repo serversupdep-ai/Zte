@@ -800,6 +800,13 @@ machine's. Full 3090 corpus: three machines + package = two EC versions
 the locked READ machine only). No plaintext app exists anywhere in the
 corpus. Every collected dump is now fully characterized.
 
+**Last artifact note:** the 3440 package's FIX.zip contained bbb.bin —
+another machine's full 32 MB image (per-machine-encrypted ME region: 4782
+of 8192 4KB blocks differ from every other 3440 dump; 3 sealed PHCMs, no
+EC region — consistent with the 2023 generation). No surgical fix diff
+exists. With this, every single file in the collected corpus has been
+opened and characterized.
+
 **Bottom line of §11.8:** the offline keygen needs one specific file —
 an EC-internal flash dump of any 8FC8-family machine (Nuvoton NPCE-class,
 2020-2021 generation preferred: 3090/5080/7080/3080, Latitude 5410/3410,
