@@ -51,7 +51,7 @@
     [page fetch failed] http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334495 bytes, sha256 b5f40b840b9fa534…)
+    [saved] mediafire_3410/mediafire_page.html (334495 bytes, sha256 7c8d0b3f21f70248…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -65,8 +65,9 @@
 [skip] tg_3410_msg13724 already fetched
 [skip] drbios_3410 already fetched
 [skip] Latitude_3410_dellpkg_1133 already fetched
-[FILE] https://dl.dell.com/FOLDER06541051M/1/Latitude_3410_3510_1.4.1.exe -> raw/Latitude_3410_pkg141/Latitude_3410_3510_1.4.1.exe
-    [saved] Latitude_3410_pkg141/Latitude_3410_3510_1.4.1.exe (14361120 bytes)
+[skip] Latitude_3410_pkg141/Latitude_3410_3510_1.4.1.exe already fetched
+[FILE] https://dl.dell.com/FOLDER07043407M/1/Latitude_3410_3510_1.6.0.exe -> raw/Latitude_3410_pkg160/Latitude_3410_3510_1.6.0.exe
+    [saved] Latitude_3410_pkg160/Latitude_3410_3510_1.6.0.exe (16665944 bytes)
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -82,6 +83,7 @@
 [EXTRACT-PASS] Latitude_3410_old_json
 [EXTRACT-PASS] Latitude_3410_old_json_b
 [EXTRACT-PASS] Latitude_3410_pkg141
+[EXTRACT-PASS] Latitude_3410_pkg160
 [EXTRACT-PASS] Latitude_3410_pullpush
 [EXTRACT-PASS] Latitude_3410_pullpush_b
 [EXTRACT-PASS] Latitude_3410_reddit
