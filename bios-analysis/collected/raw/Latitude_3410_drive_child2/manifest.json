@@ -1,40 +1,64 @@
 {
  "files": {
+  "drive_0.bin.zip": {
+   "bytes": 2564243,
+   "sha256": "758d032db16a77bf128e890ce08fd1be3486286f4dbc539c4d2a717662d0b2fd"
+  },
   "drive_1.bin": {
-   "bytes": 1245750,
-   "sha256": "ec6ea39a8513372235b5506299f6d696f4c11d2ea4050a679fed40ba66e213cc"
+   "bytes": 1247149,
+   "sha256": "070ebadf3c8c6d6a8831d02203033dd8550ebaa2f09f1e6bc4cd80661efafe55"
   },
   "drive_2.bin": {
    "bytes": 695343,
-   "sha256": "b19848390a2dca4186e72721e9caf412e0cc9f47463a52f249e5cbbfe62da2de"
+   "sha256": "9094c8c1f422e490cf7fda76be9c0e61e6af39aa17dd2e65c4c0a02ae3509515"
   },
   "drive_3.bin": {
    "bytes": 3187,
-   "sha256": "50e460bd076deb1482a12c72d7f2e90a2d1f17ad77ca23b605944785451d76d2"
+   "sha256": "dd11df40b2b97cba5d9d537707f886a549963cfc6c9baf18f91b2aab1af60e63"
+  },
+  "drive_4.bin.zip": {
+   "bytes": 2564243,
+   "sha256": "758d032db16a77bf128e890ce08fd1be3486286f4dbc539c4d2a717662d0b2fd"
   },
   "drive_5.bin": {
    "bytes": 1652,
-   "sha256": "d9259c21dd2447f37959928e0c2b81a60375cf615f8c04d9cc8fd4bc4c247938"
+   "sha256": "08f57b3517ef281807f3fc75073220ea35384c7737e637397882306b1844ea1b"
   },
   "drive_6.bin": {
    "bytes": 9103,
-   "sha256": "e77821f2f19ff7cfe16a12ec8f0e9dab38592e76aa4ba26383f68dd4ca27fe7c"
+   "sha256": "5cf4089935f72655d5bf1aa39466684278339c20b8fd6b027973ad3931bcabfd"
+  },
+  "drive_7.bin.zip": {
+   "bytes": 2564243,
+   "sha256": "758d032db16a77bf128e890ce08fd1be3486286f4dbc539c4d2a717662d0b2fd"
   },
   "drive_8.bin": {
    "bytes": 9104,
-   "sha256": "fa68cedea24c3d75beb1e5ea600fe7c9d376024e59d290ec3bd547b950696971"
+   "sha256": "daf933e006638f9b12b3bd661df254bae3d7281653d8bc2e635a832668194fb9"
   },
   "drive_9.bin": {
    "bytes": 1695,
-   "sha256": "6ce05d0c5be08332d03fc7b8e34edf69f80c1b84ce931118353c790170a1e077"
+   "sha256": "8a343a7f44d74713fbc20e73195555efa6f177df2667d21e2cb56ddba81a8502"
   },
   "manifest.json": {
-   "bytes": 998,
-   "sha256": "88910c69b445102bb72165049257707eb14a8bbce3809b0982d655f25c2ca7d1"
+   "bytes": 1121,
+   "sha256": "746e81f8b0a58d0036c51edb16b4fe6337da369518e84c54282dbb7a496b8756"
   },
   "page.html": {
-   "bytes": 129214,
-   "sha256": "79362b7247039bf358b59d46a5d8bcf3fd440c2290d600d2e263e9c530c880a8"
+   "bytes": 129255,
+   "sha256": "d1427001c900430c6b29ed62b4974321fee0832a42ef2c4e09b24ad88bddb285"
+  },
+  "extracted_drive_7.bin.zip/MOCKINGBIRD-L CML UMA 8L (19746-1).pdf": {
+   "bytes": 3060260,
+   "sha256": "5963f8bc82629e7ddd4f51f90fde1a0c7e835c4ff86256c5ded7b0509ea7a813"
+  },
+  "extracted_drive_4.bin.zip/MOCKINGBIRD-L CML UMA 8L (19746-1).pdf": {
+   "bytes": 3060260,
+   "sha256": "5963f8bc82629e7ddd4f51f90fde1a0c7e835c4ff86256c5ded7b0509ea7a813"
+  },
+  "extracted_drive_0.bin.zip/MOCKINGBIRD-L CML UMA 8L (19746-1).pdf": {
+   "bytes": 3060260,
+   "sha256": "5963f8bc82629e7ddd4f51f90fde1a0c7e835c4ff86256c5ded7b0509ea7a813"
   }
  }
 }

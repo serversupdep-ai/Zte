@@ -1,0 +1,16 @@
+{
+ "files": {
+  "8mb-bin-zip.148166": {
+   "bytes": 33672,
+   "sha256": "8427f4c1948b7d3567325118b17cbafa45e35251af68ed91be0b6f199e82e7ad"
+  },
+  "mockingbird-l-19746-1-pass-16mb-bin.150250": {
+   "bytes": 33816,
+   "sha256": "683f1b522476465bfaabadd1da6a647d942083d928292ef78844bc3474f59144"
+  },
+  "mockingbird-l-19746-1-pass-8mb-bin.150249": {
+   "bytes": 33810,
+   "sha256": "b9e04199716fd5cfdee82ee34f064cb8804a747d8979e8d9e4d8b0d1c5f624de"
+  }
+ }
+}
