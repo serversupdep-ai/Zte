@@ -61,3 +61,6 @@ FILE|https://drive.google.com/drive/folders/1XsUVBIwf9d6nmHbDzeUk-m_w7VGXzgEi|fo
 PAGE|https://drive.google.com/drive/folders/1XsUVBIwf9d6nmHbDzeUk-m_w7VGXzgEi|Latitude_3410_ECfolder_page
 PAGE|https://drive.google.com/file/d/1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu/view|Latitude_3410_drive_child1
 PAGE|https://drive.google.com/file/d/1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU/view|Latitude_3410_drive_child2
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1pdrlnf&limit=100|Latitude_3410_comments
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1pdrs3b&limit=100|Latitude_3410_comments_b
+PAGE|https://www.youtube.com/watch?v=J1N-VRiZJy4|Latitude_3410_youtube
