@@ -722,6 +722,31 @@ Findings:
 - The 3090's two dumps differ in EC-boot-block content (0x8148 vs 0x6a60
   bytes populated) — region state varies per machine/EC version.
 
+**Deep-dive on the EC region (same day):** the region also ships INSIDE
+Dell BIOS packages — inside the "Intel Management Engine Update" payload of
+the 2.0.7 package (2021) at two copies (ME-blob 0x708454/0x8b9454). Facts
+established:
+- The 2021-package region (0x6a60 B) and the password-UNLOCKED machine's
+  region are **byte-identical** — the region is immutable per EC version
+  and machine-independent.
+- The 2021 and 2025-chip regions share the first 0x4000 bytes 100%; they
+  diverge after (version-specific part).
+- Statistics vs the 5X90 plaintext-EC control: no NOP.W, 20-50x fewer
+  function prologues, no strings, no crypto tables → the body is NOT
+  plaintext code; it is init/dispatch TABLES (repeating
+  {handler, arg, wrapper} triples referencing the vector targets) +
+  sparse code + data. H=3.5-4.0 first 4 KB (tables), 6+ after.
+- The EC application (with the GENERATE engine) is NOT in this region:
+  2021 staging = region only; 2025 staging = region + SEALED 0xf5c-byte
+  app blocks. Key-in-header AES decrypt of those blocks against a
+  Thumb-code scorer: no hit (scores 3-5 vs control 140) — the 32-byte
+  per-block headers are signatures/MAC material, not stored keys.
+- Conclusion: across every generation examined (2019 laptop → 2023
+  desktop), the GENERATE engine is staged sealed or kept EC-internal;
+  the chip-dump route needs an EC-INTERNAL flash read ("EC程序",
+  RT809H direct-EC) or a same-family older generation (3070/5070/7070,
+  2019 8FC8 era) whose SPI staging may predate the sealing.
+
 **Next target: EC-internal flash dumps** ("EC程序", RT809H/EFD reads of the
 Nuvoton EC chip itself) — shared by board-repair techs; that is the only
 artifact that carries the decrypted app firmware with the GENERATE engine.
