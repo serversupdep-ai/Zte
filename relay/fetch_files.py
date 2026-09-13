@@ -216,15 +216,25 @@ def process_page(url, tag):
     save(tag, "page.html", data=page.encode("utf-8", "replace"))
     links = []
     seen = set()
+    from urllib.parse import unquote
     for u in LINK_RX.findall(page):
         u = u.rstrip(').,];}').replace("&amp;", "&")
+        # unwrap youtube redirect links (description links): ...&q=<urlencoded>
+        mq = re.search(r'[?&]q=(https?[^&\s]+)', u)
+        if mq:
+            u = unquote(mq.group(1)).rstrip(').,];}')
         if u in seen:
             continue
         if any(k in u for k in ("drive.google.com", "docs.google.com",
                                 "mediafire.com", "mega.nz",
                                 ".rar", ".zip", ".7z", ".bin", ".rom",
-                                "archive.org/download")):
-            if "google.com/search" in u or "blogger.com" in u or "gstatic" in u:
+                                "archive.org/download", "/attachments/")):
+            if any(k in u for k in ("google.com/search", "blogger.com",
+                                    "gstatic", "aliexpress", "amazon.",
+                                    "/login", "/register", "/account/",
+                                    "goto/post", "proxy.php", "data/avatars",
+                                    ".css", ".js", ".png", ".jpg", ".gif",
+                                    ".svg", ".woff")):
                 continue
             seen.add(u)
             links.append(u)

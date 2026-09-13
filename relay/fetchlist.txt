@@ -64,3 +64,12 @@ PAGE|https://drive.google.com/file/d/1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU/view|Lati
 PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1pdrlnf&limit=100|Latitude_3410_comments
 PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1pdrs3b&limit=100|Latitude_3410_comments_b
 PAGE|https://www.youtube.com/watch?v=J1N-VRiZJy4|Latitude_3410_youtube
+PAGE|https://www.youtube.com/watch?v=hzTsWIi68LU|Latitude_3410_yt_free
+PAGE|https://www.repairlap.com/threads/dell-latitude-3410-mockingbird-l-cml-uma-6l-19746-1-bios.10278/|repairlap_3410
+PAGE|https://www.alisaler.com/dell-latitude-3410-3510-mockingbird-l-cml-19709-1-19746-1-19775-1-19812-1-bios-schematic-boardview/|alisaler_3410
+PAGE|https://vinafix.com/threads/dell-latitude-3410-3510-mockingbird-l-cml-uma-6l-19746-1.41430/|vinafix_3410_thread
+FILE|https://vinafix.com/attachments/mockingbird-l-19746-1-pass-8mb-bin.150249/|pass_8mb_150249|vinafix_3410
+FILE|https://vinafix.com/attachments/mockingbird-l-19746-1-pass-16mb-bin.150250/|pass_16mb_150250|vinafix_3410
+FILE|https://vinafix.com/attachments/8mb-bin-zip.148166/|8mb_zip_148166|vinafix_3410
+PAGE|http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/mockingbird-l-19746-1-pass-8mb-bin.150249*&output=json|vinafix_wayback_8mb
+PAGE|http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200|vinafix_wayback_19746
