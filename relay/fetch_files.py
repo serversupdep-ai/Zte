@@ -249,7 +249,8 @@ def process_page(url, tag):
                                 "mediafire.com", "mega.nz",
                                 ".rar", ".zip", ".7z", ".bin", ".rom",
                                 "archive.org/download", "/attachments/",
-                                "telegram.org/dl", "telegram-cdn.org")):
+                                "telegram.org/dl", "telegram-cdn.org",
+                                "dl.dell.com")):
             if any(k in u for k in ("google.com/search", "blogger.com",
                                     "gstatic", "aliexpress", "amazon.",
                                     "/login", "/register", "/account/",
