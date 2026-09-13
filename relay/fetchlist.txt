@@ -90,3 +90,4 @@ PAGE|https://dr-bios.com/threads/19746-1-dell-latitude-3410.59413/|drbios_3410
 # retrigger: telegram retry (previous run lost its commit to a push race)
 # --- Dell 3410/3510 BIOS package (EC-staging source check: package PHCM vs chip slot B) ---
 PAGE|https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=v3y9y|Latitude_3410_dellpkg_1133
+# retrigger 2: dell package page (run 34782847591 lost commit race)
