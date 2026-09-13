@@ -51,7 +51,7 @@
     [page fetch failed] http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334493 bytes, sha256 82cce826567d5567…)
+    [saved] mediafire_3410/mediafire_page.html (334492 bytes, sha256 aacdb9a18acda7c8…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -70,12 +70,9 @@
 [skip] Latitude_3420_pkg1133/Latitude_3420_3520_1.13.3.exe already fetched
 [skip] tg_3410_embed13724 already fetched
 [PAGE] https://t.me/biosarchive/23340 -> raw/tg_3090_msg23340
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @biosarchive</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_3090_msg23340/page.html (37596 bytes, sha256 e71c4269874545a6…)
-    [links] 1 candidates
-    [saved] tg_3090_msg23340/dl (6391 bytes)
+    [tg dl] 200 6391 https://desktop.telegram.org/ -> FAILED
 [FILE] https://telegram.org/dl?tme=e0879ad380154606e3_4407171994753476783 -> raw/tg_3090/tg_3090_23340.zip
-    [saved] tg_3090/tg_3090_23340.zip (6391 bytes)
+    [saved] tg_3090/tg_3090_23340.zip (6388 bytes)
 [skip] drbios_3090_68894 already fetched
 [skip] drbios_3090_59046 already fetched
 [skip] drbios_3090_61941 already fetched

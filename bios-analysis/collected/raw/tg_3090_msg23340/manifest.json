@@ -1,0 +1,12 @@
+{
+ "files": {
+  ".cookies": {
+   "bytes": 219,
+   "sha256": "c133c4fc9e5d2409da1fff5335ae86af78790f67bc5caf6232cf03b1bfd7bcff"
+  },
+  "page.html": {
+   "bytes": 37595,
+   "sha256": "9787b9492c6b9ffcf1dd50d8b1d0fafc3393e5957ce46cea2a71f3437b42ea7a"
+  }
+ }
+}
