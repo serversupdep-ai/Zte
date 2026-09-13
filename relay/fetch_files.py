@@ -146,7 +146,35 @@ def fetch_link(url, tag, idx):
 def try_extract(tag):
     import glob
     d = os.path.join(OUTBASE, tag)
-    for arch in glob.glob(os.path.join(d, "*.rar")) + glob.glob(os.path.join(d, "*.zip")) + glob.glob(os.path.join(d, "*.7z")):
+    # magic-based detection: gdown files are saved as drive_N.bin regardless of type
+    archs = []
+    for p in sorted(glob.glob(os.path.join(d, "*"))):
+        if not os.path.isfile(p):
+            continue
+        with open(p, "rb") as f:
+            m = f.read(8)
+        if m[:4] == b"Rar!":
+            archs.append((p, ".rar"))
+        elif m[:2] == b"PK":
+            archs.append((p, ".zip"))
+        elif m[:6] == b"7z\xbc\xaf\x27\x1c":
+            archs.append((p, ".7z"))
+    renamed = []
+    for p, ext in archs:
+        if not p.endswith(ext):
+            np_ = p + ext
+            os.rename(p, np_)
+            renamed.append(np_)
+            p = np_
+        _extract_one(tag, p)
+    for p in renamed:  # keep the original name too? no — extraction dir holds contents
+        pass
+
+
+def _extract_one(tag, arch):
+    d = os.path.join(OUTBASE, tag)
+    if os.path.exists(os.path.join(d, "extracted_" + os.path.basename(arch))):
+        return
         ext = os.path.join(d, "extracted_" + os.path.basename(arch))
         done = False
         for pw in RAR_PW:
@@ -232,6 +260,16 @@ def main():
                     try_extract(tag)
                 except Exception as e:
                     log(f"    [file error] {e}")
+    # extraction pass over every raw dir (idempotent; also catches files
+    # committed by earlier runs)
+    for tag in sorted(os.listdir(OUTBASE)):
+        if os.path.isdir(os.path.join(OUTBASE, tag)):
+            log(f"[EXTRACT-PASS] {tag}")
+            try:
+                try_extract(tag)
+            except Exception as e:
+                log(f"    [extract-pass error] {e}")
+
     # manifest
     for tag in os.listdir(OUTBASE):
         d = os.path.join(OUTBASE, tag)
