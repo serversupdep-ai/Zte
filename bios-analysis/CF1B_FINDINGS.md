@@ -891,3 +891,74 @@ thread 10278 mirrors (19746-1 8mb.bin att. 32040, 8MB.bin att. 43094 for
 alisaler_3410 + repairlap + wayback CDX) completed on Actions but its
 commits are unfetched until the connection is restored. New fetchlist
 entries above are committed locally and push on reconnect.
+
+**CORPUS LANDED (same day, second batch).** The free mirrors delivered the
+actual dumps — no paid forum needed:
+- badcaps thread 85733 mediafire "Dell 3410 19746-1.zip" (Apr 2021) →
+  `Dell 3410 19746-1_8MB.bin` (8,388,608 B, sha256 1095f3ce39440ca4…
+  308ef) + `Dell 3410 19746-1_v1.6.0.bin` (16 MB, sha256 86e3d2089a41de9e…
+  42b38 — **byte-identical to vinafix att. 148165 "v1.6.0.bin"**, hash
+  match, provenance cross-confirmed).
+- indiafix wayback snapshot of the 2024/06 page → 6 archives: machine-2
+  dumps `Latitude 3410(1).bin` (8 MB) + `(2).bin` (16 MB), the 19709-1 DIS
+  pair `XM25QH64A@SOIC8…BIN` (8 MB EC chip, Nov-2021 programmer read) +
+  `XM25QH128A…BIN` (16 MB main), a MX25L12805D 16 MB read, the schematic
+  PDFs and the 19709-1.GR boardview.
+
+**§11.10.1 Architecture of the 8 MB "EC/S" chip (XMC QH64AH) — mapped.**
+Intel flash-descriptor signature (5AA5F00F) at +0x10; the chip is the
+CSME-managed primary SPI. Layout:
+- 0x000000-0x0C0000: THREE 256 KB staging slots (A@0, B@0x40000,
+  C@0x80000): {head, PHCM@+0x1000 (header 192 B: magic, n@+0x10 = chunk
+  count, chunk=64 B, key-material block at +0x40), AES-sealed body
+  (entropy 7.99)}.
+- 0x100000-0x400000: CSME ($FPT@0x102000; FTPR/NFTP/RBEP/OEMP/$MN2
+  manifests) + the Dell variable store (87 78 55 AA pages) + BIOS NVRAM
+  ("UserProfile", "OverClocking").
+- 0x400000-0x420000: small sealed blob; 0x420000-0x800000 erased.
+The 16 MB chip (QH128AH) is BIOS-only (no descriptor, no ME, no PHCM).
+
+**§11.10.2 Key result — the sealed PHCM ciphertext is deterministic per
+EC firmware VERSION, not per machine.** Three machines, two board revs:
+- badcaps 19746-1 (Apr 2021): A=C (n=0x9f4), B (n=0x9f4, different body)
+- indiafix machine-2: A=C (n=0x9fc — newer EC), B (n=0x9f4) **byte-identical
+  to badcaps B**
+- DIS 19709-1 (Nov 2021 read): A (n=0x9f4) **byte-identical to badcaps A**,
+  B identical too, C empty.
+Two unrelated machines (different board revisions) carry byte-identical
+sealed bodies for the same EC version ⇒ the AES key+IV are properties of
+the firmware IMAGE, not of the machine. Consequences: (a) confirms §11.7's
+per-image-key finding at the chip level; (b) a single version-key recovery
+(a decrypted dump of ANY machine's EC internal flash, a service-tool leak,
+or a CVE in the EC boot chain) unlocks the GENERATE engine for every
+machine on that EC version at once — one secret per version, not per unit.
+
+**§11.10.3 No plaintext EC code on the chip — route closed with the
+artifact in hand.** Across all three 8 MB dumps: zero Cortex-M vector
+tables (mapped-SP scan), no SHA-256 K-table, no AES S-box, no family-list
+bytes, no plaintext Thumb-2 boot block, no EC-region descriptor (00 e0 40
+80 — present on the 3090 desktop's main chip, absent on BOTH 3410 chips),
+no LZMA-compressed bodies. The running GENERATE engine lives in the EC
+silicon's internal flash; everything externally dumpable is sealed (PHCM,
+3090-class) or is data (store/NVRAM). The EC-chip-dump route therefore
+CLOSES the same way §11.7 closed the package route — but now on primary
+evidence, not inference.
+
+**§11.10.4 Store census, laptop flavor (§11.9 extension).** 87 78 55 AA
+records: badcaps machine 49 records, version counts 1..14 (in daily use);
+machine-2 49 records, **every count = 1** (pristine/manufacturing-reset
+state — the "flash a clean 8 MB bin to remove the password" mechanism is
+exactly a store reset, natively confirmed on laptops); DIS machine 49
+records, counts 1..16. Same record count and id-set across all three
+machines — the store layout is fixed per platform.
+
+**Status:** EC-chip dumps of the CF1B generation are now IN THE CORPUS
+(three 8 MB chips + mains). The offline keygen remains gated on the
+per-version AES key fused in EC silicon — there is no public plaintext
+ENGINE artifact, and the two paid sources (vinafix att. 150249/150250,
+repairlap att. 32040/43094) hold the same sealed architecture (vinafix's
+own SHA-256 list proves the files are the same class of dump). Remaining
+secondary: Telegram BIOS ARCHIVE msg 13724 (37.5 MB #UNPASS rar) and
+dr-bios "parsad-8mb" — both expected to be further copies of the same
+sealed layout; queued in the relay.
+
