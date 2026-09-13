@@ -87,3 +87,4 @@ PAGE|https://t.me/biosarchive/13723|tg_3410_msg13723
 PAGE|https://t.me/biosarchive/13724|tg_3410_msg13724
 # --- dr-bios thread 59413: parsad-8mb-bin (admin: "password is on 8MB file") ---
 PAGE|https://dr-bios.com/threads/19746-1-dell-latitude-3410.59413/|drbios_3410
+# retrigger: telegram retry (previous run lost its commit to a push race)
