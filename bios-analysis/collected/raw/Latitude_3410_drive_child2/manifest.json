@@ -5,16 +5,16 @@
    "sha256": "758d032db16a77bf128e890ce08fd1be3486286f4dbc539c4d2a717662d0b2fd"
   },
   "drive_1.bin": {
-   "bytes": 1247149,
-   "sha256": "070ebadf3c8c6d6a8831d02203033dd8550ebaa2f09f1e6bc4cd80661efafe55"
+   "bytes": 1247000,
+   "sha256": "562d17479a53fd3c1d0312fe02afbabfa36a1519e8ece5b39257a3d125271617"
   },
   "drive_2.bin": {
    "bytes": 695343,
-   "sha256": "9094c8c1f422e490cf7fda76be9c0e61e6af39aa17dd2e65c4c0a02ae3509515"
+   "sha256": "918ae73e4b3d72bcc19b528c9ac5e6172f15a0a358ca9e1ae938af57143651f1"
   },
   "drive_3.bin": {
    "bytes": 3187,
-   "sha256": "dd11df40b2b97cba5d9d537707f886a549963cfc6c9baf18f91b2aab1af60e63"
+   "sha256": "c500f46cf733df5131912cd8ae4eb6e2b8961bdac4e439214aeba4977eb5ea98"
   },
   "drive_4.bin.zip": {
    "bytes": 2564243,
@@ -22,11 +22,11 @@
   },
   "drive_5.bin": {
    "bytes": 1652,
-   "sha256": "08f57b3517ef281807f3fc75073220ea35384c7737e637397882306b1844ea1b"
+   "sha256": "bd6657395603dc020edc6f7a5eb158b0ad524feee551f87d0629ada616503392"
   },
   "drive_6.bin": {
    "bytes": 9103,
-   "sha256": "5cf4089935f72655d5bf1aa39466684278339c20b8fd6b027973ad3931bcabfd"
+   "sha256": "63ddbf0a2fd92fc54a61a95a03496dc8234575534780ace43190634d2c39a112"
   },
   "drive_7.bin.zip": {
    "bytes": 2564243,
@@ -34,19 +34,19 @@
   },
   "drive_8.bin": {
    "bytes": 9104,
-   "sha256": "daf933e006638f9b12b3bd661df254bae3d7281653d8bc2e635a832668194fb9"
+   "sha256": "ad9630482bbf4a94a22f5d4143e254d6ddba5c6c4a1c229e0d0dda383c892600"
   },
   "drive_9.bin": {
    "bytes": 1695,
-   "sha256": "8a343a7f44d74713fbc20e73195555efa6f177df2667d21e2cb56ddba81a8502"
+   "sha256": "454362378f2b261c7326e93738017695a855040bdea24d56a8d077018fbaf453"
   },
   "manifest.json": {
-   "bytes": 1121,
-   "sha256": "746e81f8b0a58d0036c51edb16b4fe6337da369518e84c54282dbb7a496b8756"
+   "bytes": 2043,
+   "sha256": "f2ac69f26d001bae4f8741887316a9c07d69482dc227ed2797a2bb8184472a0e"
   },
   "page.html": {
-   "bytes": 129255,
-   "sha256": "d1427001c900430c6b29ed62b4974321fee0832a42ef2c4e09b24ad88bddb285"
+   "bytes": 129146,
+   "sha256": "38b754da6e6ca779c7a33f641cbd55ff344ede2bea0ff222ea40dd293d974449"
   },
   "extracted_drive_7.bin.zip/MOCKINGBIRD-L CML UMA 8L (19746-1).pdf": {
    "bytes": 3060260,
