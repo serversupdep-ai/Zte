@@ -747,6 +747,21 @@ established:
   RT809H direct-EC) or a same-family older generation (3070/5070/7070,
   2019 8FC8 era) whose SPI staging may predate the sealing.
 
+**2019-generation sweep (same day) — NEGATIVE:** real dumps of the
+OptiPlex 3070 (IPCFL-CG, tested) and 7070 (BISON MLK MT 17509-3 + Micro
+IPCFL-BS/EK, 5 dumps) fetched via the relay: PHCM=0, no EC region, no
+Cortex-M vector tables anywhere — the 2019 generation kept the EC fully
+internal (same as 2023). The SPI-staged EC region exists only on the
+2020-2021 CML generation, where the app blocks are sealed.
+
+**Generation matrix (complete):** 2018 = plaintext EC payloads but OLD
+engine (no GENERATE); 2019 = EC internal-only; 2020-21 = EC region in SPI
+(boot+tables plaintext, app sealed); 2023+ = EC internal-only. The single
+artifact class that can carry the GENERATE engine unsealed is an
+EC-INTERNAL flash dump ("EC程序", RT809H direct-EC read) — none found
+freely shared yet (vinafix sells $20 unlock patches instead; badcaps /
+eletronicabr / Reddit-Drive copies are login-gated or dead).
+
 **Next target: EC-internal flash dumps** ("EC程序", RT809H/EFD reads of the
 Nuvoton EC chip itself) — shared by board-repair techs; that is the only
 artifact that carries the decrypted app firmware with the GENERATE engine.
