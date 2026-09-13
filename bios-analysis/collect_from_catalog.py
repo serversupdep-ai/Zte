@@ -195,8 +195,57 @@ def _carve_xz_zstd(data):
     return out
 
 
+EC_REGION_DESC = bytes.fromhex("00e04080")
+
+
+def _scan_ec_regions(cur, ec_out, seen, tag="<blob>"):
+    """Find Nuvoton-class EC-region boot descriptors {.., 0x8040e000, len, SP,
+    entry} + vector table in any blob (e.g. ME-update payloads). Save the
+    0x40000-byte region as an ec_region payload (CF1B_FINDINGS §11.8)."""
+    import struct as _st
+    i = 0
+    found = 0
+    while True:
+        i = cur.find(EC_REGION_DESC, i)
+        if i < 0:
+            break
+        try:
+            sp, ent = _st.unpack_from("<II", cur, i + 8)
+        except Exception:
+            i += 1
+            continue
+        if 0x2000f000 <= sp < 0x20080000 and 0x100 <= ent < 0x40000 and ent % 2 == 0:
+            base = i + 0x10          # vector table follows the descriptor
+            region = cur[base:base + 0x40000]
+            if len(region) < 0x1000:
+                i += 1
+                continue
+            h = sha256(region)
+            if h not in seen:
+                seen.add(h)
+                ec_out.append(region)
+                found += 1
+                # census: data blocks + plaintext-ness
+                runs, j = [], 0
+                while j < len(region):
+                    if region[j] != 0xFF:
+                        k = j
+                        while k < len(region) and region[k] != 0xFF:
+                            k += 1
+                        runs.append((j, k - j))
+                        j = k
+                    else:
+                        j += 1
+                blocks = ", ".join(f"{o:#x}+{l:#x}" for o, l in runs[:8])
+                print(f"    [ec-region] {tag} @ {base:#x}: SP={sp:#x} "
+                      f"entry={ent:#x} blocks: {blocks}")
+        i += 1
+    return found
+
+
 def _harvest_content(cur, ec_out, pw_out, seen):
     """Harvest PHCM blobs and password PE modules from one content buffer."""
+    _scan_ec_regions(cur, ec_out, seen)
     if cur[:4] == b"PHCM":
         full = sha256(cur)
         if full not in seen:
