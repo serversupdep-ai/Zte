@@ -1,0 +1,72 @@
+{
+ "files": {
+  "drive_0.bin.rar": {
+   "bytes": 8214887,
+   "sha256": "b4dfcff26ed7753671b31ac71479c1ea82b2406f008c323ac29634fd33849893"
+  },
+  "drive_1.bin.rar": {
+   "bytes": 5712812,
+   "sha256": "24f520d2dbb5e29f0a67fb5e19b1456c3173baed87296286036762ca0e87cd44"
+  },
+  "drive_2.bin.zip": {
+   "bytes": 9544651,
+   "sha256": "34ed4fd35379f2e9a855e576435f51df036d0fbd045b8c09ded7216413d2fd8f"
+  },
+  "drive_3.bin.rar": {
+   "bytes": 8190352,
+   "sha256": "6f5b24be7dd2a9c083d3111917faee3f97f35c0ff06760d67138df59baddc9c0"
+  },
+  "drive_4.bin.rar": {
+   "bytes": 20582475,
+   "sha256": "16709f142ed80bb0446446084f2dbfad049840c3b4b2d477c3e4617f01d0dce4"
+  },
+  "drive_5.bin.zip": {
+   "bytes": 91225,
+   "sha256": "197d91c97a614dd96a20d322c78d60db8c7d8e5cb34f738c7bbc81fc6b59e6c3"
+  },
+  "page.html": {
+   "bytes": 178836,
+   "sha256": "0fb11030cdaa4d892146cb20aeffbe5b2cd09aacefcb4266b5add8b1d1beab15"
+  },
+  "extracted_drive_5.bin.zip/19709-1.GR": {
+   "bytes": 318981,
+   "sha256": "df2ad06aa414b3a0ea9975f08b0e02cb16045b0ad239a8e42b77580424f7c38f"
+  },
+  "extracted_drive_4.bin.rar/MOCKINGBIRD-L CML DIS 8L (19709-1 J85JT) PDF/MOCKINGBIRD-L CML DIS 8L (19709-1 J85JT) (DIS).pdf": {
+   "bytes": 11669943,
+   "sha256": "8e5d11073bd869701f758c0314e64669b5dc825992be199beb6e50af41927fda"
+  },
+  "extracted_drive_4.bin.rar/MOCKINGBIRD-L CML DIS 8L (19709-1 J85JT) PDF/MOCKINGBIRD-L CML DIS 8L (19709-1 J85JT) (UMA).pdf": {
+   "bytes": 9855181,
+   "sha256": "d23b6195f25f23210a9c678a796ec87b5e6fd54794e257c11d882680517009c0"
+  },
+  "extracted_drive_0.bin.rar/DELL Latitude 3410 MOCKINGBIRD-L CML DIS 8L 19709-1 J85JT$ N17S-G0-A1 SRGKW  WORKING BIOS 100%/dell_Latitude_3410/XM25QH128A@SOIC8-200_20211103_104841.BIN": {
+   "bytes": 16777216,
+   "sha256": "b170edf5a84aeae6312bbb5975febce0e252f2511757209df0cb04614276454f"
+  },
+  "extracted_drive_0.bin.rar/DELL Latitude 3410 MOCKINGBIRD-L CML DIS 8L 19709-1 J85JT$ N17S-G0-A1 SRGKW  WORKING BIOS 100%/dell_Latitude_3410/XM25QH64A@SOIC8-200_20211103_103807.BIN": {
+   "bytes": 8388608,
+   "sha256": "73941ca4c19f27757c0f02f850fa90ceb1155bda8934bc2310cac84f64cb6c37"
+  },
+  "extracted_drive_1.bin.rar/MX25L12805D@SOP16_20210511_173045.BIN": {
+   "bytes": 16777216,
+   "sha256": "735c72cdb94620e150ae4df5ac4a67a7dbf7b009dee739c37549e6e5bfb177c1"
+  },
+  "extracted_drive_3.bin.rar/Latitude 3410(1).bin": {
+   "bytes": 8388608,
+   "sha256": "00018891be021ee2ce9a0e7a2dddb20107c92787ade9d7a15e474f70e4034676"
+  },
+  "extracted_drive_3.bin.rar/Latitude 3410(2).bin": {
+   "bytes": 16777216,
+   "sha256": "0e428c0bbeb725b06c5cdac741e3042636ddda7c29a18750c3a042c9e7cc03ca"
+  },
+  "extracted_drive_2.bin.zip/Dell 3410 19746-1_8MB.bin": {
+   "bytes": 8388608,
+   "sha256": "1095f3ce39440ca40da907f71bc9041683add5eb8bac1ff3bc260b8f98f308ef"
+  },
+  "extracted_drive_2.bin.zip/Dell 3410 19746-1_v1.6.0.bin": {
+   "bytes": 16777216,
+   "sha256": "86e3d2089a41de9e92d8d6192cc648ca1b84678bbf803c15114f36bd87942b38"
+  }
+ }
+}
