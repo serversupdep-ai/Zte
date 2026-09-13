@@ -60,11 +60,14 @@ The badcaps 3090 thread (2022–2023) proved this exact flow on locked 3090s
 
 ```bash
 # 1. Dump the SPI (16 MB) with your programmer; save a pristine copy.
-# 2. Analyze + patch a copy:
+# 2. Check the dump's lock state first (pre/post check, §11.9 census):
+python3 dell_unlock_image.py --state dump.bin
+#    (FACTORY-RESET = nothing to patch; USED = patch route applies)
+# 3. Analyze + patch a copy:
 python3 dell_unlock_image.py --analyze dump.bin
 python3 dell_unlock_image.py --patch dump.bin --out unlocked.bin
 #    (--wide if the markers aren't found; --wipe-store as last resort)
-# 3. Reflash unlocked.bin, then first boot:
+# 4. Reflash unlocked.bin, then first boot:
 #    F12 → Manufacturing Mode path: disable Absolute, write the service
 #    tag, save, Alt+F to bypass. In-mode F12 BIOS update to restore a
 #    clean image. Full walkthrough: --guide
