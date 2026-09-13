@@ -3,6 +3,10 @@
   "Latitude_3420_3520_1.13.3.exe": {
    "bytes": 64124840,
    "sha256": "516f0f6bf1eb13b4220e0206e54bb423f16aea9fa0536223ebdccdb9e1ddf9e3"
+  },
+  "manifest.json": {
+   "bytes": 161,
+   "sha256": "d561bf2207c82871d3c852376b471046fa0caea9ae066d8e936719f80188b763"
   }
  }
 }

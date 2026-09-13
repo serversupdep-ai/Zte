@@ -51,7 +51,7 @@
     [page fetch failed] http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334492 bytes, sha256 9c2fc84f53b29219…)
+    [saved] mediafire_3410/mediafire_page.html (334493 bytes, sha256 1fd8400c4eb388a6…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -67,11 +67,51 @@
 [skip] Latitude_3410_dellpkg_1133 already fetched
 [skip] Latitude_3410_pkg141/Latitude_3410_3510_1.4.1.exe already fetched
 [skip] Latitude_3410_pkg160/Latitude_3410_3510_1.6.0.exe already fetched
-[FILE] https://dl.dell.com/FOLDER07995005M/1/Latitude_3420_Latitude_3520_1.13.3.exe -> raw/Latitude_3420_pkg1133/Latitude_3420_3520_1.13.3.exe
-    [saved] Latitude_3420_pkg1133/Latitude_3420_3520_1.13.3.exe (64124840 bytes)
-[PAGE] https://telegram.org/embed/biosarchive/13724 -> raw/tg_3410_embed13724
-    [page head] '<!DOCTYPE html>\n<html class="" data-theme="light">\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram Messenger</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <meta property="og:title" content="T'
-    [saved] tg_3410_embed13724/page.html (19913 bytes, sha256 7428bb59fdd7cc0f…)
+[skip] Latitude_3420_pkg1133/Latitude_3420_3520_1.13.3.exe already fetched
+[skip] tg_3410_embed13724 already fetched
+[PAGE] https://t.me/biosarchive/23340 -> raw/tg_3090_msg23340
+    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @biosarchive</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
+    [saved] tg_3090_msg23340/page.html (37596 bytes, sha256 180e44951df8d763…)
+    [links] 0 candidates
+[FILE] https://telegram.org/dl?tme=e0879ad380154606e3_4407171994753476783 -> raw/tg_3090/tg_3090_23340.zip
+    [saved] tg_3090/tg_3090_23340.zip (6391 bytes)
+[PAGE] https://dr-bios.com/threads/dell-optiplex-3090.68894/ -> raw/drbios_3090_68894
+    [page head] '<!DOCTYPE html>\n<html id="XF" lang="en" dir="ltr"\n\tdata-app="public"\n\tdata-template="thread_view"\n\tdata-container-key="node-115"\n\tdata-content-key="thread-68894"\n\tdata-logged-in="false"\n\tdata-cookie-prefix="xf_"\n\tdata-csrf="1789341626,75632'
+    [saved] drbios_3090_68894/page.html (82486 bytes, sha256 0d7bd660ea7afdfa…)
+    [links] 0 candidates
+[PAGE] https://dr-bios.com/threads/dell-optiplex-3090-bios-bin-file.59046/ -> raw/drbios_3090_59046
+    [page head] '<!DOCTYPE html>\n<html id="XF" lang="en" dir="ltr"\n\tdata-app="public"\n\tdata-template="thread_view"\n\tdata-container-key="node-113"\n\tdata-content-key="thread-59046"\n\tdata-logged-in="false"\n\tdata-cookie-prefix="xf_"\n\tdata-csrf="1789341626,59b9c'
+    [saved] drbios_3090_59046/page.html (74415 bytes, sha256 48ad629f5e2fd2a9…)
+    [links] 1 candidates
+    [fetch failed 403] https://dr-bios.com/attachments/optiplex-3090-zip.75198/
+[PAGE] https://dr-bios.com/threads/optiplex-3090.61941/ -> raw/drbios_3090_61941
+    [page head] '<!DOCTYPE html>\n<html id="XF" lang="en" dir="ltr"\n\tdata-app="public"\n\tdata-template="thread_view"\n\tdata-container-key="node-113"\n\tdata-content-key="thread-61941"\n\tdata-logged-in="false"\n\tdata-cookie-prefix="xf_"\n\tdata-csrf="1789341629,3e70a'
+    [saved] drbios_3090_61941/page.html (76798 bytes, sha256 64edae87843809c5…)
+    [links] 1 candidates
+    [fetch failed 403] https://dr-bios.com/attachments/212037-1-zip.79481/
+[PAGE] https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/3217350-bios-password-request-for-dell-optiplex-3090-micro/ -> raw/badcaps_3090_3217350
+    [page head] '<!DOCTYPE html>\n<html id="htmlTag" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">\n<head>\n\n\n\t\n\t<base href="https://www.badcaps.net/" />\n\t\n\t\n\t\t<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />\n\t\n\n\t\n\t'
+    [saved] badcaps_3090_3217350/page.html (263798 bytes, sha256 277fb726e77c3af0…)
+    [links] 0 candidates
+[PAGE] https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/98981-dell-optiplex-3090-bios-issue-please-help/ -> raw/badcaps_3090_98981
+    [page head] '<!DOCTYPE html>\n<html id="htmlTag" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">\n<head>\n\n\n\t\n\t<base href="https://www.badcaps.net/" />\n\t\n\t\n\t\t<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />\n\t\n\n\t\n\t'
+    [saved] badcaps_3090_98981/page.html (279474 bytes, sha256 ce0199f50ca45687…)
+    [links] 0 candidates
+[PAGE] https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/3539267-bios-admin-password-remove-for-dell-optiplex-3090-sff/ -> raw/badcaps_3090_3539267
+    [page head] '<!DOCTYPE html>\n<html id="htmlTag" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">\n<head>\n\n\n\t\n\t<base href="https://www.badcaps.net/" />\n\t\n\t\n\t\t<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />\n\t\n\n\t\n\t'
+    [saved] badcaps_3090_3539267/page.html (263850 bytes, sha256 fbadc561a595ccfc…)
+    [links] 0 candidates
+[PAGE] https://arctic-shift.photon-reddit.com/api/posts/ids?ids=1mni7p9 -> raw/reddit_1mni7p9_post
+    [page head] '{"data":[{"_meta":{"retrieved_2nd_on":1755060440},"all_awardings":[],"allow_live_comments":false,"approved_at_utc":null,"approved_by":null,"archived":false,"author":"whaltayr","author_flair_background_color":null,"author_flair_css_class":nu'
+    [saved] reddit_1mni7p9_post/page.html (3823 bytes, sha256 7953abdda5a7f70b…)
+    [links] 0 candidates
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1mni7p9&limit=100 -> raw/reddit_1mni7p9_comments
+    [page head] '{"data":[{"_meta":{"retrieved_2nd_on":1788218650},"all_awardings":[],"approved_at_utc":null,"approved_by":null,"archived":false,"associated_award":null,"author":"ChosenOne428","author_flair_background_color":null,"author_flair_css_class":nu'
+    [saved] reddit_1mni7p9_comments/page.html (107084 bytes, sha256 b99695e92830967c…)
+    [links] 0 candidates
+[PAGE] https://vinafix.com/threads/optiplex-3090-212037-1.45618/ -> raw/vinafix_3090_45618
+    [page head] '<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><m'
+    [saved] vinafix_3090_45618/page.html (5747 bytes, sha256 85cde0182b80e16d…)
     [links] 0 candidates
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
@@ -117,16 +157,27 @@
 [EXTRACT-PASS] alisaler_3410
 [EXTRACT-PASS] alisaler_5430
 [EXTRACT-PASS] alisaler_7430
+[EXTRACT-PASS] badcaps_3090_3217350
+[EXTRACT-PASS] badcaps_3090_3539267
+[EXTRACT-PASS] badcaps_3090_98981
+[EXTRACT-PASS] drbios_3090_59046
+[EXTRACT-PASS] drbios_3090_61941
+[EXTRACT-PASS] drbios_3090_68894
 [EXTRACT-PASS] drbios_3410
 [EXTRACT-PASS] indiafix_3410_19709
 [EXTRACT-PASS] indiafix_3410_wayback
 [EXTRACT-PASS] mediafire_3410
 [EXTRACT-PASS] mediafire_3410_page
+[EXTRACT-PASS] reddit_1mni7p9_comments
+[EXTRACT-PASS] reddit_1mni7p9_post
 [EXTRACT-PASS] repairlap_3410
+[EXTRACT-PASS] tg_3090
+[EXTRACT-PASS] tg_3090_msg23340
 [EXTRACT-PASS] tg_3410
 [EXTRACT-PASS] tg_3410_embed13724
 [EXTRACT-PASS] tg_3410_msg13723
 [EXTRACT-PASS] tg_3410_msg13724
+[EXTRACT-PASS] vinafix_3090_45618
 [EXTRACT-PASS] vinafix_3410
 [EXTRACT-PASS] vinafix_3410_thread
 [EXTRACT-PASS] vinafix_wayback_8mb
