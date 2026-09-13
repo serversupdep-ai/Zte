@@ -96,3 +96,15 @@ FILE|https://dl.dell.com/FOLDER07043407M/1/Latitude_3410_3510_1.6.0.exe|Latitude
 # --- TGL successor family: did 3420/3520 packages ever stage EC content? ---
 FILE|https://dl.dell.com/FOLDER07995005M/1/Latitude_3420_Latitude_3520_1.13.3.exe|Latitude_3420_3520_1.13.3.exe|Latitude_3420_pkg1133
 PAGE|https://telegram.org/embed/biosarchive/13724|tg_3410_embed13724
+# === SAME-MODEL HUNT: OptiPlex 3090 (CF1B machine) ===
+PAGE|https://t.me/biosarchive/23340|tg_3090_msg23340
+FILE|https://telegram.org/dl?tme=e0879ad380154606e3_4407171994753476783|tg_3090_23340.zip|tg_3090
+PAGE|https://dr-bios.com/threads/dell-optiplex-3090.68894/|drbios_3090_68894
+PAGE|https://dr-bios.com/threads/dell-optiplex-3090-bios-bin-file.59046/|drbios_3090_59046
+PAGE|https://dr-bios.com/threads/optiplex-3090.61941/|drbios_3090_61941
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/3217350-bios-password-request-for-dell-optiplex-3090-micro/|badcaps_3090_3217350
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/98981-dell-optiplex-3090-bios-issue-please-help/|badcaps_3090_98981
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/3539267-bios-admin-password-remove-for-dell-optiplex-3090-sff/|badcaps_3090_3539267
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/ids?ids=1mni7p9|reddit_1mni7p9_post
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1mni7p9&limit=100|reddit_1mni7p9_comments
+PAGE|https://vinafix.com/threads/optiplex-3090-212037-1.45618/|vinafix_3090_45618
