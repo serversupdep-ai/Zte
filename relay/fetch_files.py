@@ -122,9 +122,22 @@ def fetch_link(url, tag, idx):
     if "drive.google.com" in url or "docs.google.com" in url or "web.archive.org" in url and _drive_id(url):
         return gdown(url, tag, f"drive_{idx}.bin")
     if "mediafire.com" in url:
+        # direct download host? treat as a plain file
+        host = url.split("/")[2] if "://" in url else ""
+        if host.startswith("download") or "/download/" in url:
+            dest = os.path.join(OUTBASE, tag, f"mediafire_{idx}.bin")
+            ok2, _ = curl(url, dest)
+            if ok2:
+                log(f"    [saved] {tag}/mediafire_{idx}.bin (direct)")
+                return dest
         ok, page = curl(url)
         if ok:
-            m = re.search(r'href="(https?://download[^"]+)"', page)
+            # save the page for diagnosis (bot-wall vs real page)
+            save(tag, "mediafire_page.html", data=page.encode("utf-8", "replace"))
+            # modern mediafire: <a ... href="https://downloadXXXX.mediafire.com/...">
+            m = (re.search(r'href="(https?://download[^"\']+\.(?:zip|rar|7z|bin|rom)[^"\']*)"',
+                           page, re.I) or
+                 re.search(r'(https?://download\d+\.mediafire\.com/[^\s"\'<>]+)', page))
             if m:
                 dest = os.path.join(OUTBASE, tag, f"mediafire_{idx}.bin")
                 ok2, _ = curl(m.group(1), dest)
@@ -212,6 +225,11 @@ def process_page(url, tag):
     if not ok or len(page) < 200:
         log(f"    [page fetch failed] {url}")
         return
+    # bot-wall / captcha guard: do NOT treat these as a successful page save
+    if ('id="captcha-form"' in page or "unusual traffic" in page
+            or "g-recaptcha" in page or "Attention Required! | Cloudflare" in page):
+        log(f"    [bot-wall] {url} — not saved (would poison idempotency)")
+        return
     log(f"    [page head] {page[:240]!r}")
     save(tag, "page.html", data=page.encode("utf-8", "replace"))
     links = []
@@ -266,6 +284,17 @@ def main():
                 continue
             parts = line.split("|")
             kind = parts[0].upper()
+            # idempotency: skip a tag whose manifest already exists (delete the
+            # tag dir to force a re-fetch). keeps quota-limited hosts happy.
+            if kind == "PAGE" and len(parts) >= 3:
+                if os.path.exists(os.path.join(OUTBASE, parts[2], "manifest.json")):
+                    log(f"[skip] {parts[2]} already fetched")
+                    continue
+            elif kind == "FILE" and len(parts) >= 3:
+                tag = parts[3] if len(parts) > 3 else "misc"
+                if os.path.exists(os.path.join(OUTBASE, tag, parts[2])):
+                    log(f"[skip] {tag}/{parts[2]} already fetched")
+                    continue
             if kind == "PAGE" and len(parts) >= 3:
                 url, tag = parts[1], parts[2]
                 log(f"[PAGE] {url} -> raw/{tag}")

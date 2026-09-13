@@ -78,3 +78,5 @@ PAGE|https://www.indiafix.in/2024/06/mockingbird-l-cml-dis-8l-19709-1-bios.html|
 FILE|https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file|dell_3410_19746_1|mediafire_3410
 FILE|https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_|alisaler_5430_bios|alisaler_5430
 FILE|https://drive.google.com/uc?export=download&id=1LOKEk7fpR78_hiUf40lNSchuNGz3QNvB|alisaler_7430_bios|alisaler_7430
+PAGE|https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file|mediafire_3410_page
+PAGE|http://web.archive.org/web/2025id_/https://www.indiafix.in/2024/06/mockingbird-l-cml-dis-8l-19709-1-bios.html|indiafix_3410_wayback
