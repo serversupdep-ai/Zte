@@ -962,3 +962,34 @@ secondary: Telegram BIOS ARCHIVE msg 13724 (37.5 MB #UNPASS rar) and
 dr-bios "parsad-8mb" — both expected to be further copies of the same
 sealed layout; queued in the relay.
 
+
+**§11.10.5 Staging chain proven: package PHCM == chip slot, byte-identical.**
+Fetched the 3410/3510 BIOS packages Dell still serves — 1.4.1 (Sep 2020,
+FOLDER06541051M) and **1.6.0 (Feb 2021, FOLDER07043407M — the exact BIOS the
+badcaps machine ran)**. The 1.4.1 exe contains no EC content; the 1.6.0
+package's decompressed DellUpdateBinary (26.3 MB) carries **four PHCM
+containers** = two unique sealed EC builds × 2 copies:
+- build W (n=0x9fc, body sha256 53fd65dc…, 163,776 B)
+- build Y (n=0x9f4, body sha256 3ec6de4e…, 163,264 B)
+Build Y is **byte-identical to slot B (0x41000) on BOTH the badcaps and the
+indiafix machines** — the staged update transits package→ME→chip untouched.
+Extracted payloads saved: `collected/ec_region/3410_1.6.0_pkg_phcm_{0,1}_*.bin`.
+Combined with §11.10.2, the full determinism picture across the three machines
++ the package:
+
+| EC build | n | body sha16 | where found |
+|---|---|---|---|
+| X (running, 2021) | 0x9f4 | 71cd0ff7 | badcaps A=C, DIS A (two machines, two board revs) |
+| Y (staged 1.6.0) | 0x9f4 | 3ec6de4e/f128 slot | badcaps B, mach2 B, package ×2 |
+| Z (running, later) | 0x9fc | 48d817a8 | mach2 A=C |
+| W (staged 1.6.0) | 0x9fc | 53fd65dc | package ×2 (not current on any dump) |
+
+Every appearance of the same build carries the same ciphertext — the AES
+key+IV live with the firmware build (burned per EC image), never per machine.
+The A/C slots hold the RUNNING firmware's sealed copy (written by the EC
+itself, still deterministic), slot B holds the host-staged update. A
+plaintext EC app for the CF1B/8FC8 generation exists nowhere in: packages
+(§11.7), SPI EC regions (§11.8), or EC-chip dumps (§11.10) — the engine can
+only be read out of the EC silicon's internal flash by code running there
+(= §11.5's `dell_cf1b_master.c` on a live machine) or recovered by breaking
+the per-build AES key.
