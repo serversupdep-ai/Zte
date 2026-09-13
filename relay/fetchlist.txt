@@ -58,3 +58,4 @@ PAGE|https://web.archive.org/web/2026/https://www.reddit.com/r/PcBuild/comments/
 PAGE|https://web.archive.org/web/2026/https://www.reddit.com/r/Dell/comments/1pdrs3b/|Latitude_3410_wayback_b
 # THE 3410 EC-chip folder ("Mockingbird-L 19746-1 pass 8mb.bin" = EC chip dump)
 FILE|https://drive.google.com/drive/folders/1XsUVBIwf9d6nmHbDzeUk-m_w7VGXzgEi|folder|Latitude_3410_ECfolder
+PAGE|https://drive.google.com/drive/folders/1XsUVBIwf9d6nmHbDzeUk-m_w7VGXzgEi|Latitude_3410_ECfolder_page
