@@ -792,6 +792,14 @@ content in packages entirely from ~2022 on: staged app blocks exist only
 on physical boards (sealed). The package route to the GENERATE engine is
 closed across every generation.
 
+**Corpus closure note (2026-09-13):** the third indiafix 3090 file
+(optiplex_3090.bin, drive_0) scanned — its EC region (0x6a60) is
+byte-identical to both the 2021 package's region and the UNLOCKED
+machine's. Full 3090 corpus: three machines + package = two EC versions
+(0x6a60 core-only, shared by three; 0x8148 core + 11 sealed app blocks,
+the locked READ machine only). No plaintext app exists anywhere in the
+corpus. Every collected dump is now fully characterized.
+
 **Bottom line of §11.8:** the offline keygen needs one specific file —
 an EC-internal flash dump of any 8FC8-family machine (Nuvoton NPCE-class,
 2020-2021 generation preferred: 3090/5080/7080/3080, Latitude 5410/3410,
