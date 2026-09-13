@@ -93,3 +93,6 @@ PAGE|https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=v3y
 # retrigger 2: dell package page (run 34782847591 lost commit race)
 FILE|https://dl.dell.com/FOLDER06541051M/1/Latitude_3410_3510_1.4.1.exe|Latitude_3410_3510_1.4.1.exe|Latitude_3410_pkg141
 FILE|https://dl.dell.com/FOLDER07043407M/1/Latitude_3410_3510_1.6.0.exe|Latitude_3410_3510_1.6.0.exe|Latitude_3410_pkg160
+# --- TGL successor family: did 3420/3520 packages ever stage EC content? ---
+FILE|https://dl.dell.com/FOLDER07995005M/1/Latitude_3420_Latitude_3520_1.13.3.exe|Latitude_3420_3520_1.13.3.exe|Latitude_3420_pkg1133
+PAGE|https://telegram.org/embed/biosarchive/13724|tg_3410_embed13724
