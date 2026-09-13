@@ -781,6 +781,17 @@ collected and analyzed in this campaign (20+ dumps, 4 generations).
 The 8FC8_Patcher projects (badcaps/craigsblackie) are dump-patchers,
 equivalent to our §10.2 tool — not keygens.
 
+**Package-staging sweep across ALL 2024-25 board families (2026-09-13,
+via the collector EC-region hook) — NEGATIVE.** Every catalog package's
+payloads (incl. the ME-update blobs of OptiPlex 3080 2.33, 5090/7090 1.42,
+XE4 1.40, 5490/7490 AIO 1.47, 5000 1.40, TC 1.34, plus all 2019-2023
+families) scanned for the EC-region boot descriptor: the ONLY package
+carrying an EC region is OptiPlex 3090 2.0.7 (2021) — and its region is
+the init/dispatch-tables core, not the app. Dell stopped staging EC
+content in packages entirely from ~2022 on: staged app blocks exist only
+on physical boards (sealed). The package route to the GENERATE engine is
+closed across every generation.
+
 **Bottom line of §11.8:** the offline keygen needs one specific file —
 an EC-internal flash dump of any 8FC8-family machine (Nuvoton NPCE-class,
 2020-2021 generation preferred: 3090/5080/7080/3080, Latitude 5410/3410,
