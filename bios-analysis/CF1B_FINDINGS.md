@@ -673,3 +673,34 @@ fused in the EC or a Dell-backend leak. The two delivered working solutions
 stand: §11.5 machine-side EC reader (`dell_cf1b_master.c` — asks the
 machine's own EC, which is the only local holder of the secret) and §10.2
 SPI-dump patch (`dell_unlock_image.py`).
+
+
+### 11.8 EC-chip-dump campaign — the decrypted-firmware route (2026-09-13, ACTIVE)
+
+The §11.7 closure covers every *update-package* image (sealed in transit).
+A different artifact exists in the wild: **repair-forum full-chip backups**.
+Dell machines of this generation carry a separate EC SPI chip (laptops:
+8 MB next to the 16 MB main, e.g. Latitude 3410 = XMC QH64AH "EC/S" chip;
+the badcaps/Reddit/vinafix/indiafix repair ecosystems share those bins for
+board repair). **A dump of the EC chip = the DECRYPTED, running EC firmware**
+— update-package sealing is irrelevant to it. If the GENERATE key lives in
+flash (rather than OTP), one dump yields algorithm + key for that model; if
+per-model, dumps of the 3080/5080/7080/3090 generation (byte-identical EC
+bodies, §11.7) yield exactly the CF1B transform for the target machine.
+
+Targets queued (relay/fetchlist.txt, `fetch-files.yml` relay stage):
+- Latitude 5410 LA-J371P (2020, 8FC8-EC era): full 32+16+8 MB package, the
+  8 MB file is the EC chip dump (indiafix, free)
+- OptiPlex 3090 IPCML-RN/ZB: main + password-unlocker bins + schematic
+  (identifies the desktop EC part; desktop dumps to follow)
+- Latitude 3440 QUAKEL14_RPL (2023, 9ABE/CF1B generation): tested dump
+- Latitude 3410 Mockingbird-L (2020): Reddit-shared Google-Drive folder with
+  the "19746-1 pass 8mb.bin" EC chip dump
+
+Analysis plan once a dump lands: locate the Cortex-M image (or EC vendor
+ROM layout), run the §11 emulation harness against the EC's mailbox
+handlers (the SMM side is already proven), isolate the type-6 GENERATE
+implementation and its key material, integrate into
+`dell_master_keygen.py` as the CF1B local implementation, and validate
+against any field-verified (tag, code) pairs from the pwgen-for-bios
+issue corpus (8FC8 machines).
