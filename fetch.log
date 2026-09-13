@@ -51,7 +51,7 @@
     [page fetch failed] http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334495 bytes, sha256 7c8d0b3f21f70248…)
+    [saved] mediafire_3410/mediafire_page.html (334492 bytes, sha256 9c2fc84f53b29219…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -66,8 +66,13 @@
 [skip] drbios_3410 already fetched
 [skip] Latitude_3410_dellpkg_1133 already fetched
 [skip] Latitude_3410_pkg141/Latitude_3410_3510_1.4.1.exe already fetched
-[FILE] https://dl.dell.com/FOLDER07043407M/1/Latitude_3410_3510_1.6.0.exe -> raw/Latitude_3410_pkg160/Latitude_3410_3510_1.6.0.exe
-    [saved] Latitude_3410_pkg160/Latitude_3410_3510_1.6.0.exe (16665944 bytes)
+[skip] Latitude_3410_pkg160/Latitude_3410_3510_1.6.0.exe already fetched
+[FILE] https://dl.dell.com/FOLDER07995005M/1/Latitude_3420_Latitude_3520_1.13.3.exe -> raw/Latitude_3420_pkg1133/Latitude_3420_3520_1.13.3.exe
+    [saved] Latitude_3420_pkg1133/Latitude_3420_3520_1.13.3.exe (64124840 bytes)
+[PAGE] https://telegram.org/embed/biosarchive/13724 -> raw/tg_3410_embed13724
+    [page head] '<!DOCTYPE html>\n<html class="" data-theme="light">\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram Messenger</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <meta property="og:title" content="T'
+    [saved] tg_3410_embed13724/page.html (19913 bytes, sha256 7428bb59fdd7cc0f…)
+    [links] 0 candidates
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -96,6 +101,7 @@
 [EXTRACT-PASS] Latitude_3410_wayback_b
 [EXTRACT-PASS] Latitude_3410_youtube
 [EXTRACT-PASS] Latitude_3410_yt_free
+[EXTRACT-PASS] Latitude_3420_pkg1133
 [EXTRACT-PASS] Latitude_3440_QUAKEL14
 [EXTRACT-PASS] Latitude_3440_QUAKEL14_feed
 [EXTRACT-PASS] Latitude_3440_QUAKEL14_wb
@@ -118,6 +124,7 @@
 [EXTRACT-PASS] mediafire_3410_page
 [EXTRACT-PASS] repairlap_3410
 [EXTRACT-PASS] tg_3410
+[EXTRACT-PASS] tg_3410_embed13724
 [EXTRACT-PASS] tg_3410_msg13723
 [EXTRACT-PASS] tg_3410_msg13724
 [EXTRACT-PASS] vinafix_3410
