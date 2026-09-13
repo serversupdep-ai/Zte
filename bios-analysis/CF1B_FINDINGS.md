@@ -1033,3 +1033,75 @@ The offline CF1B keygen is complete-as-possible: proven impossible without
 one of those two secrets, with the per-BUILD (not per-machine) key scope
 quantified — a single EC-build key leak would unlock every machine on that
 build at once.
+
+### 11.11 Same-model online sweep — OptiPlex 3090, CF1B (2026-09-14)
+
+Per directive: hunt online sources for the SAME model and SAME security
+suffix as the target machine (OptiPlex 3090, CF1B).
+
+**§11.11.1 Fourth same-model dump landed.** indiafix's 2026-03 "Dell OptiPlex
+3090 212037-1 BIOS BIN – OK Tested" page (recovered via Wayback snapshot →
+Drive, pw=indiafix) delivered `32MB.BIN` (33,554,432 B, sha256 390c0bef…):
+a 4th distinct 3090 machine, unlocked state (store census: 158 records = the
+complete default id set, same as the password-UNLOCKED machine; light use
+counts ≤12). Its EC region (@0x82d464, 0x6a60 core-only) is **byte-identical
+to the 2.0.7-package region** — 4th independent confirmation that the region
+is immutable per EC version.
+
+**§11.11.2 Same-model per-BUILD determinism proven on the target model.**
+The 3090's 32 MB image carries the same 3-slot PHCM staging (MFS, offsets
+0x1000/0x41000/0x81000) as the 3410's companion chip:
+- machines 1-3 (optiplex_3090.bin, IPCML-RN READ, 3090 Unlocked — three
+  different machines incl. locked and unlocked): slot A body sha 077c070c…,
+  slot B sha b298ec57… — **byte-identical across all three**
+- machine 4 (the new OK-tested dump, newer EC): different pair
+  (b0c5bf15… / 628f0b43…)
+Same model, same suffix generation: identical ciphertext per EC build,
+different per build — §11.10.2's per-build-key conclusion reproduces exactly
+on the CF1B target machine itself. Neither the 2.0.7 nor the latest 3090
+package stages any PHCM (only the EC region in 2.0.7): the 3090's EC app is
+never package-delivered, so build Q's sealed body has no public staging
+source at all.
+
+**§11.11.3 The code-giver census (Reddit r/Dell 1mni7p9, 61 comments).**
+A thread where a holder of a proprietary generator answers requests:
+- every EC-era request was DECLINED — "Unfortunately, those go beyond our
+  current ability to generate a code. So there is no known way without a
+  bios chip flash" — including **9B1N0R3-CF1B "dell latitude 3090" (the
+  exact target model+suffix)**, OptiPlex 3080s (JY6TVD3-CF1B, 4NYRTD3-8FC8,
+  CNXJQB3-CF1B, 7JZXKJ3-CF1B via badcaps 85841), Latitude 5400/5410/5500/
+  5300-CF1B, Precision 7740-CF1B, 8FC8 (3561/3591/G15-5530/5420), 9ABE,
+  3FE2 (7430), 8FCA (3591-class)
+- legacy requests WERE answered (Latitude E7270: two 16-char codes,
+  0tzVtQKtM2bVFBD8 / BLQ0[ZL[9R32zXrk)
+- the same holder: "there is a tool, but it's proprietary unfortunately" —
+  and for EC-era: desolder + flash is the only way they know.
+Combined with the paid sellers (ThienBui patch $15-25, aditya11ttt ₹7,500,
+passwords247/biospassword.tech "CF1B suffix password new!"): the EC-era
+transform is a paid per-machine service (Dell-backend or internal-EC read
+access), not a public algorithm — consistent with §11.10's finding that it
+exists only in EC silicon and Dell's backend.
+
+**§11.11.4 Same-model ecosystem map (all gated, all consistent).**
+- vinafix 45618 (OptiPlex 3090 212037-1 thread): 32MB.BIN.zip (the new
+  dump's class), builds7666/7222.zip, unpas9.zip, locked machine reads;
+  ThienBui: "8fc8 need buy patch 15$"
+- badcaps 3217350 / 98981 / 3539267 / 85841: locked-READ + patched pairs
+  for 3090 Micro/SFF/Tower and 3080 (MX25L25673G / XMC QH256B single 32 MB
+  chip — the 3090 has NO separate EC SPI; premium-gated)
+- dr-bios 59046 / 61941 / 68894 (incl. an Aug-2026 original+patched pair;
+  login-gated)
+- Telegram BIOS ARCHIVE msg 23340 mirrors the same "32MB.BIN.zip"; t.me
+  document deeplinks are browser-session-bound — verified server-side
+  unfetchable (cookie-jar + referer still lands on desktop.telegram.org).
+  File class already in corpus via indiafix.
+
+**§11.11 verdict:** the same-model, same-suffix sweep closes consistently.
+Every publicly reachable 3090 artifact is now held (4 machine dumps + both
+packages + region extracts): unlocked images show store-reset + immutable
+core-only EC region; sealed app bodies are per-build deterministic; no
+same-model artifact carries the GENERATE engine; and the only public
+same-model+same-suffix unlock request on record (9B1N0R3-CF1B) was declined
+by the only tool-holder willing to talk. Route A (live EC query), Route B
+(SPI patch, field-proven), Route C (Dell ownership readout) remain the only
+working unlocks — exactly as §11.5-§11.10 concluded.
