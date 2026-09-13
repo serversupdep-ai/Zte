@@ -1,33 +1,24 @@
 [PAGE] https://www.indiafix.in/2024/08/fdz41-la-j371p-rev-10-bios-dump-ok.html -> raw/Latitude_5410_LA-J371P
     [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] Latitude_5410_LA-J371P/page.html (181147 bytes, sha256 9fdd2dffcbb7d684…)
+    [saved] Latitude_5410_LA-J371P/page.html (181147 bytes, sha256 71483ef7576d2aeb…)
     [links] 3 candidates
     [saved] Latitude_5410_LA-J371P/drive_0.bin via gdown (11665938 bytes)
     [saved] Latitude_5410_LA-J371P/drive_1.bin via gdown (9343727 bytes)
     [saved] Latitude_5410_LA-J371P/drive_2.bin via gdown (35372190 bytes)
-    [extracted] drive_0.bin.rar (pw='indiafix', unrar) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/Latitude_5410_LA-J371P/extracted_drive_0.bin.rar
-    [extracted] drive_1.bin.rar (pw='indiafix', unrar) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/Latitude_5410_LA-J371P/extracted_drive_1.bin.rar
-    [extracted] drive_2.bin.rar (pw='indiafix', unrar) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/Latitude_5410_LA-J371P/extracted_drive_2.bin.rar
 [PAGE] https://www.indiafix.in/2024/02/ipcml-rn-zb.html -> raw/OptiPlex_3090_indiafix
     [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] OptiPlex_3090_indiafix/page.html (176060 bytes, sha256 68cec2f9251d62c3…)
+    [saved] OptiPlex_3090_indiafix/page.html (176060 bytes, sha256 2a3e79dc14072ecd…)
     [links] 3 candidates
     [saved] OptiPlex_3090_indiafix/drive_0.bin via gdown (14047090 bytes)
     [saved] OptiPlex_3090_indiafix/drive_1.bin via gdown (16232667 bytes)
     [saved] OptiPlex_3090_indiafix/drive_2.bin via gdown (11205072 bytes)
-    [extracted] drive_0.bin.zip (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/OptiPlex_3090_indiafix/extracted_drive_0.bin.zip
-    [extracted] drive_1.bin.rar (pw='indiafix', unrar) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/OptiPlex_3090_indiafix/extracted_drive_1.bin.rar
-    [extracted] drive_2.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/OptiPlex_3090_indiafix/extracted_drive_2.bin.rar
 [PAGE] https://www.indiafix.in/2025/01/dell-latitude-3440-quakel14rpl-213247-1.html -> raw/Latitude_3440_QUAKEL14
     [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] Latitude_3440_QUAKEL14/page.html (233639 bytes, sha256 9fc79e39a3f80e1d…)
+    [saved] Latitude_3440_QUAKEL14/page.html (233639 bytes, sha256 75b285fe395b88c5…)
     [links] 3 candidates
     [saved] Latitude_3440_QUAKEL14/drive_0.bin via gdown (13193025 bytes)
     [saved] Latitude_3440_QUAKEL14/drive_1.bin via gdown (56944734 bytes)
     [saved] Latitude_3440_QUAKEL14/drive_2.bin via gdown (11303740 bytes)
-    [extracted] drive_0.bin.rar (pw='indiafix', unrar) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/Latitude_3440_QUAKEL14/extracted_drive_0.bin.rar
-    [extracted] drive_1.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/Latitude_3440_QUAKEL14/extracted_drive_1.bin.rar
-    [extracted] drive_2.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/Latitude_3440_QUAKEL14/extracted_drive_2.bin.rar
 [PAGE] https://www.reddit.com/r/PcBuild/comments/1pdrlnf/.json -> raw/Latitude_3410_reddit
     [page head] '<body class=theme-beta><div><style>.theme-light,:root{--rem360:22.5rem;--rem320:20rem;--rem192:12rem;--rem144:9rem;--rem128:8rem;--rem96:6rem;--rem90:5.625rem;--rem88:5.5rem;--rem64:4rem;--rem56:3.5rem;--rem48:3rem;--rem40:2.5rem;--rem36:2.'
     [saved] Latitude_3410_reddit/page.html (190240 bytes, sha256 dc131f9130330030…)
@@ -40,42 +31,59 @@
     [fetch failed 400] https://www.uploadfiles.io/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file
 [PAGE] https://web.archive.org/web/2025/https://www.indiafix.in/2024/08/fdz41-la-j371p-rev-10-bios-dump-ok.html -> raw/Latitude_5410_LA-J371P_wb
     [page head] '<!DOCTYPE html>\n<html class="v2" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">\n<head><script src='
-    [saved] Latitude_5410_LA-J371P_wb/page.html (197193 bytes, sha256 39cd24e7ba82b6a4…)
+    [saved] Latitude_5410_LA-J371P_wb/page.html (197190 bytes, sha256 2d7d14d651f48038…)
     [links] 2 candidates
     [saved] Latitude_5410_LA-J371P_wb/drive_0.bin via gdown (11665938 bytes)
     [saved] Latitude_5410_LA-J371P_wb/drive_1.bin via gdown (9343727 bytes)
-    [extracted] drive_0.bin.rar (pw='indiafix', unrar) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/Latitude_5410_LA-J371P_wb/extracted_drive_0.bin.rar
-    [extracted] drive_1.bin.rar (pw='indiafix', unrar) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/Latitude_5410_LA-J371P_wb/extracted_drive_1.bin.rar
 [PAGE] https://web.archive.org/web/2025/https://www.indiafix.in/2024/02/ipcml-rn-zb.html -> raw/OptiPlex_3090_indiafix_wb
     [page head] '<!DOCTYPE html>\n<html class="v2" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">\n<head><script src='
-    [saved] OptiPlex_3090_indiafix_wb/page.html (197457 bytes, sha256 a4c5a30ea4b449e4…)
+    [saved] OptiPlex_3090_indiafix_wb/page.html (197459 bytes, sha256 f64387e8c25aea63…)
     [links] 3 candidates
     [saved] OptiPlex_3090_indiafix_wb/drive_0.bin via gdown (14047090 bytes)
     [saved] OptiPlex_3090_indiafix_wb/drive_1.bin via gdown (16232667 bytes)
     [saved] OptiPlex_3090_indiafix_wb/drive_2.bin via gdown (11205072 bytes)
-    [extracted] drive_0.bin.zip (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/OptiPlex_3090_indiafix_wb/extracted_drive_0.bin.zip
-    [extracted] drive_1.bin.rar (pw='indiafix', unrar) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/OptiPlex_3090_indiafix_wb/extracted_drive_1.bin.rar
-    [extracted] drive_2.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/OptiPlex_3090_indiafix_wb/extracted_drive_2.bin.rar
 [PAGE] https://web.archive.org/web/2025/https://www.indiafix.in/2025/01/dell-latitude-3440-quakel14rpl-213247-1.html -> raw/Latitude_3440_QUAKEL14_wb
     [page head] '<!DOCTYPE html>\n<html class="v2" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr">\n<head><script src='
-    [saved] Latitude_3440_QUAKEL14_wb/page.html (243490 bytes, sha256 ede33b0ce43b91f0…)
+    [saved] Latitude_3440_QUAKEL14_wb/page.html (243489 bytes, sha256 137b3555c5a5e6f4…)
     [links] 2 candidates
     [saved] Latitude_3440_QUAKEL14_wb/drive_0.bin via gdown (13193025 bytes)
     [saved] Latitude_3440_QUAKEL14_wb/drive_1.bin via gdown (13163675 bytes)
-    [extracted] drive_0.bin.rar (pw='indiafix', unrar) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/Latitude_3440_QUAKEL14_wb/extracted_drive_0.bin.rar
-    [extracted] drive_1.bin.zip (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/Latitude_3440_QUAKEL14_wb/extracted_drive_1.bin.zip
 [PAGE] https://www.indiafix.in/feeds/posts/default?alt=json&q=LA-J371P -> raw/Latitude_5410_LA-J371P_feed
     [page head] '{"version":"1.0","encoding":"UTF-8","feed":{"xmlns":"http://www.w3.org/2005/Atom","xmlns$openSearch":"http://a9.com/-/spec/opensearchrss/1.0/","xmlns$blogger":"http://schemas.google.com/blogger/2008","xmlns$georss":"http://www.georss.org/ge'
-    [saved] Latitude_5410_LA-J371P_feed/page.html (41569 bytes, sha256 5ad5041cbcecb409…)
+    [saved] Latitude_5410_LA-J371P_feed/page.html (41569 bytes, sha256 97b6a493d48db29c…)
     [links] 0 candidates
 [PAGE] https://www.indiafix.in/feeds/posts/default?alt=json&q=IPCML-RN -> raw/OptiPlex_3090_indiafix_feed
     [page head] '{"version":"1.0","encoding":"UTF-8","feed":{"xmlns":"http://www.w3.org/2005/Atom","xmlns$openSearch":"http://a9.com/-/spec/opensearchrss/1.0/","xmlns$blogger":"http://schemas.google.com/blogger/2008","xmlns$georss":"http://www.georss.org/ge'
-    [saved] OptiPlex_3090_indiafix_feed/page.html (13449 bytes, sha256 5639ed4521b45634…)
+    [saved] OptiPlex_3090_indiafix_feed/page.html (13449 bytes, sha256 eae45fa38ca2e84b…)
     [links] 0 candidates
 [PAGE] https://www.indiafix.in/feeds/posts/default?alt=json&q=QUAKEL14 -> raw/Latitude_3440_QUAKEL14_feed
     [page head] '{"version":"1.0","encoding":"UTF-8","feed":{"xmlns":"http://www.w3.org/2005/Atom","xmlns$openSearch":"http://a9.com/-/spec/opensearchrss/1.0/","xmlns$blogger":"http://schemas.google.com/blogger/2008","xmlns$georss":"http://www.georss.org/ge'
-    [saved] Latitude_3440_QUAKEL14_feed/page.html (4130 bytes, sha256 4da2e3da45a61d3a…)
+    [saved] Latitude_3440_QUAKEL14_feed/page.html (4130 bytes, sha256 04cd9c1f23d46e29…)
     [links] 0 candidates
+[PAGE] https://www.indiafix.in/2025/04/dell-optiplex-7070-bison-mlk-mt-17509-3.html -> raw/OptiPlex_7070_BISON
+    [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
+    [saved] OptiPlex_7070_BISON/page.html (176716 bytes, sha256 b20ccbd00ad77a60…)
+    [links] 3 candidates
+    [saved] OptiPlex_7070_BISON/drive_0.bin via gdown (7034693 bytes)
+    [saved] OptiPlex_7070_BISON/drive_1.bin via gdown (10473947 bytes)
+    [saved] OptiPlex_7070_BISON/drive_2.bin via gdown (21922705 bytes)
+    [extracted] drive_0.bin.rar (pw='indiafix', unrar) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/OptiPlex_7070_BISON/extracted_drive_0.bin.rar
+    [extracted] drive_1.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/OptiPlex_7070_BISON/extracted_drive_1.bin.rar
+    [extracted] drive_2.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/OptiPlex_7070_BISON/extracted_drive_2.bin.rar
+[PAGE] https://www.indiafix.in/2025/08/dell-optiplex-7070-micro-ipcfl-bsek.html -> raw/OptiPlex_7070_Micro_IPCFL
+    [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
+    [saved] OptiPlex_7070_Micro_IPCFL/page.html (175545 bytes, sha256 d4710b39290e3bef…)
+    [links] 1 candidates
+    [saved] OptiPlex_7070_Micro_IPCFL/drive_0.bin via gdown (21922629 bytes)
+    [extracted] drive_0.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/OptiPlex_7070_Micro_IPCFL/extracted_drive_0.bin.rar
+[PAGE] https://www.indiafix.in/2023/06/dell-optiplex-3070-ipcfl-cg-bios.html -> raw/OptiPlex_3070_IPCFL
+    [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
+    [saved] OptiPlex_3070_IPCFL/page.html (171710 bytes, sha256 8bf29b4c9da3dd26…)
+    [links] 2 candidates
+    [saved] OptiPlex_3070_IPCFL/drive_0.bin via gdown (7034669 bytes)
+    [saved] OptiPlex_3070_IPCFL/drive_1.bin via gdown (198579 bytes)
+    [extracted] drive_0.bin.rar (pw='indiafix', unrar) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/OptiPlex_3070_IPCFL/extracted_drive_0.bin.rar
+    [extracted] drive_1.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/OptiPlex_3070_IPCFL/extracted_drive_1.bin.rar
 [EXTRACT-PASS] Latitude_3410_reddit
 [EXTRACT-PASS] Latitude_3410_reddit_b
 [EXTRACT-PASS] Latitude_3410_uploadfiles
@@ -85,7 +93,10 @@
 [EXTRACT-PASS] Latitude_5410_LA-J371P
 [EXTRACT-PASS] Latitude_5410_LA-J371P_feed
 [EXTRACT-PASS] Latitude_5410_LA-J371P_wb
+[EXTRACT-PASS] OptiPlex_3070_IPCFL
 [EXTRACT-PASS] OptiPlex_3090_indiafix
 [EXTRACT-PASS] OptiPlex_3090_indiafix_feed
 [EXTRACT-PASS] OptiPlex_3090_indiafix_wb
+[EXTRACT-PASS] OptiPlex_7070_BISON
+[EXTRACT-PASS] OptiPlex_7070_Micro_IPCFL
 done
