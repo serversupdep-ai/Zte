@@ -90,6 +90,17 @@ def _drive_id(url):
 def gdown(url, tag, name):
     d = os.path.join(OUTBASE, tag)
     os.makedirs(d, exist_ok=True)
+    # folder: gdown --folder (downloads every file in the Drive folder)
+    if "/folders/" in url:
+        fd = os.path.join(d, "folder_dl")
+        os.makedirs(fd, exist_ok=True)
+        r = subprocess.run([sys.executable, "-m", "gdown", "--folder", url, "-O", fd],
+                           capture_output=True, text=True, timeout=1800)
+        if r.returncode == 0 and os.listdir(fd):
+            log(f"    [saved] {tag}/folder_dl/* (Drive folder, {len(os.listdir(fd))} entries)")
+            return fd
+        log(f"    [gdown-folder failed] {url}: {(r.stderr or r.stdout)[-300:]}")
+        return None
     dest = os.path.join(d, name)
     fid = _drive_id(url)
     dl_url = f"https://drive.google.com/uc?id={fid}" if fid else url
