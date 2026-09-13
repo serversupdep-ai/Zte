@@ -13,12 +13,12 @@
    "sha256": "4abfd18eb3aaf753731d56cca4fbaedc9103bd8b25678e93298dec32091c60a2"
   },
   "manifest.json": {
-   "bytes": 2398,
-   "sha256": "27501ef67038daac9ca06ddd6c5ec47d2877682295369ce5fd8316e2b0dc4e95"
+   "bytes": 2399,
+   "sha256": "3525eeecc6a2b229d28ef95f5dcf9a84dbf42690f0ea25eb9345346aaa2e90e7"
   },
   "page.html": {
    "bytes": 233639,
-   "sha256": "75b285fe395b88c510b7d90c137624bb5e9a7edf89d72358deca8d8435dd8c8e"
+   "sha256": "a7b7b0d87b86bca3b5992a8694251b2ce2840faeff8164ae7e4c8af37b51ad70"
   },
   "extracted_drive_2.bin.rar/213247-1 W36MN$JA OK TESTED.bin": {
    "bytes": 33554432,
