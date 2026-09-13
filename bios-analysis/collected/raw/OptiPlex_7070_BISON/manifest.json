@@ -14,11 +14,11 @@
   },
   "manifest.json": {
    "bytes": 1426,
-   "sha256": "a12d2380b86afffb9757478e8cbd5c66908b1aa36186b75532c873982e6f303c"
+   "sha256": "ec6094303fb9e525e7dec15c1bacc2736f52c679f5331ec72cf78c83087a4ffa"
   },
   "page.html": {
    "bytes": 176716,
-   "sha256": "b741eb32930479072c833a81c88751a8e98548754b1c5cf95579fb5bfe2cd72f"
+   "sha256": "03d197d33dc9d24266317f7167b8eee1643a3fe4394f6da72f0aa61eac3455ba"
   },
   "extracted_drive_2.bin.rar/OptiPlex 7070 Micro_CombineBiosName1 v99.1.45.bin": {
    "bytes": 33554432,

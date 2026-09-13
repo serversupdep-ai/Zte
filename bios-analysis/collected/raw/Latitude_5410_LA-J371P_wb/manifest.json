@@ -10,11 +10,11 @@
   },
   "manifest.json": {
    "bytes": 1261,
-   "sha256": "2de68fa4e0c30cc38ffd4481d6339b80c1fcf9d9e867e616ff5e5c9334efa1a1"
+   "sha256": "535f51edbb3ce3c2fee8059e00f1dc8c8778e580285e02d690136134680360b1"
   },
   "page.html": {
-   "bytes": 197190,
-   "sha256": "43969a09360b93723391ca54a4e9a3d665b62757f9f73fd3ba0632a7b84c8d8b"
+   "bytes": 197189,
+   "sha256": "8d18ebb5fe1e97f6cceac9da581335c27533dd245765b1acd7942c5166a51894"
   },
   "extracted_drive_0.bin.rar/DELL Latitude 5410 FDZ41_LA-J371P 32MB TESTED BIOS/DELL Latitude 5410 FDZ41_LA-J371P TESTED BIOS.bin": {
    "bytes": 33554432,
