@@ -39,3 +39,12 @@ PAGE|https://www.indiafix.in/feeds/posts/default?alt=json&q=QUAKEL14|Latitude_34
 PAGE|https://www.indiafix.in/2025/04/dell-optiplex-7070-bison-mlk-mt-17509-3.html|OptiPlex_7070_BISON
 PAGE|https://www.indiafix.in/2025/08/dell-optiplex-7070-micro-ipcfl-bsek.html|OptiPlex_7070_Micro_IPCFL
 PAGE|https://www.indiafix.in/2023/06/dell-optiplex-3070-ipcfl-cg-bios.html|OptiPlex_3070_IPCFL
+
+# Reddit 3410 thread body (contains the Google-Drive folder with the 8MB EC
+# chip dump "Mockingbird-L 19746-1 pass 8mb.bin") — multiple access routes
+PAGE|https://api.reddit.com/api/info/?id=t3_1pdrlnf|Latitude_3410_reddit_json
+PAGE|https://api.reddit.com/api/info/?id=t3_1pdrs3b|Latitude_3410_reddit_json_b
+PAGE|https://old.reddit.com/r/PcBuild/comments/1pdrlnf/.json|Latitude_3410_old_json
+PAGE|https://old.reddit.com/r/Dell/comments/1pdrs3b/.json|Latitude_3410_old_json_b
+PAGE|https://r.jina.ai/https://www.reddit.com/r/PcBuild/comments/1pdrlnf/|Latitude_3410_jina
+PAGE|https://redlib.catsarch.com/r/PcBuild/comments/1pdrlnf|Latitude_3410_redlib
