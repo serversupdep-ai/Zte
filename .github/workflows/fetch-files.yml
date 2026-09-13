@@ -26,7 +26,9 @@ jobs:
         run: |
           python3 -m pip -q install gdown
           sudo apt-get -qq update
-          sudo apt-get -qq install -y --no-install-recommends p7zip-full zstd unrar-free > /dev/null || true
+          sudo apt-get -qq install -y --no-install-recommends p7zip-full zstd > /dev/null || true
+          sudo apt-get -qq install -y --no-install-recommends unrar p7zip-rar > /dev/null || true
+          7z i | head -3 || true
 
       - name: Fetch files
         run: |

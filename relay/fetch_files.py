@@ -75,11 +75,25 @@ def save(tag, name, data=None, path=None):
     return dest
 
 
+def _drive_id(url):
+    """Extract a Google-Drive file id from any link shape (incl. wayback-wrapped)."""
+    u = re.sub(r"^https?://web\.archive\.org/web/\d+(?:id_)?/", "", url)
+    m = re.search(r"/file/d/([A-Za-z0-9_-]{10,})", u)
+    if m:
+        return m.group(1)
+    m = re.search(r"[?&]id=([A-Za-z0-9_-]{10,})", u)
+    if m:
+        return m.group(1)
+    return None
+
+
 def gdown(url, tag, name):
     d = os.path.join(OUTBASE, tag)
     os.makedirs(d, exist_ok=True)
     dest = os.path.join(d, name)
-    r = subprocess.run([sys.executable, "-m", "gdown", "-O", dest, "--fuzzy", url],
+    fid = _drive_id(url)
+    dl_url = f"https://drive.google.com/uc?id={fid}" if fid else url
+    r = subprocess.run([sys.executable, "-m", "gdown", "-O", dest, dl_url],
                        capture_output=True, text=True, timeout=1500)
     if r.returncode == 0 and os.path.exists(dest) and os.path.getsize(dest) > 0:
         if os.path.getsize(dest) > MAX_BYTES:
@@ -93,7 +107,8 @@ def gdown(url, tag, name):
 
 
 def fetch_link(url, tag, idx):
-    if "drive.google.com" in url or "docs.google.com" in url:
+    url = re.sub(r"^https?://web\.archive\.org/web/\d+(?:id_)?/", "", url)
+    if "drive.google.com" in url or "docs.google.com" in url or "web.archive.org" in url and _drive_id(url):
         return gdown(url, tag, f"drive_{idx}.bin")
     if "mediafire.com" in url:
         ok, page = curl(url)
@@ -133,13 +148,18 @@ def try_extract(tag):
     d = os.path.join(OUTBASE, tag)
     for arch in glob.glob(os.path.join(d, "*.rar")) + glob.glob(os.path.join(d, "*.zip")) + glob.glob(os.path.join(d, "*.7z")):
         ext = os.path.join(d, "extracted_" + os.path.basename(arch))
+        done = False
         for pw in RAR_PW:
-            r = subprocess.run(["7z", "x", "-y", f"-p{pw}", f"-o{ext}", arch],
-                               capture_output=True, text=True, timeout=1200)
-            if r.returncode == 0:
-                log(f"    [extracted] {os.path.basename(arch)} (pw={pw!r}) -> {ext}")
+            for tool in (["7z", "x", "-y", f"-p{pw}", f"-o{ext}", arch],
+                         ["unrar", "x", "-y", f"-p{pw}", arch, ext + os.sep]):
+                r = subprocess.run(tool, capture_output=True, text=True, timeout=1200)
+                if r.returncode == 0 and os.path.isdir(ext) and os.listdir(ext):
+                    log(f"    [extracted] {os.path.basename(arch)} (pw={pw!r}, {'7z' if tool[0]=='7z' else 'unrar'}) -> {ext}")
+                    done = True
+                    break
+            if done:
                 break
-        else:
+        if not done:
             log(f"    [extract failed] {os.path.basename(arch)}: {(r.stderr or '')[-200:]}")
 
 
