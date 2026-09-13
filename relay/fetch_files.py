@@ -146,9 +146,13 @@ def try_extract(tag):
 def process_page(url, tag):
     ok, page = curl(url)
     if not ok or len(page) < 200:
-        # try once more as JSON-ish endpoints (reddit)
+        # retry once (some hosts rate-limit the first hit)
+        time.sleep(5)
+        ok, page = curl(url)
+    if not ok or len(page) < 200:
         log(f"    [page fetch failed] {url}")
         return
+    log(f"    [page head] {page[:240]!r}")
     save(tag, "page.html", data=page.encode("utf-8", "replace"))
     links = []
     seen = set()

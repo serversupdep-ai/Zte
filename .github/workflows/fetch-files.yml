@@ -34,11 +34,22 @@ jobs:
           python3 relay/fetch_files.py 2>&1 | tee fetch.log
           du -sh bios-analysis/collected/raw || true
 
+      - name: Upload fetch log (best effort)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fetch-log
+          path: fetch.log
+          if-no-files-found: ignore
+        continue-on-error: true
+
       - name: Commit fetched data
         run: |
           git config user.name "relay-bot"
           git config user.email "relay@localhost"
-          git add bios-analysis/collected/raw/ fetch.log || true
+          git add fetch.log 2>/dev/null || true
+          git add bios-analysis/collected/raw/ 2>/dev/null || true
+          git add bios-analysis/collected/raw 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "nothing new to commit"
           else
