@@ -148,6 +148,8 @@ def fetch_link(url, tag, idx):
         return None
     # direct file
     name = url.split("?")[0].rstrip("/").split("/")[-1] or f"file_{idx}.bin"
+    if isinstance(idx, str) and "." in idx:
+        name = idx  # explicit FILE-entry name wins
     if len(name) > 100 or "/" in name:
         name = f"file_{idx}.bin"
     d = os.path.join(OUTBASE, tag)
@@ -246,7 +248,8 @@ def process_page(url, tag):
         if any(k in u for k in ("drive.google.com", "docs.google.com",
                                 "mediafire.com", "mega.nz",
                                 ".rar", ".zip", ".7z", ".bin", ".rom",
-                                "archive.org/download", "/attachments/")):
+                                "archive.org/download", "/attachments/",
+                                "telegram.org/dl", "telegram-cdn.org")):
             if any(k in u for k in ("google.com/search", "blogger.com",
                                     "gstatic", "aliexpress", "amazon.",
                                     "/login", "/register", "/account/",

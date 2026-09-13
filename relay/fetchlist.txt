@@ -80,3 +80,10 @@ FILE|https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNz
 FILE|https://drive.google.com/uc?export=download&id=1LOKEk7fpR78_hiUf40lNSchuNGz3QNvB|alisaler_7430_bios|alisaler_7430
 PAGE|https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file|mediafire_3410_page
 PAGE|http://web.archive.org/web/2025id_/https://www.indiafix.in/2024/06/mockingbird-l-cml-dis-8l-19709-1-bios.html|indiafix_3410_wayback
+# --- Telegram BIOS ARCHIVE: Dell 3410 19746-1 both-chips dump + UNPASS rar (free, public channel) ---
+FILE|https://telegram.org/dl?tme=3b5103d91537f61d47_16268493646301877724|tg_3410_13723.zip|tg_3410
+FILE|https://telegram.org/dl?tme=3b459ea6bfc3491738_16360435324527312863|tg_3410_13724.rar|tg_3410
+PAGE|https://t.me/biosarchive/13723|tg_3410_msg13723
+PAGE|https://t.me/biosarchive/13724|tg_3410_msg13724
+# --- dr-bios thread 59413: parsad-8mb-bin (admin: "password is on 8MB file") ---
+PAGE|https://dr-bios.com/threads/19746-1-dell-latitude-3410.59413/|drbios_3410
