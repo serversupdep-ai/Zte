@@ -51,7 +51,7 @@
     [page fetch failed] http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334492 bytes, sha256 22f78e092cf6176e…)
+    [saved] mediafire_3410/mediafire_page.html (334493 bytes, sha256 f51c2fcb65800822…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -59,26 +59,15 @@
     [saved] alisaler_7430/drive_alisaler_7430_bios.bin via gdown (10226346 bytes)
 [skip] mediafire_3410_page already fetched
 [skip] indiafix_3410_wayback already fetched
-[FILE] https://telegram.org/dl?tme=3b5103d91537f61d47_16268493646301877724 -> raw/tg_3410/tg_3410_13723.zip
-    [saved] tg_3410/tg_3410_13723.zip (6391 bytes)
-[FILE] https://telegram.org/dl?tme=3b459ea6bfc3491738_16360435324527312863 -> raw/tg_3410/tg_3410_13724.rar
-    [saved] tg_3410/tg_3410_13724.rar (6391 bytes)
-[PAGE] https://t.me/biosarchive/13723 -> raw/tg_3410_msg13723
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @biosarchive</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_3410_msg13723/page.html (37261 bytes, sha256 ce2c94ff79d67ca4…)
+[skip] tg_3410/tg_3410_13723.zip already fetched
+[skip] tg_3410/tg_3410_13724.rar already fetched
+[skip] tg_3410_msg13723 already fetched
+[skip] tg_3410_msg13724 already fetched
+[skip] drbios_3410 already fetched
+[PAGE] https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=v3y9y -> raw/Latitude_3410_dellpkg_1133
+    [page head] '<HTML><HEAD>\n<TITLE>Access Denied</TITLE>\n</HEAD><BODY>\n<H1>Access Denied</H1>\n \nYou don\'t have permission to access "http&#58;&#47;&#47;www&#46;dell&#46;com&#47;support&#47;home&#47;en&#45;us&#47;drivers&#47;driversdetails&#63;" on this se'
+    [saved] Latitude_3410_dellpkg_1133/page.html (432 bytes, sha256 e18bf45e137ddf2c…)
     [links] 0 candidates
-[PAGE] https://t.me/biosarchive/13724 -> raw/tg_3410_msg13724
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @biosarchive</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_3410_msg13724/page.html (37279 bytes, sha256 dbf0447df48ee01c…)
-    [links] 0 candidates
-[PAGE] https://dr-bios.com/threads/19746-1-dell-latitude-3410.59413/ -> raw/drbios_3410
-    [page head] '<!DOCTYPE html>\n<html id="XF" lang="en" dir="ltr"\n\tdata-app="public"\n\tdata-template="thread_view"\n\tdata-container-key="node-113"\n\tdata-content-key="thread-59413"\n\tdata-logged-in="false"\n\tdata-cookie-prefix="xf_"\n\tdata-csrf="1789333678,d8eef'
-    [saved] drbios_3410/page.html (208826 bytes, sha256 6ea5c3b614dc4a20…)
-    [links] 4 candidates
-    [fetch failed 403] https://dr-bios.com/attachments/clear-me-zip.70164/
-    [fetch failed 403] https://dr-bios.com/attachments/vid-20240120-wa0039-mp4.83393/
-    [fetch failed 403] https://dr-bios.com/attachments/parsad-8mb-bin.65736/
-    [fetch failed 403] https://dr-bios.com/attachments/2nd-try-rar.62229/
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -87,6 +76,7 @@
 [EXTRACT-PASS] Latitude_3410_arctic_b
 [EXTRACT-PASS] Latitude_3410_comments
 [EXTRACT-PASS] Latitude_3410_comments_b
+[EXTRACT-PASS] Latitude_3410_dellpkg_1133
 [EXTRACT-PASS] Latitude_3410_drive_child1
 [EXTRACT-PASS] Latitude_3410_drive_child2
 [EXTRACT-PASS] Latitude_3410_jina
