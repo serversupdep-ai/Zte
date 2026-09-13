@@ -6,11 +6,11 @@
   },
   "manifest.json": {
    "bytes": 742,
-   "sha256": "62117fc79e441aa0482ce27236e2eb98d107fa23dd1431d219d42bec977582b4"
+   "sha256": "91ba74a7c014b060e7605124385ff0dd9ddf8d85a67b449a13968ad548579e1d"
   },
   "page.html": {
    "bytes": 175545,
-   "sha256": "fad66e6acb03e900e08ddff35d895006c1dbaffc3d10046a2b2458d7421b6708"
+   "sha256": "ba10c44fcf7b42508de011cc7aab609db760f120f693343c215e4383feb3fd9a"
   },
   "extracted_drive_0.bin.rar/OptiPlex 7070 Micro 1 v99.1.45.bin": {
    "bytes": 33554432,
