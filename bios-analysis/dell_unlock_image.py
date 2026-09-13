@@ -70,6 +70,7 @@ Only use this on hardware you own or are authorized to service.
 """
 import os
 import re
+import struct
 import sys
 
 # ---------------------------------------------------------------------------
@@ -443,6 +444,54 @@ NOTES
     return 0
 
 
+def state(path):
+    """§11.9 lock-state census: read a dump's variable-store token region
+    (87 78 55 AA records) + manufacturing markers and report whether the
+    machine looks factory-reset (unlocked / manufacturing mode) or used
+    (runtime records present — password likely enrolled). Pre/post check
+    for the patch route."""
+    d = open(path, "rb").read()
+    MAG = bytes.fromhex("877855aa")
+    recs = {}
+    i = 0
+    while True:
+        i = d.find(MAG, i)
+        if i < 0:
+            break
+        rid, cnt = struct.unpack_from("<II", d, i + 4)
+        recs.setdefault(rid, []).append(cnt)
+        i += 4
+    n_ids = len(recs)
+    n_rec = sum(len(v) for v in recs.values())
+    all_count1 = all(v == [1] for v in recs.values())
+    low = sum(1 for rid in recs if rid <= 0xAE)
+    runtime = sum(1 for rid in recs if rid > 0xAE)
+    maxcnt = max((max(v) for v in recs.values()), default=0)
+    fc = len(re.findall(rb"\x00\xfc\xaa", d))
+    fd = len(re.findall(rb"\x00\xfd\xaa", d))
+    print(f"{path}: {os.path.getsize(path)} bytes")
+    print(f"  token-store records : {n_rec} records / {n_ids} ids "
+          f"(low/default-range ids: {low}, runtime ids >0xAE: {runtime})")
+    print(f"  version counts      : max {maxcnt}, all-count-1: {all_count1}")
+    print(f"  mfg markers         : 00 FC AA x{fc}, 00 FD AA x{fd}")
+    if runtime == 0:
+        verdict = ("FACTORY-RESET / UNLOCKED STATE — no runtime-created "
+                   "records (default set only; a few default records may "
+                   "carry version counts from normal use). Matches a "
+                   "manufacturing-mode-reset / already-unlocked machine "
+                   "(§11.9 native-confirmed on a password-unlocked 3090). "
+                   "Nothing to patch.")
+    else:
+        verdict = ("USED STATE — %d runtime-created record ids (>0xAE) "
+                   "present; an enrolled password is likely on the lock "
+                   "families. The --patch route applies (clears the "
+                   "enrolled markers). Note: a password may also have been "
+                   "cleared previously while keeping runtime settings "
+                   "records — combine with --analyze marker output." % runtime)
+    print(f"  VERDICT             : {verdict}")
+    return 0
+
+
 def main():
     a = sys.argv[1:]
     if not a or a[0] in ("-h", "--help"):
@@ -457,6 +506,8 @@ def main():
         return wipe_store(rest[0], rest[1] if len(rest) > 1 else None)
     if mode == "--store":
         return max((store(p) for p in rest), default=0)
+    if mode == "--state":
+        return max((state(p) for p in rest), default=0)
     if mode == "--guide":
         return guide(rest[0] if rest else "H2FS5S3-CF1B")
     print(__doc__)
