@@ -173,22 +173,23 @@ def try_extract(tag):
 
 def _extract_one(tag, arch):
     d = os.path.join(OUTBASE, tag)
-    if os.path.exists(os.path.join(d, "extracted_" + os.path.basename(arch))):
+    ext = os.path.join(d, "extracted_" + os.path.basename(arch))
+    if os.path.exists(ext) and os.listdir(ext):
         return
-        ext = os.path.join(d, "extracted_" + os.path.basename(arch))
-        done = False
-        for pw in RAR_PW:
-            for tool in (["7z", "x", "-y", f"-p{pw}", f"-o{ext}", arch],
-                         ["unrar", "x", "-y", f"-p{pw}", arch, ext + os.sep]):
-                r = subprocess.run(tool, capture_output=True, text=True, timeout=1200)
-                if r.returncode == 0 and os.path.isdir(ext) and os.listdir(ext):
-                    log(f"    [extracted] {os.path.basename(arch)} (pw={pw!r}, {'7z' if tool[0]=='7z' else 'unrar'}) -> {ext}")
-                    done = True
-                    break
-            if done:
+    done = False
+    r = None
+    for pw in RAR_PW:
+        for tool in (["7z", "x", "-y", f"-p{pw}", f"-o{ext}", arch],
+                     ["unrar", "x", "-y", f"-p{pw}", arch, ext + os.sep]):
+            r = subprocess.run(tool, capture_output=True, text=True, timeout=1200)
+            if r.returncode == 0 and os.path.isdir(ext) and os.listdir(ext):
+                log(f"    [extracted] {os.path.basename(arch)} (pw={pw!r}, {'7z' if tool[0]=='7z' else 'unrar'}) -> {ext}")
+                done = True
                 break
-        if not done:
-            log(f"    [extract failed] {os.path.basename(arch)}: {(r.stderr or '')[-200:]}")
+        if done:
+            break
+    if not done:
+        log(f"    [extract failed] {os.path.basename(arch)}: {(r.stderr or '')[-200:] if r else 'no tool'}")
 
 
 def process_page(url, tag):
