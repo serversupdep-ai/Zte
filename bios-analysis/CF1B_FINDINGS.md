@@ -993,3 +993,43 @@ plaintext EC app for the CF1B/8FC8 generation exists nowhere in: packages
 only be read out of the EC silicon's internal flash by code running there
 (= §11.5's `dell_cf1b_master.c` on a live machine) or recovered by breaking
 the per-build AES key.
+
+**§11.10.6 Sealed-key structure + successor-family census (2026-09-13, final).**
+- **PHCM header key-material (+0x40..0xBF, 0xA0-0xBF erased):** the first 32 B
+  are shared by same-size builds (cdb03925… for both n=0x9f4 images, fbd98f4c…
+  for both n=0x9fc images) while +0x60..0x9F differs per image; identical
+  builds carry byte-identical material (chip slot B == package, 0/128 diff).
+  Direct-decrypt test (8 key candidates × 7 IV/nonce candidates × ECB/CBC/CTR,
+  scored on SP-words/ASCII/Thumb-branch density): all noise-level — the
+  in-clear material is a **wrapped key / metadata**, not the AES key. The key
+  is fused in EC silicon; the wrap is unwrap-only by the EC. Route closed on
+  evidence, matching §11.7.
+- **Body chunking:** 64-B chunks carry no in-band headers (flat byte-0
+  distribution) — pure ciphertext stream; the 64-B granularity is the update
+  block size, not crypto structure.
+- **Chip map (final):** $FPT@0x102000 (PSVN/UEP/IVBP/MFS/UTOK/HVMP/RSTR/FLOG/
+  IMDP) — the three PHCM slots live inside the CSME's MFS staging area;
+  0x100000-0x400000 = CSME code (FTPR/NFTP/RBEP/OEMP manifests) + Dell store
+  (49 records) + BIOS NVRAM; 0x400000+ = a **per-machine** ME-state blob
+  (badcaps 65 KB / DIS 35 KB / mach2 ~empty — ME/OEMP state, not engine
+  material).
+- **Successor family (Latitude 3420/3520 TGL, BIOS 1.13.3 Dec-2021):** no PHCM
+  visible raw; the 59.8 MB DUB's 4 PFS sections are opaque (compressed/
+  encrypted, section data undecryptable by uefi_firmware; LZMA-alone sweep of
+  all 3 large streams: no PHCM, no ME/store signatures). No EC staging
+  observable — consistent with the §11.7/§11.8 census (only the 3090's 2.0.7
+  and the 3410's 1.6.0 ever staged EC content, and 1.6.0's is sealed).
+- Telegram one-time links (t.me/dl) expire for server-side fetchers; the
+  embed variant exposes no CDN URL. Dead end — and moot: the channel's zip
+  would be another copy of the same sealed-chip layout.
+
+**§11.10 CAMPAIGN CLOSED (2026-09-13).** Every artifact class in the wild is
+now held and characterized: update packages (§11.7), SPI EC regions (§11.8),
+full EC-chip dumps of three machines + both board revisions (§11.10.1-5).
+The EC GENERATE engine exists in plaintext in exactly one place — the EC's
+internal flash — readable only by code running on the EC (§11.5
+`dell_cf1b_master.c` on a live machine) or via a per-build AES-key compromise.
+The offline CF1B keygen is complete-as-possible: proven impossible without
+one of those two secrets, with the per-BUILD (not per-machine) key scope
+quantified — a single EC-build key leak would unlock every machine on that
+build at once.
