@@ -49,73 +49,36 @@
 [skip] vinafix_wayback_8mb already fetched
 [PAGE] http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200 -> raw/vinafix_wayback_19746
     [page fetch failed] http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200
-[PAGE] https://www.indiafix.in/2024/06/mockingbird-l-cml-dis-8l-19709-1-bios.html -> raw/indiafix_3410_19709
-    [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] indiafix_3410_19709/page.html (178836 bytes, sha256 0fb11030cdaa4d89…)
-    [links] 6 candidates
-    [saved] indiafix_3410_19709/drive_0.bin via gdown (8214887 bytes)
-    [saved] indiafix_3410_19709/drive_1.bin via gdown (5712812 bytes)
-    [saved] indiafix_3410_19709/drive_2.bin via gdown (9544651 bytes)
-    [saved] indiafix_3410_19709/drive_3.bin via gdown (8190352 bytes)
-    [saved] indiafix_3410_19709/drive_4.bin via gdown (20582475 bytes)
-    [saved] indiafix_3410_19709/drive_5.bin via gdown (91225 bytes)
-    [extracted] drive_0.bin.rar (pw='indiafix', unrar) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/indiafix_3410_19709/extracted_drive_0.bin.rar
-    [extracted] drive_1.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/indiafix_3410_19709/extracted_drive_1.bin.rar
-    [extracted] drive_2.bin.zip (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/indiafix_3410_19709/extracted_drive_2.bin.zip
-    [extracted] drive_3.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/indiafix_3410_19709/extracted_drive_3.bin.rar
-    [extracted] drive_4.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/indiafix_3410_19709/extracted_drive_4.bin.rar
-    [extracted] drive_5.bin.zip (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/indiafix_3410_19709/extracted_drive_5.bin.zip
+[skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334491 bytes, sha256 fe6c7bbd038df8f1…)
+    [saved] mediafire_3410/mediafire_page.html (334492 bytes, sha256 22f78e092cf6176e…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
-    [extracted] mediafire_dell_3410_19746_1.bin.zip (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/mediafire_3410/extracted_mediafire_dell_3410_19746_1.bin.zip
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
-    [extracted] drive_alisaler_5430_bios.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/alisaler_5430/extracted_drive_alisaler_5430_bios.bin.rar
 [FILE] https://drive.google.com/uc?export=download&id=1LOKEk7fpR78_hiUf40lNSchuNGz3QNvB -> raw/alisaler_7430/alisaler_7430_bios
     [saved] alisaler_7430/drive_alisaler_7430_bios.bin via gdown (10226346 bytes)
-    [extracted] drive_alisaler_7430_bios.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/alisaler_7430/extracted_drive_alisaler_7430_bios.bin.rar
-[PAGE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410_page
-    [page head] '<!DOCTYPE html>\n<html lang="en-US">\n<head>\n    <meta charset="utf-8"/>\n    <meta http-equiv="x-ua-compatible" content="ie=edge"/>\n    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>\n    <title>Dell 34'
-    [saved] mediafire_3410_page/page.html (334507 bytes, sha256 99cf2cbf41bd92c9…)
-    [links] 10 candidates
-    [saved] mediafire_3410_page/mediafire_page.html (334496 bytes, sha256 e5ad65e1da32360c…)
-    [saved] mediafire_3410_page/mediafire_0.bin
-    [saved] mediafire_3410_page/mediafire_page.html (5600 bytes, sha256 2cacb4634b5c95bd…)
-    [mediafire failed] https://www.mediafire.com
-    [saved] mediafire_3410_page/mediafire_2.bin (direct)
-    [saved] mediafire_3410_page/mediafire_page.html (35909 bytes, sha256 cff62678eac0468f…)
-    [mediafire failed] https://www.mediafire.com/download_repair.php?qkey=1qejg9kuzsg3igy&dkey=akazmbmsgul&template=59&origin=click_button
-    [saved] mediafire_3410_page/mediafire_page.html (35897 bytes, sha256 573c5fff47f36ddc…)
-    [mediafire failed] https://www.mediafire.com/download_repair.php?qkey=1qejg9kuzsg3igy&dkey=akazmbmsgul&template=59&origin=server_error
-    [saved] mediafire_3410_page/mediafire_page.html (1542 bytes, sha256 842fe7585a255d78…)
-    [mediafire failed] https://facebook.com/share.php?u=https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell_3410_19746-1.zip/file
-    [saved] mediafire_3410_page/mediafire_page.html (5759 bytes, sha256 e8b7355879e2e075…)
-    [mediafire failed] https://www.mediafire.com/dynamic/af_link.php?a=11
-    [saved] mediafire_3410_page/mediafire_page.html (96656 bytes, sha256 9d6ddeaef6492886…)
-    [mediafire failed] https://www.mediafire.com/widgets/share.php?web=1&dlr=1&files=1qejg9kuzsg3igy
-    [saved] mediafire_3410_page/mediafire_page.html (5558 bytes, sha256 06296ce32e1dbaf4…)
-    [mediafire failed] http://blog.mediafire.com/
-    [saved] mediafire_3410_page/mediafire_page.html (5601 bytes, sha256 5b5663bbf9898fd9…)
-    [mediafire failed] https://blog.mediafire.com/
-    [extracted] mediafire_0.bin.zip (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/mediafire_3410_page/extracted_mediafire_0.bin.zip
-    [extracted] mediafire_2.bin.zip (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/mediafire_3410_page/extracted_mediafire_2.bin.zip
-[PAGE] http://web.archive.org/web/2025id_/https://www.indiafix.in/2024/06/mockingbird-l-cml-dis-8l-19709-1-bios.html -> raw/indiafix_3410_wayback
-    [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] indiafix_3410_wayback/page.html (175841 bytes, sha256 95b5f9f211688170…)
-    [links] 6 candidates
-    [saved] indiafix_3410_wayback/drive_0.bin via gdown (8214887 bytes)
-    [saved] indiafix_3410_wayback/drive_1.bin via gdown (5712812 bytes)
-    [saved] indiafix_3410_wayback/drive_2.bin via gdown (9544651 bytes)
-    [saved] indiafix_3410_wayback/drive_3.bin via gdown (8190352 bytes)
-    [saved] indiafix_3410_wayback/drive_4.bin via gdown (20582475 bytes)
-    [saved] indiafix_3410_wayback/drive_5.bin via gdown (91225 bytes)
-    [extracted] drive_0.bin.rar (pw='indiafix', unrar) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/indiafix_3410_wayback/extracted_drive_0.bin.rar
-    [extracted] drive_1.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/indiafix_3410_wayback/extracted_drive_1.bin.rar
-    [extracted] drive_2.bin.zip (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/indiafix_3410_wayback/extracted_drive_2.bin.zip
-    [extracted] drive_3.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/indiafix_3410_wayback/extracted_drive_3.bin.rar
-    [extracted] drive_4.bin.rar (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/indiafix_3410_wayback/extracted_drive_4.bin.rar
-    [extracted] drive_5.bin.zip (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/indiafix_3410_wayback/extracted_drive_5.bin.zip
+[skip] mediafire_3410_page already fetched
+[skip] indiafix_3410_wayback already fetched
+[FILE] https://telegram.org/dl?tme=3b5103d91537f61d47_16268493646301877724 -> raw/tg_3410/tg_3410_13723.zip
+    [saved] tg_3410/tg_3410_13723.zip (6391 bytes)
+[FILE] https://telegram.org/dl?tme=3b459ea6bfc3491738_16360435324527312863 -> raw/tg_3410/tg_3410_13724.rar
+    [saved] tg_3410/tg_3410_13724.rar (6391 bytes)
+[PAGE] https://t.me/biosarchive/13723 -> raw/tg_3410_msg13723
+    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @biosarchive</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
+    [saved] tg_3410_msg13723/page.html (37261 bytes, sha256 ce2c94ff79d67ca4…)
+    [links] 0 candidates
+[PAGE] https://t.me/biosarchive/13724 -> raw/tg_3410_msg13724
+    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @biosarchive</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
+    [saved] tg_3410_msg13724/page.html (37279 bytes, sha256 dbf0447df48ee01c…)
+    [links] 0 candidates
+[PAGE] https://dr-bios.com/threads/19746-1-dell-latitude-3410.59413/ -> raw/drbios_3410
+    [page head] '<!DOCTYPE html>\n<html id="XF" lang="en" dir="ltr"\n\tdata-app="public"\n\tdata-template="thread_view"\n\tdata-container-key="node-113"\n\tdata-content-key="thread-59413"\n\tdata-logged-in="false"\n\tdata-cookie-prefix="xf_"\n\tdata-csrf="1789333678,d8eef'
+    [saved] drbios_3410/page.html (208826 bytes, sha256 6ea5c3b614dc4a20…)
+    [links] 4 candidates
+    [fetch failed 403] https://dr-bios.com/attachments/clear-me-zip.70164/
+    [fetch failed 403] https://dr-bios.com/attachments/vid-20240120-wa0039-mp4.83393/
+    [fetch failed 403] https://dr-bios.com/attachments/parsad-8mb-bin.65736/
+    [fetch failed 403] https://dr-bios.com/attachments/2nd-try-rar.62229/
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -156,11 +119,15 @@
 [EXTRACT-PASS] alisaler_3410
 [EXTRACT-PASS] alisaler_5430
 [EXTRACT-PASS] alisaler_7430
+[EXTRACT-PASS] drbios_3410
 [EXTRACT-PASS] indiafix_3410_19709
 [EXTRACT-PASS] indiafix_3410_wayback
 [EXTRACT-PASS] mediafire_3410
 [EXTRACT-PASS] mediafire_3410_page
 [EXTRACT-PASS] repairlap_3410
+[EXTRACT-PASS] tg_3410
+[EXTRACT-PASS] tg_3410_msg13723
+[EXTRACT-PASS] tg_3410_msg13724
 [EXTRACT-PASS] vinafix_3410
 [EXTRACT-PASS] vinafix_3410_thread
 [EXTRACT-PASS] vinafix_wayback_8mb

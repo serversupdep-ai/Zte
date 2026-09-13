@@ -1,5 +1,9 @@
 {
  "files": {
+  "manifest.json": {
+   "bytes": 1219,
+   "sha256": "4cbf2ad04a8a9c4d1f38b5e83e20f26becba40340fc9926674da7dbf9341f011"
+  },
   "mediafire_0.bin.zip": {
    "bytes": 9544651,
    "sha256": "34ed4fd35379f2e9a855e576435f51df036d0fbd045b8c09ded7216413d2fd8f"
