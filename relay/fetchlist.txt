@@ -108,3 +108,4 @@ PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electron
 PAGE|https://arctic-shift.photon-reddit.com/api/posts/ids?ids=1mni7p9|reddit_1mni7p9_post
 PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1mni7p9&limit=100|reddit_1mni7p9_comments
 PAGE|https://vinafix.com/threads/optiplex-3090-212037-1.45618/|vinafix_3090_45618
+PAGE|http://web.archive.org/web/20260414232708id_/https://www.indiafix.in/2026/03/dell-optiplex-3090-212037-1-bios-bin-ok.html|indiafix_3090_212037_wb

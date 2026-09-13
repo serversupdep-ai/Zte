@@ -234,6 +234,9 @@ def process_page(url, tag):
         return
     log(f"    [page head] {page[:240]!r}")
     save(tag, "page.html", data=page.encode("utf-8", "replace"))
+    # JS-escaped URLs (t.me embeds https:\/\/telegram.org\/dl?...) break the
+    # link regex — unescape before extraction.
+    page = page.replace("\\/", "/")
     links = []
     seen = set()
     from urllib.parse import unquote
