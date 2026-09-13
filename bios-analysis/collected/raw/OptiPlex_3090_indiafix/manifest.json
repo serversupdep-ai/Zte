@@ -13,12 +13,28 @@
    "sha256": "d141695a5c8177724a5b4825c417476055baf1dde3761ec5318cdca334c65f9a"
   },
   "manifest.json": {
-   "bytes": 640,
-   "sha256": "b0e625295679243abad98339a6898dc3813cef5ef40708517686c65ad8446e55"
+   "bytes": 652,
+   "sha256": "6073251b46255dd0049642192bc098e79ee4b66a72c1ae6353ff5e40d882700b"
   },
   "page.html": {
    "bytes": 176060,
-   "sha256": "52e8fe9687ccfa3c49a433333f14583b94f3e72ce658135806b539ea6d5e294f"
+   "sha256": "68cec2f9251d62c3f0822c238e29260294478e277036c95161517677196be37c"
+  },
+  "extracted_drive_2.bin.rar/3090 Bios Password Unlocked.bin": {
+   "bytes": 33554432,
+   "sha256": "aab0ff9364809a97c240316f218b0a98301e6056304023adf2bd17c4846d6c25"
+  },
+  "extracted_drive_2.bin.rar/READ ME.txt": {
+   "bytes": 126,
+   "sha256": "32816dff4fdc16e313457668cc8470c7fd406c1c79d23457b1a8f82577dd7ae4"
+  },
+  "extracted_drive_0.bin.zip/optiplex_3090.bin": {
+   "bytes": 33554432,
+   "sha256": "27b7054bf14d2e967630e62e08b87748aee90b5e8fdd112dd0202b4fb49db167"
+  },
+  "extracted_drive_1.bin.rar/IPCML-RN ZB MLK REV A00/IPCML-RN ZB MLK REV A00 READ  .Bin": {
+   "bytes": 33554432,
+   "sha256": "8a4d4868fe1da162351e7fe1fa7ebb6c5cd6701ce2325252467c16a8273f9767"
   }
  }
 }
