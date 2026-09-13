@@ -237,6 +237,9 @@ def process_page(url, tag):
     # JS-escaped URLs (t.me embeds https:\/\/telegram.org\/dl?...) break the
     # link regex — unescape before extraction.
     page = page.replace("\\/", "/")
+    # protocol-relative links (t.me Download button: href="//telegram.org/dl?...")
+    # never match https?:// — normalize them after the page has been saved.
+    page = re.sub(r'(?<=[\"\'=(])//(?=[A-Za-z0-9-]+\.[A-Za-z]{2,}/)', "https://", page)
     links = []
     seen = set()
     from urllib.parse import unquote
