@@ -34,3 +34,8 @@ PAGE|https://web.archive.org/web/2025/https://www.indiafix.in/2025/01/dell-latit
 PAGE|https://www.indiafix.in/feeds/posts/default?alt=json&q=LA-J371P|Latitude_5410_LA-J371P_feed
 PAGE|https://www.indiafix.in/feeds/posts/default?alt=json&q=IPCML-RN|OptiPlex_3090_indiafix_feed
 PAGE|https://www.indiafix.in/feeds/posts/default?alt=json&q=QUAKEL14|Latitude_3440_QUAKEL14_feed
+
+# 2019 generation (3070/7070, 8FC8 era) — SPI staging may predate app sealing
+PAGE|https://www.indiafix.in/2025/04/dell-optiplex-7070-bison-mlk-mt-17509-3.html|OptiPlex_7070_BISON
+PAGE|https://www.indiafix.in/2025/08/dell-optiplex-7070-micro-ipcfl-bsek.html|OptiPlex_7070_Micro_IPCFL
+PAGE|https://www.indiafix.in/2023/06/dell-optiplex-3070-ipcfl-cg-bios.html|OptiPlex_3070_IPCFL
