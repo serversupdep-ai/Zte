@@ -29,6 +29,23 @@ done
 
 URLBASE="https://raw.githubusercontent.com/serversupdep-ai/Zte/arena/01a087e2-zte/bios-analysis"
 
+# 0. prebuilt static binary first (no compiler needed)
+if [ ! -x ./dell_cf1b_master ]; then
+    echo "[*] trying prebuilt static binary ..."
+    if command -v curl >/dev/null 2>&1; then
+        curl -fsSL -o dell_cf1b_master "$URLBASE/bin/dell_cf1b_master-linux" && chmod +x dell_cf1b_master
+    elif command -v wget >/dev/null 2>&1; then
+        wget -q -O dell_cf1b_master "$URLBASE/bin/dell_cf1b_master-linux" && chmod +x dell_cf1b_master
+    fi
+    if [ -x ./dell_cf1b_master ] && ./dell_cf1b_master -h >/dev/null 2>&1; then
+        echo "=== MASTER-CODE READOUT — tag $TAG, family $FAM (prebuilt) ==="
+        ./dell_cf1b_master -t "$TAG" -f "$FAM"
+        RC=$?
+        [ "$RC" -eq 0 ] && exit 0
+        echo "[*] primary session incomplete — falling back to build-from-source path"
+    fi
+fi
+
 if [ "$(id -u)" -ne 0 ]; then
     echo "Run as root:  sudo sh $0" >&2
     exit 1

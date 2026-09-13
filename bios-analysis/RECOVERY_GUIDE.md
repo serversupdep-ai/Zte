@@ -18,7 +18,13 @@ The 3090's EC computes the master from (service tag, family byte) on request
 performs the identical exchange from Linux.
 
 1. Boot any Linux live USB (Ubuntu) on the 3090.
-2. Terminal — either the C tool:
+2. Terminal — fastest (prebuilt static binary, no compiler):
+   ```bash
+   curl -LO https://raw.githubusercontent.com/serversupdep-ai/Zte/arena/01a087e2-zte/bios-analysis/bin/dell_cf1b_master-linux
+   chmod +x dell_cf1b_master-linux
+   sudo ./dell_cf1b_master-linux -t H2FS5S3 -f CF1B
+   ```
+   or build the C tool from source:
    ```bash
    sudo apt update && sudo apt install -y gcc
    gcc -O2 -o dell_cf1b_master dell_cf1b_master.c
