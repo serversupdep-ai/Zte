@@ -117,6 +117,42 @@ def gdown(url, tag, name):
     return None
 
 
+
+
+def telegram_fetch(msg_url, tag, name):
+    """t.me/<channel>/<msg> pages mint a session-bound telegram.org/dl?tme=
+    deeplink for the attached document. Fetch page + deeplink with a shared
+    cookie jar (bare curl gets the generic 'Telegram Desktop' promo page)."""
+    d = os.path.join(OUTBASE, tag)
+    os.makedirs(d, exist_ok=True)
+    jar = os.path.join(d, ".cookies")
+    page_path = os.path.join(d, "page.html")
+    subprocess.run(["curl", "-sSL", "--max-time", "60", "-A", UA, "-c", jar,
+                    "-o", page_path, msg_url], capture_output=True, text=True)
+    try:
+        page = open(page_path, encoding="utf-8", errors="replace").read()
+    except OSError:
+        log(f"    [tg page failed] {msg_url}")
+        return None
+    m = re.search(r'href="(//telegram\.org/dl\?tme=[A-Za-z0-9_=-]+)"', page)
+    if not m:
+        log(f"    [tg no dl link] {msg_url}")
+        return None
+    dl = "https:" + m.group(1)
+    dest = os.path.join(d, name)
+    r = subprocess.run(["curl", "-sSL", "--max-time", "600", "-A", UA,
+                        "-b", jar, "-e", msg_url, "-o", dest,
+                        "-w", "%{http_code} %{size_download} %{url_effective}", dl],
+                       capture_output=True, text=True)
+    ok = os.path.exists(dest) and os.path.getsize(dest) > 100000
+    log(f"    [tg dl] {r.stdout.strip()} -> {'OK' if ok else 'FAILED'}")
+    if ok:
+        return dest
+    if os.path.exists(dest):
+        os.remove(dest)
+    return None
+
+
 def fetch_link(url, tag, idx):
     url = re.sub(r"^https?://web\.archive\.org/web/\d+(?:id_)?/", "", url)
     if "drive.google.com" in url or "docs.google.com" in url or "web.archive.org" in url and _drive_id(url):
@@ -219,6 +255,13 @@ def _extract_one(tag, arch):
 
 
 def process_page(url, tag):
+    if re.match(r'https?://t\.me/[^/]+/\d+/?$', url):
+        got = telegram_fetch(url, tag, "tg_file.bin")
+        if got:
+            try_extract(tag)
+        else:
+            save(tag, "page.html", path=None) if False else None
+        return
     ok, page = curl(url)
     if not ok or len(page) < 200:
         # retry once (some hosts rate-limit the first hit)
