@@ -790,3 +790,33 @@ type-6 GENERATE handler + key material → CF1B implementation in
 `dell_master_keygen.py`. A repair shop with an RT809H + EC/LPC adapter
 produces it from any dead board of that generation in minutes (that is
 exactly what the $20 patch sellers do).
+
+
+### 11.9 Locked-vs-unlocked 3090 dump diff — native validation of the §10.2 flow (2026-09-13)
+
+Comparing the two indiafix 3090 dumps (locked chip READ vs password-UNLOCKED
+machine whose README documents the manufacturing-mode unlock: "disable
+absolute, write Service Tag, save, Alt+F"):
+
+**Variable-store token region (magic `87 78 55 AA`, page-strided records
+{magic, u32 id, u32 version-count, link, timestamp, data} — same structure
+as the SIVB token store from the Bin-file corpus):**
+- Locked machine: 121 records, sparse ids (0x97–0x1A1 runtime-created),
+  version counts 2–20 (heavily rewritten over machine life), incl. record
+  0x160 carrying a full setup-variable database blob.
+- Unlocked machine: 158 records = **the complete default variable set,
+  ids 0x1–0xAE, every count = 1** — a pristine store exactly as a
+  manufacturing-mode reset re-initializes it.
+- => The unlock footprint on the 3090 is native-confirmed: store reset to
+  factory defaults. (No plaintext password-hash record is visible —
+  consistent with passwords living in the sealed EC/§11 record engine.)
+
+**Manufacturing markers:** locked dump carries `00 FC AA` ×5 + `00 FD AA`
+×2 (incl. one at 0x8b3b1b followed by `07 'Veri…'` — a length-prefixed
+variable); the unlocked dump has one of each (same static bytes). The
+marker-class + store-reset together match the §10.2 patch model.
+
+Practical value: a 3090 dump's lock state can be read directly from the
+store census (default-set + count-1 = already reset; runtime ids present =
+locked/used). This is a useful pre/post check for anyone applying
+`dell_unlock_image.py`.
