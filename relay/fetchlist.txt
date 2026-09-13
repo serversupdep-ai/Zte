@@ -73,3 +73,8 @@ FILE|https://vinafix.com/attachments/mockingbird-l-19746-1-pass-16mb-bin.150250/
 FILE|https://vinafix.com/attachments/8mb-bin-zip.148166/|8mb_zip_148166|vinafix_3410
 PAGE|http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/mockingbird-l-19746-1-pass-8mb-bin.150249*&output=json|vinafix_wayback_8mb
 PAGE|http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200|vinafix_wayback_19746
+# --- 3410/3510 EC-dump free sources (vinafix originals are paid-gated) ---
+PAGE|https://www.indiafix.in/2024/06/mockingbird-l-cml-dis-8l-19709-1-bios.html|indiafix_3410_19709
+FILE|https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file|dell_3410_19746_1|mediafire_3410
+FILE|https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_|alisaler_5430_bios|alisaler_5430
+FILE|https://drive.google.com/uc?export=download&id=1LOKEk7fpR78_hiUf40lNSchuNGz3QNvB|alisaler_7430_bios|alisaler_7430

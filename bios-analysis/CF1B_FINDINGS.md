@@ -846,3 +846,48 @@ Practical value: a 3090 dump's lock state can be read directly from the
 store census (default-set + count-1 = already reset; runtime ids present =
 locked/used). This is a useful pre/post check for anyone applying
 `dell_unlock_image.py`.
+
+### 11.10 The 3410 "pass 8mb.bin" — original source located, free mirrors mapped (2026-09-13)
+
+**Provenance solved.** The Reddit posts (r/PcBuild 1pdrlnf / r/Dell 1pdrs3b,
+Dec 2025) did NOT host the bins: the linked Drive folder
+(1XsUVBIwf9d6nmHbDzeUk-m_w7VGXzgEi, mirrored by TecnoServiceVZLA — the same
+channel as YouTube hzTsWIi68LU) contains ONLY the schematic zip +
+19746-1.GR boardview zip (decoded `window['_DRIVE_ivd']`: exactly 2
+children, both uploaded 2024-08-02, no bins ever). The filenames the post
+describes come from **vinafix thread 41430** ("BIOS - Dell Latitude 3410
+3510 MOCKINGBIRD-L CML UMA 6L 19746-1", ThienBui, Mar 2021) — the true
+original:
+
+- **att. 150249 "Mockingbird-L 19746-1 pass 8mb.bin"** — 8 MB EC chip dump
+  (XMC QH64AH), sha256 67dd2575a79455e6223191e8b6fc58b61cc7121dde06cfd896962c3443d6a83d
+- att. 150250 "Mockingbird-L 19746-1 pass 16mb.bin" — 16 MB main,
+  sha256 682787e0c0d931495030159fca3530fa9c888802ea8b6d7b86d08fb7334945cd
+- att. 148166 "8MB.bin.zip" (2.5 MB) = earlier 8 MB EC dump, byte-identical
+  to att. 147866 in the XPS 9570/Precision 5530 thread 34084 post 199702;
+  v1.6.0.bin (148165, 16 MB) == unpasss.bin.zip (150256)
+- Thread context: aleblallow confirmed flashing the 8 MB bin + his 16 MB
+  main => "computer posts and no password" (the EC dump carries the
+  unlocked data-store state); ThienBui sells 8FC8 patches $22-25 PayPal
+  (vinafixit) — no public generator exists. danysan: the pass bins alone
+  gave boot-loop on his board; aleblallow's pair boots but stays in
+  manufacturing mode (keyboard beep = mfg-mode indicator, matches §10.2).
+
+**Access:** all vinafix attachments "Paid membership required"; repairlap
+thread 10278 mirrors (19746-1 8mb.bin att. 32040, 8MB.bin att. 43094 for
+19746-2) require free registration; badcaps 85733 attachments premium.
+**Free, no-registration sources queued (relay/fetchlist.txt):**
+1. indiafix.in 2024/06 mockingbird-19709-1 page — carries "19709-1
+   J85JT 8MB+16MB BIOS BIN", "19746-1 OK TESTED 16MB", "19746-1 BACKUP
+   8MB+16MB", "J85JT VIRGIN TESTED OK" (rar pw: indiafix)
+2. alisaler.com 3410/3510 BIOS — Drive id 1iv4KVAUY-4fTgA5aJfKBK6XVATwmWSKY
+3. mediafire 1qejg9kuzsg3igy "Dell 3410 19746-1.zip" (badcaps 85733)
+4. CF1B-generation mains for cross-checks: alisaler 5430 (Drive
+   1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_), 7430/7330 (Drive
+   1LOKEk7fpR78_hiUf40lNSchuNGz3QNvB)
+
+**GitHub-token note:** the sandbox GH_TOKEN expired mid-session
+(2026-09-13); the relay run triggered by commit d39bc87 (vinafix probes +
+alisaler_3410 + repairlap + wayback CDX) completed on Actions but its
+commits are unfetched until the connection is restored. New fetchlist
+entries above are committed locally and push on reconnect.
