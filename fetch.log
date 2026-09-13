@@ -51,7 +51,7 @@
     [page fetch failed] http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334496 bytes, sha256 fb79b601ec37a821…)
+    [saved] mediafire_3410/mediafire_page.html (334499 bytes, sha256 702713bd4fd8b51d…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -69,7 +69,10 @@
 [skip] Latitude_3410_pkg160/Latitude_3410_3510_1.6.0.exe already fetched
 [skip] Latitude_3420_pkg1133/Latitude_3420_3520_1.13.3.exe already fetched
 [skip] tg_3410_embed13724 already fetched
-[skip] tg_3090_msg23340 already fetched
+[PAGE] https://t.me/biosarchive/23340 -> raw/tg_3090_msg23340
+    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @biosarchive</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
+    [saved] tg_3090_msg23340/page.html (37595 bytes, sha256 5b01eaa0608ee7b9…)
+    [links] 0 candidates
 [FILE] https://telegram.org/dl?tme=e0879ad380154606e3_4407171994753476783 -> raw/tg_3090/tg_3090_23340.zip
     [saved] tg_3090/tg_3090_23340.zip (6391 bytes)
 [skip] drbios_3090_68894 already fetched
@@ -81,12 +84,7 @@
 [skip] reddit_1mni7p9_post already fetched
 [skip] reddit_1mni7p9_comments already fetched
 [skip] vinafix_3090_45618 already fetched
-[PAGE] http://web.archive.org/web/20260414232708id_/https://www.indiafix.in/2026/03/dell-optiplex-3090-212037-1-bios-bin-ok.html -> raw/indiafix_3090_212037_wb
-    [page head] "<!DOCTYPE html>\n<html class='v2' dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>\n<head>\n<link href="
-    [saved] indiafix_3090_212037_wb/page.html (173225 bytes, sha256 4d2b637b52c6a78a…)
-    [links] 1 candidates
-    [saved] indiafix_3090_212037_wb/drive_0.bin via gdown (14100279 bytes)
-    [extracted] drive_0.bin.zip (pw='indiafix', 7z) -> /home/runner/work/Zte/Zte/bios-analysis/collected/raw/indiafix_3090_212037_wb/extracted_drive_0.bin.zip
+[skip] indiafix_3090_212037_wb already fetched
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
