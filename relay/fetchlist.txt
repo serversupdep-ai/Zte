@@ -1,0 +1,26 @@
+# relay/fetchlist.txt — generic fetch stage (relay/fetch_files.py).
+# PAGE|<url>|<tag>   fetch page, extract download links (Drive/mediafire/direct), pull + extract
+# FILE|<url>|<name>[|<tag>]  direct download
+#
+# EC-chip-dump campaign (CF1B_FINDINGS.md §11.8): full-chip repair backups.
+# Dell laptops of the 8FC8/CF1B era carry a separate 8MB EC SPI chip; a chip
+# dump of it = DECRYPTED EC firmware with the GENERATE engine + key material.
+
+# Latitude 5410 (2020 Comet Lake, 8FC8-EC era) — full 32MB+16MB+8MB package
+# (the 8MB = EC chip dump), free, rar pw "indiafix"
+PAGE|https://www.indiafix.in/2024/08/fdz41-la-j371p-rev-10-bios-dump-ok.html|Latitude_5410_LA-J371P
+
+# OptiPlex 3090 (the target family) — main bin + password-unlocker bin + schematic
+PAGE|https://www.indiafix.in/2024/02/ipcml-rn-zb.html|OptiPlex_3090_indiafix
+
+# Latitude 3440 (2023 RPL, 9ABE/CF1B generation) — tested dump
+PAGE|https://www.indiafix.in/2025/01/dell-latitude-3440-quakel14rpl-213247-1.html|Latitude_3440_QUAKEL14
+
+# Latitude 3410 (2020 CML) — reddit thread with Google-Drive bins incl. the
+# 8MB EC chip dump ("Mockingbird-L 19746-1 pass 8mb.bin")
+PAGE|https://www.reddit.com/r/PcBuild/comments/1pdrlnf/.json|Latitude_3410_reddit
+PAGE|https://www.reddit.com/r/Dell/comments/1pdrs3b/.json|Latitude_3410_reddit_b
+
+# badcaps-mentioned uploadfiles.io copy of the Dell 3410 19746-1 backup (2021,
+# likely expired — best effort)
+FILE|https://www.uploadfiles.io/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file|dell_3410_19746-1.zip|Latitude_3410_uploadfiles

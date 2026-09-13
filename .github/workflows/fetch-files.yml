@@ -1,0 +1,54 @@
+name: Fetch raw repair dumps
+# Generic fetch stage: downloads pages/files listed in relay/fetchlist.txt
+# (repair-forum full-chip backups incl. EC chip dumps — the EC-dump campaign,
+# CF1B_FINDINGS.md §11.8) and commits them to bios-analysis/collected/raw/.
+
+on:
+  push:
+    branches: [arena/01a087e2-zte]
+    paths: ['relay/fetchlist.txt', 'relay/fetch_files.py', '.github/workflows/fetch-files.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: arena/01a087e2-zte
+
+      - name: Setup
+        run: |
+          python3 -m pip -q install gdown
+          sudo apt-get -qq update
+          sudo apt-get -qq install -y --no-install-recommends p7zip-full zstd unrar-free > /dev/null || true
+
+      - name: Fetch files
+        run: |
+          set -x
+          python3 relay/fetch_files.py 2>&1 | tee fetch.log
+          du -sh bios-analysis/collected/raw || true
+
+      - name: Commit fetched data
+        run: |
+          git config user.name "relay-bot"
+          git config user.email "relay@localhost"
+          git add bios-analysis/collected/raw/ fetch.log || true
+          if git diff --cached --quiet; then
+            echo "nothing new to commit"
+          else
+            git commit -q -m "fetch: raw repair dumps from fetchlist [skip ci]"
+            ok=0
+            for i in 1 2 3 4 5; do
+              if git pull --rebase origin arena/01a087e2-zte && \
+                 git push origin arena/01a087e2-zte; then ok=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              sleep 15
+            done
+            [ "$ok" = 1 ] || { echo "PUSH FAILED after retries"; exit 1; }
+          fi
