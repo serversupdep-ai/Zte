@@ -230,7 +230,9 @@ Data does not container the footer magic (b'PFS.FTR.').
   [carve] generic zlib @0x112DA94 -> 34,441,252 bytes
 Data does not container the footer magic (b'PFS.FTR.').
 Data does not container the footer magic (b'PFS.FTR.').
-    9 new payloads (4 EC, 5 pw); manifest total 9
+    [ec-region] <blob> @ 0x708464: SP=0x20016f80 entry=0xa128 blocks: 0x0+0x285, 0x286+0x17, 0x29e+0x1ce, 0x46d+0x177, 0x5e5+0xf7, 0x6dd+0x7, 0x6e5+0x208, 0x8ee+0x117
+    [ec-region] <blob> @ 0x7a464: SP=0x20016f80 entry=0xa128 blocks: 0x0+0x285, 0x286+0x17, 0x29e+0x1ce, 0x46d+0x177, 0x5e5+0xf7, 0x6dd+0x7, 0x6e5+0x208, 0x8ee+0x117
+    11 new payloads (6 EC, 5 pw); manifest total 11
 [29] downloading https://dl.dell.com/FOLDER14468109M/1/Latitude_5440_Precision_3480_1.31.1.exe
 [29] processing /tmp/Latitude_5440_Precision_3480_1.31.1.pkg -> bios-analysis/collected/Latitude_5440_Precision_3480_1.31.1
     container route: dub (50734366 bytes)
@@ -394,30 +396,46 @@ Data does not container the footer magic (b'PFS.FTR.').
 [8] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi7839b795.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: de23ef8d4975a35344beb00f14c2067cba50ee202f110c88a450d8dfc602ed56-GiraffeRkl_15.0.56.2834_EVT_firmware.cab
-    downloaded 22959570 bytes
-  [carve] Dell HDR zlib @0x396800 -> 31,495,567 bytes
-  [carve] generic zlib @0x30DC10 -> 1,560,565 bytes
-  [carve] generic zlib @0x396810 -> 31,495,567 bytes
-    OptiPlex_7490_AIO_1.48.0: 7 payloads
+    downloaded 2097152 bytes
+    7z failed: 
+ERRORS:
+Unexpected end of archive
+
+ERROR: Data Error : firmware.bin
+ERROR: Data Error : firmware.inf
+ERROR: Data Error : firmware.jcat
+ERROR: Data Error : firmware.metainfo.xml
+
 [9] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi9e83f146.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 3ed072c36d5c34f17e29ea1ff41e9997d2c70f7e83578e0482aa5cb7c6dd1a4b-CaribouRkl_QS_15.0.56.2834_EVT_firmware.cab
-    downloaded 22781773 bytes
-  [carve] Dell HDR zlib @0x390400 -> 31,179,507 bytes
-  [carve] generic zlib @0x30DC10 -> 1,534,023 bytes
-  [carve] generic zlib @0x390410 -> 31,179,507 bytes
-    OptiPlex_5090_1.44.0: 7 payloads
+    downloaded 1048576 bytes
+    7z failed: 
+ERRORS:
+Unexpected end of archive
+
+ERROR: Data Error : firmware.bin
+ERROR: Data Error : firmware.inf
+ERROR: Data Error : firmware.jcat
+ERROR: Data Error : firmware.metainfo.xml
+
 [10] LVFS https://fwupd.org/lvfs/devices/com.dell.uefibc0a94e3.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 33278626b785c9ff675f41684a49cc87b81a6ec0a6bc6cef997038c28a2309a8-OptiPlex_3090_UFF_1.44.0_LVFS.cab
-    downloaded 17381469 bytes
-  [carve] Dell HDR zlib @0x38D800 -> 23,579,495 bytes
-  [carve] generic zlib @0x30DC10 -> 1,514,567 bytes
-  [carve] generic zlib @0x38D810 -> 23,579,495 bytes
-    OptiPlex_3090_UFF_1.44.0: 7 payloads
+    downloaded 3145728 bytes
+    7z failed: 
+ERRORS:
+Unexpected end of archive
+
+ERROR: Data Error : firmware.bin
+ERROR: Data Error : firmware.inf
+ERROR: Data Error : firmware.jcat
+ERROR: Data Error : firmware.metainfo.xml
+
 [11] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi7557a0f4.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: a338aff9dd9d10c2bbb46ddade27d822f17ea3da4c711992a363341ddfc4d900-PlymouthAdl_16.1.42.2872_EVT_X02_firmware.lvfs.cab
+    fetched via fwupd.org
     downloaded 24754142 bytes
   [carve] Dell HDR zlib @0x38E400 -> 45,745,889 bytes
   [carve] generic zlib @0x30DC10 -> 1,373,951 bytes
@@ -426,6 +444,7 @@ Data does not container the footer magic (b'PFS.FTR.').
 [12] LVFS https://fwupd.org/lvfs/devices/com.dell.uefi896e9574.firmware
     device page: HTTP Error 403: Forbidden — falling back to LVFS metadata
     cab: 64c738397e2846acfad79f02f5245d0d639f0c04f8953c17513bd4843b2e53e0-KyotoAdl_16.1.42.2872_EVT_X02_firmware.lvfs.cab
+    fetched via fwupd.org
     downloaded 24731400 bytes
   [carve] Dell HDR zlib @0x38E400 -> 46,232,624 bytes
   [carve] generic zlib @0x30DC10 -> 1,374,015 bytes

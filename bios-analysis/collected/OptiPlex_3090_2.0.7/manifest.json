@@ -59,6 +59,18 @@
    "marker": "0Q2drGk99",
    "size": 87040,
    "sha256": "b65a35c0f7761c81b30f9620a966539dc9b09f6282e1f8d8d7eda01919b63aae"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3090_2.0.7/ec_1_27232.bin",
+   "kind": "ec",
+   "size": 27232,
+   "sha256": "7386c7182419fe06dfad248c3b1d324bb2b02860aec153930323b9afe4b94af9"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3090_2.0.7/ec_6_262144.bin",
+   "kind": "ec",
+   "size": 262144,
+   "sha256": "39d9225659595b28c274682a871a9b7ce6869e8cecf516fedd961d0122b2f1b7"
   }
  ]
 }
