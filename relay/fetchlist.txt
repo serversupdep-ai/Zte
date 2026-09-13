@@ -52,3 +52,7 @@ PAGE|https://api.pullpush.io/reddit/search/submission/?ids=1pdrlnf|Latitude_3410
 PAGE|https://api.pullpush.io/reddit/search/submission/?ids=1pdrs3b|Latitude_3410_pullpush_b
 PAGE|https://arctic-shift.photon-reddit.com/api/posts/1pdrlnf|Latitude_3410_arctic
 PAGE|https://arctic-shift.photon-reddit.com/api/posts/1pdrs3b|Latitude_3410_arctic_b
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/ids?ids=1pdrlnf|Latitude_3410_arctic2
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/ids?ids=1pdrs3b|Latitude_3410_arctic2_b
+PAGE|https://web.archive.org/web/2026/https://www.reddit.com/r/PcBuild/comments/1pdrlnf/|Latitude_3410_wayback
+PAGE|https://web.archive.org/web/2026/https://www.reddit.com/r/Dell/comments/1pdrs3b/|Latitude_3410_wayback_b
