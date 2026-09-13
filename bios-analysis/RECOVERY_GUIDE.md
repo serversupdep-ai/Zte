@@ -89,7 +89,18 @@ convention at the prompt: type the key, then **Ctrl+Enter+Enter**.
 
 - Offline keygen for CF1B/9ABE/3FE2/1B58/8FC8 — impossible from public
   data; the transform is sealed in EC silicon (§11.7: 150+ EC payloads
-  censused, 206 BIOS modules table-scanned, zero parameters anywhere).
+  censused, 206 BIOS modules table-scanned, zero parameters anywhere;
+  §11.10: full EC-chip dumps of three 3410/3510 machines across both board
+  revisions obtained and analyzed — everything externally dumpable is
+  AES-sealed with a **per-BUILD** key (identical ciphertext on different
+  machines), and the in-clear PHCM header material is a key wrap, not the
+  key). If a per-build key ever leaks, it unlocks every machine on that
+  build at once — until then, no amount of dumped chips helps.
+- Flashing a "clean" 8 MB EC-chip bin from repair forums (e.g. the 3410
+  "pass 8mb.bin" family) — it does clear the password (native §11.9/§11.10.4
+  store reset), but it also wipes the machine's ME state/per-machine data
+  and is exactly the Route-B class of operation with more collateral:
+  prefer `dell_unlock_image.py` on the main dump, or Route A.
 - CMOS/NVRAM battery pull, PSWD jumper — the 3090 generation has neither
   (§10.5).
 - Legacy-suffix keygens (any tool offering BF97/DVAR math for CF1B) —
@@ -97,6 +108,7 @@ convention at the prompt: type the key, then **Ctrl+Enter+Enter**.
 
 ## Validation in flight
 
-A volunteer with a locked Latitude 3450 (9ABE) is running the Route-A tool
-on their machine (issue #3). Their result — success or diagnostic pattern —
+A volunteer with a locked Latitude 3450 (9ABE, BIOS 1.22.1) is running the
+Route-A tool on their machine (issues #3/#4; prebuilt-binary instructions
+in #5 — no compiler needed). Their result — success or diagnostic pattern —
 will be recorded here when it arrives.
