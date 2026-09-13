@@ -762,9 +762,31 @@ EC-INTERNAL flash dump ("EC程序", RT809H direct-EC read) — none found
 freely shared yet (vinafix sells $20 unlock patches instead; badcaps /
 eletronicabr / Reddit-Drive copies are login-gated or dead).
 
-**Next target: EC-internal flash dumps** ("EC程序", RT809H/EFD reads of the
-Nuvoton EC chip itself) — shared by board-repair techs; that is the only
-artifact that carries the decrypted app firmware with the GENERATE engine.
-Tooling ready: `dell_ec_region.py` (region locator/mapper), the §11
-emulation harness, and `dell_master_keygen.py`'s CF1B slot awaiting the
-engine.
+**Why no software readout exists (architecture, 2026-09-13):** the EC
+region + sealed blocks in SPI are a STAGING area the EC itself reads
+(X-BUS/LPC) and self-updates from — the host never writes or reads the
+EC's internal flash through the mailbox (consistent with §11.7: no host
+module even parses PHCM). Therefore the only dump paths for the internal
+flash are hardware: RT809H/EFD direct-EC read ("EC程序") via the EC's
+LPC/FPC pins (the technique badcaps documents for Nuvoton ECs on the
+X390-Yoga thread — clip on the keyboard/FPC connector, read as LPC
+firmware memory), or desolder+program. No host-side tool can produce it.
+
+**Public availability census:** badcaps guides thread (edited 2024-12):
+"There is no publicly available 8FC8 generator"; EC-internal dumps are
+traded, not shared (vinafix sells $20 8FC8 unlock patches; fixbase/
+chinafix/electronicabr/elektroda downloads are login/premium-gated;
+Reddit-Drive copies dead or gated). Every free dump source found has been
+collected and analyzed in this campaign (20+ dumps, 4 generations).
+The 8FC8_Patcher projects (badcaps/craigsblackie) are dump-patchers,
+equivalent to our §10.2 tool — not keygens.
+
+**Bottom line of §11.8:** the offline keygen needs one specific file —
+an EC-internal flash dump of any 8FC8-family machine (Nuvoton NPCE-class,
+2020-2021 generation preferred: 3090/5080/7080/3080, Latitude 5410/3410,
+Inspiron 5401/5501). Hand that file to the ready pipeline:
+`dell_ec_region.py` → Cortex-M emulation (§11 harness) → locate the
+type-6 GENERATE handler + key material → CF1B implementation in
+`dell_master_keygen.py`. A repair shop with an RT809H + EC/LPC adapter
+produces it from any dead board of that generation in minutes (that is
+exactly what the $20 patch sellers do).
