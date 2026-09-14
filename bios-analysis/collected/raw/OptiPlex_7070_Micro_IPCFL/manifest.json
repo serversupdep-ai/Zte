@@ -1,0 +1,24 @@
+{
+ "files": {
+  "drive_0.bin.rar": {
+   "bytes": 21922629,
+   "sha256": "c2d3e698810057cb02d42cc1fe83c23b109815aff0501f3315bc4d488a6a7fdb"
+  },
+  "manifest.json": {
+   "bytes": 742,
+   "sha256": "9f752beb4a784f63dee2e8a253fc1ac63fc414c746c650e17ab27acb80096875"
+  },
+  "page.html": {
+   "bytes": 175545,
+   "sha256": "5b8d5e9013951e8ee9dc483f8cc1ece7a9d0326a5b484007bbec41c96c00f97d"
+  },
+  "extracted_drive_0.bin.rar/OptiPlex 7070 Micro 1 v99.1.45.bin": {
+   "bytes": 33554432,
+   "sha256": "5b8b81ad2fa9f2d3754b8a411957131b059fb42e2634b2f6ddc081f25e273079"
+  },
+  "extracted_drive_0.bin.rar/OptiPlex 7070 Micro 2 v99.1.45.bin": {
+   "bytes": 33554432,
+   "sha256": "ed5ec96919bea7a4540ca42f7f122e244767c8317f33f6f9ac5c489dcb656d66"
+  }
+ }
+}

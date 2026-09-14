@@ -1,0 +1,20 @@
+{
+ "files": {
+  "8mb-bin-zip.148166": {
+   "bytes": 33655,
+   "sha256": "a3d62fedd70cd78fbbaddcddfef1cb76aea978156596758d4602a017c2d63336"
+  },
+  "manifest.json": {
+   "bytes": 577,
+   "sha256": "6f48d1717ad9edcc1ac3b5bf5ab9a7ba7b8bef39ab017bceb95547ea0ae04b8b"
+  },
+  "mockingbird-l-19746-1-pass-16mb-bin.150250": {
+   "bytes": 33799,
+   "sha256": "c22e741a9dbf50a896a1ec233c895da4b09eeac3581613164434386193cbe79d"
+  },
+  "mockingbird-l-19746-1-pass-8mb-bin.150249": {
+   "bytes": 33793,
+   "sha256": "54536b0e27febd3d2041ca6036252c3153fcd985f1e76ff0331cf28301713b7f"
+  }
+ }
+}

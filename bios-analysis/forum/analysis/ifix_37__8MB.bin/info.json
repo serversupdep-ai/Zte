@@ -1,0 +1,438 @@
+{
+ "src": "ifix_37",
+ "file": "8MB.bin",
+ "size": 8388608,
+ "sha256": "94dc5a7c904607c3e3751c2ae54af7b453f525cce12f437e88abd64018e88da2",
+ "regions": {
+  "bios": [
+   6291456,
+   8388607
+  ],
+  "me": [
+   20480,
+   6291455
+  ],
+  "gbe": [
+   4096,
+   20479
+  ]
+ },
+ "guid_hits": [
+  {
+   "guid": "record_guid",
+   "offset": 6296537
+  },
+  {
+   "guid": "record_guid",
+   "offset": 6362031
+  }
+ ],
+ "nvram": [
+  {
+   "offset": 6296537,
+   "snippet": "nvram_record_guid_06013d9.bin",
+   "xenrolled_candidates": [
+    {
+     "rel_offset": 16,
+     "hex": "fddf63699cab04a214632236591ef90b2537c6c961945d06ffc065a214632236"
+    },
+    {
+     "rel_offset": 17,
+     "hex": "df63699cab04a214632236591ef90b2537c6c961945d06ffc065a21463223659"
+    },
+    {
+     "rel_offset": 18,
+     "hex": "63699cab04a214632236591ef90b2537c6c961945d06ffc065a214632236591e"
+    },
+    {
+     "rel_offset": 19,
+     "hex": "699cab04a214632236591ef90b2537c6c961945d06ffc065a214632236591efa"
+    },
+    {
+     "rel_offset": 20,
+     "hex": "9cab04a214632236591ef90b2537c6c961945d06ffc065a214632236591efafe"
+    },
+    {
+     "rel_offset": 21,
+     "hex": "ab04a214632236591ef90b2537c6c961945d06ffc065a214632236591efafeff"
+    },
+    {
+     "rel_offset": 22,
+     "hex": "04a214632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8"
+    },
+    {
+     "rel_offset": 23,
+     "hex": "a214632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8"
+    },
+    {
+     "rel_offset": 24,
+     "hex": "14632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9"
+    },
+    {
+     "rel_offset": 25,
+     "hex": "632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f943"
+    },
+    {
+     "rel_offset": 26,
+     "hex": "2236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f"
+    },
+    {
+     "rel_offset": 27,
+     "hex": "36591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e"
+    },
+    {
+     "rel_offset": 28,
+     "hex": "591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f"
+    },
+    {
+     "rel_offset": 29,
+     "hex": "1ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f75"
+    },
+    {
+     "rel_offset": 30,
+     "hex": "f90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574"
+    },
+    {
+     "rel_offset": 31,
+     "hex": "0b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db"
+    },
+    {
+     "rel_offset": 32,
+     "hex": "2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02"
+    },
+    {
+     "rel_offset": 33,
+     "hex": "37c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db0201"
+    },
+    {
+     "rel_offset": 34,
+     "hex": "c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c"
+    },
+    {
+     "rel_offset": 35,
+     "hex": "c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00"
+    },
+    {
+     "rel_offset": 36,
+     "hex": "61945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d0"
+    },
+    {
+     "rel_offset": 37,
+     "hex": "945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041"
+    },
+    {
+     "rel_offset": 38,
+     "hex": "5d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d04103"
+    },
+    {
+     "rel_offset": 39,
+     "hex": "06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a"
+    },
+    {
+     "rel_offset": 40,
+     "hex": "ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a00"
+    },
+    {
+     "rel_offset": 41,
+     "hex": "c065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a0000"
+    },
+    {
+     "rel_offset": 42,
+     "hex": "65a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a000000"
+    },
+    {
+     "rel_offset": 43,
+     "hex": "a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a00000000"
+    },
+    {
+     "rel_offset": 44,
+     "hex": "14632236591efafefff8f8f9436f6e4f7574db02010c00d041030a0000000001"
+    },
+    {
+     "rel_offset": 45,
+     "hex": "632236591efafefff8f8f9436f6e4f7574db02010c00d041030a000000000101"
+    },
+    {
+     "rel_offset": 46,
+     "hex": "2236591efafefff8f8f9436f6e4f7574db02010c00d041030a00000000010106"
+    },
+    {
+     "rel_offset": 47,
+     "hex": "36591efafefff8f8f9436f6e4f7574db02010c00d041030a0000000001010600"
+    },
+    {
+     "rel_offset": 48,
+     "hex": "591efafefff8f8f9436f6e4f7574db02010c00d041030a000000000101060000"
+    },
+    {
+     "rel_offset": 49,
+     "hex": "1efafefff8f8f9436f6e4f7574db02010c00d041030a00000000010106000001"
+    },
+    {
+     "rel_offset": 50,
+     "hex": "fafefff8f8f9436f6e4f7574db02010c00d041030a0000000001010600000101"
+    },
+    {
+     "rel_offset": 51,
+     "hex": "fefff8f8f9436f6e4f7574db02010c00d041030a000000000101060000010101"
+    },
+    {
+     "rel_offset": 52,
+     "hex": "fff8f8f9436f6e4f7574db02010c00d041030a00000000010106000001010106"
+    },
+    {
+     "rel_offset": 53,
+     "hex": "f8f8f9436f6e4f7574db02010c00d041030a0000000001010600000101010600"
+    },
+    {
+     "rel_offset": 54,
+     "hex": "f8f9436f6e4f7574db02010c00d041030a000000000101060000010101060000"
+    },
+    {
+     "rel_offset": 55,
+     "hex": "f9436f6e4f7574db02010c00d041030a00000000010106000001010106000000"
+    },
+    {
+     "rel_offset": 56,
+     "hex": "436f6e4f7574db02010c00d041030a0000000001010600000101010600000002"
+    },
+    {
+     "rel_offset": 57,
+     "hex": "6f6e4f7574db02010c00d041030a000000000101060000010101060000000203"
+    },
+    {
+     "rel_offset": 58,
+     "hex": "6e4f7574db02010c00d041030a00000000010106000001010106000000020308"
+    },
+    {
+     "rel_offset": 59,
+     "hex": "4f7574db02010c00d041030a0000000001010600000101010600000002030800"
+    },
+    {
+     "rel_offset": 60,
+     "hex": "7574db02010c00d041030a000000000101060000010101060000000203080000"
+    },
+    {
+     "rel_offset": 61,
+     "hex": "74db02010c00d041030a00000000010106000001010106000000020308000001"
+    },
+    {
+     "rel_offset": 62,
+     "hex": "db02010c00d041030a0000000001010600000101010600000002030800000101"
+    },
+    {
+     "rel_offset": 63,
+     "hex": "02010c00d041030a000000000101060000010101060000000203080000010180"
+    },
+    {
+     "rel_offset": 64,
+     "hex": "010c00d041030a0000000001010600000101010600000002030800000101807f"
+    }
+   ]
+  },
+  {
+   "offset": 6362031,
+   "snippet": "nvram_record_guid_06113af.bin",
+   "xenrolled_candidates": [
+    {
+     "rel_offset": 16,
+     "hex": "fddf63699cab04a214632236591ef90b2537c6c961945d06ffc065a214632236"
+    },
+    {
+     "rel_offset": 17,
+     "hex": "df63699cab04a214632236591ef90b2537c6c961945d06ffc065a21463223659"
+    },
+    {
+     "rel_offset": 18,
+     "hex": "63699cab04a214632236591ef90b2537c6c961945d06ffc065a214632236591e"
+    },
+    {
+     "rel_offset": 19,
+     "hex": "699cab04a214632236591ef90b2537c6c961945d06ffc065a214632236591efa"
+    },
+    {
+     "rel_offset": 20,
+     "hex": "9cab04a214632236591ef90b2537c6c961945d06ffc065a214632236591efafe"
+    },
+    {
+     "rel_offset": 21,
+     "hex": "ab04a214632236591ef90b2537c6c961945d06ffc065a214632236591efafeff"
+    },
+    {
+     "rel_offset": 22,
+     "hex": "04a214632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8"
+    },
+    {
+     "rel_offset": 23,
+     "hex": "a214632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8"
+    },
+    {
+     "rel_offset": 24,
+     "hex": "14632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9"
+    },
+    {
+     "rel_offset": 25,
+     "hex": "632236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f943"
+    },
+    {
+     "rel_offset": 26,
+     "hex": "2236591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f"
+    },
+    {
+     "rel_offset": 27,
+     "hex": "36591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e"
+    },
+    {
+     "rel_offset": 28,
+     "hex": "591ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f"
+    },
+    {
+     "rel_offset": 29,
+     "hex": "1ef90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f75"
+    },
+    {
+     "rel_offset": 30,
+     "hex": "f90b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574"
+    },
+    {
+     "rel_offset": 31,
+     "hex": "0b2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db"
+    },
+    {
+     "rel_offset": 32,
+     "hex": "2537c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02"
+    },
+    {
+     "rel_offset": 33,
+     "hex": "37c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db0201"
+    },
+    {
+     "rel_offset": 34,
+     "hex": "c6c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c"
+    },
+    {
+     "rel_offset": 35,
+     "hex": "c961945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00"
+    },
+    {
+     "rel_offset": 36,
+     "hex": "61945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d0"
+    },
+    {
+     "rel_offset": 37,
+     "hex": "945d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041"
+    },
+    {
+     "rel_offset": 38,
+     "hex": "5d06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d04103"
+    },
+    {
+     "rel_offset": 39,
+     "hex": "06ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a"
+    },
+    {
+     "rel_offset": 40,
+     "hex": "ffc065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a00"
+    },
+    {
+     "rel_offset": 41,
+     "hex": "c065a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a0000"
+    },
+    {
+     "rel_offset": 42,
+     "hex": "65a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a000000"
+    },
+    {
+     "rel_offset": 43,
+     "hex": "a214632236591efafefff8f8f9436f6e4f7574db02010c00d041030a00000000"
+    },
+    {
+     "rel_offset": 44,
+     "hex": "14632236591efafefff8f8f9436f6e4f7574db02010c00d041030a0000000001"
+    },
+    {
+     "rel_offset": 45,
+     "hex": "632236591efafefff8f8f9436f6e4f7574db02010c00d041030a000000000101"
+    },
+    {
+     "rel_offset": 46,
+     "hex": "2236591efafefff8f8f9436f6e4f7574db02010c00d041030a00000000010106"
+    },
+    {
+     "rel_offset": 47,
+     "hex": "36591efafefff8f8f9436f6e4f7574db02010c00d041030a0000000001010600"
+    },
+    {
+     "rel_offset": 48,
+     "hex": "591efafefff8f8f9436f6e4f7574db02010c00d041030a000000000101060000"
+    },
+    {
+     "rel_offset": 49,
+     "hex": "1efafefff8f8f9436f6e4f7574db02010c00d041030a00000000010106000001"
+    },
+    {
+     "rel_offset": 50,
+     "hex": "fafefff8f8f9436f6e4f7574db02010c00d041030a0000000001010600000101"
+    },
+    {
+     "rel_offset": 51,
+     "hex": "fefff8f8f9436f6e4f7574db02010c00d041030a000000000101060000010101"
+    },
+    {
+     "rel_offset": 52,
+     "hex": "fff8f8f9436f6e4f7574db02010c00d041030a00000000010106000001010106"
+    },
+    {
+     "rel_offset": 53,
+     "hex": "f8f8f9436f6e4f7574db02010c00d041030a0000000001010600000101010600"
+    },
+    {
+     "rel_offset": 54,
+     "hex": "f8f9436f6e4f7574db02010c00d041030a000000000101060000010101060000"
+    },
+    {
+     "rel_offset": 55,
+     "hex": "f9436f6e4f7574db02010c00d041030a00000000010106000001010106000000"
+    },
+    {
+     "rel_offset": 56,
+     "hex": "436f6e4f7574db02010c00d041030a0000000001010600000101010600000002"
+    },
+    {
+     "rel_offset": 57,
+     "hex": "6f6e4f7574db02010c00d041030a000000000101060000010101060000000203"
+    },
+    {
+     "rel_offset": 58,
+     "hex": "6e4f7574db02010c00d041030a00000000010106000001010106000000020308"
+    },
+    {
+     "rel_offset": 59,
+     "hex": "4f7574db02010c00d041030a0000000001010600000101010600000002030800"
+    },
+    {
+     "rel_offset": 60,
+     "hex": "7574db02010c00d041030a000000000101060000010101060000000203080000"
+    },
+    {
+     "rel_offset": 61,
+     "hex": "74db02010c00d041030a00000000010106000001010106000000020308000001"
+    },
+    {
+     "rel_offset": 62,
+     "hex": "db02010c00d041030a0000000001010600000101010600000002030800000101"
+    },
+    {
+     "rel_offset": 63,
+     "hex": "02010c00d041030a000000000101060000010101060000000203080000010180"
+    },
+    {
+     "rel_offset": 64,
+     "hex": "010c00d041030a0000000001010600000101010600000002030800000101807f"
+    }
+   ]
+  }
+ ],
+ "ec_payloads": [],
+ "pw_modules": []
+}

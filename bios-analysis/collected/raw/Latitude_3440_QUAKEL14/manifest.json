@@ -1,0 +1,60 @@
+{
+ "files": {
+  "drive_0.bin.rar": {
+   "bytes": 13193025,
+   "sha256": "d16228922beecde6cf19e1595bcee62baeb950d61ecdd81ddae64f220c1b8bad"
+  },
+  "drive_1.bin.rar": {
+   "bytes": 56944734,
+   "sha256": "622e3d1a3554fd1e3ffb2d48e10256becf7302c381883022c7b497ba7761e0a8"
+  },
+  "drive_2.bin.rar": {
+   "bytes": 11303740,
+   "sha256": "4abfd18eb3aaf753731d56cca4fbaedc9103bd8b25678e93298dec32091c60a2"
+  },
+  "manifest.json": {
+   "bytes": 2399,
+   "sha256": "d318ec7f19812438609227bf802b6a89917bc13c4bc1e2e67588f92cceeb96fb"
+  },
+  "page.html": {
+   "bytes": 233639,
+   "sha256": "6d769deb1f58a04e453fe9d53268496885b6c9f4ecba064a95b43de0e15a39c6"
+  },
+  "extracted_drive_2.bin.rar/213247-1 W36MN$JA OK TESTED.bin": {
+   "bytes": 33554432,
+   "sha256": "6b3b10b8dda3cae237c9918930d5d3055c96435e009b682563e7eb636c07d56e"
+  },
+  "extracted_drive_2.bin.rar/photo_2026-08-28_11-23-46.jpg": {
+   "bytes": 162408,
+   "sha256": "f54f2e06d62f65730f902d7d195d3eef8f58d06f3358d41fdf6a16688e50b253"
+  },
+  "extracted_drive_0.bin.rar/DELL Latitude 3440 QUAKEL14_RPL 213247-1.BIN": {
+   "bytes": 33554432,
+   "sha256": "f187e3593f955323a7a2f7f7ee8a4816592e46fe7a18ca44f4be434819dde18b"
+  },
+  "extracted_drive_1.bin.rar/FIX.zip": {
+   "bytes": 11787674,
+   "sha256": "09521393bb9dad99512e7ad1053fca17bb8f901e93e4c46509b8cfb93fbffa81"
+  },
+  "extracted_drive_1.bin.rar/photo_2026-08-28_11-26-25.jpg": {
+   "bytes": 289106,
+   "sha256": "6160b19372ef47bb06c7dbdf7f96f739923d8dc7eee07636146487d17a9432b3"
+  },
+  "extracted_drive_1.bin.rar/DELL LATITUDE 3440 QUAKEL14_RPL 213247-1/DELL LATITUDE 3440 213247-1 NEW.bin": {
+   "bytes": 33554432,
+   "sha256": "948cf3e101fa04a940e566cdbf013488157852b26ed28d3641db20dce576b9a4"
+  },
+  "extracted_drive_1.bin.rar/DELL LATITUDE 3440 QUAKEL14_RPL 213247-1/DELL LATITUDE 3440 213247-1 W25Q256FV@SOIC8.BIN": {
+   "bytes": 33554432,
+   "sha256": "38fc6fc46a6bcb6e15ac82b790858b2bfcc674b650386e723ede616dc4ab4b1d"
+  },
+  "extracted_drive_1.bin.rar/DELL LATITUDE 3440 QUAKEL14_RPL 213247-1/DELL LATITUDE 3440 W25Q256FV@WSON8_8X6_20240408_181543 213247-1 d.BIN": {
+   "bytes": 33554432,
+   "sha256": "b597c56f9bd902eb75cbc90edca28f96ee050f62f57262f0b7f5522d580d601f"
+  },
+  "extracted_drive_1.bin.rar/DELL LATITUDE 3440 QUAKEL14_RPL 213247-1/Latitude 3540 213247-1.bin": {
+   "bytes": 33554432,
+   "sha256": "5e4c7f9ff0b19ec838a17fdb3da1b31fe16e6b0b3147a4ec30fe7f1401bd76a8"
+  }
+ }
+}

@@ -1,0 +1,92 @@
+name: Fetch Rex98 GUI v1.0
+# Relay-fetch the uncollected Rex98 GUI v1.0 release (Google Drive id
+# 1WNXqjGMXc43uimmi-L6hbkAPgyuUWFlR, from the Rex98 tool Drive referenced in
+# the vinafix/badcaps 8FC8 threads). The sandbox cannot reach
+# drive.usercontent.google.com, so the runner downloads it, extracts any
+# archive, and commits everything to bios-analysis/forum/patcher_analysis/
+# rex98_gui_v1.0/ for sandbox-side analysis (successor of the
+# embedded_Module8FC8.exe RE in REPORT §13.10).
+
+on:
+  push:
+    branches: [arena/01a087e2-zte]
+    paths: ['.github/workflows/fetch-rex98-gui.yml']
+  workflow_dispatch:
+
+concurrency:
+  group: fetch-rex98-gui
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: arena/01a087e2-zte
+
+      - name: Download from Google Drive
+        run: |
+          set -x
+          ID="1WNXqjGMXc43uimmi-L6hbkAPgyuUWFlR"
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0 Safari/537.36"
+          D="https://drive.usercontent.google.com/download?id=${ID}&export=download&confirm=t"
+          curl -fsSL --retry 3 --max-time 600 -A "$UA" -o /tmp/rex98_gui_v1.0.raw "$D" || {
+            # fallback: parse the confirm form and re-post
+            curl -sL --max-time 120 -A "$UA" -c /tmp/gc.txt \
+              "https://drive.google.com/uc?export=download&id=${ID}" -o /tmp/form.html
+            ACT=$(grep -oE 'action="[^"]+"' /tmp/form.html | head -1 | cut -d'"' -f2)
+            for N in $(grep -oE 'name="[^"]+" value="[^"]*"' /tmp/form.html | sed 's/name="//;s/" value="/=/;s/"$//'); do
+              ACT="$ACT&$N"
+            done
+            curl -fsSL --retry 3 --max-time 600 -A "$UA" -b /tmp/gc.txt -o /tmp/rex98_gui_v1.0.raw "$ACT"
+          }
+          ls -la /tmp/rex98_gui_v1.0.raw
+          file /tmp/rex98_gui_v1.0.raw || true
+          head -c 16 /tmp/rex98_gui_v1.0.raw | xxd || true
+          # sanity: reject HTML error pages
+          if head -c 512 /tmp/rex98_gui_v1.0.raw | grep -qaE '<html|<!DOCTYPE|<div id="drive'; then
+            echo "GOT HTML — download failed"; head -c 800 /tmp/rex98_gui_v1.0.raw; exit 1
+          fi
+
+      - name: Extract if archive
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq p7zip-full p7zip-rar > /dev/null || true
+          DEST="bios-analysis/forum/patcher_analysis/rex98_gui_v1.0"
+          mkdir -p "$DEST" /tmp/rx
+          T=$(file -b --mime-type /tmp/rex98_gui_v1.0.raw)
+          case "$T" in
+            application/zip|application/x-7z-compressed|application/x-rar*|application/x-ms-dos-executable)
+              EXT=$(file -b /tmp/rex98_gui_v1.0.raw | grep -qi rar && echo rar || echo zip)
+              if file -b /tmp/rex98_gui_v1.0.raw | grep -qiE 'zip|7-zip|rar'; then
+                7z x -y -o/tmp/rx /tmp/rex98_gui_v1.0.raw > /tmp/7z.log 2>&1 || tail -5 /tmp/7z.log
+                cp -r /tmp/rx/. "$DEST/"
+                cp /tmp/rex98_gui_v1.0.raw "$DEST/archive.$EXT"
+              else
+                cp /tmp/rex98_gui_v1.0.raw "$DEST/Rex98_GUI_v1.0.exe"
+              fi ;;
+            *) cp /tmp/rex98_gui_v1.0.raw "$DEST/blob.bin" ;;
+          esac
+          find "$DEST" -type f -exec ls -la {} \;
+
+      - name: Commit
+        run: |
+          git config user.name "relay-bot"
+          git config user.email "relay@localhost"
+          git add bios-analysis/forum/patcher_analysis/rex98_gui_v1.0/
+          if git diff --cached --quiet; then echo "nothing new"; else
+            git commit -q -m "rex98: fetch GUI v1.0 release from Drive [skip ci]"
+            ok=0
+            for i in 1 2 3 4 5; do
+              if git pull --rebase origin arena/01a087e2-zte && \
+                 git push origin arena/01a087e2-zte; then ok=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              sleep 15
+            done
+            [ "$ok" = 1 ] || { echo "PUSH FAILED after retries"; exit 1; }
+          fi

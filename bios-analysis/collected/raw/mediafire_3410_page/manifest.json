@@ -1,0 +1,40 @@
+{
+ "files": {
+  "manifest.json": {
+   "bytes": 1343,
+   "sha256": "c53d6c679ccf7751e9a9b8f7d24950cf8021877c7c0e576882a148b8c3c26a18"
+  },
+  "mediafire_0.bin.zip": {
+   "bytes": 9544651,
+   "sha256": "34ed4fd35379f2e9a855e576435f51df036d0fbd045b8c09ded7216413d2fd8f"
+  },
+  "mediafire_2.bin.zip": {
+   "bytes": 9544651,
+   "sha256": "34ed4fd35379f2e9a855e576435f51df036d0fbd045b8c09ded7216413d2fd8f"
+  },
+  "mediafire_page.html": {
+   "bytes": 5601,
+   "sha256": "5b5663bbf9898fd97c30fa706f92af869b4195d88b91d81822e9f93b28715797"
+  },
+  "page.html": {
+   "bytes": 334507,
+   "sha256": "99cf2cbf41bd92c966b2ef2c8c1619614265baf77723e6ca24f3fd0386de1504"
+  },
+  "extracted_mediafire_2.bin.zip/Dell 3410 19746-1_8MB.bin": {
+   "bytes": 8388608,
+   "sha256": "1095f3ce39440ca40da907f71bc9041683add5eb8bac1ff3bc260b8f98f308ef"
+  },
+  "extracted_mediafire_2.bin.zip/Dell 3410 19746-1_v1.6.0.bin": {
+   "bytes": 16777216,
+   "sha256": "86e3d2089a41de9e92d8d6192cc648ca1b84678bbf803c15114f36bd87942b38"
+  },
+  "extracted_mediafire_0.bin.zip/Dell 3410 19746-1_8MB.bin": {
+   "bytes": 8388608,
+   "sha256": "1095f3ce39440ca40da907f71bc9041683add5eb8bac1ff3bc260b8f98f308ef"
+  },
+  "extracted_mediafire_0.bin.zip/Dell 3410 19746-1_v1.6.0.bin": {
+   "bytes": 16777216,
+   "sha256": "86e3d2089a41de9e92d8d6192cc648ca1b84678bbf803c15114f36bd87942b38"
+  }
+ }
+}

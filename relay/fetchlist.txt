@@ -1,0 +1,123 @@
+# relay/fetchlist.txt — generic fetch stage (relay/fetch_files.py).
+# PAGE|<url>|<tag>   fetch page, extract download links (Drive/mediafire/direct), pull + extract
+# FILE|<url>|<name>[|<tag>]  direct download
+#
+# EC-chip-dump campaign (CF1B_FINDINGS.md §11.8): full-chip repair backups.
+# Dell laptops of the 8FC8/CF1B era carry a separate 8MB EC SPI chip; a chip
+# dump of it = DECRYPTED EC firmware with the GENERATE engine + key material.
+
+# Latitude 5410 (2020 Comet Lake, 8FC8-EC era) — full 32MB+16MB+8MB package
+# (the 8MB = EC chip dump), free, rar pw "indiafix"
+PAGE|https://www.indiafix.in/2024/08/fdz41-la-j371p-rev-10-bios-dump-ok.html|Latitude_5410_LA-J371P
+
+# OptiPlex 3090 (the target family) — main bin + password-unlocker bin + schematic
+PAGE|https://www.indiafix.in/2024/02/ipcml-rn-zb.html|OptiPlex_3090_indiafix
+
+# Latitude 3440 (2023 RPL, 9ABE/CF1B generation) — tested dump
+PAGE|https://www.indiafix.in/2025/01/dell-latitude-3440-quakel14rpl-213247-1.html|Latitude_3440_QUAKEL14
+
+# Latitude 3410 (2020 CML) — reddit thread with Google-Drive bins incl. the
+# 8MB EC chip dump ("Mockingbird-L 19746-1 pass 8mb.bin")
+PAGE|https://www.reddit.com/r/PcBuild/comments/1pdrlnf/.json|Latitude_3410_reddit
+PAGE|https://www.reddit.com/r/Dell/comments/1pdrs3b/.json|Latitude_3410_reddit_b
+
+# badcaps-mentioned uploadfiles.io copy of the Dell 3410 19746-1 backup (2021,
+# likely expired — best effort)
+FILE|https://www.uploadfiles.io/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file|dell_3410_19746-1.zip|Latitude_3410_uploadfiles
+
+# wayback snapshots of the indiafix pages (original link sets survive there)
+PAGE|https://web.archive.org/web/2025/https://www.indiafix.in/2024/08/fdz41-la-j371p-rev-10-bios-dump-ok.html|Latitude_5410_LA-J371P_wb
+PAGE|https://web.archive.org/web/2025/https://www.indiafix.in/2024/02/ipcml-rn-zb.html|OptiPlex_3090_indiafix_wb
+PAGE|https://web.archive.org/web/2025/https://www.indiafix.in/2025/01/dell-latitude-3440-quakel14rpl-213247-1.html|Latitude_3440_QUAKEL14_wb
+
+# blogger feeds (server-side full post content incl. links)
+PAGE|https://www.indiafix.in/feeds/posts/default?alt=json&q=LA-J371P|Latitude_5410_LA-J371P_feed
+PAGE|https://www.indiafix.in/feeds/posts/default?alt=json&q=IPCML-RN|OptiPlex_3090_indiafix_feed
+PAGE|https://www.indiafix.in/feeds/posts/default?alt=json&q=QUAKEL14|Latitude_3440_QUAKEL14_feed
+
+# 2019 generation (3070/7070, 8FC8 era) — SPI staging may predate app sealing
+PAGE|https://www.indiafix.in/2025/04/dell-optiplex-7070-bison-mlk-mt-17509-3.html|OptiPlex_7070_BISON
+PAGE|https://www.indiafix.in/2025/08/dell-optiplex-7070-micro-ipcfl-bsek.html|OptiPlex_7070_Micro_IPCFL
+PAGE|https://www.indiafix.in/2023/06/dell-optiplex-3070-ipcfl-cg-bios.html|OptiPlex_3070_IPCFL
+
+# Reddit 3410 thread body (contains the Google-Drive folder with the 8MB EC
+# chip dump "Mockingbird-L 19746-1 pass 8mb.bin") — multiple access routes
+PAGE|https://api.reddit.com/api/info/?id=t3_1pdrlnf|Latitude_3410_reddit_json
+PAGE|https://api.reddit.com/api/info/?id=t3_1pdrs3b|Latitude_3410_reddit_json_b
+PAGE|https://old.reddit.com/r/PcBuild/comments/1pdrlnf/.json|Latitude_3410_old_json
+PAGE|https://old.reddit.com/r/Dell/comments/1pdrs3b/.json|Latitude_3410_old_json_b
+PAGE|https://r.jina.ai/https://www.reddit.com/r/PcBuild/comments/1pdrlnf/|Latitude_3410_jina
+PAGE|https://redlib.catsarch.com/r/PcBuild/comments/1pdrlnf|Latitude_3410_redlib
+PAGE|https://api.pullpush.io/reddit/search/submission/?ids=1pdrlnf|Latitude_3410_pullpush
+PAGE|https://api.pullpush.io/reddit/search/submission/?ids=1pdrs3b|Latitude_3410_pullpush_b
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/1pdrlnf|Latitude_3410_arctic
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/1pdrs3b|Latitude_3410_arctic_b
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/ids?ids=1pdrlnf|Latitude_3410_arctic2
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/ids?ids=1pdrs3b|Latitude_3410_arctic2_b
+PAGE|https://web.archive.org/web/2026/https://www.reddit.com/r/PcBuild/comments/1pdrlnf/|Latitude_3410_wayback
+PAGE|https://web.archive.org/web/2026/https://www.reddit.com/r/Dell/comments/1pdrs3b/|Latitude_3410_wayback_b
+# THE 3410 EC-chip folder ("Mockingbird-L 19746-1 pass 8mb.bin" = EC chip dump)
+FILE|https://drive.google.com/drive/folders/1XsUVBIwf9d6nmHbDzeUk-m_w7VGXzgEi|folder|Latitude_3410_ECfolder
+PAGE|https://drive.google.com/drive/folders/1XsUVBIwf9d6nmHbDzeUk-m_w7VGXzgEi|Latitude_3410_ECfolder_page
+PAGE|https://drive.google.com/file/d/1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu/view|Latitude_3410_drive_child1
+PAGE|https://drive.google.com/file/d/1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU/view|Latitude_3410_drive_child2
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1pdrlnf&limit=100|Latitude_3410_comments
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1pdrs3b&limit=100|Latitude_3410_comments_b
+PAGE|https://www.youtube.com/watch?v=J1N-VRiZJy4|Latitude_3410_youtube
+PAGE|https://www.youtube.com/watch?v=hzTsWIi68LU|Latitude_3410_yt_free
+PAGE|https://www.repairlap.com/threads/dell-latitude-3410-mockingbird-l-cml-uma-6l-19746-1-bios.10278/|repairlap_3410
+PAGE|https://www.alisaler.com/dell-latitude-3410-3510-mockingbird-l-cml-19709-1-19746-1-19775-1-19812-1-bios-schematic-boardview/|alisaler_3410
+PAGE|https://vinafix.com/threads/dell-latitude-3410-3510-mockingbird-l-cml-uma-6l-19746-1.41430/|vinafix_3410_thread
+FILE|https://vinafix.com/attachments/mockingbird-l-19746-1-pass-8mb-bin.150249/|pass_8mb_150249|vinafix_3410
+FILE|https://vinafix.com/attachments/mockingbird-l-19746-1-pass-16mb-bin.150250/|pass_16mb_150250|vinafix_3410
+FILE|https://vinafix.com/attachments/8mb-bin-zip.148166/|8mb_zip_148166|vinafix_3410
+PAGE|http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/mockingbird-l-19746-1-pass-8mb-bin.150249*&output=json|vinafix_wayback_8mb
+PAGE|http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200|vinafix_wayback_19746
+# --- 3410/3510 EC-dump free sources (vinafix originals are paid-gated) ---
+PAGE|https://www.indiafix.in/2024/06/mockingbird-l-cml-dis-8l-19709-1-bios.html|indiafix_3410_19709
+FILE|https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file|dell_3410_19746_1|mediafire_3410
+FILE|https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_|alisaler_5430_bios|alisaler_5430
+FILE|https://drive.google.com/uc?export=download&id=1LOKEk7fpR78_hiUf40lNSchuNGz3QNvB|alisaler_7430_bios|alisaler_7430
+PAGE|https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file|mediafire_3410_page
+PAGE|http://web.archive.org/web/2025id_/https://www.indiafix.in/2024/06/mockingbird-l-cml-dis-8l-19709-1-bios.html|indiafix_3410_wayback
+# --- Telegram BIOS ARCHIVE: Dell 3410 19746-1 both-chips dump + UNPASS rar (free, public channel) ---
+FILE|https://telegram.org/dl?tme=3b5103d91537f61d47_16268493646301877724|tg_3410_13723.zip|tg_3410
+FILE|https://telegram.org/dl?tme=3b459ea6bfc3491738_16360435324527312863|tg_3410_13724.rar|tg_3410
+PAGE|https://t.me/biosarchive/13723|tg_3410_msg13723
+PAGE|https://t.me/biosarchive/13724|tg_3410_msg13724
+# --- dr-bios thread 59413: parsad-8mb-bin (admin: "password is on 8MB file") ---
+PAGE|https://dr-bios.com/threads/19746-1-dell-latitude-3410.59413/|drbios_3410
+# retrigger: telegram retry (previous run lost its commit to a push race)
+# --- Dell 3410/3510 BIOS package (EC-staging source check: package PHCM vs chip slot B) ---
+PAGE|https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=v3y9y|Latitude_3410_dellpkg_1133
+# retrigger 2: dell package page (run 34782847591 lost commit race)
+FILE|https://dl.dell.com/FOLDER06541051M/1/Latitude_3410_3510_1.4.1.exe|Latitude_3410_3510_1.4.1.exe|Latitude_3410_pkg141
+FILE|https://dl.dell.com/FOLDER07043407M/1/Latitude_3410_3510_1.6.0.exe|Latitude_3410_3510_1.6.0.exe|Latitude_3410_pkg160
+# --- TGL successor family: did 3420/3520 packages ever stage EC content? ---
+FILE|https://dl.dell.com/FOLDER07995005M/1/Latitude_3420_Latitude_3520_1.13.3.exe|Latitude_3420_3520_1.13.3.exe|Latitude_3420_pkg1133
+PAGE|https://telegram.org/embed/biosarchive/13724|tg_3410_embed13724
+# === SAME-MODEL HUNT: OptiPlex 3090 (CF1B machine) ===
+PAGE|https://t.me/biosarchive/23340|tg_3090_msg23340
+FILE|https://telegram.org/dl?tme=e0879ad380154606e3_4407171994753476783|tg_3090_23340.zip|tg_3090
+PAGE|https://dr-bios.com/threads/dell-optiplex-3090.68894/|drbios_3090_68894
+PAGE|https://dr-bios.com/threads/dell-optiplex-3090-bios-bin-file.59046/|drbios_3090_59046
+PAGE|https://dr-bios.com/threads/optiplex-3090.61941/|drbios_3090_61941
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/3217350-bios-password-request-for-dell-optiplex-3090-micro/|badcaps_3090_3217350
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/98981-dell-optiplex-3090-bios-issue-please-help/|badcaps_3090_98981
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/3539267-bios-admin-password-remove-for-dell-optiplex-3090-sff/|badcaps_3090_3539267
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/ids?ids=1mni7p9|reddit_1mni7p9_post
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1mni7p9&limit=100|reddit_1mni7p9_comments
+PAGE|https://vinafix.com/threads/optiplex-3090-212037-1.45618/|vinafix_3090_45618
+PAGE|http://web.archive.org/web/20260414232708id_/https://www.indiafix.in/2026/03/dell-optiplex-3090-212037-1-bios-bin-ok.html|indiafix_3090_212037_wb
+# retry telegram 3090 (idempotency blocks were the blocker)
+# telegram 3090 attempt 3: protocol-relative dl link fix
+# telegram 3090 attempt 4: cookie-jar deeplink handler
+# === CF1B code-pair mining via arctic-shift (subreddit-filtered body search) ===
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=50|as_dell_cf1b
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=50|as_dell_8fc8
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=50|as_dell_9abe
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=CF1B&limit=50|as_dell_posts_cf1b
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/85841-help-me-pls-dell-optiplex-3080-clean-bios/|badcaps_3080_85841
+# === final CF1B public-venue sweep ===
+PAGE|https://bios-fix.com/index.php?threads/dell-bios-unlock-8fc8.53041/|biosfix_8fc8_53041
+PAGE|https://www.youtube.com/watch?v=jmW789IwJEI|yt_seller_jmW789IwJEI

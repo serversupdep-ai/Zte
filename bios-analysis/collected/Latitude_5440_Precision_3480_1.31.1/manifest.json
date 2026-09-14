@@ -1,0 +1,50 @@
+{
+ "url": "https://dl.dell.com/FOLDER14468109M/1/Latitude_5440_Precision_3480_1.31.1.exe",
+ "entries": [
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.31.1/ec_1_308240.bin",
+   "kind": "ec",
+   "size": 308240,
+   "sha256": "bc470036af547cc68f8af1c5799b2bfe7b3d9dae88dab9ec563f3bede8c86a96"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.31.1/ec_2_308240.bin",
+   "kind": "ec",
+   "size": 308240,
+   "sha256": "1401d054c4b8f4a97b494599916866e551bd7d9df672ca11d13d3d6868ee3ccf"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.31.1/ec_3_308240.bin",
+   "kind": "ec",
+   "size": 308240,
+   "sha256": "ed771f8d625a11cba66d65e8170bcf9d3e73dd5ce9b71d29e13b0f53bcd69594"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.31.1/ec_4_308240.bin",
+   "kind": "ec",
+   "size": 308240,
+   "sha256": "bda7d1b532837ebc075a9e313cd56e3ca357441f0643725a17e388442b077b16"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.31.1/pw_1_18432.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 18432,
+   "sha256": "0ae20c9f139025a8cf2cecd3d7da74b4676a51a45729b6888641600016ce6fc7"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.31.1/pw_2_37888.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 37888,
+   "sha256": "83b84b0c989d70be2de47b923abde4e592766b245ee7afddc1fa24f277a3506f"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5440_Precision_3480_1.31.1/pw_3_38912.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 38912,
+   "sha256": "308bfefc72690c51dd7b8792cf95213172dc168032d40915951f8e23ce5e6616"
+  }
+ ]
+}

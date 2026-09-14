@@ -1,0 +1,40 @@
+{
+ "files": {
+  "drive_0.bin.rar": {
+   "bytes": 7034693,
+   "sha256": "88caea49c37cc19a30f195a494260bd6943e3b5a7f68b377190a0018091e99d8"
+  },
+  "drive_1.bin.rar": {
+   "bytes": 10473947,
+   "sha256": "4dd2042adc360a3c3896d373a1f6773cf2e91401cc93b0433ebc7193aad0860b"
+  },
+  "drive_2.bin.rar": {
+   "bytes": 21922705,
+   "sha256": "a92ed3233188036002fae063af645e7b3786c1331c05e3b7fa0a5af0705e641e"
+  },
+  "manifest.json": {
+   "bytes": 1426,
+   "sha256": "d16a9b9f654ccb65a6582cdf4c7eb61fa1668694032379f6c4be4e35459e001b"
+  },
+  "page.html": {
+   "bytes": 176716,
+   "sha256": "95e6cb7f8129ff3251492d3c0c797ca95c50358f8df16662dc9a51138608c327"
+  },
+  "extracted_drive_2.bin.rar/OptiPlex 7070 Micro_CombineBiosName1 v99.1.45.bin": {
+   "bytes": 33554432,
+   "sha256": "5b8b81ad2fa9f2d3754b8a411957131b059fb42e2634b2f6ddc081f25e273079"
+  },
+  "extracted_drive_2.bin.rar/OptiPlex 7070 Micro_CombineBiosName2 v99.1.45.bin": {
+   "bytes": 33554432,
+   "sha256": "ed5ec96919bea7a4540ca42f7f122e244767c8317f33f6f9ac5c489dcb656d66"
+  },
+  "extracted_drive_0.bin.rar/DELL  optiplex 7070  17509-3 32MB BIOS TESTED OK/OptOptiPlex_7070 _TESTED OK.bin": {
+   "bytes": 33555200,
+   "sha256": "5f89fbe0b72651c61d3b52635f9a0a8bfe75466de655753e3baea9a9f63c6cfd"
+  },
+  "extracted_drive_1.bin.rar/Dell OptiPlex 7070 (V_1.3.1).bin": {
+   "bytes": 33554432,
+   "sha256": "901c82d12bda483533c87d59f419bb1978169780b7cbad9e8f8bca3409438243"
+  }
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "src": "ifix_34",
+ "file": "11.0.0.1205_CON_LP_C_NPDM_PRD_RGN_outimage.bin",
+ "size": 16777216,
+ "sha256": "de4aafd707cde68606737343fc138ecb02bf67c71623c9c696611bf195cf08e2",
+ "regions": {
+  "bios": [
+   7340032,
+   16777215
+  ],
+  "me": [
+   4096,
+   7340031
+  ]
+ },
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [],
+ "pw_modules": []
+}

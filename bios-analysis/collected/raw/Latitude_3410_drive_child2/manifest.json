@@ -1,0 +1,64 @@
+{
+ "files": {
+  "drive_0.bin.zip": {
+   "bytes": 2564243,
+   "sha256": "758d032db16a77bf128e890ce08fd1be3486286f4dbc539c4d2a717662d0b2fd"
+  },
+  "drive_1.bin": {
+   "bytes": 1247000,
+   "sha256": "562d17479a53fd3c1d0312fe02afbabfa36a1519e8ece5b39257a3d125271617"
+  },
+  "drive_2.bin": {
+   "bytes": 695343,
+   "sha256": "918ae73e4b3d72bcc19b528c9ac5e6172f15a0a358ca9e1ae938af57143651f1"
+  },
+  "drive_3.bin": {
+   "bytes": 3187,
+   "sha256": "c500f46cf733df5131912cd8ae4eb6e2b8961bdac4e439214aeba4977eb5ea98"
+  },
+  "drive_4.bin.zip": {
+   "bytes": 2564243,
+   "sha256": "758d032db16a77bf128e890ce08fd1be3486286f4dbc539c4d2a717662d0b2fd"
+  },
+  "drive_5.bin": {
+   "bytes": 1652,
+   "sha256": "bd6657395603dc020edc6f7a5eb158b0ad524feee551f87d0629ada616503392"
+  },
+  "drive_6.bin": {
+   "bytes": 9103,
+   "sha256": "63ddbf0a2fd92fc54a61a95a03496dc8234575534780ace43190634d2c39a112"
+  },
+  "drive_7.bin.zip": {
+   "bytes": 2564243,
+   "sha256": "758d032db16a77bf128e890ce08fd1be3486286f4dbc539c4d2a717662d0b2fd"
+  },
+  "drive_8.bin": {
+   "bytes": 9104,
+   "sha256": "ad9630482bbf4a94a22f5d4143e254d6ddba5c6c4a1c229e0d0dda383c892600"
+  },
+  "drive_9.bin": {
+   "bytes": 1695,
+   "sha256": "454362378f2b261c7326e93738017695a855040bdea24d56a8d077018fbaf453"
+  },
+  "manifest.json": {
+   "bytes": 2043,
+   "sha256": "1c5733bfff4f07efd62f48929c141243e7fcda9624538ab6dde58fb5fdde4b23"
+  },
+  "page.html": {
+   "bytes": 129146,
+   "sha256": "38b754da6e6ca779c7a33f641cbd55ff344ede2bea0ff222ea40dd293d974449"
+  },
+  "extracted_drive_7.bin.zip/MOCKINGBIRD-L CML UMA 8L (19746-1).pdf": {
+   "bytes": 3060260,
+   "sha256": "5963f8bc82629e7ddd4f51f90fde1a0c7e835c4ff86256c5ded7b0509ea7a813"
+  },
+  "extracted_drive_4.bin.zip/MOCKINGBIRD-L CML UMA 8L (19746-1).pdf": {
+   "bytes": 3060260,
+   "sha256": "5963f8bc82629e7ddd4f51f90fde1a0c7e835c4ff86256c5ded7b0509ea7a813"
+  },
+  "extracted_drive_0.bin.zip/MOCKINGBIRD-L CML UMA 8L (19746-1).pdf": {
+   "bytes": 3060260,
+   "sha256": "5963f8bc82629e7ddd4f51f90fde1a0c7e835c4ff86256c5ded7b0509ea7a813"
+  }
+ }
+}

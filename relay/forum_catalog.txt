@@ -1,0 +1,7 @@
+# Real machine SPI dumps from repair forums (badcaps.net) — CF1B generation.
+# Format: <filedata-fetch-url> | <slug> | <description: model, service tag, state>
+# Sources are public forum threads; provenance kept for each entry.
+https://www.badcaps.net/filedata/fetch?id=3679217 | 3090sff_RZ0624_clean | OptiPlex 3090 SFF RZ0624 clean dump (ToLoad.zip, thread 3539267 p14)
+https://www.badcaps.net/filedata/fetch?id=3819111 | 3090sff_DSVFYP3_8FC8_locked | OptiPlex 3090 SFF locked DSVFYP3-8FC8 RZ0624 dump_orig (thread 3539267 p18)
+https://www.badcaps.net/filedata/fetch?id=3204466 | 3090micro_combine1 | OptiPlex 3090 Micro combined flash image 1 (SVOD Combine, thread 98981 p5)
+https://www.badcaps.net/filedata/fetch?id=3204467 | 3090micro_combine2 | OptiPlex 3090 Micro combined flash image 2 (SVOD Combine, thread 98981 p5)

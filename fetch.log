@@ -1,0 +1,176 @@
+[skip] Latitude_5410_LA-J371P already fetched
+[skip] OptiPlex_3090_indiafix already fetched
+[skip] Latitude_3440_QUAKEL14 already fetched
+[skip] Latitude_3410_reddit already fetched
+[skip] Latitude_3410_reddit_b already fetched
+[FILE] https://www.uploadfiles.io/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/Latitude_3410_uploadfiles/dell_3410_19746-1.zip
+    [fetch failed 400] https://www.uploadfiles.io/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file
+[skip] Latitude_5410_LA-J371P_wb already fetched
+[skip] OptiPlex_3090_indiafix_wb already fetched
+[skip] Latitude_3440_QUAKEL14_wb already fetched
+[skip] Latitude_5410_LA-J371P_feed already fetched
+[skip] OptiPlex_3090_indiafix_feed already fetched
+[skip] Latitude_3440_QUAKEL14_feed already fetched
+[skip] OptiPlex_7070_BISON already fetched
+[skip] OptiPlex_7070_Micro_IPCFL already fetched
+[skip] OptiPlex_3070_IPCFL already fetched
+[skip] Latitude_3410_reddit_json already fetched
+[skip] Latitude_3410_reddit_json_b already fetched
+[skip] Latitude_3410_old_json already fetched
+[skip] Latitude_3410_old_json_b already fetched
+[skip] Latitude_3410_jina already fetched
+[skip] Latitude_3410_redlib already fetched
+[skip] Latitude_3410_pullpush already fetched
+[skip] Latitude_3410_pullpush_b already fetched
+[skip] Latitude_3410_arctic already fetched
+[skip] Latitude_3410_arctic_b already fetched
+[skip] Latitude_3410_arctic2 already fetched
+[skip] Latitude_3410_arctic2_b already fetched
+[skip] Latitude_3410_wayback already fetched
+[skip] Latitude_3410_wayback_b already fetched
+[FILE] https://drive.google.com/drive/folders/1XsUVBIwf9d6nmHbDzeUk-m_w7VGXzgEi -> raw/Latitude_3410_ECfolder/folder
+    [saved] Latitude_3410_ECfolder/folder_dl/* (Drive folder, 2 entries)
+[skip] Latitude_3410_ECfolder_page already fetched
+[skip] Latitude_3410_drive_child1 already fetched
+[skip] Latitude_3410_drive_child2 already fetched
+[skip] Latitude_3410_comments already fetched
+[skip] Latitude_3410_comments_b already fetched
+[skip] Latitude_3410_youtube already fetched
+[skip] Latitude_3410_yt_free already fetched
+[skip] repairlap_3410 already fetched
+[skip] alisaler_3410 already fetched
+[skip] vinafix_3410_thread already fetched
+[FILE] https://vinafix.com/attachments/mockingbird-l-19746-1-pass-8mb-bin.150249/ -> raw/vinafix_3410/pass_8mb_150249
+    [saved] vinafix_3410/mockingbird-l-19746-1-pass-8mb-bin.150249 (33793 bytes)
+[FILE] https://vinafix.com/attachments/mockingbird-l-19746-1-pass-16mb-bin.150250/ -> raw/vinafix_3410/pass_16mb_150250
+    [saved] vinafix_3410/mockingbird-l-19746-1-pass-16mb-bin.150250 (33799 bytes)
+[FILE] https://vinafix.com/attachments/8mb-bin-zip.148166/ -> raw/vinafix_3410/8mb_zip_148166
+    [saved] vinafix_3410/8mb-bin-zip.148166 (33655 bytes)
+[skip] vinafix_wayback_8mb already fetched
+[PAGE] http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200 -> raw/vinafix_wayback_19746
+    [page head] '<html><head><meta charset="UTF-8"><title>Internet Archive: Temporarily Offline</title><style>p{font-size:24px;}img{margin-bottom:2rem;}</style></head>\n<body style="padding:30px 0;">\n<div style="float:left;width:260px;text-align:center;">\n<i'
+    [saved] vinafix_wayback_19746/page.html (11832 bytes, sha256 e084d52792170864…)
+    [links] 0 candidates
+[skip] indiafix_3410_19709 already fetched
+[FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
+    [saved] mediafire_3410/mediafire_page.html (334493 bytes, sha256 79cf9563c814b025…)
+    [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
+[FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
+    [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
+[FILE] https://drive.google.com/uc?export=download&id=1LOKEk7fpR78_hiUf40lNSchuNGz3QNvB -> raw/alisaler_7430/alisaler_7430_bios
+    [saved] alisaler_7430/drive_alisaler_7430_bios.bin via gdown (10226346 bytes)
+[skip] mediafire_3410_page already fetched
+[skip] indiafix_3410_wayback already fetched
+[skip] tg_3410/tg_3410_13723.zip already fetched
+[skip] tg_3410/tg_3410_13724.rar already fetched
+[skip] tg_3410_msg13723 already fetched
+[skip] tg_3410_msg13724 already fetched
+[skip] drbios_3410 already fetched
+[skip] Latitude_3410_dellpkg_1133 already fetched
+[skip] Latitude_3410_pkg141/Latitude_3410_3510_1.4.1.exe already fetched
+[skip] Latitude_3410_pkg160/Latitude_3410_3510_1.6.0.exe already fetched
+[skip] Latitude_3420_pkg1133/Latitude_3420_3520_1.13.3.exe already fetched
+[skip] tg_3410_embed13724 already fetched
+[skip] tg_3090_msg23340 already fetched
+[skip] tg_3090/tg_3090_23340.zip already fetched
+[skip] drbios_3090_68894 already fetched
+[skip] drbios_3090_59046 already fetched
+[skip] drbios_3090_61941 already fetched
+[skip] badcaps_3090_3217350 already fetched
+[skip] badcaps_3090_98981 already fetched
+[skip] badcaps_3090_3539267 already fetched
+[skip] reddit_1mni7p9_post already fetched
+[skip] reddit_1mni7p9_comments already fetched
+[skip] vinafix_3090_45618 already fetched
+[skip] indiafix_3090_212037_wb already fetched
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=50 -> raw/as_dell_cf1b
+    [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=50
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=50 -> raw/as_dell_8fc8
+    [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=50
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=50 -> raw/as_dell_9abe
+    [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=50
+[PAGE] https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=CF1B&limit=50 -> raw/as_dell_posts_cf1b
+    [page fetch failed] https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=CF1B&limit=50
+[skip] badcaps_3080_85841 already fetched
+[PAGE] https://bios-fix.com/index.php?threads/dell-bios-unlock-8fc8.53041/ -> raw/biosfix_8fc8_53041
+    [page head] '<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><m'
+    [saved] biosfix_8fc8_53041/page.html (5726 bytes, sha256 1183289be7041426…)
+    [links] 0 candidates
+[PAGE] https://www.youtube.com/watch?v=jmW789IwJEI -> raw/yt_seller_jmW789IwJEI
+    [page head] '<!DOCTYPE html><html style="font-size: 62.5%;font-family: Roboto, Arial, sans-serif;" lang="en" darker-dark-theme darker-dark-theme-deprecate system-icons color-version="v2_0" typography typography-spacing><head><script data-id="_gd" nonce='
+    [saved] yt_seller_jmW789IwJEI/page.html (1140239 bytes, sha256 fd8544fc39cdc7d7…)
+    [links] 0 candidates
+[EXTRACT-PASS] Latitude_3410_ECfolder
+[EXTRACT-PASS] Latitude_3410_ECfolder_page
+[EXTRACT-PASS] Latitude_3410_arctic
+[EXTRACT-PASS] Latitude_3410_arctic2
+[EXTRACT-PASS] Latitude_3410_arctic2_b
+[EXTRACT-PASS] Latitude_3410_arctic_b
+[EXTRACT-PASS] Latitude_3410_comments
+[EXTRACT-PASS] Latitude_3410_comments_b
+[EXTRACT-PASS] Latitude_3410_dellpkg_1133
+[EXTRACT-PASS] Latitude_3410_drive_child1
+[EXTRACT-PASS] Latitude_3410_drive_child2
+[EXTRACT-PASS] Latitude_3410_jina
+[EXTRACT-PASS] Latitude_3410_old_json
+[EXTRACT-PASS] Latitude_3410_old_json_b
+[EXTRACT-PASS] Latitude_3410_pkg141
+[EXTRACT-PASS] Latitude_3410_pkg160
+[EXTRACT-PASS] Latitude_3410_pullpush
+[EXTRACT-PASS] Latitude_3410_pullpush_b
+[EXTRACT-PASS] Latitude_3410_reddit
+[EXTRACT-PASS] Latitude_3410_reddit_b
+[EXTRACT-PASS] Latitude_3410_reddit_json
+[EXTRACT-PASS] Latitude_3410_reddit_json_b
+[EXTRACT-PASS] Latitude_3410_redlib
+[EXTRACT-PASS] Latitude_3410_uploadfiles
+[EXTRACT-PASS] Latitude_3410_wayback
+[EXTRACT-PASS] Latitude_3410_wayback_b
+[EXTRACT-PASS] Latitude_3410_youtube
+[EXTRACT-PASS] Latitude_3410_yt_free
+[EXTRACT-PASS] Latitude_3420_pkg1133
+[EXTRACT-PASS] Latitude_3440_QUAKEL14
+[EXTRACT-PASS] Latitude_3440_QUAKEL14_feed
+[EXTRACT-PASS] Latitude_3440_QUAKEL14_wb
+[EXTRACT-PASS] Latitude_5410_LA-J371P
+[EXTRACT-PASS] Latitude_5410_LA-J371P_feed
+[EXTRACT-PASS] Latitude_5410_LA-J371P_wb
+[EXTRACT-PASS] OptiPlex_3070_IPCFL
+[EXTRACT-PASS] OptiPlex_3090_indiafix
+[EXTRACT-PASS] OptiPlex_3090_indiafix_feed
+[EXTRACT-PASS] OptiPlex_3090_indiafix_wb
+[EXTRACT-PASS] OptiPlex_7070_BISON
+[EXTRACT-PASS] OptiPlex_7070_Micro_IPCFL
+[EXTRACT-PASS] alisaler_3410
+[EXTRACT-PASS] alisaler_5430
+[EXTRACT-PASS] alisaler_7430
+[EXTRACT-PASS] badcaps_3080_85841
+[EXTRACT-PASS] badcaps_3090_3217350
+[EXTRACT-PASS] badcaps_3090_3539267
+[EXTRACT-PASS] badcaps_3090_98981
+[EXTRACT-PASS] biosfix_8fc8_53041
+[EXTRACT-PASS] drbios_3090_59046
+[EXTRACT-PASS] drbios_3090_61941
+[EXTRACT-PASS] drbios_3090_68894
+[EXTRACT-PASS] drbios_3410
+[EXTRACT-PASS] indiafix_3090_212037_wb
+[EXTRACT-PASS] indiafix_3410_19709
+[EXTRACT-PASS] indiafix_3410_wayback
+[EXTRACT-PASS] mediafire_3410
+[EXTRACT-PASS] mediafire_3410_page
+[EXTRACT-PASS] reddit_1mni7p9_comments
+[EXTRACT-PASS] reddit_1mni7p9_post
+[EXTRACT-PASS] repairlap_3410
+[EXTRACT-PASS] tg_3090
+[EXTRACT-PASS] tg_3090_msg23340
+[EXTRACT-PASS] tg_3410
+[EXTRACT-PASS] tg_3410_embed13724
+[EXTRACT-PASS] tg_3410_msg13723
+[EXTRACT-PASS] tg_3410_msg13724
+[EXTRACT-PASS] vinafix_3090_45618
+[EXTRACT-PASS] vinafix_3410
+[EXTRACT-PASS] vinafix_3410_thread
+[EXTRACT-PASS] vinafix_wayback_19746
+[EXTRACT-PASS] vinafix_wayback_8mb
+[EXTRACT-PASS] yt_seller_jmW789IwJEI
+done

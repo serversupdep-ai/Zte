@@ -1,0 +1,28 @@
+{
+ "files": {
+  "drive_0.bin.rar": {
+   "bytes": 13193025,
+   "sha256": "d16228922beecde6cf19e1595bcee62baeb950d61ecdd81ddae64f220c1b8bad"
+  },
+  "drive_1.bin.zip": {
+   "bytes": 13163675,
+   "sha256": "da2ce64eac8cd95a47ae2b828220f6db3c62c73aef40294ab27e7c5b0b7243d0"
+  },
+  "manifest.json": {
+   "bytes": 874,
+   "sha256": "ae4c7a6fb1dd069e49e05fc4fc6aca998303288ba37c5a8a02724f51f0601bf3"
+  },
+  "page.html": {
+   "bytes": 243489,
+   "sha256": "de0a8de33e97a56921cc21cb794a565dfb58b04858ad5db1a1bab06b4f64aa50"
+  },
+  "extracted_drive_1.bin.zip/Latitude 3540 213247-1.bin": {
+   "bytes": 33554432,
+   "sha256": "5e4c7f9ff0b19ec838a17fdb3da1b31fe16e6b0b3147a4ec30fe7f1401bd76a8"
+  },
+  "extracted_drive_0.bin.rar/DELL Latitude 3440 QUAKEL14_RPL 213247-1.BIN": {
+   "bytes": 33554432,
+   "sha256": "f187e3593f955323a7a2f7f7ee8a4816592e46fe7a18ca44f4be434819dde18b"
+  }
+ }
+}

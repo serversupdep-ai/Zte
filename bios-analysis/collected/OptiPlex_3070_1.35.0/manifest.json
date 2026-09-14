@@ -1,0 +1,61 @@
+{
+ "url": "https://downloads.dell.com/FOLDER13601596M/1/OptiPlex_3070_1.35.0.exe",
+ "entries": [
+  {
+   "file": "bios-analysis/collected/OptiPlex_3070_1.35.0/pw_1_9216.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 9216,
+   "sha256": "44e67c3e0f89e1afc6da82d713c7b1204a999f449048f0d5b3ec9d9a5d2845c1"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3070_1.35.0/pw_2_12800.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 12800,
+   "sha256": "3d37c9885ccdc46f062020dc59b1ae9d04b062ce870471097a27686a52bed431"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3070_1.35.0/pw_3_16896.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 16896,
+   "sha256": "27b94e0a832fda8ab70f2798c5353121e56e82e9ac238e830120a2f6a70e892f"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3070_1.35.0/pw_4_24576.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 24576,
+   "sha256": "68abc3a78de743a7d046a38ae710510267e705993730b4c0202ff6c67d16727f"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3070_1.35.0/pw_5_25600.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 25600,
+   "sha256": "18800cc2c625a5fc8f9e810ff750eb0d457c4b2ce73fe453b084df0b46edf967"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3070_1.35.0/pw_6_37376.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 37376,
+   "sha256": "f58b08d62f38069e671badd649b8b69f7a96d201fc146cb927bb3f6803871bf7"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3070_1.35.0/pw_7_42496.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 42496,
+   "sha256": "6a4b1c8c596921d5474e17b7878449440f1de92dbb47bc2f4d30c3483c356f1b"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3070_1.35.0/pw_8_87040.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 87040,
+   "sha256": "9355de901c8508ff5f1801a71e971d1365a9469eee583948fa3bbed76932ca1f"
+  }
+ ]
+}

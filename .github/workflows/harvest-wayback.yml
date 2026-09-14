@@ -1,0 +1,129 @@
+name: Harvest forum dumps via Wayback
+on:
+  push:
+    branches: [arena/01a087e2-zte]
+    paths: ['.github/workflows/harvest-wayback.yml']
+  workflow_dispatch:
+
+concurrency:
+  group: collectors
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install extractors
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq p7zip-full p7zip-rar > /dev/null
+      - name: Query CDX for archived badcaps attachments
+        run: |
+          set +e
+          curl -s --max-time 600 "https://web.archive.org/cdx/search/cdx?url=badcaps.net%2Ffiledata%2Ffetch*&output=text&limit=8000&collapse=urlkey&fl=original,timestamp,statuscode&filter=statuscode:200" > /tmp/cdx.txt
+          wc -l /tmp/cdx.txt
+          # plain full-size fetches only (no type=thumb/small/medium)
+          grep -v "type=" /tmp/cdx.txt | awk '{print $1, $2}' | sort -u > /tmp/att.txt
+          wc -l /tmp/att.txt
+          # explicit check for our known target attachment IDs (any archived form)
+          : > /tmp/targets.txt
+          for ID in 3220453 3220606 3211895 3212099 3212100 3679217 3819111 3204466 3204467 3631906 3631907 3631908; do
+            curl -s --max-time 120 "https://web.archive.org/cdx/search/cdx?url=badcaps.net%2Ffiledata%2Ffetch*&output=text&limit=40&fl=original,timestamp&filter=original:.*id=${ID}[^0-9].*" >> /tmp/targets.txt
+          done
+          wc -l /tmp/targets.txt
+          cat /tmp/targets.txt >> /tmp/att.txt
+      - name: Download archived attachments
+        run: |
+          set +e
+          mkdir -p /tmp/att
+          cat /tmp/att.txt | while read url ts; do
+            id=$(echo "$url" | grep -oE 'id=[0-9]+' | head -1 | cut -d= -f2)
+            [ -z "$id" ] && continue
+            echo "$id $ts $url" >> /tmp/att_map.txt
+            echo "https://web.archive.org/web/${ts}id_/${url}"
+          done > /tmp/urls.txt
+          sort -u /tmp/urls.txt | head -700 | xargs -P 6 -I{} sh -c 'curl -sL --max-time 240 --retry 2 -o /tmp/att/$(basename {})_tmp "{}" ; u="{}"; id=$(echo "$u" | grep -oE "id=[0-9]+" | head -1 | cut -d= -f2); mv "/tmp/att/$(basename {})_tmp" "/tmp/att/$id" 2>/dev/null || true' || true
+          ls /tmp/att | wc -l
+      - name: Keep firmware archives only
+        run: |
+          mkdir -p /tmp/keep
+          for f in /tmp/att/[0-9]*; do
+            [ -f "$f" ] || continue
+            sz=$(stat -c%s "$f")
+            [ "$sz" -lt 900000 ] && continue
+            m=$(head -c4 "$f")
+            case "$m" in
+              "PK"*)  mv "$f" "/tmp/keep/$(basename $f).zip" ;;
+              "Rar"*) mv "$f" "/tmp/keep/$(basename $f).rar" ;;
+            esac
+          done
+          ls -la /tmp/keep | head -50; ls /tmp/keep | wc -l
+      - name: Extract and classify
+        run: |
+          mkdir -p /tmp/ex
+          for a in /tmp/keep/*; do
+            id=$(basename "$a" | cut -d. -f1)
+            7z x -y -o"/tmp/ex/$id" "$a" > /dev/null 2>&1 || true
+          done
+          python3 - <<'PYEOF'
+          import os, json, hashlib, re, glob
+          PW_GUID = bytes.fromhex('378d976e2ec3b6438cebcc9aa215109e')   # password record GUID (LE)
+          STORE_GUID = bytes.fromhex('d177a7b7b66e9e46ad1f1165eb92b3ff') # NVRAM store protocol GUID
+          MODELS = re.compile(rb'(OptiPlex|Latitude|Precision)\s*-?\s*([0-9]{3,4}[A-Z]{0,3})')
+          CF1B = {'3080','3090','7080','7090','5000','5090','5080','7000','5490','7490','XE4',
+                  '5300','5400','5500','5410','3540','3420','5420','5520','7420','7520','5480'}
+          out, hits = [], []
+          for d in sorted(glob.glob('/tmp/ex/*')):
+            aid = os.path.basename(d)
+            for f in glob.glob(d + '/**/*', recursive=True):
+              try:
+                sz = os.path.getsize(f)
+                if sz < 8000000 or not os.path.isfile(f): continue
+                data = open(f, 'rb').read()
+              except Exception:
+                continue
+              desc_sig = data[0x10:0x14] == bytes.fromhex('5aa5f00f')
+              pwrecs = data.count(PW_GUID)
+              store = data.count(STORE_GUID)
+              models = set(m[0].decode()+m[1].decode() for m in MODELS.findall(data[:0x2000000]))
+              models = set(models) if not isinstance(models, set) else models
+              cf1b = bool(models & ({'OptiPlex'+m for m in CF1B} | {'Latitude'+m for m in CF1B}))
+              ent = {'att_id': aid, 'file': os.path.basename(f), 'size': sz,
+                     'sha256': hashlib.sha256(data).hexdigest(),
+                     'spi_descriptor': desc_sig, 'pw_record_guid_count': pwrecs,
+                     'store_guid_count': store, 'models': sorted(models), 'cf1b_generation': cf1b}
+              out.append(ent)
+              if (desc_sig or pwrecs) and (cf1b or pwrecs):
+                hits.append((aid, f, ent))
+          json.dump(out, open('/tmp/classify.json','w'), indent=1)
+          print(f"{len(out)} big files, {len(hits)} Dell password-bearing dumps")
+          for a,f,e in hits: print(e)
+          PYEOF
+      - name: Commit CF1B-generation dumps + manifest
+        run: |
+          mkdir -p bios-analysis/forum/wayback
+          python3 - <<'PYEOF'
+          import json, os, shutil, glob
+          cls = json.load(open('/tmp/classify.json'))
+          json.dump(cls, open('bios-analysis/forum/wayback/classify.json','w'), indent=1)
+          kept = 0
+          for e in cls:
+            if e['cf1b_generation'] and kept < 12:
+              src = glob.glob(f"/tmp/ex/{e['att_id']}/**/{e['file']}", recursive=True)
+              if src:
+                os.makedirs(f"bios-analysis/forum/wayback/{e['att_id']}", exist_ok=True)
+                shutil.copy(src[0], f"bios-analysis/forum/wayback/{e['att_id']}/{e['file']}")
+                kept += 1
+          print("committed dumps:", kept)
+          PYEOF
+          cat /tmp/att_map.txt >> bios-analysis/forum/wayback/att_map.txt 2>/dev/null || cp /tmp/att_map.txt bios-analysis/forum/wayback/att_map.txt
+          cp /tmp/cdx.txt bios-analysis/forum/wayback/cdx.txt 2>/dev/null || true
+          git config user.name "collect-bot" && git config user.email "bot@users.noreply.github.com"
+          git add bios-analysis/forum/wayback/
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -q -m "wayback: harvested archived forum dumps (CF1B gen) [skip ci]"
+          git pull --rebase -q origin arena/01a087e2-zte || true
+          git push || { git pull --rebase -q origin arena/01a087e2-zte && git push; }

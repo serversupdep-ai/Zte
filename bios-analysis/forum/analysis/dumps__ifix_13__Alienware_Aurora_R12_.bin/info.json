@@ -1,0 +1,20 @@
+{
+ "src": "dumps",
+ "file": "ifix_13__Alienware Aurora R12 .bin",
+ "size": 33554432,
+ "sha256": "a4286118dfa8fa6f486e73ad1eb785540c3edbc8b25744e3d6bece0d3b8d4790",
+ "regions": {
+  "bios": [
+   20971520,
+   33554431
+  ],
+  "me": [
+   4096,
+   16781311
+  ]
+ },
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [],
+ "pw_modules": []
+}

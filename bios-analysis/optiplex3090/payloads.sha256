@@ -1,0 +1,16 @@
+# Dell OptiPlex 3090 BIOS 2.0.7 — full payload inventory
+# wrappers:
+  321f658fc819fd6f11fbc657d5af9951be83e697142dcc4d86bf5d2013e3bed8  OptiPlex_3090_2.0.7.exe
+  62468ce8044337e720c87d0dfec34a3f02341c0c08a9ab75d3bb0a350e71f58f  BIOS_IMG.rcv
+# PFS payloads (identical in both wrappers):
+  9390d2fb96ede9b09f5945508f1c4e23e88f1d4860c679415aed42fd161aafee  1 Image -- 1 System BIOS with BIOS Guard [V7] v2.0.7.bin
+  a31359167e0307b0b8a38d3f64b30c2ebd6aad40170c8e53f0817ed0144b421c  1 Image -- 10 Backup Embedded Controller v1.0.20.bin
+  585113afec584a8dd928bc6be77ea4309f00bd0d9e59f939718271953bad1e2d  1 Image -- 2 Intel Management Engine (VPro) Update v14.1.53.1649.bin
+  2aeab17b5a575b5570303b4599aca750847d069601c77baaa97d8ddab3e352d2  1 Image -- 3 System Map v1.0.1.bin
+  d18a80041d091b3b372c01e68f4b403f4fec15dbd26788bb59198566e9393628  1 Image -- 5 Bios Connect Exe Payload v0.1.19.5.bin
+  95afc5cbbb92d936bf1071d8cf15c268518250335e79239e698ecc54364667d6  1 Image -- 6 Bios Connect Exe Version v0.1.19.5.bin
+  8e24ea27c461dd32b7146337cca4fae07b43f7e245c5c776dd98309902614b15  1 Image -- 7 Embedded Controller v1.0.21.bin
+  458fedc03d008c24ce095d02fbe5e620af6f9dfb178d7db008e4b5d0badfaab8  1 Image -- 8 Backup Embedded Controller v1.0.20.bin
+  09d6f191bac33bef5f392ae198001208edeebfbf38316c53950231f9a4e679f3  1 Image -- 9 Embedded Controller v1.0.21.bin
+  6caea9eacd26ebefa2fb4f6f18201a306e956f46ed754a6a70fdc7f1af9b4f78  1 Image -- 4 PCR0 XML v1.0.0.xml
+  adaae5697361e5fb858098807c6c19b55a1822cd38862c4599bad26031b8d1cd  1 Image -- 11 Model Information v1.0.0.0.txt

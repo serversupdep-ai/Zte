@@ -1,0 +1,28 @@
+{
+ "files": {
+  "drive_0.bin.rar": {
+   "bytes": 7034669,
+   "sha256": "04c6421558c1c1528f460d8d7041dfac7b90b34bc9e7a3d6540ce0a1fca96a9c"
+  },
+  "drive_1.bin.rar": {
+   "bytes": 198579,
+   "sha256": "b9c02dc666e8dcea1d9368ef7aeb4da3c590b901d403d11da4ab351fb0b445aa"
+  },
+  "manifest.json": {
+   "bytes": 890,
+   "sha256": "3992b3c4644b188f5b2e337471f763b28cfd30bc159f9dba85a32e33308b2a7b"
+  },
+  "page.html": {
+   "bytes": 171710,
+   "sha256": "716d4dd9177199b1ae61b28c608c1b3fb7191b8546549314b122bf484e69ba96"
+  },
+  "extracted_drive_0.bin.rar/OptiPlex_3070_IPCFL-CG_TESTED OK/OptOptiPlex_3070_IPCFL-CG_TESTED OK.bin": {
+   "bytes": 33555200,
+   "sha256": "5f89fbe0b72651c61d3b52635f9a0a8bfe75466de655753e3baea9a9f63c6cfd"
+  },
+  "extracted_drive_1.bin.rar/IPCFL-CG (BDV).cad": {
+   "bytes": 1799094,
+   "sha256": "d1e3e9b44a76866ce44f83680b5f2b0282e7c6539450f27b0906402e4aafc3d6"
+  }
+ }
+}

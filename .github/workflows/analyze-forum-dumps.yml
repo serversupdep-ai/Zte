@@ -1,0 +1,118 @@
+name: Analyze forum dumps
+# Runs analyze_forum_dumps.py over ALL collected forum archives (7z unpack,
+# needs p7zip-rar) and commits the analysis (new EC/pw binaries + info.json
+# + summary). Only new material is committed; corpus-identical payloads are
+# recorded by sha256. Follows the opensources collectors' race-safe pattern.
+
+on:
+  push:
+    branches: [arena/01a087e2-zte]
+    paths: ['bios-analysis/analyze_forum_dumps.py', 'bios-analysis/rex98_patcher.py', 'bios-analysis/dvar_scan_port.py', '.github/workflows/analyze-forum-dumps.yml']
+  workflow_dispatch:
+
+concurrency:
+  group: analyze-forum-dumps
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/01a087e2-zte
+
+      - name: Setup
+        run: |
+          python3 -m pip -q install uefi_firmware pefile
+          sudo apt-get -qq update
+          sudo apt-get -qq install -y --no-install-recommends p7zip-full p7zip-rar > /dev/null
+
+      - name: Analyze all forum dumps (incl. archive unpack)
+        run: |
+          set -x
+          python3 bios-analysis/analyze_forum_dumps.py --unpack-archives 2>&1 | tee forum-analysis.log
+          du -sh bios-analysis/forum/analysis || true
+
+      - name: EC record-store census (password records) across all dumps
+        run: |
+          set +e
+          CENSUS=bios-analysis/forum/analysis/store-census.txt
+          : > "$CENSUS"
+          for f in bios-analysis/forum/opensources/dumps/*; do
+            [ -f "$f" ] || continue
+            echo "### $f" >> "$CENSUS"
+            timeout 600 python3 bios-analysis/rex98_patcher.py --store "$f" >> "$CENSUS" 2>&1
+          done
+          i=0
+          for a in bios-analysis/forum/opensources/archives/*; do
+            i=$((i+1))
+            out=/tmp/storecensus/$i
+            mkdir -p "$out"
+            timeout 600 7z x -y -o"$out" -pindiafix "$a" >/dev/null 2>&1
+            timeout 600 7z x -y -o"$out" -p "$a" >/dev/null 2>&1
+          done
+          find /tmp/storecensus -type f -size +2M 2>/dev/null | while read f; do
+            case "$(echo "$f" | tr 'A-Z' 'a-z')" in
+              *.bin|*.rom|*.img)
+                echo "### $f" >> "$CENSUS"
+                timeout 900 python3 bios-analysis/rex98_patcher.py --store "$f" >> "$CENSUS" 2>&1
+                ;;
+            esac
+          done
+          echo "census done, exit ok"
+          exit 0
+
+      - name: dellpwn-equivalent scan census (DVAR XOR / SIVB / E7250 stores)
+        # runs the read-only dellpwn port (dvar_scan_port.py) over every
+        # dump — documents which corpus machines the CVE-2026-40639 DVAR
+        # recovery / SIVB rollback / E7250 clear operations would apply to
+        run: |
+          set +e
+          CENSUS2=bios-analysis/forum/analysis/dvar-sivb-census.txt
+          : > "$CENSUS2"
+          for f in bios-analysis/forum/opensources/dumps/*; do
+            [ -f "$f" ] || continue
+            echo "### $f" >> "$CENSUS2"
+            timeout 600 python3 bios-analysis/dvar_scan_port.py "$f" >> "$CENSUS2" 2>&1
+          done
+          # archives extracted to /tmp/storecensus by the store-census step
+          find /tmp/storecensus -type f -size +1M 2>/dev/null | while read f; do
+            case "$(echo "$f" | tr 'A-Z' 'a-z')" in
+              *.bin|*.rom|*.img)
+                echo "### $f" >> "$CENSUS2"
+                timeout 600 python3 bios-analysis/dvar_scan_port.py "$f" >> "$CENSUS2" 2>&1
+                ;;
+            esac
+          done
+          grep -c '###' "$CENSUS2" || true
+          exit 0
+
+      - name: Commit analysis
+        if: always()
+        run: |
+          git config user.name "relay-bot"
+          git config user.email "relay@localhost"
+          git pull --rebase origin arena/01a087e2-zte || true
+          git add bios-analysis/forum/analysis/ forum-analysis.log || true
+          if git diff --cached --quiet; then
+            echo "nothing new to commit"
+          else
+            git commit -q -m "analyze: forum dump analysis over all archives [skip ci]"
+            git push origin arena/01a087e2-zte || {
+              git pull --rebase origin arena/01a087e2-zte && git push origin arena/01a087e2-zte
+            }
+          fi
+
+      - name: Upload log (best effort)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forum-analysis-log
+          path: forum-analysis.log
+          if-no-files-found: ignore
+        continue-on-error: true

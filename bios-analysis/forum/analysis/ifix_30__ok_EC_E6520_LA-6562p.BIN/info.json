@@ -1,0 +1,11 @@
+{
+ "src": "ifix_30",
+ "file": "ok EC E6520 LA-6562p.BIN",
+ "size": 2097152,
+ "sha256": "96371485dc66b047d41af368df9863cfdadd94d74dac2c9daabaca40f3d1c6db",
+ "regions": null,
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [],
+ "pw_modules": []
+}

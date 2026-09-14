@@ -1,0 +1,12 @@
+{
+ "url": "https://downloads.dell.com/FOLDER14482985M/1/OptiPlex_TC_1.34.0.exe",
+ "entries": [
+  {
+   "file": "bios-analysis/collected/OptiPlex_TC_1.34.0/pw_1_35584.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 35584,
+   "sha256": "284829adac699a5868d5717449e08d6586895aa91e1481bcc3c9d73fc6f61e52"
+  }
+ ]
+}

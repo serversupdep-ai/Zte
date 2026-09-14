@@ -1,0 +1,20 @@
+# relay/lvfs_catalog.txt — LVFS (fwupd.org) device pages to collect.
+# The collector scrapes the newest .cab from each page, extracts it (7z) and
+# harvests EC PHCM payloads + pw modules like any package.
+# Rationale: LVFS carries versions Dell's FOLDER catalog no longer lists —
+# incl. the newest CF1B-generation firmware (OptiPlex 3090 2.30.0, 3080
+# 2.35.0 of 2026) and models missing from relay/catalog.txt (7480 AIO,
+# OptiPlex 3000, 3280 AIO). Tracked by .github/workflows/collect-dell-data.yml.
+
+https://fwupd.org/lvfs/devices/com.dell.uefic9284bf6.firmware    # OptiPlex 3090 2.30.0 (newest CF1B-era)
+https://fwupd.org/lvfs/devices/com.dell.uefi10d19ee4.firmware    # OptiPlex 3080 2.35.0 (2026)
+https://fwupd.org/lvfs/devices/com.dell.uefia3ef064d.firmware    # OptiPlex 7780/7480 AIO 1.45.0 (new model)
+https://fwupd.org/lvfs/devices/com.dell.uefibdaa7a9d.firmware    # OptiPlex 3000 1.42.0 (new model)
+https://fwupd.org/lvfs/devices/com.dell.uefi1de8ec66.firmware    # OptiPlex 3280 AIO 1.43.0 (new model)
+https://fwupd.org/lvfs/devices/com.dell.uefif5d534f4.firmware    # OptiPlex 5480 AIO 1.45.0
+https://fwupd.org/lvfs/devices/com.dell.uefi09c795fe.firmware    # OptiPlex 5490 AIO 1.48.0
+https://fwupd.org/lvfs/devices/com.dell.uefi7839b795.firmware    # OptiPlex 7490 AIO 1.48.0
+https://fwupd.org/lvfs/devices/com.dell.uefi9e83f146.firmware    # OptiPlex 5090 1.44.0
+https://fwupd.org/lvfs/devices/com.dell.uefibc0a94e3.firmware    # OptiPlex 3090 UFF 1.44.0
+https://fwupd.org/lvfs/devices/com.dell.uefi7557a0f4.firmware    # OptiPlex 5000 1.42.0
+https://fwupd.org/lvfs/devices/com.dell.uefi896e9574.firmware    # OptiPlex 7000/XE4 1.42.0

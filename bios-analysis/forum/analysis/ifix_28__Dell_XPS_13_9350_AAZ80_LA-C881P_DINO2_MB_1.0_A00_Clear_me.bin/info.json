@@ -1,0 +1,20 @@
+{
+ "src": "ifix_28",
+ "file": "Dell XPS 13 9350 AAZ80 LA-C881P DINO2 MB 1.0 A00 Clear me.bin",
+ "size": 16777216,
+ "sha256": "8adfcf83cdd80315cae19bf1d095f4a2cc6e558afaeabd09122e191bf48018e7",
+ "regions": {
+  "bios": [
+   7340032,
+   16777215
+  ],
+  "me": [
+   4096,
+   7340031
+  ]
+ },
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [],
+ "pw_modules": []
+}

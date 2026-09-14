@@ -1,0 +1,24 @@
+{
+ "src": "ifix_30",
+ "file": "ok  E6520 LA-6562p.BIN",
+ "size": 8388608,
+ "sha256": "0a4c7be9d06aec30556212d067e5f767e22ce505d865123b34c4b4df274f48a8",
+ "regions": {
+  "bios": [
+   6291456,
+   8388607
+  ],
+  "me": [
+   20480,
+   6291455
+  ],
+  "gbe": [
+   4096,
+   20479
+  ]
+ },
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [],
+ "pw_modules": []
+}

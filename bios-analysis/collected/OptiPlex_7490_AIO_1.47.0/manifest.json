@@ -1,0 +1,50 @@
+{
+ "url": "https://downloads.dell.com/FOLDER14473519M/1/OptiPlex_7490_AIO_1.47.0.exe",
+ "entries": [
+  {
+   "file": "bios-analysis/collected/OptiPlex_7490_AIO_1.47.0/ec_1_205328.bin",
+   "kind": "ec",
+   "size": 205328,
+   "sha256": "6365858bd3eb4c11434a87a89a6e903a3ec8151da134af478162f17eab224634"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_7490_AIO_1.47.0/ec_2_205328.bin",
+   "kind": "ec",
+   "size": 205328,
+   "sha256": "b04803607df0ba07febe5c3ca2a5d62c6821c51ed9871ca71fd244b27b90d7fa"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_7490_AIO_1.47.0/ec_3_205328.bin",
+   "kind": "ec",
+   "size": 205328,
+   "sha256": "9c144d7497cd0bf7c36e25da7074d22d3ef30ea1620f03ceb8ab195119802fea"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_7490_AIO_1.47.0/ec_4_205328.bin",
+   "kind": "ec",
+   "size": 205328,
+   "sha256": "f3b19eb2bfd5946806a9ecaad63049e430b568411bbe524c44c0d611d382a6aa"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_7490_AIO_1.47.0/pw_1_18432.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 18432,
+   "sha256": "0ae20c9f139025a8cf2cecd3d7da74b4676a51a45729b6888641600016ce6fc7"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_7490_AIO_1.47.0/pw_2_35456.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 35456,
+   "sha256": "e17a26a0f6a31a84ddf45a1ad5baf049bf9c219be2c8ee7705a56f35eb029470"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_7490_AIO_1.47.0/pw_3_38912.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 38912,
+   "sha256": "308bfefc72690c51dd7b8792cf95213172dc168032d40915951f8e23ce5e6616"
+  }
+ ]
+}

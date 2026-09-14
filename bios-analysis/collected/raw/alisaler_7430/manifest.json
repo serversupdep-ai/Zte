@@ -1,0 +1,16 @@
+{
+ "files": {
+  "drive_alisaler_7430_bios.bin.rar": {
+   "bytes": 10226346,
+   "sha256": "59fd6b8a495c284e1048fe92e105053495ce9186ed26cf8da4ef0a19349f03cc"
+  },
+  "manifest.json": {
+   "bytes": 498,
+   "sha256": "2e55729fe9c1364f104d6bb0bf4d639e2e690ea3a9fc6a093414f5ad41807223"
+  },
+  "extracted_drive_alisaler_7430_bios.bin.rar/Dell Latitude 7430 HDB30 HDB40 HDB50 LA-L581 Bios.BIN": {
+   "bytes": 33554432,
+   "sha256": "b6219aaf2a4730e315ce29db70fead1858fc64d41cb952da506ab48bf40a9571"
+  }
+ }
+}

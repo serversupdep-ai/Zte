@@ -1,0 +1,26 @@
+{
+ "src": "dumps",
+ "file": "ifix_07__W25Q512NW@WSON8 8X6_20260423_181304 OFF.bin",
+ "size": 67108864,
+ "sha256": "db2cbcbb6c835688ef888d9b20b2db7921a3875d166f1ceb1e18a48e075a1b4e",
+ "regions": null,
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [
+  {
+   "file": "ec_slot_0081000_261888.bin",
+   "size": 261888,
+   "sha256": "db81defd3b7933cdffff605d3e300691f72adb7cf4cd0406ed90cdc7ca6e6ab7",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "ec_slot_0091080_217248.bin",
+   "size": 217248,
+   "sha256": "1c9f096c415432f4f072e8fdbd7dd3f06f6f6ef35a57718af4f8316f49763715",
+   "matches_package": null,
+   "saved": true
+  }
+ ],
+ "pw_modules": []
+}

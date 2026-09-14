@@ -1,0 +1,68 @@
+{
+ "src": "ifix_03",
+ "file": "2 TroyAdl_16.1.27.2176_EVT_64 v1.17.0 -- 1 System BIOS with BiosGuard v1.17.0.bin",
+ "size": 33554432,
+ "sha256": "05dfe72baa0dddda50fd5865dc1f2dd06ffc32d5f2633d1d6ffa04605d1c6393",
+ "regions": null,
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [],
+ "pw_modules": [
+  {
+   "file": "pw_3660c5cf_52736.efi",
+   "size": 52736,
+   "sha256": "3660c5cf065c168ead0de8d6123334292604ccb1b16ab88a782c0271db74aa1f",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_db8defcd_18432.efi",
+   "size": 18432,
+   "sha256": "db8defcd6bdfcf2c10348db7d7b9a5679fefd417df0143e3eec157db3a9a35dc",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_4d40d53b_23040.efi",
+   "size": 23040,
+   "sha256": "4d40d53b986ab095d0c4af7f3b660213373a87199f17495b4a258b0005d6adaf",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_36d9ceea_28672.efi",
+   "size": 28672,
+   "sha256": "36d9ceea7688521daf4d445bc41c9bdcf4234228ab5d302437848fdf0e435ff5",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_b706ecc3_20992.efi",
+   "size": 20992,
+   "sha256": "b706ecc3cf8fc5b63c0b8332a7dc74e20d38349d35411e89fc1a5ade5d21f030",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_1678be77_45568.efi",
+   "size": 45568,
+   "sha256": "1678be77f0e6521ada7e050ef467d8fd1285a05895cfa44003a0f18fd07eaffc",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_1cb7f92b_17408.efi",
+   "size": 17408,
+   "sha256": "1cb7f92bd63b770a1c5f822246529116ba292de3820f6b0ccc862cfaf97594c0",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "pw_66d4b9d4_39424.efi",
+   "size": 39424,
+   "sha256": "66d4b9d4c38ca9acb4f8d1f407e8cca628141289822f555818e20b83d029137e",
+   "matches_package": null,
+   "saved": true
+  }
+ ]
+}
