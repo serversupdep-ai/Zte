@@ -1105,3 +1105,47 @@ same-model+same-suffix unlock request on record (9B1N0R3-CF1B) was declined
 by the only tool-holder willing to talk. Route A (live EC query), Route B
 (SPI patch, field-proven), Route C (Dell ownership readout) remain the only
 working unlocks — exactly as §11.5-§11.10 concluded.
+
+### 11.12 Online CF1B-keygen hunt — final venue sweep (2026-09-14)
+
+Executed to exhaustion per the same-model/same-suffix directive. Every
+public venue that could hold a CF1B/EC-era master-code generator or a
+tag→code pair:
+
+- **GitHub — chromebreakerdev/DellBIOSTools (V2.6 Beta, pushed 2026-08-28):**
+  the most-cited public tool for this exact problem ("CF1B is the new suffix
+  version updated from 8FC8" — its own community promotion). Audited the
+  full 1,780-line `DellBiosTools.pyw` (archived at
+  `collected/DellBIOSTools/`): the Password Generator tab implements the
+  LEGACY construction only (hand-rolled MD5 over the 7-char serial with the
+  classic suffix-scramble tables — the same math our keygen carries from
+  firmware and §10 retracted for CF1B); the BIOS Unlocker tab is a DUMP
+  PATTERN PATCHER ("For 8FC8 suffixes, use the 'BIOS Unlocker' tool
+  instead" — i.e. our dell_unlock_image.py class). **No CF1B/8FC8/9ABE
+  generation exists in the tool** — independent, current confirmation of
+  the architecture by the ecosystem's own tooling.
+- **Reddit full-text mining (arctic-shift):** body-search API requires
+  subreddit filters and times out server-side on this query; threaded
+  mining of the known code-giver thread (1mni7p9, §11.11.3) stands: every
+  EC-era request declined, legacy requests answered. Additional threads
+  surfaced (1nngrra 7400-CF1B, 1iq6vuq 8FC8, o81y1d legacy megathread)
+  all resolve to: bios-pw.org (legacy only), programmer+patch, or calling
+  Dell. One user-shared string ("Fireport") was a user-set password, not a
+  generated master.
+- **bios-fix.com thread 53041** (the "8FC8 unlock, pay with transaction
+  ID" service referenced from Reddit): login-walled (5.7 KB stub).
+- **YouTube sellers:** the May-2026 "Dell BIOS Password Unlocking
+  Solutions 8FC8 | A6E0 | CF1B | 3FE2 | 1B58 | 9ABE" short is
+  **aditya11ttt** (WhatsApp/Telegram +91-9584145145) — the same ₹7,500
+  per-machine service already censused. No public codes in any comment
+  surface.
+- **badcaps 85841 (OptiPlex 3080 CF1B, 7JZXKJ3):** fetched — the pattern is
+  unchanged: locked reads + patched dumps behind the premium wall.
+
+**§11.12 conclusion:** the online space is now exhausted to the edges.
+For same-model/same-suffix (OptiPlex 3090-CF1B and the whole EC-era class)
+there exists no public generator, no leaked key material, and no obtainable
+tag→code pair — only per-machine paid services (Dell backend or EC-read
+access) and dump patching. This matches the firmware-level proof (§11.5,
+§11.10, §11.11): the transform lives in the EC's internal flash, keyed
+per EC build. The delivered Routes A/B/C are the complete solution set.
