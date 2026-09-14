@@ -16,6 +16,32 @@ cp -r ../tools/. tools/
 cp ../FC1B-AGENT.md ../SUFFIX-CHEATSHEET.md .
 cp ../agent.env .env
 
+# 2b. Install the FC1B tools API (tool-execution layer)
+cp ../patches/tools.py agent-me/backend/app/tools.py
+python3 - <<'PYEOF'
+from pathlib import Path
+p = Path("agent-me/backend/app/main.py")
+t = p.read_text()
+marker = "# --- FC1B toolkit (fc1b-agent bundle) ---"
+if marker not in t:
+    t = t.rstrip() + "\n\n\n" + marker + "\nfrom .tools import router as _tools_router  # noqa: E402\napp.include_router(_tools_router)\n"
+anchor = '''    return ChatResponse(
+        answer=answer,
+        mode=mode,'''
+inject = '''    try:  # FC1B: append live keygen output for tag+suffix questions
+        from .tools import augment_answer
+        answer = augment_answer(payload.question, answer)
+    except Exception:
+        pass
+    return ChatResponse(
+        answer=answer,
+        mode=mode,'''
+if anchor in t and "augment_answer" not in t:
+    t = t.replace(anchor, inject)
+p.write_text(t)
+print("tools API installed")
+PYEOF
+
 # 3. Frontend preview-host fix (Vite 6): allow proxied hosts
 python3 - <<'EOF'
 from pathlib import Path
