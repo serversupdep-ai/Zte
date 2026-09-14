@@ -1,0 +1,9 @@
+# ec-hunt watchlist — sources to re-check every run.
+# GitHub blob URLs work from anywhere (fetched via the API).
+# Arbitrary URLs are fetched only with --allow-net (Actions runner / local).
+#
+# Known corpus targets (CF1B_FINDINGS §11.8 queue + §11.10):
+# - Latitude 3410 "19746-1 pass 8mb.bin" EC chip dump (Reddit-Drive, gated)
+# - Indiafix OptiPlex 3090 32MB READ + password-UNLOCKED bins (already in corpus)
+# - vinafix / chinafix / fixbase EC-internal dumps ("EC程序") — login-gated
+# Add new leads below as they surface:
