@@ -112,3 +112,9 @@ PAGE|http://web.archive.org/web/20260414232708id_/https://www.indiafix.in/2026/0
 # retry telegram 3090 (idempotency blocks were the blocker)
 # telegram 3090 attempt 3: protocol-relative dl link fix
 # telegram 3090 attempt 4: cookie-jar deeplink handler
+# === CF1B code-pair mining via arctic-shift (subreddit-filtered body search) ===
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=50|as_dell_cf1b
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=50|as_dell_8fc8
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=50|as_dell_9abe
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=CF1B&limit=50|as_dell_posts_cf1b
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/85841-help-me-pls-dell-optiplex-3080-clean-bios/|badcaps_3080_85841
