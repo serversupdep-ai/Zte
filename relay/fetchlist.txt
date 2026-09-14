@@ -118,3 +118,6 @@ PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&b
 PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=50|as_dell_9abe
 PAGE|https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=CF1B&limit=50|as_dell_posts_cf1b
 PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/85841-help-me-pls-dell-optiplex-3080-clean-bios/|badcaps_3080_85841
+# === final CF1B public-venue sweep ===
+PAGE|https://bios-fix.com/index.php?threads/dell-bios-unlock-8fc8.53041/|biosfix_8fc8_53041
+PAGE|https://www.youtube.com/watch?v=jmW789IwJEI|yt_seller_jmW789IwJEI
