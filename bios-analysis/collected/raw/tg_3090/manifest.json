@@ -1,5 +1,9 @@
 {
  "files": {
+  "manifest.json": {
+   "bytes": 145,
+   "sha256": "c9cd107577f22a93634e39cfb5509fefc0acde34b828e820b80b5d99b8867ad2"
+  },
   "tg_3090_23340.zip": {
    "bytes": 6388,
    "sha256": "481521d05653d7be1d87c94ef5a13501358be0dc7bf4f39a40af34856ecb4111"

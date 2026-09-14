@@ -41,17 +41,17 @@
 [skip] alisaler_3410 already fetched
 [skip] vinafix_3410_thread already fetched
 [FILE] https://vinafix.com/attachments/mockingbird-l-19746-1-pass-8mb-bin.150249/ -> raw/vinafix_3410/pass_8mb_150249
-    [saved] vinafix_3410/mockingbird-l-19746-1-pass-8mb-bin.150249 (33810 bytes)
+    [saved] vinafix_3410/mockingbird-l-19746-1-pass-8mb-bin.150249 (33793 bytes)
 [FILE] https://vinafix.com/attachments/mockingbird-l-19746-1-pass-16mb-bin.150250/ -> raw/vinafix_3410/pass_16mb_150250
-    [saved] vinafix_3410/mockingbird-l-19746-1-pass-16mb-bin.150250 (33816 bytes)
+    [saved] vinafix_3410/mockingbird-l-19746-1-pass-16mb-bin.150250 (33799 bytes)
 [FILE] https://vinafix.com/attachments/8mb-bin-zip.148166/ -> raw/vinafix_3410/8mb_zip_148166
-    [saved] vinafix_3410/8mb-bin-zip.148166 (33672 bytes)
+    [saved] vinafix_3410/8mb-bin-zip.148166 (33655 bytes)
 [skip] vinafix_wayback_8mb already fetched
 [PAGE] http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200 -> raw/vinafix_wayback_19746
     [page fetch failed] http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334492 bytes, sha256 aacdb9a18acda7c8…)
+    [saved] mediafire_3410/mediafire_page.html (334513 bytes, sha256 013ce6ec34ebe56d…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -69,10 +69,8 @@
 [skip] Latitude_3410_pkg160/Latitude_3410_3510_1.6.0.exe already fetched
 [skip] Latitude_3420_pkg1133/Latitude_3420_3520_1.13.3.exe already fetched
 [skip] tg_3410_embed13724 already fetched
-[PAGE] https://t.me/biosarchive/23340 -> raw/tg_3090_msg23340
-    [tg dl] 200 6391 https://desktop.telegram.org/ -> FAILED
-[FILE] https://telegram.org/dl?tme=e0879ad380154606e3_4407171994753476783 -> raw/tg_3090/tg_3090_23340.zip
-    [saved] tg_3090/tg_3090_23340.zip (6388 bytes)
+[skip] tg_3090_msg23340 already fetched
+[skip] tg_3090/tg_3090_23340.zip already fetched
 [skip] drbios_3090_68894 already fetched
 [skip] drbios_3090_59046 already fetched
 [skip] drbios_3090_61941 already fetched
@@ -83,6 +81,18 @@
 [skip] reddit_1mni7p9_comments already fetched
 [skip] vinafix_3090_45618 already fetched
 [skip] indiafix_3090_212037_wb already fetched
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=50 -> raw/as_dell_cf1b
+    [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=50
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=50 -> raw/as_dell_8fc8
+    [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=50
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=50 -> raw/as_dell_9abe
+    [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=50
+[PAGE] https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=CF1B&limit=50 -> raw/as_dell_posts_cf1b
+    [page fetch failed] https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=CF1B&limit=50
+[PAGE] https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/85841-help-me-pls-dell-optiplex-3080-clean-bios/ -> raw/badcaps_3080_85841
+    [page head] '<!DOCTYPE html>\n<html id="htmlTag" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">\n<head>\n\n\n\t\n\t<base href="https://www.badcaps.net/" />\n\t\n\t\n\t\t<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />\n\t\n\n\t\n\t'
+    [saved] badcaps_3080_85841/page.html (261346 bytes, sha256 418b5d88021c8e64…)
+    [links] 0 candidates
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -127,6 +137,7 @@
 [EXTRACT-PASS] alisaler_3410
 [EXTRACT-PASS] alisaler_5430
 [EXTRACT-PASS] alisaler_7430
+[EXTRACT-PASS] badcaps_3080_85841
 [EXTRACT-PASS] badcaps_3090_3217350
 [EXTRACT-PASS] badcaps_3090_3539267
 [EXTRACT-PASS] badcaps_3090_98981

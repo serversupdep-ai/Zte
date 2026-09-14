@@ -9,7 +9,7 @@
 	data-content-key=""
 	data-logged-in="false"
 	data-cookie-prefix="xf_"
-	data-csrf="1789342552,21f4f0c2e289b158fae7e2e88519b3c7"
+	data-csrf="1789388635,4f6856de5c6965f0332234140ba5f020"
 	class="has-no-js template-vinafix_attachment_limiter_guest_file_blocked"
 	>
 <head>
@@ -45,7 +45,7 @@
 
 	<meta name="apple-mobile-web-app-title" content="Vinafix">
 	
-		<link rel="apple-touch-icon" href="/data/assets/logo/icon-192.png">
+		<link rel="apple-touch-icon" href="/data/assets/logo/VF192.png">
 		
 
 	
@@ -116,12 +116,12 @@
 	
 	
 
-	<link rel="stylesheet" href="/css.php?css=public%3Anormalize.css%2Cpublic%3Afa.css%2Cpublic%3Avariations.less%2Cpublic%3Acore.less%2Cpublic%3Aapp.less&amp;s=43&amp;l=1&amp;d=1789226567&amp;k=6ed3b4695ca8cced1c7d219394db7eeee1b3c5e4" />
+	<link rel="stylesheet" href="/css.php?css=public%3Anormalize.css%2Cpublic%3Afa.css%2Cpublic%3Avariations.less%2Cpublic%3Acore.less%2Cpublic%3Aapp.less&amp;s=43&amp;l=1&amp;d=1789373741&amp;k=6ed3b4695ca8cced1c7d219394db7eeee1b3c5e4" />
 
-	<link rel="stylesheet" href="/css.php?css=public%3Anotices.less&amp;s=43&amp;l=1&amp;d=1789226567&amp;k=d88b71bb37424b5283ccc5c75c32df70ad06279b" />
-<link rel="stylesheet" href="/css.php?css=public%3AsvESE_autocomplete.less&amp;s=43&amp;l=1&amp;d=1789226567&amp;k=ddb272fca6c1d1c12f8eb670be49f972348a4091" />
-<link rel="stylesheet" href="/css.php?css=public%3Avinafix_ui_foundations.less&amp;s=43&amp;l=1&amp;d=1789226567&amp;k=a0797713b59b0b3a5cce6139ef3f9ba4c2a02cd6" />
-<link rel="stylesheet" href="/css.php?css=public%3Aextra.less&amp;s=43&amp;l=1&amp;d=1789226567&amp;k=33f211315d8c633cf6d77e14f991ea18099f8212" />
+	<link rel="stylesheet" href="/css.php?css=public%3Anotices.less&amp;s=43&amp;l=1&amp;d=1789373741&amp;k=d88b71bb37424b5283ccc5c75c32df70ad06279b" />
+<link rel="stylesheet" href="/css.php?css=public%3AsvESE_autocomplete.less&amp;s=43&amp;l=1&amp;d=1789373741&amp;k=ddb272fca6c1d1c12f8eb670be49f972348a4091" />
+<link rel="stylesheet" href="/css.php?css=public%3Avinafix_ui_foundations.less&amp;s=43&amp;l=1&amp;d=1789373741&amp;k=a0797713b59b0b3a5cce6139ef3f9ba4c2a02cd6" />
+<link rel="stylesheet" href="/css.php?css=public%3Aextra.less&amp;s=43&amp;l=1&amp;d=1789373741&amp;k=33f211315d8c633cf6d77e14f991ea18099f8212" />
 
 
 	
@@ -143,9 +143,9 @@
 				url: {
 					fullBase: 'https://vinafix.com/',
 					basePath: '/',
-					css: '/css.php?css=__SENTINEL__&s=43&l=1&d=1789226567',
+					css: '/css.php?css=__SENTINEL__&s=43&l=1&d=1789373741',
 					js: '/js/__SENTINEL__?_v=7afde88e',
-					icon: '/data/local/icons/__VARIANT__.svg?v=1789270890#__NAME__',
+					icon: '/data/local/icons/__VARIANT__.svg?v=1789374555#__NAME__',
 					iconInline: '/styles/fa/__VARIANT__/__NAME__.svg?v=5.15.3',
 					keepAlive: '/login/keep-alive'
 				},
@@ -158,12 +158,12 @@
 					consented: ["optional","_third_party"]
 				},
 				cacheKey: 'f3ed7234243583f554e27d349fe769c5',
-				csrf: '1789342552,21f4f0c2e289b158fae7e2e88519b3c7',
+				csrf: '1789388635,4f6856de5c6965f0332234140ba5f020',
 				js: {"\/js\/sv\/ese\/xf\/core_handlers.min.js?_v=7afde88e":true,"\/js\/sv\/lib\/link-post.min.js?_v=7afde88e":true},
 				fullJs: false,
 				css: {"public:notices.less":true,"public:svESE_autocomplete.less":true,"public:vinafix_ui_foundations.less":true,"public:extra.less":true},
 				time: {
-					now: 1789342552,
+					now: 1789388635,
 					today: 1789318800,
 					todayDow: 1,
 					tomorrow: 1789405200,
@@ -305,7 +305,7 @@
 
 
 	
-		<link rel="icon" type="image/png" href="https://vinafix.com/data/assets/logo/favicon.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="https://vinafix.com/data/assets/logo/VFfavicon.png" sizes="32x32" />
 	
 
 	
@@ -484,7 +484,7 @@
 
 	
 
-	<picture data-variations="{&quot;default&quot;:{&quot;1&quot;:&quot;\/data\/assets\/logo_default\/logo.png&quot;,&quot;2&quot;:null},&quot;alternate&quot;:{&quot;1&quot;:&quot;\/data\/assets\/logo_alternate\/logo.png&quot;,&quot;2&quot;:null}}">
+	<picture data-variations="{&quot;default&quot;:{&quot;1&quot;:&quot;\/data\/assets\/logo_default\/VF.png&quot;,&quot;2&quot;:null},&quot;alternate&quot;:{&quot;1&quot;:&quot;\/data\/assets\/logo_alternate\/VF.png&quot;,&quot;2&quot;:null}}">
 		
 		
 		
@@ -495,11 +495,11 @@
 			
 
 			
-				<source srcset="/data/assets/logo_alternate/logo.png" media="(prefers-color-scheme: dark)" />
+				<source srcset="/data/assets/logo_alternate/VF.png" media="(prefers-color-scheme: dark)" />
 			
 		
 
-		<img src="/data/assets/logo_default/logo.png"  width="56" height="56" alt="Vinafix.com"  />
+		<img src="/data/assets/logo_default/VF.png"  width="56" height="56" alt="Vinafix.com"  />
 	</picture>
 
 
@@ -543,7 +543,7 @@
 
 	
 
-	<picture data-variations="{&quot;default&quot;:{&quot;1&quot;:&quot;\/data\/assets\/logo_default\/logo.png&quot;,&quot;2&quot;:null},&quot;alternate&quot;:{&quot;1&quot;:&quot;\/data\/assets\/logo_alternate\/logo.png&quot;,&quot;2&quot;:null}}">
+	<picture data-variations="{&quot;default&quot;:{&quot;1&quot;:&quot;\/data\/assets\/logo_default\/VF.png&quot;,&quot;2&quot;:null},&quot;alternate&quot;:{&quot;1&quot;:&quot;\/data\/assets\/logo_alternate\/VF.png&quot;,&quot;2&quot;:null}}">
 		
 		
 		
@@ -554,11 +554,11 @@
 			
 
 			
-				<source srcset="/data/assets/logo_alternate/logo.png" media="(prefers-color-scheme: dark)" />
+				<source srcset="/data/assets/logo_alternate/VF.png" media="(prefers-color-scheme: dark)" />
 			
 		
 
-		<img src="/data/assets/logo_default/logo.png"  width="56" height="56" alt="Vinafix.com"  />
+		<img src="/data/assets/logo_default/VF.png"  width="56" height="56" alt="Vinafix.com"  />
 	</picture>
 
 
@@ -874,7 +874,7 @@
 													<span tabindex="0" role="button"
 														data-xf-init="tooltip" data-trigger="hover focus click" title="Tags will also be searched in content where tags are supported">
 
-														<i class="fa--xf far fa-question-circle  u-muted u-smaller"><svg xmlns="http://www.w3.org/2000/svg" role="img" ><title>Note</title><use href="/data/local/icons/regular.svg?v=1789270890#question-circle"></use></svg></i>
+														<i class="fa--xf far fa-question-circle  u-muted u-smaller"><svg xmlns="http://www.w3.org/2000/svg" role="img" ><title>Note</title><use href="/data/local/icons/regular.svg?v=1789374555#question-circle"></use></svg></i>
 													</span></span></label>
 
 									</div>
@@ -887,12 +887,12 @@
 									</div>
 									<div class="menu-footer">
 									<span class="menu-footer-controls">
-										<button type="submit" class="button button--icon button--icon--search button--primary"><i class="fa--xf far fa-search "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789270890#search"></use></svg></i><span class="button-text">Search</span></button>
+										<button type="submit" class="button button--icon button--icon--search button--primary"><i class="fa--xf far fa-search "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789374555#search"></use></svg></i><span class="button-text">Search</span></button>
 										<button type="submit" class="button " name="from_search_menu"><span class="button-text">Advanced search…</span></button>
 									</span>
 									</div>
 
-									<input type="hidden" name="_xfToken" value="1789342552,21f4f0c2e289b158fae7e2e88519b3c7" />
+									<input type="hidden" name="_xfToken" value="1789388635,4f6856de5c6965f0332234140ba5f020" />
 								</form>
 							</div>
 						
@@ -1160,7 +1160,7 @@
 											
 												<a href="/misc/style" data-xf-click="overlay"
 													data-xf-init="tooltip" title="Style chooser" rel="nofollow">
-													<i class="fa--xf far fa-paint-brush "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789270890#paint-brush"></use></svg></i> VINA
+													<i class="fa--xf far fa-paint-brush "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789374555#paint-brush"></use></svg></i> VINA
 												</a>
 											
 											
@@ -1169,7 +1169,7 @@
 													data-xf-init="tooltip" title="Style variation"
 													data-xf-click="menu" data-z-index-ref=".u-bottomFixer" role="button" aria-expanded="false" aria-haspopup="true">
 
-													<i class="fa--xf far fa-adjust "><svg xmlns="http://www.w3.org/2000/svg" role="img" ><title>Style variation</title><use href="/data/local/icons/regular.svg?v=1789270890#adjust"></use></svg></i>
+													<i class="fa--xf far fa-adjust "><svg xmlns="http://www.w3.org/2000/svg" role="img" ><title>Style variation</title><use href="/data/local/icons/regular.svg?v=1789374555#adjust"></use></svg></i>
 												</a>
 
 												<div class="menu" data-menu="menu" aria-hidden="true">
@@ -1184,7 +1184,7 @@
 		rel="nofollow"
 		data-xf-click="style-variation" data-variation="">
 
-		<i class="fa--xf far fa-adjust "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789270890#adjust"></use></svg></i>
+		<i class="fa--xf far fa-adjust "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789374555#adjust"></use></svg></i>
 
 		
 			System
@@ -1199,7 +1199,7 @@
 		rel="nofollow"
 		data-xf-click="style-variation" data-variation="default">
 
-		<i class="fa--xf far fa-sun "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789270890#sun"></use></svg></i>
+		<i class="fa--xf far fa-sun "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789374555#sun"></use></svg></i>
 
 		
 			Light
@@ -1214,7 +1214,7 @@
 		rel="nofollow"
 		data-xf-click="style-variation" data-variation="alternate">
 
-		<i class="fa--xf far fa-moon "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789270890#moon"></use></svg></i>
+		<i class="fa--xf far fa-moon "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789374555#moon"></use></svg></i>
 
 		
 			Dark
@@ -1263,7 +1263,7 @@
 							<li><a href="https://vinafix.com/pages/home/">Home</a></li>
 						
 
-						<li><a href="/forums/-/index.rss" target="_blank" class="p-footer-rssLink" title="RSS"><span aria-hidden="true"><i class="fa--xf far fa-rss "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789270890#rss"></use></svg></i><span class="u-srOnly">RSS</span></span></a></li>
+						<li><a href="/forums/-/index.rss" target="_blank" class="p-footer-rssLink" title="RSS"><span aria-hidden="true"><i class="fa--xf far fa-rss "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789374555#rss"></use></svg></i><span class="u-srOnly">RSS</span></span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -1316,7 +1316,7 @@ By continuing to use this site, you are consenting to our use of cookies.
 	</div>
 
 	<div class="u-inputSpacer u-alignCenter">
-		<a href="/account/dismiss-notice" class="button button--icon button--icon--confirm js-noticeDismiss button--notice"><i class="fa--xf far fa-check "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789270890#check"></use></svg></i><span class="button-text">Accept</span></a>
+		<a href="/account/dismiss-notice" class="button button--icon button--icon--confirm js-noticeDismiss button--notice"><i class="fa--xf far fa-check "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789374555#check"></use></svg></i><span class="button-text">Accept</span></a>
 		<a href="/help/cookies" class="button button--notice"><span class="button-text">Learn more…</span></a>
 	</div>
 
@@ -1331,12 +1331,12 @@ By continuing to use this site, you are consenting to our use of cookies.
 </div>
 
 <div class="u-navButtons js-navButtons">
-	<a href="javascript:" class="button button--scroll"><span class="button-text"><i class="fa--xf far fa-arrow-left "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789270890#arrow-left"></use></svg></i><span class="u-srOnly">Back</span></span></a>
+	<a href="javascript:" class="button button--scroll"><span class="button-text"><i class="fa--xf far fa-arrow-left "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789374555#arrow-left"></use></svg></i><span class="u-srOnly">Back</span></span></a>
 </div>
 
 
 	<div class="u-scrollButtons js-scrollButtons" data-trigger-type="up">
-		<a href="#top" class="button button--scroll" data-xf-click="scroll-to"><span class="button-text"><i class="fa--xf far fa-arrow-up "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789270890#arrow-up"></use></svg></i><span class="u-srOnly">Top</span></span></a>
+		<a href="#top" class="button button--scroll" data-xf-click="scroll-to"><span class="button-text"><i class="fa--xf far fa-arrow-up "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1789374555#arrow-up"></use></svg></i><span class="u-srOnly">Top</span></span></a>
 		
 	</div>
 
