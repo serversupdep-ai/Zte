@@ -48,10 +48,12 @@
     [saved] vinafix_3410/8mb-bin-zip.148166 (33655 bytes)
 [skip] vinafix_wayback_8mb already fetched
 [PAGE] http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200 -> raw/vinafix_wayback_19746
-    [page fetch failed] http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200
+    [page head] '<html><head><meta charset="UTF-8"><title>Internet Archive: Temporarily Offline</title><style>p{font-size:24px;}img{margin-bottom:2rem;}</style></head>\n<body style="padding:30px 0;">\n<div style="float:left;width:260px;text-align:center;">\n<i'
+    [saved] vinafix_wayback_19746/page.html (11832 bytes, sha256 e084d52792170864…)
+    [links] 0 candidates
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334513 bytes, sha256 013ce6ec34ebe56d…)
+    [saved] mediafire_3410/mediafire_page.html (334493 bytes, sha256 79cf9563c814b025…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -89,9 +91,14 @@
     [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=50
 [PAGE] https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=CF1B&limit=50 -> raw/as_dell_posts_cf1b
     [page fetch failed] https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=CF1B&limit=50
-[PAGE] https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/85841-help-me-pls-dell-optiplex-3080-clean-bios/ -> raw/badcaps_3080_85841
-    [page head] '<!DOCTYPE html>\n<html id="htmlTag" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">\n<head>\n\n\n\t\n\t<base href="https://www.badcaps.net/" />\n\t\n\t\n\t\t<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon" />\n\t\n\n\t\n\t'
-    [saved] badcaps_3080_85841/page.html (261346 bytes, sha256 418b5d88021c8e64…)
+[skip] badcaps_3080_85841 already fetched
+[PAGE] https://bios-fix.com/index.php?threads/dell-bios-unlock-8fc8.53041/ -> raw/biosfix_8fc8_53041
+    [page head] '<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><m'
+    [saved] biosfix_8fc8_53041/page.html (5726 bytes, sha256 1183289be7041426…)
+    [links] 0 candidates
+[PAGE] https://www.youtube.com/watch?v=jmW789IwJEI -> raw/yt_seller_jmW789IwJEI
+    [page head] '<!DOCTYPE html><html style="font-size: 62.5%;font-family: Roboto, Arial, sans-serif;" lang="en" darker-dark-theme darker-dark-theme-deprecate system-icons color-version="v2_0" typography typography-spacing><head><script data-id="_gd" nonce='
+    [saved] yt_seller_jmW789IwJEI/page.html (1140239 bytes, sha256 fd8544fc39cdc7d7…)
     [links] 0 candidates
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
@@ -141,6 +148,7 @@
 [EXTRACT-PASS] badcaps_3090_3217350
 [EXTRACT-PASS] badcaps_3090_3539267
 [EXTRACT-PASS] badcaps_3090_98981
+[EXTRACT-PASS] biosfix_8fc8_53041
 [EXTRACT-PASS] drbios_3090_59046
 [EXTRACT-PASS] drbios_3090_61941
 [EXTRACT-PASS] drbios_3090_68894
@@ -162,5 +170,7 @@
 [EXTRACT-PASS] vinafix_3090_45618
 [EXTRACT-PASS] vinafix_3410
 [EXTRACT-PASS] vinafix_3410_thread
+[EXTRACT-PASS] vinafix_wayback_19746
 [EXTRACT-PASS] vinafix_wayback_8mb
+[EXTRACT-PASS] yt_seller_jmW789IwJEI
 done
