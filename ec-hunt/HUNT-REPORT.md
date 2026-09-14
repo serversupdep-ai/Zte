@@ -44,3 +44,49 @@
 - `UNKNOWN` — bios-analysis/collected/Latitude_3450_3550_1.3.1/pw_7_39424.efi (branch:arena/01a087e2-zte) — entropy 5.80, vector score 0.00, markers {'salt_8dfc7b25': 1, 'sha256_ktable': 0, 'guid_c065aeab': 1, 'alphabet72': 1, '
 - `UNKNOWN` — bios-analysis/collected/Latitude_3450_3550_1.3.1/pw_8_47616.efi (branch:arena/01a087e2-zte) — entropy 5.81, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 1, '
 - `PHCM-SEALED` — bios-analysis/collected/Latitude_5300_1.37.0/ec_1_167552.bin (branch:arena/01a087e2-zte) — format unknown 00018003, body entropy 8.00, chi2 260 — AES-sealed, key fused in EC (dead end)
+
+## Run 2026-09-14 21:41 UTC  (github-only)
+
+- fresh candidates: 135, downloaded+classified: 80
+- **HITS (plaintext GENERATE engine): 0**
+
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5300_1.37.0/ec_2_167552.bin (branch:arena/01a087e2-zte) — format unknown 00018003, body entropy 8.00, chi2 260 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5300_1.37.0/ec_3_167568.bin (branch:arena/01a087e2-zte) — format unknown 00018003, body entropy 8.00, chi2 266 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5300_1.37.0/ec_4_167568.bin (branch:arena/01a087e2-zte) — format unknown 00018003, body entropy 8.00, chi2 266 — AES-sealed, key fused in EC (dead end)
+- `UNKNOWN` — bios-analysis/collected/Latitude_5300_1.37.0/pw_1_9216.efi (branch:arena/01a087e2-zte) — entropy 4.82, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/Latitude_5300_1.37.0/pw_2_12800.efi (branch:arena/01a087e2-zte) — entropy 5.32, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/Latitude_5300_1.37.0/pw_3_23552.efi (branch:arena/01a087e2-zte) — entropy 5.77, vector score 0.27, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 1, '
+- `CORTEX-M-PLAINTEXT` — bios-analysis/collected/Latitude_5300_1.37.0/pw_4_25600.efi (branch:arena/01a087e2-zte) — plaintext Cortex-M (score 0.30), markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 1, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/Latitude_5300_1.37.0/pw_5_30208.efi (branch:arena/01a087e2-zte) — entropy 5.81, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 1, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/Latitude_5300_1.37.0/pw_6_37376.efi (branch:arena/01a087e2-zte) — entropy 5.32, vector score 0.20, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/Latitude_5300_1.37.0/pw_7_42496.efi (branch:arena/01a087e2-zte) — entropy 5.89, vector score 0.00, markers {'salt_8dfc7b25': 1, 'sha256_ktable': 0, 'guid_c065aeab': 1, 'alphabet72': 1, '
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/ec_1_308224.bin (branch:arena/01a087e2-zte) — format unknown 03058003, body entropy 8.00, chi2 258 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/ec_2_308224.bin (branch:arena/01a087e2-zte) — format unknown 03058003, body entropy 8.00, chi2 275 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/ec_3_308240.bin (branch:arena/01a087e2-zte) — format unknown 03058003, body entropy 8.00, chi2 274 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/ec_4_308240.bin (branch:arena/01a087e2-zte) — format unknown 03058003, body entropy 8.00, chi2 254 — AES-sealed, key fused in EC (dead end)
+- `UNKNOWN` — bios-analysis/collected/Latitude_5440_Precision_3480_1.0.1/pw_2_18432.efi (branch:arena/01a087e2-zte) — entropy 5.69, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5440_Precision_3480_1.22.0/ec_1_308224.bin (branch:arena/01a087e2-zte) — format unknown 03058003, body entropy 8.00, chi2 242 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5440_Precision_3480_1.22.0/ec_2_308224.bin (branch:arena/01a087e2-zte) — format unknown 03058003, body entropy 8.00, chi2 262 — AES-sealed, key fused in EC (dead end)
+- `UNKNOWN` — bios-analysis/collected/Latitude_5440_Precision_3480_1.22.0/pw_1_18432.efi (branch:arena/01a087e2-zte) — entropy 5.69, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/ec_1_167248.bin (branch:arena/01a087e2-zte) — format unknown 00018003, body entropy 8.00, chi2 221 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/ec_2_172032.bin (branch:arena/01a087e2-zte) — format unknown 00018003, body entropy 8.00, chi2 271 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/ec_3_175360.bin (branch:arena/01a087e2-zte) — format unknown 00018003, body entropy 8.00, chi2 286 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/ec_4_175360.bin (branch:arena/01a087e2-zte) — format unknown 00018003, body entropy 8.00, chi2 286 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/ec_5_175376.bin (branch:arena/01a087e2-zte) — format unknown 00018003, body entropy 8.00, chi2 271 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/ec_6_175376.bin (branch:arena/01a087e2-zte) — format unknown 00018003, body entropy 8.00, chi2 271 — AES-sealed, key fused in EC (dead end)
+- `UNKNOWN` — bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_11_42496.efi (branch:arena/01a087e2-zte) — entropy 5.87, vector score 0.16, markers {'salt_8dfc7b25': 1, 'sha256_ktable': 0, 'guid_c065aeab': 1, 'alphabet72': 1, '
+- `UNKNOWN` — bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_12_43008.efi (branch:arena/01a087e2-zte) — entropy 5.87, vector score 0.14, markers {'salt_8dfc7b25': 1, 'sha256_ktable': 0, 'guid_c065aeab': 1, 'alphabet72': 1, '
+- `CORTEX-M-PLAINTEXT` — bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_13_87040.efi (branch:arena/01a087e2-zte) — plaintext Cortex-M (score 0.32), markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_3_16896.efi (branch:arena/01a087e2-zte) — entropy 5.49, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 1, '
+- `UNKNOWN` — bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_5_24576.efi (branch:arena/01a087e2-zte) — entropy 5.31, vector score 0.18, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 1, 'alphabet72': 1, '
+- `UNKNOWN` — bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_8_31744.efi (branch:arena/01a087e2-zte) — entropy 5.83, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 1, 'alphabet72': 1, '
+- `UNKNOWN` — bios-analysis/collected/Latitude_5X00_Precision_3540_1.43.1/pw_9_33792.efi (branch:arena/01a087e2-zte) — entropy 5.69, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `PHCM-F1.0-PLAINTEXT` — bios-analysis/collected/Latitude_5X90_1.41.0/ec_1_166784.bin (branch:arena/01a087e2-zte) — plaintext EC, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 1, 'mailbox_910_911': 1
+- `PHCM-F1.0-PLAINTEXT` — bios-analysis/collected/Latitude_5X90_1.41.0/ec_2_172864.bin (branch:arena/01a087e2-zte) — plaintext EC, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 1, 'mailbox_910_911': 1
+- `UNKNOWN` — bios-analysis/collected/Latitude_5X90_1.41.0/pw_3_25600.efi (branch:arena/01a087e2-zte) — entropy 5.75, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 1, 'alphabet72': 1, '
+- `UNKNOWN` — bios-analysis/collected/Latitude_5X90_1.41.0/pw_4_34304.efi (branch:arena/01a087e2-zte) — entropy 5.70, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `PHCM-F1.1-SEALED` — bios-analysis/collected/OptiPlex_3000_1.42.0/ec_1_205328.bin (branch:arena/01a087e2-zte) — format 1.1-sealed-era, body entropy 8.00, chi2 249 — AES-sealed, key fused in EC (dead end)
+- `PHCM-F1.1-SEALED` — bios-analysis/collected/OptiPlex_3000_1.42.0/ec_2_205328.bin (branch:arena/01a087e2-zte) — format 1.1-sealed-era, body entropy 8.00, chi2 229 — AES-sealed, key fused in EC (dead end)
+- `PHCM-F1.1-SEALED` — bios-analysis/collected/OptiPlex_3000_1.42.0/ec_3_205328.bin (branch:arena/01a087e2-zte) — format 1.1-sealed-era, body entropy 8.00, chi2 278 — AES-sealed, key fused in EC (dead end)
+- `PHCM-F1.1-SEALED` — bios-analysis/collected/OptiPlex_3000_1.42.0/ec_4_205328.bin (branch:arena/01a087e2-zte) — format 1.1-sealed-era, body entropy 8.00, chi2 282 — AES-sealed, key fused in EC (dead end)
+- `UNKNOWN` — bios-analysis/collected/OptiPlex_3000_1.42.0/pw_1_18432.efi (branch:arena/01a087e2-zte) — entropy 5.69, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '

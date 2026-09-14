@@ -56,7 +56,10 @@ def looks_candidate(path: str) -> bool:
     return base.lower().endswith(BIN_EXT) and bool(NAME_RE.search(base))
 MAX_SIZE = 8 * 1024 * 1024
 KEYWORDS = ["dell ec dump", "dell ec firmware", "EC程序 dell", "dell 8fc8",
-            "dell cf1b", "dell bios dump unlock", "dell pass 8mb"]
+            "dell cf1b", "dell bios dump unlock", "dell pass 8mb",
+            "dell bios dump", "dell ch341a", "dell rt809h", "dell spi dump",
+            "dell latitude dump", "dell optiplex dump", "dell precision dump",
+            "dell bios bin", "dell ec bin", "8fc8 patcher", "dell bios password"]
 
 
 def gh(*args, timeout=60):
@@ -139,7 +142,15 @@ def source_repo_search():
                     if 256 <= sz <= MAX_SIZE:
                         out.append({"source": f"repo:{full}", "path": it["path"],
                                     "sha": it["sha"], "size": sz})
-            if len(seen_repos) >= 15:
+            # release assets (repair dumps are often attached to releases)
+            rels = gh(f"repos/{full}/releases?per_page=5") or []
+            for rel in rels:
+                for a in rel.get("assets", []):
+                    if looks_candidate(a.get("name", "")) and 256 <= a.get("size", 0) <= MAX_SIZE:
+                        out.append({"source": f"release:{full}", "path": a["name"],
+                                    "asset_api": f"repos/{full}/releases/assets/{a['id']}",
+                                    "size": a["size"]})
+            if len(seen_repos) >= 25:
                 break
     return out
 
@@ -170,6 +181,15 @@ def fetch(item):
     if "sha" in item and item.get("source", "").startswith(("branch:", f"repo:")):
         owner_repo = REPO if item["source"].startswith("branch:") else item["source"][5:]
         return gh_raw(f"repos/{owner_repo}/git/blobs/{item['sha']}")
+    if "asset_api" in item:
+        try:
+            out = subprocess.run(["gh", "api", "-H", "Accept: application/octet-stream",
+                                  item["asset_api"]], capture_output=True, timeout=120)
+            if out.returncode == 0:
+                return out.stdout if isinstance(out.stdout, bytes) else out.stdout.encode()
+        except Exception:
+            return None
+        return None
     if "url" in item:
         try:
             req = urllib.request.Request(item["url"], headers={"User-Agent": "ec-hunt/1.0"})
