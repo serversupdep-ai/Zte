@@ -153,3 +153,9 @@
 - `UNKNOWN` — https://vinafix.com/attachments/builds3-zip.180578/ (watch:https://vinafix.com/attachments/builds3-zip.180578/ — entropy 5.19, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
 - `UNKNOWN` — https://vinafix.com/attachments/optiplex3080-dump-bin.182844/ (watch:https://vinafix.com/attachments/optiplex3 — entropy 5.19, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
 - `UNKNOWN` — https://vinafix.com/attachments/buildsss-zip.182850/ (watch:https://vinafix.com/attachments/buildsss-zip.18285 — entropy 5.19, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+
+## Run 2026-09-15 13:23 UTC  (full-net)
+
+- fresh candidates: 2, downloaded+classified: 0
+- **HITS (plaintext GENERATE engine): 0**
+
