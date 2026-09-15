@@ -8,6 +8,12 @@
 # - vinafix / chinafix / fixbase EC-internal dumps ("EC程序") — login-gated
 #
 # --- 2026-09-15 forum sweep (harvested from thread pages) ---
+# LIVE STATUS (verified from the Actions runner 2026-09-15):
+#   vinafix attachments -> HTML login wall (all 5, even user-posted ones)
+#   dr-bios attachments -> login wall ("You must be logged-in to do that")
+# Kept in the list: if gating ever lifts or files move, the hunt grabs them.
+# A human with a FREE forum account can download these today and drop them
+# into ec-hunt/fetched/ — the classifier + cross-machine diff run same-day.
 # vinafix thread 42750 — Dell OptiPlex 3080 IPCML-CT (Comet Lake, CF1B/8FC8 era):
 https://vinafix.com/attachments/v2-2-1-zip.169404/
 https://vinafix.com/attachments/ipcml-cl-r-a00-vga-fn-spd-prb-bin.180566/
