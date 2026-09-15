@@ -1,0 +1,74 @@
+name: Hunt EC firmware (CF1B keygen completion)
+
+# The agent fetch tool: sweeps for NEW public files that could carry the EC
+# GENERATE engine in plaintext (the single artifact class that completes an
+# offline CF1B keygen — cf1b-research/findings/CF1B_FINDINGS.md §11.7/§11.8),
+# classifies them, and alerts on a hit. See ec-hunt/README.md.
+
+on:
+  schedule:
+    - cron: "23 3 * * *"          # daily 03:23 UTC
+  push:
+    branches: [arena/01a0a05b-zte]
+    paths: ['ec-hunt/**', '.github/workflows/hunt-ec-firmware.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  hunt:
+    runs-on: ubuntu-latest        # full egress: watchlist URLs + forums reachable
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: arena/01a0a05b-zte
+
+      - name: Setup
+        run: python3 -m pip -q install unicorn capstone
+
+      - name: Run the hunt (full-net)
+        run: |
+          set -x
+          python3 ec-hunt/ec_hunt.py --allow-net --max 60 2>&1 | tee hunt.log
+          echo "--- report tail ---"
+          tail -40 ec-hunt/HUNT-REPORT.md || true
+          echo "--- fetched files (committed to the repo) ---"
+          ls -la ec-hunt/fetched/ 2>/dev/null || true
+
+      - name: Alert on HIT (never silent)
+        if: hashFiles('ec-hunt/HIT-ALERT.md') != ''
+        run: |
+          echo "::error title=EC GENERATE ENGINE FOUND::A plaintext GENERATE-engine image was quarantined in ec-hunt/quarantine/ — run ec_generate_emu.py (see HIT-ALERT.md)"
+          cat ec-hunt/HIT-ALERT.md
+
+      - name: Commit hunt results + fetched files
+        run: |
+          git config user.name "ec-hunt-bot"
+          git config user.email "ec-hunt@localhost"
+          git add ec-hunt/HUNT-REPORT.md ec-hunt/seen.json ec-hunt/HIT-ALERT.md ec-hunt/quarantine/ ec-hunt/fetched/ 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "nothing new to commit"
+          else
+            git commit -q -m "hunt: EC-firmware sweep results [skip ci]"
+            ok=0
+            for i in 1 2 3 4 5; do
+              git push origin arena/01a0a05b-zte && ok=1 && break
+              sleep $((i * 5)); git pull --rebase origin arena/01a0a05b-zte || true
+            done
+            [ $ok -eq 1 ] || { echo "::warning::push failed — results are in the run artifact"; exit 0; }
+          fi
+
+      - name: Upload hunt artifacts (always)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hunt-report
+          path: |
+            hunt.log
+            ec-hunt/HUNT-REPORT.md
+            ec-hunt/HIT-ALERT.md
+          if-no-files-found: ignore
+        continue-on-error: true

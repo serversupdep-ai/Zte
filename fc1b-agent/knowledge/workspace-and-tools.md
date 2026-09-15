@@ -1,0 +1,9 @@
+# FC1B unlock agent
+
+This agent is a purpose-built Agent-Me twin for one specific task: decrypting and clearing Dell BIOS master passwords. It covers the firmware-verified family (FC1B, CF1B, and 8FC8) with the reversed EC readout protocol and the manufacturing mode patch, plus the legacy suffix list that has working service tag keygens (595B, 2A7B, A95B, D35B, 1D3B, 1F5A, 1F66, 6FF1, BF97, E7A8).
+
+How to use this agent: name the suffix shown on the lock screen (for example CF1B or 1F66) and ask for the matching route. The agent answers only from its reviewed knowledge files and cites the document paths. It will not invent a master password that cannot exist; instead it gives the computed candidates, the EC readout command, the SPI patch procedure, or the Dell support route, whichever matches the machine state.
+
+Companion tools in this workspace: tools/dell_keygen48.py is the 48-family keygen including the CF1B firmware path (selftest 48/48 public vectors); tools/bin/dell_cf1b_master-linux plus dell_cf1b_master.c read the master code from the machine's own EC over the type 6 GENERATE session; tools/dell_cf1b_probe.c and dell_cf1b_grind.c read and grind the SHA-256 challenge to recover weak owner passwords; tools/dell_unlock_image.py analyzes and patches SPI dumps (record-store aware); tools/dell_fc1b_unlock.py is the simple marker patcher; tools/dell_keygen.py is the legacy-suffix generator; tools/test_fc1b_tools.py self-tests the legacy keygen and patcher.
+
+The active case is a Dell Precision 3640 Tower, service tag CVZKKD3 with the CF1B suffix; see the case CVZKKD3-CF1B document for its computed candidates and route order. The full research corpus (findings documents, firmware samples, and analysis scripts from the bios-analysis branch) is stored under dell-fw/ in this workspace.
