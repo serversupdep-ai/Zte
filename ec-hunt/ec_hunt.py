@@ -203,7 +203,12 @@ def fetch(item):
         return None
     if "url" in item:
         try:
-            req = urllib.request.Request(item["url"], headers={"User-Agent": "ec-hunt/1.0"})
+            # real-browser UA: several forums 403 the default python UA
+            req = urllib.request.Request(item["url"], headers={
+                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0",
+                "Accept": "*/*",
+                "Accept-Language": "en-US,en;q=0.5",
+            })
             with urllib.request.urlopen(req, timeout=180) as r:
                 data = r.read(FETCH_MAX + 1)
                 return data[:FETCH_MAX]
@@ -230,8 +235,14 @@ def hunt(max_downloads=40, allow_net=False):
         fresh.append(c)
 
     results, hits, downloaded = [], [], 0
+    gated = []
     os.makedirs(QUARANTINE, exist_ok=True)
     os.makedirs(FETCHED, exist_ok=True)
+
+    def is_html(d):
+        head = d[:512].lstrip().lower()
+        return head.startswith(b"<!doctype html") or head.startswith(b"<html") or b"<html" in head
+
 
     def persist(name, data, sha):
         """Save a fetched payload (and, for archives, every member) into
@@ -278,6 +289,11 @@ def hunt(max_downloads=40, allow_net=False):
         data = fetch(c)
         if not data:
             continue
+        if is_html(data):
+            # forum login/redirect wall, not a payload — record as gated
+            seen[c["_key"]] = "gated-html"
+            gated.append(c.get("url") or c["source"])
+            continue
         sha = hashlib.sha256(data).hexdigest()
         if sha in seen:
             continue
@@ -298,14 +314,18 @@ def hunt(max_downloads=40, allow_net=False):
             with open(os.path.join(QUARANTINE, safe), "wb") as f:
                 f.write(data)
     save_seen(seen)
-    return results, hits, downloaded, len(fresh)
+    return results, hits, downloaded, len(fresh), gated
 
 
-def write_report(results, hits, downloaded, fresh, allow_net):
+def write_report(results, hits, downloaded, fresh, allow_net, gated=()):
     ts = time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime())
     lines = [f"\n## Run {ts}  ({'full-net' if allow_net else 'github-only'})\n",
              f"- fresh candidates: {fresh}, downloaded+classified: {downloaded}",
              f"- **HITS (plaintext GENERATE engine): {len(hits)}**\n"]
+    if gated:
+        lines.append(f"- login-gated (HTML wall, no file): {len(gated)}")
+        for g in gated[:15]:
+            lines.append(f"  - GATED: {g[:120]}")
     for r in results[:40]:
         lines.append(f"- `{r['class']}` — {r['name'][:110]} — {r['detail'][:120]}")
     if hits:
@@ -325,8 +345,8 @@ if __name__ == "__main__":
     maxd = 40
     if "--max" in sys.argv:
         maxd = int(sys.argv[sys.argv.index("--max") + 1])
-    res, hits, dl, fresh = hunt(maxd, allow_net)
-    write_report(res, hits, dl, fresh, allow_net)
-    print(f"candidates={fresh} downloaded={dl} hits={len(hits)}")
+    res, hits, dl, fresh, gated = hunt(maxd, allow_net)
+    write_report(res, hits, dl, fresh, allow_net, gated)
+    print(f"candidates={fresh} downloaded={dl} hits={len(hits)} gated={len(gated)}")
     for h in hits:
         print("HIT:", h["name"], h["detail"])
