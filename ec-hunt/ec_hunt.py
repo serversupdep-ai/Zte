@@ -27,6 +27,8 @@ import re
 import subprocess
 import sys
 import time
+import io
+import zipfile
 import urllib.parse
 import urllib.request
 
@@ -36,9 +38,18 @@ from ec_classify import classify_bytes  # noqa: E402
 
 REPO = "serversupdep-ai/Zte"
 QUARANTINE = os.path.join(HERE, "quarantine")
+FETCHED = os.path.join(HERE, "fetched")
 SEEN = os.path.join(HERE, "seen.json")
 REPORT = os.path.join(HERE, "HUNT-REPORT.md")
 WATCHLIST = os.path.join(HERE, "watchlist.txt")
+
+# URL fetches (watchlist/forum attachments) may be full 32 MB SPI dumps.
+# GitHub candidates stay capped by the 8 MB filter in the source functions.
+MAX_SIZE = 8 * 1024 * 1024
+FETCH_MAX = 40 * 1024 * 1024
+# only payloads at least this big are persisted into ec-hunt/fetched/ for the
+# workflow to commit (small files are usually HTML login/redirect pages)
+FETCHED_MIN = 512 * 1024
 
 BIN_EXT = (".bin", ".rom", ".fd", ".cap", ".rcv", ".efi", ".rar", ".7z", ".zip", ".img")
 NAME_RE = re.compile(r"(^|[_\-\s])(ec|ecfw|ecfirm|ec程序)|pw_[0-9]|pass[_\-\s]?\d*mb|"
@@ -54,7 +65,7 @@ def looks_candidate(path: str) -> bool:
     if "EC程序" in base:
         return True
     return base.lower().endswith(BIN_EXT) and bool(NAME_RE.search(base))
-MAX_SIZE = 8 * 1024 * 1024
+
 KEYWORDS = ["dell ec dump", "dell ec firmware", "EC程序 dell", "dell 8fc8",
             "dell cf1b", "dell bios dump unlock", "dell pass 8mb",
             "dell bios dump", "dell ch341a", "dell rt809h", "dell spi dump",
@@ -193,9 +204,9 @@ def fetch(item):
     if "url" in item:
         try:
             req = urllib.request.Request(item["url"], headers={"User-Agent": "ec-hunt/1.0"})
-            with urllib.request.urlopen(req, timeout=90) as r:
-                data = r.read(MAX_SIZE + 1)
-                return data[:MAX_SIZE]
+            with urllib.request.urlopen(req, timeout=180) as r:
+                data = r.read(FETCH_MAX + 1)
+                return data[:FETCH_MAX]
         except Exception:
             return None
     return None
@@ -220,6 +231,49 @@ def hunt(max_downloads=40, allow_net=False):
 
     results, hits, downloaded = [], [], 0
     os.makedirs(QUARANTINE, exist_ok=True)
+    os.makedirs(FETCHED, exist_ok=True)
+
+    def persist(name, data, sha):
+        """Save a fetched payload (and, for archives, every member) into
+        ec-hunt/fetched/ so the workflow commits the actual files into the
+        repo — 'fetch pull files into GitHub'."""
+        saved = []
+        safe = re.sub(r"[^A-Za-z0-9_.-]", "_", (name or "file").split("/")[-1])[:80] or "file"
+        if len(data) >= FETCHED_MIN:
+            dest = os.path.join(FETCHED, f"{sha[:12]}-{safe}")
+            with open(dest, "wb") as f:
+                f.write(data)
+            saved.append(dest)
+        # archives: extract + persist + classify each member (builds*.zip etc.
+        # carry the actual SPI dump inside)
+        if data[:4] == b"PK\x03\x04":
+            try:
+                zf = zipfile.ZipFile(io.BytesIO(data))
+                for info in zf.infolist():
+                    if info.is_dir() or info.file_size > FETCH_MAX:
+                        continue
+                    mdata = zf.read(info)
+                    msha = hashlib.sha256(mdata).hexdigest()
+                    if msha in seen:
+                        continue
+                    seen[msha] = True
+                    mr = classify_bytes(mdata, f"{info.filename} (archive: {name})")
+                    mr["sha256"] = msha
+                    results.append(mr)
+                    if mr["hit"]:
+                        hits.append(mr)
+                        hsafe = re.sub(r"[^A-Za-z0-9_.-]", "_", info.filename.split("/")[-1])[:80]
+                        with open(os.path.join(QUARANTINE, f"HIT-{msha[:12]}-{hsafe}"), "wb") as f:
+                            f.write(mdata)
+                    if len(mdata) >= FETCHED_MIN:
+                        mdest = os.path.join(FETCHED, f"{msha[:12]}-{safe[:-4] if safe.lower().endswith('.zip') else safe}__{re.sub(r'[^A-Za-z0-9_.-]', '_', info.filename.split('/')[-1])[:60]}")
+                        with open(mdest, "wb") as f:
+                            f.write(mdata)
+                        saved.append(mdest)
+            except Exception:
+                pass
+        return saved
+
     for c in fresh[:max_downloads]:
         data = fetch(c)
         if not data:
@@ -233,6 +287,7 @@ def hunt(max_downloads=40, allow_net=False):
         r = classify_bytes(data, f"{c.get('path') or c.get('url','?')} ({c['source']})")
         r["sha256"] = sha
         results.append(r)
+        persist(c.get("path") or c.get("url", "file").split("/")[-1], data, sha)
         if r["hit"]:
             hits.append(r)
             safe = re.sub(r"[^A-Za-z0-9_.-]", "_", (c.get("path") or "hit").split("/")[-1])[:80]

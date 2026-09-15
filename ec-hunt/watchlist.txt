@@ -6,4 +6,20 @@
 # - Latitude 3410 "19746-1 pass 8mb.bin" EC chip dump (Reddit-Drive, gated)
 # - Indiafix OptiPlex 3090 32MB READ + password-UNLOCKED bins (already in corpus)
 # - vinafix / chinafix / fixbase EC-internal dumps ("EC程序") — login-gated
-# Add new leads below as they surface:
+#
+# --- 2026-09-15 forum sweep (harvested from thread pages) ---
+# vinafix thread 42750 — Dell OptiPlex 3080 IPCML-CT (Comet Lake, CF1B/8FC8 era):
+https://vinafix.com/attachments/v2-2-1-zip.169404/
+https://vinafix.com/attachments/ipcml-cl-r-a00-vga-fn-spd-prb-bin.180566/
+https://vinafix.com/attachments/builds3-zip.180578/
+https://vinafix.com/attachments/optiplex3080-dump-bin.182844/
+https://vinafix.com/attachments/buildsss-zip.182850/
+# dr-bios thread 52288 / 55254 — Dell OptiPlex 3080 (18463-1 boards):
+https://dr-bios.com/attachments/optiplex-3080-zip.65613/
+https://dr-bios.com/attachments/dell-3080-zip.64345/
+# dr-bios 47565 (Dell OptiPlex 3080, 2022) — attachment slugs unknown, thread:
+#   https://dr-bios.com/threads/dell-optiplex-3080.47565/
+# dr-bios 59046 / 61941 / 68894 (3090-class, corpus §11.11.4) — login-gated
+# indiafix IPCML-CT page is JS-walled (links not in static HTML):
+#   https://www.indiafix.in/2024/02/ipcml-ct.html
+# badcaps 85841 (7JZXKJ3-CF1B 3080) — attachments login-gated
