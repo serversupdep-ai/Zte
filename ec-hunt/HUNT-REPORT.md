@@ -159,3 +159,9 @@
 - fresh candidates: 2, downloaded+classified: 0
 - **HITS (plaintext GENERATE engine): 0**
 
+
+## Run 2026-09-15 13:25 UTC  (full-net)
+
+- fresh candidates: 2, downloaded+classified: 0
+- **HITS (plaintext GENERATE engine): 0**
+
