@@ -32,11 +32,20 @@ jobs:
       - name: Run the hunt (full-net)
         run: |
           set -x
+          set -o pipefail
           python3 ec-hunt/ec_hunt.py --allow-net --max 60 2>&1 | tee hunt.log
           echo "--- report tail ---"
           tail -40 ec-hunt/HUNT-REPORT.md || true
           echo "--- fetched files (committed to the repo) ---"
           ls -la ec-hunt/fetched/ 2>/dev/null || true
+          {
+            echo "run: $(date -u +%Y-%m-%dT%H:%MZ)  commit: $(git rev-parse --short HEAD)"
+            echo "hits: $(grep -c '^HIT:' hunt.log || true)"
+            echo "summary: $(grep -E '^candidates=' hunt.log || echo 'no summary line')"
+            echo "fetched:"
+            ls -1 ec-hunt/fetched/ 2>/dev/null || true
+          } > ec-hunt/RUN-STATUS.txt
+          cat ec-hunt/RUN-STATUS.txt
 
       - name: Alert on HIT (never silent)
         if: hashFiles('ec-hunt/HIT-ALERT.md') != ''
@@ -48,7 +57,13 @@ jobs:
         run: |
           git config user.name "ec-hunt-bot"
           git config user.email "ec-hunt@localhost"
-          git add ec-hunt/HUNT-REPORT.md ec-hunt/seen.json ec-hunt/HIT-ALERT.md ec-hunt/quarantine/ ec-hunt/fetched/ 2>/dev/null || true
+          # add paths INDIVIDUALLY — a single `git add a b c` fails entirely
+          # when one path (HIT-ALERT.md) is absent and stages NOTHING
+          for p in ec-hunt/HUNT-REPORT.md ec-hunt/seen.json ec-hunt/HIT-ALERT.md \
+                   ec-hunt/quarantine ec-hunt/fetched hunt.log ec-hunt/RUN-STATUS.txt; do
+            [ -e "$p" ] && git add "$p"
+          done
+          echo "--- staged ---"; git status --short | head -20
           if git diff --cached --quiet; then
             echo "nothing new to commit"
           else
