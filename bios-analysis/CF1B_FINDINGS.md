@@ -1189,3 +1189,46 @@ A dedicated Agent-Me twin now runs the hunt knowledge:
 05ae5af24de. Role: correlate CSME family/version/SKU/date ↔ EC builds when
 sweeping Dell factory/service firmware for full EC images (live lead #1) —
 the tool that identifies which package a given ME region belongs to.
+
+### 11.14 Decrypt-every-model campaign with the new tools (2026-09-30)
+
+**§11.14.1 MEA++ TnD teardown verdict.** PE x64, CompanyName TechNoDev,
+ProductName "Latest MEA". Not PyInstaller/.NET: a native binary with a
+144 KB .text and an 18.8 MB .rdata at entropy 8.00 (data-protected payload;
+plain CRT entry). Zero occurrences of Dell/EC/password/PHCM/$FPT strings and
+zero firmware signatures anywhere in the image. Even fully unpacked it is an
+ME-metadata analyzer (family/version/SKU/date) — no keygen-relevant material
+exists inside it. Role unchanged: CSME↔EC build correlation on Windows.
+
+**§11.14.2 Expanded cross-build unwrap matrix — definitive negative.**
+Every PHCM container in the corpus was re-collected with the corrected
+4-byte magic + header validation (hsize=0xc0, n, non-FF material): **21
+instances, 3 size-classes** — 3090 class (n=0x635, 10 instances across all
+four machines' slots), 3410 n9f4 (9), 3410 n9fc (2). Key candidates from
+every class (first-16/32 B, per-image 16/32 B, MD5/SHA-256 derivatives) were
+run against every class's wrapped material and first two body records across
+AES-128/256 in ECB/CBC/CTR, RC4, and repeating-XOR: **270 non-trivial
+combinations, ALL pure noise** (no printable runs, no zero blocks, no 16-B
+repeats, no low-entropy output). The §11.10.6 wrap proof now holds cross-
+build with the target model included: the per-build key is unwrappable only
+by the EC engine.
+
+**§11.14.3 New classification fact.** The 3090's PHCM containers carry
+version bytes `01 01 84 03` (subtype 0x84) vs the 3410's `01 01 80 03` —
+the 8-byte magic used in all prior package scans misses 3090-class
+containers. Re-verified with the corrected 4-byte scan: both 3090 packages
+(2.0.7 and latest, DUB + raw) still stage **zero** PHCM containers — §11.11.2
+stands. (All future scans must use b"PHCM" + hsize/n validation.)
+
+**§11.14.4 Every-model keygen state (verified live this pass).**
+- **Legacy families — COMPLETE**: E7A8, BF97, 6FF1, 1F66, 1D3B, 2A7B
+  generate full master passwords offline (selftest PASS; live demo
+  1A2B3C4-E7A8 → `0670B0oJxnH0Ltcg` via vault-module emulation).
+- **EC families — map-complete, oracle-blocked**: CF1B, 8FC8, 9ABE, 3FE2,
+  1B58 have verified response→code maps (CF1B verbatim, 8FC8 alphabet
+  selftests PASS); a synthetic 32-B response fed via `--oracle resp:` flows
+  end-to-end to the password prompt instruction. The single missing input
+  is the EC's own response (live oracle on the target machine) or the
+  per-build key (EC internal flash).
+- The hunt agent (§11.13.2) now answers the decrypt question with this
+  proof (FAQ updated, grounded).

@@ -74,6 +74,19 @@ PHCM magic and $FPT PSVN strings, watch the locked-plus-patched dump pairs
 for a first-boot span, and re-scan the active venues (vinafix, dr-bios,
 badcaps, indiafix, pkbiosfix) monthly for new same-model dumps.
 
+## Can the wrapped per-build AES key material be decrypted to get the master password?
+No — the wrapped per-build AES key material cannot be decrypted offline. The
+PHCM header material is a key wrap that only the EC engine can unwrap, proven
+by exhaustive testing: every held build's material was tried as key candidates
+(first 32 bytes, per-image parts, MD5 and SHA256 derivatives) against every
+other build's wrapped material and body records across AES-128 and AES-256 in
+ECB, CBC, and CTR modes plus RC4 and XOR — 270 non-trivial combinations, all
+producing pure noise with zero structured plaintext. The unwrap key lives
+only in the EC internal flash. The master password for EC-era suffixes
+(CF1B, 8FC8, 9ABE, 3FE2, 1B58) can only be computed after the EC returns its
+response — capture it live with the keygen oracle, or find the EC internal
+flash dump.
+
 ## How does the 8FC8 code map work?
 The 8FC8 code map works like this: after command 0x17 returns the EC
 response, the 8FC8 unlock code is computed as
