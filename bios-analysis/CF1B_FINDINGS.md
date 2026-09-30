@@ -1149,3 +1149,43 @@ tag→code pair — only per-machine paid services (Dell backend or EC-read
 access) and dump patching. This matches the firmware-level proof (§11.5,
 §11.10, §11.11): the transform lives in the EC's internal flash, keyed
 per EC build. The delivered Routes A/B/C are the complete solution set.
+
+### 11.13 Full-keygen file specification + dedicated hunt agent (2026-09-30)
+
+**§11.13.1 The definitive file list.** Distilled from §11.5–§11.12: the full
+CF1B keygen is missing exactly ONE artifact class. Needed (any one of):
+1. **EC internal-flash dump for the target EC build** — the engine
+   (challenge→response computation) + the per-build AES key. One dump from
+   ANY machine on the build unlocks every machine on that build (per-build
+   determinism proven on both 3410 and 3090 corpora).
+2. **The unwrapped per-build AES key material** (~32 B for the target build).
+   The PHCM headers carry it only in wrapped form (EC-unwrap-only; 8×7×3
+   direct-decrypt test = noise).
+3. **Dell backend / warranty service access** (the paid sellers' channel).
+
+NOT needed / insufficient (proven): more SPI dumps (store fully mapped, 4
+same-model dumps held), tag→code pairs (§11.7 inversion impossibility),
+live challenge→response pairs (validation only), Dell BIOS packages (3090
+packages stage no EC app; 3410's staged PHCM is sealed).
+
+**§11.13.2 Hunt agent created** (directive: use jzjzzzzzzz/agent-me).
+A dedicated Agent-Me twin now runs the hunt knowledge:
+- Instance: `/home/user/agent-me` (FastAPI + React, local extractive mode —
+  no API key needed; Planner→Researcher→Critic→Writer pipeline with
+  evidence gating and execution traces).
+- Knowledge = 8-file distillation, canonical copy committed at
+  `bios-analysis/agent/KEYGEN_HUNT_AGENT/`: 00-faq (13 anticipated
+  questions), 01-mission (the file spec above), 02-cf1b-architecture
+  (protocol, PHCM, chip maps, determinism tables), 03-corpus-inventory,
+  04-dead-ends (never-retry list), 05-live-leads (ranked), 06-verification
+  (candidate-artifact recognition), 07-toolkit.
+- Verified: all 13 core questions ground (11 at 1.00 coverage) through the
+  multi-agent pipeline; unanswerable questions are correctly refused by the
+  critic (evidence gate). Serves at :8000 (API+/docs) and :5173 (Web UI).
+
+**§11.13.3 MEA++ TnD BIOS added to the toolkit** (TechNoDev's CSME 18/19/20/
+21+ analyzer, Windows GUI): `collected/tools/MEA++_TnD_BIOS.exe`,
+19,390,976 B, sha256 baaccef42cec2cc6d9aeac39fc20c337f64d3752d50d25d3944ff
+05ae5af24de. Role: correlate CSME family/version/SKU/date ↔ EC builds when
+sweeping Dell factory/service firmware for full EC images (live lead #1) —
+the tool that identifies which package a given ME region belongs to.
