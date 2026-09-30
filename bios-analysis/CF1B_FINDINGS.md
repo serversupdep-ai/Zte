@@ -1271,3 +1271,57 @@ zeroing the block.
   path now exists — any repair shop can do chip-read → SIVB-rollback patch
   (or our prebuilt Route-B patcher) → reflash. Dell ownership readout
   (Route C) remains the no-hardware alternative.
+
+### 11.16 The impossible attempted: EC bundle deep-reverse (2026-09-30)
+
+Directed to "do the impossible" — complete the keygen offline. This is the
+deepest static attack yet, executed against previously unexamined material.
+
+**§11.16.1 DISCOVERY: a second, larger EC firmware bundle.** Every 3090 dump
+carries, at 0x7b59fc (CSME region), a 71,935-byte EC bundle that all prior
+analysis missed (everything focused on the 0x6a60 region at 0x82d44c). It is
+byte-identical across all four machines (sha256 8e969bec…), locked and
+unlocked alike. Structure: record chain {type=7, 0xfbc, addr=0x8040e000,
+size=0xfb4} + {7, 0x5aac, addr=0x80402000, size=0x5aa4} (the two components
+whose sizes sum to exactly the 0x6a60 main region = concatenation), then a
+~64.5KB encoded payload (0x300-0x10330), a 0x5d0 data run, and crypto
+tables. Saved at collected/ec_region/3090_EC_bundle_118f7.bin. NOTE: the
+2.0.7/latest BIOS packages do NOT stage this bundle — it is factory-flashed
+content, obtainable only from machine dumps (we hold four copies).
+
+**§11.16.2 FIRST CRYPTO PRIMITIVE EVER FOUND: the AES inverse S-box.** At
+bundle offset 0x117f0: the complete 256-byte AES inverse S-box in cleartext
+(52 09 6a d5 30 36 a5 38 … — byte-exact), followed by an FF pad and a
+00..0d counting tail. No forward S-box, no T-tables, no SHA constants
+anywhere in any held image. Every prior "no AES tables" scan (§11.10) had
+searched the FORWARD S-box only — a systematic blind spot. Direct proof
+that the EC engine performs AES DECRYPTION — the unwrap operation §11.10.6
+inferred from the noise-only decrypt matrix. The inverse-only table set
+also explains why the engine can unwrap but nothing outside can.
+
+**§11.16.3 EC identified: Nuvoton NPCX7 (Cortex-M4).** Boot vectors
+(SP=0x20016f80/0x20016f84, entries 0xa128/0xa12c), SRAM refs 0x2000xxxx,
+and flash refs 0x8040xxxx-0x80418020 match the NPCX7 memory map (internal
+flash 0x80400000+, SRAM 0x20000000+). The main region's boot header lists
+section entries (0x8ef0, sizes 0x10/0x02/0x43/0x04/0x08, total 0x7c48).
+
+**§11.16.4 The wall.** The 64.5KB payload (entropy 6.61, non-flat histogram
+— structured, NOT encrypted wholesale) is not: plaintext Thumb, single-byte
+XOR/ADD-whitened (marker scores flat), repeating-key XOR (autocorrelation
+clean), position-whitened (i, i>>k, LFSR keystream all fail), or a magic'd
+codec (no LZ4/zlib/LZMA/xz/zstd signatures). Function-boundary, BL
+call-graph, and vector scans all find no real code structure. The 27KB main
+region similarly shows no clean code alignment. Additionally, the payload
+references EC-flash addresses BEYOND the staged image (0x80418020; hot
+ref 0x804070cf ×10) — part of the engine's data (possibly the KEK /
+per-build key store) lives only in unstaged EC silicon.
+
+**§11.16.5 Net assessment.** The keygen now has: the sealed per-build key
+material (PHCM, held), the cipher family (AES decrypt/unwrap, confirmed by
+the inverse S-box), the platform (NPCX7), and the engine's staged body
+(encoded). Still missing: (a) the payload's encoding — the EC loader's
+decode (likely per-model; a dedicated reversing project), and/or (b) the
+KEK at 0x80418020+ in EC-internal flash. §11.5/§11.7/§11.10.6/§11.14's
+impossibility conclusion for OFFLINE derivation stands — but the attack
+surface has moved from "nothing to attack" to "one encoded blob + one
+unstaged address range", the closest the campaign has ever been.

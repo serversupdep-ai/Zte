@@ -23,3 +23,11 @@
      fbd98f4c…) must produce structured, non-noise plaintext
    - then the response→code map (dell_master_keygen.py) must reproduce a
      known-working code on a validation pair
+
+## EC bundle recognition (NEW, §11.16)
+- 3090 EC = Nuvoton NPCX7 (Cortex-M4; flash 0x80400000+, SRAM 0x20000000+)
+- The 71,935 B factory bundle at 0x7b59fc: header chain {7,0xfbc,0x8040e000,
+  0xfb4},{7,0x5aac,0x80402000,0x5aa4} + 64.5KB encoded payload + AES
+  inverse S-box @0x117f0. Any artifact containing this bundle = factory
+  machine dump. Any NEW EC artifact should be scanned for the INVERSE S-box
+  (52 09 6a d5 30 36 a5 38 …), not the forward one.

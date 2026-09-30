@@ -74,6 +74,19 @@ PHCM magic and $FPT PSVN strings, watch the locked-plus-patched dump pairs
 for a first-boot span, and re-scan the active venues (vinafix, dr-bios,
 badcaps, indiafix, pkbiosfix) monthly for new same-model dumps.
 
+## What was found in the EC bundle deep-reverse?
+The 2026-09-30 deep-reverse (§11.16) found: a 71,935-byte EC firmware bundle
+staged at 0x7b59fc in every 3090 dump (byte-identical across machines, NOT
+staged by BIOS packages — factory content), containing the first crypto
+primitive ever found: a complete AES INVERSE S-box in cleartext at bundle
+offset 0x117f0 — proof the EC engine performs AES decryption (the key
+unwrap). The EC is a Nuvoton NPCX7 Cortex-M4 (flash 0x80400000, SRAM
+0x20000000). The bundle's 64.5KB code payload is encoded (not plaintext,
+not whitened, not repeating-XOR, no codec magic) and references EC-flash
+addresses beyond the staged image (0x80418020) — the KEK likely lives only
+in unstaged EC silicon. The bundle is saved at
+collected/ec_region/3090_EC_bundle_118f7.bin.
+
 ## Can dellpwn recover the 3090 master password from a dump?
 No. dellpwn (CVE-2026-40639, AmberWolf+MDSec, public tool) recovers BIOS
 passwords from the DVAR store by XOR-keystream recovery — but only on older
