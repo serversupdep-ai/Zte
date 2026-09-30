@@ -41,3 +41,11 @@ collected/ec_region/3090_2.0.7_MEblob_ecregion_6a60.bin.
   region or full image → CPU family, CSME generation/version, SKU, platform,
   OEM config, firmware date, repository size, file-system stage. Use it to
   correlate CSME build ↔ EC build when matching packages to target machines.
+
+## dellpwn corpus (2026-09-30)
+
+- collected/dellpwn/{dvar,sivb,identify,main,hp}.rs — R3n5k1/dellpwn sources
+  (CVE-2026-40639: DVAR XOR password recovery + SIVB vault rollback)
+- dellpwn_port.py — faithful Python port (scan + clear-sivb); scanned all
+  four 3090 dumps: DVAR recovery NOT applicable (SIVB-class model),
+  clear-sivb patch verified byte-exact (only 0x891000..0x8925af zeroed)

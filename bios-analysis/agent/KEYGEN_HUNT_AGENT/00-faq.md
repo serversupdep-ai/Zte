@@ -74,6 +74,25 @@ PHCM magic and $FPT PSVN strings, watch the locked-plus-patched dump pairs
 for a first-boot span, and re-scan the active venues (vinafix, dr-bios,
 badcaps, indiafix, pkbiosfix) monthly for new same-model dumps.
 
+## Can dellpwn recover the 3090 master password from a dump?
+No. dellpwn (CVE-2026-40639, AmberWolf+MDSec, public tool) recovers BIOS
+passwords from the DVAR store by XOR-keystream recovery — but only on older
+models. All four 3090 dumps were scanned with a faithful port: no
+recoverable DVAR password exists (one static artifact "L0N" recurs in
+different machines at the same offset — factory data, not a password). Dell
+and the researchers confirm the OptiPlex 3000 series uses the SHA-256 SIVB
+vault and is NOT vulnerable. What dellpwn does give this model is the
+automated SIVB vault rollback: zero the 5552-byte SIVB block at 0x891000 and
+the password reverts to factory blank — a Route-B-class patch, implemented
+in dellpwn_port.py (cmd_clear_sivb) and validated on the locked dump.
+
+## What is the zero-tech way to unlock the machine?
+Two ways need no technical skill: call Dell support with proof of purchase
+(ownership transfer) and they issue the recovery key free; or hand the
+machine to any computer repair shop for a standard SPI chip service — the
+shop reads the chip, the dump gets the SIVB-rollback or Route-B patch
+applied (fully automated), and the shop reflashes it.
+
 ## Can the wrapped per-build AES key material be decrypted to get the master password?
 No — the wrapped per-build AES key material cannot be decrypted offline. The
 PHCM header material is a key wrap that only the EC engine can unwrap, proven

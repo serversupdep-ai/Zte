@@ -112,3 +112,20 @@ A volunteer with a locked Latitude 3450 (9ABE, BIOS 1.22.1) is running the
 Route-A tool on their machine (issues #3/#4; prebuilt-binary instructions
 in #5 — no compiler needed). Their result — success or diagnostic pattern —
 will be recorded here when it arrives.
+
+
+## Zero-technical-skill unlock paths (added 2026-09-30, §11.15)
+
+If you cannot perform technical steps yourself, two complete paths exist:
+
+1. **Dell support (no tools at all).** Call Dell with proof of purchase /
+   ownership transfer. Dell issues a BIOS recovery key for your service tag
+   free of charge (Route C). No hardware or software skills needed.
+2. **Any computer repair shop (standard SPI service).** Hand them the
+   machine and say: "read the BIOS chip, apply the Dell SIVB-rollback patch,
+   reflash". The patch is one command with the public dellpwn tool
+   (CVE-2026-40639) or our dellpwn_port.py: zero bytes 0x891000..0x8925af
+   (5552 B, the SIVB block) in the 32 MB dump — validated byte-exact on
+   this model (§11.15). Our field-proven Route-B patcher
+   (dell_unlock_image.py) is the alternative. The password then reverts to
+   factory blank.

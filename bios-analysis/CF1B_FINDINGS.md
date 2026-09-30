@@ -1232,3 +1232,42 @@ stands. (All future scans must use b"PHCM" + hsize/n validation.)
   per-build key (EC internal flash).
 - The hunt agent (§11.13.2) now answers the decrypt question with this
   proof (FAQ updated, grounded).
+
+### 11.15 dellpwn / CVE-2026-40639 — public-tool pass on the target model (2026-09-30)
+
+**§11.15.1 The find.** `R3n5k1/dellpwn` (AmberWolf + MDSec, released with
+DSA-2026-197 / CVE-2026-40639, July 2026): a public Rust tool that recovers
+Dell BIOS passwords from SPI dumps. Two mechanisms: (a) DVAR store —
+passwords stored XOR-encrypted (32-B field, 20-B key, first char in the
+clear; key leaks from the null tail + wrap region) → deterministic recovery;
+(b) SIVB (Security Information Vault Block) models — password hashed
+(SHA-256) in an encrypted per-machine vault → only a vault ROLLBACK by
+zeroing the block.
+
+**§11.15.2 Empirical result on the 3090 (faithful Python port, dellpwn_port.py).**
+- All four 3090 dumps scanned (every DVAR region + full NVRAM band):
+  **no recoverable DVAR password**. One candidate "L0N" recurs at the same
+  offset with the same key in three different machines (incl. unlocked
+  ones) — a static factory artifact, not a password.
+- The 3090 carries its password in the **SIVB vault** at 0x891000
+  (hash_size=0x20, blob=0x2680 = 154×64-B records; content per-machine
+  encrypted: all 86 records differ across machines — no cross-diff possible).
+  This matches the CVE coverage: "newer systems such as the OptiPlex 3000
+  series employ the SHA-256 SIVB design and were not found vulnerable".
+- Locked IPCML-RN dump has NO SIVB block (older BIOS layout) — but also no
+  E7250-style store and no DVAR password; its storage remains the PHCM/EC
+  path per §11.
+- **clear-sivb implemented and validated**: zeroing 0x891000..0x8925af
+  (5552 B) on the locked dump changes exactly those bytes (verified
+  byte-exact). dellpwn-documented behavior for OptiPlex 3000: password
+  reverts to factory blank. This is a Route-B-class patch — automated,
+  public, CVE-backed — complementary to our field-proven
+  dell_unlock_image.py.
+
+**§11.15.3 Consequences.**
+- For the KEYGEN goal: nothing changes — the master code path (EC engine,
+  per-build key) is untouched by dellpwn, exactly as §11.5–§11.14 concluded.
+- For the USER's practical unlock: a fully automated, zero-technical-skill
+  path now exists — any repair shop can do chip-read → SIVB-rollback patch
+  (or our prebuilt Route-B patcher) → reflash. Dell ownership readout
+  (Route C) remains the no-hardware alternative.
