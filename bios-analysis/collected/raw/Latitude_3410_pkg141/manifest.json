@@ -1,0 +1,12 @@
+{
+ "files": {
+  "Latitude_3410_3510_1.4.1.exe": {
+   "bytes": 14361120,
+   "sha256": "688cfe70ac32e44f9ec0633012d95d5832bdae434d273e82e281d2e62605a5d8"
+  },
+  "manifest.json": {
+   "bytes": 283,
+   "sha256": "8a120b2a0d1b658e6f9d8420c515f89ecf5c1a3a63c3a87a72603c5adfbff33d"
+  }
+ }
+}

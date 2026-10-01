@@ -1,0 +1,35 @@
+{
+ "src": "ifix_17",
+ "file": "Optiplex 7000 micro UNLOCKED.bin",
+ "size": 16777216,
+ "sha256": "d981b34dc806041e394aa1ce43f6c1236ccefe7cde18927005b8661d91c991e4",
+ "regions": {
+  "me": [
+   1060864,
+   10948607
+  ],
+  "gbe": [
+   1052672,
+   1060863
+  ]
+ },
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [
+  {
+   "file": "ec_slot_0001000_205280.bin",
+   "size": 205280,
+   "sha256": "480332b0e244528a336a6d66b18e33d7d1cd40d35f9466f48932d8f0f13a3099",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "ec_slot_0041000_205328.bin",
+   "size": 205328,
+   "sha256": "fc6fb13d04556bf8509649fca98b939efe07056c92b2c2e7e00dba28f71328cb",
+   "matches_package": null,
+   "saved": true
+  }
+ ],
+ "pw_modules": []
+}

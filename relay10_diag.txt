@@ -1,0 +1,44 @@
+GET https://downloads.dell.com/FOLDER13970198M/1/Latitude_5X00_Precision_3540_1.43.1.exe
+-rw-r--r-- 1 runner runner 32836464 Sep  9 22:47 dl/Latitude_5X00.exe
+GET https://downloads.dell.com/FOLDER13498661M/1/Latitude_5300_1.37.0.exe
+-rw-r--r-- 1 runner runner 29627168 Sep  9 22:47 dl/Latitude_5300.exe
+GET https://downloads.dell.com/FOLDER12975937M/1/Latitude_5X90_1.41.0.exe
+-rw-r--r-- 1 runner runner 13662488 Sep  9 22:47 dl/Latitude_5X90.exe
+total 74356
+drwxr-xr-x 2 runner runner     4096 Sep  9 22:47 .
+drwxr-xr-x 6 runner runner     4096 Sep  9 22:47 ..
+-rw-r--r-- 1 runner runner 29627168 Sep  9 22:47 Latitude_5300.exe
+-rw-r--r-- 1 runner runner 32836464 Sep  9 22:47 Latitude_5X00.exe
+-rw-r--r-- 1 runner runner 13662488 Sep  9 22:47 Latitude_5X90.exe
+19ad5a6493af38a9d2a357356ee182ce033f2e4c41c96b084826768ab092c09b  dl/Latitude_5300.exe
+35999bee45a15afbd80e70a825c0fdee745c4456a7d64325b53ab5ca449076d1  dl/Latitude_5X00.exe
+e24b8f8f719ccd8f8b8ebdc8a6178d89c15121df6806f7e112020964484b840b  dl/Latitude_5X90.exe
+=== EXTRACTION ===
+--- Latitude_5300: dl/Latitude_5300.exe
+  DellUpdateBinary: 51706201 bytes
+  objects: 3133
+  SAVED pw_mods/Latitude_5300_pw0.efi (60864 B) tables=[]
+  SAVED pw_mods/Latitude_5300_pw1.efi (42496 B) tables=[('0x9670', ['8FC8(desc=0x0,alpha=0xa210)', 'E7A8(desc=0xa258,alpha=0xa290)', 'END'])]
+  SAVED pw_mods/Latitude_5300_pw2.efi (23552 B) tables=[('0x4770', ['8FC8(desc=0x0,alpha=0x52f0)', 'E7A8(desc=0x5338,alpha=0x5370)', 'END'])]
+  pw modules saved: 3
+--- Latitude_5X00: dl/Latitude_5X00.exe
+  DellUpdateBinary: 29519804 bytes
+  parse fail
+--- Latitude_5X90: dl/Latitude_5X90.exe
+  DellUpdateBinary: 16713066 bytes
+  objects: 2864
+  SAVED pw_mods/Latitude_5X90_pw0.efi (42496 B) tables=[('0x93c0', ['8FC8(desc=0x0,alpha=0xa280)', 'E7A8(desc=0xa2c8,alpha=0xa300)', 'END'])]
+  SAVED pw_mods/Latitude_5X90_pw1.efi (25600 B) tables=[('0x5270', ['8FC8(desc=0x0,alpha=0x6280)', 'E7A8(desc=0x62c8,alpha=0x6300)', 'END'])]
+  SAVED pw_mods/Latitude_5X90_pw2.efi (23552 B) tables=[('0x4770', ['8FC8(desc=0x0,alpha=0x52f0)', 'E7A8(desc=0x5338,alpha=0x5370)', 'END'])]
+  SAVED pw_mods/Latitude_5X90_pw3.efi (24576 B) tables=[('0x5090', ['8FC8(desc=0x0,alpha=0x62f0)', 'E7A8(desc=0x6338,alpha=0x6370)', 'END'])]
+  pw modules saved: 4
+total 256
+drwxr-xr-x 2 runner runner  4096 Sep  9 22:47 .
+drwxr-xr-x 7 runner runner  4096 Sep  9 22:47 ..
+-rw-r--r-- 1 runner runner 60864 Sep  9 22:47 Latitude_5300_pw0.efi
+-rw-r--r-- 1 runner runner 42496 Sep  9 22:47 Latitude_5300_pw1.efi
+-rw-r--r-- 1 runner runner 23552 Sep  9 22:47 Latitude_5300_pw2.efi
+-rw-r--r-- 1 runner runner 42496 Sep  9 22:47 Latitude_5X90_pw0.efi
+-rw-r--r-- 1 runner runner 25600 Sep  9 22:47 Latitude_5X90_pw1.efi
+-rw-r--r-- 1 runner runner 23552 Sep  9 22:47 Latitude_5X90_pw2.efi
+-rw-r--r-- 1 runner runner 24576 Sep  9 22:47 Latitude_5X90_pw3.efi

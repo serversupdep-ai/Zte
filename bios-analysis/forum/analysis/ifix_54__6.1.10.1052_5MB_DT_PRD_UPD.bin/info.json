@@ -1,0 +1,11 @@
+{
+ "src": "ifix_54",
+ "file": "6.1.10.1052_5MB_DT_PRD_UPD.bin",
+ "size": 4215120,
+ "sha256": "9ebfad6ed3f7cf2241cc6ac790e4e540e963b9d76951110ba824065551548657",
+ "regions": null,
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [],
+ "pw_modules": []
+}

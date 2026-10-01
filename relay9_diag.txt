@@ -1,0 +1,116 @@
+Selecting previously unselected package cabextract.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 201676 files and directories currently installed.)
+Preparing to unpack .../cabextract_1.11-2_amd64.deb ...
+Unpacking cabextract (1.11-2) ...
+Setting up cabextract (1.11-2) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Not building database; man-db/auto-update is not 'true'.
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
++ cd cat/pc
++ cabextract -q ../CatalogPC.cab
+../CatalogPC.cab: WARNING; possible 10432 extra bytes at end of file.
+--- ALL LATITUDE BIOS EXES (sample) ---
+FOLDER04334751M/1/Latitude_E6420XFR_A24.exe
+FOLDER04886858M/1/Latitude_E6420_E6420ATG_A25.exe
+FOLDER05212799M/1/Latitude_E6420_E6420ATG_A26.exe
+FOLDER05562386M/1/Latitude_3400_3500_1.3.1.exe
+FOLDER06449105M/1/Latitude_5175_Latitude_5179_1.7.2.exe
+FOLDER06591858M/1/Latitude_12_Rugged_Tablet_7202_A29.exe
+FOLDER06742651M/1/Latitude_3460_3560_A19.exe
+FOLDER07082211M/1/XPS_9250_Latitude_7275_1.9.1.exe
+FOLDER07921198M/1/Latitude_9420_1_7_1.exe
+FOLDER08362096M/1/Latitude_3470_3570_1.24.0.exe
+FOLDER08625184M/1/Latitude_5175_Latitude_5179_1.15.0.exe
+FOLDER08766950M/1/Latitude_3379_1.0.36.exe
+FOLDER09000461M/1/Latitude_E7x70_1.36.3.exe
+FOLDER09228095M/1/Latitude_7275_1.18.0.exe
+FOLDER09228626M/1/Latitude_7370_1.32.3.exe
+FOLDER09251279M/1/Latitude_E5x70_Precision_3510_1.34.3.exe
+FOLDER09892127M/1/Latitude_3480_3580_1.24.0.exe
+FOLDER10246200M/1/Latitude_3490_3590_1.26.0.exe
+FOLDER10274362M/1/Latitude_5285_1.23.0.exe
+FOLDER10491731M/1/Latitude_5289_1.35.0.exe
+FOLDER10491764M/1/Latitude_7389_1.35.0.exe
+FOLDER11831020M/1/Latitude_7285_1.27.0.exe
+FOLDER11831608M/1/Latitude_3380_1.28.0.exe
+FOLDER12206541M/1/Latitude_3320_1.32.0.exe
+FOLDER12452837M/1/Latitude_5495_1.18.0.exe
+FOLDER12726342M/1/Latitude_3390_1.35.1.exe
+FOLDER12874460M/1/Latitude_3180_3189_1.32.0.exe
+FOLDER12942121M/1/Latitude_3300_1.33.0.exe
+FOLDER12965226M/1/Latitude_5290_2In1_1.40.0.exe
+FOLDER12969627M/1/Latitude_5X91_Precision_3530_1.39.0.exe
+FOLDER12975937M/1/Latitude_5X90_1.41.0.exe
+FOLDER12975955M/1/Latitude_7X90_1.44.0.exe
+FOLDER13320041M/1/Latitude_9520_1.41.1.exe
+FOLDER13342855M/1/Precision_3561_Latitude_5521_1.38.1.exe
+FOLDER13343113M/1/Latitude_5330_1.31.1.exe
+FOLDER13344287M/1/Precision_3570_Latitude_5530_1.31.1.exe
+FOLDER13346272M/1/Precision_3571_Latitude_5531_1.31.1.exe
+FOLDER13469728M/1/Latitude_3301_1.37.0.exe
+FOLDER13481093M/1/Latitude_5420_5424_7424_Rugged_1.40.0.exe
+FOLDER13481412M/1/Latitude_3400_3500_1.39.0.exe
+--- 5400/5500/5300/7740 matches ---
+FOLDER02179434M/1/R5500A11.exe
+FOLDER05261432M/1/R5500A14.exe
+FOLDER05261489M/1/T5500A18.exe
+FOLDER13498661M/1/Latitude_5300_1.37.0.exe
+GET https://downloads.dell.com/FOLDER13498661M/1/Latitude_5300_1.37.0.exe
+-rw-r--r-- 1 runner runner 29627168 Sep  9 22:44 dl/target_1.exe
+GET https://downloads.dell.com/FOLDER05261489M/1/T5500A18.exe
+-rw-r--r-- 1 runner runner 1244488 Sep  9 22:44 dl/target_2.exe
+GET https://downloads.dell.com/FOLDER05261432M/1/R5500A14.exe
+-rw-r--r-- 1 runner runner 1264392 Sep  9 22:44 dl/target_3.exe
+GET https://downloads.dell.com/FOLDER02179434M/1/R5500A11.exe
+-rw-r--r-- 1 runner runner 1256240 Sep  9 22:44 dl/target_4.exe
+total 32624
+drwxr-xr-x 2 runner runner     4096 Sep  9 22:44 .
+drwxr-xr-x 7 runner runner     4096 Sep  9 22:44 ..
+-rw-r--r-- 1 runner runner 29627168 Sep  9 22:44 target_1.exe
+-rw-r--r-- 1 runner runner  1244488 Sep  9 22:44 target_2.exe
+-rw-r--r-- 1 runner runner  1264392 Sep  9 22:44 target_3.exe
+-rw-r--r-- 1 runner runner  1256240 Sep  9 22:44 target_4.exe
+=== wayback CDX ===
+curl: (22) The requested URL returned error: 429
+snap(20210601)=
+snap(20210901)=
+snap(20211201)=
+snap(20220301)=
+--- WAYBACK FOUND ---
+oldrel=
+=== svc tag ===
+467 svc.html
+<HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;www&#46;dell&#46;com&#47;support&#47;home&#47;us&#47;en&#47;04&#47;product&#45;support&#47;servicetag&#47;H2FS5S3&#47;overview" on this server.<P>
+Reference&#32;&#=== EXTRACTION ===
+total 32624
+drwxr-xr-x 2 runner runner     4096 Sep  9 22:44 .
+drwxr-xr-x 7 runner runner     4096 Sep  9 22:44 ..
+-rw-r--r-- 1 runner runner 29627168 Sep  9 22:44 target_1.exe
+-rw-r--r-- 1 runner runner  1244488 Sep  9 22:44 target_2.exe
+-rw-r--r-- 1 runner runner  1264392 Sep  9 22:44 target_3.exe
+-rw-r--r-- 1 runner runner  1256240 Sep  9 22:44 target_4.exe
+--- target_1: dl/target_1.exe
+  DellUpdateBinary: 1466894 bytes
+  objects: 6
+  no system bios payload
+--- target_2: dl/target_2.exe
+  no PFS blob found
+--- target_3: dl/target_3.exe
+  no PFS blob found
+--- target_4: dl/target_4.exe
+  no PFS blob found
+ls: cannot access 'pwmods/': No such file or directory

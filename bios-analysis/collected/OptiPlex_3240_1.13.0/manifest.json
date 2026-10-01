@@ -1,0 +1,40 @@
+{
+ "url": "https://downloads.dell.com/FOLDER07563732M/1/OptiPlex_3240_1.13.0.exe",
+ "entries": [
+  {
+   "file": "bios-analysis/collected/OptiPlex_3240_1.13.0/pw_1_16896.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 16896,
+   "sha256": "27b94e0a832fda8ab70f2798c5353121e56e82e9ac238e830120a2f6a70e892f"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3240_1.13.0/pw_2_24576.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 24576,
+   "sha256": "68abc3a78de743a7d046a38ae710510267e705993730b4c0202ff6c67d16727f"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3240_1.13.0/pw_3_25600.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 25600,
+   "sha256": "18800cc2c625a5fc8f9e810ff750eb0d457c4b2ce73fe453b084df0b46edf967"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3240_1.13.0/pw_4_42496.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 42496,
+   "sha256": "6a4b1c8c596921d5474e17b7878449440f1de92dbb47bc2f4d30c3483c356f1b"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3240_1.13.0/pw_5_83456.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 83456,
+   "sha256": "2555955634a8e1b9e386d81d8de8230d6c37f80322e2afdbbefc0dca416f273c"
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "files": {
+  "manifest.json": {
+   "bytes": 268,
+   "sha256": "095c9b6d559225d4d092c47890c055a6e7547c15831fd41a1a6cdd2ac5758b85"
+  },
+  "tg_3090_23340.zip": {
+   "bytes": 6388,
+   "sha256": "481521d05653d7be1d87c94ef5a13501358be0dc7bf4f39a40af34856ecb4111"
+  }
+ }
+}

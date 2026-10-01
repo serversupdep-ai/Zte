@@ -1,0 +1,12 @@
+{
+ "files": {
+  "3080_BIOS_IMG.rcv": {
+   "bytes": 25466584,
+   "sha256": "a1871356549fcae17fc4c0744d3794ab0ba9603e8ed6363d6d6a21be5247b4ea"
+  },
+  "manifest.json": {
+   "bytes": 272,
+   "sha256": "5df60dfb9273ac859275a0c1fcbaee227f391bc012d6f3b63b408904b5a5bf65"
+  }
+ }
+}

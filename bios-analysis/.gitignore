@@ -1,0 +1,6 @@
+# Large binaries and analysis outputs stay out of git
+5470A12.exe
+5470A12.analysis/
+*.analysis/
+test_fixture*
+__pycache__/

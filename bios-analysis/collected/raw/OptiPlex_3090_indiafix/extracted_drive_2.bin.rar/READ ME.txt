@@ -1,0 +1,2 @@
+
+First boot go to Bios Menu, disable absolute, write your Service Tag, save, and Press ALT+F to bypass (Manufacturing Mode). 

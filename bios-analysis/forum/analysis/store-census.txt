@@ -1,0 +1,659 @@
+### bios-analysis/forum/opensources/dumps/ifix_02__BACKUP.BIN
+=== ifix_02__BACKUP.BIN: 15 records ===
+  types: {'FD/22': 14, 'FD/AA': 1}
+    @0x00c3001 FD type=22 idx=01 flags=0003 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0003 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0002 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0004 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0002 payload=17B
+    @0x00c308d FD type=22 idx=06 flags=0002 payload=17B
+    @0x00c30a9 FD type=22 idx=07 flags=0002 payload=17B
+    @0x00c30c5 FD type=22 idx=08 flags=0004 payload=17B
+    @0x00c30e1 FD type=22 idx=09 flags=0002 payload=17B
+    @0x00c30fd FD type=22 idx=0A flags=0003 payload=33B
+    @0x00c3129 FD type=22 idx=0B flags=0002 payload=33B
+    @0x00c3155 FD type=22 idx=0C flags=0002 payload=33B
+    @0x00c3181 FD type=22 idx=0D flags=0001 payload=49B
+    @0x00c31bd FD type=22 idx=0E flags=0001 payload=49B
+    @0x00c31f9 FD type=AA idx=0F flags=0004 payload=48B <== PASSWORD RECORD
+        sealed: 7edb2a07ceefea88c4b42119979356ddafec7727d3952f4c7e8bd2376e4b8ee03f46a1ad151de070e9908c632adf0a3c
+### bios-analysis/forum/opensources/dumps/ifix_02__Clean me.bin
+=== ifix_02__Clean me.bin: 15 records ===
+  types: {'FD/22': 14, 'FD/AA': 1}
+    @0x00c3001 FD type=22 idx=01 flags=0003 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0003 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0002 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0004 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0002 payload=17B
+    @0x00c308d FD type=22 idx=06 flags=0002 payload=17B
+    @0x00c30a9 FD type=22 idx=07 flags=0002 payload=17B
+    @0x00c30c5 FD type=22 idx=08 flags=0004 payload=17B
+    @0x00c30e1 FD type=22 idx=09 flags=0002 payload=17B
+    @0x00c30fd FD type=22 idx=0A flags=0003 payload=33B
+    @0x00c3129 FD type=22 idx=0B flags=0002 payload=33B
+    @0x00c3155 FD type=22 idx=0C flags=0002 payload=33B
+    @0x00c3181 FD type=22 idx=0D flags=0001 payload=49B
+    @0x00c31bd FD type=22 idx=0E flags=0001 payload=49B
+    @0x00c31f9 FD type=AA idx=0F flags=0004 payload=48B <== PASSWORD RECORD
+        sealed: 7edb2a07ceefea88c4b42119979356ddafec7727d3952f4c7e8bd2376e4b8ee03f46a1ad151de070e9908c632adf0a3c
+### bios-analysis/forum/opensources/dumps/ifix_06__3090 Bios Password Unlocked.bin
+=== ifix_06__3090 Bios Password Unlocked.bin: 20 records ===
+  types: {'FC/00': 1, 'FD/00': 1, 'FD/22': 18}
+    @0x00c3001 FD type=22 idx=01 flags=0000 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0003 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0002 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0002 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0004 payload=17B
+    @0x00c308d FD type=22 idx=06 flags=0000 payload=17B
+    @0x00c30a9 FD type=22 idx=07 flags=0000 payload=17B
+    @0x00c30c5 FD type=22 idx=08 flags=0000 payload=33B
+    @0x00c30f1 FD type=22 idx=09 flags=0000 payload=33B
+    @0x00c311d FD type=22 idx=0A flags=0004 payload=33B
+    @0x00c3149 FD type=22 idx=0B flags=0001 payload=33B
+    @0x00c3175 FD type=22 idx=0C flags=0001 payload=33B
+    @0x00c31a1 FD type=22 idx=0D flags=0004 payload=33B
+    @0x00c31cd FD type=22 idx=0E flags=0000 payload=33B
+    @0x00c31f9 FD type=22 idx=0F flags=0000 payload=33B
+    @0x00c3225 FD type=22 idx=10 flags=0002 payload=33B
+    @0x00c3251 FD type=22 idx=11 flags=0001 payload=33B
+    @0x00c327d FD type=22 idx=12 flags=0004 payload=33B
+    @0x00c32a9 FD type=00 idx=13 flags=0000 payload=49B
+    @0x00c32e5 FC type=00 idx=14 flags=0000 payload=48B
+### bios-analysis/forum/opensources/dumps/ifix_07__W25Q512NW@WSON8 8X6_20260423_181304 OFF.bin
+=== ifix_07__W25Q512NW@WSON8 8X6_20260423_181304 OFF.bin: 0 records ===
+  types: {}
+### bios-analysis/forum/opensources/dumps/ifix_09__OptiPlex 7480 All-In-One ipcml-gz uma 1.10.0.bin
+=== ifix_09__OptiPlex 7480 All-In-One ipcml-gz uma 1.10.0.bin: 16 records ===
+  types: {'FD/22': 15, 'FD/AA': 1}
+    @0x00c4001 FD type=22 idx=20 flags=0001 payload=17B
+    @0x00c401d FD type=22 idx=21 flags=0001 payload=17B
+    @0x00c4039 FD type=22 idx=22 flags=0002 payload=17B
+    @0x00c4055 FD type=22 idx=23 flags=0000 payload=17B
+    @0x00c4071 FD type=22 idx=24 flags=0004 payload=33B
+    @0x00c409d FD type=22 idx=25 flags=0001 payload=33B
+    @0x00c40c9 FD type=22 idx=26 flags=0003 payload=33B
+    @0x00c40f5 FD type=22 idx=27 flags=0000 payload=33B
+    @0x00c4121 FD type=22 idx=28 flags=0002 payload=33B
+    @0x00c414d FD type=22 idx=29 flags=0003 payload=33B
+    @0x00c4179 FD type=22 idx=2A flags=0000 payload=33B
+    @0x00c41a5 FD type=22 idx=2B flags=0004 payload=33B
+    @0x00c41d1 FD type=22 idx=2C flags=0004 payload=49B
+    @0x00c420d FD type=22 idx=2D flags=0000 payload=49B
+    @0x00c4249 FD type=22 idx=2E flags=0002 payload=65B
+    @0x00c4295 FD type=AA idx=2F flags=0000 payload=64B <== PASSWORD RECORD
+        sealed: 08187503a954ae8cacf53e75179286164e63107fdddd1d480c84a700b65f548aeaa4654f138aba1b56ddf95a7b590cf32dc6a4e1f186c9681b5ced8e73d3e98c
+### bios-analysis/forum/opensources/dumps/ifix_12__3090 Bios Password Unlocked.bin
+=== ifix_12__3090 Bios Password Unlocked.bin: 20 records ===
+  types: {'FC/00': 1, 'FD/00': 1, 'FD/22': 18}
+    @0x00c3001 FD type=22 idx=01 flags=0000 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0003 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0002 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0002 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0004 payload=17B
+    @0x00c308d FD type=22 idx=06 flags=0000 payload=17B
+    @0x00c30a9 FD type=22 idx=07 flags=0000 payload=17B
+    @0x00c30c5 FD type=22 idx=08 flags=0000 payload=33B
+    @0x00c30f1 FD type=22 idx=09 flags=0000 payload=33B
+    @0x00c311d FD type=22 idx=0A flags=0004 payload=33B
+    @0x00c3149 FD type=22 idx=0B flags=0001 payload=33B
+    @0x00c3175 FD type=22 idx=0C flags=0001 payload=33B
+    @0x00c31a1 FD type=22 idx=0D flags=0004 payload=33B
+    @0x00c31cd FD type=22 idx=0E flags=0000 payload=33B
+    @0x00c31f9 FD type=22 idx=0F flags=0000 payload=33B
+    @0x00c3225 FD type=22 idx=10 flags=0002 payload=33B
+    @0x00c3251 FD type=22 idx=11 flags=0001 payload=33B
+    @0x00c327d FD type=22 idx=12 flags=0004 payload=33B
+    @0x00c32a9 FD type=00 idx=13 flags=0000 payload=49B
+    @0x00c32e5 FC type=00 idx=14 flags=0000 payload=48B
+### bios-analysis/forum/opensources/dumps/ifix_12__Clean cseme.bin
+=== ifix_12__Clean cseme.bin: 20 records ===
+  types: {'FC/00': 1, 'FD/00': 1, 'FD/22': 18}
+    @0x00c3001 FD type=22 idx=01 flags=0000 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0003 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0002 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0002 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0004 payload=17B
+    @0x00c308d FD type=22 idx=06 flags=0000 payload=17B
+    @0x00c30a9 FD type=22 idx=07 flags=0000 payload=17B
+    @0x00c30c5 FD type=22 idx=08 flags=0000 payload=33B
+    @0x00c30f1 FD type=22 idx=09 flags=0000 payload=33B
+    @0x00c311d FD type=22 idx=0A flags=0004 payload=33B
+    @0x00c3149 FD type=22 idx=0B flags=0001 payload=33B
+    @0x00c3175 FD type=22 idx=0C flags=0001 payload=33B
+    @0x00c31a1 FD type=22 idx=0D flags=0004 payload=33B
+    @0x00c31cd FD type=22 idx=0E flags=0000 payload=33B
+    @0x00c31f9 FD type=22 idx=0F flags=0000 payload=33B
+    @0x00c3225 FD type=22 idx=10 flags=0002 payload=33B
+    @0x00c3251 FD type=22 idx=11 flags=0001 payload=33B
+    @0x00c327d FD type=22 idx=12 flags=0004 payload=33B
+    @0x00c32a9 FD type=00 idx=13 flags=0000 payload=49B
+    @0x00c32e5 FC type=00 idx=14 flags=0000 payload=48B
+### bios-analysis/forum/opensources/dumps/ifix_13__Alienware Aurora R12 .bin
+=== ifix_13__Alienware Aurora R12 .bin: 0 records ===
+  types: {}
+### /tmp/storecensus/10/OptiPlex 7480 All-In-One ipcml-gz uma 1.10.0.bin
+=== OptiPlex 7480 All-In-One ipcml-gz uma 1.10.0.bin: 16 records ===
+  types: {'FD/22': 15, 'FD/AA': 1}
+    @0x00c4001 FD type=22 idx=20 flags=0001 payload=17B
+    @0x00c401d FD type=22 idx=21 flags=0001 payload=17B
+    @0x00c4039 FD type=22 idx=22 flags=0002 payload=17B
+    @0x00c4055 FD type=22 idx=23 flags=0000 payload=17B
+    @0x00c4071 FD type=22 idx=24 flags=0004 payload=33B
+    @0x00c409d FD type=22 idx=25 flags=0001 payload=33B
+    @0x00c40c9 FD type=22 idx=26 flags=0003 payload=33B
+    @0x00c40f5 FD type=22 idx=27 flags=0000 payload=33B
+    @0x00c4121 FD type=22 idx=28 flags=0002 payload=33B
+    @0x00c414d FD type=22 idx=29 flags=0003 payload=33B
+    @0x00c4179 FD type=22 idx=2A flags=0000 payload=33B
+    @0x00c41a5 FD type=22 idx=2B flags=0004 payload=33B
+    @0x00c41d1 FD type=22 idx=2C flags=0004 payload=49B
+    @0x00c420d FD type=22 idx=2D flags=0000 payload=49B
+    @0x00c4249 FD type=22 idx=2E flags=0002 payload=65B
+    @0x00c4295 FD type=AA idx=2F flags=0000 payload=64B <== PASSWORD RECORD
+        sealed: 08187503a954ae8cacf53e75179286164e63107fdddd1d480c84a700b65f548aeaa4654f138aba1b56ddf95a7b590cf32dc6a4e1f186c9681b5ced8e73d3e98c
+### /tmp/storecensus/17/Optiplex 7000 micro UNLOCKED.bin
+=== Optiplex 7000 micro UNLOCKED.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/17/OK BACKUP.BIN
+=== OK BACKUP.BIN: 0 records ===
+  types: {}
+### /tmp/storecensus/17/OK BACKUP 32MB.BIN
+=== OK BACKUP 32MB.BIN: 0 records ===
+  types: {}
+### /tmp/storecensus/22/Dell Pro 14 Plus Dell_Pro_Plus_PB13255_PB14255_PB16255_1.11.0 AMD.bin
+=== Dell Pro 14 Plus Dell_Pro_Plus_PB13255_PB14255_PB16255_1.11.0 AMD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/21/Alienware Aurora R110  IPCML-SH REV A00.bin
+=== Alienware Aurora R110  IPCML-SH REV A00.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/13/Alienware Aurora R12 .bin
+=== Alienware Aurora R12 .bin: 0 records ===
+  types: {}
+### /tmp/storecensus/6/3090 Bios Password Unlocked.bin
+=== 3090 Bios Password Unlocked.bin: 20 records ===
+  types: {'FC/00': 1, 'FD/00': 1, 'FD/22': 18}
+    @0x00c3001 FD type=22 idx=01 flags=0000 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0003 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0002 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0002 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0004 payload=17B
+    @0x00c308d FD type=22 idx=06 flags=0000 payload=17B
+    @0x00c30a9 FD type=22 idx=07 flags=0000 payload=17B
+    @0x00c30c5 FD type=22 idx=08 flags=0000 payload=33B
+    @0x00c30f1 FD type=22 idx=09 flags=0000 payload=33B
+    @0x00c311d FD type=22 idx=0A flags=0004 payload=33B
+    @0x00c3149 FD type=22 idx=0B flags=0001 payload=33B
+    @0x00c3175 FD type=22 idx=0C flags=0001 payload=33B
+    @0x00c31a1 FD type=22 idx=0D flags=0004 payload=33B
+    @0x00c31cd FD type=22 idx=0E flags=0000 payload=33B
+    @0x00c31f9 FD type=22 idx=0F flags=0000 payload=33B
+    @0x00c3225 FD type=22 idx=10 flags=0002 payload=33B
+    @0x00c3251 FD type=22 idx=11 flags=0001 payload=33B
+    @0x00c327d FD type=22 idx=12 flags=0004 payload=33B
+    @0x00c32a9 FD type=00 idx=13 flags=0000 payload=49B
+    @0x00c32e5 FC type=00 idx=14 flags=0000 payload=48B
+### /tmp/storecensus/7/W25Q512NW@WSON8 8X6_20260423_181304 OFF.bin
+=== W25Q512NW@WSON8 8X6_20260423_181304 OFF.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.10.1027_5MB_DT_PRD_UPD.bin
+=== 6.2.10.1027_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.0.1022_5MB_DT_PRD_UPD.bin
+=== 6.2.0.1022_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.3.1219_5MB_MB_PRD_UPD.bin
+=== 6.0.3.1219_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.0.1042_5MB_DT_PRD_UPD.bin
+=== 6.1.0.1042_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.20.1059_5MB_MB_PRD_UPD.bin
+=== 6.1.20.1059_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.20.1035_5MB_MB_PRD_UPD.bin
+=== 6.2.20.1035_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.0.1022_5MB_MB_PRD_UPD.bin
+=== 6.2.0.1022_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.4.1205_5MB_MB_PRD_UPD.bin
+=== 6.0.4.1205_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.41.1216_5MB_MB_PRD_UPD.bin
+=== 6.0.41.1216_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.31.1208_5MB_MB_PRD_UPD.bin
+=== 6.0.31.1208_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.60.1066_5MB_DT_PRD_UPD.bin
+=== 6.2.60.1066_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.1.1045_5MB_DT_PRD_UPD.bin
+=== 6.1.1.1045_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.40.1215_5MB_DT_PRD_UPD.bin
+=== 6.0.40.1215_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.30.1203_5MB_MB_PRD_UPD.bin
+=== 6.0.30.1203_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.32.1076_5MB_DT_PRD_UPD.bin
+=== 6.1.32.1076_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.2.1194_5MB_DT_PRD_UPD.bin
+=== 6.0.2.1194_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.2.1194_5MB_MB_PRD_UPD.bin
+=== 6.0.2.1194_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.30.1074_5MB_DT_PRD_UPD.bin
+=== 6.1.30.1074_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.10.1027_5MB_MB_PRD_UPD.bin
+=== 6.2.10.1027_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.0.1042_5MB_MB_PRD_UPD.bin
+=== 6.1.0.1042_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.30.1203_5MB_DT_PRD_UPD.bin
+=== 6.0.30.1203_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.10.1052_5MB_MB_PRD_UPD.bin
+=== 6.1.10.1052_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.0.1042_5MB_MB_PRD_EXTR.bin
+=== 6.1.0.1042_5MB_MB_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.0.1115_5MB_DT_PRE_UPD.bin
+=== 6.0.0.1115_5MB_DT_PRE_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.10.1052_5MB_MB_PRD_EXTR.bin
+=== 6.1.10.1052_5MB_MB_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.2.10.1027_5MB_DT_PRD_EXTR.bin
+=== 6.2.10.1027_5MB_DT_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.0.1115_5MB_MB_PRE_UPD.bin
+=== 6.0.0.1115_5MB_MB_PRE_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.0.1184_5MB_DT_PRD_RGN.bin
+=== 6.0.0.1184_5MB_DT_PRD_RGN.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.2.50.1062_5MB_DT_PRD_EXTR.bin
+=== 6.2.50.1062_5MB_DT_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.0.1115_5MB_DT_PRE_RGN.bin
+=== 6.0.0.1115_5MB_DT_PRE_RGN.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.0.1038_5MB_MB_PRD_EXTR.bin
+=== 6.1.0.1038_5MB_MB_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.2.1194_5MB_DT_PRD_EXTR.bin
+=== 6.0.2.1194_5MB_DT_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.3.1195_5MB_MB_PRD_EXTR.bin
+=== 6.0.3.1195_5MB_MB_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.0.1042_5MB_DT_PRD_EXTR.bin
+=== 6.1.0.1042_5MB_DT_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.32.1076_5MB_DT_PRD_EXTR.bin
+=== 6.1.32.1076_5MB_DT_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.30.1203_5MB_MB_PRD_RGN.bin
+=== 6.0.30.1203_5MB_MB_PRD_RGN.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.3.7143_5MB_MB_PRE_UPD.bin
+=== 6.0.3.7143_5MB_MB_PRE_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.30.1203_5MB_DT_PRD_RGN.bin
+=== 6.0.30.1203_5MB_DT_PRD_RGN.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.0.1115_5MB_MB_PRE_RGN.bin
+=== 6.0.0.1115_5MB_MB_PRE_RGN.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.20.1059_5MB_DT_PRD_EXTR.bin
+=== 6.1.20.1059_5MB_DT_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.3.1195_5MB_DT_PRD_EXTR.bin
+=== 6.0.3.1195_5MB_DT_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.0.1184_5MB_MB_PRD_RGN.bin
+=== 6.0.0.1184_5MB_MB_PRD_RGN.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.1.1045_5MB_MB_PRD_EXTR.bin
+=== 6.1.1.1045_5MB_MB_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.31.1208_5MB_MB_PRD_EXTR.bin
+=== 6.0.31.1208_5MB_MB_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.40.1215_5MB_DT_PRD_EXTR.bin
+=== 6.0.40.1215_5MB_DT_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.31.1208_5MB_DT_PRD_EXTR.bin
+=== 6.0.31.1208_5MB_DT_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.40.1215_5MB_MB_PRD_EXTR.bin
+=== 6.0.40.1215_5MB_MB_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.0.2.1194_5MB_MB_PRD_EXTR.bin
+=== 6.0.2.1194_5MB_MB_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.10.1052_5MB_DT_PRD_EXTR.bin
+=== 6.1.10.1052_5MB_DT_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/Other/6.1.1.1045_5MB_DT_PRD_EXTR.bin
+=== 6.1.1.1045_5MB_DT_PRD_EXTR.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.3.1195_5MB_DT_PRD_UPD.bin
+=== 6.0.3.1195_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.60.1066_5MB_MB_PRD_UPD.bin
+=== 6.2.60.1066_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.20.1035_5MB_DT_PRD_UPD.bin
+=== 6.2.20.1035_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.31.1075_5MB_MB_PRD_UPD.bin
+=== 6.1.31.1075_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.0.1184_5MB_MB_PRD_UPD.bin
+=== 6.0.0.1184_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.30.1040_5MB_DT_PRD_UPD.bin
+=== 6.2.30.1040_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.10.1052_5MB_DT_PRD_UPD.bin
+=== 6.1.10.1052_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.0.1184_5MB_DT_PRD_UPD.bin
+=== 6.0.0.1184_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.40.1045_5MB_MB_PRD_UPD.bin
+=== 6.2.40.1045_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.50.1062_5MB_DT_PRD_UPD.bin
+=== 6.2.50.1062_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.20.1059_5MB_DT_PRD_UPD.bin
+=== 6.1.20.1059_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.50.1062_5MB_MB_PRD_UPD.bin
+=== 6.2.50.1062_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.32.1076_5MB_MB_PRD_UPD.bin
+=== 6.1.32.1076_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.1.30.1074_5MB_MB_PRD_UPD.bin
+=== 6.1.30.1074_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.0.31.1208_5MB_DT_PRD_UPD.bin
+=== 6.0.31.1208_5MB_DT_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/45/Intel ME 6 Firmware Repository Pack r14/6.2.30.1040_5MB_MB_PRD_UPD.bin
+=== 6.2.30.1040_5MB_MB_PRD_UPD.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/26/optiplex_3090.bin
+=== optiplex_3090.bin: 21 records ===
+  types: {'FC/22': 2, 'FC/AA': 1, 'FD/22': 17, 'FD/AA': 1}
+    @0x00c3001 FD type=22 idx=01 flags=0004 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0004 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0000 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0003 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0001 payload=17B
+    @0x00c308d FD type=22 idx=06 flags=0004 payload=33B
+    @0x00c30b9 FD type=22 idx=07 flags=0000 payload=33B
+    @0x00c30e5 FD type=22 idx=08 flags=0000 payload=33B
+    @0x00c3111 FD type=22 idx=09 flags=0003 payload=33B
+    @0x00c313d FD type=22 idx=0A flags=0002 payload=33B
+    @0x00c3169 FD type=22 idx=0B flags=0003 payload=33B
+    @0x00c3195 FD type=22 idx=0C flags=0001 payload=33B
+    @0x00c31c1 FD type=22 idx=0D flags=0003 payload=33B
+    @0x00c31ed FD type=22 idx=0E flags=0003 payload=33B
+    @0x00c3219 FD type=22 idx=0F flags=0004 payload=33B
+    @0x00c3245 FD type=22 idx=10 flags=0001 payload=185B
+    @0x00c3309 FC type=22 idx=12 flags=0000 payload=49B
+    @0x00c3345 FD type=22 idx=11 flags=0002 payload=33B
+    @0x00c3371 FD type=AA idx=12 flags=0003 payload=33B <== PASSWORD RECORD
+        sealed: b5dad263a0485f67215d199b082d6af93d85674cb457b2cfff3acc83a545244224
+    @0x00c339d FC type=22 idx=13 flags=0000 payload=49B
+    @0x00c33d9 FC type=AA idx=14 flags=0001 payload=80B <== PASSWORD RECORD
+        sealed: cdbc6e16f0c89bb8fd9e68c84f5b3d4abc6d42815d2c2aabc317a8cea40f2659ae3df2341a6289dc14204a22fb40890dfb1cd24568e6f5cdbc055390993c7d3a31dabf6aa17d00a7a4191aba6fdf469b
+### /tmp/storecensus/2/Clean me.bin
+=== Clean me.bin: 15 records ===
+  types: {'FD/22': 14, 'FD/AA': 1}
+    @0x00c3001 FD type=22 idx=01 flags=0003 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0003 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0002 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0004 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0002 payload=17B
+    @0x00c308d FD type=22 idx=06 flags=0002 payload=17B
+    @0x00c30a9 FD type=22 idx=07 flags=0002 payload=17B
+    @0x00c30c5 FD type=22 idx=08 flags=0004 payload=17B
+    @0x00c30e1 FD type=22 idx=09 flags=0002 payload=17B
+    @0x00c30fd FD type=22 idx=0A flags=0003 payload=33B
+    @0x00c3129 FD type=22 idx=0B flags=0002 payload=33B
+    @0x00c3155 FD type=22 idx=0C flags=0002 payload=33B
+    @0x00c3181 FD type=22 idx=0D flags=0001 payload=49B
+    @0x00c31bd FD type=22 idx=0E flags=0001 payload=49B
+    @0x00c31f9 FD type=AA idx=0F flags=0004 payload=48B <== PASSWORD RECORD
+        sealed: 7edb2a07ceefea88c4b42119979356ddafec7727d3952f4c7e8bd2376e4b8ee03f46a1ad151de070e9908c632adf0a3c
+### /tmp/storecensus/2/BACKUP.BIN
+=== BACKUP.BIN: 15 records ===
+  types: {'FD/22': 14, 'FD/AA': 1}
+    @0x00c3001 FD type=22 idx=01 flags=0003 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0003 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0002 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0004 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0002 payload=17B
+    @0x00c308d FD type=22 idx=06 flags=0002 payload=17B
+    @0x00c30a9 FD type=22 idx=07 flags=0002 payload=17B
+    @0x00c30c5 FD type=22 idx=08 flags=0004 payload=17B
+    @0x00c30e1 FD type=22 idx=09 flags=0002 payload=17B
+    @0x00c30fd FD type=22 idx=0A flags=0003 payload=33B
+    @0x00c3129 FD type=22 idx=0B flags=0002 payload=33B
+    @0x00c3155 FD type=22 idx=0C flags=0002 payload=33B
+    @0x00c3181 FD type=22 idx=0D flags=0001 payload=49B
+    @0x00c31bd FD type=22 idx=0E flags=0001 payload=49B
+    @0x00c31f9 FD type=AA idx=0F flags=0004 payload=48B <== PASSWORD RECORD
+        sealed: 7edb2a07ceefea88c4b42119979356ddafec7727d3952f4c7e8bd2376e4b8ee03f46a1ad151de070e9908c632adf0a3c
+### /tmp/storecensus/36/W25Q32_20161217_50656.BIN
+=== W25Q32_20161217_50656.BIN: 0 records ===
+  types: {}
+### /tmp/storecensus/15/IPCML-RN ZB MLK REV A00/IPCML-RN ZB MLK REV A00 READ  .Bin
+=== IPCML-RN ZB MLK REV A00 READ  .Bin: 16 records ===
+  types: {'FD/22': 15, 'FD/AA': 1}
+    @0x00c3001 FD type=22 idx=01 flags=0004 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0003 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0000 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0004 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0001 payload=17B
+    @0x00c308d FD type=22 idx=06 flags=0002 payload=33B
+    @0x00c30b9 FD type=22 idx=07 flags=0000 payload=33B
+    @0x00c30e5 FD type=22 idx=08 flags=0003 payload=33B
+    @0x00c3111 FD type=22 idx=09 flags=0004 payload=33B
+    @0x00c313d FD type=22 idx=0A flags=0003 payload=33B
+    @0x00c3169 FD type=22 idx=0B flags=0004 payload=33B
+    @0x00c3195 FD type=22 idx=0C flags=0003 payload=33B
+    @0x00c31c1 FD type=22 idx=0D flags=0002 payload=33B
+    @0x00c31ed FD type=22 idx=0E flags=0004 payload=33B
+    @0x00c3219 FD type=22 idx=0F flags=0000 payload=33B
+    @0x00c3245 FD type=AA idx=10 flags=0004 payload=32B <== PASSWORD RECORD
+        sealed: 78fadabf8b51e29d153775c52e0caf47e6e7729428a3b21e4a5103ccfab232be
+### /tmp/storecensus/34/11.0.0.1205_CON_LP_C_NPDM_PRD_RGN_outimage.bin
+=== 11.0.0.1205_CON_LP_C_NPDM_PRD_RGN_outimage.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/23/32MB.BIN
+=== 32MB.BIN: 21 records ===
+  types: {'FC/AA': 1, 'FD/22': 19, 'FD/AA': 1}
+    @0x00c3001 FD type=22 idx=01 flags=0001 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0004 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0003 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0001 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0003 payload=17B
+    @0x00c308d FD type=22 idx=06 flags=0001 payload=17B
+    @0x00c30a9 FD type=22 idx=07 flags=0004 payload=17B
+    @0x00c30c5 FD type=22 idx=08 flags=0003 payload=33B
+    @0x00c30f1 FD type=22 idx=09 flags=0002 payload=33B
+    @0x00c311d FD type=22 idx=0A flags=0000 payload=33B
+    @0x00c3149 FD type=22 idx=0B flags=0000 payload=33B
+    @0x00c3175 FD type=22 idx=0C flags=0002 payload=33B
+    @0x00c31a1 FD type=22 idx=0D flags=0003 payload=33B
+    @0x00c31cd FD type=22 idx=0E flags=0003 payload=33B
+    @0x00c31f9 FD type=22 idx=0F flags=0003 payload=33B
+    @0x00c3225 FD type=22 idx=10 flags=0001 payload=33B
+    @0x00c3251 FD type=22 idx=11 flags=0004 payload=33B
+    @0x00c327d FD type=22 idx=12 flags=0002 payload=33B
+    @0x00c32a9 FD type=22 idx=13 flags=0002 payload=49B
+    @0x00c32e5 FD type=AA idx=14 flags=0000 payload=49B <== PASSWORD RECORD
+        sealed: 1d3678785b02ea573b328d8e7a31dab09f3b69315953251e6d6351c7c0b53adfb2f7fcf48a5f7cc20f30d273101ada9524
+    @0x00c3321 FC type=AA idx=15 flags=0004 payload=48B <== PASSWORD RECORD
+        sealed: 7a1f1c8f0e2ba2ecb7a76c39f8da5e746b942ed3e7ad5e5db4c00abd0c5d24014e92d57a78c8fa2cf388cb377abf60d8
+### /tmp/storecensus/28/Dell XPS 13 9350 AAZ80 LA-C881P DINO2 MB 1.0 A00 Clear me.bin
+=== Dell XPS 13 9350 AAZ80 LA-C881P DINO2 MB 1.0 A00 Clear me.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/19/Dell Precision 3640 IPCML-RT/Precision 3640 Tower TRY FIRST IF NOT WORK TRY _1.bin
+=== Precision 3640 Tower TRY FIRST IF NOT WORK TRY _1.bin: 24 records ===
+  types: {'FD/00': 1, 'FD/22': 23}
+    @0x00c3001 FD type=22 idx=01 flags=0002 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0003 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0000 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0000 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0004 payload=33B
+    @0x00c309d FD type=22 idx=06 flags=0003 payload=33B
+    @0x00c30c9 FD type=22 idx=07 flags=0004 payload=33B
+    @0x00c30f5 FD type=22 idx=08 flags=0001 payload=33B
+    @0x00c3121 FD type=22 idx=09 flags=0001 payload=33B
+    @0x00c314d FD type=22 idx=0A flags=0004 payload=33B
+    @0x00c3179 FD type=22 idx=0B flags=0001 payload=33B
+    @0x00c31a5 FD type=22 idx=0C flags=0000 payload=33B
+    @0x00c31d1 FD type=22 idx=0D flags=0001 payload=33B
+    @0x00c31fd FD type=22 idx=0E flags=0002 payload=49B
+    @0x00c3239 FD type=22 idx=0F flags=0002 payload=49B
+    @0x00c3275 FD type=22 idx=10 flags=0002 payload=49B
+    @0x00c32b1 FD type=22 idx=11 flags=0003 payload=49B
+    @0x00c32ed FD type=22 idx=12 flags=0000 payload=65B
+    @0x00c3339 FD type=22 idx=13 flags=0002 payload=65B
+    @0x00c3385 FD type=22 idx=14 flags=0000 payload=65B
+    @0x00c33d1 FD type=22 idx=15 flags=0000 payload=65B
+    @0x00c341d FD type=22 idx=16 flags=0003 payload=65B
+    @0x00c3469 FD type=22 idx=17 flags=0001 payload=65B
+    @0x00c34b5 FD type=00 idx=18 flags=0003 payload=64B
+### /tmp/storecensus/19/Dell Precision 3640 IPCML-RT/Precision 3640 Tower_1.bin
+=== Precision 3640 Tower_1.bin: 24 records ===
+  types: {'FD/00': 1, 'FD/22': 23}
+    @0x00c3001 FD type=22 idx=01 flags=0002 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0003 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0000 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0000 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0004 payload=33B
+    @0x00c309d FD type=22 idx=06 flags=0003 payload=33B
+    @0x00c30c9 FD type=22 idx=07 flags=0004 payload=33B
+    @0x00c30f5 FD type=22 idx=08 flags=0001 payload=33B
+    @0x00c3121 FD type=22 idx=09 flags=0001 payload=33B
+    @0x00c314d FD type=22 idx=0A flags=0004 payload=33B
+    @0x00c3179 FD type=22 idx=0B flags=0001 payload=33B
+    @0x00c31a5 FD type=22 idx=0C flags=0000 payload=33B
+    @0x00c31d1 FD type=22 idx=0D flags=0001 payload=33B
+    @0x00c31fd FD type=22 idx=0E flags=0002 payload=49B
+    @0x00c3239 FD type=22 idx=0F flags=0002 payload=49B
+    @0x00c3275 FD type=22 idx=10 flags=0002 payload=49B
+    @0x00c32b1 FD type=22 idx=11 flags=0003 payload=49B
+    @0x00c32ed FD type=22 idx=12 flags=0000 payload=65B
+    @0x00c3339 FD type=22 idx=13 flags=0002 payload=65B
+    @0x00c3385 FD type=22 idx=14 flags=0000 payload=65B
+    @0x00c33d1 FD type=22 idx=15 flags=0000 payload=65B
+    @0x00c341d FD type=22 idx=16 flags=0003 payload=65B
+    @0x00c3469 FD type=22 idx=17 flags=0001 payload=65B
+    @0x00c34b5 FD type=00 idx=18 flags=0003 payload=64B
+### /tmp/storecensus/12/Clean cseme.bin
+=== Clean cseme.bin: 20 records ===
+  types: {'FC/00': 1, 'FD/00': 1, 'FD/22': 18}
+    @0x00c3001 FD type=22 idx=01 flags=0000 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0003 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0002 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0002 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0004 payload=17B
+    @0x00c308d FD type=22 idx=06 flags=0000 payload=17B
+    @0x00c30a9 FD type=22 idx=07 flags=0000 payload=17B
+    @0x00c30c5 FD type=22 idx=08 flags=0000 payload=33B
+    @0x00c30f1 FD type=22 idx=09 flags=0000 payload=33B
+    @0x00c311d FD type=22 idx=0A flags=0004 payload=33B
+    @0x00c3149 FD type=22 idx=0B flags=0001 payload=33B
+    @0x00c3175 FD type=22 idx=0C flags=0001 payload=33B
+    @0x00c31a1 FD type=22 idx=0D flags=0004 payload=33B
+    @0x00c31cd FD type=22 idx=0E flags=0000 payload=33B
+    @0x00c31f9 FD type=22 idx=0F flags=0000 payload=33B
+    @0x00c3225 FD type=22 idx=10 flags=0002 payload=33B
+    @0x00c3251 FD type=22 idx=11 flags=0001 payload=33B
+    @0x00c327d FD type=22 idx=12 flags=0004 payload=33B
+    @0x00c32a9 FD type=00 idx=13 flags=0000 payload=49B
+    @0x00c32e5 FC type=00 idx=14 flags=0000 payload=48B
+### /tmp/storecensus/12/3090 Bios Password Unlocked.bin
+=== 3090 Bios Password Unlocked.bin: 20 records ===
+  types: {'FC/00': 1, 'FD/00': 1, 'FD/22': 18}
+    @0x00c3001 FD type=22 idx=01 flags=0000 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0003 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0002 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0002 payload=17B
+    @0x00c3071 FD type=22 idx=05 flags=0004 payload=17B
+    @0x00c308d FD type=22 idx=06 flags=0000 payload=17B
+    @0x00c30a9 FD type=22 idx=07 flags=0000 payload=17B
+    @0x00c30c5 FD type=22 idx=08 flags=0000 payload=33B
+    @0x00c30f1 FD type=22 idx=09 flags=0000 payload=33B
+    @0x00c311d FD type=22 idx=0A flags=0004 payload=33B
+    @0x00c3149 FD type=22 idx=0B flags=0001 payload=33B
+    @0x00c3175 FD type=22 idx=0C flags=0001 payload=33B
+    @0x00c31a1 FD type=22 idx=0D flags=0004 payload=33B
+    @0x00c31cd FD type=22 idx=0E flags=0000 payload=33B
+    @0x00c31f9 FD type=22 idx=0F flags=0000 payload=33B
+    @0x00c3225 FD type=22 idx=10 flags=0002 payload=33B
+    @0x00c3251 FD type=22 idx=11 flags=0001 payload=33B
+    @0x00c327d FD type=22 idx=12 flags=0004 payload=33B
+    @0x00c32a9 FD type=00 idx=13 flags=0000 payload=49B
+    @0x00c32e5 FC type=00 idx=14 flags=0000 payload=48B
+### /tmp/storecensus/14/OptiPlex 3090 main_ok try First IF not Power On Try Another.bin
+=== OptiPlex 3090 main_ok try First IF not Power On Try Another.bin: 12 records ===
+  types: {'FD/22': 12}
+    @0x00c3001 FD type=22 idx=01 flags=0004 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0004 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0000 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0003 payload=33B
+    @0x00c3081 FD type=22 idx=05 flags=0003 payload=33B
+    @0x00c30ad FD type=22 idx=06 flags=0004 payload=33B
+    @0x00c30d9 FD type=22 idx=07 flags=0004 payload=33B
+    @0x00c3105 FD type=22 idx=08 flags=0004 payload=33B
+    @0x00c3131 FD type=22 idx=09 flags=0002 payload=33B
+    @0x00c315d FD type=22 idx=0A flags=0002 payload=33B
+    @0x00c3189 FD type=22 idx=0B flags=0004 payload=33B
+    @0x00c31b5 FD type=22 idx=0C flags=0002 payload=32B
+### /tmp/storecensus/14/OptiPlex 3090 main_New ok.bin
+=== OptiPlex 3090 main_New ok.bin: 12 records ===
+  types: {'FD/22': 12}
+    @0x00c3001 FD type=22 idx=01 flags=0004 payload=17B
+    @0x00c301d FD type=22 idx=02 flags=0004 payload=17B
+    @0x00c3039 FD type=22 idx=03 flags=0000 payload=17B
+    @0x00c3055 FD type=22 idx=04 flags=0003 payload=33B
+    @0x00c3081 FD type=22 idx=05 flags=0003 payload=33B
+    @0x00c30ad FD type=22 idx=06 flags=0004 payload=33B
+    @0x00c30d9 FD type=22 idx=07 flags=0004 payload=33B
+    @0x00c3105 FD type=22 idx=08 flags=0004 payload=33B
+    @0x00c3131 FD type=22 idx=09 flags=0002 payload=33B
+    @0x00c315d FD type=22 idx=0A flags=0002 payload=33B
+    @0x00c3189 FD type=22 idx=0B flags=0004 payload=33B
+    @0x00c31b5 FD type=22 idx=0C flags=0002 payload=32B
+### /tmp/storecensus/3/2 TroyAdl_16.1.27.2176_EVT_64 v1.17.0 -- 1 System BIOS with BiosGuard v1.17.0.bin
+=== 2 TroyAdl_16.1.27.2176_EVT_64 v1.17.0 -- 1 System BIOS with BiosGuard v1.17.0.bin: 0 records ===
+  types: {}
+### /tmp/storecensus/30/ok 6520 Main+EC/BIOS/ok  E6520 LA-6562p.BIN
+=== ok  E6520 LA-6562p.BIN: 0 records ===
+  types: {}
+### /tmp/storecensus/1/DELL OPTIPLEX 70000 TOWER  D31M UNLOCK 32MB BIOS/DELL optiplex 70000 GD25Q256C@SOP16_20250823_183534.BIN
+=== DELL optiplex 70000 GD25Q256C@SOP16_20250823_183534.BIN: 0 records ===
+  types: {}
+### /tmp/storecensus/37/ok.BIN
+=== ok.BIN: 0 records ===
+  types: {}
+### /tmp/storecensus/37/8MB.bin
+=== 8MB.bin: 0 records ===
+  types: {}
