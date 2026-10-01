@@ -1,0 +1,20 @@
+{
+ "files": {
+  "BIOS_IMG.rcv": {
+   "bytes": 29891566,
+   "sha256": "0145926059402a6d1582c0d824a9c712812e20b6b884335e0ed5f87767a5b075"
+  },
+  "Firmware_WNXXT_WN32_2.2_A02.EXE": {
+   "bytes": 10838144,
+   "sha256": "55d6c2d1114380398c7e509fc13804a7aa7666808846aad0cf56c340020126bb"
+  },
+  "OptiPlex_3080_1.3.10.exe": {
+   "bytes": 25475264,
+   "sha256": "12f71a788414777a85e5da58c498d1db117ec7ac1f05eff843507fff31abd975"
+  },
+  "OptiPlex_3090_UFF_1.1.0.exe": {
+   "bytes": 29900248,
+   "sha256": "9bacb838f088c0a05826a90ad3d40ea7055b358053420579a46e6567ac65c17d"
+  }
+ }
+}

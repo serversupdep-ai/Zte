@@ -50,7 +50,7 @@
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334496 bytes, sha256 6cdf657b4c73a6e9…)
+    [saved] mediafire_3410/mediafire_page.html (334493 bytes, sha256 cfbcc6593b0736b5…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -91,21 +91,21 @@
 [skip] badcaps_3080_85841 already fetched
 [skip] biosfix_8fc8_53041 already fetched
 [skip] yt_seller_jmW789IwJEI already fetched
-[PAGE] https://t.me/s/biosarchive -> raw/tgbiosarchive_watch
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tgbiosarchive_watch/page.html (123365 bytes, sha256 edd4211767295407…)
-    [links] 1 candidates
-    [saved] tgbiosarchive_watch/dl (6391 bytes)
-[PAGE] https://vinafix.com/threads/45618/ -> raw/vinafix_3090_45618_watch
-    [page head] '<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><m'
-    [saved] vinafix_3090_45618_watch/page.html (5657 bytes, sha256 224140930e0f3b5f…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/forum/showthread.php?t=98981 -> raw/badcaps_3090_98981_watch
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_3090_98981_watch/page.html (2387 bytes, sha256 21bc540f400e4ea4…)
-    [links] 0 candidates
+[skip] tgbiosarchive_watch already fetched
+[skip] vinafix_3090_45618_watch already fetched
+[skip] badcaps_3090_98981_watch already fetched
 [PAGE] https://www.dr-bios.com/mht/Dell-OptiPlex-3090-212037-1/68894 -> raw/drbios_3090_68894_watch
     [page fetch failed] https://www.dr-bios.com/mht/Dell-OptiPlex-3090-212037-1/68894
+[FILE] https://dl.dell.com/FOLDER07173175M/1/OptiPlex_3080_1.3.10.exe -> raw/misc/dell_3080_1310
+    [saved] misc/OptiPlex_3080_1.3.10.exe (25475264 bytes)
+[FILE] https://dl.dell.com/FOLDER07173178M/1/BIOS_IMG.rcv -> raw/misc/dell_3080_1310_rcv
+    [saved] misc/BIOS_IMG.rcv (25466584 bytes)
+[FILE] https://dl.dell.com/FOLDER07322275M/1/OptiPlex_3090_UFF_1.1.0.exe -> raw/misc/dell_3090uff_110
+    [saved] misc/OptiPlex_3090_UFF_1.1.0.exe (29900248 bytes)
+[FILE] https://dl.dell.com/FOLDER07322277M/1/BIOS_IMG.rcv -> raw/misc/dell_3090uff_110_rcv
+    [saved] misc/BIOS_IMG.rcv (29891566 bytes)
+[FILE] https://dl.dell.com/FOLDER03495025M/5/Firmware_WNXXT_WN32_2.2_A02.EXE -> raw/misc/dell_ec_tool_wnxxt
+    [saved] misc/Firmware_WNXXT_WN32_2.2_A02.EXE (10838144 bytes)
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -165,6 +165,7 @@
 [EXTRACT-PASS] indiafix_3410_wayback
 [EXTRACT-PASS] mediafire_3410
 [EXTRACT-PASS] mediafire_3410_page
+[EXTRACT-PASS] misc
 [EXTRACT-PASS] reddit_1mni7p9_comments
 [EXTRACT-PASS] reddit_1mni7p9_post
 [EXTRACT-PASS] repairlap_3410
