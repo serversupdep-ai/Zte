@@ -13,3 +13,10 @@
   full 32MB dump (all signatures fire; DVAR dedupe fixed).
 - RESULT: no new artifacts. Next cycle: retry vinafix/badcaps fresh pages, check
   t.me/s/biosarchive weekly, GitHub sweep monthly, issue #5 unchanged.
+
+## Cycle 2 — 2026-10-01 (GEN 1, EVOLVE_PROMPT)
+- Machine-4 paradox differential: RESOLVED (see §11.17). EC updates in-place;
+  staged bundle = factory recovery image. No EC material in dumps beyond it
+  or in any package (inverse-S-box re-scan included).
+- Next: Chromium-EC npcx flash/loader semantics vs recovery payload (GEN 3
+  overlap); GEN 2 asks (repair-shop EC read commission; sellers).

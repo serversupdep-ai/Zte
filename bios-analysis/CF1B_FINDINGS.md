@@ -1335,3 +1335,35 @@ secure-boot architecture (KPROM key-gated flash writes, signature-checked
 APROM) matches the observed layout: encoded payload + unstaged key area.
 Closed lead — decoding requires dedicated RE of the loader, not public
 knowledge.
+
+### 11.17 GEN-1 differential: the machine-4 paradox resolved (2026-10-01)
+
+Per EVOLVE_PROMPT (GEN 0 venue-monitoring retired after zero results; GEN 1
+= differential forensics on held artifacts). First action: resolve why the
+OK-tested machine (M4) runs a different EC build (PHCM A=b0c5bf15 vs
+077c070c on M1-M3) while its staged EC bundle (0x7b59fc) is byte-identical.
+
+**Method**: full-image 4KB-block differential — blocks identical across
+M1/M2/M3 but different in M4 isolate M4's build-level deltas.
+
+**Result**: exactly 55 delta blocks:
+- 0x1000-0x19000 + 0x41000-0x59000: PHCM slots A and B — M4's newer sealed
+  store (expected).
+- 0x10b5000-0x10bf280 (~41.6 KB): M4-only content, absent (all-FF) on
+  M1-M3. Inspected: entropy 1.60, pure 00/01/FF bitfields — a BIOS
+  settings-state blob of the newer BIOS, NOT EC staging.
+- **Zero** new EC-bundle chains, zero inverse-S-box, zero $FPT/SIVB/PHCM
+  elsewhere. Re-verified with the inverse-S-box + chain scan (post-§11.16
+  knowledge): both 3090 packages (2.0.7 AND latest, DUB + raw) contain NO
+  EC delta either.
+
+**Conclusion (structural, final for this surface)**: the 3090's EC firmware
+updates IN PLACE in EC silicon — no full EC image is ever staged in the SPI
+dump or delivered by a BIOS package. The byte-identical 0x7b59fc bundle is
+the FACTORY RECOVERY image only. Therefore no newer-EC-build material
+exists anywhere outside the EC's internal flash: the keygen's missing input
+is obtainable exclusively via (a) direct EC internal-flash read (GEN 2:
+commission/ask — NPCX7 SWD/eSPI), or (b) decoding the factory recovery
+payload we already hold (GEN 1 next: Chromium-EC npcx loader knowledge).
+This closes the last "maybe it's staged somewhere" hypothesis — the hunt's
+remaining surface is now exactly two named doors.
