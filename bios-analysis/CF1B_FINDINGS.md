@@ -1325,3 +1325,13 @@ KEK at 0x80418020+ in EC-internal flash. §11.5/§11.7/§11.10.6/§11.14's
 impossibility conclusion for OFFLINE derivation stands — but the attack
 surface has moved from "nothing to attack" to "one encoded blob + one
 unstaged address range", the closest the campaign has ever been.
+
+**§11.16.6 addendum — public-format check (2026-10-01).** The bundle's
+format has no public parser: GitHub code search for the EC-flash constants
+(0x8040e000 / 0x80402000 / 0x80400000 + NPCX) returns zero relevant hits;
+no Nuvoton/Dell EC-update format documentation is public (only the
+Windows/DOS "FlashUpdate" user guide exists, scribd). Nuvoton's documented
+secure-boot architecture (KPROM key-gated flash writes, signature-checked
+APROM) matches the observed layout: encoded payload + unstaged key area.
+Closed lead — decoding requires dedicated RE of the loader, not public
+knowledge.
