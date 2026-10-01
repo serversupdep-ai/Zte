@@ -15,6 +15,10 @@
   "OptiPlex_3090_UFF_1.1.0.exe": {
    "bytes": 29900248,
    "sha256": "9bacb838f088c0a05826a90ad3d40ea7055b358053420579a46e6567ac65c17d"
+  },
+  "manifest.json": {
+   "bytes": 571,
+   "sha256": "3ffda2484f7eb70977fe3b914d163e2aa68d4f69b7b4b60bf2883a72c6ee80d9"
   }
  }
 }
