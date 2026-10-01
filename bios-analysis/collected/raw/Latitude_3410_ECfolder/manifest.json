@@ -2,7 +2,7 @@
  "files": {
   "manifest.json": {
    "bytes": 498,
-   "sha256": "06f7e1491bc35810018447cf85807442d15889775e18331d966369ae5d61a055"
+   "sha256": "ebf5630eb7df6666af648a0e7542a1e908ec8b4945e9089cf50c36d6fc989f09"
   },
   "folder_dl/DELL LATITUDE 3510   MOCKINGBIRD -L  CML  UMA  6L    19746   BOARDVIEW.zip": {
    "bytes": 76334,
@@ -11,6 +11,10 @@
   "folder_dl/MOCKINGBIRD-L CML UMA 8L (19746-1).zip": {
    "bytes": 2564243,
    "sha256": "758d032db16a77bf128e890ce08fd1be3486286f4dbc539c4d2a717662d0b2fd"
+  },
+  "extracted/MOCKINGBIRD-L CML UMA 8L (19746-1).pdf": {
+   "bytes": 3060260,
+   "sha256": "5963f8bc82629e7ddd4f51f90fde1a0c7e835c4ff86256c5ded7b0509ea7a813"
   }
  }
 }
