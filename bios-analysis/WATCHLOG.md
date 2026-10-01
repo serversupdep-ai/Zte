@@ -20,3 +20,20 @@
   or in any package (inverse-S-box re-scan included).
 - Next: Chromium-EC npcx flash/loader semantics vs recovery payload (GEN 3
   overlap); GEN 2 asks (repair-shop EC read commission; sellers).
+
+## Cycle 2b — 2026-10-01 (GEN 3 knowledge intake: Chromium-EC npcx)
+- Chromium-EC npcx facts landed: flash images carry a BOOT HEADER
+  (CONFIG_BOOTHEADER_SIZE); NPCX boot ROM copies RO/RW images from flash to
+  SRAM (download_from_flash ROM API); RO ~flash-0x0.., RW at 0x20000 class
+  offsets; RO hardware-write-protected at factory. Nuvoton secure boot
+  (KPROM/signature) matches our encoded payload observation.
+- Implication for our bundle: components at 0x80402000 (0x5aac) and
+  0x8040e000 (0xfb4) = EC-internal-flash images; the 0xfb4 component starts
+  non-vector (encoded), the 0x5aac starts with vectors. The 64.5KB payload
+  (0x300-0x10330) is unreferenced by the two records — likely a third image
+  (RW?) with a boot header we can now recognize.
+- NEXT ACTIONS (queue): (1) fetch npcx boot-header struct from
+  chromiumos/platform/ec chip/npcx (config_chip.h / booter defs) and match
+  against bundle offsets 0x300, 0x10de0, 0x117f0 surroundings;
+  (2) re-map bundle under Dell flash layout (RO@0x2000, RW@0xe000);
+  (3) GEN 2 asks remain open.
