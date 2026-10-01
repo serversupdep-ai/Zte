@@ -121,3 +121,8 @@ PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electron
 # === final CF1B public-venue sweep ===
 PAGE|https://bios-fix.com/index.php?threads/dell-bios-unlock-8fc8.53041/|biosfix_8fc8_53041
 PAGE|https://www.youtube.com/watch?v=jmW789IwJEI|yt_seller_jmW789IwJEI
+# === master_hunter watch sweep (auto) ===
+PAGE|https://t.me/s/biosarchive|tgbiosarchive_watch
+PAGE|https://vinafix.com/threads/45618/|vinafix_3090_45618_watch
+PAGE|https://www.badcaps.net/forum/showthread.php?t=98981|badcaps_3090_98981_watch
+PAGE|https://www.dr-bios.com/mht/Dell-OptiPlex-3090-212037-1/68894|drbios_3090_68894_watch
