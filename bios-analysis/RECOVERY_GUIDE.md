@@ -59,7 +59,8 @@ The badcaps 3090 thread (2022–2023) proved this exact flow on locked 3090s
 (tags 2RCDXM3, 4JD7KN3, 8LHR0N3):
 
 ```bash
-# 1. Dump the SPI (16 MB) with your programmer; save a pristine copy.
+# 1. Dump the SPI (32 MB on most 3090 boards; verify your chip first) with
+#    your programmer; save a pristine copy.
 # 2. Check the dump's lock state first (pre/post check, §11.9 census):
 python3 dell_unlock_image.py --state dump.bin
 #    (FACTORY-RESET = nothing to patch; USED = patch route applies)
@@ -129,3 +130,16 @@ If you cannot perform technical steps yourself, two complete paths exist:
    this model (§11.15). Our field-proven Route-B patcher
    (dell_unlock_image.py) is the alternative. The password then reverts to
    factory blank.
+
+   SIVB notes (§11.20, measured on real dumps):
+   - The SIVB vault is a 16 KB ME-region partition (the EC's per-machine
+     password/state store). On the 3090 it sits at 0x891000; live data can
+     extend past the 5552-byte window (measured to +0x26ef). If the
+     validated 5552-byte rollback ever leaves the machine locked, our
+     `dellpwn_port.py clear-sivb dump.bin out.bin --full` zeroes the whole
+     16 KB vault partition — never more: at +0x4000 the ME filesystem
+     begins (magic 87 78 55 AA) and must not be touched.
+   - **Latitude 3410**: the vault lives on the small 8 MB companion chip
+     (CSME image), NOT the 16 MB BIOS chip. Locate it by the "SIVB" magic
+     (seen at 0x3c3000 and at 0x103000 depending on ME version) and clear
+     the same way.

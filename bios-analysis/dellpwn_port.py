@@ -269,6 +269,11 @@ def scan_for_passwords(data, start, end, include_partial=False):
     return results
 
 def main():
+    if len(sys.argv) >= 2 and sys.argv[1] == "clear-sivb":
+        if len(sys.argv) < 4:
+            print("usage: dellpwn_port.py clear-sivb <in.bin> <out.bin> [--full]")
+            return
+        cmd_clear_sivb(sys.argv[2], sys.argv[3], full=("--full" in sys.argv)); return
     path = sys.argv[1]
     include_partial = "--partial" in sys.argv
     data = open(path, "rb").read()
@@ -300,11 +305,8 @@ def main():
     if not total:
         print("No passwords found in DVAR regions.")
 
-if __name__ == "__main__":
-    main()
-
 # ---- clear-sivb subcommand (vault rollback, R3n5k1/dellpwn semantics) ----
-def cmd_clear_sivb(src, dst):
+def cmd_clear_sivb(src, dst, full=False):
     import struct as _s
     data = bytearray(open(src, "rb").read())
     blocks = []
@@ -318,9 +320,29 @@ def cmd_clear_sivb(src, dst):
     for off in blocks:
         nontrivial = sum(1 for b in data[off+4:off+5552] if b not in (0, 0xFF))
         if nontrivial > 10:
-            data[off:off+5552] = b"\x00" * 5552
-            print(f"Cleared SIVB @0x{off:06x} (5552 bytes zeroed, was {nontrivial} non-trivial)")
+            # §11.20 vault-extent safety: the SIVB vault lives in a 16KB
+            # (0x4000) ME partition (IVBP). Live vault data has been measured
+            # to +0x26ef (3090) / +0x13c0+status-block (3410), i.e. beyond the
+            # legacy 5552-byte window but ALWAYS inside the 16KB partition.
+            # Past +0x4000 comes the NEXT ME structure (MFS file headers,
+            # magic 87 78 55 AA) — never touch those.
+            # Default: the field-validated 5552B rollback (§11.15).
+            # --full: zero the entire 16KB vault partition.
+            if full:
+                end = off + 0x4000
+                span = 0x4000
+            else:
+                end = off + 5552
+                span = 5552
+            data[off:end] = b"\x00" * span
+            print(f"Cleared SIVB @0x{off:06x} ({span} bytes zeroed"
+                  f"{' — FULL 16KB partition' if full else ' — validated range'}; "
+                  f"{nontrivial} non-trivial bytes were in legacy window)")
         else:
             print(f"SIVB @0x{off:06x}: already empty")
     open(dst, "wb").write(data)
     print(f"Patched image written: {dst} ({len(data):,} bytes)")
+
+
+if __name__ == "__main__":
+    main()

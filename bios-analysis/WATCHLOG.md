@@ -92,3 +92,9 @@
 - Public-tool sweep Oct 2026: still no CF1B/8FC8 keygen anywhere public.
 - New corpus leads logged: 3440 QUAKEL14, 5430/7430, 5410 LA-J371P dumps
   (PHCM/SIVB architecture current through Raptor Lake).
+- dellpwn_port.py clear-sivb upgraded: wired into main(), default = validated
+  5552B rollback, --full = whole 16KB vault partition; extended-clear bug
+  (would have crossed into MFS files at +0x4000, magic 8778 55AA) caught and
+  fixed pre-release; validated on locked 3090 + 3410 8MB dumps.
+- RECOVERY_GUIDE.md: Route-B chip-size corrected (32MB), SIVB notes added
+  (16KB partition boundary, --full fallback, 3410 vault on the 8MB chip).
