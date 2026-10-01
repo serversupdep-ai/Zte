@@ -136,3 +136,5 @@ FILE|https://dl.dell.com/FOLDER07173178M/1/BIOS_IMG.rcv|3080_BIOS_IMG.rcv|dell_3
 # === §11.19 first-release EC-container historical door (2026-10-01) ===
 FILE|https://dl.dell.com/FOLDER06269280M/1/Latitude_3410_3510_1.2.0.exe|Latitude_3410_3510_1.2.0.exe|dell_3410_120
 FILE|https://dl.dell.com/FOLDER06245126M/1/Latitude_5X10_Precision_3550_1.1.1.exe|Latitude_5X10_Precision_3550_1.1.1.exe|dell_5x10_111
+# === §11.19 pre-CML: 3070 (Coffee Lake, 2019-2020) EC-section test ===
+FILE|https://dl.dell.com/FOLDER06312863M/1/OptiPlex_3070_1.4.4.exe|OptiPlex_3070_1.4.4.exe|dell_3070_144
