@@ -37,3 +37,21 @@
   against bundle offsets 0x300, 0x10de0, 0x117f0 surroundings;
   (2) re-map bundle under Dell flash layout (RO@0x2000, RW@0xe000);
   (3) GEN 2 asks remain open.
+
+## Cycle 3 — 2026-10-01 (RESEARCH_PROTOCOL cycle 1: NPCX header fit + region re-parse)
+- Chromium-EC npcx facts applied; region layout RE-PARSED correctly for the
+  first time (previous comp split was wrong):
+  * 0x82d44c region = [rec1 {7,0xfbc,0x8040e000,0xfb4}] + compB@+0x10 (0xfb4:
+    VECTOR TABLE {SP 0x20016f80, entry 0xa128, SP 0x20016f84, entry 0xa12c} +
+    dense config/pinmux tables incl. NPCX MMIO 0xf0xxxxxx values)
+    + [rec2 {7,0x5aac,0x80402000,0x5aa4}] @+0xfc4 + compA@+0xfd4 (0x5aa4:
+    pure data/config tables — incl. the hot 0x804070cf refs)
+  * compB vectors' entry 0xa128 lies INSIDE the encoded payload's EC-flash
+    footprint (0x80400300-0x80410330) => the staged 0x6a60 region contains
+    NO executable code; the ONLY code = the 64.5KB encoded payload.
+  * Bundle payload is NOT the EC flash image verbatim (compA/compB heads
+    absent from it); its head region also carries MMIO-init-style data.
+- CONCLUSION (verified): EC staged layout fully mapped; decode of the main
+  app is performed by the NPCX boot ROM (Nuvoton secure boot, KPROM) —
+  matches §11.16.6. Static decode requires either the boot ROM's key
+  (silicon) or a same-generation Nuvoton SDK/loader leak (GEN 2/3 queue).
