@@ -79,3 +79,16 @@
   per-build key is EC-side (boot ROM/loader), not container-derived.
 - QUEUED (relay): 3410/3510 1.2.0 (first release, 2020-05) + 5410/5510
   1.1.1 (first release, 2020-05) — historical-plaintext door test.
+
+## Cycle 6 (2026-10-01, §11.20) — SIVB vault + generational sweep
+- First-release packages 3410 1.2.0 + 5X10 1.1.1: sealed PHCM from day one;
+  3070 1.4.4: no EC section at all. Package-plaintext door CLOSED (all gens).
+- SIVB vault discovered as the universal Dell EC password/state store
+  (3070/7070/3090/3410/5410/3440/5430/7430); format mapped; per-machine
+  encrypted content confirmed (zero shared data blocks across machines).
+- 3090 locked-vs-unlocked differential: chain+bundle identical (per-build),
+  vault + store instances per-machine. 3410 store materials build-uniform.
+- Cross-version ECB collision test: negative (only literal padding).
+- Public-tool sweep Oct 2026: still no CF1B/8FC8 keygen anywhere public.
+- New corpus leads logged: 3440 QUAKEL14, 5430/7430, 5410 LA-J371P dumps
+  (PHCM/SIVB architecture current through Raptor Lake).

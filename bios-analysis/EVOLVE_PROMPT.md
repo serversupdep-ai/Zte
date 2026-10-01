@@ -94,3 +94,14 @@ service-side artifacts: Dell diagnostics/WinPE ISOs with EC tools.
 - GEN 2 (EC read) now has exact Wistron JTAG1 test points for 3410.
 - Retired this cycle: package-PFS extraction as a blocker (solved — EC
   sections extract); container self-material key derivation (matrix negative).
+
+### Cycle 6 evolution entry (2026-10-01, §11.20)
+- G1.4 "first-release plaintext" RETIRED (two zero-result cycles; sealed
+  from day one; pre-CML ships no EC at all).
+- NEW G1.5 "vault forensics" ran to conclusion: SIVB vaults per-machine
+  encrypted; no static-key reuse; no obfuscation weakness. CLOSED.
+- G4 "leaked-tool hunt" spot-check negative (no public CF1B/8FC8 generator;
+  community consensus = patch or seller).
+- LIVE doors: GEN 2 (EC read — one read yields per-build family engine),
+  oracle mode on user machines, seller ecosystem. Next cycle: monitor relay
+  for new same-family dumps; verify zero-tech deliverable completeness.

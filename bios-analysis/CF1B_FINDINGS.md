@@ -1523,3 +1523,90 @@ which are indeed opaque). EC-container corpus now held in
 2. EC JTAG/flash-read commissioning (GEN 2) — now with exact Wistron test
    points for the 3410 (JTAG1 header on the KBC page).
 3. The NPCX7 boot-ROM decode of the staged payload (unchanged, GEN 1.2/3).
+
+---
+
+## 11.20 SIVB VAULT + FULL GENERATIONAL SWEEP (2026-10-01, cycle 6)
+
+### 11.20.1 First-release + pre-CML package tests (door now CLOSED)
+
+- **Latitude 3410/3510 1.2.0** (2020-05-20, first public release): EC v1.0.1 +
+  backup v1.0.1 shipped as **sealed PHCM** (bt=0x9f4, const cdb03925… — same
+  build family as v1.0.3/v1.5.1 and the chip stores). Factory-original EC
+  images were never public plaintext. Backup mat1 = 9d08030f… = the SAME
+  material as chip store B and the 1.6.0 package backup → materials are
+  per-image-LINE constants on the 3410. Persisted: pkg_corpus_120/.
+- **Latitude 5410/5510/Precision 3550 1.1.1** (2020-05-13, first release):
+  EC v1.0.3 (bt=0xec2) + v1.0.1 (bt=0xa8d, two platform groups, ME14/ME12) —
+  all sealed PHCM. Field-layout variation observed (some containers zero
+  mat1, const varies per section) — packer-version differences.
+- **OptiPlex 3070 1.4.4** (2020-06-30, Coffee Lake): **NO EC section at
+  all** (BIOS/GbE/ME/Map/PCR0 only). Pre-CML OptiPlex never distributed EC
+  firmware publicly.
+- Verdict: **the package-plaintext door is closed across every generation
+  (2019-2026)**. Two zero-result cycles → strategy retired per EVOLVE rules.
+
+### 11.20.2 SIVB — the universal Dell EC vault (new, cross-generation)
+
+Full-corpus scan for the `SIVB` magic + PHCM across every held 32MB/8MB dump:
+
+| machine | vault @ | size_hint | data | PHCM stores @ |
+|---|---|---|---|---|
+| OptiPlex 3070 (IPCFL, CFL) | 0x3004 | 0x13 | ~5.0KB enc | — (none) |
+| OptiPlex 7070 (BISON, CFL) | 0x3004 | 0x13 | ~5.0KB | — |
+| **OptiPlex 3090 (x2 machines)** | 0x891004 | 0x26 | ~10KB enc | 0x1000/0x41000/0x81000 |
+| **Latitude 3410 (x2 machines, 8MB chip)** | 0x3c3004 / 0x103004 | 0x13 | ~5KB enc + 11KB zeros | 0x1000/0x41000(+0x81000) |
+| Latitude 5410 (LA-J371P) | 0x893004 / 0x7cf004 | — | enc | 0x1000/0x51000/0xa1000 |
+| Latitude 3440/3540 (QUAKEL14, RPL) | 0x33a004 | — | enc | 0x1000/0x51000/0xa1000 |
+| Latitude 5430 (HDB42, ADL) | 0x22b004 (16MB UC6) | — | enc | 0x2000/0x5a000/0xb2000 |
+| Latitude 7430 (HDB50, ADL) | — | — | — | 0x2000/0x5a000/0xb2000 |
+
+- Format: `{u32 (size_hint<<24 | 0x00800020 variants), "SIVB", N KB data,
+  zero padding}`. Vault lives in the ME region (IVBP-family area on the
+  3070: FPT shows IVBP@+0x1000 0x4000 = the SIVB vault there).
+- **The vault is the per-machine password/state store** (consistent with
+  §11.15's rollback-zero procedure on the 3090).
+- Vault crypto: 3090 entropy 7.977, 3070 7.970, 3410 ~7.2 over the 5KB data
+  region — all at/near the sample-size ceiling → properly encrypted; the
+  two 3090 machines' vaults share ZERO data blocks (only zero padding) →
+  fully per-machine content. The 3410's "entropy 3.37" is an artifact of
+  11KB of zero padding inside the 16KB region (block-level map confirms).
+- The 3090 "Bios Password Unlocked" dump (same seller thread as the locked
+  212037): EC chain region + bundle region IDENTICAL (per-build), vault +
+  PHCM store materials differ (per-machine instances, see below).
+
+### 11.20.3 PHCM per-instance model refined (3090)
+
+- Two 3090 machines, same build (bt=0x635, ver=01018403, const c07a5fc8…):
+  store materials DIFFER per machine (39ca68f3…/e768546c… vs
+  fd291541…/2af62f1e…). The locked 212037 machine's store A is
+  byte-identical to the 2.0.7 package image (package written verbatim);
+  the unlocked machine holds different instances (factory provisioning or
+  per-machine re-wrap). On the 3410 by contrast, two machines share the
+  same materials (ed20192c…/9d08030f…) → 3410 images are build-uniform,
+  3090 store-A instances vary per machine.
+- Cross-version 16B-block collision test across the whole corpus: the only
+  "shared" blocks are literal 00…0/FF…F padding gaps — **same-key ECB
+  across versions/platforms ruled out** (records the earlier §11.19.6
+  within-body test at the cross-container level).
+
+### 11.20.4 Public-tool surface re-verified (Oct 2026)
+
+- GitHub sweep (code search + repo search): DellBIOSTools (chromebreakerdev,
+  45★, active 2026-08) implements ONLY legacy suffix keygens (595B/D35B/
+  1D3B/1F66/6FF1/1F5A/E7A8/BF97) and tells 8FC8 users to PATCH the image;
+  pk4tech 8CF8 unlocker = CCTK trick (requires knowing the old password);
+  no public CF1B/8FC8 response-algorithm implementation exists. Consistent
+  with §11.7's closure.
+
+### 11.20.5 Standing verdict (all offline doors now evidence-closed)
+
+Every EC secret store reachable from the SPI bus is sealed with keys that
+live in EC silicon (factory-programmed per build): PHCM containers (CML→RPL),
+SIVB vaults (CFL→RPL), staged recovery bundles (NPCX7 secure boot). The
+master-password engine for CF1B/8FC8-era machines is inside those stores.
+Remaining doors: (1) GEN 2 EC physical read — one read of any same-build EC
+yields the family engine+keys (per-build, not per-machine, per §11.11 bundle
+identity); (2) the EC-response oracle on the user's own machines
+(dell_master_keygen.py --oracle resp:<hex> already accepts it); (3) the
+seller ecosystem (proven to hold the engine).
