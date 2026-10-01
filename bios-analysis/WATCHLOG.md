@@ -55,3 +55,13 @@
   app is performed by the NPCX boot ROM (Nuvoton secure boot, KPROM) —
   matches §11.16.6. Static decode requires either the boot ROM's key
   (silicon) or a same-generation Nuvoton SDK/loader leak (GEN 2/3 queue).
+
+## Cycle 4 — 2026-10-01 (everywhere-sweep: Dell catalog + siblings)
+- Fetched: 3080 1.3.10 exe+rcv, 3090UFF 1.1.0 exe+rcv, Dell EC Programming
+  Tool WNXXT (sha256 verified). Repo-root BIOS_IMG.rcv == 2.0.7 payload.
+- RESULT: all sibling/variant package ME payloads are ENCRYPTED PFS sections
+  (EFI/Tiano fail) — no EC material accessible; control on 2.0.7 confirms
+  the packages were never plaintext EC sources. EC tool = 2016 SuperIO era
+  (NCT66xx, not NPCX7) — archived, no decode value.
+- Surfaces closed: Dell public catalog (EC updater), sibling packages.
+  Remaining doors unchanged: EC read (GEN 2) / recovery-payload decode.

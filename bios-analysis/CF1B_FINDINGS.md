@@ -1367,3 +1367,37 @@ commission/ask — NPCX7 SWD/eSPI), or (b) decoding the factory recovery
 payload we already hold (GEN 1 next: Chromium-EC npcx loader knowledge).
 This closes the last "maybe it's staged somewhere" hypothesis — the hunt's
 remaining surface is now exactly two named doors.
+
+### 11.18 Everywhere-sweep: Dell catalog + sibling models (2026-10-01)
+
+Per RESEARCH_PROTOCOL cycle 2 ("find solution everywhere").
+
+**§11.18.1 New artifacts fetched** (dl.dell.com, relay): OptiPlex 3080
+1.3.10 (exe + BIOS_IMG.rcv), OptiPlex 3090 UFF 1.1.0 (exe + .rcv), Dell
+"EC Firmware Update Programing Tool" WNXXT 2.2 A02 (2016, sha256 verified
+against Dell's page). Also re-verified: the repo-root BIOS_IMG.rcv (from
+the original upload) is byte-equivalent to the 2.0.7 exe payload.
+
+**§11.18.2 Result — no new EC material, and a strengthened package model.**
+- 3080/UFF packages are PFS.HDR containers whose BIOS/ME image sections are
+  ENCRYPTED (opaque, entropy ~8; EFI/Tiano decompressors fail; no $FPT, no
+  EC chain records, no inverse S-box in any zlib stream or raw byte range).
+  Same packaging as the 3420/3520 1.13.3 (§11.10-era observation).
+- CONTROL: the 3090 2.0.7 exe and the repo's rcv show the same encrypted
+  sections — meaning the ME region (and any EC staging) in ALL these
+  packages was never plaintext-extractable; the EC material we DO hold from
+  2.0.7-class artifacts comes from machine dumps. §11.11.2's "packages
+  stage no EC" therefore stands and is now explained: their payloads are
+  section-encrypted.
+- The EC Programming Tool (only public EC updater Dell ever shipped) is
+  SuperIO-era ("SuperIODriver", 2016 Inspiron 3059/3459-class Winbond/
+  Nuvoton SuperIO ECs — NCT66xx family, NOT NPCX7). Archived at
+  collected/tools/dell_ec_tool_wnxxt/ (update.bin = 64KB SuperIO register
+  config tables + IFU_XE.exe flasher). No NPCX7-era EC updater exists in
+  Dell's public catalog.
+
+**§11.18.3 Where this leaves the hunt.** The "sibling package" and "Dell
+catalog" surfaces are now exhausted: no TGL-era EC image or updater is
+publicly shipped. The two doors of §11.17 remain the only paths: EC
+internal-flash read (GEN 2), or decode of the held recovery payload
+(GEN 1.2/3 — NPCX7 boot-ROM/secure-boot semantics).
