@@ -3,6 +3,10 @@
   "Latitude_5X10_Precision_3550_1.1.1.exe": {
    "bytes": 37868096,
    "sha256": "a7e560b4f21871fdcbc64c2b0fd9a4ffcfa93149bd5535784ce17f7fa88a6add"
+  },
+  "manifest.json": {
+   "bytes": 170,
+   "sha256": "62e0f0e0dc163be267a669805199919230297a99b0732f69c70743b5bdd73c84"
   }
  }
 }
