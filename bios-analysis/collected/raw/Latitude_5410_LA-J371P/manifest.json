@@ -14,11 +14,23 @@
   },
   "manifest.json": {
    "bytes": 2027,
-   "sha256": "0505ad18b3c8b6681ed5254747294036ead92aff32f89b8cde17def56b21d24c"
+   "sha256": "a0b449bf95f6a4ad2d7639d1ef2fdc53042ad217a2bebceef80ea26138ce187c"
   },
   "page.html": {
    "bytes": 181147,
    "sha256": "0b2d1b758beb7f24ceae45102b727f3cf6d038f0287bc82ddb0a14dddcf86269"
+  },
+  "extracted_drive_1.bin.rar/DELL L5410 FDZ41 LA-J371P REV 1.0(A00) 8MB & 16MB 2020-03-10  WORKING BIOS 100%/DELL 5410 LA-J371P 16M OK.BIN": {
+   "bytes": 16777216,
+   "sha256": "008a5263a1350cddd535c07885fb03fd53d774f1e2b949f8b3186762f0cab56d"
+  },
+  "extracted_drive_1.bin.rar/DELL L5410 FDZ41 LA-J371P REV 1.0(A00) 8MB & 16MB 2020-03-10  WORKING BIOS 100%/DELL 5410 LA-J371P 8M OK.bin": {
+   "bytes": 8388608,
+   "sha256": "ce4b6d8af39a53fe1c02e739d131aec2d8ebb5bbaffe82aef743e1c6709b9df0"
+  },
+  "extracted_drive_0.bin.rar/DELL Latitude 5410 FDZ41_LA-J371P 32MB TESTED BIOS/DELL Latitude 5410 FDZ41_LA-J371P TESTED BIOS.bin": {
+   "bytes": 33554432,
+   "sha256": "c7bf058581fa022105821c00e4d0e3d42d25846422eaf6d637eb028941dba7ba"
   },
   "extracted_drive_2.bin.rar/DELL Latitude 5410 FDZ41_ LA-J371P REV 1.0 2020-03-10/5410_clean.bin": {
    "bytes": 33554432,
@@ -31,18 +43,6 @@
   "extracted_drive_2.bin.rar/DELL Latitude 5410 FDZ41_ LA-J371P REV 1.0 2020-03-10/new.bin": {
    "bytes": 33554432,
    "sha256": "c7bf058581fa022105821c00e4d0e3d42d25846422eaf6d637eb028941dba7ba"
-  },
-  "extracted_drive_0.bin.rar/DELL Latitude 5410 FDZ41_LA-J371P 32MB TESTED BIOS/DELL Latitude 5410 FDZ41_LA-J371P TESTED BIOS.bin": {
-   "bytes": 33554432,
-   "sha256": "c7bf058581fa022105821c00e4d0e3d42d25846422eaf6d637eb028941dba7ba"
-  },
-  "extracted_drive_1.bin.rar/DELL L5410 FDZ41 LA-J371P REV 1.0(A00) 8MB & 16MB 2020-03-10  WORKING BIOS 100%/DELL 5410 LA-J371P 16M OK.BIN": {
-   "bytes": 16777216,
-   "sha256": "008a5263a1350cddd535c07885fb03fd53d774f1e2b949f8b3186762f0cab56d"
-  },
-  "extracted_drive_1.bin.rar/DELL L5410 FDZ41 LA-J371P REV 1.0(A00) 8MB & 16MB 2020-03-10  WORKING BIOS 100%/DELL 5410 LA-J371P 8M OK.bin": {
-   "bytes": 8388608,
-   "sha256": "ce4b6d8af39a53fe1c02e739d131aec2d8ebb5bbaffe82aef743e1c6709b9df0"
   }
  }
 }

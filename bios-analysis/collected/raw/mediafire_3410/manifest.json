@@ -2,15 +2,15 @@
  "files": {
   "manifest.json": {
    "bytes": 795,
-   "sha256": "6ead5bad38c3aab3ca4ebd788f6eadf52aec5ec8d6de296b0fff1048b261d656"
+   "sha256": "1cf5f75ba0793d88c18480361d3bbd412eb38734974633daae7b21e18bd5731c"
   },
   "mediafire_dell_3410_19746_1.bin.zip": {
    "bytes": 9544651,
    "sha256": "34ed4fd35379f2e9a855e576435f51df036d0fbd045b8c09ded7216413d2fd8f"
   },
   "mediafire_page.html": {
-   "bytes": 334493,
-   "sha256": "79cf9563c814b02539a3ebdb88bcfecd12f2bd44f1a935b854b78005cef16675"
+   "bytes": 334496,
+   "sha256": "6cdf657b4c73a6e9be216ca19948951a19f10d77470708ec7db958c739d9fb50"
   },
   "extracted_mediafire_dell_3410_19746_1.bin.zip/Dell 3410 19746-1_8MB.bin": {
    "bytes": 8388608,

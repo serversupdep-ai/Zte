@@ -10,15 +10,11 @@
   },
   "manifest.json": {
    "bytes": 1261,
-   "sha256": "9b31219fdcfd3180a8bc1f0a4046e61f46add473fa4bbc4a2267eda0c6ca90fc"
+   "sha256": "e404aa514b0e4d33962ef4bb30b2afb35f773e59ae47badeff759147e35ec2ba"
   },
   "page.html": {
    "bytes": 197193,
    "sha256": "0f3049623d57c8ac111e5f82c51ad023807460e5daacd69e2d9cc196905738fe"
-  },
-  "extracted_drive_0.bin.rar/DELL Latitude 5410 FDZ41_LA-J371P 32MB TESTED BIOS/DELL Latitude 5410 FDZ41_LA-J371P TESTED BIOS.bin": {
-   "bytes": 33554432,
-   "sha256": "c7bf058581fa022105821c00e4d0e3d42d25846422eaf6d637eb028941dba7ba"
   },
   "extracted_drive_1.bin.rar/DELL L5410 FDZ41 LA-J371P REV 1.0(A00) 8MB & 16MB 2020-03-10  WORKING BIOS 100%/DELL 5410 LA-J371P 16M OK.BIN": {
    "bytes": 16777216,
@@ -27,6 +23,10 @@
   "extracted_drive_1.bin.rar/DELL L5410 FDZ41 LA-J371P REV 1.0(A00) 8MB & 16MB 2020-03-10  WORKING BIOS 100%/DELL 5410 LA-J371P 8M OK.bin": {
    "bytes": 8388608,
    "sha256": "ce4b6d8af39a53fe1c02e739d131aec2d8ebb5bbaffe82aef743e1c6709b9df0"
+  },
+  "extracted_drive_0.bin.rar/DELL Latitude 5410 FDZ41_LA-J371P 32MB TESTED BIOS/DELL Latitude 5410 FDZ41_LA-J371P TESTED BIOS.bin": {
+   "bytes": 33554432,
+   "sha256": "c7bf058581fa022105821c00e4d0e3d42d25846422eaf6d637eb028941dba7ba"
   }
  }
 }
