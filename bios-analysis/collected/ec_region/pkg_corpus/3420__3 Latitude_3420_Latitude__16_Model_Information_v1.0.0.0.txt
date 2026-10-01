@@ -1,0 +1,5 @@
+VendorName=Dell Inc.
+OemString=Model_File
+SystemName=Latitude 3420
+Version=1.13.3
+Model=0B20,0B21

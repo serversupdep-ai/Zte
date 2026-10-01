@@ -1401,3 +1401,125 @@ catalog" surfaces are now exhausted: no TGL-era EC image or updater is
 publicly shipped. The two doors of §11.17 remain the only paths: EC
 internal-flash read (GEN 2), or decode of the held recovery payload
 (GEN 1.2/3 — NPCX7 boot-ROM/secure-boot semantics).
+
+---
+
+## 11.19 DEDICATED-CHIP + PACKAGE EC-CONTAINER BREAKTHROUGH (2026-10-01)
+
+Minimal-file-set directive executed on the three never-deep-analyzed mission
+artifacts: the 3410 8MB companion chip (XM25QH64A), the 16MB BIOS chip
+(XM25QH128A), and the "MOCKINGBIRD-L CML UMA 8L (19746-1).zip".
+
+### 11.19.1 The 8MB companion chip is a COMPLETE CSME flash image (fully mapped)
+
+$FPT @0x3c2009 with chip-relative offsets; partitions confirmed by content:
+
+| partition | offset | len | content |
+|---|---|---|---|
+| IMDP/RSTR/HVMP/PSVN | 0xe40–0x1000 | small | blank (FF) |
+| **IVBP** | 0x1000 | 0x4000 | **PHCM container (the EC key store)** |
+| MFS | 0x5000 | 0x64000 | ME filesystem (encrypted files) |
+| UTOK/FLOG/UEP | 0x69000–0x6e000 | small | blank/zero |
+
+- The whole partition set is A/B-mirrored at +0x40000 (explains the two PHCM
+  containers @0x1000 and @0x41000: same build, per-image materials differ).
+- 0x100000–0x130000: RBEP + PMCP code partitions — $CPD manifests (plaintext,
+  Intel $MN2-signed, vendor 0x8086, dates 2020-05-20/2020-03-18) + payloads
+  (`rbe` 60KB, `PMCC000` 65.8KB) compressed with the CSME-12 module format
+  (0x02000000 flag; 0xC0000000-led pointer tables; NOT LZMA; LLUT absent).
+- 0x240000+: OEMP partition (empty manifest only — no Dell OEM content) and
+  NFTP module set (dal_ivm/dal_lnch/dal_sdm/mca_boot/mca_srv/adspa/tcb/pavp/
+  sigma/hotham/ish_srv/cls/mctp/icc/tls_iso/vdm — pavp stored uncompressed,
+  contiguity verified pavp-end→sigma-start = 0x5f080+0x2a4e2→0x89580).
+- 0x3c2009 $FPT copy + 0x3d0000–0x430000 structured data (DPTF profiles).
+- Upper 4MB (0x430000+) entirely FF — chip half-used.
+- **No EC firmware on this chip**: the MEC1515 boots from internal flash.
+
+### 11.19.2 The 16MB chip = pure BIOS (FVs + DVAR NVRAM @0xc0000/0xc8000)
+
+No ME/EC structures (two-chip layout: descriptor+ME live on the 8MB part).
+
+### 11.19.3 MOCKINGBIRD zip = Wistron schematic PDF → EC silicon identified
+
+`collected/raw/Latitude_3410_ECfolder/extracted/MOCKINGBIRD-L CML UMA 8L
+(19746-1).pdf` — 105-page Wistron "Mockingbird_CML SC" schematic (2019-12-09):
+- **Latitude 3410 EC/KBC = MICROCHIP MEC1515H-D0-I-NB-GP** (U2401, part
+  071.01515.0A03) — 32-bit ARM Cortex-M4, internal flash.
+- **Latitude 3510 (Vader) EC = NUVOTON NPCE285PA0DX** — NPCX7 family, the same
+  silicon family as the OptiPlex 3090's EC (proven NPCX7, §11.16).
+- **EC G3 Flash Share**: the EC is a second SPI master on the ROM bus
+  (SHD_CS0#/SHD_CS1# straps, SPI_CS_ROM_N0/N1) — this is the hardware path by
+  which the EC reads the IVBP/PHCM store from the ME companion chip.
+- **JTAG1 debug header + test pads mapped on the KBC page** (R24xx networks,
+  JTAG/JTAG_RST pins) — the exact physical EC-read points for GEN 2.
+- Block diagram confirms 8+16MB flash ROM, eSPI bus, NCT7718W thermal, etc.
+
+### 11.19.4 §11.18 CORRECTED: packages DO ship extractable EC sections
+
+Re-running the analyze_dell_bios.py pipeline (Dell-HDR zlib carve → PFS) on
+every held package extracts **named, plaintext-headed "Embedded Controller"
+sections** (the earlier §11.18 verdict only covered the 12MB BIOS sections,
+which are indeed opaque). EC-container corpus now held in
+`collected/ec_region/pkg_corpus/` + legacy dirs:
+
+| package | section | size | build | ver | build-constant material |
+|---|---|---|---|---|---|
+| **OptiPlex 3090 2.0.7** | ec_3/ec_4 **(bt=0x635 = the user's build!)** | 102,080 | 0x635 | 01018403 | c07a5fc8… (= chip stores!) |
+| OptiPlex 3090 2.0.7 | ec_4/ec_5 backup | 102,096 | 0x635 | 01018403 | c07a5fc8… |
+| OptiPlex 3090 2.0.7 | ec_1/2/3 | 98,432/98,448 | 0x5fc | 01018403 | a8717ac2… |
+| OptiPlex 3090 2.27/2.30 | ec_1/2, ec_3/4 | ~100K/104K | 0x615, 0x64f | 01018403 | e87346bf…, 4f83cbd2… |
+| OptiPlex 3080 1.3.10 | 4 variants | 95–100K | 0x5e2/0x5d0/0x61b/0x600 | 01018403 | 4 distinct |
+| OptiPlex 3090UFF 1.1.0 | EC v1.0.2 + backup v1.0.0 | 205,312/205,328 | 0xc82 | 01018403 | 57465957… |
+| Latitude 3420/3520 1.13.3 | v1.1.0/1.2.0/1.3.0/1.3.1/1.4.1 ladder | 205,312/205,328 | 0xc82 | 01018003 | e83f9307… (same all) |
+| Latitude 3410 1.4.1 | EC v1.0.3 + backup v1.0.1 | 163,456/163,472 | 0x9f4 | 01018003 | cdb03925… |
+| Latitude 3410 1.6.0 | EC v1.5.1 (bt=0x9fc=3510!) + backup v1.0.1 (0x9f4) | 163,968/163,472 | 0x9fc/0x9f4 | 01018003 | fbd98f4c…/cdb03925… |
+
+- The 3090 UFF 1.1.0 (FIRST release, 2021-05-18) already ships sealed
+  containers → the 3090 family had container encryption from day one.
+- ver byte 0x84 = OptiPlex, 0x80 = Latitude family.
+- ec_1_27232/ec_6_262144 (2.0.7) = the known ME-staged records blob
+  (sha-identical to 3090_2.0.7_MEblob_ecregion_6a60.bin) — no new code.
+
+### 11.19.5 PHCM container format (cross-model, unified)
+
+```
++0x00 "PHCM" | 01 01 <80|84> 03 | 00 00 0e 00 | 01 00 0e 00 | build_tag | c0 00 00 00
++0x18–0x3f  zeros
++0x40  32B  BUILD-CONSTANT material  (same in every container of a build:
+              chip stores AND package EC images; e.g. 0x9f4 = cdb03925…,
+              0x635 = c07a5fc8… — matches the 3090 machine dump)
++0x60  32B  per-image material #1
++0x80  32B  per-image material #2
++0xa0  32B  FF
++0xc0  …    encrypted body (chip store: 16KB; package EC image: 96–205KB)
+```
+- The dumped 3410 machine's chip-store container B (+0x60 material
+  9d08030f…) is byte-equal to the 1.6.0 package's "Backup EC v1.0.1"
+  container material → the store tracks the flashed image identity
+  (store A = main EC, store B = backup/RO EC of the NPCX RO/RW scheme).
+
+### 11.19.6 Container crypto verdict (attacks run, all negative)
+
+- Direct matrix on the 3410 160KB body with keys {build-const halves, per-img
+  halves, SHA-256(build), SHA-256(build+hdr), …} × {AES-ECB/CBC/CTR, RC4,
+  ChaCha20, XOR-keystreams}: no firmware signatures (Cortex-M vectors) found.
+- Body entropy 7.9988, zero repeated 16B blocks (no ECB).
+- Version-ladder XOR (3090UFF v1.0.2⊕v1.0.0, 3420 v1.1.0⊕v1.2.0,
+  v1.3.0⊕v1.4.1, 3410 v1.0.3⊕v1.0.1): entropy 7.999 — properly encrypted
+  (no shared keystream/CTR reuse); the only long zero-runs are trailing
+  FF/00 padding at container end.
+- Conclusion: the container DEK is not derivable from the container's own
+  materials; the decoder lives in the EC (boot ROM/loader) with a per-build
+  key Dell factory-programs. Same wall as §11.16, but now with the full
+  container corpus + unified format understanding.
+
+### 11.19.7 Open doors after this section
+
+1. **First-release packages** (queued via relay): Latitude 3410/3510 1.2.0
+   (2020-05-20, FOLDER06269280M) and Latitude 5410/5510/Precision 3550 1.1.1
+   (2020-05-13, FOLDER06245126M — changelog: "Updated the Embedded Controller
+   Engine firmware"). If either ships a plaintext EC section, the engine is
+   readable.
+2. EC JTAG/flash-read commissioning (GEN 2) — now with exact Wistron test
+   points for the 3410 (JTAG1 header on the KBC page).
+3. The NPCX7 boot-ROM decode of the staged payload (unchanged, GEN 1.2/3).

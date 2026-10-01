@@ -84,3 +84,13 @@ service-side artifacts: Dell diagnostics/WinPE ISOs with EC tools.
 ## RECOVERY
 
 `git fetch origin arena/01a087e2-zte && git checkout -f -B arena/01a087e2-zte FETCH_HEAD`
+
+### Cycle 5 evolution entry (2026-10-01, §11.19)
+- GEN 1 (differential forensics) ADVANCED the 3410 file set to full structure
+  (CSME map + EC silicon ID + EC-container corpus incl. the 3090's own build).
+- NEW active strategy G1.4 "first-release packages": Dell EC-container
+  encryption existed by 2021-05 (3090UFF 1.1.0) — testing 2020-05 first
+  releases (3410 1.2.0, 5X10 1.1.1) via relay for plaintext EC sections.
+- GEN 2 (EC read) now has exact Wistron JTAG1 test points for 3410.
+- Retired this cycle: package-PFS extraction as a blocker (solved — EC
+  sections extract); container self-material key derivation (matrix negative).

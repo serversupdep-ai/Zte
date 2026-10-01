@@ -1,0 +1,5 @@
+VendorName=Dell Inc.
+OemString=Model_File
+SystemName=OptiPlex 3090 UFF
+Version=1.1.0
+Model=0A30

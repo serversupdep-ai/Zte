@@ -65,3 +65,17 @@
   (NCT66xx, not NPCX7) — archived, no decode value.
 - Surfaces closed: Dell public catalog (EC updater), sibling packages.
   Remaining doors unchanged: EC read (GEN 2) / recovery-payload decode.
+
+## Cycle 5 (2026-10-01, §11.19) — minimal-file-set + package EC sections
+- 3410 8MB companion chip fully mapped (CSME image; IVBP=PHCM key store;
+  RBEP/PMCP/NFTP code partitions; A/B mirror at +0x40000; no EC firmware).
+- MOCKINGBIRD zip = Wistron schematic: 3410 EC = MEC1515H (Cortex-M4),
+  3510 EC = NPCE285PA0DX (NPCX7 family), EC JTAG pads mapped, flash-share.
+- §11.18 corrected: Dell packages DO ship extractable "Embedded Controller"
+  PHCM-container sections. 3090's own EC container (bt=0x635, matching the
+  user's machine build) now in hand + corpus across 3080/3090/3090UFF/
+  3420/3410/3510 (collected/ec_region/pkg_corpus/).
+- Container crypto: direct matrix + version-ladder XOR all negative →
+  per-build key is EC-side (boot ROM/loader), not container-derived.
+- QUEUED (relay): 3410/3510 1.2.0 (first release, 2020-05) + 5410/5510
+  1.1.1 (first release, 2020-05) — historical-plaintext door test.

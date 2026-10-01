@@ -133,3 +133,6 @@ FILE|https://dl.dell.com/FOLDER07322275M/1/OptiPlex_3090_UFF_1.1.0.exe|dell_3090
 FILE|https://dl.dell.com/FOLDER07322277M/1/BIOS_IMG.rcv|dell_3090uff_110_rcv
 FILE|https://dl.dell.com/FOLDER03495025M/5/Firmware_WNXXT_WN32_2.2_A02.EXE|dell_ec_tool_wnxxt
 FILE|https://dl.dell.com/FOLDER07173178M/1/BIOS_IMG.rcv|3080_BIOS_IMG.rcv|dell_3080_rcv
+# === §11.19 first-release EC-container historical door (2026-10-01) ===
+FILE|https://dl.dell.com/FOLDER06269280M/1/Latitude_3410_3510_1.2.0.exe|Latitude_3410_3510_1.2.0.exe|dell_3410_120
+FILE|https://dl.dell.com/FOLDER06245126M/1/Latitude_5X10_Precision_3550_1.1.1.exe|Latitude_5X10_Precision_3550_1.1.1.exe|dell_5x10_111
