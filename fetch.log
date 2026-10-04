@@ -50,7 +50,7 @@
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334497 bytes, sha256 7dd905f1969c7c99…)
+    [saved] mediafire_3410/mediafire_page.html (334499 bytes, sha256 2169e4b535df67b2…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -114,16 +114,53 @@
 [skip] dell_3420_1440/Latitude_3420_Latitude_3520_1.44.0.exe already fetched
 [skip] elvikom_3090_schematic already fetched
 [skip] badcaps_3090_98981_p4 already fetched
-[FILE] https://www.elvikom.pl/download/file.php?id=50592 -> raw/elvikom_3090_schematic/ipcml_rn_schematic.bin
-    [saved] elvikom_3090_schematic/ipcml_rn_schematic.bin (20399 bytes)
-[FILE] https://www.elvikom.pl/download/file.php?id=51162 -> raw/elvikom_3090_schematic/ipcml_rn_boardview.rar
-    [saved] elvikom_3090_schematic/ipcml_rn_boardview.rar (20399 bytes)
-[PAGE] https://pkbiosfix.com/threads/dell-latitude-3410-3510-19746-1-bios-schematic-boardview.565/ -> raw/pkbiosfix_3410_565
-    [page head] '\n\t\n\t\n\t\n\t\n\t\n\n\t\n\t\t\t\n\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n<!DOCTYPE html>\n<html id="XF" lang="en-US" dir="LTR"\n\tdata-xf="2.3"\n\tdata-app="public"\n\t\n\t\n\tdata-template="thread_view_type_article"\n\tdata-container-key="node-3"\n\tdata-content-key="thread-565"'
-    [saved] pkbiosfix_3410_565/page.html (223093 bytes, sha256 7e3e6363c5e40fb8…)
-    [links] 2 candidates
-    [saved] pkbiosfix_3410_565/19746-1-jpg.8710 (45897 bytes)
-    [saved] pkbiosfix_3410_565/8710 (45885 bytes)
+[skip] elvikom_3090_schematic/ipcml_rn_schematic.bin already fetched
+[skip] elvikom_3090_schematic/ipcml_rn_boardview.rar already fetched
+[skip] pkbiosfix_3410_565 already fetched
+[FILE] https://pkbiosfix.com/attachments/dell-3410-lock-8mb-bin.14769/ -> raw/pkbiosfix_3410_565/dell_3410_LOCK_8MB.BIN
+    [saved] pkbiosfix_3410_565/dell_3410_LOCK_8MB.BIN (45924 bytes)
+[FILE] https://pkbiosfix.com/attachments/dell-3410-lock-bin.14770/ -> raw/pkbiosfix_3410_565/dell_3410_LOCK_16MB.BIN
+    [saved] pkbiosfix_3410_565/dell_3410_LOCK_16MB.BIN (45916 bytes)
+[FILE] https://pkbiosfix.com/attachments/8mb-fixed-rar.14771/ -> raw/pkbiosfix_3410_565/dell_3410_8mb_fixed.rar
+    [saved] pkbiosfix_3410_565/dell_3410_8mb_fixed.rar (45906 bytes)
+[FILE] https://pkbiosfix.com/attachments/latitude_3510-8mb-bin.18412/ -> raw/pkbiosfix_3410_565/Latitude_3510_8MB.BIN
+    [saved] pkbiosfix_3410_565/Latitude_3510_8MB.BIN (45924 bytes)
+[FILE] https://pkbiosfix.com/attachments/latitude_3510-16mb-bin.18413/ -> raw/pkbiosfix_3410_565/Latitude_3510_16MB.BIN
+    [saved] pkbiosfix_3410_565/Latitude_3510_16MB.BIN (45926 bytes)
+[FILE] https://pkbiosfix.com/attachments/xm25qh64a-soic8-200_20250306_212026-zip.28913/ -> raw/pkbiosfix_3410_565/xm25qh64a_20250306.zip
+    [saved] pkbiosfix_3410_565/xm25qh64a_20250306.zip (45959 bytes)
+[FILE] https://pkbiosfix.com/attachments/xm25qh128a-soic8-200_20250306_212143-zip.28914/ -> raw/pkbiosfix_3410_565/xm25qh128a_20250306.zip
+    [saved] pkbiosfix_3410_565/xm25qh128a_20250306.zip (45961 bytes)
+[FILE] https://pkbiosfix.com/attachments/service-tag-fixed-rar.28917/ -> raw/pkbiosfix_3410_565/service_tag_fixed.rar
+    [saved] pkbiosfix_3410_565/service_tag_fixed.rar (45923 bytes)
+[FILE] https://pkbiosfix.com/attachments/dell-3410-build-new-bin.29086/ -> raw/pkbiosfix_3410_565/DELL_3410_BUILD_NEW.bin
+    [saved] pkbiosfix_3410_565/DELL_3410_BUILD_NEW.bin (45927 bytes)
+[FILE] https://pkbiosfix.com/attachments/dell-3410-build16mb-bin.29087/ -> raw/pkbiosfix_3410_565/DELL_3410_BUILD16MB.bin
+    [saved] pkbiosfix_3410_565/DELL_3410_BUILD16MB.bin (45927 bytes)
+[FILE] https://pkbiosfix.com/attachments/xm25qh64a-soic8-200_20250527_125527-bin.32780/ -> raw/pkbiosfix_3410_565/xm25qh64a_20250527.BIN
+    [saved] pkbiosfix_3410_565/xm25qh64a_20250527.BIN (45959 bytes)
+[FILE] https://pkbiosfix.com/attachments/xm25qh128a-soic8-200_20250527_125229-bin.32779/ -> raw/pkbiosfix_3410_565/xm25qh128a_20250527.BIN
+    [saved] pkbiosfix_3410_565/xm25qh128a_20250527.BIN (45961 bytes)
+[FILE] https://pkbiosfix.com/attachments/build-clean-me-rar.32786/ -> raw/pkbiosfix_3410_565/build_clean_me.rar
+    [saved] pkbiosfix_3410_565/build_clean_me.rar (45917 bytes)
+[FILE] https://pkbiosfix.com/attachments/8mb-zip.33315/ -> raw/pkbiosfix_3410_565/pk_8mb.zip
+    [saved] pkbiosfix_3410_565/pk_8mb.zip (45895 bytes)
+[FILE] https://pkbiosfix.com/attachments/16mb-zip.33316/ -> raw/pkbiosfix_3410_565/pk_16mb.zip
+    [saved] pkbiosfix_3410_565/pk_16mb.zip (45897 bytes)
+[FILE] https://pkbiosfix.com/attachments/cleanme-8mb-rar.33318/ -> raw/pkbiosfix_3410_565/cleanme_8mb.rar
+    [saved] pkbiosfix_3410_565/cleanme_8mb.rar (45911 bytes)
+[FILE] https://pkbiosfix.com/attachments/xm25qh64a-soic8-200_20250710_153627-zip.33354/ -> raw/pkbiosfix_3410_565/xm25qh64a_20250710.zip
+    [saved] pkbiosfix_3410_565/xm25qh64a_20250710.zip (45976 bytes)
+[FILE] https://pkbiosfix.com/attachments/xm25qh128a-soic8-200_20250710_154321-zip.33355/ -> raw/pkbiosfix_3410_565/xm25qh128a_20250710.zip
+    [saved] pkbiosfix_3410_565/xm25qh128a_20250710.zip (45978 bytes)
+[FILE] https://pkbiosfix.com/attachments/19709-1-3510-8mb-rar.1388/ -> raw/pkbiosfix_3410_565/19709_1_3510_8mb.rar
+    [saved] pkbiosfix_3410_565/19709_1_3510_8mb.rar (45931 bytes)
+[FILE] https://pkbiosfix.com/attachments/19709-1-3510-16mb-ok-rar.1389/ -> raw/pkbiosfix_3410_565/19709_1_3510_16mb_ok.rar
+    [saved] pkbiosfix_3410_565/19709_1_3510_16mb_ok.rar (45939 bytes)
+[FILE] https://pkbiosfix.com/attachments/tested-8mb-rar.8707/ -> raw/pkbiosfix_3410_565/tested_8mb.rar
+    [saved] pkbiosfix_3410_565/tested_8mb.rar (45920 bytes)
+[FILE] https://pkbiosfix.com/attachments/tested-16mb-rar.8708/ -> raw/pkbiosfix_3410_565/tested_16mb.rar
+    [saved] pkbiosfix_3410_565/tested_16mb.rar (45922 bytes)
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
