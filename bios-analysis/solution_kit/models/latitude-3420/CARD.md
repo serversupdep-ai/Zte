@@ -2,9 +2,11 @@
 
 **Platform:** CyborgL (TGL; ICL variant exists) ·
 **Suffix family on this model:** CF1B · Family byte 0x1B
-**Latest BIOS:** 1.47.0 (2026-07-21, LVFS "CyborgLTgl_TI_G") for TGL
-models; 1.37.0 for the ICL variant. Dell's own site lists 1.44.0 — LVFS is
-ahead.
+**Latest BIOS:** 1.47.0 (2026-07-21, LVFS — browser-only download) for
+TGL models; 1.37.0 for the ICL variant. The Dell channel's latest, 1.44.0
+(2025-10-21), is held and VERIFIED: EC v1.13.2 stays in the 2021 sealed
+build family and the vault module carries the fleet-standard 8FC8 routing
+and alphabet set — the keygen applies unchanged.
 
 ## What works on this model (in order of ease)
 

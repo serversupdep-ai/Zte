@@ -1690,3 +1690,24 @@ fetchlist (fetch blocked only by the expired GitHub token).
   3090 2.30.0 (shared OptiPlex backup line).
 - 3090UFF 1.44.0: all four containers bt=0xc82 (205,328 B), const
   57465957… == the 1.1.0 (2021) containers.
+
+### 11.21.5 Both Latitude latest packages verified (same session)
+
+- **3410 1.36.0** (Dell J37H1 exe, relay-fetched): vault module pw_4 is
+  **md5-IDENTICAL (933ae7ebbb25…)** to the 2.27.0 reference engine — the
+  keygen is valid verbatim on the user's model at its latest BIOS. EC line
+  advanced to v1.12.0 (bt=0xa29, const 4732f7a8…, 166,848B containers).
+  Persisted: collected/Latitude_3410_3510_1.36.0/.
+- **3420 1.44.0** (Dell K9N3Y exe; LVFS 1.47.0 cab is browser-only —
+  anti-bot 412 against all non-browser clients): EC v1.13.2 containers stay
+  in the 2021 build family (bt=0xc82, const e83f9307… unchanged since
+  1.13.3). Vault module = 39424B Latitude class: 8FC8 EC-routing dispatch
+  (desc=0x0) at 0x8760 + the fleet-standard scrambled alphabet set
+  (identical strings to the UFF Gen-B module). No 5-family EC list —
+  table-layout difference only; the EC-oracle keygen path is unaffected.
+  Persisted: collected/Latitude_3420_3520_1.44.0/.
+- Solution-kit status: **all 5 models held+verified at their latest
+  available BIOS** (3410 1.36.0, 3420 1.44.0-Dell/1.47.0-LVFS, 3080 2.35.0,
+  3090 2.30.0, 3090UFF 1.44.0). Relay LVFS lessons: fwupd.org/downloads
+  needs Referer+cookies but still 412s from Actions IPs (JS anti-bot);
+  dl.dell.com remains the reliable relay channel.

@@ -112,3 +112,8 @@
   modules byte-identical to 2.27.0 reference; UFF = Gen-B EC-only module.
   Kit validated end-to-end (selftest + census + patcher state + clear-sivb).
   Two Latitude latest cabs queued in relay fetchlist.
+- 3410 1.36.0 + 3420 1.44.0 latest packages fetched via relay (dl.dell.com)
+  and verified: 3410 vault module md5-identical to reference; 3420 module =
+  39424B class with 8FC8 routing + standard alphabets; EC lines unchanged
+  (3420) / advanced (3410 v1.12.0 bt=0xa29). ALL 5 kit models now
+  held+verified at latest. LVFS cab = browser-only (anti-bot).

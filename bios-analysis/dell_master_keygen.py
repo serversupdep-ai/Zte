@@ -336,10 +336,13 @@ MODEL_PROFILES = {
         "latest_bios": {
             "version": "1.47.0 (TGL) / 1.37.0 (ICL variant)",
             "date": "2026-07-21 (TGL)",
-            "source": "LVFS (cab CyborgLTgl_TI_G) — Dell site lists 1.44.0",
-            "held": False,
-            "note": "queued for relay fetch; EC containers verified on held "
-                    "1.13.3 (five-version ladder v1.1.0-v1.4.1, bt=0xc82)",
+            "source": "LVFS 1.47.0 cab is browser-only (anti-bot); Dell "
+                      "channel 1.44.0 (2025-10-21, K9N3Y) held + verified",
+            "held": True,
+            "note": "1.44.0 verified: EC v1.13.2 containers stay in the "
+                    "2021 build family (bt=0xc82, const e83f9307…); vault "
+                    "module = 39424B Latitude class with 8FC8 EC-routing "
+                    "dispatch + the fleet-standard alphabet set",
         },
         "suffix_census": ["CF1B"],
         "all_ec_families": ["CF1B", "8FC8", "9ABE", "3FE2", "1B58"],
@@ -347,7 +350,8 @@ MODEL_PROFILES = {
             "chips": "32 MB single SPI (CSME+PHCM+BIOS; vault found by magic)",
             "sivb": "find the 'SIVB' magic (sibling 3440 RPL: 0x33a004)",
             "phcm_stores": ["0x1000", "0x51000", "0xa1000"],
-            "ec_build_tags": {"1.13.3": "0xc82 (v1.1.0-v1.4.1 ladder)"},
+            "ec_build_tags": {"1.13.3": "0xc82 (v1.1.0-v1.4.1 ladder)",
+                              "1.44.0": "0xc82 (EC v1.13.2 — const UNCHANGED since 2021)"},
         },
     },
     "optiplex-3080": {
