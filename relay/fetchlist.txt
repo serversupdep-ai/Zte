@@ -179,3 +179,10 @@ FILE|https://pkbiosfix.com/attachments/19709-1-3510-8mb-rar.1388/|19709_1_3510_8
 FILE|https://pkbiosfix.com/attachments/19709-1-3510-16mb-ok-rar.1389/|19709_1_3510_16mb_ok.rar|pkbiosfix_3410_565
 FILE|https://pkbiosfix.com/attachments/tested-8mb-rar.8707/|tested_8mb.rar|pkbiosfix_3410_565
 FILE|https://pkbiosfix.com/attachments/tested-16mb-rar.8708/|tested_16mb.rar|pkbiosfix_3410_565
+# === §11.25 validation-vector harvest: public (tag, suffix, master) triples ===
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1iq6vuq&limit=100|reddit_1iq6vuq_comments
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=100|as_dell_8fc8_r2
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=100|as_dell_cf1b_r2
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=100|as_dell_9abe_r2
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=%22password%20is%22&limit=100|as_dell_pwis
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=8FC8&limit=100|as_dell_posts_8fc8_r2
