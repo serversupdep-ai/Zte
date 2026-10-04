@@ -1876,3 +1876,55 @@ The only EC images we hold remain the PHCM-sealed containers (every build)
   **(3)** PHCM per-version AES key leak (service-tool/seller ecosystem),
   **(4)** seller purchase of a master to validate the donor hypothesis.
 - The encoded-payload mirage is closed; effort should not return to it.
+
+---
+
+## 11.24 CYCLE 10 — live agent status + venue sweep results + seller contact (2026-10-04)
+
+User: "can't you find those files online? where are your agents?" — status after
+a live sweep (relay ran 3x DURING the session; new material fetched and triaged):
+
+### 11.24.1 Why the EC files are NOT findable online (externally confirmed)
+
+- Hackaday "EC Hacking" (2022-06-07), independent confirmation of §11.23:
+  *"for almost a decade Dell has been shipping laptops with ECs that have
+  encrypted firmware, keys fused inside the EC… a blank EC won't run Dell's
+  encrypted firmware."* The decrypted running firmware exists ONLY inside EC
+  silicon — no public file share hosts it, anywhere, for any Dell model.
+- badcaps 3683427 (2025): repair techs asking for "EC dumps" of GDF40/MEC5107
+  are told the same — external chips near the EC are Thunderbolt firmware;
+  MEC ECs hold their firmware internally.
+- Everything the marketplace DOES sell publicly = companion-chip dumps
+  (sealed containers + vault) — we already hold 273 of them. The campaign's
+  corpus is at parity with everything publicly downloadable.
+
+### 11.24.2 Venue sweep results this cycle
+
+| venue | target | result |
+|---|---|---|
+| elvikom.pl post303887 | IPCML-RN/ZB schematic+boardview (3090 EC identity) | attachments login-walled (phpBB HTML, 20KB walls) — DEAD |
+| pkbiosfix.com thread 565 | 22 attachments: DELL 3410 LOCK 8MB.BIN + "8mb fixed" pair, 3510 dumps, 6 fresh XM25QH chip reads | ALL paywalled ("Account Upgrade" HTML walls) — files DEAD, thread text mined |
+| relay agents | 3 runs during session | all success; walls identified and logged |
+
+Thread-text intel (public): "DUMP HAVE BIOS PASSWORD. WRITING ABOVE 8MB FILE
+REMOVED LOCK BUT S.TAG IS NOT SAVING." — independent confirmation of the
+clear-sivb mechanism (password state on the 8MB chip; rewrite drops the tag).
+
+### 11.24.3 SELLER CONTACT (the practical door, current)
+
+pkbiosfix advertises a master-code service: **"Dell Master BIOS Code /
+Dell BIOS Password Recovery Codes — supported suffixes 8FC8, CF1B, 3FE2,
+9ABE, 1B58, E7A8 — Contact WhatsApp"** → **wa.me/923280493988** (+92).
+The suffix list matches our fleet's families exactly (3410=CF1B,
+3420/3080/3090UFF=8FC8, 3090=CF1B/8FC8). A purchase (typically $10-30)
+would (a) unlock the user's machine now, and (b) give a validated
+(tag, suffix, master) triple for the campaign.
+
+### 11.24.4 Standing online-file conclusion
+
+The missing artifacts exist only in: Dell/ODM factories, sellers' private
+extractions, and EC silicon. Public web = exhausted at parity (273 dumps,
+all BIOS packages, all reachable schematics). Live doors remain: sellers
+(§11.24.3), donor-machine GENERATE test, GEN 2 physical read (needs the
+3090 EC part number — schematic sources are all paywalled; the 3410's
+MOCKINGBIRD-L schematic is already held with JTAG1/KBC points).

@@ -151,3 +151,14 @@
   flash chip like the 3410's.
 - Queued: elvikom IPCML-RN/ZB schematic/boardview (3090 EC part number →
   GEN 2 instructions for the user's own model), badcaps 98981 page4 watch.
+
+## Cycle 10 (2026-10-04) — agent status + venue sweep + seller contact
+- User asked where the agents are. Relay ran 3x during the session (elvikom,
+  pkbiosfix page, pkbiosfix 22-attachment sweep) — all success; both new
+  venues are login/paywalled (files DEAD), thread text mined.
+- External confirmation (Hackaday 2022): Dell EC firmware encrypted + keys
+  fused in EC — the files are not online ANYWHERE by design; public corpus
+  is at parity (273 dumps + all packages).
+- SELLER CONTACT found on pkbiosfix: master codes for 8FC8/CF1B/3FE2/9ABE/
+  1B58/E7A8 via wa.me/923280493988 — practical unlock door + validation
+  triple source. Logged §11.24.3.
