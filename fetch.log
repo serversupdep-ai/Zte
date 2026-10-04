@@ -50,7 +50,7 @@
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334497 bytes, sha256 34ffdf8ccd425ce6…)
+    [saved] mediafire_3410/mediafire_page.html (334497 bytes, sha256 7dd905f1969c7c99…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -112,14 +112,18 @@
 [skip] dell_3070_144/OptiPlex_3070_1.4.4.exe already fetched
 [skip] dell_3410_1360/Latitude_3410_3510_1.36.0.exe already fetched
 [skip] dell_3420_1440/Latitude_3420_Latitude_3520_1.44.0.exe already fetched
-[PAGE] https://www.elvikom.pl/post303887.html?lang=en -> raw/elvikom_3090_schematic
-    [page head] '<!DOCTYPE html>\n<html dir="ltr" lang="en">\n<head>\n<base href="https://www.elvikom.pl/"/>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="application-name" content="Elvikom">\n<meta na'
-    [saved] elvikom_3090_schematic/page.html (42063 bytes, sha256 62b560d087a4d1fa…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/98981-dell-optiplex-3090-bios-issue-please-help/page4 -> raw/badcaps_3090_98981_p4
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_3090_98981_p4/page.html (2387 bytes, sha256 28849f4d657537cf…)
-    [links] 0 candidates
+[skip] elvikom_3090_schematic already fetched
+[skip] badcaps_3090_98981_p4 already fetched
+[FILE] https://www.elvikom.pl/download/file.php?id=50592 -> raw/elvikom_3090_schematic/ipcml_rn_schematic.bin
+    [saved] elvikom_3090_schematic/ipcml_rn_schematic.bin (20399 bytes)
+[FILE] https://www.elvikom.pl/download/file.php?id=51162 -> raw/elvikom_3090_schematic/ipcml_rn_boardview.rar
+    [saved] elvikom_3090_schematic/ipcml_rn_boardview.rar (20399 bytes)
+[PAGE] https://pkbiosfix.com/threads/dell-latitude-3410-3510-19746-1-bios-schematic-boardview.565/ -> raw/pkbiosfix_3410_565
+    [page head] '\n\t\n\t\n\t\n\t\n\t\n\n\t\n\t\t\t\n\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n<!DOCTYPE html>\n<html id="XF" lang="en-US" dir="LTR"\n\tdata-xf="2.3"\n\tdata-app="public"\n\t\n\t\n\tdata-template="thread_view_type_article"\n\tdata-container-key="node-3"\n\tdata-content-key="thread-565"'
+    [saved] pkbiosfix_3410_565/page.html (223093 bytes, sha256 7e3e6363c5e40fb8…)
+    [links] 2 candidates
+    [saved] pkbiosfix_3410_565/19746-1-jpg.8710 (45897 bytes)
+    [saved] pkbiosfix_3410_565/8710 (45885 bytes)
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -189,6 +193,7 @@
 [EXTRACT-PASS] mediafire_3410
 [EXTRACT-PASS] mediafire_3410_page
 [EXTRACT-PASS] misc
+[EXTRACT-PASS] pkbiosfix_3410_565
 [EXTRACT-PASS] reddit_1mni7p9_comments
 [EXTRACT-PASS] reddit_1mni7p9_post
 [EXTRACT-PASS] repairlap_3410

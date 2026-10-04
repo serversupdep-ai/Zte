@@ -1,5 +1,17 @@
 {
  "files": {
+  "ipcml_rn_boardview.rar": {
+   "bytes": 20399,
+   "sha256": "9a1b2e12128d457ffe41b5f4db40f6953e9bd7d2e923fbd06dcfc804d3b48985"
+  },
+  "ipcml_rn_schematic.bin": {
+   "bytes": 20399,
+   "sha256": "9fff3812c6ee6b49ecdf4bf9df3b8b99d7ff39ac3fe79739cabe49502070dda0"
+  },
+  "manifest.json": {
+   "bytes": 138,
+   "sha256": "7999f0a5ad61b6861f30298596029afdf468c65c015163e94cc7dfaf95717c3e"
+  },
   "page.html": {
    "bytes": 42063,
    "sha256": "62b560d087a4d1fabd4500b944422f40140db4e40430fe59fb2abc81252c6368"
