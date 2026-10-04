@@ -42,9 +42,9 @@ def curl(url, dest=None, max_time="900"):
     cmd = ["curl", "-sSL", "--max-time", max_time, "-A", UA,
            "-H", "Accept: text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8"]
     if dest:
-        cmd += ["-o", dest, "-w", "%{http_code}", url]
+        cmd += ["-o", dest, "-w", "%{http_code} %{url_effective}", url]
         r = subprocess.run(cmd, capture_output=True, text=True)
-        ok = r.stdout.strip() == "200" and os.path.exists(dest) and os.path.getsize(dest) > 0
+        ok = r.stdout.strip().startswith("200 ") and os.path.exists(dest) and os.path.getsize(dest) > 0
         return ok, r.stdout.strip()
     cmd += [url]
     r = subprocess.run(cmd, capture_output=True, text=True)
@@ -221,6 +221,8 @@ def try_extract(tag):
             archs.append((p, ".zip"))
         elif m[:6] == b"7z\xbc\xaf\x27\x1c":
             archs.append((p, ".7z"))
+        elif m[:4] == b"MSCF":
+            archs.append((p, ".cab"))
     renamed = []
     for p, ext in archs:
         if not p.endswith(ext):
