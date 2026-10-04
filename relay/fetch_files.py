@@ -43,8 +43,7 @@ def curl(url, dest=None, max_time="900"):
            "-H", "Accept: text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8"]
     if "fwupd.org" in url:
         # LVFS hotlink protection returns 412 without a referer
-        cmd += ["-H", "Referer: https://fwupd.org/lvfs/devices/",
-                "-H", "Origin: https://fwupd.org"]
+        cmd += ["-H", "Referer: https://fwupd.org/lvfs/devices/"]
     if dest:
         cmd += ["-o", dest, "-w", "%{http_code} %{url_effective}", url]
         r = subprocess.run(cmd, capture_output=True, text=True)

@@ -140,6 +140,8 @@ FILE|https://dl.dell.com/FOLDER06245126M/1/Latitude_5X10_Precision_3550_1.1.1.ex
 FILE|https://dl.dell.com/FOLDER06312863M/1/OptiPlex_3070_1.4.4.exe|OptiPlex_3070_1.4.4.exe|dell_3070_144
 # === solution-kit: latest BIOS packages for the two Latitude models (2026-10-04) ===
 # 3410/3510 latest 1.36.0 (LVFS cab, Dell J37H1) — on arrival: extract pw modules + EC containers, flip profile held=true
-FILE|https://fwupd.org/downloads/db2fa48ad533cef969bb51573f23a3161c97b266e3e3cd2f8de7ddd88e70fe37-MockingbirdLCmlU15_14.0_PROD_QS_firmware.cab|Latitude_3410_3510_1.36.0.cab|dell_3410_1360
+# (superseded by full exe below — LVFS 502 anyway)
+# FILE|https://fwupd.org/downloads/db2fa48ad533cef969bb51573f23a3161c97b266e3e3cd2f8de7ddd88e70fe37-MockingbirdLCmlU15_14.0_PROD_QS_firmware.cab|Latitude_3410_3510_1.36.0.cab|dell_3410_1360
 # 3420/3520 latest 1.47.0 TGL (LVFS cab CyborgLTgl_TI_G) — on arrival: same pipeline
 FILE|https://fwupd.org/downloads/a39b06122e0e31774dc37410f8b9c409a32122646c662a84b935b046aae1a2e1-CyborgLTgl_TI_G_firmware.cab|Latitude_3420_3520_1.47.0.cab|dell_3420_1470
+FILE|https://dl.dell.com/FOLDER13471058M/1/Latitude_3410_3510_1.36.0.exe|Latitude_3410_3510_1.36.0.exe|dell_3410_1360
