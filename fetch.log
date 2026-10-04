@@ -41,16 +41,16 @@
 [skip] alisaler_3410 already fetched
 [skip] vinafix_3410_thread already fetched
 [FILE] https://vinafix.com/attachments/mockingbird-l-19746-1-pass-8mb-bin.150249/ -> raw/vinafix_3410/pass_8mb_150249
-    [saved] vinafix_3410/mockingbird-l-19746-1-pass-8mb-bin.150249 (35097 bytes)
+    [saved] vinafix_3410/mockingbird-l-19746-1-pass-8mb-bin.150249 (35481 bytes)
 [FILE] https://vinafix.com/attachments/mockingbird-l-19746-1-pass-16mb-bin.150250/ -> raw/vinafix_3410/pass_16mb_150250
-    [saved] vinafix_3410/mockingbird-l-19746-1-pass-16mb-bin.150250 (35103 bytes)
+    [saved] vinafix_3410/mockingbird-l-19746-1-pass-16mb-bin.150250 (35487 bytes)
 [FILE] https://vinafix.com/attachments/8mb-bin-zip.148166/ -> raw/vinafix_3410/8mb_zip_148166
-    [saved] vinafix_3410/8mb-bin-zip.148166 (34959 bytes)
+    [saved] vinafix_3410/8mb-bin-zip.148166 (35343 bytes)
 [skip] vinafix_wayback_8mb already fetched
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334497 bytes, sha256 0364fff11696979d…)
+    [saved] mediafire_3410/mediafire_page.html (334493 bytes, sha256 069672f807d5529b…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -109,8 +109,11 @@
 [skip] dell_3080_rcv/3080_BIOS_IMG.rcv already fetched
 [skip] dell_3410_120/Latitude_3410_3510_1.2.0.exe already fetched
 [skip] dell_5x10_111/Latitude_5X10_Precision_3550_1.1.1.exe already fetched
-[FILE] https://dl.dell.com/FOLDER06312863M/1/OptiPlex_3070_1.4.4.exe -> raw/dell_3070_144/OptiPlex_3070_1.4.4.exe
-    [saved] dell_3070_144/OptiPlex_3070_1.4.4.exe (23205528 bytes)
+[skip] dell_3070_144/OptiPlex_3070_1.4.4.exe already fetched
+[FILE] https://fwupd.org/downloads/db2fa48ad533cef969bb51573f23a3161c97b266e3e3cd2f8de7ddd88e70fe37-MockingbirdLCmlU15_14.0_PROD_QS_firmware.cab -> raw/dell_3410_1360/Latitude_3410_3510_1.36.0.cab
+    [fetch failed 412] https://fwupd.org/downloads/db2fa48ad533cef969bb51573f23a3161c97b266e3e3cd2f8de7ddd88e70fe37-MockingbirdLCmlU15_14.0_PROD_QS_firmware.cab
+[FILE] https://fwupd.org/downloads/a39b06122e0e31774dc37410f8b9c409a32122646c662a84b935b046aae1a2e1-CyborgLTgl_TI_G_firmware.cab -> raw/dell_3420_1470/Latitude_3420_3520_1.47.0.cab
+    [fetch failed 412] https://fwupd.org/downloads/a39b06122e0e31774dc37410f8b9c409a32122646c662a84b935b046aae1a2e1-CyborgLTgl_TI_G_firmware.cab
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -164,6 +167,8 @@
 [EXTRACT-PASS] dell_3070_144
 [EXTRACT-PASS] dell_3080_rcv
 [EXTRACT-PASS] dell_3410_120
+[EXTRACT-PASS] dell_3410_1360
+[EXTRACT-PASS] dell_3420_1470
 [EXTRACT-PASS] dell_5x10_111
 [EXTRACT-PASS] drbios_3090_59046
 [EXTRACT-PASS] drbios_3090_61941

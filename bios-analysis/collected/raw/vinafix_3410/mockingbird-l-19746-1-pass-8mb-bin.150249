@@ -9,9 +9,9 @@
 	data-content-key=""
 	data-logged-in="false"
 	data-cookie-prefix="xf_"
-	data-csrf="1790872030,675c9e66bb4d1ebf20b36b5abbc406b0"
+	data-csrf="1791140163,b64744bde95d34db929e6668c39809da"
 	class="has-no-js template-vinafix_attachment_limiter_guest_file_blocked"
-	>
+	 data-run-jobs="">
 <head>
 	
 	
@@ -91,8 +91,8 @@
 	
 	
 	
-		<meta property="og:image" content="https://vinafix.com/data/assets/logo/metadata.png" />
-		<meta property="twitter:image" content="https://vinafix.com/data/assets/logo/metadata.png" />
+		<meta property="og:image" content="https://vinafix.com/styles/vinafix-native/metadata.png" />
+		<meta property="twitter:image" content="https://vinafix.com/styles/vinafix-native/metadata.png" />
 		<meta property="twitter:card" content="summary" />
 	
 
@@ -109,23 +109,23 @@
 	
 	
 
-	<link rel="stylesheet" href="/css.php?css=public%3Anormalize.css%2Cpublic%3Afa.css%2Cpublic%3Avariations.less%2Cpublic%3Acore.less%2Cpublic%3Aapp.less&amp;s=43&amp;l=1&amp;d=1790609210&amp;k=6ed3b4695ca8cced1c7d219394db7eeee1b3c5e4" />
+	<link rel="stylesheet" href="/css.php?css=public%3Anormalize.css%2Cpublic%3Afa.css%2Cpublic%3Avariations.less%2Cpublic%3Acore.less%2Cpublic%3Aapp.less&amp;s=45&amp;l=1&amp;d=1791014267&amp;k=6ed3b4695ca8cced1c7d219394db7eeee1b3c5e4" />
 
-	<link rel="stylesheet" href="/css.php?css=public%3Anotices.less&amp;s=43&amp;l=1&amp;d=1790609210&amp;k=d88b71bb37424b5283ccc5c75c32df70ad06279b" />
-<link rel="stylesheet" href="/css.php?css=public%3AsvESE_autocomplete.less&amp;s=43&amp;l=1&amp;d=1790609210&amp;k=ddb272fca6c1d1c12f8eb670be49f972348a4091" />
-<link rel="stylesheet" href="/css.php?css=public%3Avinafix_ui_compact_header.less&amp;s=43&amp;l=1&amp;d=1790609210&amp;k=4c59f1964f81d6f65dedb078028378773cc634d6" />
-<link rel="stylesheet" href="/css.php?css=public%3Avinafix_ui_foundations.less&amp;s=43&amp;l=1&amp;d=1790609210&amp;k=a0797713b59b0b3a5cce6139ef3f9ba4c2a02cd6" />
-<link rel="stylesheet" href="/css.php?css=public%3Avinafix_ui_node_bento.less&amp;s=43&amp;l=1&amp;d=1790609210&amp;k=6292dac86472c6eeb5396d4c267f73abd3fa220e" />
-<link rel="stylesheet" href="/css.php?css=public%3Aextra.less&amp;s=43&amp;l=1&amp;d=1790609210&amp;k=33f211315d8c633cf6d77e14f991ea18099f8212" />
+	<link rel="stylesheet" href="/css.php?css=public%3Anotices.less&amp;s=45&amp;l=1&amp;d=1791014267&amp;k=d88b71bb37424b5283ccc5c75c32df70ad06279b" />
+<link rel="stylesheet" href="/css.php?css=public%3AsvESE_autocomplete.less&amp;s=45&amp;l=1&amp;d=1791014267&amp;k=ddb272fca6c1d1c12f8eb670be49f972348a4091" />
+<link rel="stylesheet" href="/css.php?css=public%3Avinafix_ui_compact_header.less&amp;s=45&amp;l=1&amp;d=1791014267&amp;k=4c59f1964f81d6f65dedb078028378773cc634d6" />
+<link rel="stylesheet" href="/css.php?css=public%3Avinafix_ui_foundations.less&amp;s=45&amp;l=1&amp;d=1791014267&amp;k=a0797713b59b0b3a5cce6139ef3f9ba4c2a02cd6" />
+<link rel="stylesheet" href="/css.php?css=public%3Avinafix_ui_node_bento.less&amp;s=45&amp;l=1&amp;d=1791014267&amp;k=6292dac86472c6eeb5396d4c267f73abd3fa220e" />
+<link rel="stylesheet" href="/css.php?css=public%3Aextra.less&amp;s=45&amp;l=1&amp;d=1791014267&amp;k=33f211315d8c633cf6d77e14f991ea18099f8212" />
 
-
-	
-		<script src="/js/xf/preamble.min.js?_v=60964395"></script>
-	
 
 	
-	<script src="/js/vendor/vendor-compiled.js?_v=60964395" defer></script>
-	<script src="/js/xf/core-compiled.js?_v=60964395" defer></script>
+		<script src="/js/xf/preamble.min.js?_v=1dea0120"></script>
+	
+
+	
+	<script src="/js/vendor/vendor-compiled.js?_v=1dea0120" defer></script>
+	<script src="/js/xf/core-compiled.js?_v=1dea0120" defer></script>
 
 	<script>
 		XF.ready(() =>
@@ -138,9 +138,9 @@
 				url: {
 					fullBase: 'https://vinafix.com/',
 					basePath: '/',
-					css: '/css.php?css=__SENTINEL__&s=43&l=1&d=1790609210',
-					js: '/js/__SENTINEL__?_v=60964395',
-					icon: '/data/local/icons/__VARIANT__.svg?v=1790609208#__NAME__',
+					css: '/css.php?css=__SENTINEL__&s=45&l=1&d=1791014267',
+					js: '/js/__SENTINEL__?_v=1dea0120',
+					icon: '/data/local/icons/__VARIANT__.svg?v=1791014267#__NAME__',
 					iconInline: '/styles/fa/__VARIANT__/__NAME__.svg?v=5.15.3',
 					keepAlive: '/login/keep-alive'
 				},
@@ -153,17 +153,17 @@
 					consented: ["optional","_third_party"]
 				},
 				cacheKey: '60356f7aa4f82ca98e605b4e87a0a057',
-				csrf: '1790872030,675c9e66bb4d1ebf20b36b5abbc406b0',
-				js: {"\/js\/sv\/ese\/xf\/core_handlers.min.js?_v=60964395":true,"\/js\/sv\/lib\/link-post.min.js?_v=60964395":true},
+				csrf: '1791140163,b64744bde95d34db929e6668c39809da',
+				js: {"\/js\/sv\/ese\/xf\/core_handlers.min.js?_v=1dea0120":true,"\/js\/sv\/lib\/link-post.min.js?_v=1dea0120":true,"\/js\/vinafix\/ui-foundations\/header-search-hover.js?_v=1dea0120":true},
 				fullJs: false,
 				css: {"public:notices.less":true,"public:svESE_autocomplete.less":true,"public:vinafix_ui_compact_header.less":true,"public:vinafix_ui_foundations.less":true,"public:vinafix_ui_node_bento.less":true,"public:extra.less":true},
 				time: {
-					now: 1790872030,
-					today: 1790787600,
-					todayDow: 4,
-					tomorrow: 1790874000,
-					yesterday: 1790701200,
-					week: 1790269200,
+					now: 1791140163,
+					today: 1791133200,
+					todayDow: 1,
+					tomorrow: 1791219600,
+					yesterday: 1791046800,
+					week: 1790614800,
 					month: 1790787600,
 					year: 1767200400
 				},
@@ -194,7 +194,7 @@
 				},
 				jsMt: {"xf\/action.js":"963960f2","xf\/embed.js":"d0a971b6","xf\/form.js":"990efa3e","xf\/structure.js":"6dc216cf","xf\/tooltip.js":"c664d31d"},
 				jsState: {},
-				publicMetadataLogoUrl: 'https://vinafix.com/data/assets/logo/metadata.png',
+				publicMetadataLogoUrl: 'https://vinafix.com/styles/vinafix-native/metadata.png',
 				publicPushBadgeUrl: 'https://vinafix.com/styles/default/xenforo/bell.png'
 			})
 
@@ -294,8 +294,9 @@
 		})
 	</script>
 
-	<script src="/js/sv/ese/xf/core_handlers.min.js?_v=60964395" defer></script>
-<script src="/js/sv/lib/link-post.min.js?_v=60964395" defer></script>
+	<script src="/js/sv/ese/xf/core_handlers.min.js?_v=1dea0120" defer></script>
+<script src="/js/sv/lib/link-post.min.js?_v=1dea0120" defer></script>
+<script src="/js/vinafix/ui-foundations/header-search-hover.js?_v=1dea0120" defer></script>
 
 
 
@@ -316,8 +317,6 @@
 		});
 	</script>
 
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5892299171410831"
-	crossorigin="anonymous"></script>
 
 
 
@@ -335,7 +334,7 @@
 		--vf-ui-header-height: 56px;
 		--vf-ui-header-logo-space: 72px;
 		--vf-ui-header-nav-align: flex-end;
-		--vf-ui-header-search-width: 380px;
+		--vf-ui-header-search-width: 360px;
 		
 	}
 </style>
@@ -546,7 +545,8 @@
 				</div>
 
 				
-	<div class="vfUiHeaderSearchWidget vfUiHeaderSearchWidget--hideNative" role="search" aria-label="Search">
+	
+	<div class="vfUiHeaderSearchWidget" role="search" aria-label="Search">
 		
 	<form action="/search/search" method="post" class="block" data-widget-section="staffMembers" data-widget-id="45" data-widget-key="searchblock" data-widget-definition="svESE_searchBlock">
 		<div class="block-container">
@@ -560,7 +560,7 @@
 						<input type="text" class="input" data-xf-init="ese-autocomplete" name="keywords" placeholder="Search…" aria-label="Search" data-menu-autofocus="true" data-acurl="/search/search?autocomplete=1" data-autocomplete-filter="[&quot;resource&quot;,&quot;post&quot;]" />
 					
 				
-						<button type="submit" class="button button--icon button--icon--search button--primary"><i class="fa--xf far fa-search "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1790609208#search"></use></svg></i><span class="button-text">Search</span></button>
+						<button type="submit" class="button button--icon button--icon--search button--primary"><i class="fa--xf far fa-search "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1791014267#search"></use></svg></i><span class="button-text">Search</span></button>
 					</div>
 				
 			</div>
@@ -570,7 +570,7 @@
 			
 		</div>
 
-		<input type="hidden" name="_xfToken" value="1790872030,675c9e66bb4d1ebf20b36b5abbc406b0" />
+		<input type="hidden" name="_xfToken" value="1791140163,b64744bde95d34db929e6668c39809da" />
 	</form>
 
 	</div>
@@ -616,6 +616,18 @@
 	
 	
 	data-nav-id="newPosts">New posts</a>
+
+	
+
+				
+					
+	
+	
+	<a href="/search/?type=post"
+	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
+	
+	
+	data-nav-id="searchForums">Search forums</a>
 
 	
 
@@ -862,7 +874,7 @@
 													<span tabindex="0" role="button"
 														data-xf-init="tooltip" data-trigger="hover focus click" title="Tags will also be searched in content where tags are supported">
 
-														<i class="fa--xf far fa-question-circle  u-muted u-smaller"><svg xmlns="http://www.w3.org/2000/svg" role="img" ><title>Note</title><use href="/data/local/icons/regular.svg?v=1790609208#question-circle"></use></svg></i>
+														<i class="fa--xf far fa-question-circle  u-muted u-smaller"><svg xmlns="http://www.w3.org/2000/svg" role="img" ><title>Note</title><use href="/data/local/icons/regular.svg?v=1791014267#question-circle"></use></svg></i>
 													</span></span></label>
 
 									</div>
@@ -875,12 +887,12 @@
 									</div>
 									<div class="menu-footer">
 									<span class="menu-footer-controls">
-										<button type="submit" class="button button--icon button--icon--search button--primary"><i class="fa--xf far fa-search "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1790609208#search"></use></svg></i><span class="button-text">Search</span></button>
+										<button type="submit" class="button button--icon button--icon--search button--primary"><i class="fa--xf far fa-search "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1791014267#search"></use></svg></i><span class="button-text">Search</span></button>
 										<button type="submit" class="button " name="from_search_menu"><span class="button-text">Advanced search…</span></button>
 									</span>
 									</div>
 
-									<input type="hidden" name="_xfToken" value="1790872030,675c9e66bb4d1ebf20b36b5abbc406b0" />
+									<input type="hidden" name="_xfToken" value="1791140163,b64744bde95d34db929e6668c39809da" />
 								</form>
 							</div>
 						
@@ -904,10 +916,32 @@
 
 		
 	
-	<a href="/whats-new/latest-activity"
+	<a href="/featured/"
 	class="p-navEl-link "
 	
 	data-xf-key="alt+1"
+	data-nav-id="featured">Featured content</a>
+
+
+		
+
+		
+	
+	</div>
+
+								</li>
+							
+								<li>
+									
+	<div class="p-navEl " >
+	
+
+		
+	
+	<a href="/whats-new/latest-activity"
+	class="p-navEl-link "
+	
+	data-xf-key="alt+2"
 	data-nav-id="defaultLatestActivity">Latest activity</a>
 
 
@@ -929,7 +963,7 @@
 	<a href="/account/upgrades"
 	class="p-navEl-link "
 	
-	data-xf-key="alt+2"
+	data-xf-key="alt+3"
 	data-nav-id="defaultRegister">Register</a>
 
 
@@ -1149,7 +1183,7 @@
 											
 												<a href="/misc/style" data-xf-click="overlay"
 													data-xf-init="tooltip" title="Style chooser" rel="nofollow">
-													<i class="fa--xf far fa-paint-brush "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1790609208#paint-brush"></use></svg></i> VINA
+													<i class="fa--xf far fa-paint-brush "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1791014267#paint-brush"></use></svg></i> Technical
 												</a>
 											
 											
@@ -1158,7 +1192,7 @@
 													data-xf-init="tooltip" title="Style variation"
 													data-xf-click="menu" data-z-index-ref=".u-bottomFixer" role="button" aria-expanded="false" aria-haspopup="true">
 
-													<i class="fa--xf far fa-moon "><svg xmlns="http://www.w3.org/2000/svg" role="img" ><title>Style variation</title><use href="/data/local/icons/regular.svg?v=1790609208#moon"></use></svg></i>
+													<i class="fa--xf far fa-moon "><svg xmlns="http://www.w3.org/2000/svg" role="img" ><title>Style variation</title><use href="/data/local/icons/regular.svg?v=1791014267#moon"></use></svg></i>
 												</a>
 
 												<div class="menu" data-menu="menu" aria-hidden="true">
@@ -1173,7 +1207,7 @@
 		rel="nofollow"
 		data-xf-click="style-variation" data-variation="">
 
-		<i class="fa--xf far fa-adjust "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1790609208#adjust"></use></svg></i>
+		<i class="fa--xf far fa-adjust "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1791014267#adjust"></use></svg></i>
 
 		
 			System
@@ -1188,7 +1222,7 @@
 		rel="nofollow"
 		data-xf-click="style-variation" data-variation="default">
 
-		<i class="fa--xf far fa-sun "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1790609208#sun"></use></svg></i>
+		<i class="fa--xf far fa-sun "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1791014267#sun"></use></svg></i>
 
 		
 			Light
@@ -1203,7 +1237,7 @@
 		rel="nofollow"
 		data-xf-click="style-variation" data-variation="alternate">
 
-		<i class="fa--xf far fa-moon "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1790609208#moon"></use></svg></i>
+		<i class="fa--xf far fa-moon "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1791014267#moon"></use></svg></i>
 
 		
 			Dark
@@ -1250,7 +1284,7 @@
 
 						
 
-						<li><a href="/forums/-/index.rss" target="_blank" class="p-footer-rssLink" title="RSS"><span aria-hidden="true"><i class="fa--xf far fa-rss "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1790609208#rss"></use></svg></i><span class="u-srOnly">RSS</span></span></a></li>
+						<li><a href="/forums/-/index.rss" target="_blank" class="p-footer-rssLink" title="RSS"><span aria-hidden="true"><i class="fa--xf far fa-rss "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1791014267#rss"></use></svg></i><span class="u-srOnly">RSS</span></span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -1303,7 +1337,7 @@ By continuing to use this site, you are consenting to our use of cookies.
 	</div>
 
 	<div class="u-inputSpacer u-alignCenter">
-		<a href="/account/dismiss-notice" class="button button--icon button--icon--confirm js-noticeDismiss button--notice"><i class="fa--xf far fa-check "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1790609208#check"></use></svg></i><span class="button-text">Accept</span></a>
+		<a href="/account/dismiss-notice" class="button button--icon button--icon--confirm js-noticeDismiss button--notice"><i class="fa--xf far fa-check "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1791014267#check"></use></svg></i><span class="button-text">Accept</span></a>
 		<a href="/help/cookies" class="button button--notice"><span class="button-text">Learn more…</span></a>
 	</div>
 
@@ -1318,12 +1352,12 @@ By continuing to use this site, you are consenting to our use of cookies.
 </div>
 
 <div class="u-navButtons js-navButtons">
-	<a href="javascript:" class="button button--scroll"><span class="button-text"><i class="fa--xf far fa-arrow-left "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1790609208#arrow-left"></use></svg></i><span class="u-srOnly">Back</span></span></a>
+	<a href="javascript:" class="button button--scroll"><span class="button-text"><i class="fa--xf far fa-arrow-left "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1791014267#arrow-left"></use></svg></i><span class="u-srOnly">Back</span></span></a>
 </div>
 
 
 	<div class="u-scrollButtons js-scrollButtons" data-trigger-type="up">
-		<a href="#top" class="button button--scroll" data-xf-click="scroll-to"><span class="button-text"><i class="fa--xf far fa-arrow-up "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1790609208#arrow-up"></use></svg></i><span class="u-srOnly">Top</span></span></a>
+		<a href="#top" class="button button--scroll" data-xf-click="scroll-to"><span class="button-text"><i class="fa--xf far fa-arrow-up "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1791014267#arrow-up"></use></svg></i><span class="u-srOnly">Top</span></span></a>
 		
 	</div>
 
