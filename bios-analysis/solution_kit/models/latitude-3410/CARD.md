@@ -2,7 +2,9 @@
 
 **Platform:** Mockingbird-L CML (Compal) · EC = Microchip MEC1515H ·
 **Suffix family on this model:** CF1B · Family byte 0x1B
-**Latest BIOS:** 1.36.0 (2025-09-16, Dell J37H1 / LVFS) — older 1.x BIOSes
+**Latest BIOS:** 1.36.0 (2025-09-17) — VERIFIED on the latest package: the
+vault module is identical to the reference engine; EC v1.12.0 (bt=0xa29).
+Older 1.x BIOSes
 use the identical CF1B engine (verified on the 1.2.0→1.6.0 line).
 
 ## What works on this model (in order of ease)

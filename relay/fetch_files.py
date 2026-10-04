@@ -42,8 +42,14 @@ def curl(url, dest=None, max_time="900"):
     cmd = ["curl", "-sSL", "--max-time", max_time, "-A", UA,
            "-H", "Accept: text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8"]
     if "fwupd.org" in url:
-        # LVFS hotlink protection returns 412 without a referer
-        cmd += ["-H", "Referer: https://fwupd.org/lvfs/devices/"]
+        # LVFS hotlink protection: 412 without a session; visit the site
+        # first to collect cookies, then download with them + referer
+        jar = "/tmp/fwupd_cookies.txt"
+        subprocess.run(["curl", "-sSL", "--max-time", "60", "-A", UA,
+                        "-c", jar, "https://fwupd.org/lvfs/devices/"],
+                       capture_output=True, text=True)
+        cmd += ["-H", "Referer: https://fwupd.org/lvfs/devices/",
+                "-b", jar]
     if dest:
         cmd += ["-o", dest, "-w", "%{http_code} %{url_effective}", url]
         r = subprocess.run(cmd, capture_output=True, text=True)

@@ -309,11 +309,12 @@ MODEL_PROFILES = {
         "name": "Latitude 3410 / 3510",
         "platform": "Mockingbird-L CML (Compal; EC = Microchip MEC1515H)",
         "latest_bios": {
-            "version": "1.36.0", "date": "2025-09-16",
-            "source": "LVFS (cab MockingbirdLCmlU15_14.0_PROD_QS) + Dell J37H1",
-            "held": False,
-            "note": "queued for relay fetch; engine verified on held 1.2.0-1.6.0 "
-                    "line — EC-oracle families are BIOS-version independent",
+            "version": "1.36.0", "date": "2025-09-17",
+            "source": "Dell J37H1 (exe) + LVFS 1.36.0 cab",
+            "held": True,
+            "note": "LATEST package verified: vault module (pw_4) is md5-"
+                    "IDENTICAL to the 2.27.0 reference engine — keygen valid "
+                    "verbatim; EC now v1.12.0 bt=0xa29 (new build line)",
         },
         "suffix_census": ["CF1B"],
         "all_ec_families": ["CF1B", "8FC8", "9ABE", "3FE2", "1B58"],
@@ -325,7 +326,8 @@ MODEL_PROFILES = {
             "phcm_stores": ["0x1000", "0x41000", "0x81000"],
             "ec_build_tags": {"1.2.0": "0x9f4 (EC v1.0.1)",
                               "1.4.1": "0x9f4 (EC v1.0.3)",
-                              "1.6.0": "0x9fc (EC v1.5.1, 3510 shared)"},
+                              "1.6.0": "0x9fc (EC v1.5.1, 3510 shared)",
+                              "1.36.0": "0xa29 (EC v1.12.0, latest)"},
         },
     },
     "latitude-3420": {
