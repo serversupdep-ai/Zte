@@ -1631,3 +1631,62 @@ seller ecosystem (proven to hold the engine).
   extended-clear boundary bug (MFS files at +0x4000, magic 87 78 55 AA)
   caught and fixed during validation. RECOVERY_GUIDE updated (32MB chip
   note, SIVB partition boundary, 3410 vault on the 8MB companion chip).
+
+---
+
+## 11.21 SOLUTION KIT — per-model, pinned to LATEST BIOS (2026-10-04)
+
+User directive executed: assemble each part of the solution source and
+develop per-model support for each model's LATEST BIOS version only.
+
+### 11.21.1 Latest-version matrix (verified 2026-10-04, Dell pages + LVFS)
+
+| model | latest BIOS | source | package |
+|---|---|---|---|
+| Latitude 3410/3510 | 1.36.0 (2025-09-16) | Dell J37H1 + LVFS | queued (cab) |
+| Latitude 3420/3520 | 1.47.0 TGL (2026-07-21) / 1.37.0 ICL | LVFS | queued (cab) |
+| OptiPlex 3080 | 2.35.0 (2026-07-17) | LVFS | held + verified |
+| OptiPlex 3090 | 2.30.0 | LVFS (Dell site tops at 2.28.0) | held + verified |
+| OptiPlex 3090 UFF | 1.44.0 | LVFS | held + verified |
+
+LVFS (fwupd.org) is Dell's live channel and runs AHEAD of Dell's own site
+for the OptiPlex fleet. The two Latitude cabs are queued in the relay
+fetchlist (fetch blocked only by the expired GitHub token).
+
+### 11.21.2 Engine verification on the LATEST versions
+
+- 3080 2.35.0 and 3090 2.30.0 vault modules (pw_4_43008.efi) are
+  BYTE-IDENTICAL to the 2.27.0 reference engine (firmware/
+  vault_3090_2.27.0_cf1b.pe) — the keygen is valid verbatim on the latest
+  BIOS of both models. EC build tags: 2.35.0 = 0x60d main/0x64f backup;
+  2.30.0 = 0x615 main/0x64f backup (backup family shared).
+- 3090UFF 1.44.0 ships the NEW-generation EC-only vault module (pw_3_38912):
+  the five EC families at file+0x81f8 + per-family 72-char alphabets, no
+  legacy local families. Oracle-mode keygen unaffected. Its EC build tag
+  0xc82 is UNCHANGED since BIOS 1.1.0 (2021).
+- Fleet-wide module generation map (133 pw modules scanned): Gen-A combined
+  (legacy+EC lists, 10th/11th-gen OptiPlex + 5X00), Gen-B EC-only (12th/
+  13th-gen: 3090UFF/5000/5090/5490/7000/XE4/7090/7490 + 5440 1.31.1),
+  legacy-only (pre-EC 3070/7070/3040/3050/3240/5250/7040 — DVAR era).
+
+### 11.21.3 Deliverables (bios-analysis/solution_kit/)
+
+- src/: dell_master_keygen.py (now with --model/--list-models per-model
+  pinning + census check), dell_unlock_image.py, dellpwn_port.py,
+  dell_v2_keygen.py + dell_e7a8_pure.py (legacy fallback), firmware/ PEs.
+- MODEL_PROFILES.json (machine-readable, exported from the keygen's single
+  source of truth).
+- models/<5 models>/CARD.md — zero-tech per-model cards, latest-BIOS pinned.
+- Validation: keygen selftest PASS (all maps + module emulation); --model
+  runs census-checked; patcher --state correctly classifies the real locked
+  3090 dump (USED, 5 AA markers); clear-sivb validated on the same dump.
+
+### 11.21.4 Latest-version EC profile addenda (held packages)
+
+- 3090 2.30.0: ec_1/2 bt=0x615 (100,032/100,048 B), ec_3/4 bt=0x64f
+  (103,744/103,760 B).
+- 3080 2.35.0: ec_1/2 bt=0x60d (99,520/99,536 B), ec_3/4 bt=0x64f —
+  the 0x64f backup image is IDENTICAL family across 3080 2.35.0 and
+  3090 2.30.0 (shared OptiPlex backup line).
+- 3090UFF 1.44.0: all four containers bt=0xc82 (205,328 B), const
+  57465957… == the 1.1.0 (2021) containers.

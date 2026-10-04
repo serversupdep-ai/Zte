@@ -106,3 +106,9 @@
   + relay workflows need user reconnect.
 - Task: assemble each part of the solution source and pin per-model support
   to each model's LATEST BIOS version (kit build this cycle).
+- solution_kit/ built: 5 models pinned to latest BIOS (3410 1.36.0, 3420
+  1.47.0, 3080 2.35.0, 3090 2.30.0, 3090UFF 1.44.0); keygen gained
+  --model/--list-models; latest-version engine verification: 3080/3090
+  modules byte-identical to 2.27.0 reference; UFF = Gen-B EC-only module.
+  Kit validated end-to-end (selftest + census + patcher state + clear-sivb).
+  Two Latitude latest cabs queued in relay fetchlist.
