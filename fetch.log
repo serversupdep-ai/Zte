@@ -50,7 +50,7 @@
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334499 bytes, sha256 914b59882a2c56b3…)
+    [saved] mediafire_3410/mediafire_page.html (334496 bytes, sha256 adde7ca9046bb62c…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -112,8 +112,7 @@
 [skip] dell_3070_144/OptiPlex_3070_1.4.4.exe already fetched
 [FILE] https://fwupd.org/downloads/a39b06122e0e31774dc37410f8b9c409a32122646c662a84b935b046aae1a2e1-CyborgLTgl_TI_G_firmware.cab -> raw/dell_3420_1470/Latitude_3420_3520_1.47.0.cab
     [fetch failed 412 https://fwupd.org/downloads/a39b06122e0e31774dc37410f8b9c409a32122646c662a84b935b046aae1a2e1-CyborgLTgl_TI_G_firmware.cab] https://fwupd.org/downloads/a39b06122e0e31774dc37410f8b9c409a32122646c662a84b935b046aae1a2e1-CyborgLTgl_TI_G_firmware.cab
-[FILE] https://dl.dell.com/FOLDER13471058M/1/Latitude_3410_3510_1.36.0.exe -> raw/dell_3410_1360/Latitude_3410_3510_1.36.0.exe
-    [saved] dell_3410_1360/Latitude_3410_3510_1.36.0.exe (21710560 bytes)
+[skip] dell_3410_1360/Latitude_3410_3510_1.36.0.exe already fetched
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
