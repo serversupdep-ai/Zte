@@ -151,3 +151,8 @@ FILE|https://dl.dell.com/FOLDER13591247M/1/Latitude_3420_Latitude_3520_1.44.0.ex
 PAGE|https://www.elvikom.pl/post303887.html?lang=en|elvikom_3090_schematic
 # badcaps 98981 page4: another 3090 Micro dump (9RT27L3) — watch for public re-post
 PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/98981-dell-optiplex-3090-bios-issue-please-help/page4|badcaps_3090_98981_p4
+# === §11.24 3090 EC identity: elvikom IPCML-RN/ZB attachments (schematic + boardview) ===
+FILE|https://www.elvikom.pl/download/file.php?id=50592|ipcml_rn_schematic.bin|elvikom_3090_schematic
+FILE|https://www.elvikom.pl/download/file.php?id=51162|ipcml_rn_boardview.rar|elvikom_3090_schematic
+# === NEW VENUE: pkbiosfix.com 3410/3510 thread (schematic + WISTRON boardview + fresh 3510 dumps) ===
+PAGE|https://pkbiosfix.com/threads/dell-latitude-3410-3510-19746-1-bios-schematic-boardview.565/|pkbiosfix_3410_565
