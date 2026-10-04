@@ -98,3 +98,11 @@
   fixed pre-release; validated on locked 3090 + 3410 8MB dumps.
 - RECOVERY_GUIDE.md: Route-B chip-size corrected (32MB), SIVB notes added
   (16KB partition boundary, --full fallback, 3410 vault on the 8MB chip).
+
+## Cycle 7 (2026-10-04) — sandbox reset recovery + solution-kit build
+- Sandbox was reset to base fbb7085; recovered via anonymous fetch of
+  origin/arena/01a087e2-zte (tip c344c23, 2187 files) + re-applied §11.20.6
+  (was unpushed when the token expired). GitHub token still invalid — push
+  + relay workflows need user reconnect.
+- Task: assemble each part of the solution source and pin per-model support
+  to each model's LATEST BIOS version (kit build this cycle).

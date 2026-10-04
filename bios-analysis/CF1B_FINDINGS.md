@@ -1610,3 +1610,24 @@ yields the family engine+keys (per-build, not per-machine, per §11.11 bundle
 identity); (2) the EC-response oracle on the user's own machines
 (dell_master_keygen.py --oracle resp:<hex> already accepts it); (3) the
 seller ecosystem (proven to hold the engine).
+
+### 11.20.6 Session addenda (corpus + conditional door)
+
+- Latitude 5410 (LA-J371P, Compal, factory 2020-03-10) 8MB companion chip:
+  PHCM @0x1000 bt=0xec2 ver=00018003 const=1b82368e… (factory MAIN instance,
+  never publicly shipped; 320KB container) and @0x51000 const=e809d49b… ==
+  the 5X10 1.1.1 package "Backup EC v1.0.0" container exactly (const+mat).
+  Confirms the instance model: backup lines follow package images; factory
+  mains are unpublished instances.
+- CONDITIONAL DOOR (logged, untestable with current material): if the SIVB
+  vault key is derived from the machine's service tag, a known
+  (tag, vault) pair would make the vault attackable via a KDF matrix. No
+  such pair exists in the corpus (donor dumps have tags wiped; badcaps
+  dumps are BIOS-chip-only, no vault). ACTION IF NEW MATERIAL ARRIVES:
+  any same-build dump with readable tag + SIVB vault → run the matrix
+  (key candidates: tag ASCII padded 16/32B, sha256(tag), tag+build-const
+  combos; modes ECB/CBC/CTR; test against vault first 64B).
+- dellpwn_port.py clear-sivb: wired + --full (whole 16KB vault partition);
+  extended-clear boundary bug (MFS files at +0x4000, magic 87 78 55 AA)
+  caught and fixed during validation. RECOVERY_GUIDE updated (32MB chip
+  note, SIVB partition boundary, 3410 vault on the 8MB companion chip).
