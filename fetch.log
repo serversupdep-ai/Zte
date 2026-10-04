@@ -41,16 +41,16 @@
 [skip] alisaler_3410 already fetched
 [skip] vinafix_3410_thread already fetched
 [FILE] https://vinafix.com/attachments/mockingbird-l-19746-1-pass-8mb-bin.150249/ -> raw/vinafix_3410/pass_8mb_150249
-    [saved] vinafix_3410/mockingbird-l-19746-1-pass-8mb-bin.150249 (35481 bytes)
+    [saved] vinafix_3410/mockingbird-l-19746-1-pass-8mb-bin.150249 (35464 bytes)
 [FILE] https://vinafix.com/attachments/mockingbird-l-19746-1-pass-16mb-bin.150250/ -> raw/vinafix_3410/pass_16mb_150250
-    [saved] vinafix_3410/mockingbird-l-19746-1-pass-16mb-bin.150250 (35487 bytes)
+    [saved] vinafix_3410/mockingbird-l-19746-1-pass-16mb-bin.150250 (35470 bytes)
 [FILE] https://vinafix.com/attachments/8mb-bin-zip.148166/ -> raw/vinafix_3410/8mb_zip_148166
-    [saved] vinafix_3410/8mb-bin-zip.148166 (35343 bytes)
+    [saved] vinafix_3410/8mb-bin-zip.148166 (35326 bytes)
 [skip] vinafix_wayback_8mb already fetched
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334491 bytes, sha256 0282783a0965e3f5…)
+    [saved] mediafire_3410/mediafire_page.html (334497 bytes, sha256 34ffdf8ccd425ce6…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -111,8 +111,15 @@
 [skip] dell_5x10_111/Latitude_5X10_Precision_3550_1.1.1.exe already fetched
 [skip] dell_3070_144/OptiPlex_3070_1.4.4.exe already fetched
 [skip] dell_3410_1360/Latitude_3410_3510_1.36.0.exe already fetched
-[FILE] https://dl.dell.com/FOLDER13591247M/1/Latitude_3420_Latitude_3520_1.44.0.exe -> raw/dell_3420_1440/Latitude_3420_Latitude_3520_1.44.0.exe
-    [saved] dell_3420_1440/Latitude_3420_Latitude_3520_1.44.0.exe (67854912 bytes)
+[skip] dell_3420_1440/Latitude_3420_Latitude_3520_1.44.0.exe already fetched
+[PAGE] https://www.elvikom.pl/post303887.html?lang=en -> raw/elvikom_3090_schematic
+    [page head] '<!DOCTYPE html>\n<html dir="ltr" lang="en">\n<head>\n<base href="https://www.elvikom.pl/"/>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="application-name" content="Elvikom">\n<meta na'
+    [saved] elvikom_3090_schematic/page.html (42063 bytes, sha256 62b560d087a4d1fa…)
+    [links] 0 candidates
+[PAGE] https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/98981-dell-optiplex-3090-bios-issue-please-help/page4 -> raw/badcaps_3090_98981_p4
+    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
+    [saved] badcaps_3090_98981_p4/page.html (2387 bytes, sha256 28849f4d657537cf…)
+    [links] 0 candidates
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -161,6 +168,7 @@
 [EXTRACT-PASS] badcaps_3090_3217350
 [EXTRACT-PASS] badcaps_3090_3539267
 [EXTRACT-PASS] badcaps_3090_98981
+[EXTRACT-PASS] badcaps_3090_98981_p4
 [EXTRACT-PASS] badcaps_3090_98981_watch
 [EXTRACT-PASS] biosfix_8fc8_53041
 [EXTRACT-PASS] dell_3070_144
@@ -174,6 +182,7 @@
 [EXTRACT-PASS] drbios_3090_61941
 [EXTRACT-PASS] drbios_3090_68894
 [EXTRACT-PASS] drbios_3410
+[EXTRACT-PASS] elvikom_3090_schematic
 [EXTRACT-PASS] indiafix_3090_212037_wb
 [EXTRACT-PASS] indiafix_3410_19709
 [EXTRACT-PASS] indiafix_3410_wayback
