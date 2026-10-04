@@ -1711,3 +1711,86 @@ fetchlist (fetch blocked only by the expired GitHub token).
   3090 2.30.0, 3090UFF 1.44.0). Relay LVFS lessons: fwupd.org/downloads
   needs Referer+cookies but still 412s from Actions IPs (JS anti-bot);
   dl.dell.com remains the reliable relay channel.
+
+---
+
+## 11.22 CYCLE 8 — (tag, vault) pair audit + KDF matrix run + EC session-surface map (2026-10-04)
+
+Goal re-anchor (user): **a keygen per model that produces the master password
+from the service tag alone.** Standing gap unchanged: master = f(EC GENERATE
+response) and the EC's secret is sealed in silicon (§11.17/§11.19.6). This
+cycle tested the one untested key-derivation hypothesis (§11.20.6) and mapped
+the module's full EC command surface.
+
+### 11.22.1 Service-tag extraction from full-chip dumps (new methodology)
+
+- **CSME OEM string `/<SERVICETAG>/<PPID>/`** in cleartext in full dumps
+  (e.g. `/GBL3L63/CNCMK0009M0257/`); cross-validated against **SMBIOS
+  template records** (`… 81 07 00 <TAG> 96 00 …` near "AMI"/"Gen11"
+  strings). Battery strings `DELL <TAG>` are UNRELIABLE (replacement
+  batteries carry the donor machine's tag); Windows hostnames
+  (`DESKTOP-XXXXXXX`) are NOT tags.
+- Pairs found in held corpus (tags were believed wiped — they were not):
+  | dump | model | tag | vault |
+  |---|---|---|---|
+  | 5410 TESTED + new.bin (32MB) | Latitude 5410 | **92739D3** | @0x7cf000 (data 10,280B) |
+  | 5410_clean.bin (32MB) | Latitude 5410 | **1CDGTD3** | @0x893000 (data 9,832B) |
+  | 5410_8FC8_Cleared.bin (32MB) | Latitude 5410 | **GBL3L63** | @0x893000 (data 9,472B) |
+  | 5430 UC6.bin (16MB) | Latitude 5430 (Gen-B/8FC8) | **9DWPJR3** | @0x22b000 (data 16,381B) |
+- 3090-IPCML indiafix drive_1 has tag **BPT7YL3** in CSME but **no SIVB
+  vault** — no 3090 pair yet. Tool: `tag_vault_inventory.py` (corpus-wide),
+  `dell_vault_kdf.py` (matrix runner).
+- NOTE: 5410 TESTED runs a different EC build (PHCM @0x1000 const
+  c6ac173b…) than clean/cleared (const 1b82368e… = the 8MB companion's
+  factory MAIN) — pairs span 2 EC builds.
+
+### 11.22.2 §11.20.6 conditional door CLOSED — vault key is NOT tag-derived
+
+- Matrix: ~60 key derivations (tag ASCII 16/32B zero/space-pad, tag×n,
+  reversed, lower, sha256/sha1/md5(tag), tag+build-const concat/XOR/HMAC
+  both ways, tag+mat1, const/mat1 alone, PBKDF2-HMAC-SHA256 iters
+  1/1000/4096 salts {hdr, const, tagpad}) × {AES-128/256 ECB/CBC/CTR,
+  RC4, ChaCha20, SHA-CTR XOR} × {data@+0, +16-as-IV} on all four pairs.
+- Result: **all noise** (best entropy 7.48–7.65 at 512B ≈ random; top
+  "scores" are printable-density flukes that replicate with wrong tags).
+- Conclusion: the SIVB vault DEK is a per-unit random (or silicon-derived)
+  key. Dell does NOT derive per-machine keys from the service tag on
+  these platforms — first primary-evidence exclusion of the class.
+- Consequence: no read-the-vault path from (tag, dump) alone; the
+  dump-based solution remains clear-sivb (validated, in kit).
+
+### 11.22.3 EC session surface fully enumerated (reference module 2.27.0)
+
+Static RE (capstone) of vault_3090_2.27.0_cf1b.pe — the complete EC API the
+BIOS can invoke (all via mailbox cmd 0x21 open + 0x17 packet xfer):
+
+- **7 descriptor types** (GUID table @0xA510-0xA598, resolver fn 0x30E8):
+  T0 {BB52D484…}, T1 {7CEC093D…}, T2 {FEE3193F…}, T3 {F2C68B35…},
+  T4 {38C1B06E…}, T5 {4DDB3FAC…}, T6 {C065AEAB…} (= GENERATE, §11.4).
+- Two open flavors: **sub-3** (fn 0x37AC, types 4/5/6) and **sub-0**
+  (fn 0x3208: types 4/5 via cmd-buf, types 0/1/2 via [if+0x20] one-shot).
+- **T4 = data-class query**: sends a 16B class GUID — only {4D624984-
+  D1CC-4C7C-BFE4-4D7F013FF25A} is ever requested — and receives N bytes
+  (N from caller). No other class GUID is referenced: the BIOS never asks
+  the EC for anything else (no debug/memory-dump class door).
+- **Status vocabulary** (fn 0x31B4): 0=OK, 2=INVALID_PARAMETER,
+  6=NOT_READY, 9=ABORTED-class, 0x0E=NOT_FOUND, else UNSUPPORTED.
+  **No "tag mismatch" status exists** — the EC has no wrong-tag error,
+  consistent with (not proof of) GENERATE accepting arbitrary tags →
+  the **donor-machine keygen** hypothesis (any working machine of a build
+  generates masters for every machine of that build, tag passed on the
+  wire) remains live and is now the top software-only door. Untestable
+  offline — needs one running machine.
+- Module cmd constants: 0x21 + 0x17 only. Tool: `dell_ec_sessions.py`.
+
+### 11.22.4 Cycle-8 status
+
+- Kit unchanged (still the delivered per-model solution; oracle-gated for
+  EC families). New ground-truth assets: 4 (tag, vault) pairs for ANY
+  future vault-key hypothesis; BPT7YL3 (3090, no vault in that dump);
+  tag-extraction methodology above.
+- Doors ranking after this cycle: (1) donor-machine GENERATE (one running
+  machine per build → universal keygen for that build; no tag-check
+  status code supports it), (2) GEN 2 EC physical read, (3) seller
+  ecosystem, (4) NPCX7 boot-ROM decode. The tag-derived-vault door is
+  closed (§11.22.2).

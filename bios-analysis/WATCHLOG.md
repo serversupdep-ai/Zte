@@ -117,3 +117,22 @@
   39424B class with 8FC8 routing + standard alphabets; EC lines unchanged
   (3420) / advanced (3410 v1.12.0 bt=0xa29). ALL 5 kit models now
   held+verified at latest. LVFS cab = browser-only (anti-bot).
+
+## Cycle 8 (2026-10-04) — goal re-anchor: (tag,vault) pair hunt + KDF matrix + EC session map
+- User re-anchored the goal: per-model keygen producing master passwords.
+  Cycle tested the last untested derivation hypothesis and mapped the EC API.
+- Sandbox reset AGAIN (base fbb7085, 2nd time); recovered via anonymous
+  git fetch origin arena/01a087e2-zte + reset --hard (tip fb67f30) — recipe
+  from §Errors re-confirmed.
+- Tag-extraction methodology found: CSME '/<TAG>/<PPID>/' strings + SMBIOS
+  templates. 4 (tag, vault) pairs recovered (5410 ×3: 92739D3/1CDGTD3/
+  GBL3L63; 5430: 9DWPJR3). §11.20.6 conditional door TESTED + CLOSED:
+  vault key NOT tag-derived (60 KDFs × 6 modes × 4 pairs, all noise).
+  BPT7YL3 = 3090 tag but that dump has no vault — keep watching for a
+  3090 dump with both.
+- EC session surface enumerated (7 types, T6=GENERATE, T4=data-class query
+  {4D624984…}, status map {0,2,6,9,14} — NO tag-mismatch code → donor-
+  machine GENERATE hypothesis now top software door; needs one running
+  machine of a build to test).
+- New tools: tag_vault_inventory.py, dell_vault_kdf.py, dell_ec_sessions.py.
+  Findings §11.22. Kit unchanged (oracle-gated).
