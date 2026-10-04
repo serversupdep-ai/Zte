@@ -156,3 +156,26 @@ FILE|https://www.elvikom.pl/download/file.php?id=50592|ipcml_rn_schematic.bin|el
 FILE|https://www.elvikom.pl/download/file.php?id=51162|ipcml_rn_boardview.rar|elvikom_3090_schematic
 # === NEW VENUE: pkbiosfix.com 3410/3510 thread (schematic + WISTRON boardview + fresh 3510 dumps) ===
 PAGE|https://pkbiosfix.com/threads/dell-latitude-3410-3510-19746-1-bios-schematic-boardview.565/|pkbiosfix_3410_565
+# === §11.24 pkbiosfix 3410/3510 attachment sweep (guest downloads work) ===
+FILE|https://pkbiosfix.com/attachments/dell-3410-lock-8mb-bin.14769/|dell_3410_LOCK_8MB.BIN|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/dell-3410-lock-bin.14770/|dell_3410_LOCK_16MB.BIN|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/8mb-fixed-rar.14771/|dell_3410_8mb_fixed.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/latitude_3510-8mb-bin.18412/|Latitude_3510_8MB.BIN|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/latitude_3510-16mb-bin.18413/|Latitude_3510_16MB.BIN|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/xm25qh64a-soic8-200_20250306_212026-zip.28913/|xm25qh64a_20250306.zip|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/xm25qh128a-soic8-200_20250306_212143-zip.28914/|xm25qh128a_20250306.zip|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/service-tag-fixed-rar.28917/|service_tag_fixed.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/dell-3410-build-new-bin.29086/|DELL_3410_BUILD_NEW.bin|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/dell-3410-build16mb-bin.29087/|DELL_3410_BUILD16MB.bin|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/xm25qh64a-soic8-200_20250527_125527-bin.32780/|xm25qh64a_20250527.BIN|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/xm25qh128a-soic8-200_20250527_125229-bin.32779/|xm25qh128a_20250527.BIN|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/build-clean-me-rar.32786/|build_clean_me.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/8mb-zip.33315/|pk_8mb.zip|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/16mb-zip.33316/|pk_16mb.zip|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/cleanme-8mb-rar.33318/|cleanme_8mb.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/xm25qh64a-soic8-200_20250710_153627-zip.33354/|xm25qh64a_20250710.zip|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/xm25qh128a-soic8-200_20250710_154321-zip.33355/|xm25qh128a_20250710.zip|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/19709-1-3510-8mb-rar.1388/|19709_1_3510_8mb.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/19709-1-3510-16mb-ok-rar.1389/|19709_1_3510_16mb_ok.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/tested-8mb-rar.8707/|tested_8mb.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/tested-16mb-rar.8708/|tested_16mb.rar|pkbiosfix_3410_565
