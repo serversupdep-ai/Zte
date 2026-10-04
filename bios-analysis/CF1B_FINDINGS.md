@@ -1794,3 +1794,85 @@ BIOS can invoke (all via mailbox cmd 0x21 open + 0x17 packet xfer):
   status code supports it), (2) GEN 2 EC physical read, (3) seller
   ecosystem, (4) NPCX7 boot-ROM decode. The tag-derived-vault door is
   closed (§11.22.2).
+
+---
+
+## 11.23 CYCLE 9 — what the EC stores; the §11.16 "EC bundle" REFUTED (WiFi misidentification); 3090 main-chip fully cleared (2026-10-04)
+
+User question: *what is stored in the EC that we need to solve, to produce
+the solution?* Answer (evidence-backed), then the correction this cycle
+produced while verifying it.
+
+### 11.23.1 What the EC's internal flash holds (the complete ingredient list)
+
+1. **The GENERATE engine** — the code computing the 32-byte response from
+   (service tag, family byte) via mailbox session type-6 (§11.4/§11.22.3).
+2. **The per-build key material** the engine mixes in (on the 3090-class
+   build, engine data lives at EC-internal 0x80418020+ — per the §11.16.4
+   address refs, now reinterpreted, see below).
+3. **The PHCM unwrap keys** — per-EC-version AES keys that decrypt the
+   sealed container bodies (per-version determinism, §11.10.2).
+4. **The per-machine SIVB vault DEK** (proven NOT tag-derived, §11.22.2 —
+   per-unit random).
+5. EC boot/loader code.
+
+**One internal-flash dump of ONE machine per build → items 1+2 → pure
+offline keygen for EVERY machine of that build.** Three independent proofs
+that nothing per-machine is needed beyond the tag: (a) sellers return
+masters from tag+suffix alone; (b) sealed images are byte-identical across
+machines of a version; (c) the EC status vocabulary has no tag-mismatch
+code (§11.22.3).
+
+### 11.23.2 REFUTATION: the §11.16 "second EC firmware bundle" is WiFi firmware
+
+Re-derived the 0x7b59fc bundle (71,935B) from scratch:
+- Cleartext strings in its tail tables (0x10e78-0x10f40): **`g_btCoex11ax-
+  SchHystTimer`, `g_btCoexXvtStatCollectTimer`, `AIRTIME`, `BACKGROUND`,
+  `MGMT_FRAME`, `MPDU_FRWK_0/1/2`, `profilingReportInterval`, `evtFlgMsgTo
+  Lmac`** plus MATLAB-style beamforming vars (`yConj2`, `yConjDotX2`,
+  `conjYdotX_ex`) — unambiguous **802.11ax WiFi MAC + BT-coex firmware**.
+- The "AES inverse S-box at 0x117f0" = the WiFi MAC's own **WPA2/CCMP**
+  table — not EC crypto. No forward S-box, no SHA tables anywhere.
+- The full staging record chain (scan of the whole 32MB dump, type-7
+  records) shows TWO co-processor download scripts in the CSME region:
+  @0x7594-0x7598 (dests 0x0/0x4x/0x6x/0x8x — second core) and
+  @0x7b56-0x7b5a: header chunk (0x678→0x80433000) + **14 sequential 32KB
+  chunks → 0x80438280…0x80490280 (~384KB) + boot-vectors chunks
+  (0xfb4→0x8040e000, 0x5aa4→0x80402000)** — a complete WiFi-SoC firmware
+  download script. SoC memory map: RAM 0x804xxxxx, SRAM 0x2001xxxx.
+- The "0x6a60 main region" at 0x82d464 (and the 0x8148 chipread) = a
+  SECOND staging copy of the same WiFi class: boot-vector pairs
+  {SP=0x20016f80/0x20016f84, entry 0xa128/0xa12c} + register-init
+  {addr,value} table + payload; **zero BL instructions, no crypto tables,
+  no vector-aligned code** — NOT Cortex-M EC code. The "sizes sum to
+  0x6a58" coincidence that tied it to the bundle records is real (both
+  stage the same 2 chunks) but both are WiFi.
+- Consequently §11.16.3's "EC identified: Nuvoton NPCX7" is **withdrawn**
+  (the 0x8040xxxx/0x2001xxxx map is the WiFi SoC's, not an EC's), and the
+  §11.16.5/§11.19.7 "GEN 1.2/1.3 decode-the-staged-payload" door is
+  **CLOSED — the payload is not EC content at all.**
+
+### 11.23.3 Whole-chip clearance: NO EC firmware anywhere on the 3090 main SPI
+
+Scanned the full 32MB (user-machine-class dump, indiafix 212037):
+- AES fwd S-box: **0 hits**. AES inv S-box: 1 hit = the WiFi bundle's
+  WPA2 table. SHA-256 K-table: 0 hits (the 35 LE 4-byte matches are in the
+  x86 BIOS region = the BIOS's own SHA code). CRC32 tables: BIOS region.
+- Cortex-M vector-table candidates at 256B/1KB alignment: **0**.
+- Thumb BL density: max 101/8KB window = chance level (real Thumb firmware
+  = 300-1000+/8KB); top windows are all x86 BIOS code.
+**Verdict: the 3090's EC (like the 3410's MEC1515H) boots from internal
+silicon flash; nothing EC-executable exists on the host SPI in any form.**
+The only EC images we hold remain the PHCM-sealed containers (every build)
++ the 16KB chip-store containers (sealed).
+
+### 11.23.4 Where this leaves the campaign
+
+- The true doors, final form: **(1) GEN 2** — physical read of one EC
+  internal flash per build (3410: MEC1515H, JTAG1/KBC pads on the held
+  MOCKINGBIRD-L schematic; 3090: EC part number unknown — schematic hunt
+  queued, elvikom IPCML-RN/ZB + badcaps watch), **(2)** EC-response oracle
+  on any running machine incl. the donor-machine test (§11.22.3),
+  **(3)** PHCM per-version AES key leak (service-tool/seller ecosystem),
+  **(4)** seller purchase of a master to validate the donor hypothesis.
+- The encoded-payload mirage is closed; effort should not return to it.

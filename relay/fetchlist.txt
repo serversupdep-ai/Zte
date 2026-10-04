@@ -147,3 +147,7 @@ FILE|https://dl.dell.com/FOLDER06312863M/1/OptiPlex_3070_1.4.4.exe|OptiPlex_3070
 # FILE|https://fwupd.org/downloads/a39b06122e0e31774dc37410f8b9c409a32122646c662a84b935b046aae1a2e1-CyborgLTgl_TI_G_firmware.cab|Latitude_3420_3520_1.47.0.cab|dell_3420_1470
 FILE|https://dl.dell.com/FOLDER13471058M/1/Latitude_3410_3510_1.36.0.exe|Latitude_3410_3510_1.36.0.exe|dell_3410_1360
 FILE|https://dl.dell.com/FOLDER13591247M/1/Latitude_3420_Latitude_3520_1.44.0.exe|Latitude_3420_Latitude_3520_1.44.0.exe|dell_3420_1440
+# === §11.23 3090 EC-identity hunt: IPCML-RN/ZB schematic + boardview (elvikom) ===
+PAGE|https://www.elvikom.pl/post303887.html?lang=en|elvikom_3090_schematic
+# badcaps 98981 page4: another 3090 Micro dump (9RT27L3) — watch for public re-post
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/98981-dell-optiplex-3090-bios-issue-please-help/page4|badcaps_3090_98981_p4

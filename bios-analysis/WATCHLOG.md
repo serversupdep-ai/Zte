@@ -136,3 +136,18 @@
   machine of a build to test).
 - New tools: tag_vault_inventory.py, dell_vault_kdf.py, dell_ec_sessions.py.
   Findings §11.22. Kit unchanged (oracle-gated).
+
+## Cycle 9 (2026-10-04) — EC content inventory + §11.16 bundle REFUTED (WiFi)
+- User asked what the EC stores. Wrote the ingredient list (§11.23.1):
+  GENERATE engine + per-build keys + PHCM unwrap keys + per-machine vault
+  DEK; one EC dump per build = pure keygen for that build (3 proofs).
+- While verifying: REFUTED §11.16's "second EC firmware bundle" — the
+  0x7b59fc bundle AND the 0x82d464 "0x6a60 region" are WiFi-card firmware
+  staging (802.11ax + BT-coex strings, WPA2 inv S-box, WiFi-SoC download
+  record chain 14x32KB to 0x804xxxxx). "NPCX7 EC" identification
+  withdrawn; GEN 1.2/1.3 decode-payload door CLOSED as misidentification.
+- Whole-32MB clearance scan: NO EC firmware on the 3090 main SPI (0 vector
+  tables, 0 AES/SHA tables, chance-level BL density). 3090 EC = internal-
+  flash chip like the 3410's.
+- Queued: elvikom IPCML-RN/ZB schematic/boardview (3090 EC part number →
+  GEN 2 instructions for the user's own model), badcaps 98981 page4 watch.
