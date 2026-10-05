@@ -88,4 +88,4 @@ Inspiron 5401/5501):
 
 References in-repo: collected/github_src/mec16xx-simple-flash/ (dossalab
 tool), relay-saved piernov article + Glasgow applet + SVOD MEC5075 paper +
-MEC1618/MEC152x datasheets (collected/raw/ec_tools/).
+MEC152x datasheet (collected/raw/ec_tools/, SWD chapter ~p.132). MEC1618 datasheet: microchip.com 403s both direct+wayback — covered by the SVOD paper + Glasgow applet for the MEC16xx/50xx route.
