@@ -123,3 +123,11 @@ ask for the first 192 KB); (3) standing watch (see WATCHLOG).
   when ANY new-era EC dump lands (Step 5 doors), the pipeline to the
   offline keygen (Step 6) is now mechanical: --scan-plaintext → --xref
   → --dispatch → --emul the GENERATE handler → verified RENDER.
+- Step 11 — DONE (2026-10-05, cycle 17): LATEST-SUFFIX KEYGEN from
+  Dell's newest firmware: latest suffix = 8FC8 (Gen-C modules 2023-24
+  carry an 8FC8-ONLY suffix table; Gen-B 2020-22 carry all five);
+  render alphabet UNROTATED through the 2024 Meteor Lake modules.
+  New tool dell_latest_keygen.py (--check-module / --oracle local /
+  --oracle resp / --selftest PASS). The free telegram 24189 archive
+  (MEC1515-NB = 3410/5410-class EC) is an 8FC8-family EC — its EC read
+  would complete the latest-suffix offline keygen engine.

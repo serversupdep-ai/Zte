@@ -228,3 +228,21 @@
 - When the telegram 24189 .rar lands: run
   ec_re/dell_ec_engine_re.py --scan-plaintext <extracted-dir> FIRST
   (fast plaintext/family/GUID triage), then dell_ec_keygen --triage.
+
+## Cycle 17 watch adds (2026-10-05)
+- dl.dell.com / downloads.dell.com / fwupd.org = egress-blocked (000):
+  Dell catalogue + packages need the relay; sealed EC payloads have no
+  keygen value — only fetch via relay if an EC-INTERNAL dump URL appears.
+- alexlaptoprepair.com (NEW venue, never used): forums "Laptop Bios
+  Working Files" (id 2, 4.7k threads) + "Schematic, Boardview" (id 12)
+  + MEC JTAG adapter shop threads (mec1618/1619/1663/50xx multi-header
+  for SUCCESSOR/SVOD/RT809XX). First-pass Dell threads = SPI/clr-me
+  class. Sweep with ec_artifact_hunter terms (Dell model + "EC") if a
+  future cycle needs a new venue.
+- Gen-C module (39424 B) recognition: suffix table @file 0x8274
+  (VA 0x9274), 8FC8-only, walked by validator fn_5A2C; protocol client
+  fn @VA 0x6AB8 (GUID C065AEAB lea). Gen-B (38912 B): table @0x81F8.
+  dell_latest_keygen.py --check-module decodes both + full images.
+- Latest-suffix verdict FROZEN (§17): 8FC8 is the latest suffix; no
+  alphabet rotation through 2024 MTL. If a FUTURE Gen-D module appears,
+  re-run --check-module (rotation alarm built in).

@@ -2308,3 +2308,41 @@ repo) and **ec_re/dell_ec_engine_re.py**. Summary:
   C065AEAB-1CDD-494D-BD33-4578E106C700 (no public occurrences).
   Step 5 doors unchanged (telegram 24189 / badcaps premium / seller /
   live --oracle local); Step 6 now has a mechanical decode path.
+
+## §17 Cycle 17 — LATEST-SUFFIX determination + dell_latest_keygen (2026-10-05)
+
+User directive: "Only latest files and dumps for bios version to make
+keygen for latest suffix." Findings, read from Dell's OWN newest firmware
+modules (all in-repo):
+
+- **Latest suffix = 8FC8.** The newest vault modules (Gen-C, 39424 B —
+  Latitude 3420 1.44.0, 3440/3540 1.2.0 [ADL], 5440 1.22.0, Precision
+  3580/Latitude 5540 1.17.0 [2024 Meteor Lake], 3581 1.17.0) carry a
+  0xFFFF-terminated suffix word table with EXACTLY ONE word: 0x8FC8
+  (table at file 0x8274 / VA 0x9274, walked by validator fn_5A2C).
+  Gen-B modules (38912 B, 2020-22) carry all five
+  {1B58, 9ABE, 3FE2, CF1B, 8FC8} (table @0x81F8-class). The five-family
+  set is COMPLETE for 2020-22; 8FC8 alone survives into 2023-24.
+- **No render rotation on the latest generation.** All seven 72-char
+  tables (incl. the verified index-0 alphabet0) are byte-identical from
+  2020 through the 2024 MTL modules (unlike E7A8, whose tables rotated
+  in late-2024 builds). The verified 8FC8 render
+  `alphabet0[(resp[i]+resp[i+16])%72]` therefore remains correct at the
+  latest BIOS.
+- Newest-module facts: protocol client fn @VA 0x6AB8 references the
+  GUID C065AEAB-…; `mov eax,0x8FC8` immediate in the render path; 16-B
+  blob after the suffix table (6ef09e05…) = build artifact; leftover
+  PDB path `c:\DebugFiles\483aaec9….pdb`. pw_3 Gen-C has NO local
+  generator (EC-only, as per §11 architecture).
+- **New tool: solution_kit/src/dell_latest_keygen.py** — the latest-
+  suffix keygen core: --check-module (extracts any machine's suffix
+  table + alphabet set, alarms on rotation), --oracle local (live EC
+  GENERATE via 0x910/0x911), --oracle resp:HEX (offline), --selftest
+  (PASS: render vector + Gen-C extraction + unrotated alphabet0).
+- Egress: dl.dell.com/downloads.dell.com/fwupd.org all SSL-blocked
+  (000) — Dell catalogue/packages reachable only via relay; sealed
+  EC payloads have zero keygen value, so no fetch queued.
+- New venue (never used): alexlaptoprepair.com forums ("Laptop Bios
+  Working Files", 4.7k threads incl. Dell clrme/dump threads + MEC
+  JTAG adapter ecosystem) — added to cookbook watchlist; first-pass
+  threads were SPI/clr-me class.

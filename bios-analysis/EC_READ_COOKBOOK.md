@@ -94,3 +94,15 @@ Inspiron 5401/5501):
 References in-repo: collected/github_src/mec16xx-simple-flash/ (dossalab
 tool), relay-saved piernov article + Glasgow applet + SVOD MEC5075 paper +
 MEC152x datasheet (collected/raw/ec_tools/, SWD chapter ~p.132). MEC1618 datasheet: microchip.com 403s both direct+wayback — covered by the SVOD paper + Glasgow applet for the MEC16xx/50xx route.
+
+## Venue watchlist (2026-10-05, cycle 17 add)
+- NEW: alexlaptoprepair.com — forums "Laptop Bios Working Files"
+  (alexlaptoprepair.com/forums/forums/laptop-bios-working-files.2/,
+  4.7k threads, Dell clrme/dump threads present) + "Schematic,
+  Boardview" (.12) + MEC JTAG adapter ecosystem (mec1618/1619/1663/50xx
+  multi-header, SUCCESSOR/SVOD/RT809XX-compatible). First-pass Dell
+  threads were SPI/clr-me class; re-sweep with model+"EC" terms when
+  hunting an EC-internal read.
+- NOTE: the free telegram archive t.me/biosarchive/24189 (MEC1515-NB,
+  3410/5410-class) is an 8FC8-family EC — the LATEST-suffix engine door
+  (§17: 8FC8 = latest suffix).
