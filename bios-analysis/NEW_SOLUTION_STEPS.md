@@ -90,3 +90,13 @@ ask for the first 192 KB); (3) standing watch (see WATCHLOG).
 - Step 6: once per-build keygens validate, fold the build keys into
   dell_ec_keygen.py as a pure-offline table (tag → master, no dump
   needed at run time).
+- Step 7 — DONE (2026-10-05, cycle 15): SMI UNLOCK SURFACE from
+  never-used sources (libsmbios smi_password.c + kernel dcdbas/wmi
+  drivers): dell_smi_unlock.py = live-USB verify+clear of the admin
+  password at SMI level (no BIOS screen). Combined with the EC GENERATE
+  probe this is a complete self-unlock chain for boot-unblocked machines
+  (findings §15.4). Plus ec_artifact_hunter.py agent (81-target venue
+  sweep, new telegram channels). Sources archived in-repo for provenance.
+- Step 8 (OPEN): field-validate dell_smi_unlock on one fleet machine
+  (any locked-but-bootable unit); validate dcdbas vs WMI paths; record
+  which selectors the fleet BIOSes accept.

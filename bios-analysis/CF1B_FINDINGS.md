@@ -2215,3 +2215,55 @@ generation is trade-gated everywhere: badcaps premium subscription,
 vinafix paid, Telegram 180GB vault (paid), or the code seller. A badcaps
 premium member can also DM hoaca388 (12.7k posts, posts EC files) to
 request a 3090/3410 MEC1515 EC read — recorded as the top buy-door.
+
+## Cycle 15 (2026-10-05) — NEVER-USED SOURCES: the SMI unlock surface + hunter agent
+
+### 15.1 Dell's own open-source stack (never before examined)
+- **libsmbios (github.com/dell/libsmbios)** — smi_password.c documents the
+  complete SMI password calling interface (Dell internal, open source):
+  CLASS 10 = admin, CLASS 9 = user; SELECT 0=installed 1=verify 2=change
+  3=props-II 4=verify-II 5=change-II; verify-II takes an ASCII buffer at
+  input[1] (phys addr), returns 0=correct with a 16-bit SECURITY KEY in
+  output[1]; change-II takes oldpw[64]+newpw[64] and newpw="" CLEARS.
+  Sources copied to collected/github_src/libsmbios_smi/.
+- **Linux kernel dell drivers (torvalds/linux)** — uapi wmi.h: the WMI
+  chardev /dev/wmi/dell-smbios ioctl DELL_WMI_SMBIOS_CMD with the
+  calling_interface_buffer{class,select,in[4],out[4]}; kernel FILTER:
+  class 10 allowed ONLY select 3 (properties); tokens 0/1 allowed;
+  WSMT_EN/DIS tokens 0x04EC/0x04ED whitelisted. dcdbas.c: the LEGACY
+  unfiltered path — smi_data buffer {smi_cmd magic 0x534D4931, ebx, ecx,
+  cmd_addr, cmd_code}{calling_interface_buffer}{argbuf}, smi_request=1;
+  WSMT-compatible (driver allocates the SMM-trusted buffer). Sources
+  copied to collected/github_src/kernel_dell/.
+- IMPLICATION: a root tool on the machine (live USB) can VERIFY candidate
+  master passwords and CLEAR the admin password WITHOUT the BIOS setup
+  screen. Chained with the EC GENERATE probe (which mints the master for
+  the machine's own tag), this is a complete self-service unlock for any
+  machine whose BOOT is not password-blocked.
+
+### 15.2 New deliverable: solution_kit/src/dell_smi_unlock.py
+Zero-tech live-USB tool (pure Python, stdlib only):
+  --status         WMI props-II + dcdbas installed-checks + WSMT tokens
+  --verify <pw>    SMI verify-II then verify (admin, then user class)
+  --try <file|->   try candidates; on match prints the working password
+  --clear <pw> --yes   SMI change-II with empty newpw = CLEAR the lock
+Syntax + graceful-failure tested (non-Dell sandbox). To be field-validated
+on a fleet machine.
+
+### 15.3 New agent: ec_artifact_hunter.py
+Generates the venue sweep (81 targets this run) across telegram channels
+(biosarchive + NEW: schematicslaptop, ithinkhsbios, afsbiosfree — the
+latter two discovered 2026-10-05 via nicegram/tgstat listings), badcaps
+file_search, archive.org full-text. Emitted to relay §15; results land
+next relay run.
+
+### 15.4 The complete new-suffix unlock matrix (post-cycle-15 state)
+For a LOCKED fleet machine, doors in order of ease:
+  1. Boot not blocked → live USB → EC GENERATE (dell_master_keygen
+     --oracle local) → SMI verify (dell_smi_unlock --try) → SMI clear
+     (--clear --yes). NO password knowledge needed at all.
+  2. Boot blocked → SPI patch (dell_unlock_image.py, programmer) — the
+     field-proven route.
+  3. Offline keygen for OTHER tags of the build → still needs the
+     EC-internal dump (gated; cookbook routes).
+  4. Call-Dell phone master (twice-confirmed loose) / seller.
