@@ -50,7 +50,7 @@
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334493 bytes, sha256 77b077bbb7ce28cc…)
+    [saved] mediafire_3410/mediafire_page.html (334493 bytes, sha256 091f74c4447b3d44…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -179,16 +179,16 @@
 [skip] tg_biosarchive_ec already fetched
 [skip] tg_biosarchive_3090 already fetched
 [skip] tg_biosarchive_rt809 already fetched
-[FILE] https://raw.githubusercontent.com/GlasgowEmbedded/glasgow/main/software/glasgow/applet/program/mec16xx/__init__.py -> raw/ec_tools/glasgow_mec16xx_applet.py
-    [saved] ec_tools/glasgow_mec16xx_applet.py (34417 bytes)
-[FILE] https://svod-project.com/svod3/MEC5075%20on%20Latitude%20E7440%20(LA-9591P).pdf -> raw/ec_tools/svod3_MEC5075_Latitude_E7440.pdf
-    [saved] ec_tools/svod3_MEC5075_Latitude_E7440.pdf (2871729 bytes)
+[skip] ec_tools/glasgow_mec16xx_applet.py already fetched
+[skip] ec_tools/svod3_MEC5075_Latitude_E7440.pdf already fetched
 [FILE] https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf -> raw/ec_tools/MEC1618_datasheet_00002339A.pdf
     [fetch failed 403 https://www.microchip.com/filehandler/redirect?https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf] https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf
-[PAGE] https://web.archive.org/web/20241212033907/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/ -> raw/piernov_mec_jtag_article
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n\n<head><script src="https://web-static.archive.org/_static/js/athena.js" type="text/javascript"></script>\n<script type="text/javascript">window.addEventListener(\'DOMContentLoaded\',function(){var v=archive_an'
-    [saved] piernov_mec_jtag_article/page.html (45728 bytes, sha256 22277e10834e684c…)
-    [links] 0 candidates
+[skip] piernov_mec_jtag_article already fetched
+[FILE] https://ww1.microchip.com/downloads/aemDocuments/documents/CPG/ProductDocuments/DataSheets/MEC152x-Data-Sheet-DS00003427F.pdf -> raw/ec_tools/MEC152x_DataSheet_DS00003427F.pdf
+    [saved] ec_tools/MEC152x_DataSheet_DS00003427F.pdf (5036918 bytes)
+[skip] ec_tools/MEC152x_DataSheet_DS00003427F.pdf already fetched
+[FILE] https://web.archive.org/web/2024id_/https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf -> raw/ec_tools/MEC1618_datasheet_00002339A.pdf
+    [fetch failed 403 https://www.microchip.com/filehandler/redirect?https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf] https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
