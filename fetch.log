@@ -50,7 +50,7 @@
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334499 bytes, sha256 d196c27e289eedc5…)
+    [saved] mediafire_3410/mediafire_page.html (334495 bytes, sha256 382d7965aeee778b…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -140,19 +140,46 @@
 [skip] pkbiosfix_3410_565/tested_8mb.rar already fetched
 [skip] pkbiosfix_3410_565/tested_16mb.rar already fetched
 [PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1iq6vuq&limit=100 -> raw/reddit_1iq6vuq_comments
-    [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1iq6vuq&limit=100
+    [page head] '{"data":[{"_meta":{"retrieved_2nd_on":1790754628},"all_awardings":[],"approved_at_utc":null,"approved_by":null,"archived":false,"associated_award":null,"author":"Acceptable-Bridge979","author_flair_background_color":null,"author_flair_css_c'
+    [saved] reddit_1iq6vuq_comments/page.html (139744 bytes, sha256 d199ae74ce2f53d9…)
+    [links] 0 candidates
 [PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=100 -> raw/as_dell_8fc8_r2
     [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=100
 [PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=100 -> raw/as_dell_cf1b_r2
     [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=100
 [PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=100 -> raw/as_dell_9abe_r2
     [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=100
-[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=%22password%20is%22&limit=100 -> raw/as_dell_pwis
-    [page head] '{"data":[{"_meta":{"retrieved_2nd_on":1790927622},"all_awardings":[],"approved_at_utc":null,"approved_by":null,"archived":false,"associated_award":null,"author":"IncreaseOk7983","author_flair_background_color":null,"author_flair_css_class":'
-    [saved] as_dell_pwis/page.html (245776 bytes, sha256 69b1ed3c8b38b45d…)
-    [links] 0 candidates
+[skip] as_dell_pwis already fetched
 [PAGE] https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=8FC8&limit=100 -> raw/as_dell_posts_8fc8_r2
     [page fetch failed] https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=8FC8&limit=100
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1iq6vuq&limit=100 -> raw/reddit_1iq6vuq_comments_r2
+    [page head] '{"data":[{"_meta":{"retrieved_2nd_on":1790754628},"all_awardings":[],"approved_at_utc":null,"approved_by":null,"archived":false,"associated_award":null,"author":"Acceptable-Bridge979","author_flair_background_color":null,"author_flair_css_c'
+    [saved] reddit_1iq6vuq_comments_r2/page.html (139744 bytes, sha256 d199ae74ce2f53d9…)
+    [links] 0 candidates
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?author=Clean_Bed9378&limit=100 -> raw/as_author_cleanbed
+    [page head] '{"data":[{"_meta":{"retrieved_2nd_on":1788264729},"all_awardings":[],"approved_at_utc":null,"approved_by":null,"archived":false,"associated_award":null,"author":"Clean_Bed9378","author_flair_background_color":null,"author_flair_css_class":n'
+    [saved] as_author_cleanbed/page.html (179294 bytes, sha256 892f29e93fd266fe…)
+    [links] 0 candidates
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=100 -> raw/as_dell_8fc8_r3
+    [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=100
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=100 -> raw/as_dell_cf1b_r3
+    [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=100
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?link_id=iks99h&limit=100 -> raw/reddit_iks99h_comments
+    [page head] '{"data":[{"_meta":{"retrieved_2nd_on":1791070202},"all_awardings":[],"approved_at_utc":null,"approved_by":null,"archived":false,"associated_award":null,"author":"No_Brilliant_2030","author_flair_background_color":null,"author_flair_css_clas'
+    [saved] reddit_iks99h_comments/page.html (183775 bytes, sha256 03e15ebfa4985700…)
+    [links] 0 candidates
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1mni7p9&limit=100 -> raw/reddit_1mni7p9_comments_r2
+    [page head] '{"data":[{"_meta":{"retrieved_2nd_on":1790512104},"all_awardings":[],"approved_at_utc":null,"approved_by":null,"archived":false,"associated_award":null,"author":"New-Educator-6744","author_flair_background_color":null,"author_flair_css_clas'
+    [saved] reddit_1mni7p9_comments_r2/page.html (111227 bytes, sha256 e572270d6ef7834b…)
+    [links] 0 candidates
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1vx52jo&limit=100 -> raw/reddit_1vx52jo_comments
+    [page head] '{"data":[{"_meta":{"retrieved_2nd_on":1787920460},"all_awardings":[],"approved_at_utc":null,"approved_by":null,"archived":false,"associated_award":null,"author":"Admirable-Traffic-55","author_flair_background_color":null,"author_flair_css_c'
+    [saved] reddit_1vx52jo_comments/page.html (24180 bytes, sha256 d58e4464021efec5…)
+    [links] 0 candidates
+[PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1v09bt9&limit=100 -> raw/reddit_1v09bt9_comments
+    [page head] '{"data":[{"_meta":{"retrieved_2nd_on":1784613547},"all_awardings":[],"approved_at_utc":null,"approved_by":null,"archived":false,"associated_award":null,"author":"Worried_Cause3845","author_flair_background_color":null,"author_flair_css_clas'
+    [saved] reddit_1v09bt9_comments/page.html (13382 bytes, sha256 18ee7a3596f9184e…)
+    [links] 0 candidates
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -197,6 +224,7 @@
 [EXTRACT-PASS] alisaler_3410
 [EXTRACT-PASS] alisaler_5430
 [EXTRACT-PASS] alisaler_7430
+[EXTRACT-PASS] as_author_cleanbed
 [EXTRACT-PASS] as_dell_pwis
 [EXTRACT-PASS] badcaps_3080_85841
 [EXTRACT-PASS] badcaps_3090_3217350
@@ -224,8 +252,14 @@
 [EXTRACT-PASS] mediafire_3410_page
 [EXTRACT-PASS] misc
 [EXTRACT-PASS] pkbiosfix_3410_565
+[EXTRACT-PASS] reddit_1iq6vuq_comments
+[EXTRACT-PASS] reddit_1iq6vuq_comments_r2
 [EXTRACT-PASS] reddit_1mni7p9_comments
+[EXTRACT-PASS] reddit_1mni7p9_comments_r2
 [EXTRACT-PASS] reddit_1mni7p9_post
+[EXTRACT-PASS] reddit_1v09bt9_comments
+[EXTRACT-PASS] reddit_1vx52jo_comments
+[EXTRACT-PASS] reddit_iks99h_comments
 [EXTRACT-PASS] repairlap_3410
 [EXTRACT-PASS] tg_3090
 [EXTRACT-PASS] tg_3090_msg23340
