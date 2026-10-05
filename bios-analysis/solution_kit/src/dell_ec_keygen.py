@@ -99,7 +99,11 @@ def render(resp32: bytes, suffix: str):
     if suffix == "8FC8":
         a = ALPHABET_8FC8
         out = "".join(a[(resp32[i] + resp32[i + 16]) % 72] for i in range(16))
-        return out, None
+        # code-2 candidate: swapped halves — identical to the master for
+        # 8FC8 (addition commutes); kept for parity with the kit's
+        # response_to_code2 semantics.
+        return out, "".join(a[(resp32[i + 16] + resp32[i]) % 72]
+                            for i in range(16))
     if suffix in VERBATIM_FAMILIES:
         first = resp32[0:16].decode("ascii", "replace")
         second = resp32[16:32].decode("ascii", "replace")

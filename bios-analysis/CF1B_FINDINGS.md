@@ -2094,3 +2094,48 @@ monkeyboy107 cracker).
     defaults FCAA@0x4b9e17 + FDAA@0x66d9fa persist in both → confirms the
     active password records live at the SIVB/record store, and that only
     those two entries matter.
+
+## Cycle 14 (2026-10-05) — NEW-SUFFIX SOLUTION BUILD (user directive: no legacy source)
+
+Directive: stop using old-suffix source code entirely; build a NEW solution
+for the new suffixes; commit every achieved step. Tracker:
+NEW_SOLUTION_STEPS.md (Steps 1-3 done this cycle).
+
+### 14.1 dell_ec_keygen.py — the new-suffix-only pipeline (Step 1)
+- solution_kit/src/dell_ec_keygen.py: render maps (all 5 EC families,
+  §11.3 vectors in --selftest), --render, artifact --triage (PHCM
+  plaintext/sealed, Cortex-M vector table incl. the even-reset-entry
+  real-world layout, 72-char render-table detector, mailbox-literal
+  census, family-byte window), EC NVRAM record-store walker (record
+  0x15 = enrolled MASTER, plaintext, auto-printed), --locate mailbox
+  function finder, --keygen unicorn driver (--handler).
+- Validated on the 4 held artifact classes: 5X90 plaintext EC (alphabet +
+  81 mailbox refs found at the expected offsets), sealed fleet packages
+  (H=7.99), 5410 8MB companion SPI (2 sealed PHCM slots, zero false
+  positives), 3090 chipread EC region (vector table SP=0x20016F84
+  entry=0xA12C, boot-block entropy 6.34).
+- Cross-validated against dell_master_keygen response_to_master/code2:
+  byte-identical on all families (kit family param = 16-bit suffix word,
+  NOT the 1-byte LSB).
+
+### 14.2 EC-internal dump hunt round 1 (Step 2) — acquisition map, no free dump
+- RT809H changelog (kancloud ifix_809): MEC16xx read range = first 192 KB
+  (code, plaintext); last-64 KB parameter area (serial+password)
+  at-rest-encrypted but REWRITABLE by programmer. NPCE288/388 offline
+  R/W via adapter. => EC-internal code reads are ROUTINE in repair
+  shops; the GENERATE engine + per-build keys are in the readable part.
+- Widened keygen target: 5080/7080 EC bodies byte-identical to 3090
+  (§11.7) — dump from any of the three completes the 3090 keygen.
+- Swept with negative result: dr-bios (SPI only), badcaps 7080
+  (premium-gated), vinafix (paid), chinafix (gated), Reddit 3410 (the
+  shared "EC" 8MB bin = companion SPI = already held), GitHub repos
+  (SHP_MEC1515 unrelated; dellpwn = DVAR tooling, no EC dumps).
+- dellpwn authorship corrected: R3n5k1 repo, found by AmberWolf+MDSec,
+  CVE-2026-40639 / DSA-2026-197 — DVAR XOR recovery (owner-set
+  passwords), distinct from the EC-era master transform.
+- ectool_IFU_XE.exe + ectool_update.bin (collected/tools) = ITE IT873X
+  firmware for a Wyse-class board — wrong EC family, dead end.
+- Acquisition routes ranked: seller purchase (ask for an EC-internal
+  RT809H dump, 192 KB, of any 3080/3090/5080/7080/3410/5410 — one dump
+  = that model's offline keygen, better value than a single code);
+  RT809H shop; standing watch.

@@ -39,11 +39,47 @@ RT809H direct-EC read) of any 8FC8-family machine (2020-21 gen: OptiPlex
     wiring a new plaintext image; --keygen: unicorn driver (--handler) that
     runs the GENERATE handler on a dump and renders the code
 
-### Step 2 — hunt the missing artifact (EC-internal dump) — IN PROGRESS
-Sources to sweep: Chinese repair ecosystem ("EC程序", RT809H, EC读出,
-NPCE285PA0DX / MEC1515 dumps), bilibili/douyin video descriptions,
-pan.baidu shares, fixbase/chinafix/vinafix/elektroda (gated — check for
-leak mirrors), Telegram (t.me/biosarchive held), Google Drive links in
-repair forums. Any free hit → relay fetch → --triage → pipeline.
+### Step 2 — DONE (hunt round 1, 2026-10-05): artifact acquisition map
+Swept: dr-bios fleet threads (SPI dumps only), badcaps 7080 thread
+(premium-gated SPI), vinafix (paid), chinafix/迅维 (gated downloads, no
+fleet EC程序 threads surfaced), Reddit 3410 guide (the "EC" 8 MB file =
+companion SPI chip, already held), GitHub (SHP_MEC1515 = unrelated
+industrial project; dellpwn repo = DVAR tooling, no EC dumps; prebuilt
+mirror = binaries only). KEY FACTS gained:
+  - RT809H changelog (kancloud): MEC16xx ECs readable online (flying
+    leads), read range = first 192 KB CODE REGION (plaintext); the last
+    64 KB parameter area (serial + password) is stored ENCRYPTED but is
+    REWRITABLE by the programmer. The GENERATE engine + per-build keys
+    live in the code region → an MEC16xx EC read still yields the keygen
+    (3410 target: MEC1515H). NPCE288/388 readable via adapter board.
+  - Widened target set: OptiPlex 5080/7080 EC bodies are byte-identical
+    to the 3090's (§11.7) → an EC-internal dump from ANY of the three
+    completes the 3090/CF1B keygen.
+  - Confirmed: repair-world "EC dumps" for the 3410/5410 being shared
+    freely are the companion SPI (held); true EC-internal reads stay
+    trade-gated (vinafix $20 patch sellers, fixbase premium).
+  - dellpwn (R3n5k1 repo) = DVAR XOR recovery, CVE-2026-40639 /
+    DSA-2026-197, found by AmberWolf + MDSec — owner-set passwords only,
+    not the EC master transform. No EC-era engine artifacts in the repo.
+Acquisition routes (ranked): (1) seller purchase $10-30 (wa.me/923280493988
+— ask for an EC-internal/RT809H dump of any 3080/3090/5080/7080/3410/5410
+instead of a code: ONE dump = the whole model's offline keygen);
+(2) any repair shop with an RT809H + EC/LPC adapter (minutes per board,
+ask for the first 192 KB); (3) standing watch (see WATCHLOG).
 
-### Step 3 — docs wiring (README, findings, watchlog) — pending
+### Step 3 — DONE (2026-10-05): docs + cross-validation
+- README part 4 = dell_ec_keygen.py wiring (modes + the missing-input
+  statement).
+- Cross-validated the new tool's render against dell_master_keygen's
+  response_to_master/response_to_code2 on all 5 families: byte-identical
+  (kit convention: family = 16-bit suffix word 0x8FC8, not the 1-byte
+  LSB 0xC8 — noted to avoid future misuse).
+- CF1B_FINDINGS cycle-14 entry + WATCHLOG EC-dump watch item.
+
+## Next steps (open)
+- Step 4: acquire the EC-internal dump (routes above) → --triage →
+  --locate → --keygen per build; validate against donor-GENERATE output
+  or seller-provided code on one tag per build.
+- Step 5: once per-build keygens validate, fold the build keys into
+  dell_ec_keygen.py as a pure-offline table (tag → master, no dump
+  needed at run time).

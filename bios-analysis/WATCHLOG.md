@@ -185,3 +185,15 @@
   requeue cabs; Dell dl.dell.com FOLDERs remain the package route.
 - DellBIOSTools (github.com/chromebreakerdev/DellBIOSTools) — v2.6-beta;
   E7A8 == ours (verified), unlocker already in kit. Low priority.
+
+## Cycle 14 watch adds (2026-10-05)
+- EC-INTERNAL FLASH DUMP (the single missing offline-keygen input): any
+  RT809H direct-EC read ("EC程序", first 192 KB suffices) of OptiPlex
+  3080/3090/5080/7080 (shared EC body) or Latitude 3410 (MEC1515H) /
+  5410. Venues to re-check periodically: vinafix/fixbase/badcaps premium
+  (trade-gated), chinafix 迅维 EC程序 sections, pan.baidu shares,
+  bilibili RT809H video descriptions, t.me/biosarchive. On landing:
+  solution_kit/src/dell_ec_keygen.py --triage → --locate → --keygen.
+- Seller upgrade path: when contacting wa.me/923280493988, request the
+  EC-internal dump itself (not just a code) — one dump per build
+  completes the offline keygen for EVERY tag of that build.

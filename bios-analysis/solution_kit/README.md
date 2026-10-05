@@ -37,6 +37,24 @@ parts below were run against that exact version.
    SIVB vault rollback: `clear-sivb in.bin out.bin [--full]`
    (default 5552 B validated range; `--full` = the whole 16 KB vault
    partition; NEVER write past vault+0x4000 — ME files live there).
+4. **`dell_ec_keygen.py`** — NEW-SUFFIX-ONLY pipeline (EC families
+   CF1B/8FC8/9ABE/3FE2/1B58; contains no legacy-suffix code). Four modes:
+   - `--triage <any file>` — classifies any EC/SPI artifact (plaintext vs
+     sealed PHCM, Cortex-M vector table, markers) and, on an EC-internal
+     flash dump, walks the NVRAM record store — record 0x15 IS the
+     machine's enrolled master password, printed in plaintext;
+   - `--render <resp-hex> --suffix CF1B` — maps a captured 32-byte EC
+     GENERATE response to the master code(s) (byte-identical to
+     dell_master_keygen's maps — cross-validated);
+   - `--locate <dump>` / `--keygen <dump> --tag T --suffix F [--handler
+     0xADDR]` — finds the EC mailbox handlers in a plaintext Cortex-M
+     image and drives the GENERATE session in emulation (needs `pip
+     install unicorn`; every other mode is stdlib-only).
+   This is the push-button consumer for the ONE missing offline-keygen
+   input: an EC-internal flash dump ("EC程序", RT809H direct-EC read) of
+   any 8FC8-family machine — OptiPlex 3080/3090/5080/7080 share one EC
+   firmware, so a dump from ANY of them completes the 3090 keygen.
+
 
 ## Per-model instructions
 One page per model in `models/<model>/CARD.md` — written for a non-technical
