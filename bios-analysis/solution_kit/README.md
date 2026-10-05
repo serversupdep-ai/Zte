@@ -51,3 +51,22 @@ machine's EC (part 1), (b) Dell support, or (c) removing the enrolled
 password state (parts 2-3, field-proven).
 
 Machine-readable data: `MODEL_PROFILES.json`.
+
+## Donor-factory keygen (any ONE working machine of a model = that model's keygen)
+
+The EC accepts the service tag as a wire input (GENERATE session) and has no
+wrong-tag status (§11.22.3) — so a working machine can mint the master for
+ANY tag of the same model + EC build:
+
+    # on ANY bootable machine of the model, from a Linux live USB:
+    sudo sh src/dell_donor_factory.sh <model-id> <TARGETTAG> <SUFFIX>
+    # e.g.  sudo sh src/dell_donor_factory.sh optiplex-3090 H2FS5S3 CF1B
+
+Fleet SIVB vault locations (16KB partition, clear-sivb is magic-scanning):
+3070/7070 @0x3000 · 3090 @0x891000 · 3410 @0x3c3000/0x103000 (8MB chip) ·
+5410 @0x893000/0x7cf000 · 3440 @0x33a000 · 5430 @0x22b000 · 5500 @0x45000.
+
+Engine parity at latest BIOS (verified this cycle): the 3420 1.44.0 module
+(39424B class) carries all 6 password alphabets byte-identical to the
+reference engine — local keygen paths are fleet-uniform; 3410 1.36.0 /
+3080 2.35.0 / 3090 2.30.0 modules are byte-identical (md5) to the reference.
