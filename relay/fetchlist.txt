@@ -309,3 +309,5 @@ PAGE|https://www.badcaps.net/file_search?search=QUAKEL14|badcaps_fs_QUAKEL14
 PAGE|https://www.badcaps.net/file_search?search=MOCKINGBIRD|badcaps_fs_MOCKINGBIRD
 PAGE|https://www.badcaps.net/file_search?search=CYBORG|badcaps_fs_CYBORG
 PAGE|https://archive.org/advancedsearch.php?q=%28%22EC%E7%A8%8B%E5%BA%8F%22%20OR%20%22EC%20dump%22%20OR%20MEC1515%20OR%20MEC1618%29%20dell&fl%5B%5D=identifier&fl%5B%5D=title&rows=50&output=json|archive_ec_dell
+# === §15b MEC1515 board archive (biosarchive msg 24189, EDW40 LA-H451P 2019 MEC1515-NB) ===
+PAGE|https://t.me/biosarchive/24189?embed=1&mode=tme|tg_msg_24189_embed
