@@ -186,3 +186,12 @@ PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&b
 PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=100|as_dell_9abe_r2
 PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=%22password%20is%22&limit=100|as_dell_pwis
 PAGE|https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=8FC8&limit=100|as_dell_posts_8fc8_r2
+# === §11.25 retries (arctic-shift rate-limited; stagger across runs) ===
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1iq6vuq&limit=100|reddit_1iq6vuq_comments_r2
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?author=Clean_Bed9378&limit=100|as_author_cleanbed
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=100|as_dell_8fc8_r3
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=100|as_dell_cf1b_r3
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=iks99h&limit=100|reddit_iks99h_comments
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1mni7p9&limit=100|reddit_1mni7p9_comments_r2
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1vx52jo&limit=100|reddit_1vx52jo_comments
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1v09bt9&limit=100|reddit_1v09bt9_comments

@@ -1928,3 +1928,32 @@ all BIOS packages, all reachable schematics). Live doors remain: sellers
 (§11.24.3), donor-machine GENERATE test, GEN 2 physical read (needs the
 3090 EC part number — schematic sources are all paywalled; the 3410's
 MOCKINGBIRD-L schematic is already held with JTAG1/KBC points).
+
+---
+
+## 11.25 CYCLE 11 — validation-vector harvest (first sweep) + seller-identity intel (2026-10-05)
+
+Evolution: instead of hunting files, hunt **public (tag, suffix, master)
+triples** — buyer-posted proof codes that would (a) validate the engine
+chain the moment any door opens, (b) confirm master determinism.
+
+- First arctic-shift sweep landed (100 r/Dell "password is" comments,
+  2026 window, persisted at collected/raw/as_dell_pwis/). Findings:
+  - **No free generator exists for 8FC8/CF1B** (multiple 2026 statements by
+    r/Dell's top helper NufnButDaRain): "there is no pwd generator for
+    8FC8. you can buy a password off ebay or some shady pages. **these are
+    dell guys making an extra buck**. or scams." → sellers are very likely
+    Dell insiders (or hold Dell-internal tooling) — explains instant
+    tag→master delivery without machine access. Matches §11.17/§11.23.
+  - **Dell support = the master source** (repeatedly confirmed): original
+    owners get the master password free with proof of ownership. This is a
+    legitimate, zero-cost door for any first-owner machine in the fleet —
+    AND yields a validation triple for the campaign.
+  - Zero public master deliveries found in this window (buyers beg;
+    sellers deliver privately). Tag requests logged (8MWGN13-CF1B,
+    1J8T4K3-8FC8, 2TZWTJ3-8FC8, HZKBVZ3-8FC8, JJ0N1J3-8FC8, 3SLYMN3-8FC8).
+- Lead: a Feb-2025 r/Dell thread (1iq6vuq) contains "The password is:
+  **Fireport** (Case-Sensitive)" for an 8FC8 OptiPlex 5090 — readable
+  8-char format, unlike our 16-char alphabet map (Gen-A 3090 module).
+  If genuine, Gen-B (5090-class) masters may have a different format —
+  the full thread fetch is queued (rate-limited; relay retries).
