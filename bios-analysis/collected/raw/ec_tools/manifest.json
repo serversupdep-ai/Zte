@@ -1,0 +1,12 @@
+{
+ "files": {
+  "glasgow_mec16xx_applet.py": {
+   "bytes": 34417,
+   "sha256": "fa880bd4ec0f4b67fe31e876069e9bdd439745d7dfc9526d4a01177530466ad5"
+  },
+  "svod3_MEC5075_Latitude_E7440.pdf": {
+   "bytes": 2871729,
+   "sha256": "765f11bcd150e184222662aeeb397cf63a0f9c3ed978b7608ce7cdf9571b02e2"
+  }
+ }
+}
