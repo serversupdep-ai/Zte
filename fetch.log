@@ -50,7 +50,7 @@
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334493 bytes, sha256 091f74c4447b3d44…)
+    [saved] mediafire_3410/mediafire_page.html (334495 bytes, sha256 95c3bcf9a97b2cad…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -184,11 +184,14 @@
 [FILE] https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf -> raw/ec_tools/MEC1618_datasheet_00002339A.pdf
     [fetch failed 403 https://www.microchip.com/filehandler/redirect?https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf] https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf
 [skip] piernov_mec_jtag_article already fetched
-[FILE] https://ww1.microchip.com/downloads/aemDocuments/documents/CPG/ProductDocuments/DataSheets/MEC152x-Data-Sheet-DS00003427F.pdf -> raw/ec_tools/MEC152x_DataSheet_DS00003427F.pdf
-    [saved] ec_tools/MEC152x_DataSheet_DS00003427F.pdf (5036918 bytes)
+[skip] ec_tools/MEC152x_DataSheet_DS00003427F.pdf already fetched
 [skip] ec_tools/MEC152x_DataSheet_DS00003427F.pdf already fetched
 [FILE] https://web.archive.org/web/2024id_/https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf -> raw/ec_tools/MEC1618_datasheet_00002339A.pdf
     [fetch failed 403 https://www.microchip.com/filehandler/redirect?https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf] https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf
+[FILE] https://www.badcaps.net/filedata/fetch?id=2092890 -> raw/badcaps_ec/badcaps_EC_MEC1416_5379.rar
+    [fetch failed 202 https://www.badcaps.net/filedata/fetch?id=2092890] https://www.badcaps.net/filedata/fetch?id=2092890
+[FILE] https://www.badcaps.net/filedata/fetch?id=2121862 -> raw/badcaps_ec/badcaps_Latitude5401_locked_UT2_UT6.rar
+    [fetch failed 202 https://www.badcaps.net/filedata/fetch?id=2121862] https://www.badcaps.net/filedata/fetch?id=2121862
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -242,6 +245,7 @@
 [EXTRACT-PASS] badcaps_3090_98981
 [EXTRACT-PASS] badcaps_3090_98981_p4
 [EXTRACT-PASS] badcaps_3090_98981_watch
+[EXTRACT-PASS] badcaps_ec
 [EXTRACT-PASS] biosfix_8fc8_53041
 [EXTRACT-PASS] dell_3070_144
 [EXTRACT-PASS] dell_3080_rcv
