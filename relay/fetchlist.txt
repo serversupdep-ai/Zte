@@ -218,3 +218,5 @@ FILE|https://raw.githubusercontent.com/GlasgowEmbedded/glasgow/main/software/gla
 FILE|https://svod-project.com/svod3/MEC5075%20on%20Latitude%20E7440%20(LA-9591P).pdf|svod3_MEC5075_Latitude_E7440.pdf|ec_tools
 FILE|https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf|MEC1618_datasheet_00002339A.pdf|ec_tools
 PAGE|https://web.archive.org/web/20241212033907/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/|piernov_mec_jtag_article
+# === §14c MEC152x datasheet (fleet EC family: Cortex-M4, SWD, flash controller, secure boot) ===
+FILE|https://ww1.microchip.com/downloads/aemDocuments/documents/CPG/ProductDocuments/DataSheets/MEC152x-Data-Sheet-DS00003427F.pdf|MEC152x_DataSheet_DS00003427F.pdf|ec_tools
