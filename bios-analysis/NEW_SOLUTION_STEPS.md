@@ -100,3 +100,9 @@ ask for the first 192 KB); (3) standing watch (see WATCHLOG).
 - Step 8 (OPEN): field-validate dell_smi_unlock on one fleet machine
   (any locked-but-bootable unit); validate dcdbas vs WMI paths; record
   which selectors the fleet BIOSes accept.
+- Step 9 (OPEN, zero-tech user action): download the FREE telegram file
+  t.me/biosarchive/24189 (EDW40 LA-H451P 2019 Dell MEC1515-NB board
+  archive, .rar) with the Telegram app and hand it to the pipeline
+  (dell_ec_keygen --triage). Telegram files need an app account (free)
+  — no payment wall. If it holds an EC read → Step 5 completes for the
+  MEC1515 build.

@@ -2267,3 +2267,19 @@ For a LOCKED fleet machine, doors in order of ease:
   3. Offline keygen for OTHER tags of the build → still needs the
      EC-internal dump (gated; cookbook routes).
   4. Call-Dell phone master (twice-confirmed loose) / seller.
+
+### 15.5 Telegram venue sweep results (72 pages, 23 with Dell content)
+- All public Dell fleet "EC" posts across biosarchive + schematicslaptop +
+  afsbiosfree/ithinkhsbios are SPI-class (working BIOS 8/16/32MB + schems)
+  — EXCEPT one new free candidate: biosarchive message 24189 —
+  "EDW40_LA_H451P_REV_1.0(A00)_2019-08-14_MEC1515_NB_N17S_G2_A1...rar"
+  (a 2019 Dell board archive explicitly tagged MEC1515-NB, chips UC3/UM3/
+  UPD3/UT2). Telegram embed pages expose only the channel photo, not
+  document CDN links → files require a Telegram app account (FREE — no
+  payment). ACTIONABLE: any user with the Telegram app can open
+  t.me/biosarchive/24189 and download the .rar in one click. If it
+  contains an EC read (some poster archives include them), it feeds
+  dell_ec_keygen --triage directly. Queued as user-fetch door.
+- 3080/5080/7080/3410/5410 archives on these channels = SPI dumps
+  (held-equivalent); schematicslaptop adds boardviews/PDFs (incl. Cyborg
+  TGL, Mockingbird, LA-H451P families).
