@@ -197,3 +197,14 @@
 - Seller upgrade path: when contacting wa.me/923280493988, request the
   EC-internal dump itself (not just a code) — one dump per build
   completes the offline keygen for EVERY tag of that build.
+
+## Cycle 14b-c watch adds (2026-10-05)
+- dossalab/mec16xx-simple-flash + piernov gist thread — the author said
+  a proper OpenOCD MEC flash driver "may be that time"; a driver would
+  make EC reads plug-and-play. Watch the repo + gist + piernov's blog.
+- 3090 schematic PDF (Pegatron IPCML-RN/ZB, names the desktop EC part +
+  SWD/JTAG pads): indiafix page lists it but links are not in captures;
+  elvikom post303887 (gated) + dr-bios boardview thread 66276 (gated)
+  hold it. Re-check periodically; ask the code seller for it too.
+- biosarchive Elite Access Vault (t.me/MAHMOODJAVAN, 180GB paid) —
+  candidate source for an EC-internal dump purchase.

@@ -77,9 +77,16 @@ ask for the first 192 KB); (3) standing watch (see WATCHLOG).
 - CF1B_FINDINGS cycle-14 entry + WATCHLOG EC-dump watch item.
 
 ## Next steps (open)
-- Step 4: acquire the EC-internal dump (routes above) → --triage →
-  --locate → --keygen per build; validate against donor-GENERATE output
-  or seller-provided code on one tag per build.
-- Step 5: once per-build keygens validate, fold the build keys into
+- Step 4 — DONE (2026-10-05): EC_READ_COOKBOOK.md — the acquisition
+  procedure itself (4 routes: SWD for the MEC15xx OptiPlex fleet /
+  piernov JTAG recipe for MEC16xx-50xx / RT809H shops / seller purchase),
+  with vendor-documented facts: MEC152x = Cortex-M4 + SWD + AES-256/ECDSA
+  secure boot w/ OTP keys (the sealing explained); dossalab flash tool
+  cloned in-repo; Glasgow applet + SVOD MEC5075 paper + MEC1618/MEC152x
+  datasheets fetched via relay.
+- Step 5 (OPEN): acquire the actual EC-internal dump (cookbook routes) →
+  --triage → --locate → --keygen per build; validate against
+  donor-GENERATE output or a seller-provided code on one tag per build.
+- Step 6: once per-build keygens validate, fold the build keys into
   dell_ec_keygen.py as a pure-offline table (tag → master, no dump
   needed at run time).

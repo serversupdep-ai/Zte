@@ -2139,3 +2139,57 @@ NEW_SOLUTION_STEPS.md (Steps 1-3 done this cycle).
   RT809H dump, 192 KB, of any 3080/3090/5080/7080/3410/5410 — one dump
   = that model's offline keygen, better value than a single code);
   RT809H shop; standing watch.
+
+## Cycle 14b-c (2026-10-05) — AGENT FETCH ROUND: consumer-EC negative + the EC-read door blown open
+
+### 14.3 Inspiron/Vostro 5401/5501 census gap CLOSED (negative)
+- Fetched via relay (dl.dell.com FOLDER06278094M/07627304M/08776062M): BIOS
+  1.3.0 (May 2020), 1.8.1 (Aug 2021), 1.16.0 (Aug 2022). find_dub OK
+  (28.5-28.8 MB DUBs); each carries 4x PHCM at ~0x184A55E-class offsets.
+  ALL SEALED: ver 01 01 80 03 (note: 0x80 flag vs the 84 seen elsewhere),
+  body@+0xC0, entropy 7.99. EC payload byte-identical between 1.8.1 and
+  1.16.0. The 8FC8 consumer platform shipped sealed EC from day one —
+  the "maybe consumer-era packages predate sealing" hypothesis is dead.
+  Update-package sealing is now universal across EVERY examined platform
+  of the GENERATE era (commercial + consumer).
+
+### 14.4 THE EC-READ DOOR (piernov + dossalab + public datasheets)
+- **piernov (Aug 2023) "Dell Factory Mode through SMSC MECxxxx JTAG"** —
+  complete public recipe: JTAG to the EC's unpopulated debug connector
+  (10-pin 0.5mm FFC), OpenOCD arc-2021.09 (his fork builds on modern
+  systems), `dump_image mec_backup.bin 0x0 0x48000` = full EC-internal
+  flash dump. Tested MEC5055/5075 on Dell boards (JTAG IDs 0x1000024b1/
+  0x200024b1). Flash-controller registers = MEC1618 datasheet (public).
+  Bonus: erasing the two serialization pages (service tag ×2, 0x800-page
+  separated; 0x47000/0x47800 on LA-9832P, 0x3f000/0x3f800 on Inventec
+  Krug) puts a board in manufacturing mode.
+- **dossalab/mec16xx-simple-flash** (public, Mar 2025) — Python tool,
+  OpenOCD-telnet flash R/W for MEC16xx; "interface exactly the same as
+  MEC1618" (Glasgow-derived). Cloned to collected/github_src/.
+- **Glasgow Interface Explorer applet program/mec16xx** — open-hardware
+  EC programmer (queued via relay §14b).
+- **MEC152x datasheet (DS00003427F, public)** — the fleet EC family:
+  Cortex-M4, 480KB internal flash, **2-pin SWD** CPU debug port; secure
+  boot decrypts the SPI-staged image with AES-256/ECDSA, **keys in
+  lockable OTP** (this is the §11.7 sealing, now vendor-documented);
+  EC boots from shared SPI (MAFS/SAFS) = our EC-region staging.
+  => Route A for the OptiPlex fleet (3090 EC region = Cortex-M vector
+  table, byte-identical to the 3410's MEC1515H): SWD probe + halt +
+  dump 480KB. J-Link officially supports MEC15xx.
+- RT809H-supported EC list (badcaps guides): MEC1609/1618/1619/1633/1650/
+  1653, MEC5035-5085, NPCE288/388. MEC1515 = "no public programming
+  solution" (badcaps legend) -> use SWD there.
+- EC_READ_COOKBOOK.md written: 4 routes (SWD / JTAG-flash-controller /
+  RT809H / buy) with exact commands, board references, and the
+  on-landing pipeline (triage -> locate -> keygen).
+
+### 14.5 Misc fetches this round
+- Telegram biosarchive searches (3090/EC/RT809): public posts are SPI
+  dumps only; the channel's 180GB "Elite Access Vault" is a paid seller
+  door (t.me/MAHMOODJAVAN) — recorded in cookbook Route D.
+- badcaps MEC1515-NB thread: replacement ECs must come from scrap boards;
+  "MEC system must be purchased with software version D0 with the option
+  of entering a Service Tag" (Dell factory provisioning detail).
+- indiafix 3090 schematic link: page carries only 3 Drive bins (held);
+  the schematic PDF link from the search snippet is not in the captures
+  (elvikom/dr-bios boardview threads are the alternates — gated).
