@@ -131,3 +131,12 @@ ask for the first 192 KB); (3) standing watch (see WATCHLOG).
   --oracle resp / --selftest PASS). The free telegram 24189 archive
   (MEC1515-NB = 3410/5410-class EC) is an 8FC8-family EC — its EC read
   would complete the latest-suffix offline keygen engine.
+- Step 12 — DONE (2026-10-05, cycle 19): PHCM CRYPTOGRAPHIC CLOSURE, no
+  live machine involved: 'PHCM' = 'MCHP' reversed (Microchip MEC15xx
+  secure-boot container); m40 = sha256(header) (39/39 + 5X90 Rosetta);
+  per-image cipher parameterization (0 shared blocks across firmware
+  versions); AES battery + ECDSA recovery ALL negative; body key lives in
+  EC OTP per Microchip DS00003427 (held in-repo) → sealed-payload
+  decryption CLOSED. Positive consequence: an EC-internal dump needs NO
+  cryptanalysis (flash = decrypted code) — the §18 relay targets (3510
+  EC-chip reads) complete the keygen on landing. Findings §19.

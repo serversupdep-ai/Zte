@@ -272,3 +272,19 @@
   3410 MOCKINGBIRD-L schematic (t.7424), Vostro 3510 LA-L242P schematic
   (t.7143), Vostro 5410 Cyborg-V14 TGL boardview (t.8233) — cookbook
   Route A aids if a field SWD read ever happens.
+
+## Cycle 19 watch adds (2026-10-05)
+- PHCM container cryptanalysis CLOSED (§19): do NOT retry sealed-body
+  decryption (key = EC OTP, Microchip-documented; m60/m80 = per-image
+  sig/wrapped material; mode per-image parameterized). The only EC-engine
+  sources: Dell backend / EC-internal dump (decrypted!) / live session.
+- m40 = sha256(header[0:0x40]) law (universal) — use to classify/verify
+  any future PHCM artifact instantly (triage now does this).
+- 3410 companion chip-store slots: 3 PHCM @0x1000/0x41000/0x81000 (bt
+  0x9F4, m40 cdb03925; store-A identity m60=ed20192c, store-B = package
+  backup identity 9d08030f) — identity records, sealed, not firmware.
+- If any EC-internal dump lands: NO decryption needed — flash content is
+  plaintext code; run the §3/§6 pipeline directly.
+- Microchip MEC152x datasheet (in-repo) documents the secure-boot
+  architecture incl. ECDH-private-key OTP bytes 0-31 — cite for any
+  future argument about why sealing is unbreakable offline.

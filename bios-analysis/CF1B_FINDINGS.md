@@ -2346,3 +2346,50 @@ modules (all in-repo):
   Working Files", 4.7k threads incl. Dell clrme/dump threads + MEC
   JTAG adapter ecosystem) — added to cookbook watchlist; first-pass
   threads were SPI/clr-me class.
+
+## §19 Cycle 19 — PHCM cryptographic closure (2026-10-05)
+
+User directive: make the keygen with NO live machine. Executed the full
+offline attack on the sealed EC containers. Results, all evidence in this
+section reproducible from in-repo artifacts:
+
+- **§19.1 The container is Microchip's, not Dell's.** The magic 'PHCM' is
+  'MCHP' (Microchip) reversed. Confirmed by our held MEC152x datasheet
+  (collected/raw/ec_tools/MEC152x_DataSheet_DS00003427F.pdf) + Microchip
+  docs: MEC15xx Boot-ROM Secure Boot = HW root of trust, **AES-256-
+  encrypted SPI flash images, customer secret key in OTP fuses, ECDSA
+  authentication, key revocation + rollback protection**.
+- **§19.2 Container field semantics CRACKED (the Rosetta Stone):**
+  m40 (+0x40, 32B) = **sha256(header[0:0x40])** — verified 39/39 sealed
+  containers AND both 5X90 plaintext containers (that is WHY m40 is
+  "build-constant": every container of a build shares the header prefix).
+  m60/m80 (+0x60/+0x80, 32B each) = per-image materials (ECDSA r‖s or
+  wrapped-key class; NOT sha256(body), NOT decryptable key material).
+- **§19.3 Cipher-mode analysis (3410 + 3420 version ladders, 39
+  containers):** same image in N copies → byte-identical bodies
+  (10191/10191 shared blocks; deterministic); different firmware versions
+  of the SAME build → **0** shared 16B blocks → per-image encryption
+  parameterization (per-image key or IV from m60/m80); NOT static-key ECB.
+  Body layout (3420): [cipher ~0x320E0][32B zeros @0x320E0 — PLAINTEXT
+  padding][32B high-entropy blob @0x32100 — tag/wrapped material]
+  [32B FF]. The zero/FF padding blocks are IDENTICAL across versions at
+  identical offsets (unencrypted tail).
+- **§19.4 Attack battery (all negative, proving the wall):**
+  - AES key-derivation battery: ~20 key candidates (m40/m60/m80, their
+    hashes, concatenations, truncations, header-region hashes) × ECB/CBC
+    (5 IVs)/CTR (4 nonces) × structural checks (vector table / NPCX flash
+    / ASCII / low entropy) = **0 hits**.
+  - ECDSA-P256 public-key recovery on m60‖m80 over sha256(body),
+    sha256(hdr+body), sha256(file): **no consistent key** across
+    containers (not a plain P-256 sig over those messages).
+  - Prior cycle's key-in-header attempt: also 0.
+- **§19.5 Conclusion (hard):** the body AES key lives in EC OTP
+  (Microchip-documented architecture). It is in NO public artifact — not
+  in the container, not in the BIOS, not derivable. Offline decryption of
+  the sealed EC payloads is CLOSED. Equivalently: the EC-internal dump is
+  the only remaining source of the engine — and a dump is ALREADY-
+  DECRYPTED firmware (the container is only the transport format; the
+  EC's flash holds plaintext code). No cryptanalysis is needed after a
+  dump: --scan-plaintext → --xref → --dispatch → --emul → RENDER.
+- §19.6 Tool update: dell_ec_keygen --triage now verifies m40 ==
+  sha256(header) per container (integrity/classification aid).

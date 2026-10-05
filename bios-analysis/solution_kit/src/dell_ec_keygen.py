@@ -206,8 +206,18 @@ def triage(path: str):
     # PHCM containers
     phcms = phcm_info(d)
     for i, ver, body_off, h, kind in phcms:
-        print(f"  PHCM @0x{i:X} ver={ver} body@+0x{body_off:X} "
-              f"entropy={h:.2f} -> {kind}")
+        line = (f"  PHCM @0x{i:X} ver={ver} body@+0x{body_off:X} "
+                f"entropy={h:.2f} -> {kind}")
+        # §19 container semantics: m40 @+0x40 = sha256(header[0:0x40])
+        # (verified 39/39 sealed + 5X90 plaintext); m60/m80 = per-image
+        # ECDSA/wrapped materials (Microchip MCHP secure-boot container,
+        # AES key in EC OTP — see CF1B_FINDINGS §19).
+        import hashlib as _hl
+        if len(d) >= i + 0x60:
+            m40 = d[i + 0x40:i + 0x60]
+            ok = _hl.sha256(d[i:i + 0x40]).digest() == m40
+            line += f"  [m40 hdr-hash {'OK' if ok else 'MISMATCH'}]"
+        print(line)
 
     # Cortex-M vector tables (offset 0 and after EC-region descriptors)
     for desc in find_all(d, bytes.fromhex("00e04080"), limit=8):
