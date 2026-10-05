@@ -213,3 +213,8 @@ FILE|https://dl.dell.com/FOLDER08776062M/1/Inspiron_Vostro_5401_5501_1.16.0.exe|
 PAGE|https://t.me/s/biosarchive?q=EC|tg_biosarchive_ec
 PAGE|https://t.me/s/biosarchive?q=3090|tg_biosarchive_3090
 PAGE|https://t.me/s/biosarchive?q=RT809|tg_biosarchive_rt809
+# === §14b EC-read toolkit (JTAG/Glasgow/SVOD references — piernov door) ===
+FILE|https://raw.githubusercontent.com/GlasgowEmbedded/glasgow/main/software/glasgow/applet/program/mec16xx/__init__.py|glasgow_mec16xx_applet.py|ec_tools
+FILE|https://svod-project.com/svod3/MEC5075%20on%20Latitude%20E7440%20(LA-9591P).pdf|svod3_MEC5075_Latitude_E7440.pdf|ec_tools
+FILE|https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf|MEC1618_datasheet_00002339A.pdf|ec_tools
+PAGE|https://web.archive.org/web/20241212033907/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/|piernov_mec_jtag_article
