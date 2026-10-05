@@ -223,3 +223,6 @@ FILE|https://ww1.microchip.com/downloads/aemDocuments/documents/CPG/ProductDocum
 # === §14d datasheets via Wayback (microchip.com 403s the runner) ===
 FILE|https://web.archive.org/web/2024id_/https://ww1.microchip.com/downloads/aemDocuments/documents/CPG/ProductDocuments/DataSheets/MEC152x-Data-Sheet-DS00003427F.pdf|MEC152x_DataSheet_DS00003427F.pdf|ec_tools
 FILE|https://web.archive.org/web/2024id_/https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf|MEC1618_datasheet_00002339A.pdf|ec_tools
+# === §14e badcaps attachment attempts (EC-internal candidates; may be premium-gated) ===
+FILE|https://www.badcaps.net/filedata/fetch?id=2092890|badcaps_EC_MEC1416_5379.rar|badcaps_ec
+FILE|https://www.badcaps.net/filedata/fetch?id=2121862|badcaps_Latitude5401_locked_UT2_UT6.rar|badcaps_ec
