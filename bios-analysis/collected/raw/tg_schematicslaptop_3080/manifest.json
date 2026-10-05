@@ -1,0 +1,12 @@
+{
+ "files": {
+  "dl": {
+   "bytes": 6390,
+   "sha256": "ad59035fc2f50e984c81a85251bcd38b2e247af777b0ab2db6a05ce1bcb1ed00"
+  },
+  "page.html": {
+   "bytes": 58316,
+   "sha256": "9b59607aa14202d60176e7d3047a9f78c674d442709ffe74d7e67cda2157a396"
+  }
+ }
+}
