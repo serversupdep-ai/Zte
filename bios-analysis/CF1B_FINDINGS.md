@@ -2193,3 +2193,25 @@ NEW_SOLUTION_STEPS.md (Steps 1-3 done this cycle).
 - indiafix 3090 schematic link: page carries only 3 Drive bins (held);
   the schematic PDF link from the search snippet is not in the captures
   (elvikom/dr-bios boardview threads are the alternates — gated).
+
+### 14.6 The exact-artifact sweep (user challenge: "all files are already online")
+Precise-signature verification, 2026-10-05:
+- GitHub CODE search on the engine fingerprint (mailbox literal 0x400F0110):
+  24 hits — all noise (font/hex coincidences) except ChromiumOS-EC MEC1322.h
+  (Chromebook EC, different vendor). Alphabet string: 0 hits. Repo search
+  "EC firmware dump/collection": 0. GitHub is EXHAUSTED for the engine.
+- badcaps file_search (their 1.1M-file archive): ZERO MEC1515/EC files.
+- badcaps forum: EC-internal dumps DO exist as attachments — PROOF:
+  thread 95293 (Inspiron 5379, MEC1416): user read 194KB from the EC chip;
+  hoaca388 attached EC.rar (84.7KB, real EC-internal dump, id=2092890);
+  also thread 84361 (Latitude 5401): UT2+UT6 2x1MB EC-chip dumps
+  (id=2121862). BOTH behind the "Premium supporters" paywall — relay
+  fetch attempts returned HTTP 202 (gate). The artifact class exists
+  ONLINE but GATED, not free.
+- Sandbox curl to badcaps = egress-blocked (000); only relay reaches it.
+CONCLUSION: every free online source is exhausted (this turn re-verified
+with exact signatures). The EC-internal dump for the 2020-21 MEC15xx
+generation is trade-gated everywhere: badcaps premium subscription,
+vinafix paid, Telegram 180GB vault (paid), or the code seller. A badcaps
+premium member can also DM hoaca388 (12.7k posts, posts EC files) to
+request a 3090/3410 MEC1515 EC read — recorded as the top buy-door.

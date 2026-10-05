@@ -72,6 +72,11 @@ Inspiron 5401/5501):
     instead of a single code — one dump = unlimited codes for that build)
   * the BIOS ARCHIVE Telegram vault (t.me/MAHMOODJAVAN, 180GB paid archive,
     "BIOS/EC programmers" clientele)
+  * BADCAPS PREmium (verified door): badcaps attachments include REAL
+    EC-internal dumps (proof: thread 95293, EC.rar 84.7KB MEC1416 by
+    hoaca388 — attachment id 2092890, paywalled HTTP 202). A premium
+    member can download that one AND DM hoaca388 (posts EC files
+    regularly) to request a MEC1515/3090-class EC read.
   * any laptop repair shop with an RT809H + EC/LPC adapter or a JTAG/SWD
     probe (the procedure above is 15 minutes; shops do exactly this to
     make the $20 unlock patches)
