@@ -246,3 +246,29 @@
 - Latest-suffix verdict FROZEN (§17): 8FC8 is the latest suffix; no
   alphabet rotation through 2024 MTL. If a FUTURE Gen-D module appears,
   re-run --check-module (rotation alarm built in).
+
+## Cycle 18 watch adds (2026-10-05, post-reset #2)
+- SANDBOX RESET #2 (between turns): recovery = git fetch origin
+  arena/01a087e2-zte + reset --hard FETCH_HEAD; restore user root files
+  from /tmp backup; REBUILD /home/user/venv (python3 -m venv; pip install
+  capstone unicorn rarfile — pypi reachable). relay/fetchlist.txt is an
+  UNTRACKED workspace file — wipes on reset, must be recreated.
+- CAPABILITY: fetch_page (server-side) READS badcaps + alexlaptoprepair
+  thread pages directly (sandbox curl is blocked for both). Badcaps
+  ATTACHMENTS stay premium-gated; alexlaptoprepair attachments unknown
+  (queued §18).
+- §18 QUEUE (relay/fetchlist.txt, recreated): alexlaptoprepair "bios+ec"
+  RARs — Vostro 3510 GDM51 LA-L242P (att .8521, 15.1MB, EC chip 25QH64 +
+  MAIN 25QH128), dell 15-3510 LA-L246P SRK05/TGL (att .8856, 8.9MB),
+  Latitude 5580 LA-E091P (att .5823, 8.2MB, 1MB EC chip read) + Inspiron
+  3501 LA-K032P clearme thread page. 3410/3510 family = 8FC8 era → if
+  either 3510 "EC" chip read is an EC-INTERNAL image (not the sealed
+  SPI-staged PHCM), Step 5 completes for the latest suffix.
+- alexlaptoprepair RAR password: one user comment says archives ask for
+  a password; not stated publicly. Guess list in fetchlist header.
+  If relay lands a locked RAR: build unrar from github.com/aawc/unrar
+  (github reachable) and run the guess list.
+- Related venue threads found: 5410 FDZ41 LA-J371P schematic (t.9232),
+  3410 MOCKINGBIRD-L schematic (t.7424), Vostro 3510 LA-L242P schematic
+  (t.7143), Vostro 5410 Cyborg-V14 TGL boardview (t.8233) — cookbook
+  Route A aids if a field SWD read ever happens.

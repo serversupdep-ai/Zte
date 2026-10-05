@@ -103,6 +103,15 @@ MEC152x datasheet (collected/raw/ec_tools/, SWD chapter ~p.132). MEC1618 datashe
   multi-header, SUCCESSOR/SVOD/RT809XX-compatible). First-pass Dell
   threads were SPI/clr-me class; re-sweep with model+"EC" terms when
   hunting an EC-internal read.
+- **§18 (2026-10-05) — live targets queued to relay**: "bios dump + ec"
+  RAR archives for the 3410/3510 FAMILY (8FC8 era): Vostro 3510 GDM51
+  LA-L242P (attachment .8521; "EC 25QH64 / MAIN 25QH128" — an explicit
+  EC-chip read!) and dell 15-3510 LA-L246P TGL SRK05 (attachment .8856);
+  plus Latitude 5580 LA-E091P bios+ec (.5823; 1MB EC chip read — E7A8
+  era, pipeline-validation value). A Vostro 3510 = consumer twin of the
+  Latitude 3510; if its "EC" 8MB chip read contains an EC-INTERNAL image
+  (Cortex-M vector table at offset 0, not a sealed PHCM), that is the
+  Step 5 artifact for the latest-suffix engine. See relay/fetchlist.txt.
 - NOTE: the free telegram archive t.me/biosarchive/24189 (MEC1515-NB,
   3410/5410-class) is an 8FC8-family EC — the LATEST-suffix engine door
   (§17: 8FC8 = latest suffix).
