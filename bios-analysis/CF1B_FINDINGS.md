@@ -2017,3 +2017,23 @@ monkeyboy107 cracker).
   exists only in Dell-internal/seller tooling. New: 5500 vault offset
   (fleet table extended); "call Dell" recipe (zero-cost master for
   original owners); NVRAMap noted.
+
+### 11.26.6 Fireport resolution + thread-mining (relay delivery)
+
+- The "Fireport" password (r/Dell 1iq6vuq) is UNPAIRABLE: the OP
+  (TheLightningPanda, OptiPlex 5090) never posted his tag; the password
+  was delivered top-level 8 months later by Clean_Bed9378. Moreover
+  "Fireport" contains lowercase 'o' — NOT a member of the 72-char
+  EC-family alphabet — so it is a USER-SET password recovered from a dump
+  (dellpwn-class), not a generated master. Not a validation vector.
+- The OP's own resolution (2025-02-26): **"Hey, calling Dell did it. They
+  didn't verify ownership, but transferred it anyways."** — second
+  independent confirmation of the loose Dell-phone master door.
+- OP also noted "someone who had access to the internal tool" + "communities
+  developing something to try and produce the hash" — i.e., the EC-era
+  generator exists ONLY as Dell-internal tooling; public community attempts
+  are at the same wall we are.
+- 17 more (tag, suffix) requests harvested from the thread for the vector
+  watchlist (3SLYMN3, 1J8T4K3, JJ0N1J3, CJJGBH4-9ABE, 8PHSKS3, 35QWYY2,
+  CTCP4M3, J47Y9K3, FF2FFG3, 9F6C2L3, 6NHV9D3, 39G12L3, …) — all 8FC8-era,
+  zero deliveries public.
