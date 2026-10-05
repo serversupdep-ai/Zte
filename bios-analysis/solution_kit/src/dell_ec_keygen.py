@@ -175,15 +175,18 @@ def nvram_records(d: bytes, start: int = 0, end: int = None):
     p = (start + 3) & ~3
     while p < end - 4:
         L = d[p]
-        if 4 <= L <= 40 and d[p + L - 1] == 0xAA:
+        if 4 <= L <= 40 and p + L <= end and d[p + L - 1] == 0xAA:
             rid = d[p + L - 2]
             if rid < 0x80:
                 # try to extend the chain
                 chain, q = [], p
                 while q < end - 4:
                     L2 = d[q]
-                    if 4 <= L2 <= 40 and d[q + L2 - 1] == 0xAA and d[q + L2 - 2] < 0x80:
-                        chain.append((q, d[q + L2 - 2], bytes(d[q + 1:q + L2 - 2])))
+                    if (4 <= L2 <= 40 and q + L2 <= end
+                            and d[q + L2 - 1] == 0xAA
+                            and d[q + L2 - 2] < 0x80):
+                        chain.append((q, d[q + L2 - 2],
+                                      bytes(d[q + 1:q + L2 - 2])))
                         q += (L2 + 3) & ~3
                     else:
                         break
