@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Step 6: Find the VarStore GUID</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .slide-body.varstore {
+    justify-content: flex-start;
+    padding-top: 1vh;
+    width: 100%;
+  }
+  .slide-body.varstore h2 { margin-bottom: 0.7rem; }
+  .lead {
+    font-size: clamp(1rem, 1.7vw, 1.3rem);
+    color: var(--fg-dim);
+    margin: 0 0 1rem 0;
+  }
+  .lead strong { color: var(--fg); font-weight: normal; }
+  .varstore-list {
+    background: var(--panel);
+    border: 1px solid var(--fg-dim);
+    padding: 0.8rem 1.2rem;
+    font-size: clamp(0.78rem, 1.3vw, 1rem);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    white-space: pre;
+  }
+  .varstore-list .dim { color: var(--fg-dim); }
+  .varstore-list .match { color: var(--accent-green); font-weight: bold; }
+  .varstore-list .guid-match { color: var(--accent-red); }
+  .result {
+    border: 1px solid var(--accent-green);
+    background: rgba(0, 255, 136, 0.05);
+    padding: 1rem 1.4rem;
+  }
+  .result .label {
+    color: var(--fg-dim);
+    font-size: clamp(0.8rem, 1.3vw, 1rem);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+  }
+  .result .line {
+    font-size: clamp(0.9rem, 1.55vw, 1.2rem);
+    line-height: 1.55;
+  }
+  .result .k { color: var(--fg-bright); }
+  .result .v { color: var(--accent-green); }
+  .result .guid { color: var(--accent-red); }
+  .result .name { color: var(--accent-green); }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 14 &middot; step 6: find the varstore guid</span>
+  </div>
+
+  <div class="slide-body varstore">
+    <h2>STEP 6 <span class="dim">::</span> FIND THE VARSTORE GUID</h2>
+    <p class="lead">
+      To find where <strong>VarStoreId 0x1</strong> is, look at the top of the IFR text file for the VarStore definitions:
+    </p>
+
+    <div class="varstore-list"><span class="dim">VarStoreEfi Guid: 72C5E28C-7783-43A1-8767-FAD73FCCAFA4, VarStoreId: 0x2, Name: "SaSetup"</span>
+<span class="dim">VarStoreEfi Guid: 5432122D-D034-49D2-A6DE-65A829EB4C74, VarStoreId: 0x4, Name: "MeSetup"</span>
+<span class="dim">VarStoreEfi Guid: B08F97FF-E6E8-4193-A997-5E9E9B0ADB32, VarStoreId: 0x3, Name: "CpuSetup"</span>
+<span class="dim">VarStoreEfi Guid: 4570B7F1-ADE8-4943-8DC3-406472842384, VarStoreId: 0x5, Name: "PchSetup"</span>
+<span class="match">VarStoreEfi Guid: <span class="guid-match">EC87D643-EBA4-4BB5-A1E5-3F3E36B20DA9</span>, VarStoreId: 0x1, Size: 0xD84, Name: "Setup"  &lt;-- this one</span>
+<span class="dim">VarStoreEfi Guid: B5FBE0C8-A72A-408D-859C-0FD7537AAA5F, VarStoreId: 0x8, Name: "LpeSetup"</span>
+<span class="dim">VarStoreEfi Guid: 1E785E1A-8EC4-49E4-8275-FBBDEDED18E7, VarStoreId: 0x7, Name: "BoardInfoSetup"</span></div>
+
+    <div class="result">
+      <div class="label">// VarStoreId 0x1 resolved</div>
+      <div class="line">
+        <span class="k">GUID:</span> <span class="guid">EC87D643-EBA4-4BB5-A1E5-3F3E36B20DA9</span>
+        &nbsp;&middot;&nbsp;
+        <span class="k">Name:</span> <span class="name">"Setup"</span>
+        &nbsp;&middot;&nbsp;
+        <span class="k">Size:</span> 0xD84
+      </div>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="13-craig-decode.html">&larr; prev</a>
+    <span class="slide-num">14 / 37</span>
+    <a class="next" href="15-craig-guid-search.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

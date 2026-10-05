@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; The flaw</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .flaws {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5vw;
+    margin-top: 1.5rem;
+  }
+  .flaw {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 1.5rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .flaw .num {
+    color: var(--fg-dim);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+  .flaw h3 {
+    color: var(--accent-red);
+    margin: 0 0 1rem 0;
+    font-size: clamp(1rem, 1.7vw, 1.3rem);
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+  }
+  .flaw p {
+    margin: 0 0 0.7rem 0;
+    color: var(--fg);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    line-height: 1.5;
+  }
+  .flaw .impact {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--fg-dim);
+    color: var(--accent-green);
+    font-style: italic;
+    font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+    line-height: 1.4;
+  }
+  .punchline {
+    margin-top: 2rem;
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: clamp(1.1rem, 2.2vw, 1.7rem);
+    color: var(--fg);
+    letter-spacing: 0.05em;
+  }
+  .punchline .red { font-style: italic; }
+  .punchline .green { color: var(--accent-green); font-style: italic; }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 29 &middot; the flaw</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>THREE STRUCTURAL FAULTS</h2>
+
+    <div class="flaws">
+      <div class="flaw">
+        <div class="num">01</div>
+        <h3>FIRST BYTE STORED IN THE CLEAR</h3>
+        <p>
+          <code>stored[0] = plaintext[0]</code>. The first character of every
+          BIOS password is on the flash chip in plain ASCII.
+        </p>
+        <div class="impact">free leak before XOR even starts.</div>
+      </div>
+
+      <div class="flaw">
+        <div class="num">02</div>
+        <h3>NULL PADDING SELF-LEAKS THE KEY</h3>
+        <p>
+          The 32-byte field is padded with zeroes after the password. A null
+          byte XORed with a key byte is the key byte. Every null in the field
+          exposes a key byte directly.
+        </p>
+        <div class="impact">short passwords leak the whole key.</div>
+      </div>
+
+      <div class="flaw">
+        <div class="num">03</div>
+        <h3>KEY WRAPS UNDER THE FIELD</h3>
+        <p>
+          20-byte key, 32-byte field &rarr; key[0..10] is used at <em>two</em>
+          positions. If both positions are encrypted password, the dual constraint
+          narrows candidates to a handful, then frequency / dictionary picks one.
+        </p>
+        <div class="impact">long passwords still partially recoverable.</div>
+      </div>
+    </div>
+
+    <div class="punchline">
+      this isn't an implementation slip. <span class="red">it's a scheme that cannot work</span>,
+      <span class="green">no parameter choice fixes it</span>.
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="30-bug2-intro.html">&larr; prev</a>
+    <span class="slide-num">29 / 37</span>
+    <a class="next" href="34-regimes.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

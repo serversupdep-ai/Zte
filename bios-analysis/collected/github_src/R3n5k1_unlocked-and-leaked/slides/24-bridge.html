@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Part Two</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  /* act-break: centre everything under the big pivot message */
+  .slide-body { align-items: center; }
+  .part-marker {
+    color: var(--fg-dim);
+    letter-spacing: 0.4em;
+    font-size: clamp(0.9rem, 1.6vw, 1.2rem);
+    margin-bottom: 0.6rem;
+  }
+  .pivot {
+    text-align: center;
+    margin: 1.2rem 0 0.5rem 0;
+  }
+  .pivot .big {
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: var(--fg-bright);
+    letter-spacing: 0.04em;
+    line-height: 1.25;
+    text-shadow: 0 0 16px rgba(255, 179, 71, 0.4);
+  }
+  .pivot .big .red { font-style: italic; }
+  .dump-stack {
+    margin-top: 1.5rem;
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 1.2rem 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1.5rem;
+    align-items: center;
+    font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+  }
+  .dump-stack .region {
+    color: var(--fg-bright);
+    letter-spacing: 0.05em;
+    text-align: right;
+    padding-right: 1rem;
+    border-right: 1px solid var(--fg-dim);
+    white-space: nowrap;
+  }
+  .dump-stack .what { color: var(--fg-dim); }
+  .dump-stack .region.target { color: var(--accent-red); }
+  .dump-stack .what.target { color: var(--fg); }
+  .dump-cap {
+    margin-top: 0.9rem;
+    text-align: center;
+    color: var(--fg-dim);
+    font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+    letter-spacing: 0.05em;
+  }
+  .dump-cap .red { color: var(--accent-red); font-style: italic; }
+  .handover {
+    margin-top: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.4rem;
+    border-top: 1px dashed var(--fg-dim);
+    padding-top: 1.2rem;
+    font-size: clamp(0.88rem, 1.45vw, 1.12rem);
+  }
+  .handover .who { display: inline-flex; align-items: center; gap: 0.55em; color: var(--fg); }
+  .handover .who .orglogo { height: 1.3em; width: auto; vertical-align: middle; }
+  .handover .who .orglogo.aw { height: 1.17em; }
+  .handover .baton { color: var(--fg-dim); letter-spacing: 0.15em; font-style: italic; }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 23 &middot; part two: into the chip</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="part-marker">PART TWO</div>
+    <h2>NOW, THE PASSWORD ITSELF</h2>
+
+    <div class="pivot">
+      <div class="big">A hidden setting, a cheeky phone call, and now we go after
+        <span class="red">the password directly</span>.</div>
+    </div>
+
+    <div class="dump-stack">
+      <div class="region">0x000000</div>          <div class="what">Intel Flash Descriptor</div>
+      <div class="region">0x001000</div>          <div class="what">Intel ME region</div>
+      <div class="region">&hellip;NVRAM&hellip;</div>   <div class="what">runtime UEFI variables</div>
+      <div class="region target">&hellip;DVAR&hellip;</div> <div class="what target">&larr; the Dell password records live here</div>
+      <div class="region">0xFFxxxx</div>          <div class="what">UEFI firmware volumes</div>
+    </div>
+
+    <div class="dump-cap">
+      everything left in this talk happens inside <span class="red">that one region</span>.
+    </div>
+
+    <div class="handover">
+      <span class="who">Craig S. Blackie</span>
+      <span class="baton">hands over &rarr;</span>
+      <span class="who">Darren McDonald</span>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="23-craig-calldell.html">&larr; prev</a>
+    <span class="slide-num">23 / 37</span>
+    <a class="next" href="25-card-way3.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

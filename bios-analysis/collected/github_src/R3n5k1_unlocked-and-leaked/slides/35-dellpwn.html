@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; dellpwn</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3vw;
+    margin-top: 1rem;
+  }
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .features li {
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed var(--fg-dim);
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    display: flex;
+    gap: 1rem;
+  }
+  .features li:last-child { border-bottom: none; }
+  .features .tag {
+    color: var(--accent-green);
+    flex-shrink: 0;
+  }
+  .features .desc { color: var(--fg); }
+  .terminal {
+    background: var(--panel);
+    border: 1px solid var(--fg-dim);
+    padding: 1.5rem;
+    font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+    line-height: 1.6;
+    white-space: pre;
+    overflow-x: auto;
+  }
+  .terminal .prompt { color: var(--fg-bright); }
+  .terminal .cmd { color: var(--fg); }
+  .terminal .out { color: var(--fg-dim); }
+  .terminal .ok { color: var(--accent-green); }
+  .terminal .pw { color: var(--accent-red); }
+  .release {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: var(--fg-dim);
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    letter-spacing: 0.05em;
+  }
+  .release strong { color: var(--fg); font-weight: normal; }
+  .release code { background: var(--code-bg); }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 33 &middot; dellpwn</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>DELLPWN <span class="dim">::</span> THE TOOL</h2>
+
+    <div class="two-col">
+      <ul class="features">
+        <li><span class="tag">[rust]</span> <span class="desc">single static binary, Linux / macOS / Windows</span></li>
+        <li><span class="tag">[in]</span>   <span class="desc">SPI dump (any size, auto-locates DVAR)</span></li>
+        <li><span class="tag">[out]</span>  <span class="desc">recovered password &middot; offset &middot; key &middot; uncertainty</span></li>
+        <li><span class="tag">[fast]</span> <span class="desc">32MB dump scanned in &lt;500ms</span>; <span class="desc">partial brute-force when needed</span></li>
+        <li><span class="tag">[modes]</span> <span class="desc">CLI or TUI, live triage of a fleet of dumps</span></li>
+        <li><span class="tag">[bonus]</span> <span class="desc">also handles the related HP scheme (SHA-1 hashes &rarr; hashcat)</span></li>
+      </ul>
+
+      <div class="terminal"><span class="prompt">$</span> <span class="cmd">dellpwn dump.bin</span>
+<span class="out">File: dump.bin (33554432 bytes / 32768KB)
+DVAR store: 0x250000 - 0x290000
+
+Found 1 password(s):
+
+  [1] "</span><span class="pw">[PASSWORD]</span><span class="out">"
+      Offset: 0x258e08
+      Length: 8 characters
+      XOR key: 0x</span><span class="ok">0102030405060708090a0b0c0d0e0f10111213</span><span class="out">14</span>
+      </div>
+    </div>
+
+    <div class="release">
+      release: <strong>github.com/R3n5k1/dellpwn</strong> &middot;
+      <code>cargo install dellpwn</code> &middot;
+      coordinated with the disclosure timeline
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="34c-key-reuse.html">&larr; prev</a>
+    <span class="slide-num">33 / 37</span>
+    <a class="next" href="36-hardware.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

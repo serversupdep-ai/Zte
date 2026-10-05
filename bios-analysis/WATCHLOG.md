@@ -162,3 +162,13 @@
 - SELLER CONTACT found on pkbiosfix: master codes for 8FC8/CF1B/3FE2/9ABE/
   1B58/E7A8 via wa.me/923280493988 — practical unlock door + validation
   triple source. Logged §11.24.3.
+
+## Cycle 12 (2026-10-05) — source-code sweep (user directive)
+- GitHub code search on unique constants (EC alphabet, GENERATE GUID,
+  DellSecurityVaultSmm): ZERO engine sources public. Repo search + clones:
+  unlocked-and-leaked deck (read in full — 4 unlock methods, call-Dell
+  recipe, NVRAMap tool), 8FC8 patchers x2 (setup-token patch class),
+  WORKINGKEYGEN.py (bios-pw source, legacy+E7A8; identical outputs to our
+  dell_e7a8_pure on 3 tags; 3540 keygen STUB = demand, no impl),
+  BiosMajster → NEW: Latitude 5500 SIVB vault @0x45000 (16KB) — fleet
+  table extended. Persisted under collected/github_src/.

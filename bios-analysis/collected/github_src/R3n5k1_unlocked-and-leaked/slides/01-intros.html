@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Who we are</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .intros {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3vw;
+    width: 100%;
+    align-items: stretch;
+  }
+  .intro-card {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .intro-card h3 {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--fg-bright);
+    margin: 0 0 0.3rem 0;
+  }
+  .intro-card .affil {
+    color: var(--fg-dim);
+    letter-spacing: 0.15em;
+    font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+    margin-bottom: 1.2rem;
+  }
+  .intro-card p {
+    font-size: clamp(0.95rem, 1.6vw, 1.3rem);
+    line-height: 1.55;
+    margin: 0 0 1rem 0;
+  }
+  .intro-card .focus {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--fg-dim);
+    font-size: clamp(0.85rem, 1.3vw, 1rem);
+    letter-spacing: 0.1em;
+    color: var(--fg-dim);
+  }
+  .intro-card .focus strong { color: var(--fg); font-weight: normal; }
+  .intro-card .handle { color: var(--fg); }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 01 &middot; who we are</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>WHO WE ARE</h2>
+    <div class="intros">
+      <div class="intro-card">
+        <h3>Craig S. Blackie</h3>
+        <div class="affil"><img class="orglogo" src="img/mdsec.svg" alt="MDSec"></div>
+        <p>
+          Experienced network and physical security professional at MDSec.
+          Enjoys breaking into things, from ATMs, to buildings, to
+          encrypted laptops.
+        </p>
+        <p>
+          Hacker of all things, bringer of root.
+        </p>
+        <div class="focus">
+          <strong>focus:</strong> physical security &middot; network &middot; firmware
+        </div>
+      </div>
+
+      <div class="intro-card">
+        <h3>Darren McDonald</h3>
+        <div class="affil"><img class="orglogo aw" src="img/amberwolf.svg" alt="AmberWolf"></div>
+        <p>
+          Cybersecurity consultant at AmberWolf specialising in offensive
+          security, red team operations, and hardware hacking. Current
+          research targets firmware-level attacks on thin client and
+          enterprise endpoint hardware.
+        </p>
+        <div class="focus">
+          <strong>focus:</strong> red team &middot; hardware hacking &middot; firmware
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="00-title.html">&larr; prev</a>
+    <span class="slide-num">1 / 37</span>
+    <a class="next" href="02-claim.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

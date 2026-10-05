@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BiosMajster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  /* ── Backgrounds ── */
+  --bg:#060809;
+  --surface:#0e1318;
+  --surface2:#141c24;
+  --border:#233040;
+  --border2:#2e4055;
+
+  /* ── High-contrast colours ── */
+  --accent:#33ddff;        /* brighter cyan  */
+  --accent-dim:#00aacc;
+  --accent-glow:#33ddff20;
+  --green:#00ff99;         /* vivid green    */
+  --green-dim:#00cc77;
+  --red:#ff5577;
+  --yellow:#ffcc00;        /* gold not murky */
+
+  /* ── Text — much higher contrast ── */
+  --text:#edf4ff;          /* near-white blue tint */
+  --text-hi:#ffffff;       /* pure white for labels */
+  --dim:#8aabcc;           /* mid-blue not grey */
+  --muted:#4a6880;         /* visible section labels */
+
+  --mono:'IBM Plex Mono',monospace;
+  --sans:'Syne',sans-serif;
+
+  /* ── Font size scale (controlled by JS) ── */
+  --fs:1;                  /* multiplier: 0.85 / 1 / 1.15 / 1.3 */
+}
+
+html,body{width:100%;height:100%;background:var(--bg);color:var(--text);font-family:var(--sans);overflow:hidden;user-select:none}
+@media(min-width:1200px){.app{grid-template-columns:320px 1fr}}
+@media(min-width:1600px){.app{grid-template-columns:370px 1fr}}
+
+body::before{content:'';position:fixed;inset:0;z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:0.02;pointer-events:none}
+.amb{position:fixed;pointer-events:none;z-index:0}
+.amb1{width:700px;height:700px;top:-250px;left:-150px;background:radial-gradient(circle,#33ddff0a 0%,transparent 70%)}
+.amb2{width:500px;height:500px;bottom:-150px;right:-100px;background:radial-gradient(circle,#00ff9908 0%,transparent 70%)}
+
+.app{position:relative;z-index:1;width:100%;height:100vh;display:grid;
+  grid-template-rows:52px 1fr;
+  grid-template-columns:300px 1fr;
+  grid-template-areas:"hd hd" "sb mn";
+  opacity:0;animation:fi 0.5s ease 0.1s forwards}
+@keyframes fi{to{opacity:1}}
+
+/* ═══════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════ */
+.hd{grid-area:hd;background:var(--surface);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 20px;gap:12px;-webkit-app-region:drag}
+.logo{width:30px;height:30px;border:1.5px solid var(--accent);position:relative;
+  flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.logo::before{content:'';width:10px;height:10px;background:var(--accent);
+  clip-path:polygon(50% 0%,100% 100%,0% 100%)}
+.logo::after{content:'';position:absolute;inset:4px;border:1px solid var(--accent-dim);opacity:0.4}
+.app-name{font-size:calc(15px * var(--fs));font-weight:800;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--text-hi)}
+.app-name span{color:var(--accent)}
+.sep{width:1px;height:18px;background:var(--border2);margin:0 4px}
+.ver{font-family:var(--mono);font-size:calc(10px * var(--fs));color:var(--muted);letter-spacing:0.05em}
+.hd-right{margin-left:auto;display:flex;align-items:center;gap:10px;-webkit-app-region:no-drag}
+
+/* Font size control */
+.fs-ctrl{display:flex;align-items:center;gap:3px;-webkit-app-region:no-drag}
+.fs-lbl{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:0.1em;
+  text-transform:uppercase;margin-right:4px}
+.fs-btn{width:24px;height:24px;background:transparent;border:1px solid var(--border);
+  color:var(--dim);font-family:var(--mono);font-size:12px;font-weight:600;
+  cursor:pointer;transition:all 0.18s;display:flex;align-items:center;justify-content:center;
+  line-height:1}
+.fs-btn:hover{border-color:var(--border2);color:var(--text);background:var(--surface2)}
+.fs-btn.active{border-color:var(--accent-dim);color:var(--accent);background:var(--accent-glow)}
+.fs-sep{width:1px;height:14px;background:var(--border2);margin:0 6px}
+
+/* Lang flags */
+.lang-btns{display:flex;gap:4px}
+.lang-btn{padding:4px 9px;background:transparent;border:1px solid var(--border);
+  color:var(--dim);font-family:var(--mono);font-size:calc(9px * var(--fs));
+  letter-spacing:0.08em;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:5px}
+.lang-btn:hover{border-color:var(--border2);color:var(--text)}
+.lang-btn.active{border-color:var(--accent-dim);color:var(--accent);background:var(--accent-glow)}
+.flag{font-size:13px;line-height:1}
+
+/* Status pill */
+.pill{display:flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--border2);
+  font-family:var(--mono);font-size:calc(9px * var(--fs));letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--dim);transition:all 0.3s}
+.pill.running{border-color:var(--accent);color:var(--accent)}
+.pill.done{border-color:var(--green);color:var(--green)}
+.pill.error{border-color:var(--red);color:var(--red)}
+.dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.pill.running .dot{animation:pulse 1s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.3;transform:scale(0.6)}}
+
+/* ═══════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════ */
+.sb{grid-area:sb;background:var(--surface);border-right:1px solid var(--border);
+  display:flex;flex-direction:column;overflow:hidden}
+.sb-scroll{flex:1;overflow-y:auto;overflow-x:hidden}
+.sb-scroll::-webkit-scrollbar{width:3px}
+.sb-scroll::-webkit-scrollbar-thumb{background:var(--border2)}
+
+.sec{padding:18px 20px 0;animation:su 0.4s ease both}
+@keyframes su{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.sec:nth-child(1){animation-delay:0.12s}.sec:nth-child(2){animation-delay:0.18s}
+.sec:nth-child(3){animation-delay:0.24s}.sec:nth-child(4){animation-delay:0.30s}
+.sec:nth-child(5){animation-delay:0.36s}
+
+.sec-lbl{font-family:var(--mono);font-size:calc(8px * var(--fs));letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--dim);font-weight:500;
+  margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.sec-lbl::after{content:'';flex:1;height:1px;background:var(--border2)}
+
+/* Device cards */
+.dev-cards{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.dev-card{padding:12px 14px;border:1px solid var(--border);background:transparent;
+  cursor:pointer;transition:all 0.18s;position:relative;overflow:hidden;
+  text-align:left;width:100%}
+.dev-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--accent);transform:scaleY(0);transition:transform 0.2s;transform-origin:bottom}
+.dev-card:hover{border-color:var(--border2);background:var(--surface2)}
+.dev-card.active{border-color:var(--accent-dim);background:var(--accent-glow)}
+.dev-card.active::before{transform:scaleY(1)}
+.dev-name{font-size:calc(12px * var(--fs));font-weight:700;letter-spacing:0.02em;
+  color:var(--text-hi);margin-bottom:3px}
+.dev-card.active .dev-name{color:var(--accent)}
+.dev-meta{font-family:var(--mono);font-size:calc(8px * var(--fs));
+  color:var(--dim);letter-spacing:0.04em}
+
+/* Profile info box */
+.pinfo{margin-bottom:16px;padding:10px 12px;background:var(--surface2);
+  border-left:3px solid var(--accent-dim)}
+.prow{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.prow:last-child{margin-bottom:0}
+.pk{font-family:var(--mono);font-size:calc(8px * var(--fs));color:var(--dim);
+  letter-spacing:0.1em;text-transform:uppercase;font-weight:500}
+.pv{font-family:var(--mono);font-size:calc(8px * var(--fs));color:var(--accent);
+  letter-spacing:0.05em;font-weight:500}
+
+/* Mode toggle */
+.mode-row{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);margin-bottom:16px}
+.mode-btn{padding:10px 6px;background:transparent;border:none;color:var(--dim);
+  font-family:var(--sans);font-size:calc(10px * var(--fs));font-weight:700;
+  cursor:pointer;transition:all 0.18s;text-align:center;letter-spacing:0.04em}
+.mode-btn:first-child{border-right:1px solid var(--border)}
+.mode-btn:hover{color:var(--text-hi);background:var(--surface2)}
+.mode-btn.active{background:var(--accent-glow);color:var(--accent)}
+
+/* Inputs */
+.field{margin-bottom:12px}
+.flbl{font-family:var(--mono);font-size:calc(8px * var(--fs));letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--dim);margin-bottom:6px;display:block;font-weight:500}
+.iw{display:flex;border:1px solid var(--border);background:var(--bg);transition:border-color 0.2s}
+.iw:focus-within{border-color:var(--accent-dim)}
+.iw input{flex:1;background:transparent;border:none;outline:none;padding:9px 12px;
+  font-family:var(--mono);font-size:calc(11px * var(--fs));color:var(--text-hi);letter-spacing:0.03em}
+.iw input::placeholder{color:var(--muted)}
+.ibtn{padding:0 12px;background:var(--surface2);border:none;border-left:1px solid var(--border);
+  color:var(--dim);font-family:var(--mono);font-size:calc(9px * var(--fs));
+  cursor:pointer;letter-spacing:0.08em;transition:all 0.2s;white-space:nowrap;font-weight:600}
+.ibtn:hover{background:var(--border2);color:var(--text-hi)}
+
+/* File indicator */
+.fi{margin-top:5px;padding:6px 10px;background:var(--surface2);
+  border-left:3px solid var(--green);display:none}
+.fi.on{display:block}
+.fi-txt{font-family:var(--mono);font-size:calc(9px * var(--fs));color:var(--green);
+  letter-spacing:0.05em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* Start button */
+.start-btn{margin:auto 20px 20px;width:calc(100% - 40px);padding:14px;
+  background:var(--accent);border:none;color:#060809;
+  font-family:var(--sans);font-size:calc(12px * var(--fs));font-weight:800;
+  letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;
+  position:relative;overflow:hidden;transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;gap:10px}
+.start-btn::before{content:'';position:absolute;inset:0;background:white;opacity:0;transition:opacity 0.2s}
+.start-btn:hover::before{opacity:0.1}
+.start-btn:active{transform:scale(0.99)}
+.start-btn.running{background:var(--surface2);color:var(--accent);border:1px solid var(--accent-dim)}
+.start-btn.running::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,var(--accent-glow),transparent);
+  animation:shim 1.5s ease infinite}
+@keyframes shim{to{left:150%}}
+
+/* ═══════════════════════════════════════════
+   MAIN PANEL
+═══════════════════════════════════════════ */
+.mn{grid-area:mn;display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
+
+/* Progress bar */
+.progbar{height:3px;background:var(--border);flex-shrink:0;position:relative;overflow:hidden}
+.progfill{height:100%;background:linear-gradient(90deg,var(--accent-dim),var(--accent));
+  width:0%;transition:width 0.5s ease;box-shadow:0 0 10px var(--accent)}
+.progbar.ind .progfill{width:40%;animation:ind 1.4s ease infinite}
+@keyframes ind{0%{left:-40%}100%{left:120%}}
+
+/* Steps */
+.steps{display:flex;align-items:stretch;border-bottom:1px solid var(--border);
+  background:var(--surface);padding:0 22px;flex-shrink:0}
+.step{display:flex;align-items:center;gap:10px;padding:14px 18px 14px 0;
+  position:relative;opacity:0.3;transition:opacity 0.35s}
+.step::after{content:'›';position:absolute;right:4px;color:var(--muted);font-size:16px}
+.step:last-child::after{display:none}
+.step.active{opacity:1}
+.step.done{opacity:0.7}
+.snum{width:24px;height:24px;border:1px solid var(--border2);display:flex;align-items:center;
+  justify-content:center;font-family:var(--mono);font-size:calc(9px * var(--fs));
+  color:var(--dim);flex-shrink:0;transition:all 0.3s}
+.step.active .snum{border-color:var(--accent);color:var(--accent);background:var(--accent-glow)}
+.step.done .snum{border-color:var(--green);color:var(--green);background:#00ff9912}
+.slbl{font-size:calc(11px * var(--fs));font-weight:700;letter-spacing:0.05em;color:var(--text-hi)}
+.ssub{font-family:var(--mono);font-size:calc(8px * var(--fs));color:var(--dim);
+  letter-spacing:0.05em;margin-top:2px}
+
+/* Log */
+.log-hd{display:flex;align-items:center;gap:10px;padding:14px 22px 8px;flex-shrink:0}
+.log-title{font-family:var(--mono);font-size:calc(9px * var(--fs));letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--dim);font-weight:500}
+.log-clr{margin-left:auto;background:none;border:1px solid transparent;
+  font-family:var(--mono);font-size:calc(8px * var(--fs));letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);cursor:pointer;padding:3px 8px;transition:all 0.2s}
+.log-clr:hover{border-color:var(--border2);color:var(--dim)}
+
+.log-body{flex:1;overflow-y:auto;padding:0 22px 22px;display:flex;flex-direction:column;gap:1px}
+.log-body::-webkit-scrollbar{width:4px}
+.log-body::-webkit-scrollbar-thumb{background:var(--border2)}
+
+.ll{display:flex;align-items:baseline;gap:14px;padding:3px 0;
+  animation:li 0.2s ease both;font-family:var(--mono);
+  font-size:calc(11px * var(--fs));line-height:1.65}
+@keyframes li{from{opacity:0;transform:translateX(-5px)}to{opacity:1;transform:translateX(0)}}
+.lt{color:var(--muted);font-size:calc(9px * var(--fs));flex-shrink:0;
+  letter-spacing:0.04em;margin-top:1px}
+.lm{flex:1;letter-spacing:0.02em}
+.ll.info  .lm{color:var(--text)}
+.ll.ok    .lm{color:var(--green)}
+.ll.warn  .lm{color:var(--yellow)}
+.ll.error .lm{color:var(--red)}
+.ll.muted .lm{color:var(--dim)}
+.ll.section .lm{color:var(--accent);font-weight:600;letter-spacing:0.08em;padding-top:8px}
+
+.empty{flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:12px;opacity:0.25}
+.empty-icon{width:48px;height:48px;border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--dim)}
+.empty-txt{font-family:var(--mono);font-size:calc(10px * var(--fs));color:var(--dim);
+  letter-spacing:0.1em;text-transform:uppercase}
+
+/* Footer */
+.footer{flex-shrink:0;border-top:1px solid var(--border);padding:6px 22px;
+  display:flex;align-items:center;gap:16px;background:var(--surface)}
+.fi-item{font-family:var(--mono);font-size:calc(9px * var(--fs));
+  color:var(--muted);letter-spacing:0.08em;text-transform:uppercase}
+.fi-item span{color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="amb amb1"></div>
+<div class="amb amb2"></div>
+<div class="app" id="app">
+
+  <!-- HEADER -->
+  <header class="hd">
+    <div class="logo"></div>
+    <span class="app-name">Bios<span>Majster</span></span>
+    <div class="sep"></div>
+    <span class="ver">v1.0.0</span>
+
+    <div class="hd-right">
+      <!-- Font size control -->
+      <div class="fs-ctrl">
+        <span class="fs-lbl">Aa</span>
+        <button class="fs-btn" data-fs="0.85" onclick="setFs(this)" title="Small">S</button>
+        <button class="fs-btn active" data-fs="1"    onclick="setFs(this)" title="Normal">M</button>
+        <button class="fs-btn" data-fs="1.15" onclick="setFs(this)" title="Large">L</button>
+        <button class="fs-btn" data-fs="1.3"  onclick="setFs(this)" title="X-Large">XL</button>
+      </div>
+      <div class="fs-sep"></div>
+
+      <!-- Language -->
+      <div class="lang-btns">
+        <button class="lang-btn" id="btnPL" onclick="setLang('pl')">
+          <span class="flag">&#127477;&#127473;</span><span>PL</span>
+        </button>
+        <button class="lang-btn" id="btnEN" onclick="setLang('en')">
+          <span class="flag">&#127468;&#127463;</span><span>EN</span>
+        </button>
+      </div>
+
+      <!-- Status pill -->
+      <div class="pill" id="pill"><div class="dot"></div><span id="pillTxt">READY</span></div>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <aside class="sb">
+    <div class="sb-scroll">
+
+      <div class="sec">
+        <div class="sec-lbl" id="lbl_device">Target Device</div>
+        <div class="dev-cards">
+          <button class="dev-card active" data-device="dell" onclick="selDev(this)">
+            <div class="dev-name">Dell Latitude 5500</div>
+            <div class="dev-meta">STATIC &middot; 0x45000 &middot; 16KB WIPE</div>
+          </button>
+          <button class="dev-card" data-device="thinkbook" onclick="selDev(this)">
+            <div class="dev-name">Lenovo ThinkBook 14 G3</div>
+            <div class="dev-meta">DYNAMIC &middot; SEARCH +12KB &middot; 32B WIPE</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="sec" style="padding-top:0">
+        <div class="pinfo">
+          <div class="prow"><span class="pk" id="pk_method">Method</span><span class="pv" id="pM">Static offset</span></div>
+          <div class="prow"><span class="pk" id="pk_offset">Offset</span><span class="pv" id="pO">0x45000</span></div>
+          <div class="prow"><span class="pk" id="pk_wipe">Wipe size</span><span class="pv" id="pW">16 KB (0x4000)</span></div>
+          <div class="prow"><span class="pk" id="pk_chip">Chip</span><span class="pv" id="pC">W25Q64JV-.Q</span></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-lbl" id="lbl_mode">Operation Mode</div>
+        <div class="mode-row">
+          <button class="mode-btn active" id="mFull"  onclick="setMode('full',this)">Full Cycle</button>
+          <button class="mode-btn"        id="mPatch" onclick="setMode('patch',this)">Patch Only</button>
+        </div>
+      </div>
+
+      <div class="sec" id="portSec">
+        <div class="sec-lbl" id="lbl_port">Programmer Port</div>
+        <div class="field">
+          <div class="iw"><input id="portIn" value="serprog:dev=COM3" placeholder="serprog:dev=COM3"/></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-lbl" id="lbl_file">Dump Output Path</div>
+        <div class="field">
+          <div class="iw">
+            <input id="fileIn" placeholder="C:\Users\...\dump.bin"/>
+            <button class="ibtn" id="browseBtn" onclick="browseFile()">BROWSE</button>
+          </div>
+          <div class="fi" id="fi"><div class="fi-txt" id="fiTxt"></div></div>
+        </div>
+      </div>
+
+    </div><!-- /sb-scroll -->
+
+    <button class="start-btn" id="startBtn" onclick="startUnlock()">
+      <span>&#9654;</span><span id="startTxt">Start Unlock</span>
+    </button>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="mn">
+    <div class="progbar" id="prog"><div class="progfill" id="progFill"></div></div>
+
+    <div class="steps">
+      <div class="step active" id="s1">
+        <div class="snum">01</div>
+        <div><div class="slbl" id="step1_lbl">Read Chip</div><div class="ssub">FLASHROM</div></div>
+      </div>
+      <div class="step" id="s2">
+        <div class="snum">02</div>
+        <div><div class="slbl" id="step2_lbl">Patch Binary</div><div class="ssub">WIPE 0xFF</div></div>
+      </div>
+      <div class="step" id="s3">
+        <div class="snum">03</div>
+        <div><div class="slbl" id="step3_lbl">Write Chip</div><div class="ssub">FLASH</div></div>
+      </div>
+      <div class="step" id="s4">
+        <div class="snum">04</div>
+        <div><div class="slbl" id="step4_lbl">Done</div><div class="ssub" id="step4_sub">REMOVED</div></div>
+      </div>
+    </div>
+
+    <div class="log-hd">
+      <span class="log-title" id="log_title">Operation Log</span>
+      <button class="log-clr" id="log_clear" onclick="clearLog()">Clear</button>
+    </div>
+
+    <div class="log-body" id="logBody">
+      <div class="empty" id="logEmpty">
+        <div class="empty-icon">&#11041;</div>
+        <div class="empty-txt" id="log_empty">Awaiting operation</div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <span class="fi-item">BiosMajster <span>v1.0.0</span></span>
+      <span class="fi-item" id="footer_by">by <span>Zaid Alotel</span></span>
+      <span class="fi-item" id="footerDev">Dell Latitude 5500</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   TRANSLATIONS
+═══════════════════════════════════════════════════ */
+const T={
+  en:{
+    lbl_device:'Target Device',lbl_mode:'Operation Mode',lbl_port:'Programmer Port',
+    lbl_file:'Dump Output Path',lbl_file_patch:'Select .bin File',
+    mode_full:'Full Cycle',mode_patch:'Patch Only',
+    btn_browse:'BROWSE',btn_start:'Start Unlock',btn_running:'Running...',
+    step1_lbl:'Read Chip',step2_lbl:'Patch Binary',step3_lbl:'Write Chip',
+    step4_lbl:'Done',step4_sub:'PASSWORD REMOVED',
+    log_title:'Operation Log',log_clear:'Clear',log_empty:'Awaiting operation',
+    pk_method:'Method',pk_offset:'Offset',pk_wipe:'Wipe size',pk_chip:'Chip',
+    footer_by:'by',
+    pill_ready:'READY',pill_running:'RUNNING',pill_done:'COMPLETE',pill_error:'FAILED',
+    err_no_file:'Please select a .bin file.',err_no_port:'Please enter the programmer port.',
+    prof_dell_method:'Static offset',prof_tb_method:'Dynamic search',
+    prof_tb_offset:'ThinkBook \u2192 block+12KB',prof_tb_chip:'Auto-detect',
+  },
+  pl:{
+    lbl_device:'Docelowe Urz\u0105dzenie',lbl_mode:'Tryb Operacji',lbl_port:'Port Programatora',
+    lbl_file:'\u015acie\u017cka Zrzutu BIOS',lbl_file_patch:'Wybierz plik .bin',
+    mode_full:'Pe\u0142ny Cykl',mode_patch:'Tylko Patch',
+    btn_browse:'PRZEGL\u0104DAJ',btn_start:'Uruchom Odblokowanie',btn_running:'Trwa...',
+    step1_lbl:'Odczyt Uk\u0142adu',step2_lbl:'Patch Pliku',step3_lbl:'Zapis Uk\u0142adu',
+    step4_lbl:'Gotowe',step4_sub:'HAS\u0141O USUNI\u0118TE',
+    log_title:'Dziennik Operacji',log_clear:'Wyczy\u015b\u0107',log_empty:'Oczekiwanie na operacj\u0119',
+    pk_method:'Metoda',pk_offset:'Offset',pk_wipe:'Rozmiar wipe',pk_chip:'Uk\u0142ad',
+    footer_by:'autor',
+    pill_ready:'GOTOWY',pill_running:'DZIA\u0141AM',pill_done:'UKO\u0143CZONO',pill_error:'B\u0141\u0104D',
+    err_no_file:'Wybierz plik .bin do patchowania.',err_no_port:'Podaj port programatora.',
+    prof_dell_method:'Sta\u0142y offset',prof_tb_method:'Wyszukiwanie dynamiczne',
+    prof_tb_offset:'ThinkBook \u2192 blok+12KB',prof_tb_chip:'Auto-detekcja',
+  }
+};
+
+const PROFILES={
+  dell:{
+    method:l=>l==='pl'?T.pl.prof_dell_method:T.en.prof_dell_method,
+    offset:()=>'0x45000',wipe:()=>'16 KB (0x4000)',chip:()=>'W25Q64JV-.Q'
+  },
+  thinkbook:{
+    method:l=>l==='pl'?T.pl.prof_tb_method:T.en.prof_tb_method,
+    offset:l=>l==='pl'?T.pl.prof_tb_offset:T.en.prof_tb_offset,
+    wipe:()=>'32 bytes (2 lines)',
+    chip:l=>l==='pl'?T.pl.prof_tb_chip:T.en.prof_tb_chip
+  }
+};
+
+let lang='en', curDev='dell', curMode='full', running=false;
+
+/* ═══════════════════════════════════════════════════
+   FONT SIZE
+═══════════════════════════════════════════════════ */
+function setFs(btn){
+  document.querySelectorAll('.fs-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const scale = parseFloat(btn.dataset.fs);
+  document.documentElement.style.setProperty('--fs', scale);
+  localStorage.setItem('bm_fs', scale);
+}
+function restoreFs(){
+  const saved = localStorage.getItem('bm_fs');
+  if(!saved) return;
+  const btn = document.querySelector(`.fs-btn[data-fs="${saved}"]`);
+  if(btn) setFs(btn);
+}
+
+/* ═══════════════════════════════════════════════════
+   LANGUAGE
+═══════════════════════════════════════════════════ */
+function detectLang(){
+  const s=(navigator.language||'en').slice(0,2).toLowerCase();
+  return s==='pl'?'pl':'en';
+}
+function t(k){return(T[lang]&&T[lang][k])||T.en[k]||k}
+
+function setLang(l){
+  lang=l;
+  document.getElementById('btnPL').classList.toggle('active',l==='pl');
+  document.getElementById('btnEN').classList.toggle('active',l==='en');
+  applyAll();
+  localStorage.setItem('bm_lang',l);
+}
+
+function applyAll(){
+  const ids =['lbl_device','lbl_mode','lbl_port','log_title','log_clear','log_empty',
+              'pk_method','pk_offset','pk_wipe','pk_chip',
+              'step1_lbl','step2_lbl','step3_lbl','step4_lbl','step4_sub',
+              'mFull','mPatch','browseBtn','startTxt'];
+  const keys=['lbl_device','lbl_mode','lbl_port','log_title','log_clear','log_empty',
+              'pk_method','pk_offset','pk_wipe','pk_chip',
+              'step1_lbl','step2_lbl','step3_lbl','step4_lbl','step4_sub',
+              'mode_full','mode_patch','btn_browse','btn_start'];
+  ids.forEach((id,i)=>{const el=document.getElementById(id);if(el)el.textContent=t(keys[i]);});
+  document.getElementById('lbl_file').textContent=curMode==='full'?t('lbl_file'):t('lbl_file_patch');
+  document.getElementById('footer_by').innerHTML=t('footer_by')+' <span>Zaid Alotel</span>';
+  updateProfileInfo();
+  updatePillText();
+}
+
+function updatePillText(){
+  const cls=document.getElementById('pill').className;
+  let k='pill_ready';
+  if(cls.includes('running'))k='pill_running';
+  else if(cls.includes('done'))k='pill_done';
+  else if(cls.includes('error'))k='pill_error';
+  document.getElementById('pillTxt').textContent=t(k);
+}
+
+/* ═══════════════════════════════════════════════════
+   DEVICE / MODE / FILE
+═══════════════════════════════════════════════════ */
+function selDev(el){
+  document.querySelectorAll('.dev-card').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  curDev=el.dataset.device;
+  updateProfileInfo();
+  document.getElementById('footerDev').textContent=el.querySelector('.dev-name').textContent;
+}
+function updateProfileInfo(){
+  const p=PROFILES[curDev];
+  document.getElementById('pM').textContent=p.method(lang);
+  document.getElementById('pO').textContent=p.offset(lang);
+  document.getElementById('pW').textContent=p.wipe(lang);
+  document.getElementById('pC').textContent=p.chip(lang);
+}
+function setMode(m,btn){
+  curMode=m;
+  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('portSec').style.display=m==='full'?'':'none';
+  document.getElementById('lbl_file').textContent=m==='full'?t('lbl_file'):t('lbl_file_patch');
+  document.getElementById('s1').style.opacity=m==='full'?'':'0.18';
+  document.getElementById('s3').style.opacity=m==='full'?'':'0.18';
+}
+function browseFile(){
+  if(window.pywebview){
+    window.pywebview.api.browse_file().then(p=>{if(p)setFile(p)});
+  }else{
+    setFile(curMode==='full'?'C:\\Users\\Gzzawii\\Desktop\\bios_dump.bin':'C:\\Users\\Gzzawii\\Desktop\\14_g3_acl_pass.bin');
+  }
+}
+function setFile(path){
+  document.getElementById('fileIn').value=path;
+  document.getElementById('fiTxt').textContent='\u2713  '+path.split(/[\\/]/).pop();
+  document.getElementById('fi').classList.add('on');
+}
+
+/* ═══════════════════════════════════════════════════
+   LOG
+═══════════════════════════════════════════════════ */
+function log(msg,type='info'){
+  const e=document.getElementById('logEmpty');if(e)e.style.display='none';
+  const b=document.getElementById('logBody');
+  const ts=new Date().toTimeString().slice(0,8);
+  const l=document.createElement('div');l.className='ll '+type;
+  l.innerHTML='<span class="lt">'+ts+'</span><span class="lm">'+msg.replace(/</g,'&lt;')+'</span>';
+  b.appendChild(l);b.scrollTop=b.scrollHeight;
+}
+function clearLog(){
+  document.getElementById('logBody').innerHTML=
+    '<div class="empty" id="logEmpty"><div class="empty-icon">&#11041;</div>'+
+    '<div class="empty-txt" id="log_empty">'+t('log_empty')+'</div></div>';
+}
+function setStatus(s){document.getElementById('pill').className='pill '+s;updatePillText();}
+function setStep(n){
+  for(let i=1;i<=4;i++){
+    const e=document.getElementById('s'+i);
+    e.classList.remove('active','done');
+    if(i<n)e.classList.add('done');
+    if(i===n)e.classList.add('active');
+  }
+}
+function setProg(pct,ind=false){
+  const b=document.getElementById('prog'),f=document.getElementById('progFill');
+  b.classList.toggle('ind',ind);if(!ind)f.style.width=pct+'%';
+}
+
+/* ═══════════════════════════════════════════════════
+   UNLOCK FLOW
+═══════════════════════════════════════════════════ */
+function startUnlock(){
+  if(running)return;
+  const port=document.getElementById('portIn').value.trim();
+  const file=document.getElementById('fileIn').value.trim();
+  if(curMode==='patch'&&!file){log(t('err_no_file'),'error');return}
+  if(curMode==='full'&&!port){log(t('err_no_port'),'error');return}
+  running=true;
+  const btn=document.getElementById('startBtn');
+  btn.classList.add('running');
+  document.getElementById('startTxt').textContent=t('btn_running');
+  setStatus('running');clearLog();
+  if(window.pywebview){
+    window.pywebview.api.start_unlock({device:curDev,mode:curMode,port,file,lang});
+  }else{
+    runSim(file,port);
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   DEMO SIMULATION
+═══════════════════════════════════════════════════ */
+function runSim(file,port){
+  const isFull=curMode==='full';
+  const pl=lang==='pl';
+  const dev=document.querySelector('.dev-card.active .dev-name').textContent;
+  const steps=isFull?[
+    [0,   'section', pl?'[ KROK 1 ]  Odczyt uk\u0142adu BIOS':'[ STEP 1 ]  Reading BIOS chip'],
+    [300, 'info',    (pl?'Programator':'Programmer')+': '+port],
+    [700, 'info',    'flashrom v1.4.0 \u2014 Found chip "W25Q64JV-.Q" (8192 kB)'],
+    [1200,'info',    pl?'Odczyt flash... \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 100%':'Reading flash... \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 100%'],
+    [1700,'ok',      pl?'Zrzut zapisany: bios_dump.bin \u2713':'Dump saved: bios_dump.bin \u2713'],
+    [1800,'section', pl?'[ KOPIA ZAPASOWA ]  Zapisywanie oryginalnego zrzutu...':'[ BACKUP ]  Saving original dump...'],
+    [1900,'ok',      pl?'Kopia: backup/bios_dump_20260427_110000.bin \u2713':'Backup: backup/bios_dump_20260427_110000.bin \u2713'],
+    [2100,'section', pl?'[ KROK 2 ]  Patchowanie \u2014 '+dev:'[ STEP 2 ]  Patching \u2014 '+dev],
+    [2400,'info',    pl?'Plik za\u0142adowany: 33 554 432 bajt\u00f3w (32.0 MB)':'File loaded: 33,554,432 bytes (32.0 MB)'],
+    [2800,'info',    pl?'Szukam ci\u0105gu "ThinkBook"...':'Searching for "ThinkBook" string...'],
+    [3100,'ok',      pl?'Znaleziono na offsetcie: 0x1220080 \u2713':'Found at offset: 0x1220080 \u2713'],
+    [3400,'info',    'Block start: 0x1220000  \u00b7  Password offset: 0x1223000'],
+    [3700,'warn',    'Line 1: CD D0 DA 26 4F A4 2C 63 66 68 AA F6 C6 0D 7A 91'],
+    [4000,'warn',    'Line 2: 55 27 A2 7C 11 95 4D 06 72 18 4E 97 88 D8 BE 95'],
+    [4300,'ok',      pl?'Nadpisano 32 bajty warto\u015bci\u0105 0xFF \u2713':'Wiped 32 bytes with 0xFF \u2713'],
+    [4600,'ok',      pl?'Zapisano: bios_dump_unlocked.bin \u2713':'Saved: bios_dump_unlocked.bin \u2713'],
+    [5000,'section', pl?'[ KROK 3 ]  Zapis spatchowanego pliku':'[ STEP 3 ]  Writing patched binary'],
+    [5300,'info',    pl?'Kasowanie i zapis... \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 100%':'Erasing and writing... \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 100%'],
+    [5900,'info',    pl?'Weryfikacja zapisu...':'Verifying write...'],
+    [6300,'ok',      pl?'Weryfikacja zako\u0144czona \u2713':'Verification passed \u2713'],
+    [6600,'ok',      ''],
+    [6700,'ok',      pl?'\u2713  Has\u0142o BIOS zosta\u0142o pomy\u015blnie usuni\u0119te':'\u2713  BIOS password successfully removed'],
+  ]:[
+    [0,   'section', pl?'[ TYLKO PATCH ]  '+dev:'[ PATCH ONLY ]  '+dev],
+    [400, 'info',    (pl?'\u0141adowanie':'Loading')+': '+(file||'14_g3_acl_pass.bin')],
+    [800, 'info',    pl?'Rozmiar: 33 554 432 bajt\u00f3w (32.0 MB)':'Size: 33,554,432 bytes (32.0 MB)'],
+    [700, 'section', pl?'[ KOPIA ZAPASOWA ]  Zapisywanie oryginalnego zrzutu...':'[ BACKUP ]  Saving original dump...'],
+    [950, 'ok',      pl?'Kopia: backup/14_g3_acl_pass_20260427_110000.bin \u2713':'Backup: backup/14_g3_acl_pass_20260427_110000.bin \u2713'],
+    [1200,'ok',      pl?'Znaleziono "ThinkBook" na 0x1220080 \u2713':'Found "ThinkBook" at 0x1220080 \u2713'],
+    [1600,'info',    'Password offset: 0x1223000'],
+    [1900,'warn',    'CD D0 DA 26 4F A4 2C 63 66 68 AA F6 C6 0D 7A 91'],
+    [2100,'warn',    '55 27 A2 7C 11 95 4D 06 72 18 4E 97 88 D8 BE 95'],
+    [2500,'ok',      pl?'Nadpisano 32 bajty warto\u015bci\u0105 0xFF \u2713':'Wiped 32 bytes with 0xFF \u2713'],
+    [2900,'ok',      pl?'Zapisano: 14_g3_acl_pass_unlocked.bin \u2713':'Saved: 14_g3_acl_pass_unlocked.bin \u2713'],
+    [3200,'ok',      pl?'\u2713  Patch gotowy \u2014 wgraj plik aby usun\u0105\u0107 has\u0142o':'\u2713  Patch complete \u2014 flash to remove password'],
+  ];
+  const total=steps[steps.length-1][0]+700;
+  steps.forEach(([d,tp,m],i)=>{
+    setTimeout(()=>{
+      setProg(Math.round((i/(steps.length-1))*95));
+      if(isFull){if(d<2000)setStep(1);else if(d<4900)setStep(2);else if(d<6500)setStep(3);}
+      else setStep(2);
+      if(m)log(m,tp);
+    },d);
+  });
+  setTimeout(()=>{
+    setStep(4);setProg(100);setStatus('done');
+    document.getElementById('startBtn').classList.remove('running');
+    document.getElementById('startTxt').textContent=t('btn_start');
+    running=false;
+  },total);
+}
+
+/* Python bridge callbacks */
+function onLog(msg,type){log(msg,type)}
+function onStep(n){setStep(n)}
+function onProgress(pct){setProg(pct)}
+function onComplete(ok){
+  setStatus(ok?'done':'error');setProg(ok?100:0);
+  document.getElementById('startBtn').classList.remove('running');
+  document.getElementById('startTxt').textContent=t('btn_start');
+  running=false;
+}
+
+/* ═══════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════ */
+(function(){
+  restoreFs();
+  const saved=localStorage.getItem('bm_lang');
+  const l=saved||detectLang();
+  lang=l;
+  document.getElementById('btnPL').classList.toggle('active',l==='pl');
+  document.getElementById('btnEN').classList.toggle('active',l==='en');
+  applyAll();
+  if(window.pywebview){
+    window.pywebview.api.get_default_port().then(p=>{
+      if(p)document.getElementById('portIn').value=p;
+    }).catch(()=>{});
+  }
+})();
+</script>
+</body>
+</html>

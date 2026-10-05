@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Step 1: Dump the BIOS</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .lead {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    line-height: 1.6;
+    color: var(--fg-dim);
+    margin: 0 0 1.5rem 0;
+    max-width: 52em;
+  }
+  .lead strong { color: var(--fg); font-weight: normal; }
+  .cmd-label {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    color: var(--fg-dim);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+  }
+  .cli-block {
+    background: var(--panel);
+    border: 1px solid var(--fg-dim);
+    padding: 1.4rem 1.8rem;
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+    line-height: 1.6;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 1.5rem;
+  }
+  .cli-block .prompt { color: var(--fg-dim); }
+  .cli-block .cmd { color: var(--fg-bright); }
+  .cli-block .flag { color: var(--accent-green); }
+  .cli-block .arg { color: var(--fg); }
+  .programmers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5vw;
+    margin-bottom: 1.2rem;
+  }
+  .prog-card {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 0.8rem 1rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+  .prog-card.good  { border-color: var(--accent-green); }
+  .prog-card.risky { border-color: var(--accent-red); }
+  .prog-card .img-wrap {
+    background: var(--panel-2);
+    padding: 0.3rem;
+    width: calc(clamp(120px, 14vw, 190px) * var(--zoom, 1));
+    flex-shrink: 0;
+  }
+  .prog-card .img-wrap img {
+    width: 100%;
+    display: block;
+    object-fit: contain;
+  }
+  .prog-card .tag {
+    letter-spacing: 0.15em;
+    font-size: 0.82em;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .prog-card.good  .tag { color: var(--accent-green); }
+  .prog-card.risky .tag { color: var(--accent-red); }
+  .prog-card strong { color: var(--fg); font-weight: normal; }
+  .prog-card .red { color: var(--accent-red); }
+  .warning {
+    border: 1px solid var(--accent-red);
+    background: rgba(255, 51, 68, 0.07);
+    padding: 1.1rem 1.5rem;
+    font-size: clamp(1rem, 1.75vw, 1.35rem);
+    color: var(--fg);
+    line-height: 1.55;
+  }
+  .warning .tag {
+    color: var(--accent-red);
+    letter-spacing: 0.15em;
+    font-size: 0.85em;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 09 &middot; step 1: dump the bios</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>STEP 1 <span class="dim">::</span> DUMP THE BIOS</h2>
+    <p class="lead">
+      You can dump the UEFI by reading the SPI flash chip directly with a hardware
+      programmer, or using <strong>flashrom</strong> within Linux with the internal programmer.
+    </p>
+
+    <div class="cmd-label">// using the internal programmer</div>
+    <div class="cli-block">
+      <span class="prompt">$</span>&nbsp;<span class="cmd">flashrom</span>&nbsp;<span class="flag">-p</span>&nbsp;<span class="arg">internal</span>&nbsp;<span class="flag">-r</span>&nbsp;<span class="arg">dump.bin</span>&nbsp;<span class="flag">--ifd</span>&nbsp;<span class="flag">-i</span>&nbsp;<span class="arg">bios</span>
+    </div>
+
+    <div class="programmers">
+      <div class="prog-card good">
+        <div class="img-wrap">
+          <img src="../artifacts/img/xgecu-t48.jpg" alt="XGecu T48 universal SPI programmer">
+        </div>
+        <div>
+          <span class="tag">// RECOMMENDED</span>
+          <strong>XGecu T48 / T56</strong>, much quicker and more reliable.
+          Clips directly onto the SPI chip, reads at full speed, consistent results every time.
+        </div>
+      </div>
+
+      <div class="prog-card risky">
+        <div class="img-wrap">
+          <img src="../artifacts/img/ch341a-programmer.jpg" alt="CH341A USB SPI flash programmer">
+        </div>
+        <div>
+          <span class="tag">// USE WITH CAUTION</span>
+          <strong>CH341A</strong>, cheap and widely available, but most boards
+          <span class="red">push 5V on the data lines and can fry a 3.3V chip</span>
+          (do the 3.3V mod first). Reads also less reproducible, re-read and re-hash.
+        </div>
+      </div>
+    </div>
+
+    <div class="warning">
+      <span class="tag">// WARNING</span>
+      Always take <strong>three dumps minimum</strong>, hash them and ensure they match.
+      If the hashes don't match, you don't have a dump, you have noise.
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="08-craig-scope.html">&larr; prev</a>
+    <span class="slide-num">9 / 37</span>
+    <a class="next" href="10-craig-uefitool.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

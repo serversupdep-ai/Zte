@@ -1957,3 +1957,63 @@ chain the moment any door opens, (b) confirm master determinism.
   8-char format, unlike our 16-char alphabet map (Gen-A 3090 module).
   If genuine, Gen-B (5090-class) masters may have a different format —
   the full thread fetch is queued (rate-limited; relay retries).
+
+---
+
+## 11.26 CYCLE 12 — source-code sweep: GitHub repos + pirated keygen source + new 5500 vault location (2026-10-05)
+
+User directive: find files with extractable source code to make the keygen.
+Swept GitHub code-search (unique constants), repo-search, and cloned all
+candidate tool repositories. Results persisted at
+`collected/github_src/` (R3n5k1_unlocked-and-leaked, Rex98 + craigsblackie
+8FC8 patchers, vanthanhps2 Dell-Unlocker, GzzawiiZ BiosMajster,
+monkeyboy107 cracker).
+
+### 11.26.1 GitHub code search (unique engine constants) — negative
+
+- EC alphabet "0Q2drGk99WLJ1EGn…" : **0 hits**. GENERATE GUID
+  {C065AEAB…} bytes: **0 hits**. "DellSecurityVaultSmm": 1 hit =
+  AVGirl/AnalyzeReplaceDell9010 SLIC.LOG (old-era BIOS analyzer toolchain,
+  C++ source — parsing value only). ⇒ **No one has ever published the
+  EC-era engine or its decompilation.** The keygen ceiling on GitHub is
+  E7A8 (pre-2024 builds) — exactly what our kit already carries.
+
+### 11.26.2 WORKINGKEYGEN.py (bios-pw website source, pirated) — ceiling confirmed
+
+- vanthanhps2/Dell-Unlocker WORKINGKEYGEN.py = full pure-Python source of
+  the bios-pw website keygen: 595B/2A7B/A95B/1D3B/D35B/1F66/6FF1/1F5A/
+  BF97/E7A8 encoders (MD5-like custom rounds + per-family alphabets).
+- Cross-validated against our dell_e7a8_pure.py on 3 tags: **identical
+  outputs** (both unlock codes). Our kit == public state of the art.
+- It contains a `latitude3540Keygen()` **stub returning "FAKE…"** — public
+  demand for the EC-era keygen, zero implementation. Third independent
+  confirmation that CF1B/8FC8 keygen source does not exist publicly.
+
+### 11.26.3 NEW fleet intel — Latitude 5500 SIVB vault location
+
+- GzzawiiZ/BiosMajster (public tool, PL/EN): "Dell Latitude 5500 — Static
+  offset **0x45000, wipes 16 KB**" removes the BIOS password. Fits the
+  fleet pattern {16KB SIVB partition}; extends the location table:
+  3070/7070 @0x3004 · 3090 @0x891004 · 3410 @0x3c3004/0x103004 ·
+  5410 @0x893004/0x7cf004 · 3440 @0x33a004 · 5430 @0x22b004 ·
+  **5500 @0x45000 (+16KB)**.
+
+### 11.26.4 The dellpwn/unlocked-and-leaked conference deck — intel
+
+- Full talk source (R3n5k1/unlocked-and-leaked) read. Four unlock methods:
+  (1) patch NVRAM setup store (8FC8_Patcher class — 00FCAA→00FC00 token,
+  same markers as our fleet census), (2) **call Dell: they hand the master
+  BIOS password over the phone** (service tag + case number + physical
+  location + name + date + a "USB-C charger" verification question),
+  (3) delete the DVAR record, (4) read the password via the XOR key-leak
+  bug (dellpwn — we ported). SIVB-class = "not recoverable" per the
+  authors — matches §11.17/§11.22.2. Tools referenced: NVRAMap
+  (PN-Tester) for settings↔NVRAM mapping.
+
+### 11.26.5 Net
+
+- Source-hunt verdict: the only keygen source that exists publicly is the
+  legacy+E7A8 set (held, validated, in kit). The EC-era engine source
+  exists only in Dell-internal/seller tooling. New: 5500 vault offset
+  (fleet table extended); "call Dell" recipe (zero-cost master for
+  original owners); NVRAMap noted.

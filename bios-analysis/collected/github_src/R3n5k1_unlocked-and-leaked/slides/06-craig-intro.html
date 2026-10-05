@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Bug #1: The Motivation</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .lead {
+    font-size: clamp(1.1rem, 2vw, 1.55rem);
+    line-height: 1.65;
+    margin: 0 0 1.4rem 0;
+    max-width: 56em;
+  }
+  .chain {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 1.2rem 1.8rem;
+  }
+  .chain h3 {
+    color: var(--fg-bright);
+    margin: 0 0 0.8rem 0;
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
+    letter-spacing: 0.12em;
+  }
+  .chain ol {
+    margin: 0;
+    padding-left: 1.6em;
+    font-size: clamp(1rem, 1.75vw, 1.35rem);
+    line-height: 1.8;
+  }
+  .chain li::marker { color: var(--fg-dim); }
+  .chain .green { color: var(--accent-green); font-style: italic; }
+  .chain .red { color: var(--accent-red); }
+  .punch {
+    margin-top: 1.5rem;
+    font-size: clamp(1.1rem, 2.2vw, 1.7rem);
+    text-align: center;
+    color: var(--fg);
+    letter-spacing: 0.04em;
+    border-top: 1px dashed var(--fg-dim);
+    padding-top: 1.2rem;
+  }
+  .punch .red { font-style: italic; color: var(--accent-red); }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 06 &middot; bug #1: the motivation</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>BUG #1 <span class="dim">::</span> THE MOTIVATION</h2>
+    <p class="lead">
+      A video by Pierre-Nicolas Allard-Coutu showed how to achieve full DMA over PCIe
+      using <code>PCILeech</code> on a fully protected Windows 11 machine with
+      TPM-only BitLocker, <em>without triggering a recovery key prompt</em>.
+    </p>
+
+    <div class="chain">
+      <h3>THE ATTACK CHAIN</h3>
+      <ol>
+        <li>Disable pre-boot DMA in the UEFI</li>
+        <li>Disable Virtualisation Based Security using Safe Mode</li>
+        <li>Corrupt the DMAR ACPI table, prevent IOMMU from functioning</li>
+        <li><span class="green">Kernel DMA Protection bypassed</span>, PCILeech gets a shell as <code>NT AUTHORITY\SYSTEM</code></li>
+      </ol>
+    </div>
+
+    <div class="punch">
+      step 1 requires <span class="red">access to the BIOS settings</span>.
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="05-card-way1.html">&larr; prev</a>
+    <span class="slide-num">6 / 37</span>
+    <a class="next" href="07-craig-problem.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

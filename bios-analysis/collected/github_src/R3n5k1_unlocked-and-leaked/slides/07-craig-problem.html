@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; The Problem</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .problem-statement {
+    font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+    line-height: 1.55;
+    margin: 0 0 1.5rem 0;
+    max-width: 52em;
+  }
+  .question {
+    font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+    color: var(--fg-bright);
+    letter-spacing: 0.08em;
+    margin: 0 0 1rem 0;
+  }
+  .option {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 1.1rem 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .option h3 {
+    color: var(--fg-bright);
+    margin: 0 0 0.5rem 0;
+    font-size: clamp(1rem, 1.7vw, 1.3rem);
+    letter-spacing: 0.1em;
+  }
+  .option.risky { border-color: var(--accent-red); }
+  .option.risky h3 { color: var(--accent-red); }
+  .option p {
+    margin: 0;
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    line-height: 1.55;
+    color: var(--fg-dim);
+  }
+  .option p strong { color: var(--fg); font-weight: normal; }
+  .option .red { color: var(--accent-red); }
+  .patcher-note {
+    margin-top: 0.6rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed var(--fg-dim);
+    font-size: clamp(0.88rem, 1.5vw, 1.12rem);
+    color: var(--fg-dim);
+    line-height: 1.55;
+  }
+  .patcher-note strong { color: var(--fg); font-weight: normal; }
+  .patcher-note a { color: var(--accent-green); }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 07 &middot; the problem</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>THE PROBLEM <span class="dim">::</span> BIOS PASSWORD</h2>
+    <p class="problem-statement">
+      While there are now tools to achieve the DMA attack, little was mentioned
+      about how to modify the UEFI configuration <em>should there be a password
+      preventing you from accessing the setting</em>.
+    </p>
+
+    <div class="question">Just remove the password?</div>
+
+    <div class="option risky">
+      <h3>THE BADCAPS APPROACH: RISKY</h3>
+      <p>
+        Sites like <strong>badcaps.net</strong> let users paste BIOS dumps and have others
+        patch them to remove the password. This often causes the UEFI to enter
+        <strong>factory mode</strong>, no password, but you may need to re-enter
+        service tag and device details.
+        <br><br>
+        Effective, but a reflash can change the <strong>firmware PCRs</strong>
+        (<code>0</code>/<code>1</code>). Where the disk encryption is sealed to those,
+        the next boot demands the <span class="red">recovery key</span>. Modern Secure Boot
+        systems seal to <code>PCR 7</code> and <code>11</code> instead, which a password
+        change doesn&rsquo;t disturb, so it&rsquo;s a risk to check, not a certainty.
+      </p>
+      <p class="patcher-note">
+        <strong>8FC8_Patcher</strong> does the same thing, patches the BIOS dump to remove
+        the password, but is purpose-built for affected Dell firmware.
+        <a href="https://github.com/craigsblackie/8FC8_Patcher">github.com/craigsblackie/8FC8_Patcher</a>
+      </p>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="06-craig-intro.html">&larr; prev</a>
+    <span class="slide-num">7 / 37</span>
+    <a class="next" href="08-craig-scope.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

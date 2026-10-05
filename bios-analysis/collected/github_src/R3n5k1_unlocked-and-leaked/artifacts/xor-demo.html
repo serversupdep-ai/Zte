@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dell BIOS Password :: Key-Leak Demo</title>
+<style>
+  :root {
+    --bg: #000;
+    --fg: #ff8c00;
+    --fg-dim: #663600;
+    --fg-bright: #ffb347;
+    --hl-src: #ffcc66;
+    --hl-key: #ff6600;
+    --hl-dst: #ff3300;
+    --leak: #4488ff;
+    --leak-dim: #1a3a66;
+    --wrap: #c060ff;
+    --cipher: #00ff88;
+    --plain: #ff3344;
+    --random: #884400;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Fira Code', 'Courier New', ui-monospace, monospace;
+    min-height: 100vh;
+  }
+  body {
+    padding: 1.5rem;
+    text-shadow: 0 0 6px rgba(255, 140, 0, 0.45);
+  }
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(255, 140, 0, 0.04) 0px,
+      rgba(255, 140, 0, 0.04) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+  .frame {
+    position: relative;
+    z-index: 2;
+    max-width: 1320px;
+    margin: 0 auto;
+    border: 1px solid var(--fg-dim);
+    padding: 1rem 1.25rem 1.25rem;
+    box-shadow: 0 0 30px rgba(255, 140, 0, 0.15) inset, 0 0 40px rgba(255, 140, 0, 0.08);
+  }
+  header {
+    border-bottom: 1px dashed var(--fg-dim);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex; justify-content: space-between; align-items: baseline;
+    flex-wrap: wrap; gap: 0.5rem;
+  }
+  header .title { font-size: 1.05rem; letter-spacing: 0.15em; }
+  header .sub { color: var(--fg-dim); font-size: 0.8rem; }
+
+  .status {
+    background: #110800;
+    border: 1px solid var(--fg-dim);
+    padding: 0.45rem 0.75rem;
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+    min-height: 1.75rem;
+  }
+  .status .prompt { color: var(--fg-bright); }
+  .status .msg { color: var(--fg-bright); }
+  .status.flash { background: #2a1100; }
+
+  .row {
+    margin-bottom: 0.7rem;
+  }
+  .row-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--fg-dim);
+    margin-bottom: 0.25rem;
+    display: flex; justify-content: space-between;
+  }
+  .row-label .note { font-style: italic; }
+  .cells {
+    display: grid;
+    grid-template-columns: repeat(32, 1fr);
+    gap: 2px;
+  }
+  .cell {
+    border: 1px solid var(--fg-dim);
+    padding: 0.2rem 0;
+    text-align: center;
+    background: #050200;
+    transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+    min-height: 2.4rem;
+  }
+  .cell.idx {
+    border: none;
+    background: transparent;
+    color: var(--fg-dim);
+    font-size: 0.65rem;
+    padding: 0;
+    min-height: 1rem;
+  }
+  .cell .hex {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--fg);
+  }
+  .cell .ascii {
+    display: block;
+    font-size: 0.62rem;
+    color: var(--fg-dim);
+    min-height: 0.75em;
+  }
+  .cell.null .hex { color: var(--fg-dim); }
+  .cell.random .hex { color: var(--random); }
+  .cell.random .ascii { color: var(--random); }
+
+  .cell.hl-src { border-color: var(--hl-src); background: #221100; }
+  .cell.hl-src .hex { color: var(--hl-src); }
+  .cell.hl-key { border-color: var(--hl-key); background: #331400; }
+  .cell.hl-key .hex { color: var(--hl-key); }
+  .cell.hl-dst {
+    border-color: var(--hl-dst);
+    background: #4a1500;
+    animation: pulse 0.45s ease-in-out;
+  }
+  .cell.hl-dst .hex { color: #fff; text-shadow: 0 0 8px var(--hl-dst); }
+  .cell.zeroing {
+    border-color: var(--hl-dst);
+    background: #3a0e00;
+    animation: pulse 0.35s ease-in-out;
+  }
+  /* permanent annotations */
+  .cell.is-plain {
+    border-color: var(--plain);
+    background: #2a0008;
+  }
+  .cell.is-plain .hex { color: var(--plain); text-shadow: 0 0 6px var(--plain); }
+  .cell.is-plain .ascii { color: var(--plain); }
+  .cell.is-cipher {
+    border-color: var(--cipher);
+    background: #002a14;
+  }
+  .cell.is-cipher .hex { color: var(--cipher); text-shadow: 0 0 6px var(--cipher); }
+  .cell.is-cipher .ascii { color: var(--cipher); }
+  .cell.leaked-null {
+    border-color: var(--leak);
+    background: #001a33;
+    animation: leakpulse 0.7s ease-in-out;
+  }
+  .cell.leaked-null .hex { color: var(--leak); text-shadow: 0 0 8px var(--leak); }
+  .cell.leaked-wrap {
+    border-color: var(--wrap);
+    background: #1a002a;
+    animation: wrappulse 0.7s ease-in-out;
+  }
+  .cell.leaked-wrap .hex { color: var(--wrap); text-shadow: 0 0 8px var(--wrap); }
+  .cell.recovered {
+    border-color: var(--leak);
+    background: #001a33;
+    animation: leakpulse 0.5s ease-in-out;
+  }
+  .cell.recovered .hex { color: var(--leak); text-shadow: 0 0 6px var(--leak); }
+  .cell.recovered .ascii { color: var(--leak); }
+
+  @keyframes pulse {
+    0%   { background: #220500; }
+    40%  { background: #ff6600; }
+    100% { background: #4a1500; }
+  }
+  @keyframes leakpulse {
+    0%   { background: #000; }
+    40%  { background: #4488ff; }
+    100% { background: #001a33; }
+  }
+  @keyframes wrappulse {
+    0%   { background: #000; }
+    40%  { background: #c060ff; }
+    100% { background: #1a002a; }
+  }
+
+  /* recovery flash, overlays whatever colour the cell already has */
+  .cell.using {
+    animation: cellflash 0.55s ease-in-out;
+    z-index: 3;
+  }
+  @keyframes cellflash {
+    0%   { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); transform: scale(1); }
+    40%  { box-shadow: 0 0 18px 4px rgba(255, 255, 255, 0.95); transform: scale(1.12); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); transform: scale(1); }
+  }
+
+  .equation {
+    margin-top: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--fg-dim);
+    background: #0a0400;
+    font-size: 0.95rem;
+    min-height: 2rem;
+    text-align: center;
+    letter-spacing: 0.08em;
+  }
+  .equation .op { color: var(--fg-bright); margin: 0 0.4rem; }
+  .equation .src { color: var(--hl-src); }
+  .equation .key { color: var(--hl-key); }
+  .equation .dst { color: var(--hl-dst); text-shadow: 0 0 6px var(--hl-dst); }
+  .equation .leak { color: var(--leak); text-shadow: 0 0 6px var(--leak); }
+  .equation .wrap { color: var(--wrap); text-shadow: 0 0 6px var(--wrap); }
+  .equation.idle { color: var(--fg-dim); }
+
+  .controls {
+    margin-top: 0.85rem;
+    display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center;
+  }
+  button {
+    background: transparent;
+    color: var(--fg);
+    border: 1px solid var(--fg);
+    font-family: inherit;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+    text-shadow: inherit;
+    transition: background 120ms ease, color 120ms ease;
+  }
+  button:hover { background: var(--fg); color: var(--bg); }
+  button:disabled { opacity: 0.35; cursor: not-allowed; }
+  .speed {
+    margin-left: auto;
+    color: var(--fg-dim);
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+  .speed input { accent-color: var(--fg); }
+  .scenario {
+    color: var(--fg-dim);
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+  .scenario select {
+    background: #110800;
+    color: var(--fg);
+    border: 1px solid var(--fg);
+    font-family: inherit;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.55rem;
+    letter-spacing: 0.05em;
+  }
+  .scenario select:focus { outline: none; box-shadow: 0 0 6px rgba(255,140,0,0.4); }
+  .scenario select option { background: var(--bg); color: var(--fg); }
+  .cell.unknown {
+    border-color: var(--fg-dim);
+    background: #0a0500;
+  }
+  .cell.unknown .hex { color: var(--fg-dim); }
+  .cell.unknown .ascii { color: var(--fg-dim); }
+
+  .legend {
+    margin-top: 0.75rem;
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    font-size: 0.72rem;
+    color: var(--fg-dim);
+  }
+  .legend .sw {
+    display: inline-block; width: 0.8rem; height: 0.8rem;
+    vertical-align: -2px; margin-right: 4px;
+    border: 1px solid var(--fg-dim);
+  }
+  .legend .sw.plain { background: var(--plain); border-color: var(--plain); }
+  .legend .sw.cipher { background: var(--cipher); border-color: var(--cipher); }
+  .legend .sw.null { background: var(--leak); border-color: var(--leak); }
+  .legend .sw.wrap { background: var(--wrap); border-color: var(--wrap); }
+  .legend .sw.recv { background: var(--leak-dim); border-color: var(--leak); }
+
+  footer {
+    margin-top: 0.85rem;
+    color: var(--fg-dim);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    border-top: 1px dashed var(--fg-dim);
+    padding-top: 0.5rem;
+  }
+  .cursor {
+    display: inline-block;
+    width: 0.55em; height: 1em;
+    background: var(--fg-bright);
+    vertical-align: text-bottom;
+    margin-left: 2px;
+    animation: blink 1s steps(2) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+</style>
+</head>
+<body>
+<div class="frame">
+  <header>
+    <span class="title">DELL BIOS PASSWORD :: KEY-LEAK DEMO</span>
+    <span class="sub">password <span id="pw-name">"PASSWORD" (8 chars)</span> :: key 0x01..0x14 :: 32-byte XOR field</span>
+  </header>
+
+  <div class="status" id="status">
+    <span class="prompt">&gt;</span> <span class="msg" id="status-msg">ready</span><span class="cursor"></span>
+  </div>
+
+  <div class="row">
+    <div class="row-label">
+      <span>POSITION (offset in 32-byte field)</span>
+    </div>
+    <div class="cells" id="row-idx"></div>
+  </div>
+
+  <div class="row">
+    <div class="row-label">
+      <span>PLAINTEXT, password null-padded to 32 bytes</span>
+      <span class="note">stored[0] is written in the clear</span>
+    </div>
+    <div class="cells" id="row-pt"></div>
+  </div>
+
+  <div class="row">
+    <div class="row-label">
+      <span>KEY, 20 bytes, wraps under positions 21..31</span>
+      <span class="note">key[(pos-1) mod 20]</span>
+    </div>
+    <div class="cells" id="row-key"></div>
+  </div>
+
+  <div class="row">
+    <div class="row-label">
+      <span>CIPHERTEXT, what hits SPI flash</span>
+      <span class="note">storage[0] = plaintext[0] &middot; storage[i] = plaintext[i] &oplus; key[(i-1) mod 20]</span>
+    </div>
+    <div class="cells" id="row-ct"></div>
+  </div>
+
+  <div class="row">
+    <div class="row-label">
+      <span>RECOVERED KEY, reconstructed by the attacker from the dump alone</span>
+    </div>
+    <div class="cells" id="row-rkey"></div>
+  </div>
+
+  <div class="row">
+    <div class="row-label">
+      <span>RECOVERED PASSWORD, storage[i] &oplus; recovered_key[(i-1) mod 20]</span>
+    </div>
+    <div class="cells" id="row-rpw"></div>
+  </div>
+
+  <div class="equation idle" id="equation">awaiting operation</div>
+
+  <div class="controls">
+    <button id="run">RUN</button>
+    <button id="step">STEP</button>
+    <button id="reset">RESET</button>
+    <label class="scenario">SCENARIO
+      <select id="scenario">
+        <option value="short">PASSWORD (8 chars), full recovery</option>
+        <option value="long">FireportSecret! (15 chars), partial recovery, 3 chars unknown</option>
+        <option value="longDual">Fireport123IsTheAnswer (22 chars), partial + dual-position trick</option>
+      </select>
+    </label>
+    <label class="speed">SPEED <input id="speed" type="range" min="1" max="20" value="10"></label>
+  </div>
+
+  <div class="legend">
+    <span><span class="sw plain"></span>secret, password / leaked byte 0</span>
+    <span><span class="sw cipher"></span>encrypted password bytes (positions 1..7)</span>
+    <span><span class="sw null"></span>key leaked via null padding (bytes 8..20)</span>
+    <span><span class="sw wrap"></span>key leaked via wrap (bytes 21..31)</span>
+    <span><span class="sw recv"></span>password recovered</span>
+  </div>
+
+  <footer>
+    no device-key knowledge, no brute force, the null padding self-leaks the XOR key
+  </footer>
+</div>
+
+<script>
+(() => {
+  const FIELD = 32;
+  const KEY_LEN = 20;
+  const KEY = new Uint8Array(KEY_LEN);
+  for (let i = 0; i < KEY_LEN; i++) KEY[i] = i + 1;
+
+  const SCENARIOS = {
+    short:    { pt: 'PASSWORD',               dual: false },
+    long:     { pt: 'FireportSecret!',        dual: false }, // 15 chars: recovers 12, leaves 3 unknown
+    longDual: { pt: 'Fireport123IsTheAnswer', dual: true  }, // 22 chars: dual-position trick recovers 2 more
+  };
+
+  let PT, PT_BYTES, PWD_LEN, DUAL_DEMO;
+
+  function setScenario(name) {
+    const s = SCENARIOS[name];
+    if (!s) return;
+    PT = s.pt;
+    PWD_LEN = PT.length;
+    DUAL_DEMO = !!s.dual;
+    PT_BYTES = new Uint8Array(FIELD);
+    for (let i = 0; i < PWD_LEN; i++) PT_BYTES[i] = PT.charCodeAt(i);
+    const nameEl = document.getElementById('pw-name');
+    if (nameEl) nameEl.textContent = `"${PT}" (${PWD_LEN} chars)`;
+  }
+
+  // Allow deep-linking from the slide deck: ?scenario=short|long|longDual
+  // or fragment #short etc. Defaults to short.
+  function pickInitialScenario() {
+    const allowed = Object.keys(SCENARIOS);
+    const params = new URLSearchParams(location.search);
+    const fromQuery = params.get('scenario');
+    if (fromQuery && allowed.includes(fromQuery)) return fromQuery;
+    const fromHash = location.hash.replace('#', '');
+    if (fromHash && allowed.includes(fromHash)) return fromHash;
+    return 'short';
+  }
+  setScenario(pickInitialScenario());
+
+  const rowIdx  = document.getElementById('row-idx');
+  const rowPt   = document.getElementById('row-pt');
+  const rowKey  = document.getElementById('row-key');
+  const rowCt   = document.getElementById('row-ct');
+  const rowRkey = document.getElementById('row-rkey');
+  const rowRpw  = document.getElementById('row-rpw');
+  const status  = document.getElementById('status');
+  const statusMsg = document.getElementById('status-msg');
+  const equation = document.getElementById('equation');
+  const runBtn = document.getElementById('run');
+  const stepBtn = document.getElementById('step');
+  const resetBtn = document.getElementById('reset');
+  const speedEl = document.getElementById('speed');
+  const scenarioEl = document.getElementById('scenario');
+  // Sync the dropdown UI with whichever scenario was preselected via URL / hash.
+  if (scenarioEl) {
+    const current = Object.entries(SCENARIOS).find(([_, s]) => s.pt === PT && !!s.dual === DUAL_DEMO);
+    if (current) scenarioEl.value = current[0];
+  }
+
+  const hex = b => b.toString(16).toUpperCase().padStart(2, '0');
+  const printable = b => (b >= 0x20 && b < 0x7f) ? String.fromCharCode(b) : (b === 0 ? '·' : '.');
+
+  function makeCells(parent, count, kind) {
+    parent.innerHTML = '';
+    const cells = [];
+    for (let i = 0; i < count; i++) {
+      const cell = document.createElement('div');
+      if (kind === 'idx') {
+        cell.className = 'cell idx';
+        cell.textContent = hex(i);
+      } else {
+        cell.className = 'cell';
+        cell.innerHTML = '<span class="hex">--</span><span class="ascii">&nbsp;</span>';
+      }
+      parent.appendChild(cell);
+      cells.push(cell);
+    }
+    return cells;
+  }
+
+  function setCell(cell, byte, opts = {}) {
+    if (byte === null) {
+      cell.querySelector('.hex').textContent = '--';
+      cell.querySelector('.ascii').textContent = ' ';
+    } else {
+      cell.querySelector('.hex').textContent = hex(byte);
+      cell.querySelector('.ascii').textContent = printable(byte);
+    }
+    cell.classList.toggle('random', !!opts.random);
+    cell.classList.toggle('null', !!opts.isNull);
+  }
+
+  function clearHL(cells) {
+    cells.forEach(c => c.classList.remove('hl-src', 'hl-key', 'hl-dst', 'zeroing'));
+  }
+
+  function rand() { return Math.floor(Math.random() * 256); }
+  function setStatus(text, flash = false) {
+    statusMsg.textContent = text;
+    if (flash) {
+      status.classList.add('flash');
+      setTimeout(() => status.classList.remove('flash'), 220);
+    }
+  }
+  function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+  function baseStep() {
+    // Slider 1..20, default 10. At 10 we preserve the previous slowest tier
+    // (~420ms base step). Below 10 goes slower (up to ~744ms at s=1); above
+    // 10 goes faster (down to ~60ms at s=20).
+    const s = parseInt(speedEl.value, 10);
+    return Math.round(60 + (20 - s) * 36);
+  }
+
+  makeCells(rowIdx, FIELD, 'idx');
+  let ptCells = makeCells(rowPt, FIELD);
+  let keyCells = makeCells(rowKey, FIELD);
+  let ctCells = makeCells(rowCt, FIELD);
+  let rkeyCells = makeCells(rowRkey, FIELD);
+  let rpwCells  = makeCells(rowRpw,  FIELD);
+
+  function initialise() {
+    [ptCells, keyCells, ctCells, rkeyCells, rpwCells].forEach(clearHL);
+    [...ptCells, ...keyCells, ...ctCells, ...rkeyCells, ...rpwCells].forEach(c => {
+      c.classList.remove('is-plain', 'is-cipher', 'leaked-null', 'leaked-wrap', 'recovered', 'using', 'unknown');
+    });
+
+    // Plaintext row: random (stale stack memory before the password buffer is set up)
+    for (let i = 0; i < FIELD; i++) setCell(ptCells[i], rand(), { random: true });
+    // Key row: shows key[(i-1) mod 20] under each position; position 0 has no key
+    for (let i = 0; i < FIELD; i++) {
+      if (i === 0) {
+        keyCells[i].querySelector('.hex').textContent = '--';
+        keyCells[i].querySelector('.ascii').textContent = ' ';
+      } else {
+        setCell(keyCells[i], KEY[(i - 1) % KEY_LEN]);
+      }
+    }
+    // Ciphertext row: zeros (fresh flash region, no contents yet)
+    for (let i = 0; i < FIELD; i++) setCell(ctCells[i], 0x00, { isNull: true });
+    // Recovered key: empty
+    for (let i = 0; i < FIELD; i++) {
+      rkeyCells[i].querySelector('.hex').textContent = '--';
+      rkeyCells[i].querySelector('.ascii').textContent = ' ';
+    }
+    // Recovered password: empty
+    for (let i = 0; i < FIELD; i++) {
+      rpwCells[i].querySelector('.hex').textContent = '--';
+      rpwCells[i].querySelector('.ascii').textContent = ' ';
+    }
+
+    equation.className = 'equation idle';
+    equation.textContent = 'awaiting operation';
+    setStatus('ready');
+  }
+
+  // Animation as a generator: each `yield w` is a pause point;
+  // w is a weight multiplied by baseStep() when RUN auto-advances.
+  function* sequence() {
+    // PHASE 1 - clear the plaintext buffer
+    setStatus('clear plaintext buffer  ::  zero out the 32-byte password field', true);
+    equation.className = 'equation idle';
+    equation.textContent = 'memset(buffer, 0, 32)';
+    yield 1.0;
+
+    for (let i = 0; i < FIELD; i++) {
+      ptCells[i].classList.add('zeroing');
+      setCell(ptCells[i], 0x00, { isNull: true });
+      yield 0.18;
+      ptCells[i].classList.remove('zeroing');
+    }
+    yield 0.8;
+
+    // PHASE 1b - copy the user-entered password into the buffer
+    setStatus('copy password into buffer  ::  remaining bytes stay null', true);
+    equation.className = 'equation';
+    equation.innerHTML = `strncpy(buffer, "<span class="src">PASSWORD</span>", 32), ${PWD_LEN} bytes copied, ${FIELD - PWD_LEN} null-padded`;
+    yield 1.0;
+
+    for (let i = 0; i < PWD_LEN; i++) {
+      ptCells[i].classList.add('hl-dst');
+      setCell(ptCells[i], PT_BYTES[i]);
+      yield 0.3;
+      ptCells[i].classList.remove('hl-dst');
+      // Mark the secret in red. Stays red so the leak in storage[0]
+      // visibly matches plaintext[0] in the same colour.
+      ptCells[i].classList.add('is-plain');
+    }
+    yield 0.8;
+
+    // PHASE 2 - write byte 0 in the clear
+    setStatus('write plaintext[0] in the clear  (first character never encrypted)', true);
+    equation.className = 'equation';
+    equation.innerHTML =
+      `<span class="src">plaintext[0] = 0x${hex(PT_BYTES[0])} (${printable(PT_BYTES[0])})</span>` +
+      `<span class="op">&rarr;</span>` +
+      `<span class="dst">storage[0] = 0x${hex(PT_BYTES[0])}</span>` +
+      `<span class="op">&middot;</span>` +
+      `<span class="leak">LEAK #1</span>`;
+    ptCells[0].classList.add('hl-src');
+    setCell(ctCells[0], PT_BYTES[0]);
+    ctCells[0].classList.add('hl-dst', 'is-plain');
+    yield 1.4;
+    ptCells[0].classList.remove('hl-src');
+    ctCells[0].classList.remove('hl-dst');
+    yield 0.6;
+
+    // PHASE 3 - encrypt positions 1..31
+    setStatus('xor encrypt :: plaintext[i] ⊕ key[(i-1) mod 20] → storage[i]', true);
+    yield 0.6;
+    for (let i = 1; i < FIELD; i++) {
+      const pt = i < PWD_LEN ? PT_BYTES[i] : 0;
+      const k  = KEY[(i - 1) % KEY_LEN];
+      const ct = pt ^ k;
+
+      ptCells[i].classList.add('hl-src');
+      keyCells[i].classList.add('hl-key');
+      equation.className = 'equation';
+      equation.innerHTML =
+        `pos 0x${hex(i)} :: ` +
+        `<span class="src">0x${hex(pt)}${i < PWD_LEN ? ' ('+printable(pt)+')' : ' (null)'}</span>` +
+        `<span class="op">&oplus;</span>` +
+        `<span class="key">key[${(i - 1) % KEY_LEN}] = 0x${hex(k)}</span>` +
+        `<span class="op">=</span>` +
+        `<span class="dst">0x${hex(ct)}</span>`;
+      yield 0.55;
+
+      setCell(ctCells[i], ct);
+      ctCells[i].classList.add('hl-dst');
+      yield 0.35;
+      ptCells[i].classList.remove('hl-src');
+      keyCells[i].classList.remove('hl-key');
+      ctCells[i].classList.remove('hl-dst');
+      // Persistent green on the actual encrypted password bytes (positions 1..7).
+      // Positions 8..31 are null padding, they will pick up blue/purple from the
+      // leak phases. Position 0 stays red (is-plain) from phase 2.
+      if (i < PWD_LEN) ctCells[i].classList.add('is-cipher');
+    }
+    yield 0.8;
+
+    // PHASE 4 - LEAK PHASE
+    // null-padding leak (blue):  positions PWD_LEN..20         -> key indices (PWD_LEN-1)..19
+    // wrap leak (purple):        positions max(21,PWD_LEN)..31 -> wrapped key indices
+    const preWrapStart  = PWD_LEN;
+    const preWrapEnd    = 20;
+    const postWrapStart = Math.max(21, PWD_LEN);
+    const postWrapEnd   = FIELD - 1;
+    const hasPreWrap    = preWrapStart <= preWrapEnd;
+    const hasPostWrap   = postWrapStart <= postWrapEnd;
+    const knownKeys     = new Set();
+
+    setStatus('inspect the storage  ::  what does the attacker see?', true);
+    equation.className = 'equation';
+    if (hasPreWrap && hasPostWrap) {
+      equation.innerHTML = `the password is ${PWD_LEN} bytes, positions <span class="leak">${hex(preWrapStart)}..${hex(preWrapEnd)}</span> and <span class="wrap">${hex(postWrapStart)}..1f</span> are all null padding`;
+    } else if (hasPostWrap) {
+      equation.innerHTML = `the password is ${PWD_LEN} bytes, only positions <span class="wrap">${hex(postWrapStart)}..1f</span> are null padding`;
+    } else {
+      equation.innerHTML = `the password fills the field, no null padding, no key leak from this dump`;
+    }
+    yield 1.6;
+
+    if (hasPreWrap) {
+    setStatus('LEAK :: storage[i] = 0 ⊕ key[j]  →  key[j] is exposed', true);
+    equation.className = 'equation';
+    equation.innerHTML =
+      `<span class="src">storage[i]</span><span class="op">=</span>` +
+      `<span class="src">0 (null padding)</span><span class="op">&oplus;</span>` +
+      `<span class="key">key[j]</span><span class="op">=</span>` +
+      `<span class="leak">key[j]</span>`;
+    yield 1.2;
+
+      for (let i = preWrapStart; i <= preWrapEnd; i++) {
+        const j = (i - 1) % KEY_LEN;
+        ctCells[i].classList.add('leaked-null');
+        keyCells[i].classList.add('hl-key');
+        setCell(rkeyCells[j + 1], KEY[j]);
+        rkeyCells[j + 1].classList.add('recovered');
+        knownKeys.add(j);
+        yield 0.55;
+        keyCells[i].classList.remove('hl-key');
+      }
+      yield 0.8;
+    }
+
+    if (hasPostWrap) {
+      setStatus('LEAK :: 20-byte key wraps under a 32-byte field  →  null padding here still leaks key bytes', true);
+      equation.className = 'equation';
+      equation.innerHTML =
+        `field is 32 bytes, key is 20 bytes, positions <span class="wrap">${hex(postWrapStart)}..1f</span> wrap back into <span class="key">key[${(postWrapStart - 1) % KEY_LEN}..10]</span>, ` +
+        `null padding there &rarr; raw key bytes`;
+      yield 1.2;
+
+      for (let i = postWrapStart; i <= postWrapEnd; i++) {
+        const j = (i - 1) % KEY_LEN;
+        ctCells[i].classList.add('leaked-wrap');
+        keyCells[i].classList.add('hl-key');
+        // First-source-wins on the recovered-key row: bytes already known via
+        // the null-padding leak (blue) stay blue. Only paint wrap colour where
+        // we are learning the byte for the first time.
+        const rcell = rkeyCells[j + 1];
+        const alreadyKnown = knownKeys.has(j);
+        setCell(rcell, KEY[j]);
+        if (!alreadyKnown) rcell.classList.add('leaked-wrap');
+        knownKeys.add(j);
+        yield 0.45;
+        keyCells[i].classList.remove('hl-key');
+      }
+      yield 1.0;
+    }
+
+    // PHASE 5 - recover the password
+    const allKeysKnown = knownKeys.size === KEY_LEN;
+    let recoverableCount = PWD_LEN > 0 ? 1 : 0;
+    for (let i = 1; i < PWD_LEN; i++) {
+      if (knownKeys.has((i - 1) % KEY_LEN)) recoverableCount++;
+    }
+
+    setStatus(allKeysKnown
+      ? 'full 20-byte key recovered  ::  decrypt the password region'
+      : `${knownKeys.size} of 20 key bytes recovered  ::  decrypt what we can`, true);
+    equation.className = 'equation';
+    equation.innerHTML =
+      `<span class="dst">storage[i]</span><span class="op">&oplus;</span>` +
+      `<span class="leak">recovered_key[(i-1) mod 20]</span><span class="op">=</span>` +
+      `<span class="src">plaintext[i]</span>`;
+    yield 1.4;
+
+    // Byte 0: storage[0] is already plaintext, no XOR needed.
+    ctCells[0].classList.add('hl-src', 'using');
+    setCell(rpwCells[0], PT_BYTES[0]);
+    rpwCells[0].classList.add('is-plain', 'using');
+    yield 0.6;
+    ctCells[0].classList.remove('hl-src', 'using');
+    rpwCells[0].classList.remove('using');
+
+    for (let i = 1; i < PWD_LEN; i++) {
+      const j = (i - 1) % KEY_LEN;
+      if (knownKeys.has(j)) {
+        ctCells[i].classList.add('hl-src', 'using');
+        rkeyCells[j + 1].classList.add('hl-key', 'using');
+        const recovered = PT_BYTES[i] ^ KEY[j] ^ KEY[j];
+        setCell(rpwCells[i], recovered);
+        rpwCells[i].classList.add('is-plain', 'using');
+        equation.className = 'equation';
+        equation.innerHTML =
+          `pos 0x${hex(i)} :: ` +
+          `<span class="dst">0x${hex(PT_BYTES[i] ^ KEY[j])}</span><span class="op">&oplus;</span>` +
+          `<span class="leak">0x${hex(KEY[j])}</span><span class="op">=</span>` +
+          `<span class="src">0x${hex(recovered)} (${printable(recovered)})</span>`;
+        yield 0.7;
+        ctCells[i].classList.remove('hl-src', 'using');
+        rkeyCells[j + 1].classList.remove('hl-key', 'using');
+        rpwCells[i].classList.remove('using');
+      } else {
+        rpwCells[i].querySelector('.hex').textContent = '??';
+        rpwCells[i].querySelector('.ascii').textContent = '?';
+        rpwCells[i].classList.add('unknown');
+        equation.className = 'equation';
+        equation.innerHTML =
+          `pos 0x${hex(i)} :: <span class="key">key[${j}]</span> never leaked &rarr; ` +
+          `<span class="dst">plaintext[${i}] unknown</span>`;
+        yield 0.45;
+      }
+    }
+
+    // PHASE 6 - dual-position constraint demo (optional, scenario-controlled)
+    // Unknown key bytes that appear at TWO password positions can be narrowed by
+    // brute-forcing the 256 candidates and keeping those that decrypt to printable
+    // ASCII at both positions simultaneously.
+    if (DUAL_DEMO && !allKeysKnown) {
+      const dualBytes = [];
+      for (let j = 0; j < KEY_LEN; j++) {
+        if (knownKeys.has(j)) continue;
+        const p1 = j + 1, p2 = j + 21;
+        if (p1 < PWD_LEN && p2 < PWD_LEN) dualBytes.push({ j, p1, p2 });
+      }
+
+      if (dualBytes.length > 0) {
+        setStatus('not done yet  ::  some unknown keys appear TWICE in the password region', true);
+        equation.className = 'equation';
+        equation.innerHTML = `the 20-byte key wraps under the 32-byte field, <span class="key">key[0..10]</span> is used at two positions. ` +
+          `if both are encrypted password chars, brute-force the candidates that decrypt to printable ASCII at <em>both</em>.`;
+        yield 1.8;
+
+        for (const { j, p1, p2 } of dualBytes) {
+          ctCells[p1].classList.add('hl-src');
+          ctCells[p2].classList.add('hl-src');
+          keyCells[p1].classList.add('hl-key');
+          keyCells[p2].classList.add('hl-key');
+
+          const s1 = PT_BYTES[p1] ^ KEY[j];
+          const s2 = PT_BYTES[p2] ^ KEY[j];
+
+          setStatus(`key[${j}] encrypts position 0x${hex(p1)} AND position 0x${hex(p2)}`, true);
+          equation.className = 'equation';
+          equation.innerHTML =
+            `<span class="dst">storage[0x${hex(p1)}] = 0x${hex(s1)}</span> &nbsp;&amp;&nbsp; ` +
+            `<span class="dst">storage[0x${hex(p2)}] = 0x${hex(s2)}</span>, ` +
+            `for each candidate k, both 0x${hex(s1)}&oplus;k AND 0x${hex(s2)}&oplus;k must be printable`;
+          yield 1.6;
+
+          const candidates = [];
+          for (let k = 0; k < 256; k++) {
+            const v1 = s1 ^ k;
+            const v2 = s2 ^ k;
+            if (v1 >= 0x20 && v1 < 0x7f && v2 >= 0x20 && v2 < 0x7f) {
+              candidates.push({ k, v1, v2 });
+            }
+          }
+
+          setStatus(`brute-force key[${j}]  ::  ${candidates.length} of 256 candidates pass the printable filter`, true);
+          yield 1.2;
+
+          // Display up to 6 candidates, real answer last so the demo lands on the truth.
+          const realByte = KEY[j];
+          const realCand = candidates.find(c => c.k === realByte);
+          const others   = candidates.filter(c => c.k !== realByte);
+          const sample   = others.slice(0, Math.min(5, others.length));
+          const display  = realCand ? [...sample, realCand] : sample;
+
+          rpwCells[p1].classList.remove('unknown');
+          rpwCells[p2].classList.remove('unknown');
+
+          let n = 0;
+          for (const c of display) {
+            n++;
+            const isReal = c.k === realByte;
+            setCell(rpwCells[p1], c.v1);
+            setCell(rpwCells[p2], c.v2);
+            rpwCells[p1].classList.add('using');
+            rpwCells[p2].classList.add('using');
+            equation.className = 'equation';
+            const tail = isReal
+              ? ` &nbsp;<span class="leak">&larr; picked by frequency / dictionary</span>`
+              : '';
+            equation.innerHTML =
+              `candidate ${n}/${display.length} &nbsp;::&nbsp; ` +
+              `<span class="key">key[${j}] = 0x${hex(c.k)}</span> &rarr; ` +
+              `pos 0x${hex(p1)} = <span class="src">'${printable(c.v1)}'</span>, ` +
+              `pos 0x${hex(p2)} = <span class="src">'${printable(c.v2)}'</span>${tail}`;
+            yield isReal ? 1.4 : 0.5;
+            rpwCells[p1].classList.remove('using');
+            rpwCells[p2].classList.remove('using');
+          }
+
+          rpwCells[p1].classList.add('is-plain');
+          rpwCells[p2].classList.add('is-plain');
+          ctCells[p1].classList.remove('hl-src');
+          ctCells[p2].classList.remove('hl-src');
+          keyCells[p1].classList.remove('hl-key');
+          keyCells[p2].classList.remove('hl-key');
+
+          knownKeys.add(j);
+          recoverableCount += 2;
+        }
+      }
+    }
+
+    const finalAllKeysKnown = knownKeys.size === KEY_LEN;
+    if (finalAllKeysKnown && !DUAL_DEMO) {
+      setStatus(`"${PT}" recovered  ::  no device key knowledge required`, true);
+      equation.className = 'equation';
+      equation.innerHTML = `<span class="leak">password fully recovered from the SPI dump alone</span>, the null padding self-leaks the key`;
+    } else if (DUAL_DEMO) {
+      setStatus(`partial + dual-position trick  ::  ${recoverableCount}/${PWD_LEN} chars known`, true);
+      equation.className = 'equation';
+      equation.innerHTML = `direct leak gave us most of the key; the dual-position constraint recovered 2 more chars. ` +
+        `<span class="leak">${recoverableCount} of ${PWD_LEN} known</span>, ${PWD_LEN - recoverableCount} left for hashcat, ` +
+        `those middle bytes use <span class="key">key[11..19]</span>, single position, no constraint to exploit.`;
+    } else {
+      setStatus(`partial recovery  ::  ${recoverableCount}/${PWD_LEN} chars known  ::  hand the rest to hashcat`, true);
+      equation.className = 'equation';
+      equation.innerHTML = `${recoverableCount} chars recovered, ${PWD_LEN - recoverableCount} unknown, longer passwords leak less key material`;
+    }
+  }
+
+  // Controller: holds the active iterator across STEP / RUN.
+  let iterator = null;
+  let running = false;
+
+  function ensureIterator() {
+    if (!iterator) {
+      // Reset to a clean visual state at the start of every fresh run, so
+      // re-running after completion (or after stepping to the end) doesn't
+      // carry over highlights or written cells from the previous pass.
+      initialise();
+      iterator = sequence();
+    }
+  }
+
+  function finishIfDone(result) {
+    if (result.done) {
+      iterator = null;
+      running = false;
+      runBtn.disabled = false;
+      stepBtn.disabled = false;
+      return true;
+    }
+    return false;
+  }
+
+  async function run() {
+    if (running) return;
+    running = true;
+    runBtn.disabled = true;
+    stepBtn.disabled = true;
+    ensureIterator();
+    while (running) {
+      const res = iterator.next();
+      if (finishIfDone(res)) break;
+      const weight = typeof res.value === 'number' ? res.value : 1.0;
+      await delay(baseStep() * weight);
+    }
+    runBtn.disabled = false;
+    stepBtn.disabled = false;
+  }
+
+  function stepOnce() {
+    if (running) return; // STEP disabled during RUN
+    ensureIterator();
+    const res = iterator.next();
+    finishIfDone(res);
+  }
+
+  function reset() {
+    running = false;
+    iterator = null;
+    runBtn.disabled = false;
+    stepBtn.disabled = false;
+    initialise();
+  }
+
+  runBtn.addEventListener('click', run);
+  stepBtn.addEventListener('click', stepOnce);
+  resetBtn.addEventListener('click', reset);
+  scenarioEl.addEventListener('change', () => {
+    setScenario(scenarioEl.value);
+    reset();
+  });
+
+  initialise();
+})();
+</script>
+</body>
+</html>

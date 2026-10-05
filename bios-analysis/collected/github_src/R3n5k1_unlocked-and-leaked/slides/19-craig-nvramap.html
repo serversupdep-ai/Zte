@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; NVRAMap</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .slide-body.nvramap {
+    justify-content: flex-start;
+    padding-top: 0.8vh;
+    width: 100%;
+  }
+  .slide-body.nvramap h2 { margin-bottom: 0.6rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: 2.5vw;
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+  }
+  .left { display: flex; flex-direction: column; gap: 0.7rem; min-height: 0; }
+  .lead {
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    line-height: 1.6;
+    color: var(--fg-dim);
+    margin: 0;
+  }
+  .lead strong { color: var(--fg); font-weight: normal; }
+  .modes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .modes li {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 0.65rem 0.9rem;
+    font-size: clamp(0.88rem, 1.45vw, 1.1rem);
+    line-height: 1.45;
+  }
+  .modes .tag {
+    color: var(--accent-green);
+    letter-spacing: 0.1em;
+    margin-right: 0.5rem;
+  }
+  .modes .name { color: var(--fg-bright); }
+  .modes .desc { color: var(--fg-dim); }
+  .modify {
+    border: 1px solid var(--accent-green);
+    background: rgba(0, 255, 136, 0.05);
+    padding: 0.65rem 0.9rem;
+    font-size: clamp(0.88rem, 1.45vw, 1.1rem);
+    line-height: 1.45;
+  }
+  .modify .tag { color: var(--accent-green); letter-spacing: 0.1em; margin-right: 0.5rem; }
+  .shot {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel-2);
+    padding: 0.4rem;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .shot img {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    max-height: calc(56vh * var(--zoom, 1));
+    object-fit: contain;
+    display: block;
+    image-rendering: pixelated;
+  }
+  .cap {
+    color: var(--fg-dim);
+    font-size: clamp(0.72rem, 1.15vw, 0.9rem);
+    letter-spacing: 0.08em;
+    text-align: center;
+    padding-top: 0.35rem;
+    border-top: 1px dashed var(--fg-dim);
+    margin-top: 0.35rem;
+    line-height: 1.4;
+  }
+  .cap .green { color: var(--accent-green); }
+  .credit {
+    margin-top: 0.6rem;
+    color: var(--fg-dim);
+    font-size: clamp(0.78rem, 1.25vw, 0.95rem);
+    letter-spacing: 0.08em;
+  }
+  .credit a { color: var(--fg); }
+  .credit strong { color: var(--fg-bright); font-weight: normal; }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 19 &middot; nvramap: automating the hunt</span>
+  </div>
+
+  <div class="slide-body nvramap">
+    <h2>NVRAMAP <span class="dim">::</span> AUTOMATING THE HUNT</h2>
+
+    <div class="grid">
+      <div class="left">
+        <p class="lead">
+          After the blog post, <strong>PN-Tester</strong> built a tool that automates the entire
+          mapping process. Vendor-agnostic, works against most modern UEFI implementations.
+          Pass it an EFI module and a firmware dump and it does everything we just did manually,
+          in one shot.
+        </p>
+
+        <ul class="modes">
+          <li>
+            <span class="tag">MODE 1</span>
+            <span class="name">EFI Settings &rarr; NVRAM</span><br>
+            <span class="desc">Search by keyword, find where DMA / VT-d / IOMMU settings live in NVRAM</span>
+          </li>
+          <li>
+            <span class="tag">MODE 2</span>
+            <span class="name">NVRAM &rarr; EFI Settings</span><br>
+            <span class="desc">Reverse lookup, given a GUID and key, find what setting it controls</span>
+          </li>
+        </ul>
+
+        <div class="modify">
+          <span class="tag">--modify</span>
+          Interactive write mode, select a setting, change its value, get a
+          patched NVRAM file ready to flash back onto the chip.
+        </div>
+
+        <div class="credit">
+          <strong>NVRAMap</strong> &middot; PN-Tester &middot;
+          <a href="https://github.com/PN-Tester/NVRAMap">github.com/PN-Tester/NVRAMap</a>
+          &nbsp;&middot;&nbsp; inspired by the MDSec write-up
+        </div>
+      </div>
+
+      <div class="shot">
+        <img src="../artifacts/img/nvramap-efi-to-nvram.png" alt="NVRAMap mode 1 output: VarStore GUID table and DMA/Intel settings mapped to NVRAM offsets and live values">
+        <div class="cap">
+          Mode 1 &middot; Lenovo dump &middot; <code>-terms DMA,Intel</code> &rarr;
+          <span class="green">Kernel DMA Protection, Intel VT-d, SGX all mapped to offsets + live values</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="18-craig-verify.html">&larr; prev</a>
+    <span class="slide-num">19 / 37</span>
+    <a class="next" href="21-craig-warning.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

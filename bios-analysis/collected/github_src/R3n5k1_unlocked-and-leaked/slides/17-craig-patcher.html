@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Step 9: Automate the Patch</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .slide-body.patcher {
+    justify-content: flex-start;
+    padding-top: 0.8vh;
+    width: 100%;
+  }
+  .slide-body.patcher h2 { margin-bottom: 0.6rem; }
+  .lead {
+    font-size: clamp(1rem, 1.7vw, 1.3rem);
+    color: var(--fg-dim);
+    margin: 0 0 0.8rem 0;
+  }
+  .lead strong { color: var(--fg); font-weight: normal; }
+  .code-block {
+    background: var(--panel);
+    border: 1px solid var(--fg-dim);
+    padding: 1rem 1.4rem;
+    font-size: clamp(0.78rem, 1.3vw, 1rem);
+    line-height: 1.65;
+    overflow-x: auto;
+    white-space: pre;
+    flex: 1;
+    min-height: 0;
+    max-height: calc(58vh * var(--zoom, 1));
+  }
+  .code-block .kw  { color: var(--fg-bright); }
+  .code-block .str { color: var(--accent-green); }
+  .code-block .num { color: var(--accent-red); }
+  .code-block .cmt { color: var(--fg-dim); font-style: italic; }
+  .code-block .fn  { color: var(--fg-bright); }
+  .code-block .dim { color: var(--fg-dim); }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 17 &middot; step 9: automate the patch</span>
+  </div>
+
+  <div class="slide-body patcher">
+    <h2>STEP 9 <span class="dim">::</span> AUTOMATE THE PATCH</h2>
+    <p class="lead">
+      With this information, we can <strong>vibe-code a patcher</strong> to find the pattern
+      and disable pre-boot DMA in the flash dump, ready to reflash.
+    </p>
+
+    <div class="code-block"><span class="kw">import</span> os, re
+
+<span class="cmt"># The Setup NVRAM variable: GUID + UTF-16 name "Setup"</span>
+SETUP_GUID <span class="dim">=</span> <span class="str">b'\x43\xd6\x87\xec\xa4\xeb\xb5\x4b\xa1\xe5\x3f\x3e\x36\xb2\x0d\xa9'</span>
+SETUP_NAME <span class="dim">=</span> <span class="str">b'S\x00e\x00t\x00u\x00p\x00\x00\x00'</span>   <span class="cmt"># UTF-16 "Setup\0"</span>
+VAR_OFFSET <span class="dim">=</span> <span class="num">0x975</span>                              <span class="cmt"># Control Iommu Pre-boot Behavior</span>
+HEADER_SIZE <span class="dim">=</span> <span class="num">16</span> <span class="dim">+</span> <span class="num">12</span>                            <span class="cmt"># GUID (16) + Name (12)</span>
+
+<span class="kw">with</span> <span class="fn">open</span>(filename, <span class="str">'rb'</span>) <span class="kw">as</span> f:
+    data <span class="dim">=</span> bytearray(f.read())
+
+<span class="cmt"># Scan for all occurrences of the Setup GUID</span>
+matches <span class="dim">=</span> [m.start() <span class="kw">for</span> m <span class="kw">in</span> re.finditer(re.escape(SETUP_GUID), data)]
+
+<span class="kw">for</span> start <span class="kw">in</span> matches:
+    <span class="kw">if</span> data[start<span class="dim">+</span><span class="num">16</span> : start<span class="dim">+</span><span class="num">28</span>] <span class="dim">==</span> SETUP_NAME:
+        patch_addr <span class="dim">=</span> start <span class="dim">+</span> HEADER_SIZE <span class="dim">+</span> VAR_OFFSET
+        <span class="kw">print</span>(<span class="str">f"  [+] Patching offset 0x{patch_addr:x}: {data[patch_addr]:#04x} -> 0x00"</span>)
+        data[patch_addr] <span class="dim">=</span> <span class="num">0x00</span>   <span class="cmt"># disable pre-boot DMA protection</span>
+
+<span class="kw">with</span> <span class="fn">open</span>(out_file, <span class="str">'wb'</span>) <span class="kw">as</span> f:
+    f.write(data)
+
+<span class="kw">print</span>(<span class="str">f"Saved patched dump: {out_file}"</span>)</div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="16-craig-hexview.html">&larr; prev</a>
+    <span class="slide-num">17 / 37</span>
+    <a class="next" href="18-craig-verify.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>
