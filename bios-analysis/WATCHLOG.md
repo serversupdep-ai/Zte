@@ -172,3 +172,16 @@
   dell_e7a8_pure on 3 tags; 3540 keygen STUB = demand, no impl),
   BiosMajster → NEW: Latitude 5500 SIVB vault @0x45000 (16KB) — fleet
   table extended. Persisted under collected/github_src/.
+
+## Cycle 13 watch adds (2026-10-05)
+- alexVinarskis (github.com/alexVinarskis, dellpwn author) — awaiting
+  CVE-2026-35159 / DSA-2026-195 writeup: Dell BIOS auth bypass, fleet
+  permanently unpatched. If published → potential direct fleet unlock
+  (physical access only). Check his GitHub repos + blog + NVD refs
+  (nvd.nist.gov/vuln/detail/CVE-2026-35159) each cycle.
+- cdn.fwupd.org/downloads/firmware.xml.gz — refresh periodically via relay
+  (metadata not bot-gated); run lvfs_latest.py to diff against
+  MODEL_PROFILES.json pins. NOTE: .cab downloads ARE 412-gated — never
+  requeue cabs; Dell dl.dell.com FOLDERs remain the package route.
+- DellBIOSTools (github.com/chromebreakerdev/DellBIOSTools) — v2.6-beta;
+  E7A8 == ours (verified), unlocker already in kit. Low priority.

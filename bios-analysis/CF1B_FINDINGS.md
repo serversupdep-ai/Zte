@@ -2037,3 +2037,60 @@ monkeyboy107 cracker).
   watchlist (3SLYMN3, 1J8T4K3, JJ0N1J3, CJJGBH4-9ABE, 8PHSKS3, 35QWYY2,
   CTCP4M3, J47Y9K3, FF2FFG3, 9F6C2L3, 6NHV9D3, 39G12L3, …) — all 8FC8-era,
   zero deliveries public.
+
+## Cycle 13 (2026-10-05) — latest-BIOS matrix locked + NEW advisory door (DSA-2026-195)
+
+### 11.27.1 LVFS metadata broken open (anti-bot bypassed)
+- cdn.fwupd.org/downloads/firmware.xml.gz (fwupd CLIENT metadata) is NOT
+  bot-gated: fetched via relay → bios-analysis/collected/raw/fwupd_meta/.
+  862 components, 205 Dell UEFI releases with version+sha256+cab URLs.
+  Tool: lvfs_latest.py (fleet-focused latest tracker, flags anything newer
+  than MODEL_PROFILES.json pins). Metadata cab URLs use fwupd.org host —
+  rewrite to cdn.fwupd.org when queueing.
+- LATEST-BIOS MATRIX FINAL (live metadata 2026-10-05): 3080=2.35.0
+  (2026-05-25); 3090=2.30.0 (2026-06-25); 3090UFF=1.44.0 (2026-07-17);
+  **3410/3510 + 3420/3520 REMOVED from LVFS** (device pages "No firmware
+  found"; old cab URLs → HTTP 412) → held Dell-channel exes ARE the latest
+  obtainable: 3410=1.36.0 (FOLDER13471058M), 3420=1.44.0 (FOLDER13591247M).
+- **NEW: Latitude 5X10/Precision 3550 = 1.42.0 (2026-06-30, cab
+  e4cc8ccb…)** + separate Latitude_5410_1.42.0.cab (c5efff9b…). Both are
+  **DSA-2026-212** (2026.3 Intel IPU components) — NOT the DSA-2026-195
+  auth-bypass fix (5410 absent from that advisory's table). Fleet engine
+  parity conclusions unaffected (all 4 OptiPlex modules already verified
+  byte-identical; 5X10 is the sibling platform of our vault pairs).
+- cdn.fwupd.org .cab downloads → 412 even for CURRENT releases (all 5
+  queued cabs failed; only metadata passes). Do not requeue LVFS cabs;
+  Dell dl.dell.com channel remains the fetch route for packages.
+
+### 11.27.2 NEW DOOR: DSA-2026-195 / CVE-2026-35159 — fleet permanently vulnerable
+- **Dell Client BIOS Authentication Bypass by Primary Weakness (CWE-305)**,
+  disclosed 2026-07-03, CVSS 5.3 AV:P/AC:H/PR:N C:L/**I:H**/A:L, credited to
+  **alexVinarskis — the dellpwn author** (2nd Dell password-scheme advisory;
+  dellpwn deck promised "more advisories"; this is one).
+- Remediated 2026-06 on ~150 in-support platforms (Latitude 3320/3340/5320+,
+  OptiPlex 3000/5000/5090/7000/7090, Precision 3470+, Vostro, XPS …).
+  **OUR ENTIRE FLEET IS ABSENT FROM THE TABLE** — 3410/3420/3510/3520,
+  5410/5510 (5X10), 3080/3090/3090UFF are all out of support: **no fix will
+  ever ship** → every fleet machine stays exploitable forever.
+- No public technique yet ("No known exploits" — Nessus/Tenable, OpenCVE).
+  When Vinarskis publishes the writeup (his dellpwn post set the precedent
+  of full technical detail), an auth bypass needing only physical access
+  could unlock fleet machines WITHOUT the EC GENERATE secret.
+- WATCH: alexVinarskis GitHub (github.com/alexVinarskis) + blog for a
+  CVE-2026-35159/DSA-2026-195 post; NVD references. New ranked door #5.
+
+### 11.27.3 DellBIOSTools re-validation (Reddit re-surfacing)
+- chromebreakerdev/DellBIOSTools V2.6 (github) re-encountered via 2026
+  Reddit threads; kit already integrates its unlocker (see dell_unlock_
+  image.py docstring). Fresh checks this cycle:
+  - **E7A8 byte-identical to our dell_e7a8_pure.py** (TESTTAG1 →
+    sG8NGr26yrZGUX2s + MxB32N3r10RL602n; 7GLMDL3 → sDFQ9kE220ZZhraI +
+    2EN2JJ10ZM4JcG2G; dual-output "try both" = same algorithm). No new
+    keygen material in the repo (its 8FC8/CF1B answer = "use the patcher").
+  - FCAA/FDAA record markers confirmed present across our ENTIRE held dump
+    library (3410, 3440/3540, 5410, 3070, 3090, 7070, 7430, 5430/UC6).
+  - Locked-vs-unlocked 3090 dump pair differential: records FCAA@0xc33d9 +
+    FDAA@0xc3371 present in locked image, GONE in unlocked image; benign
+    defaults FCAA@0x4b9e17 + FDAA@0x66d9fa persist in both → confirms the
+    active password records live at the SIVB/record store, and that only
+    those two entries matter.
