@@ -205,3 +205,11 @@ FILE|https://cdn.fwupd.org/downloads/52867cc9d04f339de5db508304dfc3d57e8d1f8b11f
 FILE|https://cdn.fwupd.org/downloads/33278626b785c9ff675f41684a49cc87b81a6ec0a6bc6cef997038c28a2309a8-OptiPlex_3090_UFF_1.44.0_LVFS.cab|OptiPlex_3090_UFF_1.44.0.cab|fwupd_cabs
 FILE|https://cdn.fwupd.org/downloads/e4cc8ccbceb4bd4757a4342348e892a430bfc0d9d57bcbeedbf4c1d864c2a06c-Latitude_5X10_Precision_3550_1.42.0.cab|Latitude_5X10_1.42.0.cab|fwupd_cabs
 FILE|https://cdn.fwupd.org/downloads/c32e091afdc570a742d003f3cdaa93871bef2e7fcd77e81a7b704b89766b7d3f-OptiPlex_3080_2.35.0_HDP_firmware.cab|OptiPlex_3080_2.35.0_HDP.cab|fwupd_cabs
+# === §14 Inspiron/Vostro 5401/5501 (CML 8FC8-era, never census-checked) BIOS packages ===
+FILE|https://dl.dell.com/FOLDER06278094M/1/Inspiron_Vostro_5401_5501_01.03.00.exe|Inspiron_Vostro_5401_5501_1.3.0.exe|inspiron_vostro_5x01
+FILE|https://dl.dell.com/FOLDER07627304M/1/Inspiron_Vostro_5401_5501_1.8.1.exe|Inspiron_Vostro_5401_5501_1.8.1.exe|inspiron_vostro_5x01
+FILE|https://dl.dell.com/FOLDER08776062M/1/Inspiron_Vostro_5401_5501_1.16.0.exe|Inspiron_Vostro_5401_5501_1.16.0.exe|inspiron_vostro_5x01
+# === §14 telegram biosarchive channel searches (EC-internal dump hunt) ===
+PAGE|https://t.me/s/biosarchive?q=EC|tg_biosarchive_ec
+PAGE|https://t.me/s/biosarchive?q=3090|tg_biosarchive_3090
+PAGE|https://t.me/s/biosarchive?q=RT809|tg_biosarchive_rt809
