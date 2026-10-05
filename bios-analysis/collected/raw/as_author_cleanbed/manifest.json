@@ -1,8 +1,8 @@
 {
  "files": {
   "manifest.json": {
-   "bytes": 139,
-   "sha256": "57d165e3a4a55d611c4180e4e393b783ef481837259098ee1d411d3730b88ac8"
+   "bytes": 262,
+   "sha256": "675e93bf64e26bc62f8a6e8593877e265b9ac1b746e290bafc10fff68d44b0ad"
   },
   "page.html": {
    "bytes": 179294,

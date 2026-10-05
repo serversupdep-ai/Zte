@@ -50,7 +50,7 @@
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334493 bytes, sha256 b71b1bdb3181ccdd…)
+    [saved] mediafire_3410/mediafire_page.html (334503 bytes, sha256 f2ce37b848fe9be2…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -147,10 +147,7 @@
 [PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=100 -> raw/as_dell_9abe_r2
     [page fetch failed] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=100
 [skip] as_dell_pwis already fetched
-[PAGE] https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=8FC8&limit=100 -> raw/as_dell_posts_8fc8_r2
-    [page head] '{"data":[{"_meta":{"retrieved_2nd_on":1787712840},"all_awardings":[],"allow_live_comments":false,"approved_at_utc":null,"approved_by":null,"archived":false,"author":"Educational-Race9469","author_flair_background_color":null,"author_flair_c'
-    [saved] as_dell_posts_8fc8_r2/page.html (70348 bytes, sha256 20d62bcb25074fe2…)
-    [links] 0 candidates
+[skip] as_dell_posts_8fc8_r2 already fetched
 [skip] reddit_1iq6vuq_comments_r2 already fetched
 [skip] as_author_cleanbed already fetched
 [PAGE] https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=100 -> raw/as_dell_8fc8_r3
@@ -161,12 +158,21 @@
 [skip] reddit_1mni7p9_comments_r2 already fetched
 [skip] reddit_1vx52jo_comments already fetched
 [skip] reddit_1v09bt9_comments already fetched
-[FILE] https://cdn.fwupd.org/downloads/firmware.xml.gz -> raw/fwupd_meta/firmware.xml.gz
-    [saved] fwupd_meta/firmware.xml.gz (256814 bytes)
+[skip] fwupd_meta/firmware.xml.gz already fetched
 [FILE] https://cdn.fwupd.org/downloads/a39b06122e0e31774dc37410f8b9c409a32122646c662a84b935b046aae1a2e1-CyborgLTgl_TI_G_firmware.cab -> raw/fwupd_meta/CyborgLTgl_TI_G_firmware.cab
     [fetch failed 412 https://cdn.fwupd.org/downloads/a39b06122e0e31774dc37410f8b9c409a32122646c662a84b935b046aae1a2e1-CyborgLTgl_TI_G_firmware.cab] https://cdn.fwupd.org/downloads/a39b06122e0e31774dc37410f8b9c409a32122646c662a84b935b046aae1a2e1-CyborgLTgl_TI_G_firmware.cab
 [FILE] https://cdn.fwupd.org/downloads/db2fa48ad533cef969bb51573f23a3161c97b266e3e3cd2f8de7ddd88e70fe37-MockingbirdLCmlU15_14.0_PROD_QS_firmware.cab -> raw/fwupd_meta/MockingbirdLCmlU15_14.0_PROD_QS_firmware.cab
     [fetch failed 412 https://cdn.fwupd.org/downloads/db2fa48ad533cef969bb51573f23a3161c97b266e3e3cd2f8de7ddd88e70fe37-MockingbirdLCmlU15_14.0_PROD_QS_firmware.cab] https://cdn.fwupd.org/downloads/db2fa48ad533cef969bb51573f23a3161c97b266e3e3cd2f8de7ddd88e70fe37-MockingbirdLCmlU15_14.0_PROD_QS_firmware.cab
+[FILE] https://cdn.fwupd.org/downloads/118bf96591b7b43fc209b6f0b8a4953f43e1fb2d43df1fc3998c158493253ba9-OptiPlex_3080_2.35.0_firmware.cab -> raw/fwupd_cabs/OptiPlex_3080_2.35.0.cab
+    [fetch failed 412 https://cdn.fwupd.org/downloads/118bf96591b7b43fc209b6f0b8a4953f43e1fb2d43df1fc3998c158493253ba9-OptiPlex_3080_2.35.0_firmware.cab] https://cdn.fwupd.org/downloads/118bf96591b7b43fc209b6f0b8a4953f43e1fb2d43df1fc3998c158493253ba9-OptiPlex_3080_2.35.0_firmware.cab
+[FILE] https://cdn.fwupd.org/downloads/52867cc9d04f339de5db508304dfc3d57e8d1f8b11f730f16438c9176ed4c7bc-OptiPlex_3090_2.30.0_firmware.cab -> raw/fwupd_cabs/OptiPlex_3090_2.30.0.cab
+    [fetch failed 412 https://cdn.fwupd.org/downloads/52867cc9d04f339de5db508304dfc3d57e8d1f8b11f730f16438c9176ed4c7bc-OptiPlex_3090_2.30.0_firmware.cab] https://cdn.fwupd.org/downloads/52867cc9d04f339de5db508304dfc3d57e8d1f8b11f730f16438c9176ed4c7bc-OptiPlex_3090_2.30.0_firmware.cab
+[FILE] https://cdn.fwupd.org/downloads/33278626b785c9ff675f41684a49cc87b81a6ec0a6bc6cef997038c28a2309a8-OptiPlex_3090_UFF_1.44.0_LVFS.cab -> raw/fwupd_cabs/OptiPlex_3090_UFF_1.44.0.cab
+    [fetch failed 412 https://cdn.fwupd.org/downloads/33278626b785c9ff675f41684a49cc87b81a6ec0a6bc6cef997038c28a2309a8-OptiPlex_3090_UFF_1.44.0_LVFS.cab] https://cdn.fwupd.org/downloads/33278626b785c9ff675f41684a49cc87b81a6ec0a6bc6cef997038c28a2309a8-OptiPlex_3090_UFF_1.44.0_LVFS.cab
+[FILE] https://cdn.fwupd.org/downloads/e4cc8ccbceb4bd4757a4342348e892a430bfc0d9d57bcbeedbf4c1d864c2a06c-Latitude_5X10_Precision_3550_1.42.0.cab -> raw/fwupd_cabs/Latitude_5X10_1.42.0.cab
+    [fetch failed 412 https://cdn.fwupd.org/downloads/e4cc8ccbceb4bd4757a4342348e892a430bfc0d9d57bcbeedbf4c1d864c2a06c-Latitude_5X10_Precision_3550_1.42.0.cab] https://cdn.fwupd.org/downloads/e4cc8ccbceb4bd4757a4342348e892a430bfc0d9d57bcbeedbf4c1d864c2a06c-Latitude_5X10_Precision_3550_1.42.0.cab
+[FILE] https://cdn.fwupd.org/downloads/c32e091afdc570a742d003f3cdaa93871bef2e7fcd77e81a7b704b89766b7d3f-OptiPlex_3080_2.35.0_HDP_firmware.cab -> raw/fwupd_cabs/OptiPlex_3080_2.35.0_HDP.cab
+    [fetch failed 412 https://cdn.fwupd.org/downloads/c32e091afdc570a742d003f3cdaa93871bef2e7fcd77e81a7b704b89766b7d3f-OptiPlex_3080_2.35.0_HDP_firmware.cab] https://cdn.fwupd.org/downloads/c32e091afdc570a742d003f3cdaa93871bef2e7fcd77e81a7b704b89766b7d3f-OptiPlex_3080_2.35.0_HDP_firmware.cab
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -233,6 +239,7 @@
 [EXTRACT-PASS] drbios_3090_68894
 [EXTRACT-PASS] drbios_3410
 [EXTRACT-PASS] elvikom_3090_schematic
+[EXTRACT-PASS] fwupd_cabs
 [EXTRACT-PASS] fwupd_meta
 [EXTRACT-PASS] indiafix_3090_212037_wb
 [EXTRACT-PASS] indiafix_3410_19709

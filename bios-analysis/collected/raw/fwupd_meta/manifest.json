@@ -3,6 +3,10 @@
   "firmware.xml.gz": {
    "bytes": 256814,
    "sha256": "23856b0e7c36ac53419331b8ed753232839bfa5f06f396a5aa3420e7f949b160"
+  },
+  "manifest.json": {
+   "bytes": 145,
+   "sha256": "1615369b8a58c4a9e3989577b8b5bad84054fc9d2a15c99dcc7a4ed02d7c74a1"
   }
  }
 }
