@@ -208,3 +208,23 @@
   hold it. Re-check periodically; ask the code seller for it too.
 - biosarchive Elite Access Vault (t.me/MAHMOODJAVAN, 180GB paid) —
   candidate source for an EC-internal dump purchase.
+
+## Cycle 16 watch adds (2026-10-05)
+- Sandbox egress map (post-reset): github.com/api.github.com/codeload/
+  npm/pypi REACHABLE; objects.githubusercontent.com +
+  release-assets.githubusercontent.com + raw.githubusercontent.com +
+  media.githubusercontent.com BLOCKED (SSL 000) — Ghidra/JDK release
+  downloads impossible this session; re-test after any sandbox refresh
+  (if open: install Ghidra 12.1.4 + Temurin 21 to /tmp/tools, set
+  GHIDRA_INSTALL_DIR → REA decompile lane unlocks).
+- gh api search/code now returns 404 for these queries (legacy code
+  search API change?) — prefer web search or search/repositories.
+- 5X90 plaintext EC pair = permanent in-repo RE testbed: any new EC
+  dump should first be diffed against its structure (PHCM hdr, bt,
+  segment map, dispatcher shapes) via ec_re/dell_ec_engine_re.py.
+- Watch for NEW dispatchers found by --dispatch (file 0x1E790 cmds
+  {4B,4C,53,64,90,B1}; file 0x1F4A8) — unexplored eSPI/peripheral
+  command sets; low priority (not password paths).
+- When the telegram 24189 .rar lands: run
+  ec_re/dell_ec_engine_re.py --scan-plaintext <extracted-dir> FIRST
+  (fast plaintext/family/GUID triage), then dell_ec_keygen --triage.

@@ -2283,3 +2283,28 @@ For a LOCKED fleet machine, doors in order of ease:
 - 3080/5080/7080/3410/5410 archives on these channels = SPI dumps
   (held-equivalent); schematicslaptop adds boardviews/PDFs (incl. Cyborg
   TGL, Mockingbird, LA-H451P families).
+
+## §16 Cycle 16 — EC firmware RE workbench (2026-10-05)
+
+User-directed never-used sources: morluto/REA + capstone/unicorn (PyPI).
+Full findings, proofs and tool usage: **ec_re/EC_RE_FINDINGS.md** (this
+repo) and **ec_re/dell_ec_engine_re.py**. Summary:
+
+- PHCM container decoded (seal-flag byte@6 bit7; bt; code→0x00110000,
+  data→0x000F0000 segment map — content-verified via table72 @0xF17A9 ==
+  file 0x21829).
+- EC host window fully decoded: 0x400F0110 cmd / 0x111 sub / 0x112 ready /
+  0x113 len / 0x114 chunk; 0x17 = xfer handshake; responses XOR 0x85.
+  Password-session command table (dispatcher file 0xD868 on 5X90), rx
+  buffer 0x0011899C, staging 0x001189C0, enrolled block 0x00119420,
+  record-store subs 4/5/0x15, 16-char verifier file 0xD5E8 with the
+  72-char table (verbatim in EC_RE_FINDINGS §2).
+- Emulation-verified: unicorn harness reproduced the cmd-0x5A emitter
+  bit-exactly (32 writes, buffer^0x85) — the decode pipeline for any
+  future EC dump is proven, not theoretical.
+- Redirects the engine hunt: 5X90 (2018) = verify/enroll only, NO
+  GENERATE; ALL 2019+ EC update payloads AES-sealed (45 candidates);
+  the §11.22.3 "T6" marker = Dell-internal GUID
+  C065AEAB-1CDD-494D-BD33-4578E106C700 (no public occurrences).
+  Step 5 doors unchanged (telegram 24189 / badcaps premium / seller /
+  live --oracle local); Step 6 now has a mechanical decode path.

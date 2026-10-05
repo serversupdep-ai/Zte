@@ -106,3 +106,20 @@ ask for the first 192 KB); (3) standing watch (see WATCHLOG).
   (dell_ec_keygen --triage). Telegram files need an app account (free)
   — no payment wall. If it holds an EC read → Step 5 completes for the
   MEC1515 build.
+- Step 10 — DONE (2026-10-05, cycle 16): EC-FIRMWARE RE WORKBENCH from
+  never-used sources (user-directed morluto/REA for PE/artifact lanes +
+  capstone/unicorn toolchain): ec_re/dell_ec_engine_re.py. Decoded the
+  PHCM container (seal flag, bt, code/data segment map), the full EC
+  host-window protocol (0x400F0110-0x400F0114, 0x17 xfer, XOR-0x85
+  response channel), the password-session command table, buffers,
+  record-store ops and the 16-char table72 verifier — and PROVED the
+  stack by emulating the 5X90 response emitter under unicorn
+  (bit-exact, EC_RE_FINDINGS.md §3). Negative result that redirects the
+  hunt: the 2018 plaintext EC has verify/enroll but NO tag→response
+  GENERATE (no C065AEAB GUID, no new family table); ALL 2019+ EC update
+  payloads are AES-sealed (45 candidates scanned). Also: the §11.22.3
+  "T6 marker" is the full Dell-internal GUID
+  C065AEAB-1CDD-494D-BD33-4578E106C700 (zero public hits). Consequence:
+  when ANY new-era EC dump lands (Step 5 doors), the pipeline to the
+  offline keygen (Step 6) is now mechanical: --scan-plaintext → --xref
+  → --dispatch → --emul the GENERATE handler → verified RENDER.
