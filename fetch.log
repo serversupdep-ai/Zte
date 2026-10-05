@@ -50,7 +50,7 @@
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334497 bytes, sha256 41eb371689f49f7d…)
+    [saved] mediafire_3410/mediafire_page.html (334500 bytes, sha256 6e28cfcd79d84812…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -192,389 +192,90 @@
     [fetch failed 202 https://www.badcaps.net/filedata/fetch?id=2092890] https://www.badcaps.net/filedata/fetch?id=2092890
 [FILE] https://www.badcaps.net/filedata/fetch?id=2121862 -> raw/badcaps_ec/badcaps_Latitude5401_locked_UT2_UT6.rar
     [fetch failed 202 https://www.badcaps.net/filedata/fetch?id=2121862] https://www.badcaps.net/filedata/fetch?id=2121862
-[PAGE] https://t.me/s/biosarchive?q=EC -> raw/tg_biosarchive_EC
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_EC/page.html (171510 bytes, sha256 69aef943b75eb96f…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_EC/dl (6391 bytes)
-[PAGE] https://t.me/s/biosarchive?q=EC%E7%A8%8B%E5%BA%8F -> raw/tg_biosarchive_EC程序
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_EC程序/page.html (20393 bytes, sha256 d219c96bdd3e55f3…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_EC程序/dl (6391 bytes)
-[PAGE] https://t.me/s/biosarchive?q=MEC1515 -> raw/tg_biosarchive_MEC1515
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_MEC1515/page.html (25747 bytes, sha256 64fbcf679c6a022a…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_MEC1515/dl (6391 bytes)
-[PAGE] https://t.me/s/biosarchive?q=MEC1618 -> raw/tg_biosarchive_MEC1618
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_MEC1618/page.html (20392 bytes, sha256 80b2c70073459bb6…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_MEC1618/dl (6391 bytes)
-[PAGE] https://t.me/s/biosarchive?q=MEC1521 -> raw/tg_biosarchive_MEC1521
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_MEC1521/page.html (20389 bytes, sha256 468a1e36098f477a…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_MEC1521/dl (6391 bytes)
+[skip] tg_biosarchive_EC already fetched
+[skip] tg_biosarchive_EC程序 already fetched
+[skip] tg_biosarchive_MEC1515 already fetched
+[skip] tg_biosarchive_MEC1618 already fetched
+[skip] tg_biosarchive_MEC1521 already fetched
 [skip] tg_biosarchive_3090 already fetched
-[PAGE] https://t.me/s/biosarchive?q=3080 -> raw/tg_biosarchive_3080
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_3080/page.html (31211 bytes, sha256 85826acf058b5cab…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_3080/dl (6391 bytes)
-[PAGE] https://t.me/s/biosarchive?q=5080 -> raw/tg_biosarchive_5080
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_5080/page.html (25341 bytes, sha256 84c90317b5a61ad8…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_5080/dl (6391 bytes)
-[PAGE] https://t.me/s/biosarchive?q=7080 -> raw/tg_biosarchive_7080
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_7080/page.html (28533 bytes, sha256 67e35058aaa8b208…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_7080/dl (6390 bytes)
-[PAGE] https://t.me/s/biosarchive?q=3410 -> raw/tg_biosarchive_3410
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_3410/page.html (85976 bytes, sha256 0c4f55a51d52ff6f…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_3410/dl (6391 bytes)
-[PAGE] https://t.me/s/biosarchive?q=5410 -> raw/tg_biosarchive_5410
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_5410/page.html (59605 bytes, sha256 2b70670242d9ec03…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_5410/dl (6390 bytes)
-[PAGE] https://t.me/s/biosarchive?q=5401 -> raw/tg_biosarchive_5401
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_5401/page.html (34652 bytes, sha256 417b1003b7f55bd4…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_5401/dl (6391 bytes)
-[PAGE] https://t.me/s/biosarchive?q=IPCML -> raw/tg_biosarchive_IPCML
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_IPCML/page.html (61417 bytes, sha256 ea9c9e6fc83b45d7…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_IPCML/dl (6391 bytes)
-[PAGE] https://t.me/s/biosarchive?q=QUAKEL14 -> raw/tg_biosarchive_QUAKEL14
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_QUAKEL14/page.html (32546 bytes, sha256 e985a4b2e64be726…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_QUAKEL14/dl (6391 bytes)
-[PAGE] https://t.me/s/biosarchive?q=MOCKINGBIRD -> raw/tg_biosarchive_MOCKINGBIRD
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_MOCKINGBIRD/page.html (94724 bytes, sha256 3a3ecc47420ced4e…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_MOCKINGBIRD/dl (6391 bytes)
-[PAGE] https://t.me/s/biosarchive?q=CYBORG -> raw/tg_biosarchive_CYBORG
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
-    [saved] tg_biosarchive_CYBORG/page.html (152173 bytes, sha256 1baa070d93e20f1e…)
-    [links] 1 candidates
-    [saved] tg_biosarchive_CYBORG/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=EC -> raw/tg_schematicslaptop_EC
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_EC/page.html (129934 bytes, sha256 f539f8272e2e735f…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_EC/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=EC%E7%A8%8B%E5%BA%8F -> raw/tg_schematicslaptop_EC程序
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_EC程序/page.html (20791 bytes, sha256 c50230227a68c010…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_EC程序/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=MEC1515 -> raw/tg_schematicslaptop_MEC1515
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_MEC1515/page.html (20789 bytes, sha256 9bab94518cd610e4…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_MEC1515/dl (6392 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=MEC1618 -> raw/tg_schematicslaptop_MEC1618
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_MEC1618/page.html (20789 bytes, sha256 84a7777e82353fbf…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_MEC1618/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=MEC1521 -> raw/tg_schematicslaptop_MEC1521
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_MEC1521/page.html (20788 bytes, sha256 097bbabb619c9c7a…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_MEC1521/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=3090 -> raw/tg_schematicslaptop_3090
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_3090/page.html (63993 bytes, sha256 88fb8afd8c1ab1f6…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_3090/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=3080 -> raw/tg_schematicslaptop_3080
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_3080/page.html (58316 bytes, sha256 9b59607aa14202d6…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_3080/dl (6390 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=5080 -> raw/tg_schematicslaptop_5080
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_5080/page.html (20784 bytes, sha256 3dc85c8799e8a3b7…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_5080/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=7080 -> raw/tg_schematicslaptop_7080
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_7080/page.html (20784 bytes, sha256 12ae1ae1e0e449a7…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_7080/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=3410 -> raw/tg_schematicslaptop_3410
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_3410/page.html (32232 bytes, sha256 5fe2486e850edb86…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_3410/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=5410 -> raw/tg_schematicslaptop_5410
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_5410/page.html (37070 bytes, sha256 f237b0a347687870…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_5410/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=5401 -> raw/tg_schematicslaptop_5401
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_5401/page.html (36789 bytes, sha256 ad9a8014abd095d8…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_5401/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=IPCML -> raw/tg_schematicslaptop_IPCML
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_IPCML/page.html (25549 bytes, sha256 32ec2a697a5902ee…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_IPCML/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=QUAKEL14 -> raw/tg_schematicslaptop_QUAKEL14
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_QUAKEL14/page.html (20791 bytes, sha256 4b52f60c9ad780ad…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_QUAKEL14/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=MOCKINGBIRD -> raw/tg_schematicslaptop_MOCKINGBIRD
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_MOCKINGBIRD/page.html (50430 bytes, sha256 544b0e11a304bb12…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_MOCKINGBIRD/dl (6391 bytes)
-[PAGE] https://t.me/s/schematicslaptop?q=CYBORG -> raw/tg_schematicslaptop_CYBORG
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>schematics|boardviews| ARCHIVE 💻💻 – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-'
-    [saved] tg_schematicslaptop_CYBORG/page.html (132201 bytes, sha256 eb0be802273bf12a…)
-    [links] 1 candidates
-    [saved] tg_schematicslaptop_CYBORG/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=EC -> raw/tg_ithinkhsbios_EC
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_EC/page.html (9660 bytes, sha256 8623e9e240e604ca…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_EC/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=EC%E7%A8%8B%E5%BA%8F -> raw/tg_ithinkhsbios_EC程序
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_EC程序/page.html (9659 bytes, sha256 d3acd9810ce4fa87…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_EC程序/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=MEC1515 -> raw/tg_ithinkhsbios_MEC1515
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_MEC1515/page.html (9659 bytes, sha256 750ec6e81ba7b3bb…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_MEC1515/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=MEC1618 -> raw/tg_ithinkhsbios_MEC1618
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_MEC1618/page.html (9656 bytes, sha256 8809df679df30f78…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_MEC1618/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=MEC1521 -> raw/tg_ithinkhsbios_MEC1521
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_MEC1521/page.html (9659 bytes, sha256 f8d4a55a0cd9d71f…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_MEC1521/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=3090 -> raw/tg_ithinkhsbios_3090
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_3090/page.html (9659 bytes, sha256 6dc0165b1b07a797…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_3090/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=3080 -> raw/tg_ithinkhsbios_3080
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_3080/page.html (9659 bytes, sha256 aacf9a9d60cd36d3…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_3080/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=5080 -> raw/tg_ithinkhsbios_5080
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_5080/page.html (9659 bytes, sha256 c5cbeaad40a448df…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_5080/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=7080 -> raw/tg_ithinkhsbios_7080
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_7080/page.html (9659 bytes, sha256 e4010f1875a1966e…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_7080/dl (6392 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=3410 -> raw/tg_ithinkhsbios_3410
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_3410/page.html (9658 bytes, sha256 e646a897509cf219…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_3410/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=5410 -> raw/tg_ithinkhsbios_5410
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_5410/page.html (9660 bytes, sha256 07a6fcf0912c756e…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_5410/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=5401 -> raw/tg_ithinkhsbios_5401
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_5401/page.html (9660 bytes, sha256 8164f9808d16f0c5…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_5401/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=IPCML -> raw/tg_ithinkhsbios_IPCML
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_IPCML/page.html (9659 bytes, sha256 4ab0ee248681a4fe…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_IPCML/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=QUAKEL14 -> raw/tg_ithinkhsbios_QUAKEL14
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_QUAKEL14/page.html (9658 bytes, sha256 68e315789f72d35a…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_QUAKEL14/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=MOCKINGBIRD -> raw/tg_ithinkhsbios_MOCKINGBIRD
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_MOCKINGBIRD/page.html (9657 bytes, sha256 c3f01ebc65f60c1c…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_MOCKINGBIRD/dl (6391 bytes)
-[PAGE] https://t.me/s/ithinkhsbios?q=CYBORG -> raw/tg_ithinkhsbios_CYBORG
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: Contact @ithinkhsbios</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{i'
-    [saved] tg_ithinkhsbios_CYBORG/page.html (9660 bytes, sha256 7747b51fff47909e…)
-    [links] 1 candidates
-    [saved] tg_ithinkhsbios_CYBORG/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=EC -> raw/tg_afsbiosfree_EC
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_EC/page.html (10948 bytes, sha256 3a798ba92c5c4071…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_EC/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=EC%E7%A8%8B%E5%BA%8F -> raw/tg_afsbiosfree_EC程序
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_EC程序/page.html (10948 bytes, sha256 492e85eab751e21d…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_EC程序/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=MEC1515 -> raw/tg_afsbiosfree_MEC1515
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_MEC1515/page.html (10948 bytes, sha256 2f8cbac72cc04139…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_MEC1515/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=MEC1618 -> raw/tg_afsbiosfree_MEC1618
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_MEC1618/page.html (10948 bytes, sha256 1389e04e2ae22524…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_MEC1618/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=MEC1521 -> raw/tg_afsbiosfree_MEC1521
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_MEC1521/page.html (10949 bytes, sha256 695b5ae17f76a441…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_MEC1521/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=3090 -> raw/tg_afsbiosfree_3090
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_3090/page.html (10949 bytes, sha256 8d8c6517e0ba90ba…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_3090/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=3080 -> raw/tg_afsbiosfree_3080
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_3080/page.html (10949 bytes, sha256 b55881e3ff8563df…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_3080/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=5080 -> raw/tg_afsbiosfree_5080
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_5080/page.html (10948 bytes, sha256 7af74431475bb465…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_5080/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=7080 -> raw/tg_afsbiosfree_7080
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_7080/page.html (10949 bytes, sha256 0b5fc5cefb92fd6d…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_7080/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=3410 -> raw/tg_afsbiosfree_3410
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_3410/page.html (10948 bytes, sha256 525d68c0eac9e359…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_3410/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=5410 -> raw/tg_afsbiosfree_5410
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_5410/page.html (10947 bytes, sha256 b9c07dbc2ef81424…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_5410/dl (6388 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=5401 -> raw/tg_afsbiosfree_5401
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_5401/page.html (10947 bytes, sha256 b22e5715038fd281…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_5401/dl (6390 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=IPCML -> raw/tg_afsbiosfree_IPCML
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_IPCML/page.html (10948 bytes, sha256 c5032a8f65e369f8…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_IPCML/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=QUAKEL14 -> raw/tg_afsbiosfree_QUAKEL14
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_QUAKEL14/page.html (10948 bytes, sha256 bee847bf59260157…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_QUAKEL14/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=MOCKINGBIRD -> raw/tg_afsbiosfree_MOCKINGBIRD
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_MOCKINGBIRD/page.html (10948 bytes, sha256 206d99c795c0aeba…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_MOCKINGBIRD/dl (6391 bytes)
-[PAGE] https://t.me/s/afsbiosfree?q=CYBORG -> raw/tg_afsbiosfree_CYBORG
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram: View @afsbiosfree</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <script>location.hash=\'\'</script>\n    <script>try{if(wi'
-    [saved] tg_afsbiosfree_CYBORG/page.html (10948 bytes, sha256 97ea8e187f2b47a2…)
-    [links] 1 candidates
-    [saved] tg_afsbiosfree_CYBORG/dl (6391 bytes)
-[PAGE] https://www.badcaps.net/file_search?search=EC -> raw/badcaps_fs_EC
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_EC/page.html (2387 bytes, sha256 cf0b0dd911030033…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=EC%E7%A8%8B%E5%BA%8F -> raw/badcaps_fs_EC程序
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_EC程序/page.html (2387 bytes, sha256 def18d3e26b3fdcb…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=MEC1515 -> raw/badcaps_fs_MEC1515
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_MEC1515/page.html (2387 bytes, sha256 bff70c3c45e29a82…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=MEC1618 -> raw/badcaps_fs_MEC1618
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_MEC1618/page.html (2387 bytes, sha256 8a5debe3d6d874a2…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=MEC1521 -> raw/badcaps_fs_MEC1521
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_MEC1521/page.html (2387 bytes, sha256 1d65919900ac565a…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=3090 -> raw/badcaps_fs_3090
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_3090/page.html (2387 bytes, sha256 d8a514d2a6b4a834…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=3080 -> raw/badcaps_fs_3080
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_3080/page.html (2387 bytes, sha256 79823d2db931d19a…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=5080 -> raw/badcaps_fs_5080
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_5080/page.html (2387 bytes, sha256 e65b9aba7c823fe3…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=7080 -> raw/badcaps_fs_7080
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_7080/page.html (2387 bytes, sha256 e25f25a1c284ead7…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=3410 -> raw/badcaps_fs_3410
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_3410/page.html (2387 bytes, sha256 1d780c7dd9850e88…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=5410 -> raw/badcaps_fs_5410
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_5410/page.html (2387 bytes, sha256 de4c1d55c095835d…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=5401 -> raw/badcaps_fs_5401
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_5401/page.html (2387 bytes, sha256 9c8bc0a86aed435c…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=IPCML -> raw/badcaps_fs_IPCML
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_IPCML/page.html (2387 bytes, sha256 605872b8a61736e6…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=QUAKEL14 -> raw/badcaps_fs_QUAKEL14
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_QUAKEL14/page.html (2387 bytes, sha256 8ab575ccb726ed1f…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=MOCKINGBIRD -> raw/badcaps_fs_MOCKINGBIRD
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_MOCKINGBIRD/page.html (2387 bytes, sha256 cd5858e6e81bc64f…)
-    [links] 0 candidates
-[PAGE] https://www.badcaps.net/file_search?search=CYBORG -> raw/badcaps_fs_CYBORG
-    [page head] '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1">\n    <title></title>\n    <style>\n        body {\n            font-family: "Arial";\n        }\n    </sty'
-    [saved] badcaps_fs_CYBORG/page.html (2387 bytes, sha256 1fcfb61fe531aa04…)
-    [links] 0 candidates
-[PAGE] https://archive.org/advancedsearch.php?q=%28%22EC%E7%A8%8B%E5%BA%8F%22%20OR%20%22EC%20dump%22%20OR%20MEC1515%20OR%20MEC1618%29%20dell&fl%5B%5D=identifier&fl%5B%5D=title&rows=50&output=json -> raw/archive_ec_dell
-    [page head] '{"responseHeader":{"status":0,"QTime":75,"params":{"query":"((text:EC\\u7a0b\\u5e8f OR text:EC\\u7a0b\\u5e8f OR text__reviews:EC\\u7a0b\\u5e8f) OR (text:&quot;EC dump&quot; OR text:&quot;EC dump&quot; OR text__reviews:&quot;EC dump&quot;) OR (tex'
-    [saved] archive_ec_dell/page.html (594 bytes, sha256 228ca8ba4440ae92…)
+[skip] tg_biosarchive_3080 already fetched
+[skip] tg_biosarchive_5080 already fetched
+[skip] tg_biosarchive_7080 already fetched
+[skip] tg_biosarchive_3410 already fetched
+[skip] tg_biosarchive_5410 already fetched
+[skip] tg_biosarchive_5401 already fetched
+[skip] tg_biosarchive_IPCML already fetched
+[skip] tg_biosarchive_QUAKEL14 already fetched
+[skip] tg_biosarchive_MOCKINGBIRD already fetched
+[skip] tg_biosarchive_CYBORG already fetched
+[skip] tg_schematicslaptop_EC already fetched
+[skip] tg_schematicslaptop_EC程序 already fetched
+[skip] tg_schematicslaptop_MEC1515 already fetched
+[skip] tg_schematicslaptop_MEC1618 already fetched
+[skip] tg_schematicslaptop_MEC1521 already fetched
+[skip] tg_schematicslaptop_3090 already fetched
+[skip] tg_schematicslaptop_3080 already fetched
+[skip] tg_schematicslaptop_5080 already fetched
+[skip] tg_schematicslaptop_7080 already fetched
+[skip] tg_schematicslaptop_3410 already fetched
+[skip] tg_schematicslaptop_5410 already fetched
+[skip] tg_schematicslaptop_5401 already fetched
+[skip] tg_schematicslaptop_IPCML already fetched
+[skip] tg_schematicslaptop_QUAKEL14 already fetched
+[skip] tg_schematicslaptop_MOCKINGBIRD already fetched
+[skip] tg_schematicslaptop_CYBORG already fetched
+[skip] tg_ithinkhsbios_EC already fetched
+[skip] tg_ithinkhsbios_EC程序 already fetched
+[skip] tg_ithinkhsbios_MEC1515 already fetched
+[skip] tg_ithinkhsbios_MEC1618 already fetched
+[skip] tg_ithinkhsbios_MEC1521 already fetched
+[skip] tg_ithinkhsbios_3090 already fetched
+[skip] tg_ithinkhsbios_3080 already fetched
+[skip] tg_ithinkhsbios_5080 already fetched
+[skip] tg_ithinkhsbios_7080 already fetched
+[skip] tg_ithinkhsbios_3410 already fetched
+[skip] tg_ithinkhsbios_5410 already fetched
+[skip] tg_ithinkhsbios_5401 already fetched
+[skip] tg_ithinkhsbios_IPCML already fetched
+[skip] tg_ithinkhsbios_QUAKEL14 already fetched
+[skip] tg_ithinkhsbios_MOCKINGBIRD already fetched
+[skip] tg_ithinkhsbios_CYBORG already fetched
+[skip] tg_afsbiosfree_EC already fetched
+[skip] tg_afsbiosfree_EC程序 already fetched
+[skip] tg_afsbiosfree_MEC1515 already fetched
+[skip] tg_afsbiosfree_MEC1618 already fetched
+[skip] tg_afsbiosfree_MEC1521 already fetched
+[skip] tg_afsbiosfree_3090 already fetched
+[skip] tg_afsbiosfree_3080 already fetched
+[skip] tg_afsbiosfree_5080 already fetched
+[skip] tg_afsbiosfree_7080 already fetched
+[skip] tg_afsbiosfree_3410 already fetched
+[skip] tg_afsbiosfree_5410 already fetched
+[skip] tg_afsbiosfree_5401 already fetched
+[skip] tg_afsbiosfree_IPCML already fetched
+[skip] tg_afsbiosfree_QUAKEL14 already fetched
+[skip] tg_afsbiosfree_MOCKINGBIRD already fetched
+[skip] tg_afsbiosfree_CYBORG already fetched
+[skip] badcaps_fs_EC already fetched
+[skip] badcaps_fs_EC程序 already fetched
+[skip] badcaps_fs_MEC1515 already fetched
+[skip] badcaps_fs_MEC1618 already fetched
+[skip] badcaps_fs_MEC1521 already fetched
+[skip] badcaps_fs_3090 already fetched
+[skip] badcaps_fs_3080 already fetched
+[skip] badcaps_fs_5080 already fetched
+[skip] badcaps_fs_7080 already fetched
+[skip] badcaps_fs_3410 already fetched
+[skip] badcaps_fs_5410 already fetched
+[skip] badcaps_fs_5401 already fetched
+[skip] badcaps_fs_IPCML already fetched
+[skip] badcaps_fs_QUAKEL14 already fetched
+[skip] badcaps_fs_MOCKINGBIRD already fetched
+[skip] badcaps_fs_CYBORG already fetched
+[skip] archive_ec_dell already fetched
+[PAGE] https://t.me/biosarchive/24189?embed=1&mode=tme -> raw/tg_msg_24189_embed
+    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram Widget</title>\n    <base target="_blank">\n    <script>document.cookie="stel_dt="+encodeURIComponent((new Date).getTimezoneOffset())+";path=/;max-age=31536000;sam'
+    [saved] tg_msg_24189_embed/page.html (16477 bytes, sha256 f62c20213b5ea31f…)
     [links] 0 candidates
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
@@ -737,6 +438,7 @@
 [EXTRACT-PASS] tg_ithinkhsbios_MEC1618
 [EXTRACT-PASS] tg_ithinkhsbios_MOCKINGBIRD
 [EXTRACT-PASS] tg_ithinkhsbios_QUAKEL14
+[EXTRACT-PASS] tg_msg_24189_embed
 [EXTRACT-PASS] tg_schematicslaptop_3080
 [EXTRACT-PASS] tg_schematicslaptop_3090
 [EXTRACT-PASS] tg_schematicslaptop_3410

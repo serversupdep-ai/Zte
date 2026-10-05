@@ -4,6 +4,10 @@
    "bytes": 6390,
    "sha256": "100513e269003d54604a8da2f5854bf8e7fb6d7569c1b80498832ac8cb1b859f"
   },
+  "manifest.json": {
+   "bytes": 251,
+   "sha256": "18c0b7c261036c12adef648f2c2bb9f160eb35781490cbf30b0f1fe8bd8ac383"
+  },
   "page.html": {
    "bytes": 28533,
    "sha256": "67e35058aaa8b2081a9950df573163630f32b02929a80f5adf79707f2a51d928"
