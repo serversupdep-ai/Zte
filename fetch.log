@@ -50,7 +50,7 @@
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334503 bytes, sha256 f2ce37b848fe9be2…)
+    [saved] mediafire_3410/mediafire_page.html (334500 bytes, sha256 254edb24c3e05d72…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -173,6 +173,27 @@
     [fetch failed 412 https://cdn.fwupd.org/downloads/e4cc8ccbceb4bd4757a4342348e892a430bfc0d9d57bcbeedbf4c1d864c2a06c-Latitude_5X10_Precision_3550_1.42.0.cab] https://cdn.fwupd.org/downloads/e4cc8ccbceb4bd4757a4342348e892a430bfc0d9d57bcbeedbf4c1d864c2a06c-Latitude_5X10_Precision_3550_1.42.0.cab
 [FILE] https://cdn.fwupd.org/downloads/c32e091afdc570a742d003f3cdaa93871bef2e7fcd77e81a7b704b89766b7d3f-OptiPlex_3080_2.35.0_HDP_firmware.cab -> raw/fwupd_cabs/OptiPlex_3080_2.35.0_HDP.cab
     [fetch failed 412 https://cdn.fwupd.org/downloads/c32e091afdc570a742d003f3cdaa93871bef2e7fcd77e81a7b704b89766b7d3f-OptiPlex_3080_2.35.0_HDP_firmware.cab] https://cdn.fwupd.org/downloads/c32e091afdc570a742d003f3cdaa93871bef2e7fcd77e81a7b704b89766b7d3f-OptiPlex_3080_2.35.0_HDP_firmware.cab
+[FILE] https://dl.dell.com/FOLDER06278094M/1/Inspiron_Vostro_5401_5501_01.03.00.exe -> raw/inspiron_vostro_5x01/Inspiron_Vostro_5401_5501_1.3.0.exe
+    [saved] inspiron_vostro_5x01/Inspiron_Vostro_5401_5501_1.3.0.exe (14617664 bytes)
+[FILE] https://dl.dell.com/FOLDER07627304M/1/Inspiron_Vostro_5401_5501_1.8.1.exe -> raw/inspiron_vostro_5x01/Inspiron_Vostro_5401_5501_1.8.1.exe
+    [saved] inspiron_vostro_5x01/Inspiron_Vostro_5401_5501_1.8.1.exe (18321144 bytes)
+[FILE] https://dl.dell.com/FOLDER08776062M/1/Inspiron_Vostro_5401_5501_1.16.0.exe -> raw/inspiron_vostro_5x01/Inspiron_Vostro_5401_5501_1.16.0.exe
+    [saved] inspiron_vostro_5x01/Inspiron_Vostro_5401_5501_1.16.0.exe (18689312 bytes)
+[PAGE] https://t.me/s/biosarchive?q=EC -> raw/tg_biosarchive_ec
+    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
+    [saved] tg_biosarchive_ec/page.html (171508 bytes, sha256 3275e64f0b9f625d…)
+    [links] 1 candidates
+    [saved] tg_biosarchive_ec/dl (6391 bytes)
+[PAGE] https://t.me/s/biosarchive?q=3090 -> raw/tg_biosarchive_3090
+    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
+    [saved] tg_biosarchive_3090/page.html (25341 bytes, sha256 bc699520dfc30732…)
+    [links] 1 candidates
+    [saved] tg_biosarchive_3090/dl (6391 bytes)
+[PAGE] https://t.me/s/biosarchive?q=RT809 -> raw/tg_biosarchive_rt809
+    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>BIOS ARCHIVE | BIOS |Laptop Firmware &amp; Tools – Telegram</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-s'
+    [saved] tg_biosarchive_rt809/page.html (20390 bytes, sha256 7f5983cc30519ee0…)
+    [links] 1 candidates
+    [saved] tg_biosarchive_rt809/dl (6391 bytes)
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -244,6 +265,7 @@
 [EXTRACT-PASS] indiafix_3090_212037_wb
 [EXTRACT-PASS] indiafix_3410_19709
 [EXTRACT-PASS] indiafix_3410_wayback
+[EXTRACT-PASS] inspiron_vostro_5x01
 [EXTRACT-PASS] mediafire_3410
 [EXTRACT-PASS] mediafire_3410_page
 [EXTRACT-PASS] misc
@@ -263,6 +285,9 @@
 [EXTRACT-PASS] tg_3410_embed13724
 [EXTRACT-PASS] tg_3410_msg13723
 [EXTRACT-PASS] tg_3410_msg13724
+[EXTRACT-PASS] tg_biosarchive_3090
+[EXTRACT-PASS] tg_biosarchive_ec
+[EXTRACT-PASS] tg_biosarchive_rt809
 [EXTRACT-PASS] tgbiosarchive_watch
 [EXTRACT-PASS] vinafix_3090_45618
 [EXTRACT-PASS] vinafix_3090_45618_watch
