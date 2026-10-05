@@ -9,7 +9,7 @@
 	data-content-key=""
 	data-logged-in="false"
 	data-cookie-prefix="xf_"
-	data-csrf="1791158898,664bcd392e7c95e2c89681dc0586d9d9"
+	data-csrf="1791194368,2f1733b2aa03a876e790daa4a8d9996c"
 	class="has-no-js template-vinafix_attachment_limiter_guest_file_blocked"
 	>
 <head>
@@ -153,12 +153,12 @@
 					consented: ["optional","_third_party"]
 				},
 				cacheKey: '60356f7aa4f82ca98e605b4e87a0a057',
-				csrf: '1791158898,664bcd392e7c95e2c89681dc0586d9d9',
+				csrf: '1791194368,2f1733b2aa03a876e790daa4a8d9996c',
 				js: {"\/js\/sv\/ese\/xf\/core_handlers.min.js?_v=1dea0120":true,"\/js\/sv\/lib\/link-post.min.js?_v=1dea0120":true,"\/js\/vinafix\/ui-foundations\/header-search-hover.js?_v=1dea0120":true},
 				fullJs: false,
 				css: {"public:notices.less":true,"public:svESE_autocomplete.less":true,"public:vinafix_ui_compact_header.less":true,"public:vinafix_ui_foundations.less":true,"public:vinafix_ui_node_bento.less":true,"public:extra.less":true},
 				time: {
-					now: 1791158898,
+					now: 1791194368,
 					today: 1791133200,
 					todayDow: 1,
 					tomorrow: 1791219600,
@@ -570,7 +570,7 @@
 			
 		</div>
 
-		<input type="hidden" name="_xfToken" value="1791158898,664bcd392e7c95e2c89681dc0586d9d9" />
+		<input type="hidden" name="_xfToken" value="1791194368,2f1733b2aa03a876e790daa4a8d9996c" />
 	</form>
 
 	</div>
@@ -892,7 +892,7 @@
 									</span>
 									</div>
 
-									<input type="hidden" name="_xfToken" value="1791158898,664bcd392e7c95e2c89681dc0586d9d9" />
+									<input type="hidden" name="_xfToken" value="1791194368,2f1733b2aa03a876e790daa4a8d9996c" />
 								</form>
 							</div>
 						
