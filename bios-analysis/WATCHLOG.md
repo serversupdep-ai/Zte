@@ -288,3 +288,27 @@
 - Microchip MEC152x datasheet (in-repo) documents the secure-boot
   architecture incl. ECDH-private-key OTP bytes 0-31 — cite for any
   future argument about why sealing is unbreakable offline.
+
+## Cycle 20 watch adds (2026-10-06)
+- SANDBOX RESET #3 before cycle 20: root cause of §18 fetchlist loss =
+  UNCOMMITTED edit + reset. Fix: fetchlist additions are now COMMITTED
+  (§18b lines re-added + 4PDA venue lines). relay/ is a TRACKED dir with
+  its own commit history (fetch runs land as "fetch: raw repair dumps
+  from fetchlist [skip ci]" commits).
+- RELAY TRIAGE (all landed artifacts, 2026-10-06): indiafix_3410_19709
+  delivered a SECOND 3410 board's chip set (DIS 8L 19709-1, Nov 2021):
+  8MB XM25QH64A companion = 2 PHCM slots @0x1000/0x41000 (sealed; note
+  2-slot variant vs 19746-1's 3-slot) + 16MB main; drive_2/3 = the known
+  19746-1 8MB (3 slots) + all-zero 16MB "v1.6.0" prepared image. Google
+  Drive folder fetches (ECfolder_page drive_N.bin, drive_child*) = login
+  walls (HTML), not files. pkbiosfix/vinafix "attachments" = HTML error
+  pages. tg_3410_13723/13724 + tg_3090_23340 (telegram.org/dl?tme=) =
+  6.4KB HTML error stubs — that direct-download form is DEAD. tg 24189
+  embed page = board PHOTO only (cdn4.telesco.pe jpg), no document
+  deep-link: telegram documents stay app-only (user-click door).
+- GitHub leak-lane CLOSED permanently: code search for render-alphabet
+  substrings (0Q2drGk99WLJ1EGn / z2pzcU7JaBXIjbk / FMxN[Z638myIL2r) =
+  0 hits; MEC1515+ext:bin = 0; no Dell EC dump/tool has ever leaked to
+  public GitHub.
+- 4PDA venue identified (RT809H topic 940332 + dump-collection topic
+  733456) — queued as watch pages (§20).

@@ -311,3 +311,18 @@ PAGE|https://www.badcaps.net/file_search?search=CYBORG|badcaps_fs_CYBORG
 PAGE|https://archive.org/advancedsearch.php?q=%28%22EC%E7%A8%8B%E5%BA%8F%22%20OR%20%22EC%20dump%22%20OR%20MEC1515%20OR%20MEC1618%29%20dell&fl%5B%5D=identifier&fl%5B%5D=title&rows=50&output=json|archive_ec_dell
 # === §15b MEC1515 board archive (biosarchive msg 24189, EDW40 LA-H451P 2019 MEC1515-NB) ===
 PAGE|https://t.me/biosarchive/24189?embed=1&mode=tme|tg_msg_24189_embed
+
+# === §18b alexlaptoprepair "bios dump + ec" archives (cycle 18 find, committed cycle 20) ===
+# 3410/3510 family = 8FC8 era. Attachments are XenForo links; forum RAR
+# password may be required (try: alexlaptoprepair.com / alexlaptoprepair /
+# www.alexlaptoprepair.com / dell). Thread pages verified public 2026-10-06.
+FILE|https://www.alexlaptoprepair.com/forums/attachments/dell-vostro-15-3510-gdm51-la-l242p-rev1-bios-ec-rar.8521/|alex_3510_L242P_bios_ec.rar|alex_3510
+FILE|https://www.alexlaptoprepair.com/forums/attachments/dell-15-3510-la-l246p-rev-1-0-bios-dump-cpu-srk05-rar.8856/|alex_3510_L246P_bios_ec.rar|alex_3510
+FILE|https://www.alexlaptoprepair.com/forums/attachments/dell-latitude-5580-la-e091p-bios-ec-dumps-rar.5823/|alex_5580_L091P_bios_ec.rar|alex_5580
+PAGE|https://www.alexlaptoprepair.com/forums/threads/dell-inspiron-15-3501-gdi4a-la-k032p-rev-1-0-a00-bios-dumps-clearme.5004/|alex_3501_L032P_thread
+
+# === §20 4PDA venue (new, cycle 20) ===
+# RT809H programmer mega-thread (940332) + dump-collection topic (733456).
+# Guest attachment access uncertain from runner — watch only.
+PAGE|https://4pda.to/forum/index.php?showtopic=733456|4pda_dump_collection
+PAGE|https://4pda.to/forum/index.php?showtopic=940332|4pda_rt809h
