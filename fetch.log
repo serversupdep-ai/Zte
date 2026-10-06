@@ -50,7 +50,7 @@
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334500 bytes, sha256 6e28cfcd79d84812…)
+    [saved] mediafire_3410/mediafire_page.html (334500 bytes, sha256 f0c48a154b0ef6cc…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -273,10 +273,27 @@
 [skip] badcaps_fs_MOCKINGBIRD already fetched
 [skip] badcaps_fs_CYBORG already fetched
 [skip] archive_ec_dell already fetched
-[PAGE] https://t.me/biosarchive/24189?embed=1&mode=tme -> raw/tg_msg_24189_embed
-    [page head] '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="utf-8">\n    <title>Telegram Widget</title>\n    <base target="_blank">\n    <script>document.cookie="stel_dt="+encodeURIComponent((new Date).getTimezoneOffset())+";path=/;max-age=31536000;sam'
-    [saved] tg_msg_24189_embed/page.html (16477 bytes, sha256 f62c20213b5ea31f…)
+[skip] tg_msg_24189_embed already fetched
+[FILE] https://www.alexlaptoprepair.com/forums/attachments/dell-vostro-15-3510-gdm51-la-l242p-rev1-bios-ec-rar.8521/ -> raw/alex_3510/alex_3510_L242P_bios_ec.rar
+    [fetch failed 403 https://www.alexlaptoprepair.com/forums/attachments/dell-vostro-15-3510-gdm51-la-l242p-rev1-bios-ec-rar.8521/] https://www.alexlaptoprepair.com/forums/attachments/dell-vostro-15-3510-gdm51-la-l242p-rev1-bios-ec-rar.8521/
+[FILE] https://www.alexlaptoprepair.com/forums/attachments/dell-15-3510-la-l246p-rev-1-0-bios-dump-cpu-srk05-rar.8856/ -> raw/alex_3510/alex_3510_L246P_bios_ec.rar
+    [fetch failed 403 https://www.alexlaptoprepair.com/forums/attachments/dell-15-3510-la-l246p-rev-1-0-bios-dump-cpu-srk05-rar.8856/] https://www.alexlaptoprepair.com/forums/attachments/dell-15-3510-la-l246p-rev-1-0-bios-dump-cpu-srk05-rar.8856/
+[FILE] https://www.alexlaptoprepair.com/forums/attachments/dell-latitude-5580-la-e091p-bios-ec-dumps-rar.5823/ -> raw/alex_5580/alex_5580_L091P_bios_ec.rar
+    [fetch failed 403 https://www.alexlaptoprepair.com/forums/attachments/dell-latitude-5580-la-e091p-bios-ec-dumps-rar.5823/] https://www.alexlaptoprepair.com/forums/attachments/dell-latitude-5580-la-e091p-bios-ec-dumps-rar.5823/
+[PAGE] https://www.alexlaptoprepair.com/forums/threads/dell-inspiron-15-3501-gdi4a-la-k032p-rev-1-0-a00-bios-dumps-clearme.5004/ -> raw/alex_3501_L032P_thread
+    [page head] '<!DOCTYPE html>\n<html id="XF" lang="en-US" dir="LTR"\n\tdata-app="public"\n\tdata-template="thread_view"\n\tdata-container-key="node-2"\n\tdata-content-key="thread-5004"\n\tdata-logged-in="false"\n\tdata-cookie-prefix="xf_"\n\tclass="has-no-js template-t'
+    [saved] alex_3501_L032P_thread/page.html (120582 bytes, sha256 ae5117a80b8ac3fa…)
     [links] 0 candidates
+[PAGE] https://4pda.to/forum/index.php?showtopic=733456 -> raw/4pda_dump_collection
+    [page head] '<!DOCTYPE html>\n<html>\n<head>\n<title>4PDA .:. Всё в порядке, но...</title>\n<meta charset="utf-8" />\n<style type="text/css">\n* {\n\tmargin: 0;\n\tpadding: 0;\n\tbox-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;\n\t'
+    [saved] 4pda_dump_collection/page.html (10444 bytes, sha256 ea69f11a1d6e31ca…)
+    [links] 0 candidates
+[PAGE] https://4pda.to/forum/index.php?showtopic=940332 -> raw/4pda_rt809h
+    [page head] '<!DOCTYPE html>\n<html>\n<head>\n<title>4PDA .:. Всё в порядке, но...</title>\n<meta charset="utf-8" />\n<style type="text/css">\n* {\n\tmargin: 0;\n\tpadding: 0;\n\tbox-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;\n\t'
+    [saved] 4pda_rt809h/page.html (10444 bytes, sha256 892f323ebfd77cd1…)
+    [links] 0 candidates
+[EXTRACT-PASS] 4pda_dump_collection
+[EXTRACT-PASS] 4pda_rt809h
 [EXTRACT-PASS] Latitude_3410_ECfolder
 [EXTRACT-PASS] Latitude_3410_ECfolder_page
 [EXTRACT-PASS] Latitude_3410_arctic
@@ -318,6 +335,9 @@
 [EXTRACT-PASS] OptiPlex_3090_indiafix_wb
 [EXTRACT-PASS] OptiPlex_7070_BISON
 [EXTRACT-PASS] OptiPlex_7070_Micro_IPCFL
+[EXTRACT-PASS] alex_3501_L032P_thread
+[EXTRACT-PASS] alex_3510
+[EXTRACT-PASS] alex_5580
 [EXTRACT-PASS] alisaler_3410
 [EXTRACT-PASS] alisaler_5430
 [EXTRACT-PASS] alisaler_7430
