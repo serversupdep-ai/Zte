@@ -312,3 +312,34 @@
   public GitHub.
 - 4PDA venue identified (RT809H topic 940332 + dump-collection topic
   733456) — queued as watch pages (§20).
+
+## Cycle 21 (2026-10-09): telegram channel deep-map (user opened the door)
+- Sandbox reset #4 before cycle 21 — standard recovery applied (fetch +
+  reset --hard FETCH_HEAD @ 8b1a02a incl. new relay commits; venv rebuilt).
+- Relay §18b result: alexlaptoprepair attachments are LOGIN-GATED (empty
+  manifests; XenForo requires account to download) — runner cannot pass;
+  4PDA pages = guest wall (0 usable content). Both = user-register doors
+  only. alex_3501 thread page confirms attachment .5960 exists.
+- CAPABILITY: fetch_page reads t.me/s/ SEARCH pages + t.me/<chan>/<msg>
+  permalinks live (telegram.org/dl?tme= still 403 via fetch_page — files
+  remain app-only).
+- **THE FREE-ATTACHMENT DELL LIST (verified 2026-10-09, files attached
+  directly = downloadable in app, no VIP):**
+  * t.me/biosarchive/30339 — OptiPlex 7470 AIO IPCFL-GL "MCU MX25L4005"
+    32MB & 512KB (11.3MB rar) — 2019 OptiPlex EC-class chip read; if the
+    512KB MCU image is pre-sealing-era plaintext EC code = ENGINE FOUND
+    (§11.23.4 GEN-1 hypothesis test). TOP PRIORITY.
+  * t.me/biosarchive/24189 — EDW40 LA-H451P 2019 MEC1515-NB (UC3/UM3/
+    UPD3/UT2 reads) — MEC1515 = 8FC8-family EC silicon dump candidate.
+  * t.me/biosarchive/30462 — Latitude 3310 19717-1 "8MB & 16MB" (9.2MB
+    rar) — 3410-class companion (expect sealed PHCM; backup).
+  * (main-BIOS-only freebies: 30336 7590, 30391 7300/7400, 30533 5491,
+    30543 Inspiron 7400 TGL, 30637 GDL58, 30414/30586/30629 clear-ME)
+- Paid/VIP (NOT_FREE, no attachment): 30284 7410, 30288 3535, 30308 G15,
+  30385 3420 BDV, 30575 3520, 30628 GDC31, 30654 5300, 30736 3521 KBC,
+  29811/30003/30063/30649 non-Dell or misc.
+- Triage plan on arrival: unrar (pw none expected; try indiafix /
+  biosarchive if asked) → triage every .bin: Cortex-M vectable @0,
+  PHCM slots, H<6 regions, mailbox literals 0x400F0110-x11B → if
+  plaintext EC: ec_re pipeline (scan/xref/dispatch/emul) → wire into
+  dell_latest_keygen render.
