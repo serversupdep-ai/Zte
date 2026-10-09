@@ -343,3 +343,25 @@
   PHCM slots, H<6 regions, mailbox literals 0x400F0110-x11B → if
   plaintext EC: ec_re pipeline (scan/xref/dispatch/emul) → wire into
   dell_latest_keygen render.
+
+## Cycle 21c (2026-10-09): telegram download TOOLING (user directive)
+- HTTP path CLOSED WITH EVIDENCE: fresh-minted dl?tme tokens (mint+fetch
+  seconds apart on the runner, 4 UA/header variants incl. mobile +
+  TelegramBot) ALWAYS land on app-promo pages (desktop.telegram.org /
+  android / apps, diag saved in collected/raw/tg_*/tg_diag.txt). Telegram
+  serves channel documents ONLY via MTProto — no plain-HTTP download
+  exists, ever.
+- TOOLS DELIVERED: relay/tg_api_fetch.py (MTProto fetcher, secrets-gated)
+  + relay/tg_login.py + .github/workflows/tg-login.yml = TWO-STAGE
+  INTERACTIVE LOGIN entirely in the GitHub web UI: run 1 stage=phone
+  (+country number) sends the code; run 2 stage=code logs in and
+  IMMEDIATELY downloads the 3 targets (30339/24189/30462) and commits
+  them; session discarded in-run (public repo — session never printed/
+  stored/committed). 2FA stage=password supported. Old login runs
+  auto-deleted (keeps one-time codes out of public run history).
+- CAVEAT documented: default = public Telegram-Desktop api_id pair; if
+  Telegram rejects it from datacenter IPs (API_ID_PUBLISHED), set
+  TG_API_ID/TG_API_HASH repo secrets from a one-time my.telegram.org app
+  (tool prints exact fix instructions).
+- Repo is PUBLIC — never store sessions/credentials in files, artifacts,
+  or logs; GitHub Secrets + in-run session only.
