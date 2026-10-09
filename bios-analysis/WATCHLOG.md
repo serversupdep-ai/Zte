@@ -365,3 +365,17 @@
   (tool prints exact fix instructions).
 - Repo is PUBLIC — never store sessions/credentials in files, artifacts,
   or logs; GitHub Secrets + in-run session only.
+- PR #2 (arena→main) MERGED 2026-10-09 19:45Z (merge commit 75ef452):
+  all session tools now on main ⇒ "Telegram login (two-stage)" workflow
+  REGISTERED + ACTIVE (id 379974292) — the Run-workflow button is live
+  for the repo owner. (Agent token cannot dispatch (403 by design);
+  dispatch is user-only. If Telegram rejects the default public api_id
+  from datacenter IPs: one-time my.telegram.org app + TG_API_ID/
+  TG_API_HASH repo Secrets — tool prints these instructions itself.)
+- USER FLOW (2 clicks + 2 short values, all in GitHub web UI):
+  Actions → Telegram login (two-stage) → Run workflow (branch: main):
+    1) stage=phone, value=+<country><their Telegram number>
+    2) stage=code, value=<code from their Telegram app>  (2FA: 3rd run)
+  ⇒ files auto-download + commit to bios-analysis/collected/raw/
+  (tg_7470AIO_MCU / tg_EDW40_MEC1515NB / tg_3310_19717); session
+  discarded in-run (public-repo safe); old login runs auto-deleted.
