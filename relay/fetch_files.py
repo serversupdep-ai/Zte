@@ -130,34 +130,65 @@ def gdown(url, tag, name):
 
 def telegram_fetch(msg_url, tag, name):
     """t.me/<channel>/<msg> pages mint a session-bound telegram.org/dl?tme=
-    deeplink for the attached document. Fetch page + deeplink with a shared
-    cookie jar (bare curl gets the generic 'Telegram Desktop' promo page)."""
+    deeplink for the attached document. Fresh-mint + immediate fetch with
+    multi-variant fallbacks and full diagnostics saved to the tag dir.
+    (Channel documents normally flow only via MTProto — see
+    relay/tg_api_fetch.py for the credential-safe API path.)"""
     d = os.path.join(OUTBASE, tag)
     os.makedirs(d, exist_ok=True)
     jar = os.path.join(d, ".cookies")
     page_path = os.path.join(d, "page.html")
-    subprocess.run(["curl", "-sSL", "--max-time", "60", "-A", UA, "-c", jar,
-                    "-o", page_path, msg_url], capture_output=True, text=True)
-    try:
-        page = open(page_path, encoding="utf-8", errors="replace").read()
-    except OSError:
+    page = None
+    for v in (msg_url, msg_url.rstrip("/") + "?embed=1&mode=tme"):
+        subprocess.run(["curl", "-sSL", "--max-time", "60", "-A", UA,
+                        "-c", jar, "-o", page_path, v],
+                       capture_output=True, text=True)
+        try:
+            page = open(page_path, encoding="utf-8", errors="replace").read()
+        except OSError:
+            page = None
+        if page and "dl?tme=" in page:
+            break
+    if not page:
         log(f"    [tg page failed] {msg_url}")
         return None
-    m = re.search(r'href="(//telegram\.org/dl\?tme=[A-Za-z0-9_=-]+)"', page)
+    save(tag, "page.html", data=page.encode("utf-8", "replace"))
+    m = re.search(r'(?://|https?://)(telegram\.org/dl\?tme=[A-Za-z0-9_=-]+)', page)
     if not m:
         log(f"    [tg no dl link] {msg_url}")
         return None
-    dl = "https:" + m.group(1)
+    dl = "https://" + m.group(1)
     dest = os.path.join(d, name)
-    r = subprocess.run(["curl", "-sSL", "--max-time", "600", "-A", UA,
-                        "-b", jar, "-e", msg_url, "-o", dest,
-                        "-w", "%{http_code} %{size_download} %{url_effective}", dl],
-                       capture_output=True, text=True)
-    ok = os.path.exists(dest) and os.path.getsize(dest) > 100000
-    log(f"    [tg dl] {r.stdout.strip()} -> {'OK' if ok else 'FAILED'}")
-    if ok:
-        return dest
-    if os.path.exists(dest):
+    diag = [f"msg: {msg_url}", f"dl: {dl}"]
+    # The deeplink serves bytes only in app-capable contexts; try the
+    # plausible HTTP variants and LOG exactly what comes back.
+    combos = [
+        (UA, []),
+        ("Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 "
+         "(KHTML, like Gecko) Chrome/124.0 Mobile Safari/537.36", []),
+        ("TelegramBot (like TwitterBot)", []),
+        (UA, ["X-Telegram-Client: webz"]),
+    ]
+    for ua, extra in combos:
+        if os.path.exists(dest):
+            os.remove(dest)
+        cmd = ["curl", "-sSL", "--max-time", "600", "-A", ua,
+               "-b", jar, "-e", msg_url, "-o", dest,
+               "-w", "%{http_code} %{size_download} %{content_type} %{url_effective}"]
+        for h in extra:
+            cmd += ["-H", h]
+        cmd.append(dl)
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        n = os.path.getsize(dest) if os.path.exists(dest) else 0
+        head = open(dest, "rb").read(16) if n else b""
+        diag.append(f"ua={ua[:24]!r} -> {r.stdout.strip()} magic={head!r}")
+        good_magic = head[:4] in (b"Rar!", b"PK\x03\x04", b"\x1f\x8b")
+        if (good_magic and n > 10000) or n > 1000000:
+            log(f"    [tg dl] GOT {n} bytes magic={head[:8]!r} (ua={ua[:20]!r})")
+            return dest
+    save(tag, "tg_diag.txt", data="\n".join(diag).encode())
+    log("    [tg dl] all variants failed: " + " | ".join(diag[2:4]))
+    if os.path.exists(dest) and os.path.getsize(dest) < 100000:
         os.remove(dest)
     return None
 

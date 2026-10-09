@@ -326,3 +326,8 @@ PAGE|https://www.alexlaptoprepair.com/forums/threads/dell-inspiron-15-3501-gdi4a
 # Guest attachment access uncertain from runner — watch only.
 PAGE|https://4pda.to/forum/index.php?showtopic=733456|4pda_dump_collection
 PAGE|https://4pda.to/forum/index.php?showtopic=940332|4pda_rt809h
+
+# === §21 telegram free-attachment targets (fresh-mint + immediate fetch) ===
+PAGE|https://t.me/biosarchive/30339|tg_7470AIO_MCU
+PAGE|https://t.me/biosarchive/24189|tg_EDW40_MEC1515NB
+PAGE|https://t.me/biosarchive/30462|tg_3310_19717

@@ -30,6 +30,19 @@ jobs:
           sudo apt-get -qq install -y --no-install-recommends unrar p7zip-rar > /dev/null || true
           7z i | head -3 || true
 
+      - name: Telegram API fetch (secrets-gated, harmless if unset)
+        env:
+          TG_API_ID: ${{ secrets.TG_API_ID }}
+          TG_API_HASH: ${{ secrets.TG_API_HASH }}
+          TG_SESSION: ${{ secrets.TG_SESSION }}
+        run: |
+          if [ -n "$TG_API_ID" ] && [ -n "$TG_API_HASH" ] && [ -n "$TG_SESSION" ]; then
+            python3 -m pip -q install pyrogram tgcrypto
+            python3 relay/tg_api_fetch.py 2>&1 | tee tg_api.log || true
+          else
+            echo "TG secrets absent — MTProto path skipped (see relay/tg_api_fetch.py header for one-time setup)"
+          fi
+
       - name: Fetch files
         run: |
           set -x
