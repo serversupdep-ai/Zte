@@ -50,7 +50,7 @@
 [skip] vinafix_wayback_19746 already fetched
 [skip] indiafix_3410_19709 already fetched
 [FILE] https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file -> raw/mediafire_3410/dell_3410_19746_1
-    [saved] mediafire_3410/mediafire_page.html (334493 bytes, sha256 c1acce7a282ba67b…)
+    [saved] mediafire_3410/mediafire_page.html (334489 bytes, sha256 58a6cf6c472e9b8d…)
     [saved] mediafire_3410/mediafire_dell_3410_19746_1.bin
 [FILE] https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_ -> raw/alisaler_5430/alisaler_5430_bios
     [saved] alisaler_5430/drive_alisaler_5430_bios.bin via gdown (15985568 bytes)
@@ -283,18 +283,9 @@
 [skip] alex_3501_L032P_thread already fetched
 [skip] 4pda_dump_collection already fetched
 [skip] 4pda_rt809h already fetched
-[PAGE] https://t.me/biosarchive/30339 -> raw/tg_7470AIO_MCU
-    [saved] tg_7470AIO_MCU/page.html (38063 bytes, sha256 38ed9abfe7895914…)
-    [saved] tg_7470AIO_MCU/tg_diag.txt (599 bytes, sha256 0fa418fc6a3a59bc…)
-    [tg dl] all variants failed: ua='Mozilla/5.0 (Windows NT ' -> 200 6391 text/html; charset=utf-8 https://desktop.telegram.org/ magic=b'<!DOCTYPE html>\n' | ua='Mozilla/5.0 (Linux; Andr' -> 200 6161 text/html; charset=utf-8 https://telegram.org/android magic=b'<!DOCTYPE html>\n'
-[PAGE] https://t.me/biosarchive/24189 -> raw/tg_EDW40_MEC1515NB
-    [saved] tg_EDW40_MEC1515NB/page.html (37870 bytes, sha256 676ecdee9276d657…)
-    [saved] tg_EDW40_MEC1515NB/tg_diag.txt (598 bytes, sha256 e399ee05c6f78c9c…)
-    [tg dl] all variants failed: ua='Mozilla/5.0 (Windows NT ' -> 200 6390 text/html; charset=utf-8 https://desktop.telegram.org/ magic=b'<!DOCTYPE html>\n' | ua='Mozilla/5.0 (Linux; Andr' -> 200 6161 text/html; charset=utf-8 https://telegram.org/android magic=b'<!DOCTYPE html>\n'
-[PAGE] https://t.me/biosarchive/30462 -> raw/tg_3310_19717
-    [saved] tg_3310_19717/page.html (38025 bytes, sha256 4dc0ad1adb411d88…)
-    [saved] tg_3310_19717/tg_diag.txt (599 bytes, sha256 d566572608c8d484…)
-    [tg dl] all variants failed: ua='Mozilla/5.0 (Windows NT ' -> 200 6391 text/html; charset=utf-8 https://desktop.telegram.org/ magic=b'<!DOCTYPE html>\n' | ua='Mozilla/5.0 (Linux; Andr' -> 200 6160 text/html; charset=utf-8 https://telegram.org/android magic=b'<!DOCTYPE html>\n'
+[skip] tg_7470AIO_MCU already fetched
+[skip] tg_EDW40_MEC1515NB already fetched
+[skip] tg_3310_19717 already fetched
 [EXTRACT-PASS] 4pda_dump_collection
 [EXTRACT-PASS] 4pda_rt809h
 [EXTRACT-PASS] Latitude_3410_ECfolder

@@ -1,0 +1,5 @@
+tg_7470AIO_MCU: no-firmware-payload (0 candidate file(s))
+tg_EDW40_MEC1515NB: no-firmware-payload (0 candidate file(s))
+tg_3310_19717: no-firmware-payload (0 candidate file(s))
+payloads=0 archives=0 GENERATE_hits=0
+wrote ec-hunt/target-triage.json

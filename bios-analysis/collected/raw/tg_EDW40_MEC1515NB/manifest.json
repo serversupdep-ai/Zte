@@ -1,8 +1,8 @@
 {
  "files": {
-  ".cookies": {
-   "bytes": 219,
-   "sha256": "284babc10d6509373326db825e1c3d52a0faad5156653bd057e9b4a33c760bd1"
+  "manifest.json": {
+   "bytes": 377,
+   "sha256": "1583d6c79025647002ebe6b6c8a92f0f76648d6e485302e55a83e29a636fa62c"
   },
   "page.html": {
    "bytes": 37870,
