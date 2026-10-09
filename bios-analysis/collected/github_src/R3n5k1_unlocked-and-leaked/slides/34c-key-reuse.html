@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; The journal lends keys</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .recall {
+    border-left: 3px solid var(--fg-dim);
+    padding: 0.7rem 1.3rem;
+    color: var(--fg-dim);
+    margin: 1.2rem 0;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    line-height: 1.55;
+  }
+  .recall b { color: var(--fg); }
+  .lead {
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    line-height: 1.6;
+    margin: 0 0 0.4rem 0;
+    color: var(--fg);
+  }
+  .routes { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5vw; margin-top: 1.3rem; }
+  .route {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 1.3rem 1.5rem;
+  }
+  .route h3 {
+    margin: 0 0 0.7rem 0;
+    color: var(--fg-bright);
+    font-size: clamp(1rem, 1.7vw, 1.25rem);
+    letter-spacing: 0.05em;
+  }
+  .route p { margin: 0; font-size: clamp(0.9rem, 1.5vw, 1.1rem); line-height: 1.55; color: var(--fg); }
+  .punchline {
+    margin-top: 1.8rem;
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 1.3rem 2rem;
+    text-align: center;
+    font-size: clamp(1.05rem, 2.1vw, 1.6rem);
+    color: var(--fg);
+    letter-spacing: 0.05em;
+  }
+  .punchline .green { color: var(--accent-green); font-style: italic; }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 32 &middot; key reuse</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>THE JOURNAL LENDS YOU KEYS</h2>
+
+    <div class="recall">
+      Remember the DVAR store is an <b>append-only journal</b>: every password ever set is still on the
+      chip. Recovering keys hands you the key for <b>every</b> record, not just the current password.
+    </div>
+
+    <p class="lead">
+      Same first letter means same key. So a fully leaked key from <em>any</em> record unlocks a target
+      with the same first character, even one whose own record never leaked enough.
+    </p>
+
+    <div class="routes">
+      <div class="route">
+        <h3>SET ONE YOURSELF</h3>
+        <p>The target&rsquo;s first character is in the clear. Set a password that starts with it, read the
+          record back, and you hold the whole key.</p>
+      </div>
+      <div class="route">
+        <h3>TAKE ONE FROM HISTORY</h3>
+        <p>A past password already in the journal that shares the first character, and was short enough to
+          leak its full key, hands you the same key for free.</p>
+      </div>
+    </div>
+
+    <div class="punchline">
+      you don&rsquo;t need the target&rsquo;s key. <span class="green">you need any key with the same first letter</span>.
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="34b-keyspace.html">&larr; prev</a>
+    <span class="slide-num">32 / 37</span>
+    <a class="next" href="35-dellpwn.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

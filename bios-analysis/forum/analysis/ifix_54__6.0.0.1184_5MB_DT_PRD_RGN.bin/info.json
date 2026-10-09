@@ -1,0 +1,11 @@
+{
+ "src": "ifix_54",
+ "file": "6.0.0.1184_5MB_DT_PRD_RGN.bin",
+ "size": 5185536,
+ "sha256": "a359ac5243161eedd2cf1c4992176d380dc595bd25555e97f9f276f0e550c8d2",
+ "regions": null,
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [],
+ "pw_modules": []
+}

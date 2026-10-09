@@ -1,0 +1,376 @@
+[
+ {
+  "src": "ifix_01",
+  "file": "DELL optiplex 70000 GD25Q256C@SOP16_20250823_183534.BIN",
+  "size": 16776186,
+  "sha256": "238e5135092d65ae47358ac5f6cc2e1650f7c060bc5a0013f9734fe5e81e7001",
+  "spi_descriptor": false,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": false
+ },
+ {
+  "src": "ifix_02",
+  "file": "Clean me.bin",
+  "size": 33554432,
+  "sha256": "9632bf2af78080d88872cbda5df7859ee867988a2feb7a623712ab0187412fcc",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [
+   "Vostro3681"
+  ],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_02",
+  "file": "BACKUP.BIN",
+  "size": 33554432,
+  "sha256": "024c88c79d57c7ad523ec4f60b1efc70a06509f47b2037502db9bb2b8dd14785",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [
+   "Vostro3681"
+  ],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_03",
+  "file": "2 TroyAdl_16.1.27.2176_EVT_64 v1.17.0 -- 1 System BIOS with BiosGuard v1.17.0.bin",
+  "size": 33554432,
+  "sha256": "05dfe72baa0dddda50fd5865dc1f2dd06ffc32d5f2633d1d6ffa04605d1c6393",
+  "spi_descriptor": false,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [
+   "OptiPlex3000"
+  ],
+  "dell_like": false
+ },
+ {
+  "src": "ifix_06",
+  "file": "3090 Bios Password Unlocked.bin",
+  "size": 33554432,
+  "sha256": "aab0ff9364809a97c240316f218b0a98301e6056304023adf2bd17c4846d6c25",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [
+   "OptiPlex3090"
+  ],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_07",
+  "file": "W25Q512NW@WSON8 8X6_20260423_181304 OFF.bin",
+  "size": 67108864,
+  "sha256": "db2cbcbb6c835688ef888d9b20b2db7921a3875d166f1ceb1e18a48e075a1b4e",
+  "spi_descriptor": false,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_09",
+  "file": "OptiPlex 7480 All-In-One ipcml-gz uma 1.10.0.bin",
+  "size": 33554432,
+  "sha256": "191042391daa774b58b26d79d1ee3b714df5968dd7e9fa730561dcf03f76567a",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_12",
+  "file": "Clean cseme.bin",
+  "size": 33554432,
+  "sha256": "3528349a4915d051bc097513ab623973f9a14fd4fb0639a9251fe3e2ef86cec2",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [
+   "OptiPlex3090"
+  ],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_12",
+  "file": "3090 Bios Password Unlocked.bin",
+  "size": 33554432,
+  "sha256": "aab0ff9364809a97c240316f218b0a98301e6056304023adf2bd17c4846d6c25",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [
+   "OptiPlex3090"
+  ],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_13",
+  "file": "Alienware Aurora R12 .bin",
+  "size": 33554432,
+  "sha256": "a4286118dfa8fa6f486e73ad1eb785540c3edbc8b25744e3d6bece0d3b8d4790",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_14",
+  "file": "OptiPlex 3090 main_ok try First IF not Power On Try Another.bin",
+  "size": 33554432,
+  "sha256": "ce6cfe3722a2a92911777764afd981e1dd4986bc88cdba7de796a406c8228dfd",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [
+   "OptiPlex3090"
+  ],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_14",
+  "file": "OptiPlex 3090 main_New ok.bin",
+  "size": 33554432,
+  "sha256": "244ba6c663e5fd2b48bfd3c5678e9ba713f1032100f5677a6aa2fa05b0966d36",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [
+   "OptiPlex3090"
+  ],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_15",
+  "file": "IPCML-RN ZB MLK REV A00 READ  .Bin",
+  "size": 4194045,
+  "sha256": "15d32a3ef6f1389620faecba15bfb432edde4a0b45e61fad5b0bee975e6f1fa5",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_17",
+  "file": "OK BACKUP 32MB.BIN",
+  "size": 33554432,
+  "sha256": "2b26e9a89b6b08245412cde55c7ef5ba7c4e5cf8247f1a39c7f0e2fef05d3c3b",
+  "spi_descriptor": false,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [
+   "OptiPlex7000"
+  ],
+  "dell_like": false
+ },
+ {
+  "src": "ifix_17",
+  "file": "Optiplex 7000 micro UNLOCKED.bin",
+  "size": 16777216,
+  "sha256": "d981b34dc806041e394aa1ce43f6c1236ccefe7cde18927005b8661d91c991e4",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [
+   "OptiPlex7000"
+  ],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_17",
+  "file": "OK BACKUP.BIN",
+  "size": 16777216,
+  "sha256": "5d158745b4c5b9864be25361eda920cfffd9ca4510218e0d7968626e23a4e969",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_19",
+  "file": "Precision 3640 Tower TRY FIRST IF NOT WORK TRY _1.bin",
+  "size": 33554432,
+  "sha256": "ce337d491a6850e34d228a92861a3d920f923d6215f7e763be7db846c73a0440",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_19",
+  "file": "Precision 3640 Tower_1.bin",
+  "size": 33554432,
+  "sha256": "9008024447fed7eb8994823a36681d91fad6396d64f9c8b595aae05afb7eadcc",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_20",
+  "file": "Dell_8FC8_Patcher.exe",
+  "size": 64360390,
+  "sha256": "670b25147fcfc5550ac5a360aa2fbfd79c2fe0ff7629c766bb3fdaa0710a3938",
+  "spi_descriptor": false,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": false
+ },
+ {
+  "src": "ifix_21",
+  "file": "Alienware Aurora R110  IPCML-SH REV A00.bin",
+  "size": 33554432,
+  "sha256": "b0e98a7b56a551662a10b6a66d041eb1a7d372cf6faf3b5f0f5091d736d018d9",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_22",
+  "file": "Dell Pro 14 Plus Dell_Pro_Plus_PB13255_PB14255_PB16255_1.11.0 AMD.bin",
+  "size": 67108864,
+  "sha256": "b536fbb6aae4e02339241795da927c0cd83d5054fc58a288449cd0dc4ea19fd6",
+  "spi_descriptor": false,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": false
+ },
+ {
+  "src": "ifix_23",
+  "file": "32MB.BIN",
+  "size": 33554432,
+  "sha256": "390c0bef44c33ee72d89b139e2ad13c63faf93e5a22041524d02daee736e294a",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [
+   "OptiPlex3090"
+  ],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_25",
+  "file": "optiplex_3090.bin",
+  "size": 33554432,
+  "sha256": "27b7054bf14d2e967630e62e08b87748aee90b5e8fdd112dd0202b4fb49db167",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_28",
+  "file": "Dell XPS 13 9350 AAZ80 LA-C881P DINO2 MB 1.0 A00 Clear me.bin",
+  "size": 16777216,
+  "sha256": "8adfcf83cdd80315cae19bf1d095f4a2cc6e558afaeabd09122e191bf48018e7",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_30",
+  "file": "ok  E6520 LA-6562p.BIN",
+  "size": 8388608,
+  "sha256": "0a4c7be9d06aec30556212d067e5f767e22ce505d865123b34c4b4df274f48a8",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_31",
+  "file": "IPCML-GZ.pdf",
+  "size": 6211345,
+  "sha256": "813c6f07e5506022c495dd7c9ac74c3b012aad9615d0d139d7ee3ffeea08ae54",
+  "spi_descriptor": false,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": false
+ },
+ {
+  "src": "ifix_33",
+  "file": "python313.dll",
+  "size": 6093816,
+  "sha256": "78b1dd211c0e66a0603df48da2c9b67a915ab3258701b9285d3faa255ed8dc25",
+  "spi_descriptor": false,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": false
+ },
+ {
+  "src": "ifix_33",
+  "file": "libcrypto-3.dll",
+  "size": 5232408,
+  "sha256": "4e5d5d20d6d31e72ab341c81e97b89e514326c4c861b48638243bdf0918cfa43",
+  "spi_descriptor": false,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": false
+ },
+ {
+  "src": "ifix_34",
+  "file": "11.0.0.1205_CON_LP_C_NPDM_PRD_RGN_outimage.bin",
+  "size": 16777216,
+  "sha256": "de4aafd707cde68606737343fc138ecb02bf67c71623c9c696611bf195cf08e2",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_36",
+  "file": "W25Q32_20161217_50656.BIN",
+  "size": 4194304,
+  "sha256": "52e56f5d98c354046c075da577d9a26002b011b11997824f4a8a7bc1b7845a3c",
+  "spi_descriptor": false,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": false
+ },
+ {
+  "src": "ifix_37",
+  "file": "ok.BIN",
+  "size": 8388608,
+  "sha256": "0a4c7be9d06aec30556212d067e5f767e22ce505d865123b34c4b4df274f48a8",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 0,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ },
+ {
+  "src": "ifix_37",
+  "file": "8MB.bin",
+  "size": 8388608,
+  "sha256": "94dc5a7c904607c3e3751c2ae54af7b453f525cce12f437e88abd64018e88da2",
+  "spi_descriptor": true,
+  "pw_record_guid_count": 2,
+  "store_guid_count": 0,
+  "models": [],
+  "dell_like": true
+ }
+]

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pl">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="application-name" content="Elvikom">
+<meta name="msapplication-TileColor" content="#ffffff">
+
+<meta name="content-type" content="text/html; charset=UTF-8">
+<meta name="content-language" content="pl">
+<meta name="content-style-type" content="text/css">
+<meta name="imagetoolbar" content="no">
+<meta name="wot-verification" content="f2f4b5c5b0286ea4ac48">
+<meta name="google-site-verification" content="i8RxVjtjjdK-5ffoS0jzPOYrDsOR94XMprlDadVU_sU">
+<meta name="google-translate-customization" content="d86e0134eb95545e-52b100c81e8fac45-g30f0d7501364cbb6-13">
+
+<meta name="content-language" content="pl">
+<meta name="title" content="Informacja">
+<meta name="category" content="general">
+<meta name="robots" content="index,follow,all">
+<meta name="distribution" content="global">
+<meta name="resource-type" content="document">
+<meta name="copyright" content="ELVIKOM">
+
+
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+<link rel="icon" href="favicon.ico" sizes="any" type="image/svg+xml">
+
+<title>Informacja &bull; Forum ELVIKOM </title>
+
+<link rel="alternate" type="application/atom+xml" title="Kanał - Nowości" href="https://www.elvikom.pl/feed.php?mode=news"><link rel="alternate" type="application/atom+xml" title="Kanał - Wszystkie działy" href="https://www.elvikom.pl/feed.php?mode=forums"><link rel="alternate" type="application/atom+xml" title="Kanał - Najnowsze wątki" href="https://www.elvikom.pl/feed.php?mode=topics"><link rel="alternate" type="application/atom+xml" title="Kanał - Aktywne wątki" href="https://www.elvikom.pl/feed.php?mode=topics_active">
+
+<link href="https://www.elvikom.pl/style.php?id=18&amp;lang=pl&amp;sid=71cfdc7be470c574d01269a2b69347cf" rel="stylesheet">
+<link href="https://www.elvikom.pl/styles/Elvikom/theme/mchat.css" rel="stylesheet">
+<link href="https://www.elvikom.pl/styles/Elvikom/theme/medium.css" rel="alternate stylesheet" type="text/css" title="A+">
+<link href="https://www.elvikom.pl/styles/Elvikom/theme/large.css" rel="alternate stylesheet" type="text/css" title="A++">
+<link href="https://www.elvikom.pl/styles/Elvikom/theme/normal.css" rel="alternate stylesheet" type="text/css" title="A">
+
+<link href="https://www.elvikom.pl/styles/Elvikom/theme/font-awesome/css/fontawesome-all.css" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+<link rel="search" type="application/opensearchdescription+xml" href="https://www.elvikom.pl/elvikom-pl.xml" title="Elvikom">
+<script src="./../js/head.min.js"></script>
+<script src="./../js/jquery.min.js"></script>
+<script>
+	head.load("https://www.elvikom.pl/styles/Elvikom/theme/footable/js/footable.min.js", "https://www.elvikom.pl/styles/Elvikom/theme/bootstrap/js/bootstrap.min.js", "https://www.elvikom.pl/styles/Elvikom/theme/bootstrap/js/bootstrap-select.min.js");
+</script>
+
+<script src="https://www.elvikom.pl/styles/Elvikom/template/forum_fn.js" async></script>
+<script src="https://www.elvikom.pl/styles/Elvikom/theme/js/twitterFetcher_v10_min.js" async></script>
+<script src="https://www.elvikom.pl/styles/Elvikom/template/styleswitcher.js"></script>
+<script src="./../js/cookie_config.js"></script>
+<script src="./../js/consent.js"></script>
+<script src="./../js/specialchars.js"></script>
+<script>
+// www.phpBB-SEO.com SEO TOOLKIT BEGIN
+function jumpto() {
+	var page = prompt('Wprowadź numer strony, do której chcesz przejść:', '');
+	var perpage = '';
+	var base_url = '';
+	var seo_delim_start = '-';
+	var seo_static_pagination = 'page';
+	var seo_ext_pagination = '.html';
+	if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0) {
+		var seo_page = (page - 1) * perpage;
+		var anchor = '';
+		var anchor_parts = base_url.split('#');
+		if ( anchor_parts[1] ) {
+			base_url = anchor_parts[0];
+			anchor = '#' + anchor_parts[1];
+		}
+		if ( seo_page > 0 ) {
+			var phpEXtest = false;
+			if ( base_url.indexOf('?') >= 0 || ( phpEXtest = base_url.match(/\.php$/i))) {
+				document.location.href = base_url.replace(/&amp;/g, '&') + (phpEXtest ? '?' : '&') + 'start=' + seo_page + anchor;
+			} else {
+				var ext = base_url.match(/\.[a-z0-9]+$/i);
+				if (ext) {
+					// location.ext => location-xx.ext
+					document.location.href = base_url.replace(/\.[a-z0-9]+$/i, '') + seo_delim_start + seo_page + ext + anchor;
+				} else {
+					// location and location/ to location/pagexx.html
+					var slash = base_url.match(/\/$/) ? '' : '/';
+					document.location.href = base_url + slash + seo_static_pagination + seo_page + seo_ext_pagination + anchor;
+				}
+			}
+		} else {
+			document.location.href = base_url + anchor;
+		}
+	}
+}
+var seo_external = true;
+var seo_external_sub = false;
+var seo_ext_classes = false;
+var seo_hashfix = false;
+/**
+*  phpbb_seo_href()
+*  Fixes href="#something" links with virtual directories
+*  Optionally open external or marked with a css class links in a new window
+*  in a XHTML 1.x compliant way.
+*/
+function phpbb_seo_href() {
+	var current_domain = document.domain.toLowerCase();
+	if (!current_domain || !document.getElementsByTagName) return;
+	if (seo_external_sub && current_domain.indexOf('.') >= 0) {
+		current_domain = current_domain.replace(new RegExp(/^[a-z0-9_-]+\.([a-z0-9_-]+\.([a-z]{2,6}|[a-z]{2,3}\.[a-z]{2,3}))$/i), '$1');
+	}
+	if (seo_ext_classes) {
+		var extclass = new RegExp("(^|\s)(" + seo_ext_classes + ")(\s|$)");
+	}
+	if (seo_hashfix) {
+		var basehref = document.getElementsByTagName('base')[0];
+		if (basehref) {
+			basehref = basehref.href;
+			var hashtest = new RegExp("^(" + basehref + "|)#[a-z0-9_-]+$");
+			var current_href = document.location.href.replace(/#[a-z0-9_-]+$/i, "");
+		} else {
+			seo_hashfix = false;
+		}
+	}
+	var hrefels = document.getElementsByTagName("a");
+	var hrefelslen = hrefels.length;
+	for (var i = 0; i < hrefelslen; i++) {
+		var el = hrefels[i];
+		var hrefinner = el.innerHTML.toLowerCase();
+		if (el.onclick || (el.href == '') || (el.href.indexOf('javascript') >=0 ) || (el.href.indexOf('mailto') >=0 ) || (hrefinner.indexOf('<a') >= 0) ) {
+			continue;
+		}
+		if (seo_hashfix && el.hash && hashtest.test(el.href)) {
+			el.href = current_href + el.hash;
+		}
+		if (seo_external) {
+			if ((el.href.indexOf(current_domain) >= 0) && !(seo_ext_classes && extclass.test(el.className))) {
+				continue;
+			}
+			el.onclick = function () { window.open(this.href); return false; };
+		}
+	}
+}
+
+window.onload = function() {
+	if (seo_external || seo_hashfix) {
+		phpbb_seo_href();
+	}
+	// here you can add other window.onload events
+}
+
+// www.phpBB-SEO.com SEO TOOLKIT END
+</script>
+<script src="https://www.elvikom.pl/styles/Elvikom/template/js_quoteselect.js"></script>
+<script>
+function changeCursor(el, cursor){
+  el.style.cursor = hand;
+}
+</script>
+<script src="./../js/platform.js" async defer></script>
+<script>
+function countAdClick(id)
+{
+	loadXMLDoc('?a=' + id);
+}
+
+function countAdView(id)
+{
+	loadXMLDoc('?a=' + id);
+}
+
+function loadXMLDoc(url) {
+	req = false;
+	if(window.XMLHttpRequest) {
+		try {
+			req = new XMLHttpRequest();
+		} catch(e) {
+			req = false;
+		}
+	} else if(window.ActiveXObject) {
+		try {
+			req = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch(e) {
+			try {
+				req = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch(e) {
+				req = false;
+			}
+		}
+	}
+	if(req) {
+		req.open("GET", url, true);
+		req.send(null);
+	}
+}
+</script>
+<!--[if lt IE 9]>
+<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script>
+function find_username(e){popup(e,760,570,"_usersearch");return false}var jump_page="Wprowadź numer strony, do której chcesz przejść:";var on_page="";var per_page="";var base_url="";var style_cookie="phpBBstyle";var style_cookie_settings="; path=/; domain=elvikom.pl; sameSite=none; secure";var onload_functions=new Array;var onunload_functions=new Array;window.onload=function(){for(var i=0;i<onload_functions.length;i++){eval(onload_functions[i])}};window.onbeforeunload=function(){for(var i=0;i<onunload_functions.length;i++){eval(onunload_functions[i])}}
+</script>
+<script src="./../js/swfobject_1p5.js"></script>
+
+<script data-ad-client="ca-pub-5573380725843083" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+<body onload="qc()" id="phpbb" class="section-file ltr">
+<!-- <script>
+$(window).scroll(function () {
+    if ($(document).scrollTop() > 0) {
+		$('header').addClass('scrolled');
+		document.getElementById("site-info").style.display  = "none";
+    } else {
+		$('header').removeClass('scrolled');
+		document.getElementById("site-info").style.display  = "block";
+	}
+});
+</script>
+-->
+<div id="wrap" class="corners container">
+	<!-- start content -->
+		<div id="content-forum">
+			<div class="padding_0_40">
+				<div class="pull-right" style="position:relative;z-index:100;padding-right:10px">
+					<div class="gtranslate_wrapper"></div>
+					<script>window.gtranslateSettings = {"default_language":"pl","native_language_names":true,"languages":["pl","en","ru","sl","de","it","uk"],"wrapper_selector":".gtranslate_wrapper"}</script>
+					<script src="https://cdn.gtranslate.net/widgets/latest/flags.js" defer></script>
+			 	</div>
+				<!-- Header block -->
+				<header id="header" class="header">
+					<div id="topArea" class="topArea">
+						<!-- Logo block -->
+						<div class="leftArea" style="padding-left:10px;">
+							<div class="logo">
+								<a href="./../?sid=71cfdc7be470c574d01269a2b69347cf" title="" accesskey="h"><img src="https://www.elvikom.pl/styles/Elvikom/theme/images/mainlogo.png" alt="Logo"></a>
+							</div>
+							<p id="site-info" class="site-info">Profesjonalne naprawy sprzętu komputerowego</p>
+							<div class="clearfix"></div>
+						</div>
+						<!-- Logo block --><!-- Main navigation block -->
+<nav class="mainnav" aria-label="Primary">
+	<ul>
+		<li class="nav-icon">
+		<a style="cursor:pointer;">MENU <span class="has-sub"><i class="fas fa-bars"></i></span></a>
+			<ul class="submenu greydout">
+				<li><a href="./../regulamin-ogolny-forum-t18.html?sid=71cfdc7be470c574d01269a2b69347cf"><i class="far fa-exclamation-circle fa-fw"></i><span style="color:#f66;font-weight:bold;">&ensp;REGULAMIN FORUM</span></a><span></span></li>
+				<li><a href="./../polityka-prywatnosci-t53191.html?sid=71cfdc7be470c574d01269a2b69347cf"><i class="far fa-user-secret fa-fw"></i><span style="color:#0080ff;font-weight:bold;">&ensp;POLITYKA PRYWATNOŚCI</span></a><span></span></li>
+				
+				<li><a href="./../donate.php?sid=71cfdc7be470c574d01269a2b69347cf"><i class="fas fa-heart fa-fw" style="color:#f00;"></i>&ensp;Wyślij Donację</a><span></span></li>
+				<li><a href="https://www.facebook.com/ForumElvikom?sid=71cfdc7be470c574d01269a2b69347cf"><i class="fab fa-facebook-square fa-fw" style="color:#0080ff;"></i>&ensp;FanPage</a><span></span></li>
+				<li><a href="./../contact.php?sid=71cfdc7be470c574d01269a2b69347cf"><i class="far fa-phone"></i>&ensp;KONTAKT</a><span></span></li>
+				<li><a href="https://www.elvikom.pl/faq.php?sid=71cfdc7be470c574d01269a2b69347cf"><i class="far fa-question-circle fa-fw"></i>&ensp;FAQ</a><span></span></li>
+			</ul>
+		</li>
+		
+		
+
+		<li class="nav-icon"><a href="./../search.php?sid=71cfdc7be470c574d01269a2b69347cf">Szukaj <span class="has-sub"><i class="fas fa-search fa fa-flip-horizontal"></i></span></a></li>
+		
+		
+	    <li class="nav-icon">
+			<a href="https://www.elvikom.pl/ucp.php?mode=register&amp;sid=71cfdc7be470c574d01269a2b69347cf">Zarejestruj <span class="has-sub"><i class="fas fa-hand-point-right"></i></span></a>
+		</li>
+		
+		<li class="nav-icon">
+			<a href="https://www.elvikom.pl/ucp.php?mode=login&amp;sid=71cfdc7be470c574d01269a2b69347cf">Zaloguj <span class="has-sub"><i class="fas fa-sign-in"></i></span></a>
+		</li>
+		
+	</ul>
+	<div class="navBtn"><span>MENU</span>
+		<a data-toggle="collapse" data-target="#responsive-navigation" class="listen_menu fas fa-bars" href="javascript:void(0);" title=""></a>
+		<a class="fas fa-sign-in-alt" href="https://www.elvikom.pl/ucp.php?mode=login&amp;sid=71cfdc7be470c574d01269a2b69347cf" title=""></a>
+		
+	</div>
+</nav>
+<!-- Main navigation block --><!-- MOBILE Navigation block --><!-- Everything you want hidden at 940px or less, place within here -->
+<nav class="hidden-lg">
+	<div id="responsive-navigation" class="collapse">
+		<ul class="flexnav list-unstyled">
+			
+		    <li><a href="https://www.elvikom.pl/ucp.php?mode=register&amp;sid=71cfdc7be470c574d01269a2b69347cf"><i class="fas fa-hand-point-right fa-fw"></i> Zarejestruj</a></li>
+			
+		
+			<li class="item-with-ul">
+				<a><i class="fa fa-exclamation-triangle fa-fw"></i> WAŻNE LINKI</a>
+				<ul class="collapse viewsubmenu1 list-unstyled">
+					<li><a href="./../regulamin-ogolny-forum-t18.html?sid=71cfdc7be470c574d01269a2b69347cf"><i class="fas fa-exclamation-circle fa-fw"></i><span style="color:#f66;font-weight:bold;"> REGULAMIN FORUM</span></a></li>
+					<li><a href="./../polityka-prywatnosci-t53191.html?sid=71cfdc7be470c574d01269a2b69347cf"><i class="fas fa-user-secret fa-fw"></i><span style="color:#0080ff;font-weight:bold;"> POLITYKA PRYWATNOŚCI</span></a></li>
+					<li><a href="https://www.elvikom.pl/faq.php?sid=71cfdc7be470c574d01269a2b69347cf"><i class="fas fa-question-circle fa-fw"></i> FAQ</a></li>
+					<li><a href="./../contact.php?sid=71cfdc7be470c574d01269a2b69347cf"><i class="fas fa-phone fa-fw"></i> Kontakt</a></li>
+				</ul>
+				<a class="touch-button" href="javascript:void(0);" data-toggle="collapse" data-target=".viewsubmenu1"><i class="navicon fas fa-sort-down"></i></a>
+			</li>
+		
+			
+
+			<li class="item-with-ul">
+				<a><i class="fas fa-users fa-fw"></i> SPOŁECZNOŚĆ</a>
+				<ul class="collapse viewsubmenu3 list-unstyled">
+					<li><a href="./../donate.php?sid=71cfdc7be470c574d01269a2b69347cf"><i class="fas fa-heart fa-fw" style="color:#f00;"></i> Wyślij Donację</a></li><li><a href="https://www.facebook.com/ForumElvikom?sid=71cfdc7be470c574d01269a2b69347cf"><i class="fab fa-facebook-square fa-fw" style="color:#0080ff;"></i> FanPage</a></li>
+				</ul>
+				<a class="touch-button" href="javascript:void(0);" data-toggle="collapse" data-target=".viewsubmenu3"><i class="navicon fas fa-sort-down"></i></a>
+			</li>
+	
+			<li><a href="./../search.php?sid=71cfdc7be470c574d01269a2b69347cf"><i class="fas fa-search fa-fw"></i> Szukaj</a></li>
+			
+			
+			
+			<!-- BLOCK WITH SUBMENU EXAMPLE
+			
+				<li class="item-with-ul">
+					  <a href="#4"><i class="fa fa-search"></i> Submenu Group 1</a>
+					 <ul class="collapse viewsubmenu list-unstyled">
+						<li><a href="#5">SubLink 1</a></li>
+						<li><a href="#6">SubLink 2</a></li>
+						<li><a href="#7">SubLink 3</a></li>
+						<li><a href="#8">SubLink 4</a></li>
+					 </ul>
+					  <a class="touch-button" href="javascript:void(0);" data-toggle="collapse" data-target=".viewsubmenu"><i class="navicon fa fa-sort-down"></i></a>
+				</li>
+				
+			BLOCK WITH SUBMENU EXAMPLE -->
+			
+		</ul>
+	</div>
+</nav> 
+<!-- MOBILE Navigation block -->
+					</div>
+				</header>
+				<!-- Header block -->
+
+				<div class="crumbs">
+					<ul class="sub-crumb pull-left hidden-xs"> 
+						<li><i class="fa fa-home"></i><a href="./../?sid=71cfdc7be470c574d01269a2b69347cf" accesskey="h"> Strona główna</a></li>
+						<li class="active"></li>
+					</ul>
+					
+				</div>
+	
+				<!-- Lower Breadcrumb block -->
+				<div class="sub-breadcrumb">
+					<span class="time pull-left">Teraz jest 5 października 2026, 01:39</span> 
+					
+				</div>
+				<!-- Lower Breadcrumb block --> 
+	
+				<div id="page-body">
+					<main>
+
+					
+
+<div class="side-segment"><h3>Informacja</h3></div>
+<div class="well" id="message">
+	<p><span style="color:#FF3C3C;">Musisz być zalogowany oraz mieć minimum <strong>15 Punktów</strong>, aby pobrać ten załącznik.</span><br><br><a href="ucp.php?mode=login">&raquo; Zaloguj się tutaj &laquo;</a></p>
+	
+</div>
+
+<span class="copyrighted">_______________________________<br>Wszelkie prawa zastrzeżone. Zabrania się kopiowania jakichkolwiek treści i elementów witryny bez zezwolenia.<br>Wszelkie opublikowane na tej stronie znaki handlowe, nazwy marek, produktów czy usług należą do ich prawnych właścicieli i zostały użyte wyłącznie w celach informacyjnych.</span>
+<footer>
+		
+	<div class="row bottomLinks">
+	  <div class="col-md-12">
+		<div class="pull-left">
+		  <small>Powered by <a href="https://www.phpbb.com/" title="Forum Software &copy; phpBB&reg; Group" target="_blank"><i aria-hidden="true" class="icon-moon-forphp"></i></a> <a href="http://validator.w3.org/check?uri=https%3A%2F%2Fwww.elvikom.pl" title="Conform to W3C HTML5 Standard" target="_blank"> <i aria-hidden="true" class="icon-moon-w3c"></i></a></small>
+		</div>
+		
+		<div class="pull-right">
+		  <small>Copyright &copy; <a href="https://www.elvikom.pl">ELVIKOM.pl</a> 2009-2026</small>
+		</div>
+	   </div> 
+	</div>
+</footer>
+	
+	  </main>
+	</div><!-- page-body id in header -->
+  </div> <!-- padding_0_40 in header -->
+ </div> <!-- content-forum in header -->
+</div> <!-- wrap - corners container in header -->
+
+<a id="totop" class="topstyle" href="" onclick="return false;" style="display:none;"><i class="fa fa-chevron-up"></i></a>
+
+<div class="container">
+  <div class="copyright">
+	<small>
+		
+	</small>
+  </div>
+</div>
+
+<div class="space10"></div>
+<div></div>
+
+<!-- injected via a module or an include -->
+<script>
+    // some function that depends on bootstrap and jquery
+	head.ready(function () {
+	   $('.footable').footable();$.fn.tooltip&&$('[rel="tooltip"]').tooltip();$(".selectpicker").selectpicker();$(".selectpicker, .mchat-ttp").tooltip("disable");$(".btn-group [title]").tooltip({container:"body"});var totop=$("#totop");totop.click(function(){$("html, body").stop(true,true).animate({scrollTop:0},500);return false});$(window).scroll(function(){if($(this).scrollTop()>600){totop.fadeIn()}else{totop.fadeOut()}});$("button[data-loading-text]").click(function(){var e=$(this);e.button("loading");setTimeout(function(){e.button("reset")},3e3)});jQuery(function(e){e("a").tooltip({html:true,container:"body"})});
+	   // $.fn.tooltip&&$('[rel="tooltip"]').tooltip();var totop=$("#totop");totop.click(function(){$("html, body").stop(true,true).animate({scrollTop:0},500);return false});$(window).scroll(function(){if($(this).scrollTop()>600){totop.fadeIn()}else{totop.fadeOut()}});$("button[data-loading-text]").click(function(){var e=$(this);e.button("loading");setTimeout(function(){e.button("reset")},3e3)});
+       $('.listen_click').on('click',function(){$('.target-status').toggleClass('fa fa-arrow-down fa fa-arrow-up');});
+	   $('.listen_menu').on('click',function(){$(this).toggleClass('fa fa-align-justify fa fa-list');});
+	});
+</script>
+<!-- <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50593833-1', 'elvikom.pl');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+</script>
+-->
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+ "files": {
+  "MEC152x_DataSheet_DS00003427F.pdf": {
+   "bytes": 5036918,
+   "sha256": "156b585491c609e32d6f3aecc9c91275ba38ef4d1807dde4d091efa75a93a9f1"
+  },
+  "glasgow_mec16xx_applet.py": {
+   "bytes": 34417,
+   "sha256": "fa880bd4ec0f4b67fe31e876069e9bdd439745d7dfc9526d4a01177530466ad5"
+  },
+  "manifest.json": {
+   "bytes": 570,
+   "sha256": "1ee790ad7a27dabb6ddb2add2ede9852dab6993c2175fc15839051538207eda9"
+  },
+  "svod3_MEC5075_Latitude_E7440.pdf": {
+   "bytes": 2871729,
+   "sha256": "765f11bcd150e184222662aeeb397cf63a0f9c3ed978b7608ce7cdf9571b02e2"
+  }
+ }
+}

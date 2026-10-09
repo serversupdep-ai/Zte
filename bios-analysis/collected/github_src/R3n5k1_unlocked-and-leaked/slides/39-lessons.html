@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Take home</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .takeaways {
+    list-style: none;
+    padding: 0;
+    margin: 1.8rem 0 0 0;
+    max-width: 56em;
+    width: 100%;
+    display: grid;
+    gap: 1.8rem;
+  }
+  .takeaways li {
+    border-left: 3px solid var(--fg-dim);
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+    line-height: 1.5;
+    color: var(--fg);
+  }
+  .takeaways .em { color: var(--fg-bright); }
+  .takeaways .red { color: var(--accent-red); font-style: italic; }
+  .takeaways .green { color: var(--accent-green); font-style: italic; }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 36 &middot; take home</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>WHAT TO TAKE HOME</h2>
+
+    <ul class="takeaways">
+      <li>The BIOS settings and the BIOS UI state are recorded <span class="em">separately</span>. One is only an indication of the other.</li>
+      <li>Large parts of the flash chip can be modified, and the BIOS will <span class="em">fail open</span>, prioritising availability.</li>
+      <li>BIOS passwords have never been difficult to bypass, Dell or otherwise. They are <span class="green">a deterrent</span>, <span class="red">not a hard security control</span>.</li>
+    </ul>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="37-disclosure.html">&larr; prev</a>
+    <span class="slide-num">36 / 37</span>
+    <a class="next" href="40-thanks.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

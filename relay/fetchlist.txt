@@ -1,0 +1,333 @@
+# relay/fetchlist.txt — generic fetch stage (relay/fetch_files.py).
+# PAGE|<url>|<tag>   fetch page, extract download links (Drive/mediafire/direct), pull + extract
+# FILE|<url>|<name>[|<tag>]  direct download
+#
+# EC-chip-dump campaign (CF1B_FINDINGS.md §11.8): full-chip repair backups.
+# Dell laptops of the 8FC8/CF1B era carry a separate 8MB EC SPI chip; a chip
+# dump of it = DECRYPTED EC firmware with the GENERATE engine + key material.
+
+# Latitude 5410 (2020 Comet Lake, 8FC8-EC era) — full 32MB+16MB+8MB package
+# (the 8MB = EC chip dump), free, rar pw "indiafix"
+PAGE|https://www.indiafix.in/2024/08/fdz41-la-j371p-rev-10-bios-dump-ok.html|Latitude_5410_LA-J371P
+
+# OptiPlex 3090 (the target family) — main bin + password-unlocker bin + schematic
+PAGE|https://www.indiafix.in/2024/02/ipcml-rn-zb.html|OptiPlex_3090_indiafix
+
+# Latitude 3440 (2023 RPL, 9ABE/CF1B generation) — tested dump
+PAGE|https://www.indiafix.in/2025/01/dell-latitude-3440-quakel14rpl-213247-1.html|Latitude_3440_QUAKEL14
+
+# Latitude 3410 (2020 CML) — reddit thread with Google-Drive bins incl. the
+# 8MB EC chip dump ("Mockingbird-L 19746-1 pass 8mb.bin")
+PAGE|https://www.reddit.com/r/PcBuild/comments/1pdrlnf/.json|Latitude_3410_reddit
+PAGE|https://www.reddit.com/r/Dell/comments/1pdrs3b/.json|Latitude_3410_reddit_b
+
+# badcaps-mentioned uploadfiles.io copy of the Dell 3410 19746-1 backup (2021,
+# likely expired — best effort)
+FILE|https://www.uploadfiles.io/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file|dell_3410_19746-1.zip|Latitude_3410_uploadfiles
+
+# wayback snapshots of the indiafix pages (original link sets survive there)
+PAGE|https://web.archive.org/web/2025/https://www.indiafix.in/2024/08/fdz41-la-j371p-rev-10-bios-dump-ok.html|Latitude_5410_LA-J371P_wb
+PAGE|https://web.archive.org/web/2025/https://www.indiafix.in/2024/02/ipcml-rn-zb.html|OptiPlex_3090_indiafix_wb
+PAGE|https://web.archive.org/web/2025/https://www.indiafix.in/2025/01/dell-latitude-3440-quakel14rpl-213247-1.html|Latitude_3440_QUAKEL14_wb
+
+# blogger feeds (server-side full post content incl. links)
+PAGE|https://www.indiafix.in/feeds/posts/default?alt=json&q=LA-J371P|Latitude_5410_LA-J371P_feed
+PAGE|https://www.indiafix.in/feeds/posts/default?alt=json&q=IPCML-RN|OptiPlex_3090_indiafix_feed
+PAGE|https://www.indiafix.in/feeds/posts/default?alt=json&q=QUAKEL14|Latitude_3440_QUAKEL14_feed
+
+# 2019 generation (3070/7070, 8FC8 era) — SPI staging may predate app sealing
+PAGE|https://www.indiafix.in/2025/04/dell-optiplex-7070-bison-mlk-mt-17509-3.html|OptiPlex_7070_BISON
+PAGE|https://www.indiafix.in/2025/08/dell-optiplex-7070-micro-ipcfl-bsek.html|OptiPlex_7070_Micro_IPCFL
+PAGE|https://www.indiafix.in/2023/06/dell-optiplex-3070-ipcfl-cg-bios.html|OptiPlex_3070_IPCFL
+
+# Reddit 3410 thread body (contains the Google-Drive folder with the 8MB EC
+# chip dump "Mockingbird-L 19746-1 pass 8mb.bin") — multiple access routes
+PAGE|https://api.reddit.com/api/info/?id=t3_1pdrlnf|Latitude_3410_reddit_json
+PAGE|https://api.reddit.com/api/info/?id=t3_1pdrs3b|Latitude_3410_reddit_json_b
+PAGE|https://old.reddit.com/r/PcBuild/comments/1pdrlnf/.json|Latitude_3410_old_json
+PAGE|https://old.reddit.com/r/Dell/comments/1pdrs3b/.json|Latitude_3410_old_json_b
+PAGE|https://r.jina.ai/https://www.reddit.com/r/PcBuild/comments/1pdrlnf/|Latitude_3410_jina
+PAGE|https://redlib.catsarch.com/r/PcBuild/comments/1pdrlnf|Latitude_3410_redlib
+PAGE|https://api.pullpush.io/reddit/search/submission/?ids=1pdrlnf|Latitude_3410_pullpush
+PAGE|https://api.pullpush.io/reddit/search/submission/?ids=1pdrs3b|Latitude_3410_pullpush_b
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/1pdrlnf|Latitude_3410_arctic
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/1pdrs3b|Latitude_3410_arctic_b
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/ids?ids=1pdrlnf|Latitude_3410_arctic2
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/ids?ids=1pdrs3b|Latitude_3410_arctic2_b
+PAGE|https://web.archive.org/web/2026/https://www.reddit.com/r/PcBuild/comments/1pdrlnf/|Latitude_3410_wayback
+PAGE|https://web.archive.org/web/2026/https://www.reddit.com/r/Dell/comments/1pdrs3b/|Latitude_3410_wayback_b
+# THE 3410 EC-chip folder ("Mockingbird-L 19746-1 pass 8mb.bin" = EC chip dump)
+FILE|https://drive.google.com/drive/folders/1XsUVBIwf9d6nmHbDzeUk-m_w7VGXzgEi|folder|Latitude_3410_ECfolder
+PAGE|https://drive.google.com/drive/folders/1XsUVBIwf9d6nmHbDzeUk-m_w7VGXzgEi|Latitude_3410_ECfolder_page
+PAGE|https://drive.google.com/file/d/1ydZabKbtgPEszZdFk5yNqw8ctkGNNQcu/view|Latitude_3410_drive_child1
+PAGE|https://drive.google.com/file/d/1tOhfdnxbVnm_eBeuCl-jQn1DDhMGGqtU/view|Latitude_3410_drive_child2
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1pdrlnf&limit=100|Latitude_3410_comments
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1pdrs3b&limit=100|Latitude_3410_comments_b
+PAGE|https://www.youtube.com/watch?v=J1N-VRiZJy4|Latitude_3410_youtube
+PAGE|https://www.youtube.com/watch?v=hzTsWIi68LU|Latitude_3410_yt_free
+PAGE|https://www.repairlap.com/threads/dell-latitude-3410-mockingbird-l-cml-uma-6l-19746-1-bios.10278/|repairlap_3410
+PAGE|https://www.alisaler.com/dell-latitude-3410-3510-mockingbird-l-cml-19709-1-19746-1-19775-1-19812-1-bios-schematic-boardview/|alisaler_3410
+PAGE|https://vinafix.com/threads/dell-latitude-3410-3510-mockingbird-l-cml-uma-6l-19746-1.41430/|vinafix_3410_thread
+FILE|https://vinafix.com/attachments/mockingbird-l-19746-1-pass-8mb-bin.150249/|pass_8mb_150249|vinafix_3410
+FILE|https://vinafix.com/attachments/mockingbird-l-19746-1-pass-16mb-bin.150250/|pass_16mb_150250|vinafix_3410
+FILE|https://vinafix.com/attachments/8mb-bin-zip.148166/|8mb_zip_148166|vinafix_3410
+PAGE|http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/mockingbird-l-19746-1-pass-8mb-bin.150249*&output=json|vinafix_wayback_8mb
+PAGE|http://web.archive.org/cdx/search/cdx?url=vinafix.com/attachments/*19746*&output=json&limit=200|vinafix_wayback_19746
+# --- 3410/3510 EC-dump free sources (vinafix originals are paid-gated) ---
+PAGE|https://www.indiafix.in/2024/06/mockingbird-l-cml-dis-8l-19709-1-bios.html|indiafix_3410_19709
+FILE|https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file|dell_3410_19746_1|mediafire_3410
+FILE|https://drive.google.com/uc?export=download&id=1WzPOJE1y5w5rtFw8TfXmrYibxNzAhTP_|alisaler_5430_bios|alisaler_5430
+FILE|https://drive.google.com/uc?export=download&id=1LOKEk7fpR78_hiUf40lNSchuNGz3QNvB|alisaler_7430_bios|alisaler_7430
+PAGE|https://www.mediafire.com/file/1qejg9kuzsg3igy/Dell+3410+19746-1.zip/file|mediafire_3410_page
+PAGE|http://web.archive.org/web/2025id_/https://www.indiafix.in/2024/06/mockingbird-l-cml-dis-8l-19709-1-bios.html|indiafix_3410_wayback
+# --- Telegram BIOS ARCHIVE: Dell 3410 19746-1 both-chips dump + UNPASS rar (free, public channel) ---
+FILE|https://telegram.org/dl?tme=3b5103d91537f61d47_16268493646301877724|tg_3410_13723.zip|tg_3410
+FILE|https://telegram.org/dl?tme=3b459ea6bfc3491738_16360435324527312863|tg_3410_13724.rar|tg_3410
+PAGE|https://t.me/biosarchive/13723|tg_3410_msg13723
+PAGE|https://t.me/biosarchive/13724|tg_3410_msg13724
+# --- dr-bios thread 59413: parsad-8mb-bin (admin: "password is on 8MB file") ---
+PAGE|https://dr-bios.com/threads/19746-1-dell-latitude-3410.59413/|drbios_3410
+# retrigger: telegram retry (previous run lost its commit to a push race)
+# --- Dell 3410/3510 BIOS package (EC-staging source check: package PHCM vs chip slot B) ---
+PAGE|https://www.dell.com/support/home/en-us/drivers/driversdetails?driverid=v3y9y|Latitude_3410_dellpkg_1133
+# retrigger 2: dell package page (run 34782847591 lost commit race)
+FILE|https://dl.dell.com/FOLDER06541051M/1/Latitude_3410_3510_1.4.1.exe|Latitude_3410_3510_1.4.1.exe|Latitude_3410_pkg141
+FILE|https://dl.dell.com/FOLDER07043407M/1/Latitude_3410_3510_1.6.0.exe|Latitude_3410_3510_1.6.0.exe|Latitude_3410_pkg160
+# --- TGL successor family: did 3420/3520 packages ever stage EC content? ---
+FILE|https://dl.dell.com/FOLDER07995005M/1/Latitude_3420_Latitude_3520_1.13.3.exe|Latitude_3420_3520_1.13.3.exe|Latitude_3420_pkg1133
+PAGE|https://telegram.org/embed/biosarchive/13724|tg_3410_embed13724
+# === SAME-MODEL HUNT: OptiPlex 3090 (CF1B machine) ===
+PAGE|https://t.me/biosarchive/23340|tg_3090_msg23340
+FILE|https://telegram.org/dl?tme=e0879ad380154606e3_4407171994753476783|tg_3090_23340.zip|tg_3090
+PAGE|https://dr-bios.com/threads/dell-optiplex-3090.68894/|drbios_3090_68894
+PAGE|https://dr-bios.com/threads/dell-optiplex-3090-bios-bin-file.59046/|drbios_3090_59046
+PAGE|https://dr-bios.com/threads/optiplex-3090.61941/|drbios_3090_61941
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/3217350-bios-password-request-for-dell-optiplex-3090-micro/|badcaps_3090_3217350
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/98981-dell-optiplex-3090-bios-issue-please-help/|badcaps_3090_98981
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/3539267-bios-admin-password-remove-for-dell-optiplex-3090-sff/|badcaps_3090_3539267
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/ids?ids=1mni7p9|reddit_1mni7p9_post
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1mni7p9&limit=100|reddit_1mni7p9_comments
+PAGE|https://vinafix.com/threads/optiplex-3090-212037-1.45618/|vinafix_3090_45618
+PAGE|http://web.archive.org/web/20260414232708id_/https://www.indiafix.in/2026/03/dell-optiplex-3090-212037-1-bios-bin-ok.html|indiafix_3090_212037_wb
+# retry telegram 3090 (idempotency blocks were the blocker)
+# telegram 3090 attempt 3: protocol-relative dl link fix
+# telegram 3090 attempt 4: cookie-jar deeplink handler
+# === CF1B code-pair mining via arctic-shift (subreddit-filtered body search) ===
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=50|as_dell_cf1b
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=50|as_dell_8fc8
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=50|as_dell_9abe
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=CF1B&limit=50|as_dell_posts_cf1b
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/85841-help-me-pls-dell-optiplex-3080-clean-bios/|badcaps_3080_85841
+# === final CF1B public-venue sweep ===
+PAGE|https://bios-fix.com/index.php?threads/dell-bios-unlock-8fc8.53041/|biosfix_8fc8_53041
+PAGE|https://www.youtube.com/watch?v=jmW789IwJEI|yt_seller_jmW789IwJEI
+# === master_hunter watch sweep (auto) ===
+PAGE|https://t.me/s/biosarchive|tgbiosarchive_watch
+PAGE|https://vinafix.com/threads/45618/|vinafix_3090_45618_watch
+PAGE|https://www.badcaps.net/forum/showthread.php?t=98981|badcaps_3090_98981_watch
+PAGE|https://www.dr-bios.com/mht/Dell-OptiPlex-3090-212037-1/68894|drbios_3090_68894_watch
+# === everywhere-sweep: sibling models + EC tool (2026-10-01) ===
+FILE|https://dl.dell.com/FOLDER07173175M/1/OptiPlex_3080_1.3.10.exe|dell_3080_1310
+FILE|https://dl.dell.com/FOLDER07173178M/1/BIOS_IMG.rcv|dell_3080_1310_rcv
+FILE|https://dl.dell.com/FOLDER07322275M/1/OptiPlex_3090_UFF_1.1.0.exe|dell_3090uff_110
+FILE|https://dl.dell.com/FOLDER07322277M/1/BIOS_IMG.rcv|dell_3090uff_110_rcv
+FILE|https://dl.dell.com/FOLDER03495025M/5/Firmware_WNXXT_WN32_2.2_A02.EXE|dell_ec_tool_wnxxt
+FILE|https://dl.dell.com/FOLDER07173178M/1/BIOS_IMG.rcv|3080_BIOS_IMG.rcv|dell_3080_rcv
+# === §11.19 first-release EC-container historical door (2026-10-01) ===
+FILE|https://dl.dell.com/FOLDER06269280M/1/Latitude_3410_3510_1.2.0.exe|Latitude_3410_3510_1.2.0.exe|dell_3410_120
+FILE|https://dl.dell.com/FOLDER06245126M/1/Latitude_5X10_Precision_3550_1.1.1.exe|Latitude_5X10_Precision_3550_1.1.1.exe|dell_5x10_111
+# === §11.19 pre-CML: 3070 (Coffee Lake, 2019-2020) EC-section test ===
+FILE|https://dl.dell.com/FOLDER06312863M/1/OptiPlex_3070_1.4.4.exe|OptiPlex_3070_1.4.4.exe|dell_3070_144
+# === solution-kit: latest BIOS packages for the two Latitude models (2026-10-04) ===
+# 3410/3510 latest 1.36.0 (LVFS cab, Dell J37H1) — on arrival: extract pw modules + EC containers, flip profile held=true
+# (superseded by full exe below — LVFS 502 anyway)
+# FILE|https://fwupd.org/downloads/db2fa48ad533cef969bb51573f23a3161c97b266e3e3cd2f8de7ddd88e70fe37-MockingbirdLCmlU15_14.0_PROD_QS_firmware.cab|Latitude_3410_3510_1.36.0.cab|dell_3410_1360
+# 3420/3520 latest 1.47.0 TGL (LVFS cab CyborgLTgl_TI_G) — on arrival: same pipeline
+# (LVFS 412 anti-bot — browser-only; verify on Dell-channel 1.44.0 instead)
+# FILE|https://fwupd.org/downloads/a39b06122e0e31774dc37410f8b9c409a32122646c662a84b935b046aae1a2e1-CyborgLTgl_TI_G_firmware.cab|Latitude_3420_3520_1.47.0.cab|dell_3420_1470
+FILE|https://dl.dell.com/FOLDER13471058M/1/Latitude_3410_3510_1.36.0.exe|Latitude_3410_3510_1.36.0.exe|dell_3410_1360
+FILE|https://dl.dell.com/FOLDER13591247M/1/Latitude_3420_Latitude_3520_1.44.0.exe|Latitude_3420_Latitude_3520_1.44.0.exe|dell_3420_1440
+# === §11.23 3090 EC-identity hunt: IPCML-RN/ZB schematic + boardview (elvikom) ===
+PAGE|https://www.elvikom.pl/post303887.html?lang=en|elvikom_3090_schematic
+# badcaps 98981 page4: another 3090 Micro dump (9RT27L3) — watch for public re-post
+PAGE|https://www.badcaps.net/forum/troubleshooting-hardware-devices-and-electronics-theory/troubleshooting-desktop-motherboards-graphics-cards-and-pc-peripherals/bios-schematic-requests/98981-dell-optiplex-3090-bios-issue-please-help/page4|badcaps_3090_98981_p4
+# === §11.24 3090 EC identity: elvikom IPCML-RN/ZB attachments (schematic + boardview) ===
+FILE|https://www.elvikom.pl/download/file.php?id=50592|ipcml_rn_schematic.bin|elvikom_3090_schematic
+FILE|https://www.elvikom.pl/download/file.php?id=51162|ipcml_rn_boardview.rar|elvikom_3090_schematic
+# === NEW VENUE: pkbiosfix.com 3410/3510 thread (schematic + WISTRON boardview + fresh 3510 dumps) ===
+PAGE|https://pkbiosfix.com/threads/dell-latitude-3410-3510-19746-1-bios-schematic-boardview.565/|pkbiosfix_3410_565
+# === §11.24 pkbiosfix 3410/3510 attachment sweep (guest downloads work) ===
+FILE|https://pkbiosfix.com/attachments/dell-3410-lock-8mb-bin.14769/|dell_3410_LOCK_8MB.BIN|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/dell-3410-lock-bin.14770/|dell_3410_LOCK_16MB.BIN|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/8mb-fixed-rar.14771/|dell_3410_8mb_fixed.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/latitude_3510-8mb-bin.18412/|Latitude_3510_8MB.BIN|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/latitude_3510-16mb-bin.18413/|Latitude_3510_16MB.BIN|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/xm25qh64a-soic8-200_20250306_212026-zip.28913/|xm25qh64a_20250306.zip|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/xm25qh128a-soic8-200_20250306_212143-zip.28914/|xm25qh128a_20250306.zip|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/service-tag-fixed-rar.28917/|service_tag_fixed.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/dell-3410-build-new-bin.29086/|DELL_3410_BUILD_NEW.bin|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/dell-3410-build16mb-bin.29087/|DELL_3410_BUILD16MB.bin|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/xm25qh64a-soic8-200_20250527_125527-bin.32780/|xm25qh64a_20250527.BIN|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/xm25qh128a-soic8-200_20250527_125229-bin.32779/|xm25qh128a_20250527.BIN|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/build-clean-me-rar.32786/|build_clean_me.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/8mb-zip.33315/|pk_8mb.zip|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/16mb-zip.33316/|pk_16mb.zip|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/cleanme-8mb-rar.33318/|cleanme_8mb.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/xm25qh64a-soic8-200_20250710_153627-zip.33354/|xm25qh64a_20250710.zip|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/xm25qh128a-soic8-200_20250710_154321-zip.33355/|xm25qh128a_20250710.zip|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/19709-1-3510-8mb-rar.1388/|19709_1_3510_8mb.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/19709-1-3510-16mb-ok-rar.1389/|19709_1_3510_16mb_ok.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/tested-8mb-rar.8707/|tested_8mb.rar|pkbiosfix_3410_565
+FILE|https://pkbiosfix.com/attachments/tested-16mb-rar.8708/|tested_16mb.rar|pkbiosfix_3410_565
+# === §11.25 validation-vector harvest: public (tag, suffix, master) triples ===
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1iq6vuq&limit=100|reddit_1iq6vuq_comments
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=100|as_dell_8fc8_r2
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=100|as_dell_cf1b_r2
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=9ABE&limit=100|as_dell_9abe_r2
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=%22password%20is%22&limit=100|as_dell_pwis
+PAGE|https://arctic-shift.photon-reddit.com/api/posts/search?subreddit=Dell&selftext=8FC8&limit=100|as_dell_posts_8fc8_r2
+# === §11.25 retries (arctic-shift rate-limited; stagger across runs) ===
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1iq6vuq&limit=100|reddit_1iq6vuq_comments_r2
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?author=Clean_Bed9378&limit=100|as_author_cleanbed
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=8FC8&limit=100|as_dell_8fc8_r3
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?subreddit=Dell&body=CF1B&limit=100|as_dell_cf1b_r3
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=iks99h&limit=100|reddit_iks99h_comments
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1mni7p9&limit=100|reddit_1mni7p9_comments_r2
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1vx52jo&limit=100|reddit_1vx52jo_comments
+PAGE|https://arctic-shift.photon-reddit.com/api/comments/search?link_id=1v09bt9&limit=100|reddit_1v09bt9_comments
+# === §11.27 latest-cab grab via cdn.fwupd.org (client CDN — not the anti-bot web host) ===
+FILE|https://cdn.fwupd.org/downloads/firmware.xml.gz|firmware.xml.gz|fwupd_meta
+FILE|https://cdn.fwupd.org/downloads/a39b06122e0e31774dc37410f8b9c409a32122646c662a84b935b046aae1a2e1-CyborgLTgl_TI_G_firmware.cab|CyborgLTgl_TI_G_firmware.cab|fwupd_meta
+FILE|https://cdn.fwupd.org/downloads/db2fa48ad533cef969bb51573f23a3161c97b266e3e3cd2f8de7ddd88e70fe37-MockingbirdLCmlU15_14.0_PROD_QS_firmware.cab|MockingbirdLCmlU15_14.0_PROD_QS_firmware.cab|fwupd_meta
+# === §11.27b current-metadata latest cabs (cdn.fwupd.org) ===
+FILE|https://cdn.fwupd.org/downloads/118bf96591b7b43fc209b6f0b8a4953f43e1fb2d43df1fc3998c158493253ba9-OptiPlex_3080_2.35.0_firmware.cab|OptiPlex_3080_2.35.0.cab|fwupd_cabs
+FILE|https://cdn.fwupd.org/downloads/52867cc9d04f339de5db508304dfc3d57e8d1f8b11f730f16438c9176ed4c7bc-OptiPlex_3090_2.30.0_firmware.cab|OptiPlex_3090_2.30.0.cab|fwupd_cabs
+FILE|https://cdn.fwupd.org/downloads/33278626b785c9ff675f41684a49cc87b81a6ec0a6bc6cef997038c28a2309a8-OptiPlex_3090_UFF_1.44.0_LVFS.cab|OptiPlex_3090_UFF_1.44.0.cab|fwupd_cabs
+FILE|https://cdn.fwupd.org/downloads/e4cc8ccbceb4bd4757a4342348e892a430bfc0d9d57bcbeedbf4c1d864c2a06c-Latitude_5X10_Precision_3550_1.42.0.cab|Latitude_5X10_1.42.0.cab|fwupd_cabs
+FILE|https://cdn.fwupd.org/downloads/c32e091afdc570a742d003f3cdaa93871bef2e7fcd77e81a7b704b89766b7d3f-OptiPlex_3080_2.35.0_HDP_firmware.cab|OptiPlex_3080_2.35.0_HDP.cab|fwupd_cabs
+# === §14 Inspiron/Vostro 5401/5501 (CML 8FC8-era, never census-checked) BIOS packages ===
+FILE|https://dl.dell.com/FOLDER06278094M/1/Inspiron_Vostro_5401_5501_01.03.00.exe|Inspiron_Vostro_5401_5501_1.3.0.exe|inspiron_vostro_5x01
+FILE|https://dl.dell.com/FOLDER07627304M/1/Inspiron_Vostro_5401_5501_1.8.1.exe|Inspiron_Vostro_5401_5501_1.8.1.exe|inspiron_vostro_5x01
+FILE|https://dl.dell.com/FOLDER08776062M/1/Inspiron_Vostro_5401_5501_1.16.0.exe|Inspiron_Vostro_5401_5501_1.16.0.exe|inspiron_vostro_5x01
+# === §14 telegram biosarchive channel searches (EC-internal dump hunt) ===
+PAGE|https://t.me/s/biosarchive?q=EC|tg_biosarchive_ec
+PAGE|https://t.me/s/biosarchive?q=3090|tg_biosarchive_3090
+PAGE|https://t.me/s/biosarchive?q=RT809|tg_biosarchive_rt809
+# === §14b EC-read toolkit (JTAG/Glasgow/SVOD references — piernov door) ===
+FILE|https://raw.githubusercontent.com/GlasgowEmbedded/glasgow/main/software/glasgow/applet/program/mec16xx/__init__.py|glasgow_mec16xx_applet.py|ec_tools
+FILE|https://svod-project.com/svod3/MEC5075%20on%20Latitude%20E7440%20(LA-9591P).pdf|svod3_MEC5075_Latitude_E7440.pdf|ec_tools
+FILE|https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf|MEC1618_datasheet_00002339A.pdf|ec_tools
+PAGE|https://web.archive.org/web/20241212033907/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/|piernov_mec_jtag_article
+# === §14c MEC152x datasheet (fleet EC family: Cortex-M4, SWD, flash controller, secure boot) ===
+FILE|https://ww1.microchip.com/downloads/aemDocuments/documents/CPG/ProductDocuments/DataSheets/MEC152x-Data-Sheet-DS00003427F.pdf|MEC152x_DataSheet_DS00003427F.pdf|ec_tools
+# === §14d datasheets via Wayback (microchip.com 403s the runner) ===
+FILE|https://web.archive.org/web/2024id_/https://ww1.microchip.com/downloads/aemDocuments/documents/CPG/ProductDocuments/DataSheets/MEC152x-Data-Sheet-DS00003427F.pdf|MEC152x_DataSheet_DS00003427F.pdf|ec_tools
+FILE|https://web.archive.org/web/2024id_/https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf|MEC1618_datasheet_00002339A.pdf|ec_tools
+# === §14e badcaps attachment attempts (EC-internal candidates; may be premium-gated) ===
+FILE|https://www.badcaps.net/filedata/fetch?id=2092890|badcaps_EC_MEC1416_5379.rar|badcaps_ec
+FILE|https://www.badcaps.net/filedata/fetch?id=2121862|badcaps_Latitude5401_locked_UT2_UT6.rar|badcaps_ec
+
+# === §15 ec_artifact_hunter sweep (auto) ===
+PAGE|https://t.me/s/biosarchive?q=EC|tg_biosarchive_EC
+PAGE|https://t.me/s/biosarchive?q=EC%E7%A8%8B%E5%BA%8F|tg_biosarchive_EC程序
+PAGE|https://t.me/s/biosarchive?q=MEC1515|tg_biosarchive_MEC1515
+PAGE|https://t.me/s/biosarchive?q=MEC1618|tg_biosarchive_MEC1618
+PAGE|https://t.me/s/biosarchive?q=MEC1521|tg_biosarchive_MEC1521
+PAGE|https://t.me/s/biosarchive?q=3090|tg_biosarchive_3090
+PAGE|https://t.me/s/biosarchive?q=3080|tg_biosarchive_3080
+PAGE|https://t.me/s/biosarchive?q=5080|tg_biosarchive_5080
+PAGE|https://t.me/s/biosarchive?q=7080|tg_biosarchive_7080
+PAGE|https://t.me/s/biosarchive?q=3410|tg_biosarchive_3410
+PAGE|https://t.me/s/biosarchive?q=5410|tg_biosarchive_5410
+PAGE|https://t.me/s/biosarchive?q=5401|tg_biosarchive_5401
+PAGE|https://t.me/s/biosarchive?q=IPCML|tg_biosarchive_IPCML
+PAGE|https://t.me/s/biosarchive?q=QUAKEL14|tg_biosarchive_QUAKEL14
+PAGE|https://t.me/s/biosarchive?q=MOCKINGBIRD|tg_biosarchive_MOCKINGBIRD
+PAGE|https://t.me/s/biosarchive?q=CYBORG|tg_biosarchive_CYBORG
+PAGE|https://t.me/s/schematicslaptop?q=EC|tg_schematicslaptop_EC
+PAGE|https://t.me/s/schematicslaptop?q=EC%E7%A8%8B%E5%BA%8F|tg_schematicslaptop_EC程序
+PAGE|https://t.me/s/schematicslaptop?q=MEC1515|tg_schematicslaptop_MEC1515
+PAGE|https://t.me/s/schematicslaptop?q=MEC1618|tg_schematicslaptop_MEC1618
+PAGE|https://t.me/s/schematicslaptop?q=MEC1521|tg_schematicslaptop_MEC1521
+PAGE|https://t.me/s/schematicslaptop?q=3090|tg_schematicslaptop_3090
+PAGE|https://t.me/s/schematicslaptop?q=3080|tg_schematicslaptop_3080
+PAGE|https://t.me/s/schematicslaptop?q=5080|tg_schematicslaptop_5080
+PAGE|https://t.me/s/schematicslaptop?q=7080|tg_schematicslaptop_7080
+PAGE|https://t.me/s/schematicslaptop?q=3410|tg_schematicslaptop_3410
+PAGE|https://t.me/s/schematicslaptop?q=5410|tg_schematicslaptop_5410
+PAGE|https://t.me/s/schematicslaptop?q=5401|tg_schematicslaptop_5401
+PAGE|https://t.me/s/schematicslaptop?q=IPCML|tg_schematicslaptop_IPCML
+PAGE|https://t.me/s/schematicslaptop?q=QUAKEL14|tg_schematicslaptop_QUAKEL14
+PAGE|https://t.me/s/schematicslaptop?q=MOCKINGBIRD|tg_schematicslaptop_MOCKINGBIRD
+PAGE|https://t.me/s/schematicslaptop?q=CYBORG|tg_schematicslaptop_CYBORG
+PAGE|https://t.me/s/ithinkhsbios?q=EC|tg_ithinkhsbios_EC
+PAGE|https://t.me/s/ithinkhsbios?q=EC%E7%A8%8B%E5%BA%8F|tg_ithinkhsbios_EC程序
+PAGE|https://t.me/s/ithinkhsbios?q=MEC1515|tg_ithinkhsbios_MEC1515
+PAGE|https://t.me/s/ithinkhsbios?q=MEC1618|tg_ithinkhsbios_MEC1618
+PAGE|https://t.me/s/ithinkhsbios?q=MEC1521|tg_ithinkhsbios_MEC1521
+PAGE|https://t.me/s/ithinkhsbios?q=3090|tg_ithinkhsbios_3090
+PAGE|https://t.me/s/ithinkhsbios?q=3080|tg_ithinkhsbios_3080
+PAGE|https://t.me/s/ithinkhsbios?q=5080|tg_ithinkhsbios_5080
+PAGE|https://t.me/s/ithinkhsbios?q=7080|tg_ithinkhsbios_7080
+PAGE|https://t.me/s/ithinkhsbios?q=3410|tg_ithinkhsbios_3410
+PAGE|https://t.me/s/ithinkhsbios?q=5410|tg_ithinkhsbios_5410
+PAGE|https://t.me/s/ithinkhsbios?q=5401|tg_ithinkhsbios_5401
+PAGE|https://t.me/s/ithinkhsbios?q=IPCML|tg_ithinkhsbios_IPCML
+PAGE|https://t.me/s/ithinkhsbios?q=QUAKEL14|tg_ithinkhsbios_QUAKEL14
+PAGE|https://t.me/s/ithinkhsbios?q=MOCKINGBIRD|tg_ithinkhsbios_MOCKINGBIRD
+PAGE|https://t.me/s/ithinkhsbios?q=CYBORG|tg_ithinkhsbios_CYBORG
+PAGE|https://t.me/s/afsbiosfree?q=EC|tg_afsbiosfree_EC
+PAGE|https://t.me/s/afsbiosfree?q=EC%E7%A8%8B%E5%BA%8F|tg_afsbiosfree_EC程序
+PAGE|https://t.me/s/afsbiosfree?q=MEC1515|tg_afsbiosfree_MEC1515
+PAGE|https://t.me/s/afsbiosfree?q=MEC1618|tg_afsbiosfree_MEC1618
+PAGE|https://t.me/s/afsbiosfree?q=MEC1521|tg_afsbiosfree_MEC1521
+PAGE|https://t.me/s/afsbiosfree?q=3090|tg_afsbiosfree_3090
+PAGE|https://t.me/s/afsbiosfree?q=3080|tg_afsbiosfree_3080
+PAGE|https://t.me/s/afsbiosfree?q=5080|tg_afsbiosfree_5080
+PAGE|https://t.me/s/afsbiosfree?q=7080|tg_afsbiosfree_7080
+PAGE|https://t.me/s/afsbiosfree?q=3410|tg_afsbiosfree_3410
+PAGE|https://t.me/s/afsbiosfree?q=5410|tg_afsbiosfree_5410
+PAGE|https://t.me/s/afsbiosfree?q=5401|tg_afsbiosfree_5401
+PAGE|https://t.me/s/afsbiosfree?q=IPCML|tg_afsbiosfree_IPCML
+PAGE|https://t.me/s/afsbiosfree?q=QUAKEL14|tg_afsbiosfree_QUAKEL14
+PAGE|https://t.me/s/afsbiosfree?q=MOCKINGBIRD|tg_afsbiosfree_MOCKINGBIRD
+PAGE|https://t.me/s/afsbiosfree?q=CYBORG|tg_afsbiosfree_CYBORG
+PAGE|https://www.badcaps.net/file_search?search=EC|badcaps_fs_EC
+PAGE|https://www.badcaps.net/file_search?search=EC%E7%A8%8B%E5%BA%8F|badcaps_fs_EC程序
+PAGE|https://www.badcaps.net/file_search?search=MEC1515|badcaps_fs_MEC1515
+PAGE|https://www.badcaps.net/file_search?search=MEC1618|badcaps_fs_MEC1618
+PAGE|https://www.badcaps.net/file_search?search=MEC1521|badcaps_fs_MEC1521
+PAGE|https://www.badcaps.net/file_search?search=3090|badcaps_fs_3090
+PAGE|https://www.badcaps.net/file_search?search=3080|badcaps_fs_3080
+PAGE|https://www.badcaps.net/file_search?search=5080|badcaps_fs_5080
+PAGE|https://www.badcaps.net/file_search?search=7080|badcaps_fs_7080
+PAGE|https://www.badcaps.net/file_search?search=3410|badcaps_fs_3410
+PAGE|https://www.badcaps.net/file_search?search=5410|badcaps_fs_5410
+PAGE|https://www.badcaps.net/file_search?search=5401|badcaps_fs_5401
+PAGE|https://www.badcaps.net/file_search?search=IPCML|badcaps_fs_IPCML
+PAGE|https://www.badcaps.net/file_search?search=QUAKEL14|badcaps_fs_QUAKEL14
+PAGE|https://www.badcaps.net/file_search?search=MOCKINGBIRD|badcaps_fs_MOCKINGBIRD
+PAGE|https://www.badcaps.net/file_search?search=CYBORG|badcaps_fs_CYBORG
+PAGE|https://archive.org/advancedsearch.php?q=%28%22EC%E7%A8%8B%E5%BA%8F%22%20OR%20%22EC%20dump%22%20OR%20MEC1515%20OR%20MEC1618%29%20dell&fl%5B%5D=identifier&fl%5B%5D=title&rows=50&output=json|archive_ec_dell
+# === §15b MEC1515 board archive (biosarchive msg 24189, EDW40 LA-H451P 2019 MEC1515-NB) ===
+PAGE|https://t.me/biosarchive/24189?embed=1&mode=tme|tg_msg_24189_embed
+
+# === §18b alexlaptoprepair "bios dump + ec" archives (cycle 18 find, committed cycle 20) ===
+# 3410/3510 family = 8FC8 era. Attachments are XenForo links; forum RAR
+# password may be required (try: alexlaptoprepair.com / alexlaptoprepair /
+# www.alexlaptoprepair.com / dell). Thread pages verified public 2026-10-06.
+FILE|https://www.alexlaptoprepair.com/forums/attachments/dell-vostro-15-3510-gdm51-la-l242p-rev1-bios-ec-rar.8521/|alex_3510_L242P_bios_ec.rar|alex_3510
+FILE|https://www.alexlaptoprepair.com/forums/attachments/dell-15-3510-la-l246p-rev-1-0-bios-dump-cpu-srk05-rar.8856/|alex_3510_L246P_bios_ec.rar|alex_3510
+FILE|https://www.alexlaptoprepair.com/forums/attachments/dell-latitude-5580-la-e091p-bios-ec-dumps-rar.5823/|alex_5580_L091P_bios_ec.rar|alex_5580
+PAGE|https://www.alexlaptoprepair.com/forums/threads/dell-inspiron-15-3501-gdi4a-la-k032p-rev-1-0-a00-bios-dumps-clearme.5004/|alex_3501_L032P_thread
+
+# === §20 4PDA venue (new, cycle 20) ===
+# RT809H programmer mega-thread (940332) + dump-collection topic (733456).
+# Guest attachment access uncertain from runner — watch only.
+PAGE|https://4pda.to/forum/index.php?showtopic=733456|4pda_dump_collection
+PAGE|https://4pda.to/forum/index.php?showtopic=940332|4pda_rt809h
+
+# === §21 telegram free-attachment targets (fresh-mint + immediate fetch) ===
+PAGE|https://t.me/biosarchive/30339|tg_7470AIO_MCU
+PAGE|https://t.me/biosarchive/24189|tg_EDW40_MEC1515NB
+PAGE|https://t.me/biosarchive/30462|tg_3310_19717

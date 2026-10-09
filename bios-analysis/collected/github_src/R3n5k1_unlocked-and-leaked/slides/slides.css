@@ -1,0 +1,368 @@
+/* Unlocked and Leaked — slide deck theme
+ * Shared across all slides. Match the xor-demo aesthetic:
+ * black bg, orange text, scanlines, glow.
+ */
+
+/* ============================================================
+   Palettes. Cycle live with the "t" key (Shift+T to go back).
+   Choice persists across slides via localStorage + URL hash.
+   :root = default amber CRT. Override blocks below per theme.
+   ============================================================ */
+:root {
+  --bg: #000;
+  --fg: #ff8c00;
+  --fg-dim: #663600;
+  --fg-bright: #ffb347;
+  --accent-red: #ff3344;
+  --accent-green: #00ff88;
+  --accent-blue: #4488ff;
+  --accent-purple: #c060ff;
+  --accent-cipher: #00ff88;
+  --panel: #0a0400;
+  --panel-2: #050200;
+  --code-bg: #110800;
+  --glow: 0 0 6px rgba(255, 140, 0, 0.45);
+  --glow-strong: 0 0 16px rgba(255, 179, 71, 0.4);
+  --scanline: rgba(255, 140, 0, 0.04);
+}
+
+/* 2 — Amber, high contrast: brighten the dim browns, lift everything */
+[data-theme="bright"] {
+  --fg: #ffb84d;
+  --fg-dim: #b3781f;
+  --fg-bright: #ffe0b0;
+  --accent-red: #ff4040;
+  --accent-green: #2dffa0;
+  --accent-blue: #6ea8ff;
+  --accent-purple: #d08bff;
+  --panel: #140a00;
+  --panel-2: #0c0500;
+  --code-bg: #1c0e00;
+  --glow: 0 0 5px rgba(255, 184, 77, 0.30);
+  --glow-strong: 0 0 12px rgba(255, 224, 176, 0.30);
+  --scanline: rgba(255, 184, 77, 0.03);
+}
+
+/* 3 — White on black: maximum legibility on a poor projector */
+[data-theme="mono"] {
+  --fg: #ffffff;
+  --fg-dim: #9aa0a6;
+  --fg-bright: #ffffff;
+  --accent-red: #ff6066;
+  --accent-green: #36e08a;
+  --accent-blue: #6ba8ff;
+  --accent-purple: #cf8bff;
+  --panel: #0e0e0e;
+  --panel-2: #070707;
+  --code-bg: #1a1a1a;
+}
+
+/* 4 — Black on white: for when the AV is genuinely bad / room is bright */
+[data-theme="light"] {
+  --bg: #ffffff;
+  --fg: #141414;
+  --fg-dim: #6a6a6a;
+  --fg-bright: #000000;
+  --accent-red: #cc0000;
+  --accent-green: #0a7a3a;
+  --accent-blue: #1457d6;
+  --accent-purple: #7d2fce;
+  --panel: #f1ece1;
+  --panel-2: #e7e0d2;
+  --code-bg: #ededed;
+}
+
+/* High-contrast palettes drop the CRT glow + scanlines (they cut legibility) */
+[data-theme="mono"] body::before,
+[data-theme="light"] body::before { display: none; }
+[data-theme="mono"] *,
+[data-theme="light"] * { text-shadow: none !important; }
+
+/* Palette toast — shown briefly when switching with "t" */
+.theme-toast {
+  position: fixed;
+  bottom: 3vh; left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  background: var(--panel);
+  color: var(--fg-bright);
+  border: 1px solid var(--fg);
+  padding: 0.5rem 1.2rem;
+  font-family: 'Fira Code', 'Courier New', ui-monospace, monospace;
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  letter-spacing: 0.15em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms;
+  text-shadow: none;
+}
+.theme-toast.show { opacity: 1; }
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Fira Code', 'Courier New', ui-monospace, monospace;
+  overflow: hidden;
+  text-shadow: var(--glow);
+}
+
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    var(--scanline) 0px,
+    var(--scanline) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+.slide {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 4vh 6vw;
+  z-index: 1;
+}
+
+/* Slide header — corner brand + section tag */
+.slide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--fg-dim);
+  border-bottom: 1px dashed var(--fg-dim);
+  padding-bottom: 0.5rem;
+}
+.slide-header .brand { color: var(--fg); }
+.slide-header .section { font-style: italic; }
+
+/* Slide body */
+.slide-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2vh 2vw;
+}
+
+.slide-body.center {
+  align-items: center;
+  text-align: center;
+}
+
+.slide-body h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.1;
+  margin: 0 0 2rem 0;
+  letter-spacing: 0.05em;
+  color: var(--fg-bright);
+  text-shadow: var(--glow-strong);
+}
+.slide-body h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.2;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.03em;
+  color: var(--fg);
+}
+.slide-body h3 {
+  font-size: clamp(1.3rem, 2.8vw, 2rem);
+  margin: 0 0 1rem 0;
+  color: var(--fg-bright);
+}
+
+.slide-body p, .slide-body li {
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  line-height: 1.5;
+  margin: 0.5em 0;
+}
+
+.slide-body ul {
+  padding-left: 1.5em;
+}
+.slide-body li::marker {
+  color: var(--fg-dim);
+}
+
+.slide-body code {
+  font-family: inherit;
+  background: var(--code-bg);
+  border: 1px solid var(--fg-dim);
+  padding: 0.1em 0.4em;
+  color: var(--fg-bright);
+}
+
+.slide-body pre {
+  font-family: inherit;
+  background: var(--panel);
+  border: 1px solid var(--fg-dim);
+  padding: 1rem 1.5rem;
+  font-size: clamp(0.95rem, 1.6vw, 1.3rem);
+  color: var(--fg);
+  margin: 1rem 0;
+}
+
+/* Colour accents */
+.red    { color: var(--accent-red);    text-shadow: 0 0 8px rgba(255, 51, 68, 0.4); }
+.green  { color: var(--accent-green);  text-shadow: 0 0 8px rgba(0, 255, 136, 0.3); }
+.blue   { color: var(--accent-blue);   text-shadow: 0 0 8px rgba(68, 136, 255, 0.3); }
+.purple { color: var(--accent-purple); text-shadow: 0 0 8px rgba(192, 96, 255, 0.3); }
+.dim    { color: var(--fg-dim); }
+.bright { color: var(--fg-bright); }
+
+/* Title slide special layout */
+.slide.title .slide-body {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.slide.title h1 {
+  font-size: clamp(3rem, 9vw, 8rem);
+  margin-bottom: 1rem;
+}
+.slide.title .tagline {
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  color: var(--fg);
+  letter-spacing: 0.15em;
+  margin-bottom: 4rem;
+}
+.slide.title .authors {
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  color: var(--fg-dim);
+  letter-spacing: 0.1em;
+  margin-top: 2rem;
+}
+.slide.title .authors strong { color: var(--fg); font-weight: normal; }
+.slide.title .venue {
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  color: var(--fg-dim);
+  letter-spacing: 0.2em;
+  margin-top: 1rem;
+}
+
+/* Nav footer */
+.slide-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--fg-dim);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--fg-dim);
+}
+.slide-nav a {
+  color: var(--fg);
+  text-decoration: none;
+  border: 1px solid var(--fg-dim);
+  padding: 0.35rem 0.8rem;
+  transition: background 120ms, color 120ms, border-color 120ms;
+}
+.slide-nav a:hover {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+.slide-nav a.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.slide-nav .slide-num { font-variant-numeric: tabular-nums; }
+
+/* Org logos beside author names (title + thanks slides) */
+.orglogo {
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+.authors .author {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  white-space: nowrap;
+}
+.authors .sep { margin: 0 1.1em; color: var(--fg-dim); }
+.authors .orglogo { height: 1.6em; }
+.authors .orglogo.aw { height: 1.6em; }   /* AmberWolf horizontal wordmark — match the MDSec wordmark height */
+.contact .affil .orglogo { height: 1.5em; }
+.contact .affil .orglogo.aw { height: 1.35em; }   /* AmberWolf wordmark scaled down 10% so it doesn't dwarf MDSec */
+.intro-card .affil .orglogo { height: 1.8em; }
+.intro-card .affil .orglogo.aw { height: 1.62em; }   /* AmberWolf wordmark scaled down 10% so it doesn't dwarf MDSec */
+
+/* Section cards — the four ways divider slides */
+.slide.section-card .slide-body {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.section-card .way-index {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  letter-spacing: 0.3em;
+  color: var(--fg-dim);
+  margin-bottom: 1.2rem;
+}
+.section-card .way-index .big-num {
+  color: var(--fg-bright);
+  text-shadow: 0 0 14px rgba(255, 179, 71, 0.45);
+}
+.section-card .way-index .dim { letter-spacing: 0.3em; }
+.section-card .way-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin: 0 0 1.4rem 0;
+  letter-spacing: 0.04em;
+  color: var(--fg-bright);
+  text-shadow: 0 0 16px rgba(255, 179, 71, 0.4);
+  max-width: 24ch;
+}
+.section-card .way-sub {
+  font-size: clamp(1.05rem, 2.1vw, 1.55rem);
+  line-height: 1.5;
+  color: var(--fg);
+  max-width: 46ch;
+  margin: 0 0 2rem 0;
+}
+.section-card .way-sub .red { font-style: italic; }
+.section-card .way-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 2rem;
+  border-top: 1px dashed var(--fg-dim);
+  padding-top: 1.2rem;
+  font-size: clamp(0.82rem, 1.4vw, 1.05rem);
+  letter-spacing: 0.05em;
+}
+.section-card .way-meta .meta-label {
+  color: var(--fg-dim);
+  letter-spacing: 0.15em;
+  margin-right: 0.5em;
+}
+.section-card .way-meta .meta-val { color: var(--fg); }
+.section-card .way-meta .meta-val.red { color: var(--accent-red); }
+.section-card .way-meta .meta-val.green { color: var(--accent-green); }
+
+/* Blinking caret reused from xor-demo */
+.cursor {
+  display: inline-block;
+  width: 0.55em; height: 0.8em;
+  background: var(--fg-bright);
+  vertical-align: baseline;
+  margin-left: 0.08em;
+  animation: blink 1s steps(2) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }

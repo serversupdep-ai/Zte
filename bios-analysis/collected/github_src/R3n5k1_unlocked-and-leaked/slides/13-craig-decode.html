@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Step 5: Decode the IFR Fields</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .slide-body.decode {
+    justify-content: flex-start;
+    padding-top: 1vh;
+    width: 100%;
+  }
+  .slide-body.decode h2 { margin-bottom: 0.7rem; }
+  .lead {
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    color: var(--fg-dim);
+    margin: 0 0 1rem 0;
+  }
+  .lead strong { color: var(--fg); font-weight: normal; }
+  .raw-line {
+    background: var(--panel);
+    border: 1px solid var(--fg-dim);
+    padding: 0.8rem 1.2rem;
+    font-size: clamp(0.82rem, 1.35vw, 1.05rem);
+    margin-bottom: 1rem;
+    word-break: break-all;
+    line-height: 1.5;
+  }
+  .raw-line .key { color: var(--fg-bright); }
+  .raw-line .val { color: var(--accent-red); }
+  .fields {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8vw;
+    flex: 1;
+    min-height: 0;
+  }
+  .field {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 0.9rem 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .field .fname {
+    color: var(--fg-bright);
+    font-size: clamp(0.85rem, 1.4vw, 1.1rem);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+  }
+  .field .fval {
+    color: var(--accent-red);
+    font-size: clamp(1rem, 1.75vw, 1.35rem);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+  .field.important { border-color: var(--accent-red); }
+  .field.important .fname { color: var(--accent-red); }
+  .field p {
+    margin: 0;
+    color: var(--fg-dim);
+    font-size: clamp(0.82rem, 1.35vw, 1.05rem);
+    line-height: 1.5;
+    flex: 1;
+  }
+  .field p strong { color: var(--fg); font-weight: normal; }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 13 &middot; step 5: decode the ifr fields</span>
+  </div>
+
+  <div class="slide-body decode">
+    <h2>STEP 5 <span class="dim">::</span> DECODE THE IFR FIELDS</h2>
+    <p class="lead">
+      We need to understand the following to determine <strong>where and how</strong> the configuration is stored:
+    </p>
+
+    <div class="raw-line">
+      <span class="key">VarStoreId:</span> <span class="val">0x1</span> &nbsp;
+      <span class="key">VarOffset:</span> <span class="val">0x975</span> &nbsp;
+      <span class="key">Flags:</span> <span class="val">0x10</span> &nbsp;
+      <span class="key">Size:</span> <span class="val">8</span> &nbsp;
+      <span class="key">Min:</span> <span class="val">0x0</span> &nbsp;
+      <span class="key">Max:</span> <span class="val">0x1</span> &nbsp;
+      <span class="key">Step:</span> <span class="val">0x0</span>
+    </div>
+
+    <div class="fields">
+      <div class="field important">
+        <div class="fname">VarStoreId</div>
+        <div class="fval">0x1</div>
+        <p>UEFI variables are grouped into <strong>stores</strong>. Store 1 is the main <strong>Setup</strong> config variable saved in NVRAM.</p>
+      </div>
+      <div class="field important">
+        <div class="fname">VarOffset</div>
+        <div class="fval">0x975</div>
+        <p>The byte we want is <strong>0x975 bytes</strong> from the start of the Setup variable store.</p>
+      </div>
+      <div class="field">
+        <div class="fname">Size</div>
+        <div class="fval">8 bits</div>
+        <p>The field is <strong>1 byte</strong> wide inside the variable store.</p>
+      </div>
+      <div class="field">
+        <div class="fname">Min / Max</div>
+        <div class="fval">0x0 / 0x1</div>
+        <p>Only two valid states, this is effectively a <strong>boolean flag</strong>.</p>
+      </div>
+      <div class="field">
+        <div class="fname">Flags</div>
+        <div class="fval">0x10</div>
+        <p>Standard numeric / boolean question type. No special behaviour.</p>
+      </div>
+      <div class="field">
+        <div class="fname">Step</div>
+        <div class="fval">0x0</div>
+        <p>No increment step, consistent with a toggle (0 or 1 only).</p>
+      </div>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="12-craig-grep.html">&larr; prev</a>
+    <span class="slide-num">13 / 37</span>
+    <a class="next" href="14-craig-varstore.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

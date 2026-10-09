@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Pre-flight</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .slide.start .slide-body {
+    align-items: stretch;
+    justify-content: flex-start;
+    padding-top: 1vh;
+  }
+  .start h2 { margin-bottom: 0.2rem; }
+  .start .sub {
+    color: var(--fg-dim);
+    letter-spacing: 0.1em;
+    margin: 0 0 1.2rem 0;
+    font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+  }
+  .pf-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 2.2vw;
+    flex: 1;
+    min-height: 0;
+  }
+  .panel {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 1.1rem 1.4rem;
+  }
+  .panel h3 {
+    margin: 0 0 0.8rem 0;
+    color: var(--fg-bright);
+    font-size: clamp(1rem, 1.7vw, 1.3rem);
+    letter-spacing: 0.12em;
+  }
+  /* controls */
+  .keys { list-style: none; margin: 0; padding: 0; }
+  .keys li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding: 0.42rem 0;
+    border-bottom: 1px dashed var(--fg-dim);
+    font-size: clamp(0.9rem, 1.45vw, 1.12rem);
+  }
+  .keys li:last-child { border-bottom: none; }
+  .keys .k {
+    flex-shrink: 0;
+    min-width: 6.5em;
+    color: var(--fg-bright);
+    letter-spacing: 0.05em;
+  }
+  .keys .k kbd {
+    font-family: inherit;
+    background: var(--code-bg);
+    border: 1px solid var(--fg-dim);
+    border-radius: 3px;
+    padding: 0.05em 0.4em;
+    color: var(--fg-bright);
+    font-size: 0.92em;
+  }
+  .keys .d { color: var(--fg-dim); }
+  /* status */
+  .status {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.1rem;
+  }
+  .stat {
+    border: 1px solid var(--fg);
+    padding: 0.8rem 1rem;
+    text-align: center;
+  }
+  .stat .label { color: var(--fg-dim); letter-spacing: 0.2em; font-size: 0.78em; display: block; }
+  .stat .val {
+    color: var(--fg-bright);
+    font-size: clamp(1.3rem, 2.6vw, 2rem);
+    letter-spacing: 0.05em;
+    margin-top: 0.2rem;
+  }
+  /* test card */
+  .testcard { display: flex; flex-direction: column; gap: 0.7rem; }
+  .testcard p { margin: 0; font-size: clamp(0.92rem, 1.5vw, 1.18rem); line-height: 1.5; }
+  .swatches { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; font-size: clamp(0.9rem, 1.45vw, 1.12rem); }
+  .testcard pre { margin: 0.2rem 0 0 0; }
+  .testcard .mini-box {
+    border: 1px solid var(--accent-red);
+    background: rgba(255, 51, 68, 0.06);
+    padding: 0.6rem 0.9rem;
+    font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+    color: var(--fg);
+  }
+  .testcard .mini-box .label { color: var(--accent-red); letter-spacing: 0.12em; font-size: 0.82em; display: block; margin-bottom: 0.2rem; }
+</style>
+</head>
+<body>
+<section class="slide start">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// pre-flight &middot; not part of the talk</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>PRE-FLIGHT CHECK</h2>
+    <p class="sub">tune the palette + zoom for the room, confirm it reads, then start &rarr;</p>
+
+    <div class="pf-grid">
+      <div class="panel">
+        <h3>CONTROLS</h3>
+        <ul class="keys">
+          <li><span class="k"><kbd>&rarr;</kbd> <kbd>Space</kbd> <kbd>N</kbd></span><span class="d">next slide</span></li>
+          <li><span class="k"><kbd>&larr;</kbd> <kbd>P</kbd></span><span class="d">previous slide</span></li>
+          <li><span class="k"><kbd>F</kbd></span><span class="d">toggle fullscreen</span></li>
+          <li><span class="k"><kbd>T</kbd> / <kbd>Shift</kbd>+<kbd>T</kbd></span><span class="d">cycle palette / reverse</span></li>
+          <li><span class="k"><kbd>+</kbd> <kbd>&minus;</kbd></span><span class="d">zoom in / out</span></li>
+          <li><span class="k"><kbd>0</kbd></span><span class="d">reset zoom to 100%</span></li>
+          <li><span class="k"><kbd>H</kbd></span><span class="d">enlarge image (on screenshot slides)</span></li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h3>STATUS &amp; READABILITY TEST</h3>
+
+        <div class="status">
+          <div class="stat"><span class="label">PALETTE</span><span class="val" id="cur-theme">amber</span></div>
+          <div class="stat"><span class="label">ZOOM</span><span class="val" id="cur-zoom">100%</span></div>
+        </div>
+
+        <div class="testcard">
+          <p>
+            Lorem ipsum dolor sit amet, <span class="bright">consectetur adipiscing</span> elit.
+            Body copy at this size should be comfortable from the back of the room. Sed do
+            eiusmod tempor <span class="dim">incididunt ut labore</span> et dolore magna aliqua.
+          </p>
+          <div class="swatches">
+            <span class="red">&#9632; red</span>
+            <span class="green">&#9632; green</span>
+            <span class="blue">&#9632; blue</span>
+            <span class="purple">&#9632; purple</span>
+            <span class="bright">&#9632; bright</span>
+            <span class="dim">&#9632; dim</span>
+          </div>
+          <p>inline <code>0x259000</code> &middot; <code>flashrom -r dump.bin</code></p>
+          <pre>$ minipro -p "W25R256JV@SOIC16" -r dump.bin
+  reading... 32 MB ok</pre>
+          <div class="mini-box">
+            <span class="label">// SAMPLE WARNING BOX</span>
+            quis nostrud exercitation ullamco laboris nisi ut aliquip.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <span></span>
+    <span class="slide-num">pre-flight</span>
+    <a class="next" href="00-title.html">start the talk &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+<script>
+(function () {
+  var d = document.documentElement;
+  var th = document.getElementById('cur-theme');
+  var zm = document.getElementById('cur-zoom');
+  function refresh() {
+    th.textContent = d.getAttribute('data-theme') || 'amber';
+    var z = parseFloat(d.style.fontSize) / 16;
+    zm.textContent = Math.round(((z && isFinite(z)) ? z : 1) * 100) + '%';
+  }
+  new MutationObserver(refresh).observe(d, { attributes: true, attributeFilter: ['data-theme', 'style'] });
+  refresh();
+})();
+</script>
+</body>
+</html>

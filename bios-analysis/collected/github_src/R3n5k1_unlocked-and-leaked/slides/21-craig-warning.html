@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Warning and What's Next</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .slide-body.warning {
+    justify-content: flex-start;
+    padding-top: 1vh;
+    width: 100%;
+  }
+  .slide-body.warning h2 { margin-bottom: 1rem; }
+  .warn-box {
+    border: 2px solid var(--accent-red);
+    background: rgba(255, 51, 68, 0.07);
+    padding: 1.3rem 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .warn-box .tag {
+    color: var(--accent-red);
+    letter-spacing: 0.2em;
+    font-size: clamp(0.85rem, 1.4vw, 1.1rem);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+  .warn-box p {
+    margin: 0;
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    line-height: 1.6;
+    color: var(--fg);
+  }
+  .warn-box strong { color: var(--accent-red); font-weight: normal; }
+  .next-section h3 {
+    color: var(--fg-bright);
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    letter-spacing: 0.1em;
+    margin: 0 0 0.8rem 0;
+  }
+  .next-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .next-step {
+    display: grid;
+    grid-template-columns: 2.2em 1fr;
+    gap: 1rem;
+    align-items: start;
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 0.8rem 1.1rem;
+    font-size: clamp(0.95rem, 1.65vw, 1.25rem);
+    line-height: 1.5;
+  }
+  .next-step .n {
+    color: var(--accent-green);
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+    padding-top: 0.05em;
+  }
+  .next-step .text { color: var(--fg-dim); }
+  .next-step .text strong { color: var(--fg); font-weight: normal; }
+  .next-step .text code { color: var(--accent-green); }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 20 &middot; warning &amp; what's next</span>
+  </div>
+
+  <div class="slide-body warning">
+    <h2>WARNING <span class="dim">&amp;</span> WHAT'S NEXT</h2>
+
+    <div class="warn-box">
+      <span class="tag">// HEAVY WARNING</span>
+      <p>
+        Flashing your UEFI comes with <strong>serious risk</strong> and you could end up
+        <strong>bricking your system</strong>. Always take <strong>three dumps minimum</strong>,
+        hash them and ensure they match. This comes with no assurances that it will work for you.
+      </p>
+    </div>
+
+    <div class="next-section">
+      <h3>WITH DMA NOW POSSIBLE IN THE UEFI: THE FULL ATTACK CHAIN</h3>
+      <div class="next-steps">
+        <div class="next-step">
+          <div class="n">1</div>
+          <div class="text">Flash the patched dump back to the SPI chip</div>
+        </div>
+        <div class="next-step">
+          <div class="n">2</div>
+          <div class="text">Use <strong>DMAReaper</strong> (<code>github.com/PN-Tester/DMAReaper</code>) to overwrite the DMAR ACPI table, prevents IOMMU from functioning</div>
+        </div>
+        <div class="next-step">
+          <div class="n">3</div>
+          <div class="text">Boot into <strong>Safe Mode</strong> to disable Virtualisation Based Security</div>
+        </div>
+        <div class="next-step">
+          <div class="n">4</div>
+          <div class="text">Use <strong>PCILeech</strong> over PCIe to get a shell as <code>NT AUTHORITY\SYSTEM</code>, no BitLocker recovery key prompt</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="19-craig-nvramap.html">&larr; prev</a>
+    <span class="slide-num">20 / 37</span>
+    <a class="next" href="22-card-way2.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

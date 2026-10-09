@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Affected hardware</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: clamp(0.9rem, 1.55vw, 1.15rem);
+  }
+  .matrix th, .matrix td {
+    text-align: left;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--fg-dim);
+  }
+  .matrix th {
+    color: var(--fg-bright);
+    letter-spacing: 0.1em;
+    font-weight: normal;
+    border-bottom-color: var(--fg);
+  }
+  .matrix tr:hover td { background: rgba(255, 140, 0, 0.05); }
+  .matrix .device { color: var(--fg); }
+  .matrix .bug-y { color: var(--accent-red); text-shadow: 0 0 6px rgba(255, 51, 68, 0.3); }
+  .matrix .bug-n { color: var(--fg-dim); }
+  .matrix .bug-tbd { color: var(--accent-purple); font-style: italic; }
+  .footnote {
+    margin-top: 1rem;
+    color: var(--fg-dim);
+    font-size: clamp(0.8rem, 1.3vw, 1rem);
+    letter-spacing: 0.05em;
+  }
+  .dsa {
+    margin-top: 1.2rem;
+    border: 1px solid var(--accent-red);
+    background: rgba(255, 51, 68, 0.05);
+    padding: 1rem 1.5rem;
+  }
+  .dsa h3 {
+    color: var(--accent-red);
+    margin: 0 0 0.5rem 0;
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    letter-spacing: 0.05em;
+  }
+  .dsa h3 .dim { color: var(--fg-dim); }
+  .dsa .dsa-list {
+    margin: 0 0 0.6rem 0;
+    color: var(--fg);
+    font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+    line-height: 1.5;
+  }
+  .dsa .dsa-note {
+    margin: 0;
+    color: var(--fg-dim);
+    font-size: clamp(0.82rem, 1.35vw, 1rem);
+    line-height: 1.5;
+  }
+  .dsa .dsa-note .red { color: var(--accent-red); }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 34 &middot; affected hardware</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>DEVICES AFFECTED BY THE XOR BUG</h2>
+
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th>Device</th>
+          <th>Generation / BIOS</th>
+          <th>XOR password recovery</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="device">Dell Wyse 5070</td>
+          <td>ThinOS 9.x</td>
+          <td class="bug-y">VULNERABLE</td>
+        </tr>
+        <tr>
+          <td class="device">Dell Latitude E7250</td>
+          <td>legacy AMI Aptio</td>
+          <td class="bug-y">VULNERABLE</td>
+        </tr>
+        <tr>
+          <td class="device">Dell OptiPlex 3000 Thin Client</td>
+          <td>ThinOS 10.x</td>
+          <td class="bug-n">FIXED (SIVB)</td>
+        </tr>
+        <tr>
+          <td class="device">Dell Latitude 5310</td>
+          <td>BIOS 1.22.0</td>
+          <td class="bug-n">DIFFERENT SCHEME</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="dsa">
+      <h3>DELL'S ADVISORY ADDS 17 MORE <span class="dim">::</span> DSA-2026-197 / CVE-2026-40639</h3>
+      <p class="dsa-list">
+        Edge Gateway 3000 / 5000 &middot; Embedded PC 3000 / 5000 &middot; OptiPlex 7070 UFF &middot;
+        Precision 3630 Tower / 3930 Rack / 5540 &middot;
+        Latitude 3190 / 3190 2-in-1 / 3310 / 3310 2-in-1 &middot;
+        Latitude Rugged 5420 / 5424 / 7220 Rugged Extreme / 7220EX / 7424
+      </p>
+      <p class="dsa-note">
+        No longer just edge / embedded / rugged: the list now reaches mainstream client machines
+        too (Latitude, OptiPlex, Precision), though still
+        <span class="red">not the two devices we tested</span>. Dell has confirmed this is only the
+        first of several advisories: the true footprint is still unknown, and our tested devices
+        remain unpatched.
+      </p>
+    </div>
+
+    <p class="footnote">
+      &ldquo;VULNERABLE&rdquo; = BIOS password recoverable from the dump via the DVAR + XOR scheme &middot;
+      &ldquo;DIFFERENT SCHEME&rdquo; = SIVB + SHA-256 + encrypted vault, not recoverable.
+    </p>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="35-dellpwn.html">&larr; prev</a>
+    <span class="slide-num">34 / 37</span>
+    <a class="next" href="37-disclosure.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

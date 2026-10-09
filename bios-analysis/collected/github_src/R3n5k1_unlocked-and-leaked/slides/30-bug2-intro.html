@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Bug #2</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .lead {
+    font-size: clamp(1.2rem, 2.5vw, 1.9rem);
+    color: var(--fg);
+    line-height: 1.5;
+    margin: 1rem 0 2rem 0;
+    max-width: 50em;
+  }
+  .lead .red { font-style: italic; }
+  .summary {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
+  }
+  .summary h3 {
+    color: var(--fg-bright);
+    margin: 0 0 1rem 0;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    letter-spacing: 0.1em;
+  }
+  .summary ol {
+    margin: 0; padding-left: 1.5em;
+    font-size: clamp(1rem, 1.7vw, 1.3rem);
+    line-height: 1.7;
+  }
+  .summary li::marker { color: var(--fg-dim); }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 28 &middot; bug #2: BIOS password storage</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>BUG #2 <span class="dim">::</span> BIOS PASSWORD STORAGE</h2>
+    <p class="lead">
+      Dell BIOS setup passwords are supposed to be opaque to anyone with the dump.
+      The setup screen reports &ldquo;administrator password set&rdquo; without
+      revealing it. Reverse-engineering the format reveals an encryption scheme
+      that <span class="red">self-leaks its own key</span>.
+      <br><br>
+      Given a flash dump, you recover the cleartext password offline. No
+      device-specific secrets, no brute force, no online interaction.
+    </p>
+
+    <div class="summary">
+      <h3>WHAT THE BUG DOES</h3>
+      <ol>
+        <li>Locate the DVAR (Dell variable) region in the SPI dump.</li>
+        <li>Find a 32-byte XOR-encrypted password record.</li>
+        <li>Walk the structure, the key is in the record itself.</li>
+        <li>XOR back, out comes the password in plaintext.</li>
+      </ol>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="33-demo.html">&larr; prev</a>
+    <span class="slide-num">28 / 37</span>
+    <a class="next" href="32-flaw.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

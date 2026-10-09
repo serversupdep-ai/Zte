@@ -1,0 +1,35 @@
+{
+ "src": "ifix_17",
+ "file": "OK BACKUP.BIN",
+ "size": 16777216,
+ "sha256": "5d158745b4c5b9864be25361eda920cfffd9ca4510218e0d7968626e23a4e969",
+ "regions": {
+  "me": [
+   1060864,
+   10948607
+  ],
+  "gbe": [
+   1052672,
+   1060863
+  ]
+ },
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [
+  {
+   "file": "ec_slot_0001000_205280.bin",
+   "size": 205280,
+   "sha256": "fdeeed49380c353f2e65e8bc8fd7bd3039f34e2799259a2bbcbf6f4ae2dbdc39",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "ec_slot_0041000_205328.bin",
+   "size": 205328,
+   "sha256": "fc6fb13d04556bf8509649fca98b939efe07056c92b2c2e7e00dba28f71328cb",
+   "matches_package": null,
+   "saved": true
+  }
+ ],
+ "pw_modules": []
+}

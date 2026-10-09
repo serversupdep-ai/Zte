@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Method 3: The Store Never Forgets</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .stage {
+    align-self: stretch;        /* override slide-body's flex-start so we fill the width */
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;      /* centres across the whole slide */
+    gap: 1.2rem;
+    margin-top: 0.4rem;
+  }
+  .store-label {
+    color: var(--fg-dim);
+    letter-spacing: 0.18em;
+    font-size: clamp(0.8rem, 1.3vw, 1.05rem);
+    text-transform: uppercase;
+  }
+  /* The store: a fixed frame. Rows never move; only their state and the
+     LIVE pointer change. Newest record sits on top. */
+  .store {
+    position: relative;
+    display: grid;
+    grid-template-columns: 6.5em 1fr;
+    align-items: stretch;
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    min-width: min(40em, 86vw);
+  }
+  .ptr-col { position: relative; border-right: 1px solid var(--fg-dim); }
+  .ptr {
+    position: absolute;
+    right: 0.7em;
+    height: var(--rowh, 3.4rem);
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    color: var(--accent-green);
+    letter-spacing: 0.08em;
+    font-size: clamp(0.85rem, 1.4vw, 1.12rem);
+    white-space: nowrap;
+    transition: top 0.42s cubic-bezier(.25,.9,.3,1), opacity 0.3s;
+    opacity: 0;
+  }
+  .ptr.on { opacity: 1; }
+  .ptr .arr { font-size: 1.3em; line-height: 1; }
+  .rows { display: flex; flex-direction: column; }
+  .rec {
+    height: var(--rowh, 3.4rem);
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 0 1.2em;
+    border-bottom: 1px solid var(--fg-dim);
+    font-size: clamp(0.95rem, 1.7vw, 1.35rem);
+    opacity: 0;
+    transition: opacity 0.38s ease, color 0.3s;
+    color: var(--fg);
+  }
+  .rec:first-child { border-top: none; }
+  .rows .rec:last-child { border-bottom: none; }
+  .rec.shown { opacity: 1; }
+  .rec .pw { color: var(--fg-bright); letter-spacing: 0.04em; }
+  .rec .tag {
+    margin-left: auto;
+    color: var(--fg-dim);
+    font-size: 0.72em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .rec .off { color: var(--fg-dim); font-size: 0.72em; opacity: 0.6; }
+  .rec.live .pw { color: var(--accent-green); }
+  .rec.dead .pw { color: var(--accent-red); text-decoration: line-through; }
+  .rec.dead { color: var(--fg-dim); }
+  .rec.dead .tag { color: var(--accent-red); }
+  .caption {
+    min-height: 2.2em;
+    max-width: 40em;
+    text-align: center;
+    font-size: clamp(1.02rem, 2vw, 1.5rem);
+    line-height: 1.4;
+    color: var(--fg);
+  }
+  .caption .red { color: var(--accent-red); font-style: italic; }
+  .caption .grn { color: var(--accent-green); }
+  .dots { display: flex; gap: 0.5em; }
+  .dots i {
+    width: 0.62em; height: 0.62em; border-radius: 50%;
+    background: var(--fg-dim); opacity: 0.4;
+    transition: opacity 0.2s, background 0.2s;
+  }
+  .dots i.done { opacity: 1; background: var(--accent-green); }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 25 &middot; method 3: the store never forgets</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>THE STORE NEVER FORGETS</h2>
+
+    <div class="stage">
+      <div class="store-label">BIOS password store &middot; append-only</div>
+
+      <div class="store" id="store">
+        <div class="ptr-col">
+          <div class="ptr" id="ptr"><span class="arr">&rarr;</span> LIVE</div>
+        </div>
+        <div class="rows" id="rows">
+          <div class="rec" data-slot="2">
+            <span class="pw">&ldquo;aaaaaaaa&rdquo;</span>
+            <span class="off">+0x0C0</span>
+            <span class="tag">changed</span>
+          </div>
+          <div class="rec" data-slot="1">
+            <span class="pw">&ldquo;password&rdquo;</span>
+            <span class="off">+0x080</span>
+            <span class="tag">set</span>
+          </div>
+          <div class="rec" data-slot="0">
+            <span class="pw">&ldquo;Fireport&rdquo;</span>
+            <span class="off">+0x040</span>
+            <span class="tag">factory</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="caption" id="caption"></div>
+      <div class="dots" id="dots"></div>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="25-card-way3.html">&larr; prev</a>
+    <span class="slide-num">25 / 37</span>
+    <a class="next" href="29-card-way4.html">next &rarr;</a>
+  </nav>
+</section>
+
+<script>
+// ---- Stepped build (Domas-style progressive reveal) ------------------------
+// One persistent diagram. Each step is a full state of the store, so forward
+// and back both just re-render. Steps are consumed in the capture phase so
+// they fire BEFORE slides.js's nav handler; only once the build is exhausted
+// do arrow/space fall through to change slide.
+(function () {
+  const rows = Array.from(document.querySelectorAll('#rows .rec'));
+  const bySlot = {};
+  rows.forEach(r => { bySlot[r.dataset.slot] = r; });
+  const ptr = document.getElementById('ptr');
+  const caption = document.getElementById('caption');
+  const dotsBox = document.getElementById('dots');
+
+  // shown: slots present; dead: struck records; live: slot the pointer sits on
+  const STEPS = [
+    { shown: [0],       dead: [],     live: 0,
+      cap: 'Rollout: the build default is already a record.' },
+    { shown: [0,1],     dead: [],     live: 1,
+      cap: 'Admin sets a BIOS password, appended on top.' },
+    { shown: [0,1,2],   dead: [],     live: 2,
+      cap: 'Admin changes it, appended again. <span class="grn">Three coexist.</span>' },
+    { shown: [0,1,2],   dead: [],     live: 2,
+      cap: '&ldquo;Current&rdquo; is just the <span class="grn">newest</span> record.' },
+    { shown: [0,1,2],   dead: [2],    live: 1,
+      cap: 'Zero the head record&hellip;' },
+    { shown: [0,1,2],   dead: [2],    live: 1,
+      cap: '&hellip;the one behind it is <span class="grn">live again</span>. No cracking.' },
+    { shown: [0,1,2],   dead: [2,1],  live: 0,
+      cap: 'Zero that too, back to a default you <span class="red">already know</span>.' },
+  ];
+  let i = 0;
+
+  function render() {
+    const s = STEPS[i];
+    rows.forEach(r => {
+      const slot = +r.dataset.slot;
+      r.classList.toggle('shown', s.shown.includes(slot));
+      r.classList.toggle('dead', s.dead.includes(slot));
+      r.classList.toggle('live', slot === s.live && !s.dead.includes(slot));
+    });
+    const liveRow = bySlot[s.live];
+    if (liveRow) {
+      ptr.style.top = liveRow.offsetTop + 'px';
+      ptr.classList.add('on');
+    }
+    caption.innerHTML = s.cap;
+    Array.from(dotsBox.children).forEach((d, k) => d.classList.toggle('done', k <= i));
+  }
+
+  STEPS.forEach(() => dotsBox.appendChild(document.createElement('i')));
+
+  window.addEventListener('resize', () => {
+    const liveRow = bySlot[STEPS[i].live];
+    if (liveRow) ptr.style.top = liveRow.offsetTop + 'px';
+  });
+
+  const FWD = [' ', 'ArrowRight', 'PageDown', 'n', 'N'];
+  const BACK = ['ArrowLeft', 'PageUp', 'p', 'P'];
+
+  document.addEventListener('keydown', (e) => {
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (FWD.includes(e.key) && i < STEPS.length - 1) {
+      e.preventDefault(); e.stopPropagation();
+      i++; render();
+    } else if (BACK.includes(e.key) && i > 0) {
+      e.preventDefault(); e.stopPropagation();
+      i--; render();
+    }
+    // else: fall through to slides.js -> change slide
+  }, true); // capture phase: runs before the nav handler
+
+  render();
+})();
+</script>
+<script src="slides.js"></script>
+</body>
+</html>

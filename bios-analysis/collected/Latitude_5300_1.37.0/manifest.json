@@ -1,0 +1,78 @@
+{
+ "url": "https://downloads.dell.com/FOLDER13498661M/1/Latitude_5300_1.37.0.exe",
+ "entries": [
+  {
+   "file": "bios-analysis/collected/Latitude_5300_1.37.0/ec_1_167552.bin",
+   "kind": "ec",
+   "size": 167552,
+   "sha256": "6e8d80bf4c2dc3ce1ba85e6286bc62df8c07c5a2d83c1372f703c7ae10354cfb"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5300_1.37.0/ec_2_167552.bin",
+   "kind": "ec",
+   "size": 167552,
+   "sha256": "02172f03ca17aa449f858b32058cdee58e1f5e17488b0fd2940f29d9a094af45"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5300_1.37.0/ec_3_167568.bin",
+   "kind": "ec",
+   "size": 167568,
+   "sha256": "55a7c5e097b6cefb347345f48631a473d5d794b50840953fd0537fdb642f094e"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5300_1.37.0/ec_4_167568.bin",
+   "kind": "ec",
+   "size": 167568,
+   "sha256": "26003834693bdab1978bf3c8828dd6ca13779a75ca8516f51438a1bc066fedc2"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5300_1.37.0/pw_1_9216.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 9216,
+   "sha256": "44e67c3e0f89e1afc6da82d713c7b1204a999f449048f0d5b3ec9d9a5d2845c1"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5300_1.37.0/pw_2_12800.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 12800,
+   "sha256": "3d37c9885ccdc46f062020dc59b1ae9d04b062ce870471097a27686a52bed431"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5300_1.37.0/pw_3_23552.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 23552,
+   "sha256": "0bb9634e944f9189a98fe439ddc91a79f8884992a8aa3575f2d3bd976571cf71"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5300_1.37.0/pw_4_25600.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 25600,
+   "sha256": "5539c3c2250584fb026ec9959b4a99e0218403dba65dfd1ae1a6c9a97ce25188"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5300_1.37.0/pw_5_30208.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 30208,
+   "sha256": "3c5987d15c4273e0e8dbffca9d84a66e2fa558b882575011c808b2dfdf5c5ee6"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5300_1.37.0/pw_6_37376.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 37376,
+   "sha256": "f58b08d62f38069e671badd649b8b69f7a96d201fc146cb927bb3f6803871bf7"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5300_1.37.0/pw_7_42496.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 42496,
+   "sha256": "1f9a543c1eaff280894373f99cebc00d6167b0d47ed017fbe745aa4702d889aa"
+  }
+ ]
+}

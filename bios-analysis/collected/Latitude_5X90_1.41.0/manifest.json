@@ -1,0 +1,52 @@
+{
+ "url": "https://downloads.dell.com/FOLDER12975937M/1/Latitude_5X90_1.41.0.exe",
+ "entries": [
+  {
+   "file": "bios-analysis/collected/Latitude_5X90_1.41.0/ec_1_166784.bin",
+   "kind": "ec",
+   "size": 166784,
+   "sha256": "308e2ad219b4d014e5a13fec95d245b928b6ac0550b2c94256725dccc68e5992"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X90_1.41.0/ec_2_172864.bin",
+   "kind": "ec",
+   "size": 172864,
+   "sha256": "5ec89251817a31e48d16bea5edec97d00fb3fc5b910f4a0e3e24a2a3265eb4d0"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X90_1.41.0/pw_1_23552.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 23552,
+   "sha256": "0bb9634e944f9189a98fe439ddc91a79f8884992a8aa3575f2d3bd976571cf71"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X90_1.41.0/pw_2_24576.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 24576,
+   "sha256": "68abc3a78de743a7d046a38ae710510267e705993730b4c0202ff6c67d16727f"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X90_1.41.0/pw_3_25600.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 25600,
+   "sha256": "18800cc2c625a5fc8f9e810ff750eb0d457c4b2ce73fe453b084df0b46edf967"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X90_1.41.0/pw_4_34304.efi",
+   "kind": "pw",
+   "marker": "SHA-256 part of OpenSSL",
+   "size": 34304,
+   "sha256": "f13195c90ea3b2f12cafd603e0e33f984e8a5040a40059731ecd13e18df25aed"
+  },
+  {
+   "file": "bios-analysis/collected/Latitude_5X90_1.41.0/pw_5_42496.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 42496,
+   "sha256": "6a4b1c8c596921d5474e17b7878449440f1de92dbb47bc2f4d30c3483c356f1b"
+  }
+ ]
+}

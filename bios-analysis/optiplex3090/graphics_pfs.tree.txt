@@ -1,0 +1,8 @@
+DellPFS: spec 0x2 size 0x158c51 (1412177 bytes)
+  Dell PFSSection: 36c385cc-ffe3-4492-915d-8704c93e841d spec 0x02 ts 0x00 type 0x00 version .1.0.0 size 0x87b0 (34736 bytes)
+    RawObject: size= 34664 
+  Dell PFSSection: 0000001d-0030-0000-0000-000013000000 spec 0x6abbca9e ts 0x00 type 0x00 version  size 0x49 (73 bytes)
+    RawObject: size= 1 
+  Dell PFSSection: ffffffff-ffff-d9ff-c1bd-38ffffffff00 spec 0x00 ts 0x00 type 0x00 version  size 0x1ce000386 (7751074694 bytes)
+    RawObject: size= 1377296 
+RawObject: size= 32 

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Fewer than 256 keys</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .derive {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 1.4rem 1.8rem;
+    margin: 1.4rem 0;
+    text-align: center;
+  }
+  .derive code {
+    background: var(--code-bg);
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--fg-bright);
+    letter-spacing: 0.03em;
+    padding: 0.3rem 0.6rem;
+  }
+  .derive .seed { color: var(--accent-red); }
+  .derive .note { color: var(--fg-dim); margin: 0.9rem 0 0 0; font-size: clamp(0.85rem, 1.4vw, 1.05rem); }
+  .conseq { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5vw; }
+  .conseq .c {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 1.2rem 1.3rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    line-height: 1.5;
+    color: var(--fg);
+  }
+  .conseq .c b { color: var(--fg-bright); display: block; margin-bottom: 0.4rem; }
+  .punchline {
+    margin-top: 1.8rem;
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 1.3rem 2rem;
+    text-align: center;
+    font-size: clamp(1.05rem, 2.1vw, 1.6rem);
+    color: var(--fg);
+    letter-spacing: 0.05em;
+  }
+  .punchline .green { color: var(--accent-green); font-style: italic; }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 31 &middot; the keyspace</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>FEWER THAN 256 KEYS PER MACHINE</h2>
+
+    <div class="derive">
+      <code>key = KDF( device_seed , GUID , <span class="seed">plaintext[0]</span> )</code>
+      <p class="note">device_seed and GUID are fixed per machine. Only the first character changes.</p>
+    </div>
+
+    <div class="conseq">
+      <div class="c"><b>The first byte is the seed.</b> It is stored in the clear because the scheme needs it to pick the key, not by accident.</div>
+      <div class="c"><b>One first character, one key.</b> At most 256 keys on the whole machine, and fewer in practice: printable characters only.</div>
+      <div class="c"><b>Same first letter, same key.</b> Any two passwords that start with the same character are XORed with the identical key.</div>
+    </div>
+
+    <div class="punchline">
+      the keyspace isn&rsquo;t the password. <span class="green">it&rsquo;s the first letter</span>.
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="34-regimes.html">&larr; prev</a>
+    <span class="slide-num">31 / 37</span>
+    <a class="next" href="34c-key-reuse.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

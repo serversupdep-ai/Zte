@@ -1,0 +1,16 @@
+{
+ "files": {
+  "manifest.json": {
+   "bytes": 396,
+   "sha256": "4a994015500800c752d5d9604bd6ac9fd7bc767872466f22cf84b8f924fe9131"
+  },
+  "tg_3410_13723.zip": {
+   "bytes": 6391,
+   "sha256": "3037459da28095b6da0d8324ef6a16a1f51fd33bf2fef1a90e23bcd54411b408"
+  },
+  "tg_3410_13724.rar": {
+   "bytes": 6391,
+   "sha256": "827ffb72932889f2692d57815ea9d406c1850e3af4e105adbb31cc0bdb4454ec"
+  }
+ }
+}

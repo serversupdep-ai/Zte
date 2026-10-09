@@ -1,0 +1,12 @@
+{
+ "files": {
+  "firmware.xml.gz": {
+   "bytes": 256814,
+   "sha256": "23856b0e7c36ac53419331b8ed753232839bfa5f06f396a5aa3420e7f949b160"
+  },
+  "manifest.json": {
+   "bytes": 268,
+   "sha256": "c103f50079a869e6c1e01f1c5ae2112c6d5b14088e2295cc36ea748d03940fd3"
+  }
+ }
+}

@@ -1,0 +1,191 @@
+{
+ "_meta": {
+  "what": "Per-model solution profiles, each pinned to the model's LATEST BIOS version only",
+  "verified": "2026-10-04 via Dell driver pages + fwupd.org LVFS",
+  "family_LSB": {
+   "0x1B58": "0x58",
+   "0x9ABE": "0xbe",
+   "0x3FE2": "0xe2",
+   "0xCF1B": "0x1b",
+   "0x8FC8": "0xc8"
+  },
+  "response_maps": {
+   "CF1B": "master = resp[0:16] verbatim (code2 = resp[16:32])",
+   "3FE2": "master = resp[0:16] verbatim",
+   "1B58": "master = resp[0:16] verbatim",
+   "9ABE": "master = resp[0:16] verbatim",
+   "8FC8": "master[i] = alphabet[(resp[i]+resp[i+16]) % 72]"
+  },
+  "module_generations": {
+   "A (combined, pw_4_43008)": "10th/11th-gen OptiPlex + 5X00 Precision \u2014 legacy+EC lists; 2.27.0==2.30.0==2.35.0 byte-identical",
+   "B (EC-only, pw_3_38912)": "12th/13th-gen \u2014 EC list at file+0x81f8, same 5 families, no legacy",
+   "legacy-only": "pre-EC machines (3070/7070/3040/3050/...) \u2014 DVAR-era, use dellpwn_port.py"
+  }
+ },
+ "models": {
+  "latitude-3410": {
+   "name": "Latitude 3410 / 3510",
+   "platform": "Mockingbird-L CML (Compal; EC = Microchip MEC1515H)",
+   "latest_bios": {
+    "version": "1.36.0",
+    "date": "2025-09-17",
+    "source": "Dell J37H1 (exe) + LVFS 1.36.0 cab",
+    "held": true,
+    "note": "LATEST package verified: vault module (pw_4) is md5-IDENTICAL to the 2.27.0 reference engine \u2014 keygen valid verbatim; EC now v1.12.0 bt=0xa29 (new build line)"
+   },
+   "suffix_census": [
+    "CF1B"
+   ],
+   "all_ec_families": [
+    "CF1B",
+    "8FC8",
+    "9ABE",
+    "3FE2",
+    "1B58"
+   ],
+   "route_b": {
+    "chips": "TWO chips: 8 MB companion (CSME+PHCM+SIVB) and 16 MB pure-BIOS \u2014 password state lives on the 8 MB chip",
+    "sivb": "find the 'SIVB' magic (seen at 0x3c3000 on ME14-era and 0x103000 on other builds); clear-sivb handles it",
+    "phcm_stores": [
+     "0x1000",
+     "0x41000",
+     "0x81000"
+    ],
+    "ec_build_tags": {
+     "1.2.0": "0x9f4 (EC v1.0.1)",
+     "1.4.1": "0x9f4 (EC v1.0.3)",
+     "1.6.0": "0x9fc (EC v1.5.1, 3510 shared)",
+     "1.36.0": "0xa29 (EC v1.12.0, latest)"
+    }
+   }
+  },
+  "latitude-3420": {
+   "name": "Latitude 3420 / 3520",
+   "platform": "CyborgL (TGL, and ICL variant)",
+   "latest_bios": {
+    "version": "1.47.0 (TGL) / 1.37.0 (ICL variant)",
+    "date": "2026-07-21 (TGL)",
+    "source": "LVFS 1.47.0 cab is browser-only (anti-bot); Dell channel 1.44.0 (2025-10-21, K9N3Y) held + verified",
+    "held": true,
+    "note": "1.44.0 verified: EC v1.13.2 containers stay in the 2021 build family (bt=0xc82, const e83f9307\u2026); vault module = 39424B Latitude class with 8FC8 EC-routing dispatch + the fleet-standard alphabet set"
+   },
+   "suffix_census": [
+    "CF1B"
+   ],
+   "all_ec_families": [
+    "CF1B",
+    "8FC8",
+    "9ABE",
+    "3FE2",
+    "1B58"
+   ],
+   "route_b": {
+    "chips": "32 MB single SPI (CSME+PHCM+BIOS; vault found by magic)",
+    "sivb": "find the 'SIVB' magic (sibling 3440 RPL: 0x33a004)",
+    "phcm_stores": [
+     "0x1000",
+     "0x51000",
+     "0xa1000"
+    ],
+    "ec_build_tags": {
+     "1.13.3": "0xc82 (v1.1.0-v1.4.1 ladder)",
+     "1.44.0": "0xc82 (EC v1.13.2 \u2014 const UNCHANGED since 2021)"
+    }
+   }
+  },
+  "optiplex-3080": {
+   "name": "OptiPlex 3080",
+   "platform": "IPCFL descendant (Comet Lake; LVFS line 2.x)",
+   "latest_bios": {
+    "version": "2.35.0",
+    "date": "2026-07-17",
+    "source": "LVFS (OptiPlex_3080_2.35.0_firmware.cab)",
+    "held": true,
+    "note": "vault module pw_4 byte-identical to the 2.27.0 reference engine \u2014 keygen valid verbatim on the latest BIOS"
+   },
+   "suffix_census": [
+    "8FC8"
+   ],
+   "all_ec_families": [
+    "CF1B",
+    "8FC8",
+    "9ABE",
+    "3FE2",
+    "1B58"
+   ],
+   "route_b": {
+    "chips": "single SPI (16/32 MB class)",
+    "sivb": "find the 'SIVB' magic",
+    "phcm_stores": "by magic scan (00FCxx marker window per patcher)",
+    "ec_build_tags": {
+     "1.3.10": "0x5e2/0x5d0/0x61b/0x600",
+     "2.35.0": "0x60d main / 0x64f backup"
+    }
+   }
+  },
+  "optiplex-3090": {
+   "name": "OptiPlex 3090",
+   "platform": "TGL (user's machine: H2FS5S3, suffix CF1B)",
+   "latest_bios": {
+    "version": "2.30.0",
+    "source": "LVFS (Dell site tops at 2.28.0, 2026-01-15)",
+    "held": true,
+    "note": "vault module pw_4 byte-identical to the 2.27.0 reference engine \u2014 keygen valid verbatim on the latest BIOS"
+   },
+   "suffix_census": [
+    "CF1B",
+    "8FC8"
+   ],
+   "all_ec_families": [
+    "CF1B",
+    "8FC8",
+    "9ABE",
+    "3FE2",
+    "1B58"
+   ],
+   "route_b": {
+    "chips": "32 MB single SPI (W25Q256 class; 16 MB variants exist)",
+    "sivb": "0x891000 (validated; clear-sivb default 5552 B, --full 16 KB partition; MFS starts at +0x4000 \u2014 never cross)",
+    "phcm_stores": [
+     "0x1000",
+     "0x41000",
+     "0x81000"
+    ],
+    "ec_build_tags": {
+     "2.0.7": "0x635 (user's machine) / 0x5fc",
+     "2.27.0": "0x615",
+     "2.30.0": "0x615 main / 0x64f backup"
+    }
+   }
+  },
+  "optiplex-3090uff": {
+   "name": "OptiPlex 3090 UFF (Micro)",
+   "platform": "Meerkat3Tgl (TGL micro)",
+   "latest_bios": {
+    "version": "1.44.0",
+    "source": "LVFS",
+    "held": true,
+    "note": "new-generation EC-only vault module (pw_3, families at file+0x81f8) verified \u2014 same 5 EC families, no legacy"
+   },
+   "suffix_census": [
+    "8FC8"
+   ],
+   "all_ec_families": [
+    "CF1B",
+    "8FC8",
+    "9ABE",
+    "3FE2",
+    "1B58"
+   ],
+   "route_b": {
+    "chips": "single SPI",
+    "sivb": "find the 'SIVB' magic",
+    "phcm_stores": "by magic scan",
+    "ec_build_tags": {
+     "1.1.0": "0xc82 (v1.0.2)",
+     "1.44.0": "0xc82 \u2014 EC build UNCHANGED since 2021"
+    }
+   }
+  }
+ }
+}

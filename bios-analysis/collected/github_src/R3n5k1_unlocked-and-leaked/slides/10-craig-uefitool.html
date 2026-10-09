@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Step 2: Find the Setup Module</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .slide-body.uefitool {
+    justify-content: flex-start;
+    padding-top: 0.8vh;
+    width: 100%;
+  }
+  .slide-body.uefitool h2 { margin-bottom: 0.6rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 2.5vw;
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+  }
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    min-height: 0;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-height: 0;
+  }
+  .steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: step;
+  }
+  .steps li {
+    padding: 0.65rem 0 0.65rem 2.8em;
+    position: relative;
+    border-bottom: 1px dashed var(--fg-dim);
+    font-size: clamp(0.95rem, 1.6vw, 1.22rem);
+    line-height: 1.5;
+  }
+  .steps li:last-child { border-bottom: none; }
+  .steps li::before {
+    counter-increment: step;
+    content: counter(step, decimal-leading-zero);
+    position: absolute;
+    left: 0; top: 0.65rem;
+    color: var(--fg-dim);
+    font-variant-numeric: tabular-nums;
+  }
+  .steps code { color: var(--fg-bright); }
+  .shot {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel-2);
+    padding: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .shot img {
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    image-rendering: pixelated;
+  }
+  .shot.dialog { flex: 0 0 auto; }
+  .shot.dialog img { max-height: calc(22vh * var(--zoom, 1)); }
+  .shot.tree { flex: 0 0 auto; min-height: 0; }
+  .shot.tree img { max-height: calc(31.5vh * var(--zoom, 1)); }
+  .cap {
+    color: var(--fg-dim);
+    font-size: clamp(0.72rem, 1.15vw, 0.9rem);
+    letter-spacing: 0.08em;
+    text-align: center;
+    padding-top: 0.3rem;
+    border-top: 1px dashed var(--fg-dim);
+    margin-top: 0.3rem;
+    line-height: 1.4;
+  }
+  .punch {
+    margin-top: 0.7rem;
+    font-size: clamp(0.95rem, 1.7vw, 1.3rem);
+    text-align: center;
+    color: var(--fg-dim);
+    border-top: 1px dashed var(--fg-dim);
+    padding-top: 0.6rem;
+  }
+  .punch strong { color: var(--fg); font-weight: normal; }
+  .shot.tree img { cursor: zoom-in; }
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 3vh 3vw;
+    background: rgba(0, 0, 0, 0.94);
+    cursor: zoom-out;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+  }
+  .lightbox .hint {
+    position: absolute;
+    bottom: 2.2vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: var(--fg-dim);
+    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 10 &middot; step 2: find the setup module</span>
+  </div>
+
+  <div class="slide-body uefitool">
+    <h2>STEP 2 <span class="dim">::</span> FIND THE SETUP MODULE IN UEFITOOL</h2>
+
+    <div class="grid">
+      <div class="left">
+        <ol class="steps">
+          <li>Open the BIOS dump in <code>UEFITool</code>. The firmware appears as a tree of firmware volumes, files, and sections.</li>
+          <li>Platform configuration options are defined inside a module named <code>Setup</code>. Use <em>Search &rarr; Text tab</em> and search for <code>Setup</code>.</li>
+          <li>This highlights a firmware file named <code>Setup</code> containing a <code>PE32 image</code> section, the compiled setup executable.</li>
+          <li>Right-click the <code>PE32 image</code> section and choose <em>Extract body</em>. This exports the binary to disk.</li>
+        </ol>
+      </div>
+
+      <div class="right">
+        <div class="shot dialog">
+          <img src="img/docx/image1.png" alt="UEFITool text search dialog with 'Setup' typed in">
+          <div class="cap"><em>Search</em> &rarr; Text tab &middot; type <code>Setup</code> &middot; Header and body &middot; Unicode</div>
+        </div>
+        <div class="shot tree">
+          <img src="img/docx/image2.png" alt="UEFITool tree view with Setup firmware file highlighted and PE32 image section visible">
+          <div class="cap"><code>Setup</code> file located &rarr; expand &rarr; right-click <code>PE32 image</code> &rarr; <em>Extract body</em> &middot; <span class="bright">click / press H to enlarge</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="09-craig-dump.html">&larr; prev</a>
+    <span class="slide-num">10 / 37</span>
+    <a class="next" href="11-craig-ifr.html">next &rarr;</a>
+  </nav>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <img src="img/docx/image2.png" alt="UEFITool tree view, full screen">
+  <div class="hint">click anywhere &middot; H or Esc to close</div>
+</div>
+
+<script src="slides.js"></script>
+<script>
+(function () {
+  var img = document.querySelector('.shot.tree img');
+  var lb = document.getElementById('lightbox');
+  function toggle() { lb.classList.toggle('open'); }
+  function close() { lb.classList.remove('open'); }
+  if (img) img.addEventListener('click', toggle);
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'h' || e.key === 'H') { e.preventDefault(); toggle(); }
+    else if (e.key === 'Escape') { close(); }
+  });
+})();
+</script>
+</body>
+</html>

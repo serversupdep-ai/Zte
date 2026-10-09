@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Bonus: Just Call Dell</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .slide-body.calldell {
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 0.8vh;
+    width: 100%;
+    gap: 1rem;
+  }
+  .slide-body.calldell h2 { margin-bottom: 0; text-align: center; }
+  .fever {
+    font-size: clamp(0.95rem, 1.65vw, 1.25rem);
+    color: var(--fg-dim);
+    text-align: center;
+    max-width: 72ch;
+    line-height: 1.7;
+    font-style: italic;
+    margin: 0;
+  }
+  .fever strong { color: var(--fg); font-style: normal; }
+  .fever .temp { color: var(--accent-red); font-style: normal; }
+  .form {
+    border: 1px solid var(--accent-red);
+    background: rgba(255, 51, 68, 0.04);
+    padding: 0.85rem 1.6rem;
+    width: 100%;
+    max-width: 52ch;
+  }
+  .form .form-title {
+    color: var(--accent-red);
+    letter-spacing: 0.12em;
+    font-size: clamp(0.82rem, 1.35vw, 1rem);
+    margin-bottom: 0.6rem;
+    text-align: center;
+    border-bottom: 1px dashed var(--accent-red);
+    padding-bottom: 0.35rem;
+  }
+  .fields {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .fields li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-size: clamp(0.88rem, 1.5vw, 1.1rem);
+  }
+  .fields .tick { color: var(--fg-dim); flex-shrink: 0; }
+  .fields .field { color: var(--fg); }
+  .fields .field.odd { color: var(--accent-red); }
+  .fields .note {
+    color: var(--fg-dim);
+    font-size: clamp(0.72rem, 1.1vw, 0.88rem);
+    font-style: italic;
+  }
+  .punchline {
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    text-align: center;
+    color: var(--fg);
+    letter-spacing: 0.03em;
+    border-top: 1px dashed var(--fg-dim);
+    padding-top: 0.7rem;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 22 &middot; method 2: just call dell</span>
+  </div>
+
+  <div class="slide-body calldell">
+    <h2>METHOD 2 <span class="dim">::</span> JUST CALL DELL</h2>
+
+    <p class="fever">
+      I was running a <span class="temp">39&deg;C fever</span> when I found this.
+      I still think it counts. Dell will simply
+      <strong>hand you the master BIOS password over the phone.</strong>
+    </p>
+
+    <div class="form">
+      <div class="form-title">DELL MASTER PASSWORD REQUEST: REQUIRED FIELDS</div>
+      <ul class="fields">
+        <li><span class="tick">[&checkmark;]</span> <span class="field">Service tag</span></li>
+        <li><span class="tick">[&checkmark;]</span> <span class="field">Case number</span></li>
+        <li><span class="tick">[&checkmark;]</span> <span class="field">Physical location</span></li>
+        <li><span class="tick">[&checkmark;]</span> <span class="field">First name and last name</span></li>
+        <li><span class="tick">[&checkmark;]</span> <span class="field">Today&rsquo;s date</span></li>
+        <li><span class="tick">[&checkmark;]</span> <span class="field odd">USB-C charger</span> <span class="note">&larr; yes, really</span></li>
+      </ul>
+    </div>
+
+    <div class="punchline">
+      A phone call and a charger, that&rsquo;s the authentication model protecting your BIOS password.
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="22-card-way2.html">&larr; prev</a>
+    <span class="slide-num">22 / 37</span>
+    <a class="next" href="24-bridge.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

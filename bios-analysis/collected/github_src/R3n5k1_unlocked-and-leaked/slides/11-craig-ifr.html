@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Step 3: Run IFRExtractor</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .slide-body.ifr {
+    justify-content: flex-start;
+    padding-top: 1vh;
+    width: 100%;
+  }
+  .slide-body.ifr h2 { margin-bottom: 0.8rem; }
+  .lead {
+    font-size: clamp(1rem, 1.75vw, 1.35rem);
+    line-height: 1.6;
+    color: var(--fg-dim);
+    margin: 0 0 1.2rem 0;
+    max-width: 58em;
+  }
+  .lead strong { color: var(--fg); font-weight: normal; }
+  .cmd-label {
+    font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+    color: var(--fg-dim);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.4rem;
+  }
+  .cli-block {
+    background: var(--panel);
+    border: 1px solid var(--fg-dim);
+    padding: 1rem 1.4rem;
+    font-size: clamp(0.85rem, 1.5vw, 1.15rem);
+    line-height: 1.65;
+    overflow-x: auto;
+    white-space: pre;
+    margin-bottom: 1.2rem;
+  }
+  .cli-block .prompt { color: var(--fg-dim); }
+  .cli-block .cmd { color: var(--fg-bright); }
+  .cli-block .out { color: var(--fg-dim); }
+  .cli-block .file { color: var(--fg); }
+  .cli-block .hit { color: var(--accent-green); }
+  .punch {
+    margin-top: 0.8rem;
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    text-align: center;
+    color: var(--fg-dim);
+    border-top: 1px dashed var(--fg-dim);
+    padding-top: 0.7rem;
+  }
+  .punch strong { color: var(--fg); font-weight: normal; }
+  .punch .green { color: var(--accent-green); font-style: italic; }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 11 &middot; step 3: run ifrextractor</span>
+  </div>
+
+  <div class="slide-body ifr">
+    <h2>STEP 3 <span class="dim">::</span> RUN IFREXTRACTOR</h2>
+    <p class="lead">
+      <strong>IFRExtractor</strong> parses the HII (Human Interface Infrastructure) package list
+      stored in the PE32 binary and converts it into readable text. The output describes
+      the entire BIOS menu structure: <strong>form IDs, variable offsets, and option conditions</strong>.
+    </p>
+
+    <div class="cmd-label">// run ifrextractor on the extracted binary</div>
+    <div class="cli-block"><span class="prompt">/tmp/uefi ❯</span> <span class="cmd">~/tools/ifrextractor ./Section_PE32_image_Setup_Setup_body.efi</span>
+<span class="out">Extracting all UEFI HII form packages using en-US UEFI HII string packages</span>
+
+<span class="prompt">/tmp/uefi ❯</span> <span class="cmd">ls -la</span>
+<span class="out">Permissions  Size  User  Date Modified  Name</span>
+<span class="out">.rw-r--r--   805k  user  10 Mar 17:47   </span><span class="file">Section_PE32_image_Setup_Setup_body.efi</span>
+<span class="out">.rw-r--r--    4.5k  user  10 Mar 17:47   </span><span class="hit">Section_PE32_image_Setup_Setup_body.efi.0.0.en-US.uefi.ifr.txt</span>
+<span class="out">.rw-r--r--    1.9M  user  10 Mar 17:47   </span><span class="hit">Section_PE32_image_Setup_Setup_body.efi.1.0.en-US.uefi.ifr.txt</span>
+<span class="out">.rw-r--r--    7.3k  user  10 Mar 17:47   </span><span class="hit">Section_PE32_image_Setup_Setup_body.efi.2.0.en-US.uefi.ifr.txt</span></div>
+
+    <div class="punch">
+      one binary in &rarr; <span class="green">a human-readable map of every BIOS option</span> out.
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="10-craig-uefitool.html">&larr; prev</a>
+    <span class="slide-num">11 / 37</span>
+    <a class="next" href="12-craig-grep.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

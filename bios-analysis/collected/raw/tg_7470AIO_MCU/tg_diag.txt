@@ -1,0 +1,6 @@
+msg: https://t.me/biosarchive/30339
+dl: https://telegram.org/dl?tme=2bb43a0a4562f58a9c_13078969020735889991
+ua='Mozilla/5.0 (Windows NT ' -> 200 6391 text/html; charset=utf-8 https://desktop.telegram.org/ magic=b'<!DOCTYPE html>\n'
+ua='Mozilla/5.0 (Linux; Andr' -> 200 6161 text/html; charset=utf-8 https://telegram.org/android magic=b'<!DOCTYPE html>\n'
+ua='TelegramBot (like Twitte' -> 200 15663 text/html; charset=utf-8 https://telegram.org/apps magic=b'<!DOCTYPE html>\n'
+ua='Mozilla/5.0 (Windows NT ' -> 200 6391 text/html; charset=utf-8 https://desktop.telegram.org/ magic=b'<!DOCTYPE html>\n'

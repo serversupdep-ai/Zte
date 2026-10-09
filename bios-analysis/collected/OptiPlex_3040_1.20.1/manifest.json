@@ -1,0 +1,40 @@
+{
+ "url": "https://downloads.dell.com/FOLDER08778208M/1/OptiPlex_3040_1.20.1.exe",
+ "entries": [
+  {
+   "file": "bios-analysis/collected/OptiPlex_3040_1.20.1/pw_1_15872.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 15872,
+   "sha256": "1be316495fb9c492cef2c04ca4687b7c72f7a55030ba610d3430e1b53c8748aa"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3040_1.20.1/pw_2_24576.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 24576,
+   "sha256": "5c4f74deb0071e8703a8c0e86fab7053063c09fe0409a62c9f128ed4fd633f54"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3040_1.20.1/pw_3_25600.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 25600,
+   "sha256": "72df494ada985f3f49569601602de62c01f21f5995991f0aa945f8ec90c158ff"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3040_1.20.1/pw_4_42496.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 42496,
+   "sha256": "dede9bd7c7ab221bfe7bebbfd575480025b0fde1d65d408493f8a6d4d92ffda5"
+  },
+  {
+   "file": "bios-analysis/collected/OptiPlex_3040_1.20.1/pw_5_72192.efi",
+   "kind": "pw",
+   "marker": "0Q2drGk99",
+   "size": 72192,
+   "sha256": "54b11f1e8b7216e399def4b6c74813b7baccb4c54d50e10c9fbff2b6033c0aaa"
+  }
+ ]
+}

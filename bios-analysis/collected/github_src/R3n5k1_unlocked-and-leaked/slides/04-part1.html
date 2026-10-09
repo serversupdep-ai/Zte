@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Part One</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  /* act-break: centre everything under the big pivot message */
+  .slide-body { align-items: center; }
+  .part-marker {
+    color: var(--fg-dim);
+    letter-spacing: 0.4em;
+    font-size: clamp(0.9rem, 1.6vw, 1.2rem);
+    margin-bottom: 0.6rem;
+  }
+  .pivot {
+    text-align: center;
+    margin: 1.2rem 0 0.5rem 0;
+  }
+  .pivot .big {
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: var(--fg-bright);
+    letter-spacing: 0.04em;
+    line-height: 1.25;
+    text-shadow: 0 0 16px rgba(255, 179, 71, 0.4);
+  }
+  .pivot .big .red { font-style: italic; }
+  .presenter {
+    margin-top: 1.8rem;
+    border-top: 1px dashed var(--fg-dim);
+    padding-top: 1.2rem;
+    color: var(--fg-dim);
+    letter-spacing: 0.15em;
+    font-size: clamp(0.88rem, 1.45vw, 1.12rem);
+  }
+  .presenter .who { color: var(--fg); }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 04 &middot; part one: sidestep the lock</span>
+  </div>
+
+  <div class="slide-body">
+    <div class="part-marker">PART ONE</div>
+    <h2>SIDESTEP THE LOCK</h2>
+
+    <div class="pivot">
+      <div class="big">Two ways through a locked Dell BIOS that
+        <span class="red">never touch the password</span>.</div>
+    </div>
+
+    <div class="presenter">
+      first up, <span class="who">Craig S. Blackie</span>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="03-toolchain.html">&larr; prev</a>
+    <span class="slide-num">4 / 37</span>
+    <a class="next" href="05-card-way1.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

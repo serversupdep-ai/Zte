@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="https://web-static.archive.org/_static/js/athena.js" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app26.us.archive.org';v.server_ms=1662;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/bundle-playback.js?v=lGQTDXxZ" charset="utf-8"></script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/wombat.js?v=o9P2E1FK" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};</script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/ruffle/ruffle.js"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/","20241212033907","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1733974747");
+</script>
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/banner-styles.css?v=1utQkbB3" />
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv" />
+<!-- End Wayback Rewrite JS Include -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dell Factory Mode through SMSC MECxxxx JTAG</title>
+    <link rel="stylesheet" href="/web/20241212033907cs_/https://blog.piernov.org/assets/built/screen.css?v=6228a6d4b1">
+
+    <link rel="canonical" href="https://web.archive.org/web/20241212033907/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="piernov">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Dell Factory Mode through SMSC MECxxxx JTAG">
+    <meta property="og:description" content="WARNING: the steps described below can and will brick your machine if performed improperly, make sure to always have a backup of your EC Flash and a way to recover from a bad flash. Additionally, this will void your warranty.
+
+In this article, we will explain how to put a">
+    <meta property="og:url" content="https://web.archive.org/web/20241212033907/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/">
+    <meta property="og:image" content="https://web.archive.org/web/20241212033907im_/https://static.ghost.org/v5.0.0/images/publication-cover.jpg">
+    <meta property="article:published_time" content="2023-08-24T18:29:35.000Z">
+    <meta property="article:modified_time" content="2023-08-24T18:32:58.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dell Factory Mode through SMSC MECxxxx JTAG">
+    <meta name="twitter:description" content="WARNING: the steps described below can and will brick your machine if performed improperly, make sure to always have a backup of your EC Flash and a way to recover from a bad flash. Additionally, this will void your warranty.
+
+In this article, we will explain how to put a">
+    <meta name="twitter:url" content="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/">
+    <meta name="twitter:image" content="https://web.archive.org/web/20241212033907im_/https://static.ghost.org/v5.0.0/images/publication-cover.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="piernov">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="840">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://web.archive.org/web/20241212033907/https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "piernov",
+        "url": "https://web.archive.org/web/20241212033907/https://blog.piernov.org/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://web.archive.org/web/20241212033907/https://blog.piernov.org/favicon.ico",
+            "width": 48,
+            "height": 48
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "piernov",
+        "url": "https://web.archive.org/web/20241212033907/https://blog.piernov.org/author/piernov/",
+        "sameAs": []
+    },
+    "headline": "Dell Factory Mode through SMSC MECxxxx JTAG",
+    "url": "https://web.archive.org/web/20241212033907/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/",
+    "datePublished": "2023-08-24T18:29:35.000Z",
+    "dateModified": "2023-08-24T18:32:58.000Z",
+    "description": "WARNING: the steps described below can and will brick your machine if performed improperly, make sure to always have a backup of your EC Flash and a way to recover from a bad flash. Additionally, this will void your warranty.\n\nIn this article, we will explain how to put a Dell motherboard back in factory mode, which allows changing the Service Tag among other things.\n\nThis tutorial is for motherboards using an SMSC MECxxxx Embedded Controller with embedded Flash. This has been tested with MEC505",
+    "mainEntityOfPage": "https://web.archive.org/web/20241212033907/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.89">
+    <link rel="alternate" type="application/rss+xml" title="piernov" href="https://web.archive.org/web/20241212033907/https://blog.piernov.org/rss/">
+    <script defer src="https://web.archive.org/web/20241212033907js_/https://cdn.jsdelivr.net/ghost/portal@~2.37/umd/portal.min.js" data-i18n="false" data-ghost="https://blog.piernov.org/" data-key="dd5e508d0b3810744a91ee5adf" data-api="https://blog.piernov.org/ghost/api/content/" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://web.archive.org/web/20241212033907js_/https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="dd5e508d0b3810744a91ee5adf" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="https://blog.piernov.org/" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.piernov.org/webmentions/receive/" rel="webmention">
+    <script defer src="/web/20241212033907js_/https://blog.piernov.org/public/cards.min.js?v=6228a6d4b1"></script>
+    <link rel="stylesheet" type="text/css" href="/web/20241212033907cs_/https://blog.piernov.org/public/cards.min.css?v=6228a6d4b1">
+    <script defer src="/web/20241212033907js_/https://blog.piernov.org/public/comment-counts.min.js?v=6228a6d4b1" data-ghost-comments-counts-api="https://blog.piernov.org/members/api/comments/counts/"></script><style>:root {--ghost-accent-color: #FF1A75;}</style>
+</head>
+
+<body class="post-template is-head-stacked"><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display:none;direction:ltr;" toolbar-mode="auto">
+<div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;">
+<div id="donato" style="position:relative;width:100%;height:0;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;platform=wb&amp;referer=https%3A//web.archive.org/web/20241212033907/https%3A//blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/"
+	    scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><div id="wm-ipp-inside">
+  <div id="wm-toolbar" style="position:relative;display:flex;flex-flow:row nowrap;justify-content:space-between;" nav="async">
+    <div id="wm-logo" style="/*width:110px;*/padding-top:12px;">
+      <a href="/web/" title="Wayback Machine home page"><img src="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png" srcset="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-100.png, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-150.png 1.5x, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png 2x" alt="Wayback Machine" style="width:100px" border="0" /></a>
+    </div>
+    <div class="c" style="display:flex;flex-flow:column nowrap;justify-content:space-between;flex:1;">
+      <form class="u" style="display:flex;flex-direction:row;flex-wrap:nowrap;" target="_top" method="get" action="/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/" onfocus="this.focus();this.select();" style="flex:1;"/><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20241212033907" /><input type="submit" value="Go" />
+      </form>
+      <div style="display:flex;flex-flow:row nowrap;align-items:flex-end;">
+                <div class="s" id="wm-nav-captures" style="flex:1;">
+                    <a class="t" href="/web/20241212033907*/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/" title="See a list of every capture for this URL">11 captures</a>
+          <div class="r" title="Timespan for captures of this URL">30 Sep 2023 - 16 Apr 2026</div>
+          </div>
+        <div class="k">
+          <a href="" id="wm-graph-anchor">
+            <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
+              <canvas id="wm-sparkline-canvas" width="775" height="27" border="0"></canvas>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="n">
+      <table>
+        <tbody>
+          <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+          <tr class="m">
+            <td class="b" nowrap="nowrap">Nov</td>
+            <td class="c" id="displayMonthEl" title="You are here: 03:39:07 Dec 12, 2024">DEC</td>
+            <td class="f" nowrap="nowrap">Jan</td>
+          </tr>
+          <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+          <tr class="d">
+            <td class="b" nowrap="nowrap"><span class="ta"></span></td>
+            <td class="c" id="displayDayEl" style="width:34px;font-size:22px;white-space:nowrap;" title="You are here: 03:39:07 Dec 12, 2024">12</td>
+            <td class="f" nowrap="nowrap"><span class="ta"></span></td>
+          </tr>
+          <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+          <tr class="y">
+            <td class="b" nowrap="nowrap">2023</td>
+            <td class="c" id="displayYearEl" title="You are here: 03:39:07 Dec 12, 2024">2024</td>
+            <td class="f" nowrap="nowrap">2025</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="r" style="display:flex;flex-flow:column nowrap;align-items:flex-end;justify-content:space-between;">
+      <div id="wm-btns" style="text-align:right;height:23px;">
+                <span class="xxs">
+          <div id="wm-save-snapshot-success">success</div>
+          <div id="wm-save-snapshot-fail">fail</div>
+          <a id="wm-save-snapshot-open" href="#" title="Share via My Web Archive" >
+            <span class="iconochive-web"></span>
+          </a>
+          <a href="https://archive.org/account/login.php" title="Sign In" id="wm-sign-in">
+            <span class="iconochive-person"></span>
+          </a>
+          <span id="wm-save-snapshot-in-progress" class="iconochive-web"></span>
+        </span>
+                <a class="xxs" href="https://help.archive.org/help/category/the-wayback-machine/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
+        <a id="wm-tb-close" href="#close" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
+      </div>
+      <div id="wm-share" class="xxs">
+        <a href="/web/20241212033907/http://web.archive.org/screenshot/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/"
+           id="wm-screenshot"
+           title="screenshot">
+          <span class="wm-icon-screen-shot"></span>
+        </a>
+        <a href="#" id="wm-video" title="video">
+          <span class="iconochive-movies"></span>
+        </a>
+        <a id="wm-share-facebook" href="#" data-url="https://web.archive.org/web/20241212033907/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
+        <a id="wm-share-twitter" href="#" data-url="https://web.archive.org/web/20241212033907/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
+      </div>
+      <div style="padding-right:2px;text-align:right;white-space:nowrap;">
+        <a id="wm-expand" class="wm-btn wm-closed" href="#expand"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span class="xxs" style="font-size:80%;">About this capture</span></a>
+      </div>
+    </div>
+  </div>
+    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
+        <div id="wm-capinfo-notice" source="api"></div>
+                <div id="wm-capinfo-collected-by" source="api" trigger="hover" token="MTytuQ1b0Dhb5vUraB2vRxeXNud1RgePDGiyvnW12Ceb7y0Evuts_Op8KEKFHZk2LlLliA"></div>
+    <div id="wm-capinfo-timestamps">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center;padding:2px 0;" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+    <div>
+      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
+      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="https://web-static.archive.org/_static/images/loading.gif" alt="loading" /></div>
+    </div>
+    </div>
+  </div></div></div></div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20241212033907/https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(775,27,25,2,"web","https://blog.piernov.org/dell-factory-mode-through-smsc-mecxxxx-jtag/","20241212033907",1996,"https://web-static.archive.org/_static/",["https://web-static.archive.org/_static/css/banner-styles.css?v=1utQkbB3","https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ 
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    <a class="gh-head-logo" href="https://web.archive.org/web/20241212033907/https://blog.piernov.org/">
+                            piernov
+                    </a>
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="https://web.archive.org/web/20241212033907/https://blog.piernov.org/">Home</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signin" data-portal="signin">Sign in</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    
+
+<main id="gh-main" class="gh-main">
+    <article class="gh-article post no-image">
+
+        <header class="gh-article-header gh-canvas">
+            <span class="gh-article-meta">
+                By <a href="/web/20241212033907/https://blog.piernov.org/author/piernov/">piernov</a>
+                —
+                <time datetime="2023-08-24">Aug 24, 2023</time>
+            </span>
+
+            <h1 class="gh-article-title">Dell Factory Mode through SMSC MECxxxx JTAG</h1>
+
+
+                    </header>
+
+        <div class="gh-content gh-canvas">
+            <p><strong>WARNING: the steps described below can and will brick your machine if performed improperly, make sure to always have a backup of your EC Flash and a way to recover from a bad flash. Additionally, this will void your warranty.</strong></p><p>In this article, we will explain how to put a Dell motherboard back in factory mode, which allows changing the Service Tag among other things.</p><p>This tutorial is for motherboards using an SMSC MECxxxx Embedded Controller with embedded Flash. This has been tested with MEC5055 and MEC5075, it should work with other SMSC MECxxxx with embedded Flash but the JTAG ID and the page addresses may be different.</p><p>This requires decent soldering skills in order to interface with the unpopulated debug connector on the motherboard.</p><h1 id="requirements">Requirements</h1><h2 id="hardware">Hardware</h2><ul><li>A Dell computer using and SMSC MECxxxx with embedded Flash you want to put back in service mode.</li><li>A JTAG probe compatible with OpenOCD. I will be using a Terasic USB Blaster but others such as FT2232-based ones should also work. Cheap USB Blaster clones are not recommended due to their unreliability.</li><li>A 10 pins 0.5mm pitch FFC connector and cable. On some older boards, the footprint is 6 pins 1.2mm pitch.</li><li>An FFC to DIP adapter board.</li><li>Dupont cables to connect the adapter board to the JTAG probe connector.</li><li><em>Alternatively</em>: small jumper wires to solder on the motherboard debug connector.</li><li>Microsoldering equipment.</li></ul><h2 id="software">Software</h2><p>Another computer with:</p><ul><li>OpenOCD arc-2021.09, see below for installation.</li><li>A hexadecimal editor (e.g., Bless on Linux).</li><li>A network terminal such as Telnet.</li><li>Schematics and ideally boardview files of the motherboard to locate the debug connector and its pinout.</li><li><a href="https://web.archive.org/web/20241212033907/https://github.com/OpenBoardView/OpenBoardView/releases">OpenBoardView</a> to open the boardview file of the motherboard.</li></ul><h1 id="openocd-arc-202109">OpenOCD arc-2021.09</h1><p>Either you can try to build OpenOCD arc-2021.09 yourself or you can download it pre-built as part of the GNU Toolchain for ARC Processors 2021.09. Choose one or the other option.</p><h2 id="build-openocd-arc-202109">Build OpenOCD arc-2021.09</h2><p>Modern compilers will not accept to build the <a href="https://web.archive.org/web/20241212033907/https://github.com/foss-for-synopsys-dwc-arc-processors/openocd/releases/tag/arc-2021.09">original upstream release</a>.</p><p>If you are building on an older OS (e.g., Ubuntu 20.04) it should be fine, but a system with GCC 13 will definitely not work.</p><p>I made a fork with the least backported patches required to build the arc-2021.09 release on newer systems: <a href="https://web.archive.org/web/20241212033907/https://github.com/piernov/openocd">https://github.com/piernov/openocd</a></p><p>You will need the usual build tools and some development libraries as well, for example on Ubuntu:</p><pre><code>sudo apt install build-essential libusb-dev libftdi-dev libhidapi-dev</code></pre><p>The steps to build it are the usual clone repository, generate autoconf files, configure, make and install:</p><pre><code>git clone https://github.com/piernov/openocd.git -b arc-2021.09
+cd openocd
+autoreconf -fi
+./configure
+make
+sudo make install</code></pre><p>Note that this will install system-wide without tracking from the package manager, which is not recommended but easier.</p><h2 id="get-gnu-toolchain-for-arc-processors-202109">Get GNU Toolchain for ARC Processors 2021.09</h2><p>Got to <a href="https://web.archive.org/web/20241212033907/https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/tag/arc-2021.09-release">https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/tag/arc-2021.09-release</a> and download the GNU Toolchain for ARC Processors IDE 2021.09. For example on Linux: <a href="https://web.archive.org/web/20241212033907/https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2021.09-release/arc_gnu_2021.09_ide_linux_install.tar.gz">https://github.com/foss-for-synopsys-dwc-arc-processors/toolchain/releases/download/arc-2021.09-release/arc_gnu_2021.09_ide_linux_install.tar.gz</a></p><p>Warning: the download exceeds 1 GiB and once extracted it will need 5 GiB more disk space.</p><p>Extract it somewhere, open a Terminal at this location and check if <code>openocd</code> can be executed:</p><pre><code>./bin/openocd -v</code></pre><p>Which should print:</p><pre><code>Open On-Chip Debugger 0.9.0-dev (2021-12-09-11:36)
+Licensed under GNU GPL v2
+For bug reports, read
+        http://openocd.sourceforge.net/doc/doxygen/bugs.html</code></pre><h1 id="connect-the-jtag-probe">Connect the JTAG probe</h1><p>Now you need to connect the JTAG probe to the target system's debug connector.</p><p>Open the schematics of the motherboard and look for the SMSC MECxxxx.</p><p>For example, in the block diagram of Compal LA-9832P we can see the MEC5075.</p><figure class="kg-card kg-image-card"><img src="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/screen-2023-08-24-15-07-15-1.png" class="kg-image" alt loading="lazy" width="1357" height="960" srcset="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/size/w600/2023/08/screen-2023-08-24-15-07-15-1.png 600w, https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/size/w1000/2023/08/screen-2023-08-24-15-07-15-1.png 1000w, https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/screen-2023-08-24-15-07-15-1.png 1357w" sizes="(min-width: 720px) 720px"></figure><p>Its circuit is on page 32, with the reference designator being U38. We can easily see its JTAG interfaces with the TDI, TDO, TMS and TCK signals (as well as the optional TRST#).</p><figure class="kg-card kg-image-card"><img src="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/screen-2023-08-24-15-08-07.png" class="kg-image" alt loading="lazy" width="832" height="924" srcset="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/size/w600/2023/08/screen-2023-08-24-15-08-07.png 600w, https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/screen-2023-08-24-15-08-07.png 832w" sizes="(min-width: 720px) 720px"></figure><p>This interface is exposed on the JDEG1 connector. We will need to connect to the 4 JTAG signals (in green: TDI, TMS, CLK, TDO), as well as power (in red: +3.3V_ALW) and ground (in black).</p><figure class="kg-card kg-image-card"><img src="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/screen-2023-08-24-15-08-26.png" class="kg-image" alt loading="lazy" width="740" height="338" srcset="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/size/w600/2023/08/screen-2023-08-24-15-08-26.png 600w, https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/screen-2023-08-24-15-08-26.png 740w" sizes="(min-width: 720px) 720px"></figure><p>The power rail is used for the JTAG probe to set its levels correctly. Some JTAG probes may instead be permanently set to 3.3V (confirm with its manual, do not use a JTAG probe fixed to another voltage level). The JTAG Probe does <strong>not</strong> supply power to the board, we will need to keep the AC adapter connected.</p><p>The <code>JTAG_RST#</code> signal is not available on this connector but we do not need it. However, if the <code>JTAG_RST#</code> signal is pulled down, the JTAG interface is disabled, so it may stay pulled up. On this board, it is pulled up by default since R384 is not populated (annotated with <code>@</code>) and the <code>JTAG1</code> pads are not shorted:</p><figure class="kg-card kg-image-card"><img src="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/screen-2023-08-24-15-13-10.png" class="kg-image" alt loading="lazy" width="481" height="402"></figure><p>With help of the boardview, we can easily locate the debug connector on the keyboard side:</p><figure class="kg-card kg-image-card"><img src="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/screen-2023-08-24-15-20-55.png" class="kg-image" alt loading="lazy" width="1236" height="707" srcset="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/size/w600/2023/08/screen-2023-08-24-15-20-55.png 600w, https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/size/w1000/2023/08/screen-2023-08-24-15-20-55.png 1000w, https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/screen-2023-08-24-15-20-55.png 1236w" sizes="(min-width: 720px) 720px"></figure><p>With our 4 JTAG signals, power and ground:</p><figure class="kg-card kg-image-card"><img src="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/screen-2023-08-24-15-20-52.png" class="kg-image" alt loading="lazy" width="1216" height="960" srcset="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/size/w600/2023/08/screen-2023-08-24-15-20-52.png 600w, https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/size/w1000/2023/08/screen-2023-08-24-15-20-52.png 1000w, https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/screen-2023-08-24-15-20-52.png 1216w" sizes="(min-width: 720px) 720px"></figure><p>If you have a connector, cable and adapter board that fit, solder the connector onto the board. You do not need to solder the anchor pads if you want to remove the connector more easily after the operation, just make sure to not put force on it to avoid ripping off the pads.</p><p>Using a connector makes the job much easier. See this example:</p><figure class="kg-card kg-image-card"><img src="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/20230824_200333_c-2.jpg" class="kg-image" alt loading="lazy" width="978" height="935" srcset="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/size/w600/2023/08/20230824_200333_c-2.jpg 600w, https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/20230824_200333_c-2.jpg 978w" sizes="(min-width: 720px) 720px"></figure><p>Otherwise, you need to solder jumper wires to these 6 pads.</p><p>Then, connect to your JTAG probe. Read the manual of your probe to figure out its pinout. For example, for a USB Blaster:</p><figure class="kg-card kg-image-card"><img src="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/JTAG_header__200.jpg" class="kg-image" alt loading="lazy" width="200" height="142"></figure><p>This would be the board connector top view. Therefore, if you look at the connector at the end of the USB Blaster cable, the pinout is mirrored.</p><p>Generally, you need to swap the connection between TDI and TDO compared to the pinout of the board. If you cannot establish communication, just try to reverse these pins, it is harmless.</p><h2 id="establish-connection-with-openocd">Establish connection with OpenOCD</h2><p>Now that the USB Blaster is connected to the target board, connect the JTAG Probe to the host computer.</p><p>Create a new <code>openocd.cfg</code> file with the following content:</p><pre><code>
+source [find cpu/arc/arcompact.tcl]
+source [find cpu/arc/em.tcl]
+
+set _CHIPNAME arc600
+set _TARGETNAME $_CHIPNAME.cpu
+
+jtag newtap $_CHIPNAME cpu -irlen 4 -ircapture 0x1 -expected-id 0x200024b1
+
+target create $_TARGETNAME arc600 -chain-position $_TARGETNAME 
+
+arc jtag wait-until-write-finished on
+$_TARGETNAME configure -event reset-assert "arc_arcompact_reset $_TARGETNAME"
+
+arc_arcompact_init_regs</code></pre><p>The <code>-expected-id 0x2000024b1</code>  works for MEC5075, it needs to be changed to  <code>-expected-id 0x1000024b1</code> for MEC5055.</p><p>Plug the AC adapter to the target system and run OpenOCD:</p><pre><code>openocd -f interface/altera-usb-blaster.cfg -f openocd.cfg</code></pre><p>If you are running from the GNU Toolchain for ARC Processors, you will instead have to run OpenOCD like this:</p><pre><code>./bin/openocd -s ./share/openocd/scripts -f interface/altera-usb-blaster.cfg -f openocd.cfg</code></pre><p>You will need to change the <code>interface/altera-usb-blaster.cfg</code> configuration file according to your JTAG probe if you are not using a USB Blaster.</p><p>This should print something similar to:</p><pre><code>Open On-Chip Debugger 0.9.0-dev-dirty (2023-07-22-18:20)
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.sourceforge.net/doc/doxygen/bugs.html
+Warn : Adapter driver 'usb_blaster' did not declare which transports it allows; assuming legacy JTAG-only
+Info : only one transport option; autoselect 'jtag'
+Info : No lowlevel driver configured, will try them all
+Info : usb blaster interface using libftdi
+Info : This adapter doesn't support configurable speed
+Info : JTAG tap: arc600.cpu tap/device found: 0x200024b1 (mfg: 0x258, part: 0x0002, ver: 0x2)
+Info : accepting 'telnet' connection on tcp/4444</code></pre><p>If you have an error such as <code>JTAG scan chain interrogation failed: all ones</code>, it generally means the JTAG probe is not hooked up properly to the target system.</p><p>An error similar to <code>unable to open ftdi device: usb_open() failed</code> is generally a permission error on the host system, try prepending <code>sudo</code> to the command. </p><p>You can now open another terminal to connect to the OpenOCD server with Telnet:</p><pre><code>telnet localhost 4444</code></pre><p>You should be welcomed with OpenOCD prompt. This is where you will be typing commands to interact with the SMSC MECxxxx.</p><h1 id="dump-current-firmware">Dump current firmware</h1><p>In the OpenOCD terminal, type:</p><pre><code>halt
+dump_image mec_backup.bin 0x0 0x48000</code></pre><p>This will dump 288 KiB (<code>0x48000</code>) of memory starting at address 0 (<code>0x0</code>) from the MECxxxx. Since the Flash is mapped at address 0, this has the effect of dumping the Flash content (except protected pages, see below).</p><p>MEC5075 has 288 KiB of internal Flash, other models may have a different amount of Flash so this value may need to be adjusted.</p><p>OpenOCD should print something similar to:</p><pre><code>dumped 294912 bytes in 294.752319s (0.977 KiB/s)</code></pre><p>Depending on the JTAG probe and its configuration, this can take several minutes. Be patient, do not touch the target system.</p><h2 id="unlock-boot-block-optional">Unlock boot block (optional)</h2><p>Some pages are generally protected, generally the first 4 KiB are not readable and will appear blank (<code>0xFF</code>). This should not be an issue here as we do not need to interact with these pages.</p><p>If you want to read these as well, you can pull the <code>NFWP</code> pin or <code>FWP#</code> low instead of high. For example, on Compal LA-9832P, you can move R393 to R399.</p><figure class="kg-card kg-image-card"><img src="https://web.archive.org/web/20241212033907im_/https://blog.piernov.org/content/images/2023/08/screen-2023-08-24-16-06-58.png" class="kg-image" alt loading="lazy" width="170" height="335"></figure><h1 id="analyze-firmware">Analyze firmware</h1><p>In this step, we will look at the dumped firmware to identify which pages should be erased to put the board back in manufacturing mode (erasing seralization). Open the firmware in a hexadecimal editor (Bless on Linux for example) and search for the current service tag in text mode.</p><p>There should be two occurences, separated by 0x800 which is incidentally the size of a page. Find the beginning of both pages, i.e. addresses multiple of 0x800 just before where the service tag was found.</p><p>This can vary between machines and maybe firmware versions, on Compal LA-9832P the pages address have been observed to be <code>0x47000</code> and <code>0x47800</code>, and on Inventec Krug 14" UMA they were <code>0x3f000</code> and <code>0x3f800</code>.</p><h1 id="erase-pages">Erase pages</h1><p>Once we identified the addresses to erase, we can actually erase them.</p><p><strong>Warning: if you did not properly identify the pages to erase or if you enter the commands improperly, this <em>will</em> brick your machine. Do not proceed if you are not confident in what you are doing and if you cannot risk bricking the motherboard!</strong></p><p><strong>Erasing these 2 pages should not cause any problem except for the fact that you will need to enter the service tag again, erasing any other page will probably cause the motherboard not to turn on anymore!</strong></p><p><strong>It is also important to note that while we did make a backup of the firmware previously, there is currently no easy way to restore it with this toolset. You will need to use a dedicated EC programmer. This is because there is currently no Flash driver or script to make it easier to program multiple addresses at once in an SMSC MECxxxx using OpenOCD.</strong></p><p>Now that this is said, you can proceed with caution and enter the following commands in the OpenOCD terminal:</p><pre><code>## Erase first page
+reset halt
+mww 16726288 1
+mww 16726280 256
+mww 16726284 1792
+
+mww 16726280 259
+mww 16726276 &lt;first page address&gt;
+mdw 16726284
+
+
+## Erase second page
+reset halt
+mww 16726288 1
+mww 16726280 256
+mww 16726284 1792
+
+mww 16726280 259
+mww 16726276 &lt;second page address&gt;
+mdw 16726284</code></pre><p>Replace the page addresses by the one you found in the previous section.</p><p>In this script, we first initialize the Flash controller, then tell it to enter erase mode, and send it the address of the page to erase, then display the content of the status register. You can read the <code>EMBEDDED FLASH SUBSYSTEM</code> section of the <a href="https://web.archive.org/web/20241212033907/https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf">MEC1618 datasheet</a> for more information.</p><p>Wait for a few seconds between erasing the first page and erasing the second page since the Flash controller will still be busy as indicated by the status register: each <code>mdw 16726284</code> commands will show <code>0x00ff390c: 00000029</code>, in binary the right-most bit is 1 which means busy.</p><p>However, do complete the entire set of commands rather quickly: the SMSC MECxxx will reset by itself after a short while, there is probably a watchdog in place.</p><h1 id="enter-new-service-tag">Enter new service tag</h1><p>At the next reboot of the machine, you will be greeted by a warning saying that the machine is in manufacturing mode and is missing its service tag.</p><p>If you do not need manufacturing mode, you can exit it by pressing <code>Alt</code>+<code>F</code> during boot.</p><p>In any case, you will need to enter the service tag in the UEFI setup, otherwise the warning prompt will show up at each boot.</p><p></p><h1 id="references">References</h1><ul><li><a href="https://web.archive.org/web/20241212033907/https://gist.github.com/four0four/680e1fa70e7c216baac2afbd459d03d8">https://gist.github.com/four0four/680e1fa70e7c216baac2afbd459d03d8</a></li><li><a href="https://web.archive.org/web/20241212033907/https://github.com/GlasgowEmbedded/glasgow/blob/main/software/glasgow/applet/program/mec16xx/__init__.py">https://github.com/GlasgowEmbedded/glasgow/blob/main/software/glasgow/applet/program/mec16xx/__init__.py</a></li><li><a href="https://web.archive.org/web/20241212033907/https://svod-project.com/svod3/MEC5075%20on%20Latitude%20E7440%20(LA-9591P).pdf">https://svod-project.com/svod3/MEC5075 on Latitude E7440 (LA-9591P).pdf</a></li><li><a href="https://web.archive.org/web/20241212033907/https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf">https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002339A.pdf</a></li></ul>
+        </div>
+
+            <div class="gh-comments gh-canvas">
+                
+        <script defer src="https://web.archive.org/web/20241212033907js_/https://cdn.jsdelivr.net/ghost/comments-ui@~0.17/umd/comments-ui.min.js" data-ghost-comments="https://blog.piernov.org/" data-api="https://blog.piernov.org/ghost/api/content/" data-admin="https://blog.piernov.org/ghost/" data-key="dd5e508d0b3810744a91ee5adf" data-title="null" data-count="true" data-post-id="64e7487940de81970f877a53" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#FF1A75" data-comments-enabled="all" data-publication="piernov" crossorigin="anonymous"></script>
+    
+            </div>
+
+        <footer class="gh-article-footer gh-canvas no-border">
+            <nav class="gh-navigation">
+                <div class="gh-navigation-previous">
+                        <a class="gh-navigation-link" href="/web/20241212033907/https://blog.piernov.org/intel-amt-bonus-enable-amt-when-permanently-disabled/">
+                            <span class="gh-navigation-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="19" y1="12" x2="5" y2="12"></line>
+    <polyline points="12 19 5 12 12 5"></polyline>
+</svg> Previous issue</span>
+                            <h4 class="gh-navigation-title">Intel AMT — Bonus: Enable AMT when Permanently Disabled</h4>
+                        </a>
+                </div>
+
+                <div class="gh-navigation-middle"></div>
+
+                <div class="gh-navigation-next">
+                        <a class="gh-navigation-link" href="/web/20241212033907/https://blog.piernov.org/identifying-defective-ram-ic/">
+                            <span class="gh-navigation-label">Next issue <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+</svg></span>
+                            <h4 class="gh-navigation-title">Identifying a defective RAM IC on laptops with soldered memory</h4>
+                        </a>
+                </div>
+            </nav>
+        </footer>
+
+    </article>
+</main>
+
+
+
+        <div class="gh-subscribe">
+            <div class="gh-outer">
+                <section class="gh-subscribe-inner">
+                    <h3 class="gh-subscribe-title">Subscribe to piernov</h3>
+                    <div class="gh-subscribe-description">Don’t miss out on the latest issues. Sign up now to get access to the library of members-only issues.</div>
+                    <a class="gh-subscribe-input" href="#/portal/signup" data-portal="signup">
+                        <div class="gh-subscribe-input-text">
+                            <svg width="20" height="20" viewbox="0 0 20 20" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.33332 3.33334H16.6667C17.5833 3.33334 18.3333 4.08334 18.3333 5.00001V15C18.3333 15.9167 17.5833 16.6667 16.6667 16.6667H3.33332C2.41666 16.6667 1.66666 15.9167 1.66666 15V5.00001C1.66666 4.08334 2.41666 3.33334 3.33332 3.33334Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.3333 5L9.99999 10.8333L1.66666 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>                            jamie@example.com
+                        </div>
+                        <div class="gh-subscribe-input-btn">Subscribe</div>
+                    </a>
+                </section>
+            </div>
+        </div>
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+            <div class="gh-copyright">
+                piernov © 2024
+            </div>
+                <nav class="gh-foot-menu">
+                    <ul class="nav">
+    <li class="nav-sign-up"><a href="#/portal/">Sign up</a></li>
+</ul>
+
+                </nav>
+            <div class="gh-powered-by">
+                <a href="https://web.archive.org/web/20241212033907/https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/web/20241212033907js_/https://blog.piernov.org/assets/built/main.min.js?v=6228a6d4b1"></script>
+
+
+
+</body>
+
+</html><!--
+     FILE ARCHIVED ON 03:39:07 Dec 12, 2024 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 13:26:11 Oct 05, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.392
+  exclusion.robots: 0.044
+  exclusion.robots.policy: 0.036
+  esindex: 0.008
+  cdx.remote: 50.052
+  LoadShardBlock: 104.476 (3)
+  PetaboxLoader3.datanode: 75.179 (4)
+  PetaboxLoader3.resolve: 1437.204 (2)
+  load_resource: 1489.708
+  nav: 0.136 (6)
+-->

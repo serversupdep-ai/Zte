@@ -1,0 +1,20 @@
+{
+ "files": {
+  "Inspiron_Vostro_5401_5501_1.16.0.exe": {
+   "bytes": 18689312,
+   "sha256": "6c766c3270fe72f01feac614fbdb11380edd56bf6964211e941105abf4dd25db"
+  },
+  "Inspiron_Vostro_5401_5501_1.3.0.exe": {
+   "bytes": 14617664,
+   "sha256": "6f513241cc9d47189084f5b752eb6be96a14c3dc89273aaad31bd805678b647c"
+  },
+  "Inspiron_Vostro_5401_5501_1.8.1.exe": {
+   "bytes": 18321144,
+   "sha256": "a87c84027ede6922095aec458e6e2214265fc62ec1d583e425616a1d80f757df"
+  },
+  "manifest.json": {
+   "bytes": 591,
+   "sha256": "879c9f75b961c018bc632faab4620f9ce3f57dd7bfd02317d1fed7ad93b75f68"
+  }
+ }
+}

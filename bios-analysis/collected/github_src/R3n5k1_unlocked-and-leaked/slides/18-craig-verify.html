@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Step 10: Verify the Byte</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .slide-body.verify {
+    justify-content: flex-start;
+    padding-top: 0.8vh;
+    width: 100%;
+  }
+  .slide-body.verify h2 { margin-bottom: 0.6rem; }
+  .lead {
+    font-size: clamp(1rem, 1.7vw, 1.3rem);
+    color: var(--fg-dim);
+    margin: 0 0 0.8rem 0;
+  }
+  .lead strong { color: var(--fg); font-weight: normal; }
+  .compare {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.5vw;
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+  }
+  .panel {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel-2);
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .panel.before { border-color: var(--fg-dim); }
+  .panel.after { border-color: var(--accent-green); }
+  .panel-label {
+    font-size: clamp(0.85rem, 1.4vw, 1.1rem);
+    letter-spacing: 0.12em;
+    text-align: center;
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed var(--fg-dim);
+    margin-bottom: 0.4rem;
+  }
+  .panel.before .panel-label { color: var(--fg-dim); }
+  .panel.after .panel-label { color: var(--accent-green); }
+  .panel img {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    max-height: calc(42vh * var(--zoom, 1));
+    object-fit: contain;
+    display: block;
+    image-rendering: pixelated;
+  }
+  .cap {
+    color: var(--fg-dim);
+    font-size: clamp(0.72rem, 1.15vw, 0.9rem);
+    letter-spacing: 0.08em;
+    text-align: center;
+    padding-top: 0.35rem;
+    border-top: 1px dashed var(--fg-dim);
+    margin-top: 0.35rem;
+    line-height: 1.4;
+  }
+  .cap .red { color: var(--accent-red); }
+  .cap .green { color: var(--accent-green); }
+  .punch {
+    margin-top: 0.8rem;
+    font-size: clamp(1.05rem, 1.9vw, 1.5rem);
+    text-align: center;
+    color: var(--fg);
+    letter-spacing: 0.04em;
+    border-top: 1px dashed var(--fg-dim);
+    padding-top: 0.7rem;
+  }
+  .punch .red { color: var(--accent-red); font-style: italic; }
+  .punch .green { color: var(--accent-green); font-style: italic; }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 18 &middot; step 10: verify the byte</span>
+  </div>
+
+  <div class="slide-body verify">
+    <h2>STEP 10 <span class="dim">::</span> VERIFY THE BYTE</h2>
+    <p class="lead">
+      Disable the setting via the BIOS UI, take another dump, and check the same offset again to confirm.
+    </p>
+
+    <div class="compare">
+      <div class="panel before">
+        <div class="panel-label">BIOS UI: THE SETTING</div>
+        <img src="img/docx/image6.png" alt="Dell BIOS UI showing DMA Protection settings including Enable Pre-Boot DMA Support toggle">
+        <div class="cap">The setting as shown in the BIOS setup screen, <span class="red">pre-boot DMA enabled</span></div>
+      </div>
+
+      <div class="panel after">
+        <div class="panel-label">DUMP AFTER DISABLING: OFFSET 0x975</div>
+        <img src="img/docx/image7.png" alt="UEFITool hex view at offset 0x975 showing value 0x00 after disabling pre-boot DMA in BIOS UI">
+        <div class="cap">Same offset in a fresh dump, value is now <span class="green">0x00</span> &middot; setting confirmed</div>
+      </div>
+    </div>
+
+    <div class="punch">
+      <span class="red">0x01</span> = DMA protection on &nbsp;&middot;&nbsp;
+      <span class="green">0x00</span> = DMA protection off.
+      We know exactly what to write.
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="17-craig-patcher.html">&larr; prev</a>
+    <span class="slide-num">18 / 37</span>
+    <a class="next" href="19-craig-nvramap.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+ "src": "ifix_22",
+ "file": "Dell Pro 14 Plus Dell_Pro_Plus_PB13255_PB14255_PB16255_1.11.0 AMD.bin",
+ "size": 67108864,
+ "sha256": "b536fbb6aae4e02339241795da927c0cd83d5054fc58a288449cd0dc4ea19fd6",
+ "regions": null,
+ "guid_hits": [],
+ "nvram": [],
+ "ec_payloads": [
+  {
+   "file": "ec_slot_0081000_261888.bin",
+   "size": 261888,
+   "sha256": "3f72c70a30708bea0a1948fa7e983c9747d33617e3db40c060adb2db9bd88138",
+   "matches_package": null,
+   "saved": true
+  },
+  {
+   "file": "ec_slot_0091080_211104.bin",
+   "size": 211104,
+   "sha256": "fc00540316acfb9bf2571cb2340dcfbfad27f24804103901aef097c7afddc444",
+   "matches_package": null,
+   "saved": true
+  }
+ ],
+ "pw_modules": []
+}

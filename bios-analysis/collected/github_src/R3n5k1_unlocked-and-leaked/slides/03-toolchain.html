@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; The toolchain</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .toolchain {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3vw;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  .gear {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .gear li {
+    padding: 0.7rem 0;
+    border-bottom: 1px dashed var(--fg-dim);
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+  }
+  .gear li:last-child { border-bottom: none; }
+  .gear .name { color: var(--fg-bright); letter-spacing: 0.05em; }
+  .gear .desc { color: var(--fg-dim); font-size: 0.85em; display: block; margin-top: 0.2rem; }
+
+  .flow {
+    text-align: center;
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 2rem 1.5rem;
+  }
+  .flow .step {
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    color: var(--fg-bright);
+    letter-spacing: 0.1em;
+    padding: 0.5rem 0;
+  }
+  .flow .arrow {
+    color: var(--fg-dim);
+    font-size: 1.3rem;
+    padding: 0.2rem 0;
+  }
+  .flow .caption {
+    margin-top: 1.2rem;
+    color: var(--fg-dim);
+    font-size: clamp(0.85rem, 1.3vw, 1rem);
+    letter-spacing: 0.1em;
+    border-top: 1px dashed var(--fg-dim);
+    padding-top: 1rem;
+  }
+  .tagline {
+    margin-top: 2rem;
+    font-size: clamp(1.1rem, 2.2vw, 1.7rem);
+    color: var(--fg);
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+  .tagline .green { font-style: italic; }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 03 &middot; the toolchain</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>ONE TOOLCHAIN, ONE PRIMITIVE</h2>
+
+    <div class="toolchain">
+      <ul class="gear">
+        <li>
+          <span class="name">SOIC-8 / SOIC-16 clip</span>
+          <span class="desc">test-clips onto the SPI flash chip without desoldering</span>
+        </li>
+        <li>
+          <span class="name">T48 universal programmer</span>
+          <span class="desc">£40 hobbyist tool, reads / writes most SPI parts at MHz speeds</span>
+        </li>
+        <li>
+          <span class="name">flashrom / vendor utilities</span>
+          <span class="desc">open-source dump / reflash; vendor tools where needed</span>
+        </li>
+        <li>
+          <span class="name">a laptop</span>
+          <span class="desc">to analyse the dump and prepare the modified image</span>
+        </li>
+      </ul>
+
+      <div class="flow">
+        <div class="step">READ</div>
+        <div class="arrow">&darr;</div>
+        <div class="step">MODIFY</div>
+        <div class="arrow">&darr;</div>
+        <div class="step">WRITE</div>
+        <div class="caption">the universal primitive</div>
+      </div>
+    </div>
+
+    <div class="tagline">
+      three of the four methods are <span class="green">the same physical attack</span>, only the bytes change.
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="02-claim.html">&larr; prev</a>
+    <span class="slide-num">3 / 37</span>
+    <a class="next" href="04-part1.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

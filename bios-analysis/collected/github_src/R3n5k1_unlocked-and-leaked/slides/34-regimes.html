@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; The three regimes</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .regimes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5vw;
+    margin-top: 1rem;
+  }
+  .regime {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 1.5rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .regime h3 {
+    margin: 0 0 0.3rem 0;
+    color: var(--fg-bright);
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    letter-spacing: 0.05em;
+  }
+  .regime .len {
+    color: var(--fg-dim);
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .regime p {
+    margin: 0 0 0.8rem 0;
+    font-size: clamp(0.92rem, 1.5vw, 1.15rem);
+    line-height: 1.5;
+  }
+  .regime .result {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--fg-dim);
+    font-family: inherit;
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    color: var(--accent-red);
+    letter-spacing: 0.05em;
+  }
+  .regime .result .dim { color: var(--fg-dim); }
+  .blind {
+    margin-top: 1.5rem;
+    border: 1px solid var(--accent-red);
+    background: rgba(255, 51, 68, 0.05);
+    padding: 1.3rem 1.8rem;
+  }
+  .blind h3 {
+    color: var(--accent-red);
+    margin: 0 0 0.6rem 0;
+    font-size: clamp(1.05rem, 1.9vw, 1.4rem);
+    letter-spacing: 0.05em;
+  }
+  .blind p {
+    margin: 0;
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 30 &middot; the three regimes</span>
+  </div>
+
+  <div class="slide-body">
+    <h2>THREE REGIMES BY PASSWORD LENGTH</h2>
+
+    <div class="regimes">
+      <div class="regime">
+        <h3>SHORT</h3>
+        <div class="len">&le; 12 chars</div>
+        <p>
+          Null padding covers enough of the field that the wrap region (pos 21..31)
+          is also null. All 20 key bytes leak directly.
+        </p>
+        <div class="result">FULL RECOVERY</div>
+      </div>
+
+      <div class="regime">
+        <h3>MEDIUM</h3>
+        <div class="len">13–21 chars</div>
+        <p>
+          Null padding shrinks. key[11..19] start being used at password
+          positions only, once each, no second occurrence. Blind zone
+          grows in the middle of the password.
+        </p>
+        <div class="result">PARTIAL <span class="dim">::</span> middle blind</div>
+      </div>
+
+      <div class="regime">
+        <h3>LONG</h3>
+        <div class="len">&ge; 22 chars</div>
+        <p>
+          Wrap region now holds encrypted password. Counter-intuitively gives
+          back the ends: key[0..(PWD_LEN-22)] is now used at two password
+          positions, dual-position trick recovers them.
+        </p>
+        <div class="result">PARTIAL <span class="dim">::</span> ends back</div>
+      </div>
+    </div>
+
+    <div class="blind">
+      <h3>THE BLIND ZONE: AND HOW IT FALLS</h3>
+      <p>
+        Past 12 chars, <code>key[11..19]</code> are each used at one position only
+        (pwd[12..20]) and echo nowhere: up to 9 bytes that never leak from that one
+        record. A 32-char password recovers as ~23 known + 9 blind.
+      </p>
+      <p>
+        But the DVAR store is a <span class="bright">log</span>, old passwords
+        are never erased, and the key depends only on the device and the
+        <span class="bright">first byte</span>. So any earlier password of
+        <code>&le; 12</code> chars sharing the same first character leaked the
+        <em>whole</em> key. Lift it from the old record, apply it to the new one:
+        <span class="red">blind zone gone</span>.
+      </p>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="32-flaw.html">&larr; prev</a>
+    <span class="slide-num">30 / 37</span>
+    <a class="next" href="34b-keyspace.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

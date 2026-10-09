@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Step 4: Grep for the Setting</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .slide-body.grep {
+    justify-content: flex-start;
+    padding-top: 1vh;
+    width: 100%;
+  }
+  .slide-body.grep h2 { margin-bottom: 0.8rem; }
+  .lead {
+    font-size: clamp(1rem, 1.75vw, 1.35rem);
+    color: var(--fg-dim);
+    margin: 0 0 1rem 0;
+  }
+  .lead strong { color: var(--fg); font-weight: normal; }
+  .cli-block {
+    background: var(--panel);
+    border: 1px solid var(--fg-dim);
+    padding: 1rem 1.4rem;
+    font-size: clamp(0.8rem, 1.35vw, 1.05rem);
+    line-height: 1.65;
+    overflow-x: auto;
+    white-space: pre;
+    margin-bottom: 1rem;
+  }
+  .cli-block .prompt { color: var(--fg-dim); }
+  .cli-block .cmd { color: var(--fg-bright); }
+  .cli-block .out { color: var(--fg-dim); }
+  .cli-block .key { color: var(--accent-green); font-weight: bold; }
+  .result-box {
+    border: 1px solid var(--accent-green);
+    background: rgba(0, 255, 136, 0.05);
+    padding: 1rem 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .result-box .label {
+    color: var(--fg-dim);
+    font-size: clamp(0.8rem, 1.3vw, 1rem);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+  }
+  .result-box .line {
+    font-size: clamp(0.85rem, 1.4vw, 1.1rem);
+    line-height: 1.55;
+    word-break: break-all;
+  }
+  .result-box .dim { color: var(--fg-dim); }
+  .result-box .hit { color: var(--accent-green); }
+  .result-box .addr { color: var(--accent-red); }
+  .note {
+    font-size: clamp(0.9rem, 1.6vw, 1.2rem);
+    color: var(--fg-dim);
+    line-height: 1.5;
+    font-style: italic;
+    border-top: 1px dashed var(--fg-dim);
+    padding-top: 0.7rem;
+    margin-top: 0.3rem;
+  }
+  .note strong { color: var(--fg); font-weight: normal; }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 12 &middot; step 4: grep for the setting</span>
+  </div>
+
+  <div class="slide-body grep">
+    <h2>STEP 4 <span class="dim">::</span> GREP FOR THE SETTING</h2>
+    <p class="lead">
+      I have found it easiest to just grep for keywords such as <strong>IOMMU</strong> or <strong>DMA</strong>:
+    </p>
+
+    <div class="cli-block"><span class="prompt">/tmp/uefi ❯</span> <span class="cmd">grep -i dma *.txt</span>
+<span class="out">...Section_PE32_image_Setup_Setup_body.efi.1.0.en-US.uefi.ifr.txt:</span>
+<span class="out">    OneOf Prompt: "External DMA Allowed On Boot", VarStoreId: 0x5, VarOffset: 0x1 ...</span>
+<span class="out">...Section_PE32_image_Setup_Setup_body.efi.1.0.en-US.uefi.ifr.txt:</span>
+<span class="key">    OneOf Prompt: "Control Iommu Pre-boot Behavior", VarStoreId: 0x1, VarOffset: 0x975, Size: 8, Min: 0x0, Max: 0x1</span>
+<span class="out">...Section_PE32_image_Setup_Setup_body.efi.1.0.en-US.uefi.ifr.txt:</span>
+<span class="out">    OneOf Prompt: "DMA Control Guarantee", VarStoreId: 0x2, VarOffset: 0x87 ...</span></div>
+
+    <div class="result-box">
+      <div class="label">// the setting we care about</div>
+      <div class="line">
+        <span class="dim">Prompt:</span> <span class="hit">"Control Iommu Pre-boot Behavior"</span>
+        &nbsp;&middot;&nbsp;
+        <span class="dim">VarStoreId:</span> <span class="hit">0x1</span>
+        &nbsp;&middot;&nbsp;
+        <span class="dim">VarOffset:</span> <span class="addr">0x975</span>
+        &nbsp;&middot;&nbsp;
+        <span class="dim">Size: 8 &middot; Min: 0x0 &middot; Max: 0x1</span>
+      </div>
+    </div>
+
+    <div class="note">
+      This name differs from how it appears in the BIOS UI. Dell have customised the front end,
+      but <strong>"Control Iommu Pre-boot Behavior"</strong> is ultimately the setting we care about.
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="11-craig-ifr.html">&larr; prev</a>
+    <span class="slide-num">12 / 37</span>
+    <a class="next" href="13-craig-decode.html">next &rarr;</a>
+  </nav>
+</section>
+<script src="slides.js"></script>
+</body>
+</html>

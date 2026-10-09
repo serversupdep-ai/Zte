@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unlocked and Leaked &middot; Step 7: Search for the GUID</title>
+<link rel="stylesheet" href="slides.css">
+<script>(function(){try{var seg=location.hash.replace(/^#/,"").split(",");var th=["amber","bright","mono","light"];var t=th.indexOf(seg[0])>=0?seg[0]:(localStorage.getItem("deckTheme")||"amber");var z=parseFloat(seg[1]||localStorage.getItem("deckScale")||"1")||1;z=Math.min(4,Math.max(0.8,z));var d=document.documentElement;d.setAttribute("data-theme",t);d.style.fontSize=(16*z)+"px";d.style.setProperty("--zoom",z);}catch(e){}})();</script>
+<style>
+  .slide-body.guid-search {
+    justify-content: flex-start;
+    padding-top: 0.8vh;
+    width: 100%;
+  }
+  .slide-body.guid-search h2 { margin-bottom: 0.6rem; }
+  .lead {
+    font-size: clamp(1rem, 1.7vw, 1.3rem);
+    color: var(--fg-dim);
+    margin: 0 0 0.8rem 0;
+  }
+  .lead strong { color: var(--fg); font-weight: normal; }
+  .shots {
+    display: grid;
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.4fr);
+    gap: 2.5vw;
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+  }
+  .shot {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel-2);
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .shot img {
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    image-rendering: pixelated;
+  }
+  .shot.dialog { flex: 0 0 auto; align-self: flex-start; }
+  .shot.dialog img { max-height: calc(30vh * var(--zoom, 1)); }
+  .shot.results { flex: 1; }
+  .shot.results img { height: 100%; max-height: calc(55vh * var(--zoom, 1)); }
+  .cap {
+    color: var(--fg-dim);
+    font-size: clamp(0.72rem, 1.15vw, 0.9rem);
+    letter-spacing: 0.08em;
+    text-align: center;
+    padding-top: 0.35rem;
+    border-top: 1px dashed var(--fg-dim);
+    margin-top: 0.35rem;
+    line-height: 1.4;
+  }
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-height: 0;
+  }
+  .step-note {
+    border: 1px solid var(--fg-dim);
+    background: var(--panel);
+    padding: 0.75rem 1rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+    line-height: 1.5;
+    color: var(--fg-dim);
+  }
+  .step-note strong { color: var(--fg); font-weight: normal; }
+  .step-note .n { color: var(--fg-bright); }
+  .step-note .green { color: var(--accent-green); }
+  .shot.results img { cursor: zoom-in; }
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 3vh 3vw;
+    background: rgba(0, 0, 0, 0.94);
+    cursor: zoom-out;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+  }
+  .lightbox .hint {
+    position: absolute;
+    bottom: 2.2vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: var(--fg-dim);
+    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<section class="slide">
+  <div class="slide-header">
+    <span class="brand">UNLOCKED &amp; LEAKED</span>
+    <span class="section">// 15 &middot; step 7: search for the guid</span>
+  </div>
+
+  <div class="slide-body guid-search">
+    <h2>STEP 7 <span class="dim">::</span> SEARCH FOR THE GUID IN UEFITOOL</h2>
+    <p class="lead">
+      We can search for the GUID <strong>EC87D643-EBA4-4BB5-A1E5-3F3E36B20DA9</strong> in UEFITool
+      to locate the Setup variable in NVRAM.
+    </p>
+
+    <div class="shots">
+      <div class="left">
+        <div class="shot dialog">
+          <img src="img/docx/image3.png" alt="UEFITool GUID search dialog with EC87D643-EBA4-4BB5-A1E5-3F3E36B20DA9 entered">
+          <div class="cap"><em>Search</em> &rarr; <strong>GUID tab</strong> &rarr; paste the Setup VarStore GUID</div>
+        </div>
+        <div class="step-note">
+          <span class="n">01</span>, In UEFITool: <em>Action &rarr; Search &rarr; GUID tab</em>
+        </div>
+        <div class="step-note">
+          <span class="n">02</span>, Paste <strong>EC87D643-EBA4-4BB5-A1E5-3F3E36B20DA9</strong>
+        </div>
+        <div class="step-note">
+          <span class="n">03</span>, Scroll through results in NVRAM until you reach <span class="green">"Setup"</span>
+        </div>
+      </div>
+
+      <div class="shot results">
+        <img src="img/docx/image4.png" alt="UEFITool search results showing NVRAM Setup variable highlighted">
+        <div class="cap">scroll search results &rarr; find <strong>NVRAM &rarr; Setup</strong> &rarr; right-click &rarr; <em>Body hex view</em> &middot; <span class="bright">click / press H to enlarge</span></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="slide-nav">
+    <a class="prev" href="14-craig-varstore.html">&larr; prev</a>
+    <span class="slide-num">15 / 37</span>
+    <a class="next" href="16-craig-hexview.html">next &rarr;</a>
+  </nav>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <img src="img/docx/image4.png" alt="UEFITool search results, full screen">
+  <div class="hint">click anywhere &middot; H or Esc to close</div>
+</div>
+
+<script src="slides.js"></script>
+<script>
+(function () {
+  var img = document.querySelector('.shot.results img');
+  var lb = document.getElementById('lightbox');
+  function toggle() { lb.classList.toggle('open'); }
+  function close() { lb.classList.remove('open'); }
+  if (img) img.addEventListener('click', toggle);
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'h' || e.key === 'H') { e.preventDefault(); toggle(); }
+    else if (e.key === 'Escape') { close(); }
+  });
+})();
+</script>
+</body>
+</html>
