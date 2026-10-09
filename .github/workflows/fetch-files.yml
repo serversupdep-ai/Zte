@@ -5,7 +5,7 @@ name: Fetch raw repair dumps
 
 on:
   push:
-    branches: [arena/01a087e2-zte]
+    branches: [arena/adf99f45-zte]
     paths: ['relay/fetchlist.txt', 'relay/fetch_files.py', '.github/workflows/fetch-files.yml']
   workflow_dispatch:
 
@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: arena/01a087e2-zte
+          ref: arena/adf99f45-zte
 
       - name: Setup
         run: |
@@ -49,12 +49,18 @@ jobs:
           python3 relay/fetch_files.py 2>&1 | tee fetch.log
           du -sh bios-analysis/collected/raw || true
 
+      - name: Extracted target triage and GENERATE locator
+        run: |
+          python3 ec-hunt/triage_targets.py 2>&1 | tee target-triage.log
+
       - name: Upload fetch log (best effort)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: fetch-log
-          path: fetch.log
+          path: |
+            fetch.log
+            target-triage.log
           if-no-files-found: ignore
         continue-on-error: true
 
@@ -62,7 +68,7 @@ jobs:
         run: |
           git config user.name "relay-bot"
           git config user.email "relay@localhost"
-          git add fetch.log 2>/dev/null || true
+          git add fetch.log target-triage.log ec-hunt/target-triage.json 2>/dev/null || true
           git add bios-analysis/collected/raw/ 2>/dev/null || true
           git add bios-analysis/collected/raw 2>/dev/null || true
           if git diff --cached --quiet; then
@@ -71,8 +77,8 @@ jobs:
             git commit -q -m "fetch: raw repair dumps from fetchlist [skip ci]"
             ok=0
             for i in 1 2 3 4 5; do
-              if git pull --rebase origin arena/01a087e2-zte && \
-                 git push origin arena/01a087e2-zte; then ok=1; break; fi
+              if git pull --rebase origin arena/adf99f45-zte && \
+                 git push origin arena/adf99f45-zte; then ok=1; break; fi
               git rebase --abort 2>/dev/null || true
               sleep 15
             done

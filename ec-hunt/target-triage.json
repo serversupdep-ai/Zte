@@ -1,0 +1,26 @@
+{
+  "archive_count": 0,
+  "emulator_status": "static locator only; mailbox-driver wiring remains pending a real HIT image",
+  "hit_count": 0,
+  "payload_count": 0,
+  "targets": [
+    {
+      "description": "30339 \u2014 OptiPlex 7470 AIO MCU",
+      "files": [],
+      "state": "no-firmware-payload",
+      "target": "tg_7470AIO_MCU"
+    },
+    {
+      "description": "24189 \u2014 EDW40 MEC1515-NB EC reads",
+      "files": [],
+      "state": "no-firmware-payload",
+      "target": "tg_EDW40_MEC1515NB"
+    },
+    {
+      "description": "30462 \u2014 Latitude 3310 8MB/16MB dump",
+      "files": [],
+      "state": "no-firmware-payload",
+      "target": "tg_3310_19717"
+    }
+  ]
+}

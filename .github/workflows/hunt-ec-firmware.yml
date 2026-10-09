@@ -9,7 +9,7 @@ on:
   schedule:
     - cron: "23 3 * * *"          # daily 03:23 UTC
   push:
-    branches: [arena/01a0a05b-zte]
+    branches: [arena/adf99f45-zte]
     paths: ['ec-hunt/**', '.github/workflows/hunt-ec-firmware.yml']
   workflow_dispatch:
 
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: arena/01a0a05b-zte
+          ref: arena/adf99f45-zte
 
       - name: Setup
         run: python3 -m pip -q install unicorn capstone
@@ -55,8 +55,8 @@ jobs:
             git commit -q -m "hunt: EC-firmware sweep results [skip ci]"
             ok=0
             for i in 1 2 3 4 5; do
-              git push origin arena/01a0a05b-zte && ok=1 && break
-              sleep $((i * 5)); git pull --rebase origin arena/01a0a05b-zte || true
+              git push origin arena/adf99f45-zte && ok=1 && break
+              sleep $((i * 5)); git pull --rebase origin arena/adf99f45-zte || true
             done
             [ $ok -eq 1 ] || { echo "::warning::push failed — results are in the run artifact"; exit 0; }
           fi

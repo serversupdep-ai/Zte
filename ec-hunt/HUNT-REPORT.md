@@ -142,3 +142,29 @@
 - fresh candidates: 0, downloaded+classified: 0
 - **HITS (plaintext GENERATE engine): 0**
 
+## Targeted acquisition check — 2026-10-09 (GitHub Actions)
+
+- The three new Telegram targets are biosarchive messages **30339** (OptiPlex
+  7470 AIO MCU), **24189** (MEC1515-NB EC reads), and **30462** (Latitude
+  3310 8MB/16MB dump).
+- Unrestricted `Fetch raw repair dumps` run [37980836263](https://github.com/serversupdep-ai/Zte/actions/runs/37980836263)
+  completed successfully, but did **not** retrieve any attachment bytes. Each
+  target directory contains only the message HTML, `tg_diag.txt`, and a
+  manifest; no binary/archive is present. The HTTP deeplinks returned Telegram
+  app/client pages rather than the documents. Local triage found no firmware
+  candidate and no GENERATE hit.
+- The daily full-net EC hunt [37919296129](https://github.com/serversupdep-ai/Zte/actions/runs/37919296129)
+  completed with the HIT alert skipped. It ran before these Telegram targets
+  were added, so it is not a substitute for triaging their actual attachments.
+- **Acquisition blocker:** Telegram documents require the MTProto path in
+  `relay/tg_api_fetch.py`, configured with the Actions secrets
+  `TG_API_ID`, `TG_API_HASH`, and `TG_SESSION`. Do not send these values or
+  one-time login codes in chat. The public `tg-login.yml` workflow accepts
+  phone/code as dispatch inputs, which are visible on a public repository; use
+  private repository secrets instead.
+- **Emulator status correction:** `ec_generate_emu.py` currently locates
+  candidate markers but `generate_master()` intentionally stops at the
+  unwired mailbox-driver placeholder. It is not yet a working keygen. Once a
+  genuine plaintext hit is acquired, the driver must be implemented and
+  cross-validated against a physical EC readout before claiming a result.
+

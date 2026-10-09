@@ -4,3 +4,6 @@
 *.analysis/
 test_fixture*
 __pycache__/
+
+# Transient curl cookie jars from public Telegram page probes; never commit them.
+collected/raw/**/.cookies

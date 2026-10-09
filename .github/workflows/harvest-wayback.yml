@@ -1,7 +1,7 @@
 name: Harvest forum dumps via Wayback
 on:
   push:
-    branches: [arena/01a087e2-zte]
+    branches: [arena/adf99f45-zte]
     paths: ['.github/workflows/harvest-wayback.yml']
   workflow_dispatch:
 
@@ -18,6 +18,8 @@ jobs:
     timeout-minutes: 100
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: arena/adf99f45-zte
       - name: Install extractors
         run: sudo apt-get update -qq && sudo apt-get install -y -qq p7zip-full p7zip-rar > /dev/null
       - name: Query CDX for archived badcaps attachments
@@ -110,14 +112,15 @@ jobs:
           cls = json.load(open('/tmp/classify.json'))
           json.dump(cls, open('bios-analysis/forum/wayback/classify.json','w'), indent=1)
           kept = 0
+          max_commit_bytes = 16 * 1024 * 1024
           for e in cls:
-            if e['cf1b_generation'] and kept < 12:
+            if e['cf1b_generation'] and e['size'] <= max_commit_bytes and kept < 4:
               src = glob.glob(f"/tmp/ex/{e['att_id']}/**/{e['file']}", recursive=True)
               if src:
                 os.makedirs(f"bios-analysis/forum/wayback/{e['att_id']}", exist_ok=True)
                 shutil.copy(src[0], f"bios-analysis/forum/wayback/{e['att_id']}/{e['file']}")
                 kept += 1
-          print("committed dumps:", kept)
+          print("committed dumps (cap: 4 files, 16 MiB each):", kept)
           PYEOF
           cat /tmp/att_map.txt >> bios-analysis/forum/wayback/att_map.txt 2>/dev/null || cp /tmp/att_map.txt bios-analysis/forum/wayback/att_map.txt
           cp /tmp/cdx.txt bios-analysis/forum/wayback/cdx.txt 2>/dev/null || true
@@ -125,5 +128,5 @@ jobs:
           git add bios-analysis/forum/wayback/
           if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
           git commit -q -m "wayback: harvested archived forum dumps (CF1B gen) [skip ci]"
-          git pull --rebase -q origin arena/01a087e2-zte || true
-          git push || { git pull --rebase -q origin arena/01a087e2-zte && git push; }
+          git pull --rebase -q origin arena/adf99f45-zte || true
+          git push origin arena/adf99f45-zte || { git pull --rebase -q origin arena/adf99f45-zte && git push origin arena/adf99f45-zte; }
