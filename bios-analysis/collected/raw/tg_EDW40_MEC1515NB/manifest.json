@@ -1,0 +1,16 @@
+{
+ "files": {
+  ".cookies": {
+   "bytes": 219,
+   "sha256": "284babc10d6509373326db825e1c3d52a0faad5156653bd057e9b4a33c760bd1"
+  },
+  "page.html": {
+   "bytes": 37870,
+   "sha256": "676ecdee9276d65744291851c6a2cf6fb8af8fd3dd71b5be541d34627779505d"
+  },
+  "tg_diag.txt": {
+   "bytes": 598,
+   "sha256": "e399ee05c6f78c9c2d4fa1ba478b1cdebdc4f9d75ea608b1863895a8e947a2fd"
+  }
+ }
+}
