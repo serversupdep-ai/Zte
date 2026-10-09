@@ -168,3 +168,23 @@
   genuine plaintext hit is acquired, the driver must be implemented and
   cross-validated against a physical EC readout before claiming a result.
 
+
+## Automated hunt rerun — 2026-10-09 (session branch)
+
+All three full-egress GitHub Actions workflows were triggered by commit
+`69da34b` on `arena/adf99f45-zte` and completed successfully:
+
+- EC hunt [37992554169](https://github.com/serversupdep-ai/Zte/actions/runs/37992554169): the hunt job and upload step succeeded; `Alert on HIT` was skipped. The `hunt-report` artifact is listed (3,805 bytes), but downloading the run log/artifact from this runner returned EOF from Actions' signed artifact storage, so the fresh-candidate count cannot be verified here. This run made no hunt-results commit; do not infer a candidate count from that.
+- Wayback mirror harvest [37992554108](https://github.com/serversupdep-ai/Zte/actions/runs/37992554108): CDX query, attachment download, archive filtering, extraction/classification, and commit steps all succeeded. Commit `6381d56` added/updated the archive URL map and CDX index only; it contains no acquired firmware dumps. The committed classification remains empty (`classify.json` is `[]`).
+- Raw repair-file fetch [37992554322](https://github.com/serversupdep-ai/Zte/actions/runs/37992554322): the fetch, extraction/triage, and commit steps succeeded. `target-triage.log` reports **0 payloads, 0 archives, 0 GENERATE hits** for Telegram messages 30339, 24189, and 30462. Each target folder still contains only its message page, diagnostics, and manifest. Commit `503b6c2` contains no target attachment bytes.
+
+The MTProto step completed at the workflow level, but its detailed log was not
+persisted to the branch and the Actions artifact endpoint is not downloadable
+from this runner. Therefore the presence/configuration of `TG_API_ID`,
+`TG_API_HASH`, and `TG_SESSION` remains unknown; absence of target files does
+not establish whether the secrets were unset or the request failed.
+
+There was no acquired target image to pass through target extraction, triage,
+GENERATE location, or emulation. The existing classifier ran and found no
+payload; `ec_generate_emu.py` remains a static locator/scaffold with its
+mailbox driver unwired. No keygen result is claimed.
