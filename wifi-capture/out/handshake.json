@@ -1,0 +1,48 @@
+{
+  "ssid": "inwi Home 4G 6A6EDE",
+  "ssid_hex": "696e776920486f6d6520344720364136454445",
+  "network": {
+    "ssid": "inwi Home 4G 6A6EDE",
+    "channel": 11,
+    "country": "MA",
+    "rsn": {
+      "group": "CCMP",
+      "pairwise": [
+        "CCMP"
+      ],
+      "akm": [
+        "PSK"
+      ],
+      "mfpc": false,
+      "mfpr": false,
+      "pmkid": [],
+      "version": 1
+    },
+    "wps": {
+      "Version": "10",
+      "WPS State": "02",
+      "0x1049": "00372a000120"
+    },
+    "privacy": true
+  },
+  "handshakes": [
+    {
+      "ap": "54:1f:8d:6a:6e:de",
+      "sta": "92:5d:ce:2b:e2:27",
+      "m1_ts": 1791837071.823416,
+      "m2_ts": 1791837071.845154,
+      "anonce": "243701e748c138ad4d3fc50bdabefbd687b69a463e0fd930fbc6f8ebb89360be",
+      "anonce_source": "M1",
+      "snonce": "02bdf5092bd8af61427af61527aa9eaa7aab2aa1aa85abd750a07af8ebe3a0e7",
+      "mic": "78c9befeb5f54ad9a3355f1e0a3c860b",
+      "eapol": "0103007502010a0010000000000000000102bdf5092bd8af61427af61527aa9eaa7aab2aa1aa85abd750a07af8ebe3a0e7000000000000000000000000000000000000000000000000000000000000000078c9befeb5f54ad9a3355f1e0a3c860b001630140100000fac040100000fac040100000fac020c00",
+      "replay_m1": 1,
+      "replay_m2": 1,
+      "pmkid": null,
+      "m3_mic": "613be303a9c75b5a2c60341099b4a145",
+      "m4_mic": "d4d7f359f5ecdf8486b41464fc7253db",
+      "complete_4way": true,
+      "keyver": 2
+    }
+  ]
+}
