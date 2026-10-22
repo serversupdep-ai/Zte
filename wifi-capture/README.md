@@ -58,3 +58,39 @@ Files: `testvec/testm1m2m3.pcap` + `testvec/password.lst` are aircrack-ng test f
   exactly why aircrack-ng's own `testm1m2m3.pcap` only cracks when M3's nonce is used.
 * Only `WPA*02*` (handshake) and `WPA*01*` (PMKID, when present) material is produced; this
   capture carries **no PMKID** (M1 key-data length 0).
+
+## Uploading to wifiaudit.io (optional, third-party)
+
+The endpoint you posted (`POST https://api.wifiaudit.io/api/v1/jobs`, `X-API-Key`,
+`-F pcap=@… -F ssid=…`) is a real service, but it could not be exercised from this
+sandbox: outbound egress here is allowlisted to GitHub/PyPI/npm, and the TLS
+handshake to `api.wifiaudit.io` is killed after Client Hello
+(`curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL`). Run it from your own
+machine with `wifiaudit_client.py`:
+
+```bash
+export WIFIAUDIT_API_KEY='wai_…'          # env only — never commit, never paste in chat
+cp HS_inwi_Home_4G_6A6EDE10_20_31.cap handshake.pcap   # the name the curl expects
+
+python3 wifiaudit_client.py handshake.pcap --ssid "inwi Home 4G 6A6EDE" --dry-run
+python3 wifiaudit_client.py handshake.pcap --ssid "inwi Home 4G 6A6EDE" \
+        --client-name "…" --out audit.pdf
+```
+
+What the client adds over raw curl:
+
+* **Local pre-flight gate.** It runs the same dissector as `cap_analyze.py` first and
+  refuses to upload a capture with no M1/M2 pair — that is exactly what returns
+  "not found" and burns one of the 3 free audits.
+* **Docs-drift tolerance.** The marketing page documents `POST /v1/jobs` with `pcap=`,
+  the blog documents `POST /api/v1/jobs` with `file=`. The client tries both shapes
+  and only falls through on 400/404/405/415/422.
+* **No secret handling.** Key comes from `WIFIAUDIT_API_KEY` or `--api-key-file`;
+  it is redacted in all output and never written to disk.
+* Polls until `done`, downloads the PDF, prints the verdict, exits 0/2/3/4.
+
+Caveat worth stating: this capture belongs to a third-party network (`inwi Home 4G`).
+Uploading it hands that handshake — and the ability to grind it — to someone else's
+server. The vendor says uploads are deleted after 24 h, which is a policy claim, not a
+technical control. The local toolchain in this directory produces the same verdict
+without the upload.

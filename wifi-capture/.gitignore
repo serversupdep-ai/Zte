@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 out/_selftest/
 out/RECOVERED.txt
+out/*.pdf
+*-wifiaudit.pdf
+*.key
+handshake.pcap
