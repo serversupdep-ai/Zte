@@ -94,3 +94,43 @@ Uploading it hands that handshake — and the ability to grind it — to someone
 server. The vendor says uploads are deleted after 24 h, which is a policy claim, not a
 technical control. The local toolchain in this directory produces the same verdict
 without the upload.
+
+## `run_audit.sh` — the whole submission as one command
+
+All request details are baked in: endpoint, fallback path, multipart field names,
+the verified SSID, the capture path, polling and PDF download. Only the key is
+external.
+
+```bash
+export WIFIAUDIT_API_KEY='wai_…'     # rotated; never committed, never echoed
+./run_audit.sh --dry-run             # checks file + SSID, uploads nothing
+./run_audit.sh                       # submit -> poll -> verdict -> PDF
+```
+
+It refuses to submit when the `ssid` does not byte-match the ESSID in the capture
+(that mismatch is silent otherwise: the API just says "not found"), prints the HTTP
+status and full response with the key redacted, tries both documented path/field
+shapes, polls until a terminal status, then maps the result to a verdict.
+
+### Why it cannot be run from the agent sandbox
+
+Egress is allowlisted (GitHub/PyPI/npm). `api.wifiaudit.io` resolves and TCP
+connects, but the filter tears the connection down on the TLS Client Hello:
+
+```
+curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to api.wifiaudit.io:443
+openssl s_client -> "unexpected eof while reading"   (port 80: "Empty reply from server")
+```
+
+The repo's usual workaround for unreachable hosts (`fetch-dell-fw.yml`: run on an
+Actions runner, drop the result on a temp branch) does **not** work here:
+
+| Requirement | Status |
+|---|---|
+| `gh secret set` for `WIFIAUDIT_API_KEY` | 403 *Resource not accessible by integration* |
+| private relay repo to hold the secret | 403 *createRepository* |
+| key as a `workflow_dispatch` input | run inputs are world-readable on a public repo |
+| key hardcoded in a workflow | permanently public in git history |
+
+So the submission must be made from a machine with open egress. The wrapper is
+ready for it — one command, no editing.
