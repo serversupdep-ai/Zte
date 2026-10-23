@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "att-unlock"
+version = "1.0.0"
+description = "Single-account Python client for the AT&T Device Unlock portal (operator's own authorized account only)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Proprietary - research use per project scope" }
+authors = [{ name = "att_unlock operators" }]
+keywords = ["att", "device-unlock", "client", "automation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+att-unlock = "att_unlock.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["att_unlock*"]
+
+[tool.pytest.ini_options]
+testpaths = ["att_unlock/tests"]

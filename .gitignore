@@ -1,0 +1,21 @@
+# secrets - never commit
+.env
+.env.*
+*.secrets
+secrets/
+!*.example
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+.venv/
+
+# saved portal responses (may contain request numbers / session data)
+*.response.json
+responses/
