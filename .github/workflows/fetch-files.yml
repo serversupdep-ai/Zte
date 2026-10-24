@@ -4,9 +4,6 @@ name: Fetch raw repair dumps
 # CF1B_FINDINGS.md §11.8) and commits them to bios-analysis/collected/raw/.
 
 on:
-  push:
-    branches: [arena/01a087e2-zte]
-    paths: ['relay/fetchlist.txt', 'relay/fetch_files.py', '.github/workflows/fetch-files.yml']
   workflow_dispatch:
 
 permissions:
@@ -14,13 +11,13 @@ permissions:
 
 jobs:
   fetch:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: arena/01a087e2-zte
+          ref: arena/233897a2-zte
 
       - name: Setup
         run: |
@@ -71,8 +68,8 @@ jobs:
             git commit -q -m "fetch: raw repair dumps from fetchlist [skip ci]"
             ok=0
             for i in 1 2 3 4 5; do
-              if git pull --rebase origin arena/01a087e2-zte && \
-                 git push origin arena/01a087e2-zte; then ok=1; break; fi
+              if git pull --rebase origin arena/233897a2-zte && \
+                 git push origin arena/233897a2-zte; then ok=1; break; fi
               git rebase --abort 2>/dev/null || true
               sleep 15
             done

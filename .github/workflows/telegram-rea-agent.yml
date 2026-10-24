@@ -1,0 +1,80 @@
+name: Telegram Online Security Fetch + REA Collector
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  telegram-rea:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout working branch
+        uses: actions/checkout@v4
+        with:
+          ref: arena/233897a2-zte
+          fetch-depth: 1
+
+      - name: Setup system tools, Python packages, and morluto/REA
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get -qq install -y --no-install-recommends \
+            p7zip-full unrar zstd gcab binutils tesseract-ocr procps > /dev/null
+          python3 -m pip -q install --upgrade \
+            pyrogram tgcrypto pefile capstone pillow uefi-firmware
+          mkdir -p /tmp/rea_pkg
+          npm install --prefix /tmp/rea_pkg --no-audit --no-fund rea-agents
+          /tmp/rea_pkg/node_modules/.bin/rea --version
+
+      - name: Run Telegram Agent Fetch + 2026 Security Unpack + REA Collection
+        env:
+          TG_API_ID: ${{ secrets.TG_API_ID }}
+          TG_API_HASH: ${{ secrets.TG_API_HASH }}
+          TG_SESSION: ${{ secrets.TG_SESSION }}
+        run: |
+          python3 bios-analysis/telegram_rea_agent.py \
+            --rea-bin /tmp/rea_pkg/node_modules/.bin/rea \
+            --corpus-dir bios-analysis/rea_corpus \
+            --captures-dir bios-analysis/telegram_captures \
+            --out-json bios-analysis/rea_security_data.json \
+            --out-report bios-analysis/TELEGRAM_REA_REPORT.md
+          du -sh bios-analysis/rea_corpus bios-analysis/telegram_captures bios-analysis/rea_security_data.json bios-analysis/TELEGRAM_REA_REPORT.md || true
+
+      - name: Also trigger relay/tg_api_fetch.py if TG secrets are configured
+        env:
+          TG_API_ID: ${{ secrets.TG_API_ID }}
+          TG_API_HASH: ${{ secrets.TG_API_HASH }}
+          TG_SESSION: ${{ secrets.TG_SESSION }}
+        run: |
+          if [ -n "$TG_API_ID" ] && [ -n "$TG_API_HASH" ] && [ -n "$TG_SESSION" ]; then
+            echo "Running relay/tg_api_fetch.py with configured TG secrets..."
+            python3 relay/tg_api_fetch.py || true
+          else
+            echo "TG_API_ID/TG_API_HASH/TG_SESSION secrets are empty on runner."
+          fi
+
+      - name: Commit REA & Telegram findings to arena/233897a2-zte
+        run: |
+          git config user.name "rea-agent-bot"
+          git config user.email "rea-agent@noreply.github.com"
+          git add \
+            bios-analysis/rea_corpus \
+            bios-analysis/telegram_captures \
+            bios-analysis/rea_security_data.json \
+            bios-analysis/TELEGRAM_REA_REPORT.md 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "rea+telegram: collect latest 2026 Dell security evidence & Telegram OCR [skip ci]"
+            for i in 1 2 3 4 5; do
+              if git pull --rebase origin arena/233897a2-zte && \
+                 git push origin arena/233897a2-zte; then
+                echo "Pushed successfully"
+                break
+              fi
+              git rebase --abort 2>/dev/null || true
+              sleep 10
+            done
+          fi
