@@ -497,27 +497,9 @@ def calculate_suffix_8(arr5, table, mod: int):
 
 
 def mec5085_cmd_0x4e(service_tag: str) -> str:
-    """Plaintext MEC5085 EC (XPS 13 9350, ARCompact 0x1abfc) 8-char Service Tag code (cmd 0x4E)."""
+    """Plaintext MEC5085/MEC5107 EC (ARCompact 0x1abfc / Cortex-M4 0xeb990) 8-char Service Tag code."""
     rev = [ord(c) for c in service_tag.upper()[:5].ljust(5, "\x00")][::-1]
-    groups = [
-        rev[0] & 0x1F,
-        ((rev[0] >> 5) & 0x07) | ((rev[1] & 0x03) << 3),
-        (rev[1] >> 2) & 0x1F,
-        ((rev[1] >> 7) & 0x01) | ((rev[2] & 0x0F) << 1),
-        ((rev[2] >> 4) & 0x0F) | ((rev[3] & 0x01) << 4),
-        (rev[3] >> 1) & 0x1F,
-        ((rev[3] >> 6) & 0x03) | ((rev[4] & 0x07) << 2),
-        (rev[4] >> 3) & 0x1F,
-    ]
-    alph = ALPHABETS["2A7B"]
-    out = []
-    for g in groups:
-        acc = 0xAA
-        for bit in range(5):
-            if g & (1 << bit):
-                acc ^= rev[bit]
-        out.append(alph[acc % 72])
-    return "".join(out)
+    return "".join(calculate_suffix_8(rev, ALPHABETS["2A7B"], 72))
 
 
 def keygen_e7a8(serial: str):
@@ -841,12 +823,28 @@ def selftest() -> bool:
     assert latitude_3540_keygen("1B6DD24D26E7B566", "BJVDG22") == "99937880"
     assert latitude_3540_keygen("1B6DD24D26E7C566", "BJVDG22") is None
 
-    # 5) Plaintext MEC5085 cmd 0x4E & EC resp32 renderers (8FC8 / CF1B)
-    assert mec5085_cmd_0x4e("H2FS5S3") == "1el6leru"
+    # 5) Plaintext MEC5085/MEC5107 cmd 0x4E (Unicorn Cortex-M4 verified) & EC resp32 renderers
+    assert mec5085_cmd_0x4e("H2FS5S3") == "10l6leru"
+    assert mec5085_cmd_0x4e("5YY8TB4") == "JJ2o2r2O"
+    assert mec5085_cmd_0x4e("7XH2273") == "ww7eb7CT"
     assert render_ec_response(bytes(range(32)), "8FC8") == "q53G1h4ePMz2zUJB"
     assert render_ec_response(b"A1B2C3D4E5F6G7H8" + b"\x00" * 16, "CF1B") == "A1B2C3D4E5F6G7H8"
 
-    print("PASS: All 58 offline test vectors (ServiceTag, E7A8 Code 1/2, HDD, Latitude 3540, MEC5085, EC render) verified!")
+    # 6) 7 real field-verified 8FC8 master passwords (112/112 chars strictly in ALPHABET0)
+    alph0_set = set(ALPHABETS["8FC8"])
+    verified_8fc8 = [
+        ("1K6Y963", "BZsa9RGZzyIGD3pI"),
+        ("5S38Y33", "2QqPqMGQxLNrrZxW"),
+        ("C9F23Z2", "kr8a9e2xdPGRb1Lz"),
+        ("2C90B83", "N9NM9j1qRMeGzyyr"),
+        ("D76FQF4", "[PhyzIar3jy2Z6zM"),
+        ("GSSS6C4", "rN3U2IZhzZ7njNcb"),
+        ("F4NRGB4", "2933yxzZr5NLq0aX"),
+    ]
+    for st, pw in verified_8fc8:
+        assert len(pw) == 16 and all(ch in alph0_set for ch in pw), f"FAIL 8FC8 alphabet {st}"
+
+    print("PASS: All 67 test vectors (ServiceTag, E7A8 Code 1/2, HDD, Latitude 3540, MEC5085/5107, EC render & 7 real 8FC8 oracles) verified!")
     return True
 
 

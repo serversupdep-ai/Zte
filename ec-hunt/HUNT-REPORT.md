@@ -142,3 +142,49 @@
 - fresh candidates: 0, downloaded+classified: 0
 - **HITS (plaintext GENERATE engine): 0**
 
+
+## Run 2026-10-24 18:45 UTC  (github-only)
+
+- fresh candidates: 66, downloaded+classified: 40
+- **HITS (plaintext GENERATE engine): 0**
+
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_3410_3510_1.36.0/ec_backup_v1.12.0_bt0a29.bin (branch:arena/adf99f45-zte) — format unknown 01018003, body entropy 8.00, chi2 254 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_3410_3510_1.36.0/ec_v1.12.0_bt0a29.bin (branch:arena/adf99f45-zte) — format unknown 01018003, body entropy 8.00, chi2 242 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/Latitude_3420_3520_1.44.0/ec_v1.13.2_bt0c82.bin (branch:arena/adf99f45-zte) — format unknown 01018003, body entropy 8.00, chi2 281 — AES-sealed, key fused in EC (dead end)
+- `EC-REGION-STAGING` — bios-analysis/collected/ec_region/3090_EC_bundle_118f7.bin (branch:arena/adf99f45-zte) — Nuvoton-class EC boot descriptor at 0x8 — SPI staging region: boot+tables plaintext, app sealed (engine EC-internal)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/3410_pkg/ec_backup_v101.bin (branch:arena/adf99f45-zte) — format unknown 01018003, body entropy 8.00, chi2 241 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/3410_pkg/ec_v103_n9f4.bin (branch:arena/adf99f45-zte) — format unknown 01018003, body entropy 8.00, chi2 273 — AES-sealed, key fused in EC (dead end)
+- `UNKNOWN` — bios-analysis/collected/ec_region/pkg_corpus/3090uff__2 Meerkat3Tgl_15.0_DVT__9_OptiPlex_Board_Map_v1.0.1.bin  — entropy 3.25, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/ec_region/pkg_corpus/3090uff__3 Meerkat3Tgl_15.0_DVT_C__9_OptiPlex_Board_Map_v1.0.1.bi — entropy 3.25, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/ec_region/pkg_corpus/3420__2 Latitude_3420_Latitude__11_CyborgLTgl_Board_Map_v1.0.1.bi — entropy 3.26, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus/3420__2 Latitude_3420_Latitude__5_Embedded_Controller_v1.3.0.bin  — format unknown 01018003, body entropy 8.00, chi2 210 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus/3420__2 Latitude_3420_Latitude__6_Backup_Embedded_Controller_v1.2 — format unknown 01018003, body entropy 8.00, chi2 294 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus/3420__2 Latitude_3420_Latitude__7_Embedded_Controller_v1.4.1.bin  — format unknown 01018003, body entropy 8.00, chi2 272 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus/3420__2 Latitude_3420_Latitude__8_Backup_Embedded_Controller_v1.2 — format unknown 01018003, body entropy 8.00, chi2 249 — AES-sealed, key fused in EC (dead end)
+- `UNKNOWN` — bios-analysis/collected/ec_region/pkg_corpus/3420__3 Latitude_3420_Latitude__11_CyborgLTgl_Board_Map_v1.0.1.bi — entropy 3.26, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/ec_region/pkg_corpus/3420__4 Latitude_3420_Latitude__11_CyborgLTgl_Board_Map_v1.0.1.bi — entropy 3.27, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus/3420__4 Latitude_3420_Latitude__5_Embedded_Controller_v1.2.0.bin  — format unknown 01018003, body entropy 8.00, chi2 266 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus/3420__4 Latitude_3420_Latitude__6_Backup_Embedded_Controller_v1.1 — format unknown 01018003, body entropy 8.00, chi2 255 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus/3420__4 Latitude_3420_Latitude__7_Embedded_Controller_v1.3.1.bin  — format unknown 01018003, body entropy 8.00, chi2 275 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus/3420__4 Latitude_3420_Latitude__8_Backup_Embedded_Controller_v1.1 — format unknown 01018003, body entropy 8.00, chi2 273 — AES-sealed, key fused in EC (dead end)
+- `UNKNOWN` — bios-analysis/collected/ec_region/pkg_corpus/3420__5 LATITUDE_3520_3420_ICL__11_CyborgLIcl_Board_Map_v1.0.1.bi — entropy 2.60, vector score 0.10, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus/3420__5 LATITUDE_3520_3420_ICL__6_Embedded_Controller_v1.1.0.bin  — format unknown 01018003, body entropy 8.00, chi2 258 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus/3420__5 LATITUDE_3520_3420_ICL__7_Backup_Embedded_Controller_v1.0 — format unknown 01018003, body entropy 8.00, chi2 263 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus/3420__5 LATITUDE_3520_3420_ICL__8_Embedded_Controller_v1.1.0.bin  — format unknown 01018003, body entropy 8.00, chi2 247 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus/3420__5 LATITUDE_3520_3420_ICL__9_Backup_Embedded_Controller_v1.0 — format unknown 01018003, body entropy 8.00, chi2 231 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus_120/3410_120__EC_v1.0.1_n9f4.bin (branch:arena/adf99f45-zte) — format unknown 01018003, body entropy 8.00, chi2 260 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus_120/5x10_111__EC_v1.0.1_bt0a8d.bin (branch:arena/adf99f45-zte) — format unknown 00018003, body entropy 8.00, chi2 210 — AES-sealed, key fused in EC (dead end)
+- `PHCM-SEALED` — bios-analysis/collected/ec_region/pkg_corpus_120/5x10_111__EC_v1.0.3_bt0ec2.bin (branch:arena/adf99f45-zte) — format unknown 00018003, body entropy 8.00, chi2 288 — AES-sealed, key fused in EC (dead end)
+- `UNKNOWN` — bios-analysis/collected/raw/pkbiosfix_3410_565/19709_1_3510_16mb_ok.rar (branch:arena/adf99f45-zte) — entropy 5.33, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/raw/pkbiosfix_3410_565/19709_1_3510_8mb.rar (branch:arena/adf99f45-zte) — entropy 5.32, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/raw/pkbiosfix_3410_565/DELL_3410_BUILD16MB.bin (branch:arena/adf99f45-zte) — entropy 5.33, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/raw/pkbiosfix_3410_565/DELL_3410_BUILD_NEW.bin (branch:arena/adf99f45-zte) — entropy 5.32, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/raw/pkbiosfix_3410_565/Latitude_3510_16MB.BIN (branch:arena/adf99f45-zte) — entropy 5.33, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/raw/pkbiosfix_3410_565/Latitude_3510_8MB.BIN (branch:arena/adf99f45-zte) — entropy 5.32, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/raw/pkbiosfix_3410_565/cleanme_8mb.rar (branch:arena/adf99f45-zte) — entropy 5.33, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/raw/pkbiosfix_3410_565/dell_3410_8mb_fixed.rar (branch:arena/adf99f45-zte) — entropy 5.32, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/raw/pkbiosfix_3410_565/dell_3410_LOCK_16MB.BIN (branch:arena/adf99f45-zte) — entropy 5.32, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/raw/pkbiosfix_3410_565/dell_3410_LOCK_8MB.BIN (branch:arena/adf99f45-zte) — entropy 5.32, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/raw/pkbiosfix_3410_565/pk_16mb.zip (branch:arena/adf99f45-zte) — entropy 5.32, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/raw/pkbiosfix_3410_565/pk_8mb.zip (branch:arena/adf99f45-zte) — entropy 5.32, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '
+- `UNKNOWN` — bios-analysis/collected/raw/pkbiosfix_3410_565/tested_16mb.rar (branch:arena/adf99f45-zte) — entropy 5.32, vector score 0.00, markers {'salt_8dfc7b25': 0, 'sha256_ktable': 0, 'guid_c065aeab': 0, 'alphabet72': 0, '

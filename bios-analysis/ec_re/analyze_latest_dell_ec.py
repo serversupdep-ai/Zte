@@ -92,9 +92,10 @@ def mec5085_cmd4e_generate_8char(tag5: bytes, alph72: str = MEC5085_EC_ALPH72) -
     if len(tag5) != 5:
         raise ValueError("tag5 must be 5 bytes")
     rev = tag5[::-1]
+    rol8_r1 = ((rev[1] << 3) & 0xFF) | (rev[1] >> 5)
     groups = [
         rev[0] & 0x1F,
-        ((rev[0] >> 5) & 0x07) | ((rev[1] & 0x03) << 3),
+        ((rol8_r1 & 0xF1) | (rev[0] >> 5)) & 0x1F,
         (rev[1] >> 2) & 0x1F,
         ((rev[1] >> 7) & 0x01) | ((rev[2] & 0x0F) << 1),
         ((rev[2] >> 4) & 0x0F) | ((rev[3] & 0x01) << 4),
