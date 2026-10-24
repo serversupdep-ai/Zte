@@ -18,7 +18,7 @@
     "category": "dell_essential_intel_odm",
     "priority": 93
   },
-  "elapsed_sec": 1.31,
+  "elapsed_sec": 1.48,
   "inner_files": [
     [
       "cab:firmware.bin",
@@ -95,39 +95,10 @@
       "head16": "ffffffffffffffffffffffffffffffff"
     }
   ],
-  "ec_count": 4,
-  "plaintext_ec_count": 4,
+  "ec_count": 1,
+  "plaintext_ec_count": 1,
   "pw_module_count": 0,
   "ecs": [
-    {
-      "kind": "RAW_PFS_SUBCOMPONENT",
-      "stream": "cab:firmware.bin->$_IFLASH_INI_IMG@0xF00B38",
-      "plaintext": true,
-      "active_entropy": 4.653,
-      "size": 59123,
-      "sha256": "fc85e94ad1c1df7e398cad35c81c4f8294c280d7faee2689af4781098598cb17",
-      "head32": "3b20546869732066696c6520697320496e737964652048324f4646542028466c",
-      "signals": {
-        "notable_strings": [
-          "; Because some setting items only supported on s",
-          "ting item.",
-          "; (wsWS) means the setting item supported on whi",
-          "; [PasswordCheck]                       | WIN SH",
-          "erwrite.",
-          "ty will load the new ini file and overwrite all ",
-          "PlatformName1=Dell 14 D14261",
-          "Password=0",
-          ";                            Password      = Typ",
-          "EC_Verify=0",
-          "EC_VerifyErrorRetry=3",
-          "fore writing. Just do write action directly.",
-          " the same as the data we want to write,",
-          "e write action.",
-          ";EC_Verify         default : 0."
-        ]
-      },
-      "saved_file": "models/D14261_D15261_PV14261_PV15261_1.2.0_1709c177/ec_1_RAW_PFS_SUBCOMPONENT_59123.bin"
-    },
     {
       "kind": "EXPLICIT_EC_SECTION",
       "stream": "cab:firmware.bin->$_IFLASH_EC_IMG_@0xF0F258",
@@ -140,52 +111,7 @@
           " Write data in Shutdown_9sec_ECOFF_SPI EEROM 0x0"
         ]
       },
-      "saved_file": "models/D14261_D15261_PV14261_PV15261_1.2.0_1709c177/ec_2_EXPLICIT_EC_SECTION_1048576.bin"
-    },
-    {
-      "kind": "RAW_PFS_SUBCOMPONENT",
-      "stream": "cab:firmware.bin->lzma@0xA40BC0",
-      "plaintext": true,
-      "active_entropy": 5.731,
-      "size": 196736,
-      "sha256": "57ae038fdef437c354c1f6b85f3c8a01338c1f16b25a84b0ea6f11ac4adafd01",
-      "head32": "7c00001900000000000000000000000000000000000000000000000000000000",
-      "signals": {
-        "notable_strings": [
-          "DECOMPILATION OR DISASSEMBLY PROHIBITED"
-        ]
-      },
-      "saved_file": "models/D14261_D15261_PV14261_PV15261_1.2.0_1709c177/ec_3_RAW_PFS_SUBCOMPONENT_196736.bin"
-    },
-    {
-      "kind": "RAW_PFS_SUBCOMPONENT",
-      "stream": "cab:firmware.bin->lzma@0xA4D538",
-      "plaintext": true,
-      "active_entropy": 6.489,
-      "size": 852096,
-      "sha256": "264bfaa1eaa8e28adfd9237a83c08ffaf94e77711d1d21062f2cd1e61683cf20",
-      "head32": "7c00001900000000000000000000000000000000000000000000000000000000",
-      "signals": {
-        "SHA256_K0_LE": 1,
-        "notable_strings": [
-          "directory services (X.500)",
-          "challengePassword",
-          "ac-auditEntity",
-          "serviceLocator",
-          "OCSP Service Locator",
-          "directory services - algorithms",
-          "favouriteDrink",
-          "id-PasswordBasedMAC",
-          "password based MAC",
-          "id-ct-asciiTextWithCRLF",
-          "userPassword",
-          "iteration",
-          "No password method specified",
-          "PEM password callback wrapper",
-          "empty password"
-        ]
-      },
-      "saved_file": "models/D14261_D15261_PV14261_PV15261_1.2.0_1709c177/ec_4_RAW_PFS_SUBCOMPONENT_852096.bin"
+      "saved_file": "models/D14261_D15261_PV14261_PV15261_1.2.0_1709c177/ec_1_EXPLICIT_EC_SECTION_1048576.bin"
     }
   ],
   "pw_modules": []

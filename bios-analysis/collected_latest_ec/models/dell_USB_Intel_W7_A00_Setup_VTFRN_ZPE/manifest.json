@@ -8,7 +8,7 @@
       "url": "https://downloads.dell.com/FOLDER02327455M/3/USB_Intel_W7_A00_Setup_VTFRN_ZPE.exe"
     }
   },
-  "elapsed_sec": 0.19,
+  "elapsed_sec": 0.17,
   "inner_files": [
     [
       "cab:Setup.exe",
@@ -73,32 +73,9 @@
   ],
   "unpacked_stream_count": 15,
   "pfs_sections": [],
-  "ec_count": 2,
-  "plaintext_ec_count": 2,
+  "ec_count": 0,
+  "plaintext_ec_count": 0,
   "pw_module_count": 0,
-  "ecs": [
-    {
-      "kind": "RAW_PFS_SUBCOMPONENT",
-      "stream": "cab:IUsb3Hub.man",
-      "plaintext": true,
-      "active_entropy": 3.588,
-      "size": 178206,
-      "sha256": "eefc70358ed93d85fe0872dfb238fec460d594b76aa6d50d04e88f7e37f90996",
-      "head32": "fffe3c003f0078006d006c002000760065007200730069006f006e003d002200",
-      "signals": {},
-      "saved_file": "models/dell_USB_Intel_W7_A00_Setup_VTFRN_ZPE/ec_1_RAW_PFS_SUBCOMPONENT_178206.bin"
-    },
-    {
-      "kind": "RAW_PFS_SUBCOMPONENT",
-      "stream": "cab:iusb3xhc.man",
-      "plaintext": true,
-      "active_entropy": 3.7,
-      "size": 468858,
-      "sha256": "c57d5595cb9b9221c174d1603fbef3abbb3bbdd9e9a56b8d05e58afa14e5851a",
-      "head32": "fffe3c003f0078006d006c002000760065007200730069006f006e003d002200",
-      "signals": {},
-      "saved_file": "models/dell_USB_Intel_W7_A00_Setup_VTFRN_ZPE/ec_2_RAW_PFS_SUBCOMPONENT_468858.bin"
-    }
-  ],
+  "ecs": [],
   "pw_modules": []
 }

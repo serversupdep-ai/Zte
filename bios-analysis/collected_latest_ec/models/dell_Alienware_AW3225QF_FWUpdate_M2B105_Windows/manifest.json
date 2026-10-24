@@ -8,7 +8,7 @@
       "url": "https://dl.dell.com/FOLDER11545529M/1/Alienware_AW3225QF_FWUpdate_M2B105_Windows.exe"
     }
   },
-  "elapsed_sec": 0.35,
+  "elapsed_sec": 0.32,
   "inner_files": [
     [
       "cab:Alienware_AW3225QF_FirmwareUpdate_Instruction_Windows_en_A00.pdf",
@@ -217,114 +217,9 @@
   ],
   "unpacked_stream_count": 51,
   "pfs_sections": [],
-  "ec_count": 6,
-  "plaintext_ec_count": 2,
+  "ec_count": 0,
+  "plaintext_ec_count": 0,
   "pw_module_count": 0,
-  "ecs": [
-    {
-      "kind": "RAW_PFS_SUBCOMPONENT",
-      "stream": "cab:Alienware_AW3225QF_FirmwareUpdate_Instruction_Windows_en_A00.pdf",
-      "plaintext": false,
-      "active_entropy": 7.953,
-      "size": 187059,
-      "sha256": "8fe794574136dbd57c10798add0a01b80bbeb6ae26c6587e1b7a7eaa2fd4e4f4",
-      "head32": "255044462d312e360d25e2e3cfd30d0a3237372030206f626a0d3c3c2f4c696e",
-      "signals": {
-        "notable_strings": [
-          "3 20 0 R/FontName/CBJMCC+MuseoSansForDell-700/It",
-          "<</BaseFont/CBJMCC+MuseoSansForDell-700/Encoding",
-          ".Firmware.Update.Prerequisites)36 0 R(M9.92077.H",
-          "<</EF<</F 29 0 R>>/F(High Quality Print_dell_201"
-        ]
-      },
-      "saved_file": "models/dell_Alienware_AW3225QF_FWUpdate_M2B105_Windows/ec_1_hdrstub_187059.bin",
-      "stub_only": true
-    },
-    {
-      "kind": "RAW_PFS_SUBCOMPONENT",
-      "stream": "cab:Firmware Updater.pdb",
-      "plaintext": true,
-      "active_entropy": 3.794,
-      "size": 873984,
-      "sha256": "18c94c597f322eb07d4e86f9cd4660e8f904c5fb01a750541d7755626ef2f675",
-      "head32": "4d6963726f736f667420432f432b2b204d534620372e30300d0a1a4453000000",
-      "signals": {
-        "notable_strings": [
-          "are\\isp\\windows\\Firmware Updater\\HIDtoI2C\\MCHP\\M",
-          "are\\isp\\windows\\firmware updater\\hidtoi2c\\mchp\\m",
-          "are\\isp\\windows\\Firmware Updater\\MCU\\NuvotonMCU\\",
-          "are\\isp\\windows\\firmware updater\\mcu\\nuvotonmcu\\",
-          "NuMicroMCUMchpSecure.cs",
-          "numicromcumchpsecure.cs",
-          "ler\\MStarMST9UMchpSecure.cs",
-          "ler\\mstarmst9umchpsecure.cs",
-          "ler\\MStarMchpSecure.cs",
-          "ler\\mstarmchpsecure.cs",
-          "ler\\MStarMST9UMchpSecure_AW5520QF.cs",
-          "ler\\mstarmst9umchpsecure_aw5520qf.cs",
-          "ler\\MStarTSUMGMchpSecure.cs",
-          "ler\\mstartsumgmchpsecure.cs",
-          "ler\\MStarTSUMMchpSecure.cs"
-        ]
-      },
-      "saved_file": "models/dell_Alienware_AW3225QF_FWUpdate_M2B105_Windows/ec_2_RAW_PFS_SUBCOMPONENT_873984.bin"
-    },
-    {
-      "kind": "RAW_PFS_SUBCOMPONENT",
-      "stream": "cab:MuseoSansForDell-Regular.ttf",
-      "plaintext": true,
-      "active_entropy": 6.373,
-      "size": 144848,
-      "sha256": "556dd541baf600704128ed9a23477db6ea92a035a6509ce89240a8f500260000",
-      "head32": "00010000001501000004005044534947c9b53bc200021ff0000015e047504f53",
-      "signals": {
-        "notable_strings": [
-          "eserved.Museo Sans For DellRegular1.000;xljb;Mus",
-          "eoSansForDellMuseo Sans For Dell RegularVersion ",
-          "1.000MuseoSansForDellMuseo Sans is a trademark o",
-          "\"VeriSign Time Stamping Services CA0",
-          "+VeriSign Time Stamping Services Signer - G20",
-          "\"VeriSign Time Stamping Services CA"
-        ]
-      },
-      "saved_file": "models/dell_Alienware_AW3225QF_FWUpdate_M2B105_Windows/ec_3_RAW_PFS_SUBCOMPONENT_144848.bin"
-    },
-    {
-      "kind": "RAW_PFS_SUBCOMPONENT",
-      "stream": "cab:U3425WE",
-      "plaintext": false,
-      "active_entropy": 7.998,
-      "size": 134240,
-      "sha256": "e4a56c349710292aba865a8071a3010b9f1121b817beed302fe94339101dca0e",
-      "head32": "b76ed1e4b6b629f5f6cbe99baaa591494285019d1d159e19e9243fffd6795e41",
-      "signals": {},
-      "saved_file": "models/dell_Alienware_AW3225QF_FWUpdate_M2B105_Windows/ec_4_hdrstub_134240.bin",
-      "stub_only": true
-    },
-    {
-      "kind": "RAW_PFS_SUBCOMPONENT",
-      "stream": "cab:USB_cable.png",
-      "plaintext": false,
-      "active_entropy": 7.982,
-      "size": 53095,
-      "sha256": "ea76cf80548dca19420893cbd849323887f619a5451a3a81e133f0bdbb5695e0",
-      "head32": "89504e470d0a1a0a0000000d4948445200000210000001da0806000000519b70",
-      "signals": {},
-      "saved_file": "models/dell_Alienware_AW3225QF_FWUpdate_M2B105_Windows/ec_5_hdrstub_53095.bin",
-      "stub_only": true
-    },
-    {
-      "kind": "RAW_PFS_SUBCOMPONENT",
-      "stream": "cab:power_cable.png",
-      "plaintext": false,
-      "active_entropy": 7.98,
-      "size": 85457,
-      "sha256": "f6c29b6a1a188e058df6c13c479be1b4b842858af2e50d38a4356b1e18ff6e09",
-      "head32": "89504e470d0a1a0a0000000d4948445200000244000002a2080600000037fdc3",
-      "signals": {},
-      "saved_file": "models/dell_Alienware_AW3225QF_FWUpdate_M2B105_Windows/ec_6_hdrstub_85457.bin",
-      "stub_only": true
-    }
-  ],
+  "ecs": [],
   "pw_modules": []
 }
