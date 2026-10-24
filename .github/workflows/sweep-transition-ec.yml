@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   sweep-transition:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - name: Checkout session branch
@@ -29,7 +29,7 @@ jobs:
       - name: Install unpackers
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq p7zip-full p7zip-rar zstd xz-utils cabextract > /dev/null
+          sudo apt-get install -y -qq p7zip-full zstd xz-utils cabextract > /dev/null
           python3 -m pip install --upgrade pip -q
           python3 -m pip install uefi_firmware zstandard pefile capstone unicorn pycryptodome -q
           git clone --depth 1 https://github.com/platomav/BIOSUtilities.git /tmp/BIOSUtilities || true
@@ -38,14 +38,17 @@ jobs:
         env:
           BIOSUTILS_DIR: /tmp/BIOSUtilities
         run: |
-          python3 bios-analysis/sweep_transition_ec.py --workers 8 --max-targets 65
-          cat bios-analysis/TRANSITION_EC_SWEEP_REPORT.md
+          python3 bios-analysis/sweep_transition_ec.py --workers 3 --max-targets 65
+          head -n 120 bios-analysis/TRANSITION_EC_SWEEP_REPORT.md
 
       - name: Commit sweep report and any unsealed 8FC8 EC hits
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add bios-analysis/TRANSITION_EC_SWEEP_REPORT.md bios-analysis/transition_ec_sweep.json
+          if [ -f bios-analysis/TRANSITION_EC_SWEEP_REPORT.md ]; then
+            git add bios-analysis/TRANSITION_EC_SWEEP_REPORT.md bios-analysis/transition_ec_sweep.json
+          fi
           if [ -d bios-analysis/transition_hits ]; then
             git add bios-analysis/transition_hits
           fi

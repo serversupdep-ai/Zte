@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import concurrent.futures
+import gc
 import json
 import os
 import re
@@ -332,6 +333,10 @@ def analyze_one_target(t: dict, hits_dir: Path) -> dict:
             all_streams.extend(st)
 
         ecs, pws = clde.extract_ec_and_pw_from_streams(all_streams)
+        all_streams.clear()
+        inner_blobs.clear()
+        del pkg
+        gc.collect()
 
         pw_summaries = []
         has_ec_8fc8 = False
@@ -479,6 +484,14 @@ def main() -> int:
             except Exception as e:
                 t = futs[fut]
                 results.append({**t, "status": f"error:{e}"})
+            gc.collect()
+            if len(results) % 5 == 0:
+                write_report(
+                    sorted(results, key=lambda r: r["slug"]),
+                    wilco,
+                    HERE / "TRANSITION_EC_SWEEP_REPORT.md",
+                    HERE / "transition_ec_sweep.json",
+                )
 
     results.sort(key=lambda r: (not r.get("golden_unsealed_8fc8_overlap", False), not r.get("has_unsealed_ec", False), r["slug"]))
     write_report(
