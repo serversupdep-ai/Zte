@@ -579,27 +579,34 @@ def extract_ec_and_pw_from_streams(streams: list) -> tuple[list, list]:
                         })
             idx += 4
 
-        # --- E. Any direct PFS / CAB section in EC size range (32 KB .. 1.2 MB) that is NOT x86 PE/FV/XML ---
+        # --- E. Direct PFS / CAB / BIOSUtilities EC subcomponents or SMM EC-Vault drivers ---
         if ("->pfs@" in slbl or slbl.startswith("cab:") or slbl.startswith("bu:")) and 0x8000 <= len(buf) <= 0x120000:
             if buf[:2] != b"MZ" and buf[:4] != b"PHCM" and b"_FVH" not in buf[:128] and b"PFS.HDR." not in buf[:64]:
-                # Exclude AMI BiosGuard (_AMIPFAT) pure encrypted chunks unless low entropy
-                aent = active_entropy(buf)
-                is_pfat = b"_AMIPFAT" in buf[:64]
-                if not is_pfat or aent < 7.75:
-                    h = sha256(buf)
-                    if h not in seen_ec:
-                        seen_ec.add(h)
-                        ec_candidates.append({
-                            "kind": "RAW_PFS_SUBCOMPONENT",
-                            "stream": slbl,
-                            "plaintext": aent < 7.80,
-                            "active_entropy": round(aent, 3),
-                            "size": len(buf),
-                            "sha256": h,
-                            "head32": buf[:32].hex(),
-                            "signals": scan_ec_algorithm_signals(buf),
-                            "bytes": buf,
-                        })
+                is_npcx_ifuse = buf[:4] == bytes.fromhex("5e4d3b2a")
+                is_ec_named = any(k in slbl.lower() for k in ("embedded controller", "ec ", "_ec", "kbc", "mec", "npcx"))
+                is_compal_zephyr = b"CompalA31" in buf[:0x1000]
+                has_ec_vault_guid = (
+                    bytes.fromhex("8ee21073ea966043946e5adc6be8f531") in buf
+                    or bytes.fromhex("90306bbd3669f04dbc7368b06fb4e791") in buf
+                )
+                if is_npcx_ifuse or is_ec_named or is_compal_zephyr or has_ec_vault_guid:
+                    aent = active_entropy(buf)
+                    is_pfat = b"_AMIPFAT" in buf[:64]
+                    if not is_pfat or aent < 7.75:
+                        h = sha256(buf)
+                        if h not in seen_ec:
+                            seen_ec.add(h)
+                            ec_candidates.append({
+                                "kind": "NPCX993D_IFUSE" if is_npcx_ifuse else "RAW_PFS_SUBCOMPONENT",
+                                "stream": slbl,
+                                "plaintext": (not is_npcx_ifuse) and (aent < 7.80),
+                                "active_entropy": round(aent, 3),
+                                "size": len(buf),
+                                "sha256": h,
+                                "head32": buf[:32].hex(),
+                                "signals": scan_ec_algorithm_signals(buf),
+                                "bytes": buf,
+                            })
 
         # --- F. UEFI / PEI / SMM / ARM64 Password Modules ---
         for mname in ("ALPH_SHORT", "SALT_8dfc7b25", "GUID_C065AEAB", "CLASSIC_ALPH32"):
