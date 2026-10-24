@@ -18,7 +18,7 @@
     "category": "dell_essential_amd_odm",
     "priority": 95
   },
-  "elapsed_sec": 3.56,
+  "elapsed_sec": 3.2,
   "inner_files": [
     [
       "cab:firmware.bin",
@@ -130,8 +130,8 @@
       "head16": "02111802146700010203000000000000"
     }
   ],
-  "ec_count": 5,
-  "plaintext_ec_count": 5,
+  "ec_count": 68,
+  "plaintext_ec_count": 63,
   "pw_module_count": 0,
   "ecs": [
     {
@@ -177,6 +177,35 @@
       "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_2_PHCM_327680.bin"
     },
     {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_INI_IMG@0x21E7E9E",
+      "plaintext": true,
+      "active_entropy": 4.652,
+      "size": 59104,
+      "sha256": "04a284e1031d313169b23fe2cfcd06323304961a4d0a7dbb8ba1d83b422e31a0",
+      "head32": "3b20546869732066696c6520697320496e737964652048324f4646542028466c",
+      "signals": {
+        "notable_strings": [
+          "; Because some setting items only supported on s",
+          "ting item.",
+          "; (wsWS) means the setting item supported on whi",
+          "; [PasswordCheck]                       | WIN SH",
+          "erwrite.",
+          "ty will load the new ini file and overwrite all ",
+          "Password=0",
+          ";                            Password      = Typ",
+          "EC_Verify=0",
+          "EC_VerifyErrorRetry=3",
+          "fore writing. Just do write action directly.",
+          " the same as the data we want to write,",
+          "e write action.",
+          ";EC_Verify         default : 0.",
+          ";EC_VerifyErrorRetry"
+        ]
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_3_RAW_PFS_SUBCOMPONENT_59104.bin"
+    },
+    {
       "kind": "EXPLICIT_EC_SECTION",
       "stream": "cab:firmware.bin->$_IFLASH_EC_IMG_@0x21F659E",
       "plaintext": true,
@@ -188,7 +217,36 @@
           " Write data in Shutdown_9sec_ECOFF_SPI EEROM 0x0"
         ]
       },
-      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_3_EXPLICIT_EC_SECTION_1048576.bin"
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_4_EXPLICIT_EC_SECTION_1048576.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_INI_IMG@0x34DF06E",
+      "plaintext": true,
+      "active_entropy": 4.645,
+      "size": 58109,
+      "sha256": "04f3bc97cf0d90a264a7ca51519205895b5b7470c3540d00c8ce1fd764514d41",
+      "head32": "3b20546869732066696c6520697320496e737964652048324f4646542028466c",
+      "signals": {
+        "notable_strings": [
+          "; Because some setting items only supported on s",
+          "ting item.",
+          "; (wsWS) means the setting item supported on whi",
+          "; [PasswordCheck]                       | WIN SH",
+          "erwrite.",
+          "ty will load the new ini file and overwrite all ",
+          "Password=0",
+          ";                            Password      = Typ",
+          "EC_Verify=0",
+          "EC_VerifyErrorRetry=3",
+          "fore writing. Just do write action directly.",
+          " the same as the data we want to write,",
+          "e write action.",
+          ";EC_Verify         default : 0.",
+          ";EC_VerifyErrorRetry"
+        ]
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_5_RAW_PFS_SUBCOMPONENT_58109.bin"
     },
     {
       "kind": "EXPLICIT_EC_SECTION",
@@ -203,7 +261,7 @@
           " Write data in Shutdown_9sec_ECOFF_SPI EEROM 0x0"
         ]
       },
-      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_4_EXPLICIT_EC_SECTION_1048576.bin"
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_6_EXPLICIT_EC_SECTION_1048576.bin"
     },
     {
       "kind": "PHCM",
@@ -220,7 +278,749 @@
           "Write Protected"
         ]
       },
-      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_5_PHCM_327680.bin"
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_7_PHCM_327680.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x124600",
+      "plaintext": true,
+      "active_entropy": 5.677,
+      "size": 262144,
+      "sha256": "f9b63b18b7a89cff1f832321effcc93d6ee8ede057ea3021006952d8b44b6091",
+      "head32": "006c4c00006c4c0000000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_8_RAW_PFS_SUBCOMPONENT_262144.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x163600",
+      "plaintext": true,
+      "active_entropy": 6.697,
+      "size": 262144,
+      "sha256": "ba59ed7fca40a7eb34422770e32680176f0a820e4ad555d6583688cb45e72f17",
+      "head32": "006c4c00006c4c0000000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_9_RAW_PFS_SUBCOMPONENT_262144.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x283A00",
+      "plaintext": true,
+      "active_entropy": 4.965,
+      "size": 408528,
+      "sha256": "d960c8f04c49a90d7eea3c7dbd0721ef8de8152558d8c9765523c6c2094acc58",
+      "head32": "020000000300000000000300cb0000001600000000000000c80f000020080000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_10_RAW_PFS_SUBCOMPONENT_408528.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x359200",
+      "plaintext": true,
+      "active_entropy": 5.039,
+      "size": 196608,
+      "sha256": "596893db24e4f5f1f58a3d3e42a60926069e8c4c8690f452a0d3c2c54353f68c",
+      "head32": "006c4c00006c4c00000000000000000000000000000003000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_11_RAW_PFS_SUBCOMPONENT_196608.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x36BA00",
+      "plaintext": true,
+      "active_entropy": 3.772,
+      "size": 172064,
+      "sha256": "343ff5f0eb5123867935937033cb96c334e900ac0a891449f126db379b8d28cd",
+      "head32": "0200000003000000000003001300000009000000000000000002000040390000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_12_RAW_PFS_SUBCOMPONENT_172064.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x373200",
+      "plaintext": true,
+      "active_entropy": 3.665,
+      "size": 173312,
+      "sha256": "d9ceb5d4a64e5c798abb28edcf81fcda6ea051668acbd054568f17d2f8d375a2",
+      "head32": "0200000003000000000003001300000009000000000000000002000040390000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_13_RAW_PFS_SUBCOMPONENT_173312.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x53F100",
+      "plaintext": true,
+      "active_entropy": 6.876,
+      "size": 32800,
+      "sha256": "c0dd13d77a9176f41c1f69a6ee9f450de5a1fbc6c2088251680941a9baa826fc",
+      "head32": "4250504120000000020000000080000064010000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_14_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x544F00",
+      "plaintext": true,
+      "active_entropy": 6.731,
+      "size": 32800,
+      "sha256": "782085c050e0b3a8fdb0b657acf5fb350c8dc66c131eb99a0b89065e7d694c96",
+      "head32": "4250504120000000020000000080000064020000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_15_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x54A900",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "ed8b14d40771cb71a8c31aa635f486ac504be46cb2c2592da1fb21a980d20793",
+      "head32": "4250504120000000020000000080000064030000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_16_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x54AC00",
+      "plaintext": true,
+      "active_entropy": 6.669,
+      "size": 32800,
+      "sha256": "62db74ffc227d572ac720ffb7364879590ee4133de76c7f0ae8b8b956aa9349a",
+      "head32": "4250504120000000020000000080000064040000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_17_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x54F300",
+      "plaintext": true,
+      "active_entropy": 2.007,
+      "size": 32800,
+      "sha256": "c0576c8e8117fb9b41461f530ba65367fa440b47e1c8fb848df30cc4dad253c4",
+      "head32": "4250504120000000020000000080000064050000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_18_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x54F900",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "cd35cc13fd396adfac7a3f20b2a4b72ea25909bc08f2b0bbfcd9af011e0d260f",
+      "head32": "4250504120000000020000000080000064060000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_19_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x552C00",
+      "plaintext": true,
+      "active_entropy": 2.03,
+      "size": 32800,
+      "sha256": "0a0c2bcf3418934022da02373842a71ba3094651c31a7c02e884d676a63b45ed",
+      "head32": "4250504120000000020000000080000065010000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_20_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x553100",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "a32243ba4080ec9a85f4651811ee3f25765c16670005f02eb2b64c0865202168",
+      "head32": "4250504120000000020000000080000065020000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_21_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x553400",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "8882cf9d3f3f43ef189e032923526de847bbbd23de6846621adb8e1ac43ba2f2",
+      "head32": "4250504120000000020000000080000065030000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_22_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x553700",
+      "plaintext": true,
+      "active_entropy": 3.447,
+      "size": 32800,
+      "sha256": "d7efe386a69447b0ede0880c1e12b6c3e66c10c50787e8828ad05567d55d4fd1",
+      "head32": "4250504120000000020000000080000065040000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_23_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x554A00",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "c48de8ff52bdaa0d7ac29ad9e07859cca0ea71463dfbe06bc0bdce9bd1a96df9",
+      "head32": "4250504120000000020000000080000065050000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_24_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x554D00",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "2efe650c73fc8f5fabe1de6bda5ebf64af39671e48fc97c00241ce6709222ab4",
+      "head32": "4250504120000000020000000080000065060000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_25_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x555000",
+      "plaintext": true,
+      "active_entropy": 0.718,
+      "size": 32800,
+      "sha256": "cc77a293caae00e7a77d2b675047136ea5932e10107a6940c2597ae825d40fed",
+      "head32": "4250504120000000020000000080000065070000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_26_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0xCA8100",
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 964816,
+      "sha256": "8a15e7fff38114ca6050387e9d142487b4b6c28bf9ce07401073a85c3b7df1c4",
+      "head32": "574c414e00000000050000000000000000000000b49e0c006000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_27_hdrstub_964816.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0xF2A00",
+      "plaintext": true,
+      "active_entropy": 4.9,
+      "size": 262144,
+      "sha256": "1c2a22473b98729cb57e5b7309f2b24d206a0debaaa703703b0171f682450160",
+      "head32": "00315a0000315a0000000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_28_RAW_PFS_SUBCOMPONENT_262144.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x135900",
+      "plaintext": true,
+      "active_entropy": 6.617,
+      "size": 262144,
+      "sha256": "f2bca1567c87d3bc49172b2ef83d682b20882769f8ae6d0e4ca28ded6ac1f633",
+      "head32": "00315a0000315a0000000000000000000000000000ff03000000000000000000",
+      "signals": {
+        "MEC_MBOX_400F0000": 1
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_29_RAW_PFS_SUBCOMPONENT_262144.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x35D100",
+      "plaintext": true,
+      "active_entropy": 7.014,
+      "size": 32800,
+      "sha256": "b20292264fa87240b69c928c5890a0cf5d892ecb8b6ec9e8352382932f32a1d2",
+      "head32": "4250504120000000020000000080000064010000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_30_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x363500",
+      "plaintext": true,
+      "active_entropy": 1.525,
+      "size": 32800,
+      "sha256": "a735e1170c02dbfaa3b0c420177df1dd69e8641aaddfdd70442e1ae4a00cfa3c",
+      "head32": "4250504120000000020000000080000065010000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_31_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x363A00",
+      "plaintext": true,
+      "active_entropy": 7.058,
+      "size": 32800,
+      "sha256": "3b1bc6a9a613368326a5ee24a422072253e9ac8cce4e3bf2a74e3c0fe3e63ed8",
+      "head32": "4250504120000000020000000080000064020000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_32_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->lzma@0x2FB38",
+      "plaintext": true,
+      "active_entropy": 7.401,
+      "size": 196736,
+      "sha256": "b782502543a8a9b1ebcd222e4f5b504fe6a1ca4740d3cec94549e51a0c670fbc",
+      "head32": "7c00001900000000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_33_RAW_PFS_SUBCOMPONENT_196736.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 90051,
+      "sha256": "e102aa2b33da32951148682c8dddbb2a8f1a464b09b45212b3fa3414970dce65",
+      "head32": "97e746e4e196cd47a3b50061b404243fcbaa0b00c35f01f81600001b023d6494",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_34_RAW_PFS_SUBCOMPONENT_90051.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 90003,
+      "sha256": "5efc9d955b864aa56aa740873c0eedace3a2d3acaba1ed97707446927066334e",
+      "head32": "935f010298584eee143959429d6edc7bd79403cf180001005d00000001800003",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_35_RAW_PFS_SUBCOMPONENT_90003.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 7.406,
+      "size": 196536,
+      "sha256": "e5fa79598078cfbafff6f2fb0d1a51038232ff7b78e50e84ab7e5e4eb3960f98",
+      "head32": "0acc451b6a158a42af6249864da0e6e6b8aa02002c0000f814000019475669d4",
+      "signals": {
+        "SHA256_K0_LE": 1
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_36_RAW_PFS_SUBCOMPONENT_196536.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.806,
+      "size": 81794,
+      "sha256": "a09f6cc49d0de2d4bb6a2ed1a9b10bd3744e23a07fa62022148589fc689dd2bd",
+      "head32": "475669d4017d964dac7ebb90eee29eb951aa0610823f01f81600001b02254df3",
+      "signals": {
+        "SHA256_K0_LE": 1
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_37_RAW_PFS_SUBCOMPONENT_81794.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.805,
+      "size": 81668,
+      "sha256": "74a3640ef82aea553a8c9647d5e8a9a0919328e2e134b282cc358cc71df975bd",
+      "head32": "043f01104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_38_RAW_PFS_SUBCOMPONENT_81668.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 3.538,
+      "size": 39982,
+      "sha256": "fcb8c6317920239309cbaba9488a67a61f48a2183075427388b390d94543da78",
+      "head32": "7b4617d6f71f3f40a87d29f61c80ee7c93aa06102e9c00f83a00001b02f56eb8",
+      "signals": {
+        "notable_strings": [
+          "Birman"
+        ]
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_39_RAW_PFS_SUBCOMPONENT_39982.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 3.522,
+      "size": 39844,
+      "sha256": "a9cb205707642ee8ed0340598e11dd740fda910803357033eb0215ffd577e0f4",
+      "head32": "a49b00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Birman"
+        ]
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_40_RAW_PFS_SUBCOMPONENT_39844.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.69,
+      "size": 35626,
+      "sha256": "0c70ada988c239e572afa3c9496d9a75335c4369c4d83048b2f5e0e165c71bfd",
+      "head32": "6e1319d95c86104bb0995d897cfede08f6aa06102a8b00f81600001b02254df3",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_41_RAW_PFS_SUBCOMPONENT_35626.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.689,
+      "size": 35524,
+      "sha256": "8517702d0f445c55b0984a6da436f8f4b77512757851483344d9753027c6ff29",
+      "head32": "c48a00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_42_RAW_PFS_SUBCOMPONENT_35524.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.623,
+      "size": 35166,
+      "sha256": "5679191c765353dffd733aea954de388150c1ec4742be167e380a17aac578c71",
+      "head32": "9debadedbaddbd489d22c1c169c8c5c648aa06105e8900f82800001b02254df3",
+      "signals": {
+        "notable_strings": [
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_43_RAW_PFS_SUBCOMPONENT_35166.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.622,
+      "size": 35044,
+      "sha256": "82118cb1739ad5dc7750f4856ac6b729950d415ec3b0714e464d1c3b5b025efc",
+      "head32": "e48800104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_44_RAW_PFS_SUBCOMPONENT_35044.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.634,
+      "size": 36170,
+      "sha256": "f9809c7d173636e1413159dce09c504117fbd9d65e5b2e5d06961eb4e38f5d83",
+      "head32": "3bc42657e0c1354780495110edf2851cd0aa06104a8d00f84c00001b02581ce8",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_45_RAW_PFS_SUBCOMPONENT_36170.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.633,
+      "size": 36004,
+      "sha256": "861ec6c341615d0fbae8808b2041d768bf000b8ed39c13ac1822ec2270c05e63",
+      "head32": "a48c00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_46_RAW_PFS_SUBCOMPONENT_36004.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.628,
+      "size": 34406,
+      "sha256": "f926074f3e55a376ec6f906744741fb19710b9514c342dde7cb24d99e2809506",
+      "head32": "a9acae49bb69b24eb5f91bf9e25087799aaa0610668600f85e00001b027b1faf",
+      "signals": {
+        "notable_strings": [
+          "NbioSmuServiceRequestV13 Enter",
+          "NbioSmuServiceRequestV13 INVALID!!",
+          "  Service Request 0x%x",
+          "  Service Request Argument 0x%x, 0x%x, 0x%x, 0x%",
+          "NbioSmuServiceRequestV13 Exit",
+          "NbioSmuServiceRequestOnlyV13 Enter",
+          "NbioSmuServiceRequestOnlyV13 Exit"
+        ]
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_47_RAW_PFS_SUBCOMPONENT_34406.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.625,
+      "size": 34212,
+      "sha256": "63935c7c31f261806fd1192f475df27a28e3f26cf076d8a76ae4a63b34358756",
+      "head32": "a48500104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "NbioSmuServiceRequestV13 Enter",
+          "NbioSmuServiceRequestV13 INVALID!!",
+          "  Service Request 0x%x",
+          "  Service Request Argument 0x%x, 0x%x, 0x%x, 0x%",
+          "NbioSmuServiceRequestV13 Exit",
+          "NbioSmuServiceRequestOnlyV13 Enter",
+          "NbioSmuServiceRequestOnlyV13 Exit"
+        ]
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_48_RAW_PFS_SUBCOMPONENT_34212.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.551,
+      "size": 91394,
+      "sha256": "aca35576fb33e2216c5f70b4ae8234559806c66475082280d5c45929b40955bc",
+      "head32": "3ac324395e12a840845038c6671e021d5aaa0610026501f88200001b0222edca",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_49_RAW_PFS_SUBCOMPONENT_91394.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.549,
+      "size": 91172,
+      "sha256": "5b026b90f9a46e5844d3ef4bc9109df55e5dfa871527f5d71825a52adcf640cc",
+      "head32": "246401104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_50_RAW_PFS_SUBCOMPONENT_91172.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.558,
+      "size": 41414,
+      "sha256": "7646823cb410857268b2a61517f316d6f57f901ce3b9c45d403552d6bed61c9d",
+      "head32": "6f67cf01016fa34f9789b6322d89039426aa0610c6a100f8ca00001b02a54741",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_51_RAW_PFS_SUBCOMPONENT_41414.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.548,
+      "size": 41124,
+      "sha256": "721f14cd58e8baff4fa5345aa703bc0eab5d6dc0d49478bb667873a5747c602f",
+      "head32": "a4a000104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_52_RAW_PFS_SUBCOMPONENT_41124.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 1.167,
+      "size": 50550,
+      "sha256": "f84ae2b736a31229eda1d6308b58d4ef7dcb7c904cc89189d946911bdb362d9d",
+      "head32": "80ede17c62f718428270f7133706eb36ecaa020076c500f85ec50019424d5ac5",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_53_RAW_PFS_SUBCOMPONENT_50550.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 1.162,
+      "size": 50526,
+      "sha256": "2b2c95b1bdc3228b4d3d796e3aabab5f47c04ea072b58705ccadda38f92e4dc7",
+      "head32": "5ec50019424d5ac50000000000008a0000007c000000bc000000430000000100",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_54_RAW_PFS_SUBCOMPONENT_50526.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.261,
+      "size": 46100,
+      "sha256": "a62ab17222709a4fc5b6f8908f22361ae156cb87d06bac0eb6de6561591cd6ac",
+      "head32": "8ddd22f90c40f643951b93673d73601f4faa060014b400f81600001b028e8992",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_55_RAW_PFS_SUBCOMPONENT_46100.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x1E7E7E->zlib@0x1400200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.258,
+      "size": 46052,
+      "sha256": "0173a105832df8b02450fbac4c76f9c6c79c8ee274ab07baf22d8ba5b3989168",
+      "head32": "e4b300104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_56_RAW_PFS_SUBCOMPONENT_46052.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x675200->lzma@0x2DC38",
+      "plaintext": true,
+      "active_entropy": 7.401,
+      "size": 196736,
+      "sha256": "8a97d210b98cd28740bf69cfe614f0816ede4eee3f60276f3f929ba9579c32cd",
+      "head32": "7c00001900000000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_57_RAW_PFS_SUBCOMPONENT_196736.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x675200->ufv",
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 89053,
+      "sha256": "6d3f4323fe0900231ae9ff4b7256ffb998771892eecaf046e616f53fb09af0ba",
+      "head32": "97e746e4e196cd47a3b50061b404243fb5aa0b00dd5b01f81600001b023d6494",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_58_RAW_PFS_SUBCOMPONENT_89053.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x675200->ufv",
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 89005,
+      "sha256": "a8097cbf4b0ef21c4bca11393ca99fce6850eb58a34e298ef85921ecf68f7cd5",
+      "head32": "ad5b010298584eee143959429d6edc7bd79403cf180001005d00000001800003",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_59_RAW_PFS_SUBCOMPONENT_89005.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x675200->ufv",
+      "plaintext": true,
+      "active_entropy": 7.407,
+      "size": 196536,
+      "sha256": "c449e95289ee93896f270c365386ae4a2d56d6d1258e07eb1b3b507d28d57511",
+      "head32": "0acc451b6a158a42af6249864da0e6e6b8aa02002c0000f814000019475669d4",
+      "signals": {
+        "SHA256_K0_LE": 1
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_60_RAW_PFS_SUBCOMPONENT_196536.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x675200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.676,
+      "size": 33258,
+      "sha256": "a10545bc7eb7b3f71990742922f338f81162a517b76b6f73457c0db20c861625",
+      "head32": "6e1319d95c86104bb0995d897cfede0840aa0610ea8100f81600001b02254df3",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_61_RAW_PFS_SUBCOMPONENT_33258.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x675200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.674,
+      "size": 33156,
+      "sha256": "298c8f38f7ec0fafa7ace28434094ad2e7906d185bff500f00ca50afc36c15c3",
+      "head32": "848100104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_62_RAW_PFS_SUBCOMPONENT_33156.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x675200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.644,
+      "size": 35646,
+      "sha256": "79b202aefb7c3ef19d782509e013540012fcb8a0737c75d3b93970eb73ce0e33",
+      "head32": "9debadedbaddbd489d22c1c169c8c5c666aa06103e8b00f82800001b02254df3",
+      "signals": {
+        "notable_strings": [
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_63_RAW_PFS_SUBCOMPONENT_35646.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x675200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.643,
+      "size": 35524,
+      "sha256": "ccf9f4917bf05d5b72fe6a636f22611c7cf9c95a3e0904a12040c2eed2cf00e0",
+      "head32": "c48a00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_64_RAW_PFS_SUBCOMPONENT_35524.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x675200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.742,
+      "size": 55434,
+      "sha256": "8a9a88f855d8d7fcb3d57be44b1028281e50e45c2ed9c0a80403174ea4e490d8",
+      "head32": "8466b2641b5e5940b5afef66f2557f56a1aa06108ad800f89400001b02412084",
+      "signals": {
+        "notable_strings": [
+          "DxioLibServiceRequest"
+        ]
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_65_RAW_PFS_SUBCOMPONENT_55434.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x675200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.738,
+      "size": 55204,
+      "sha256": "06a77eff670d4e42f9233dfb540ece88f5303efb9f423efa249514b7be350c9f",
+      "head32": "a4d700104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "DxioLibServiceRequest"
+        ]
+      },
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_66_RAW_PFS_SUBCOMPONENT_55204.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x675200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.231,
+      "size": 44572,
+      "sha256": "1f94ccf410d025c5cfb4ecdcfb48bb2ee2b88e12d3ed72ec8caa8c719d7d412e",
+      "head32": "d745e198dc1b3646abcf7cbcef7b668d1daa02001cae00f804ae001955aa57e9",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_67_RAW_PFS_SUBCOMPONENT_44572.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_BIOSIMG@0x24DF04E->zlib@0x675200->ufv",
+      "plaintext": true,
+      "active_entropy": 6.229,
+      "size": 44548,
+      "sha256": "1550b9c6cbdc780270438e3fb8402df86270696a6f4f15eedfe681833e82f4d3",
+      "head32": "04ae001955aa57e95223000000000000000000000000000000000000bc010000",
+      "signals": {},
+      "saved_file": "models/D14265_D15266_1.3.0_854026bf/ec_68_RAW_PFS_SUBCOMPONENT_44548.bin"
     }
   ],
   "pw_modules": []

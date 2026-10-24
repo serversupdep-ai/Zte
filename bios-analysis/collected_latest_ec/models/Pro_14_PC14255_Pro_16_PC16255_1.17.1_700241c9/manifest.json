@@ -18,7 +18,7 @@
     "category": "dell_pro_amd_2025",
     "priority": 92
   },
-  "elapsed_sec": 3.49,
+  "elapsed_sec": 3.3,
   "inner_files": [
     [
       "cab:firmware.bin",
@@ -210,10 +210,66 @@
       "xml_hint": ""
     }
   ],
-  "ec_count": 10,
-  "plaintext_ec_count": 1,
+  "ec_count": 59,
+  "plaintext_ec_count": 48,
   "pw_module_count": 3,
   "ecs": [
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Utilities/1 Image -- 1 Policy Payload v1.2.60.bin",
+      "plaintext": true,
+      "active_entropy": 0.532,
+      "size": 211736,
+      "sha256": "03f4e40dc0b9a4d9b6627b9c4649552a9ddecc72047303de5bb6c329662a50e7",
+      "head32": "24504c430100000020000000183b0300200000003c0201000000000009d1945f",
+      "signals": {
+        "notable_strings": [
+          "DellFlashUi.exe"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_1_RAW_PFS_SUBCOMPONENT_211736.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Utilities/1 Image -- 2 Resource Payload v1.1.11.bin",
+      "plaintext": true,
+      "active_entropy": 7.271,
+      "size": 152189,
+      "sha256": "70f0be10239d0c854bf5a005d18c1b79f0315eb165727365ae9905f4db75a6e8",
+      "head32": "4353522401000000200000007d52020020000000a01e00000d01010003ea33ca",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_2_RAW_PFS_SUBCOMPONENT_152189.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Utilities/1 Image -- 3 UI Payload v1.0.13.bin",
+      "plaintext": true,
+      "active_entropy": 6.164,
+      "size": 1166863,
+      "sha256": "e61ccc24eb7eb6210d7fd84f89ccdd81b99030e38a2b48f95d77a4cdee4d9b8f",
+      "head32": "42494e2e4844522e01000000efcd110055495c436c61726974792e646c6c0000",
+      "signals": {
+        "io_910_911_pairs": 1,
+        "notable_strings": [
+          "SelectionItem`1",
+          "SelectionItem`2",
+          "DellResourceKeyID",
+          "Dell.Clarity.MVVM",
+          "Dell_WindowHeader_Loaded",
+          "PasswordBoxPasswordChanged",
+          "OnPasswordValueChanged",
+          "Dell_ActionBar_ItemsCollectionChanged",
+          "OnItemsChanged",
+          "get_Password",
+          "set_Password",
+          "GetPassword",
+          "SetPassword",
+          "GetService",
+          "get_ItemsSource"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_3_RAW_PFS_SUBCOMPONENT_1166863.bin"
+    },
     {
       "kind": "PHCM",
       "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin@0x81000",
@@ -232,7 +288,33 @@
           "SVI3: Write register error."
         ]
       },
-      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_1_PHCM_327680.bin"
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_4_PHCM_327680.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 16 Retimer v2.2.0.12.bin",
+      "plaintext": true,
+      "active_entropy": 5.877,
+      "size": 65536,
+      "sha256": "c69e1a5c768b64d75ff2d55e0a9a6679c93d1140e9c4d9398f1248e622f9d7ed",
+      "head32": "020000023003ffffffffff02300bffffffffff023013ffffffffff02301bffff",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_5_RAW_PFS_SUBCOMPONENT_65536.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 2 Main System TI Port Controller 0 v1.10.3.12.bin",
+      "plaintext": true,
+      "active_entropy": 6.9,
+      "size": 176268,
+      "sha256": "bda6c60e2bc994067d594ad6c6251cdb714e1560b8d485880918ffb3d3c1295f",
+      "head32": "0300efac0b000008b80b77000528053728c287a7016fca2e300233d11bbbad5d",
+      "signals": {
+        "notable_strings": [
+          "\"!2NKBC"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_6_RAW_PFS_SUBCOMPONENT_176268.bin"
     },
     {
       "kind": "PHCM",
@@ -244,7 +326,7 @@
       "size": 375952,
       "sha256": "f4c5c251c95f8257549882ac5e168da0552918155477e3ccc62c86d3558bb1f7",
       "signals": {},
-      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_2_hdrstub_375952.bin",
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_7_hdrstub_375952.bin",
       "stub_only": true
     },
     {
@@ -257,7 +339,7 @@
       "size": 375952,
       "sha256": "e5037cd37250f16ca81d17014d2920e294e975eddc6b693cdb8849467fb4a911",
       "signals": {},
-      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_3_hdrstub_375952.bin",
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_8_hdrstub_375952.bin",
       "stub_only": true
     },
     {
@@ -270,7 +352,7 @@
       "size": 376080,
       "sha256": "823480a3a4d733a79e10463abd6e238cd3079f78661a70734c313d8195f08cb1",
       "signals": {},
-      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_4_hdrstub_376080.bin",
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_9_hdrstub_376080.bin",
       "stub_only": true
     },
     {
@@ -287,7 +369,7 @@
           "tZKbC)P"
         ]
       },
-      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_5_hdrstub_376080.bin",
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_10_hdrstub_376080.bin",
       "stub_only": true
     },
     {
@@ -300,7 +382,7 @@
       "size": 327680,
       "sha256": "9c80d92a0450ca0ab35039ba96291e1716f52f398e52f4500b2fabe7f9f02b77",
       "signals": {},
-      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_6_hdrstub_327680.bin",
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_11_hdrstub_327680.bin",
       "stub_only": true
     },
     {
@@ -313,7 +395,7 @@
       "size": 327680,
       "sha256": "efcb57355141da720aea2492801a228b7b02d17555939c2c65aa796f76f221bf",
       "signals": {},
-      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_7_hdrstub_327680.bin",
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_12_hdrstub_327680.bin",
       "stub_only": true
     },
     {
@@ -326,7 +408,7 @@
       "size": 327680,
       "sha256": "f940df208bdc9e191d9e366676410f7c1ff233e895300c711c032898ef519ad8",
       "signals": {},
-      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_8_hdrstub_327680.bin",
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_13_hdrstub_327680.bin",
       "stub_only": true
     },
     {
@@ -343,7 +425,293 @@
           "tZKbC)P"
         ]
       },
-      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_9_hdrstub_327680.bin",
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_14_hdrstub_327680.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1160400",
+      "plaintext": true,
+      "active_entropy": 5.313,
+      "size": 349088,
+      "sha256": "5a2ead9da1a2fdbc81f5484c21cd508fcaa31a614ba5c7f5e990f2a5789ff83a",
+      "head32": "00c54910d54920e54930f54900340000dcff0061d0ff0061100001612f000400",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_15_RAW_PFS_SUBCOMPONENT_349088.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1210500",
+      "plaintext": true,
+      "active_entropy": 4.554,
+      "size": 412800,
+      "sha256": "0b365ffce3777a43576ad34e7e8f6bf29d5939dc9dc37299998ba44c794fdeba",
+      "head32": "020000000400000000000400b70000000b00000000000000900d0000384a0000",
+      "signals": {
+        "io_910_911_pairs": 1
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_16_RAW_PFS_SUBCOMPONENT_412800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1226400",
+      "plaintext": true,
+      "active_entropy": 3.569,
+      "size": 293040,
+      "sha256": "0185e2711610c7ef398953fa46184deb5fecd8a8d868f3210847d65da923322d",
+      "head32": "0200000004000000000004001800000006000000000000000002000040030000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_17_RAW_PFS_SUBCOMPONENT_293040.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1270000",
+      "plaintext": true,
+      "active_entropy": 5.927,
+      "size": 32848,
+      "sha256": "33b928e9252059f2b47b68b105c07f7a18949b4198ba0629c4e7f0ed34b5d0cf",
+      "head32": "10402de904209fe532ff2fe11080bde8ed3f020010402de9202052e20500003a",
+      "signals": {
+        "notable_strings": [
+          "WriteSmnRegister 0x%x 0x%x ",
+          "UMC REG WRITE: 0x%06x = 0x%08x",
+          "FchPciWrite",
+          "IoWrite",
+          "MmioWrite"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_18_RAW_PFS_SUBCOMPONENT_32848.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x12AB800",
+      "plaintext": true,
+      "active_entropy": 4.823,
+      "size": 393216,
+      "sha256": "22dd230c9d57efaa4315e9671e143e52a79a31588ad439ffc8fd869e3861d409",
+      "head32": "00195d0b00195d0b00000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_19_RAW_PFS_SUBCOMPONENT_393216.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x12DBA00",
+      "plaintext": true,
+      "active_entropy": 5.027,
+      "size": 393216,
+      "sha256": "e30bf4db2e798d020f265c51749e14f1c6eb3a2e944499850ea895ad64e3b698",
+      "head32": "001a650b001a650b00000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_20_RAW_PFS_SUBCOMPONENT_393216.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x130B000",
+      "plaintext": true,
+      "active_entropy": 0.022,
+      "size": 131072,
+      "sha256": "fb2b67143c585f98962282ea795f6447d54b3231aa0b870725158baf527d873e",
+      "head32": "00195d0b00195d0b00000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_21_RAW_PFS_SUBCOMPONENT_131072.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x130B300",
+      "plaintext": true,
+      "active_entropy": 0.022,
+      "size": 131072,
+      "sha256": "bde70a5d396ebf2dc5ba916be712ec7a5f128a9a3694210b7eb0d83c78b6b352",
+      "head32": "001a650b001a650b00000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_22_RAW_PFS_SUBCOMPONENT_131072.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x130B600",
+      "plaintext": true,
+      "active_entropy": 5.648,
+      "size": 196608,
+      "sha256": "dc95af74adbd1ba1102160832e4e8d05b11302d66e46c6f2d65d442db7d17a71",
+      "head32": "00195d0b00195d0b000000000000000000000000000003000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_23_RAW_PFS_SUBCOMPONENT_196608.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x131CA00",
+      "plaintext": true,
+      "active_entropy": 5.49,
+      "size": 196608,
+      "sha256": "8ddf6d5c832ab8e427ecc8c77c76c64fd06779e0559340c86592037d7ba97099",
+      "head32": "001a650b001a650b000000000000000000000000000003000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_24_RAW_PFS_SUBCOMPONENT_196608.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1510100",
+      "plaintext": true,
+      "active_entropy": 6.872,
+      "size": 32800,
+      "sha256": "5cb205b05747d822a228b59b82bbf62a969fca482b71dd701fdc3f46308b0896",
+      "head32": "4250504120000000020000000080000064010000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_25_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1515F00",
+      "plaintext": true,
+      "active_entropy": 6.998,
+      "size": 32800,
+      "sha256": "3ab4e2173b3b1585672589a75e985f371b57be6785da4c1cef7fee0703526d13",
+      "head32": "4250504120000000020000000080000064020000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_26_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x151BF00",
+      "plaintext": true,
+      "active_entropy": 2.893,
+      "size": 32800,
+      "sha256": "0053d6a44c6d25f505edc10b91373f9c31134049fd0df4746d5df96326b613ed",
+      "head32": "4250504120000000020000000080000064030000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_27_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x151C600",
+      "plaintext": true,
+      "active_entropy": 6.669,
+      "size": 32800,
+      "sha256": "e144eeaacb2908f25cc8b05885aff2318383550d56b3df5df40a554da23de3af",
+      "head32": "4250504120000000020000000080000064040000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_28_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1520D00",
+      "plaintext": true,
+      "active_entropy": 1.966,
+      "size": 32800,
+      "sha256": "5e1c2e13780e79627701f54879910a33e99e72d45190c78617fd8678fe0c3222",
+      "head32": "4250504120000000020000000080000064050000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_29_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1521300",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "cd35cc13fd396adfac7a3f20b2a4b72ea25909bc08f2b0bbfcd9af011e0d260f",
+      "head32": "4250504120000000020000000080000064060000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_30_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1521600",
+      "plaintext": true,
+      "active_entropy": 6.791,
+      "size": 32800,
+      "sha256": "a4911f98b27589c2541c4f5ac4eafc18c73043b2b1e89d0b72458c7b2b7b1403",
+      "head32": "4250504120000000020000000080000064070000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_31_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1524600",
+      "plaintext": true,
+      "active_entropy": 2.03,
+      "size": 32800,
+      "sha256": "66f5ea69eed2b5bfeaee110fd5bc0ef752ca1c6c8ab867d147fc76a0e8902cf8",
+      "head32": "4250504120000000020000000080000065010000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_32_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1524B00",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "a32243ba4080ec9a85f4651811ee3f25765c16670005f02eb2b64c0865202168",
+      "head32": "4250504120000000020000000080000065020000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_33_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1524E00",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "8882cf9d3f3f43ef189e032923526de847bbbd23de6846621adb8e1ac43ba2f2",
+      "head32": "4250504120000000020000000080000065030000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_34_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1525100",
+      "plaintext": true,
+      "active_entropy": 3.447,
+      "size": 32800,
+      "sha256": "0cf40120446b584283f85b44e5afcd6c4dbccc7bbe7e890e8dfb974ac262f8b9",
+      "head32": "4250504120000000020000000080000065040000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_35_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1526400",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "c48de8ff52bdaa0d7ac29ad9e07859cca0ea71463dfbe06bc0bdce9bd1a96df9",
+      "head32": "4250504120000000020000000080000065050000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_36_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1526700",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "2efe650c73fc8f5fabe1de6bda5ebf64af39671e48fc97c00241ce6709222ab4",
+      "head32": "4250504120000000020000000080000065060000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_37_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1526A00",
+      "plaintext": true,
+      "active_entropy": 0.739,
+      "size": 32800,
+      "sha256": "bc7ccfbdaabfe971512a2add59e099147bec7b8a43a5abe4657b24396448183b",
+      "head32": "4250504120000000020000000080000065070000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_38_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x1ED6100",
+      "plaintext": false,
+      "active_entropy": 7.999,
+      "size": 1135824,
+      "sha256": "79482994afc414597ea863196ac83f09070cd3e930e7d33037c48596d9d8a210",
+      "head32": "574c414e00000000050000000000000000000000ac3a0f006000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_39_hdrstub_1135824.bin",
       "stub_only": true
     },
     {
@@ -356,8 +724,347 @@
       "size": 102421,
       "sha256": "a70433f1371dc14d74d675e5bc93dde2ef36b4cc08bb8e43b9498b07f8b5d0bf",
       "signals": {},
-      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_10_hdrstub_102421.bin",
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_40_hdrstub_102421.bin",
       "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x38EC10->pfs@0x0[1:b'F\\x8bh]",
+      "plaintext": true,
+      "active_entropy": 6.9,
+      "size": 655361,
+      "sha256": "709c87d38d84aa1b82a4ab7534de55e28466bb44c21c2f78ca3cb2a943d83f85",
+      "head32": "ffffffffffffffff7aa825fbf1d0ffbab0320b548d80e147a18876aa7cf1bb93",
+      "signals": {
+        "notable_strings": [
+          "\"!2NKBC"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_41_RAW_PFS_SUBCOMPONENT_655361.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x38EC10->pfs@0x0[2:b'\\x0eG\\]",
+      "plaintext": false,
+      "active_entropy": 7.999,
+      "size": 398057,
+      "sha256": "7a777057b5afe2ad66594c5ee399d888505223382249a4756c7a2ba5fa7aa9df",
+      "head32": "fea0907c1ac46226308381e185544180b25a3916a9e9f3b3371001894c44da8a",
+      "signals": {
+        "ite_sig_offset": "0x5cc41",
+        "notable_strings": [
+          "tZKbC)P",
+          "Name=\"Dell Pro 14 PC14255,Dell Pro 16 PC16255\" M",
+          "    <core:VendorID Name=\"Dell\">",
+          "      <core:TcgVendorId>Dell</core:TcgVendorId>",
+          "  <CompositeHash Id=\"_E170A4BB-1CB5-4CCD-A76C-FB",
+          "Fok/8=</CompositeHash>",
+          "  <CompositeHash Id=\"_497F4659-3D33-444F-B879-EA",
+          "RCHWVx7N052QcW1sl2jGi/Q=</CompositeHash>",
+          "VendorName=Dell Inc.;OemString=Model_File;System",
+          "Name=Dell Pro 14 PC14255;Version=1.17.1;Model=0D"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_42_RAW_PFS_SUBCOMPONENT_398057.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.638,
+      "size": 35102,
+      "sha256": "a770cfc7ba67af909b334ff6f3278d6b65699182ba978659c4f96ca7694de32c",
+      "head32": "9debadedbaddbd489d22c1c169c8c5c688aa06101e8900f81600001b02254df3",
+      "signals": {
+        "notable_strings": [
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_43_RAW_PFS_SUBCOMPONENT_35102.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.637,
+      "size": 35012,
+      "sha256": "30a3a5c338a4fed8e2f9671775553cb65a3f278d92b3e0e89ffbfc3a8c3ed212",
+      "head32": "c48800104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_44_RAW_PFS_SUBCOMPONENT_35012.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.478,
+      "size": 55114,
+      "sha256": "029defcd5bc0dd61d020d53bb04d690383b8746df9387c712b134437639e1711",
+      "head32": "c8c0f61c85faee4394afdb27c54174c9f7aa06104ad700f83a00001b023d6494",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_45_RAW_PFS_SUBCOMPONENT_55114.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.476,
+      "size": 54980,
+      "sha256": "265456237adfb893c8666ab8f6cf9d89b9a81b301004b0e9b7deb367d3e82566",
+      "head32": "c4d600104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_46_RAW_PFS_SUBCOMPONENT_54980.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.685,
+      "size": 42194,
+      "sha256": "8c9655cd5348cf20717fb105fc8f52166f4e463dcacd6c8b239404b8a284e8fe",
+      "head32": "b28df1eafdfb504e8e77aac8191628b541aa0610d2a400f84c00001b029a447a",
+      "signals": {
+        "notable_strings": [
+          "PeiCoreTopologyServicesV3InitializeCallback",
+          "  FabricTopologyServices returns system has %d s",
+          "  Install AmdCoreTopologyServicesV3Ppi. Status: ",
+          "  Request NotifyPpi for AmdCoreTopologyServicesV",
+          "CcxCoreTopolgyServicesLaunchThreadV3",
+          "ThreadEnable register write: 0x%x"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_47_RAW_PFS_SUBCOMPONENT_42194.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.683,
+      "size": 42020,
+      "sha256": "0f9c5584404fc928fe445b0e3feef1577d0d0e11f5f24a5098c3fd8bf46bf9a8",
+      "head32": "24a400104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "PeiCoreTopologyServicesV3InitializeCallback",
+          "  FabricTopologyServices returns system has %d s",
+          "  Install AmdCoreTopologyServicesV3Ppi. Status: ",
+          "  Request NotifyPpi for AmdCoreTopologyServicesV",
+          "CcxCoreTopolgyServicesLaunchThreadV3",
+          "ThreadEnable register write: 0x%x"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_48_RAW_PFS_SUBCOMPONENT_42020.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.649,
+      "size": 45066,
+      "sha256": "fd72f73ab6d4d66de6554941458f04278b6600d11664103a6c8dfc8f3ba60145",
+      "head32": "7bc827abb9911c4fb9428437b164277afaaa06100ab000f87000001b027b1faf",
+      "signals": {
+        "notable_strings": [
+          "FchHNUsbSmuServiceReqOnly",
+          "Service request status NOT OK.",
+          "[FCH]FchHNUSB4S3nBIFService is started!",
+          "NbioSmuServiceRequestV14 Enter",
+          "NbioSmuServiceRequestV14 INVALID!!",
+          "  Service Request 0x%x",
+          "  Service Request Argument 0x%x, 0x%x, 0x%x, 0x%",
+          "Wait till SMU service complete",
+          "NbioSmuServiceRequestV14 Exit",
+          "NbioSmuServiceRequestOnlyV14 Enter",
+          "NbioSmuServiceRequestOnlyV14 INVALID!!",
+          "NbioSmuServiceRequestOnlyV14 Exit"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_49_RAW_PFS_SUBCOMPONENT_45066.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.645,
+      "size": 44868,
+      "sha256": "652b30f2ca60bacc36cfc95b7dff0b7335ef0051dcc69292e367073afd425f13",
+      "head32": "44af00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "FchHNUsbSmuServiceReqOnly",
+          "Service request status NOT OK.",
+          "[FCH]FchHNUSB4S3nBIFService is started!",
+          "NbioSmuServiceRequestV14 Enter",
+          "NbioSmuServiceRequestV14 INVALID!!",
+          "  Service Request 0x%x",
+          "  Service Request Argument 0x%x, 0x%x, 0x%x, 0x%",
+          "Wait till SMU service complete",
+          "NbioSmuServiceRequestV14 Exit",
+          "NbioSmuServiceRequestOnlyV14 Enter",
+          "NbioSmuServiceRequestOnlyV14 INVALID!!",
+          "NbioSmuServiceRequestOnlyV14 Exit"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_50_RAW_PFS_SUBCOMPONENT_44868.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.488,
+      "size": 87906,
+      "sha256": "74d549313ffd61fac6d4911d7ff8f4b6bac46152bc87acb63eaa53c6ee1fb17c",
+      "head32": "418d1194a5657c4990a19d78591c797a40aa0610625701f88200001b02471e78",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_51_RAW_PFS_SUBCOMPONENT_87906.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.486,
+      "size": 87684,
+      "sha256": "8915ab350794be822be08d66a9f634a8725e7014aa0d51411155189b22966c6f",
+      "head32": "845601104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_52_RAW_PFS_SUBCOMPONENT_87684.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.214,
+      "size": 36774,
+      "sha256": "f5670890ef9cba2cd972c79d1cfe8826d6e5c0e9c78e2a9ab72934eb57843225",
+      "head32": "8f0aaaa2d543214ba26b5d02476ad45704aa0610a68f00f8dc00001b029c65d5",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_53_RAW_PFS_SUBCOMPONENT_36774.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.196,
+      "size": 36484,
+      "sha256": "a103c58443bba4e756c9871ec4f4ed22833d1e2cbcac4b2c3fcd9b70ea56331c",
+      "head32": "848e00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_54_RAW_PFS_SUBCOMPONENT_36484.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.732,
+      "size": 75938,
+      "sha256": "e089ddaa9b52d4ef42694c770a0b737aacb5a6fb6a77086a92a408b69d58fef7",
+      "head32": "f81450cfbe2e574daa83d7a3607371ea8faa0610a22801f82800001b023d6494",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "DellLogo",
+          "Warning Write Failure",
+          "Write Protected",
+          "invalid literal/lengths set",
+          "invalid literal/length code"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_55_RAW_PFS_SUBCOMPONENT_75938.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.732,
+      "size": 75780,
+      "sha256": "01eb5fce7069695f65652fa31791313aa2ff000ce1cade514624587acdf286a7",
+      "head32": "042801104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "DellLogo",
+          "Warning Write Failure",
+          "Write Protected",
+          "invalid literal/lengths set",
+          "invalid literal/length code"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_56_RAW_PFS_SUBCOMPONENT_75780.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 5.466,
+      "size": 49176,
+      "sha256": "1b0914ef66fe803acab620e964042892edae6c6c1b278a469ea89e3e6046c560",
+      "head32": "9261e75ead945d4da6b3ab59716c46fb81aa010818c000f85f504344544e545f",
+      "signals": {
+        "notable_strings": [
+          "PcdDellSataTempBuffer",
+          "PcdDellBoardBomID",
+          "PcdDellBranding",
+          "PcdDellBrightnessLowNitsEnableSwitch",
+          "PcdDellCpuM2PcieLabel",
+          "PcdDellEcMmioAddress",
+          "PcdDellFchDefinesPtr",
+          "PcdDellFuncDxeBoardUpdateMeSetupPttState",
+          "PcdDellIgdCableDetect",
+          "PcdDellKbdBacklightRemove",
+          "PcdDellKvmisEnable",
+          "PcdDellMultiPcieCfgToBeUsedTable",
+          "PcdDellNvidiaDynamicBoost20Enable",
+          "PcdDellNvidiaGpuGeneration",
+          "PcdDellPS2KeyboardSupport"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_57_RAW_PFS_SUBCOMPONENT_49176.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 5.461,
+      "size": 49152,
+      "sha256": "c75b1054f282b3f450236fcb7a9f5394135f34873279dd9c30fef2b75e5a447e",
+      "head32": "5f504344544e545f15004204861a4e2ca1a696439793d941a44386d93ded994f",
+      "signals": {
+        "notable_strings": [
+          "PcdDellSataTempBuffer",
+          "PcdDellBoardBomID",
+          "PcdDellBranding",
+          "PcdDellBrightnessLowNitsEnableSwitch",
+          "PcdDellCpuM2PcieLabel",
+          "PcdDellEcMmioAddress",
+          "PcdDellFchDefinesPtr",
+          "PcdDellFuncDxeBoardUpdateMeSetupPttState",
+          "PcdDellIgdCableDetect",
+          "PcdDellKbdBacklightRemove",
+          "PcdDellKvmisEnable",
+          "PcdDellMultiPcieCfgToBeUsedTable",
+          "PcdDellNvidiaDynamicBoost20Enable",
+          "PcdDellNvidiaGpuGeneration",
+          "PcdDellPS2KeyboardSupport"
+        ]
+      },
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_58_RAW_PFS_SUBCOMPONENT_49152.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.17.1.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 0.026,
+      "size": 830872,
+      "sha256": "2194187a19cc17bcc545c4112ea64fd2717dde416d11d1ecfa6f2e33c6f86ea1",
+      "head32": "ffffffffffffffffffffffffffffffffcfaaf00098ad0cf8ffffffffffffffff",
+      "signals": {},
+      "saved_file": "models/Pro_14_PC14255_Pro_16_PC16255_1.17.1_700241c9/ec_59_RAW_PFS_SUBCOMPONENT_830872.bin"
     }
   ],
   "pw_modules": [

@@ -8,7 +8,7 @@
       "url": "https://downloads.dell.com/FOLDER00269345M/1/5.1.112.exe"
     }
   },
-  "elapsed_sec": 0.02,
+  "elapsed_sec": 0.04,
   "inner_files": [
     [
       "cab:5.1.112_Windows_Signed_Driver.zip",
@@ -21,9 +21,22 @@
   ],
   "unpacked_stream_count": 2,
   "pfs_sections": [],
-  "ec_count": 0,
+  "ec_count": 1,
   "plaintext_ec_count": 0,
   "pw_module_count": 0,
-  "ecs": [],
+  "ecs": [
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:5.1.112_Windows_Signed_Driver.zip",
+      "plaintext": false,
+      "active_entropy": 7.996,
+      "size": 563611,
+      "sha256": "affd7e95280ae0b12d311a51db89f7157b1f630fe6559ba262414859aec9e9e6",
+      "head32": "504b03040a00000000003a75fd3eb771dbbe41ad000041ad0000300000004d49",
+      "signals": {},
+      "saved_file": "models/dell_5.1.112/ec_1_hdrstub_563611.bin",
+      "stub_only": true
+    }
+  ],
   "pw_modules": []
 }

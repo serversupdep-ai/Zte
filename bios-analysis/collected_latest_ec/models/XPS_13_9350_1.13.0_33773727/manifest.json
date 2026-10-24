@@ -18,7 +18,7 @@
     "category": "xps_alienware_gaming_latest",
     "priority": 88
   },
-  "elapsed_sec": 1.62,
+  "elapsed_sec": 2.65,
   "inner_files": [
     [
       "cab:firmware.bin",
@@ -84,8 +84,8 @@
       "head16": "56656e646f724e616d653d44656c6c20"
     }
   ],
-  "ec_count": 19,
-  "plaintext_ec_count": 19,
+  "ec_count": 273,
+  "plaintext_ec_count": 247,
   "pw_module_count": 4,
   "ecs": [
     {
@@ -107,6 +107,1268 @@
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 5 Main System TI Port Controller 0 v1.2.6.bin",
+      "plaintext": true,
+      "active_entropy": 6.83,
+      "size": 58236,
+      "sha256": "4e2f378e114c74dd10a24de45282dc7c2d8756a933249261befc2f60e62ca516",
+      "head32": "00000100dd00000000000000bd98000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_2_RAW_PFS_SUBCOMPONENT_58236.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->lzma@0x8436BC",
+      "plaintext": true,
+      "active_entropy": 5.989,
+      "size": 60458,
+      "sha256": "26929c9ed3c488467d29499909d27ef98697eeb0b9abac85516abc89def61eeb",
+      "head32": "04ec00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_3_RAW_PFS_SUBCOMPONENT_60458.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 2.203,
+      "size": 393144,
+      "sha256": "5c5abbf6f9577dea6265cd995242845ed28aa9d92174b36c4c0998f6d81722c0",
+      "head32": "a3b9f5ce6d477f499fdce98143e0422c32aa0100b8ff05f84e564152ca14ffff",
+      "signals": {
+        "notable_strings": [
+          "DellVar01"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_4_RAW_PFS_SUBCOMPONENT_393144.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 0.0,
+      "size": 393144,
+      "sha256": "b922a095965900ec125636f7ece0f3d4bc81d74fc329a484d395479fadfa5ffb",
+      "head32": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_5_RAW_PFS_SUBCOMPONENT_393144.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 0.0,
+      "size": 65464,
+      "sha256": "8dc0866933f4d403b79a0ca702aeee82550ed868f9dcfe2980861c876482c1a9",
+      "head32": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_6_RAW_PFS_SUBCOMPONENT_65464.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 0.226,
+      "size": 262072,
+      "sha256": "a4d296e4e71f18f7e023d84b2f50ae9465be050f8e1fc02ee7bdac85eaa51c8b",
+      "head32": "fffffffffffffffffffffffffffffffff4aaf0002c0000f8b0ed4ae397bbbc49",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_7_RAW_PFS_SUBCOMPONENT_262072.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 7.35,
+      "size": 65464,
+      "sha256": "d15b6e47f9bf7c93a9740a7f3c24919c49782957b0e2865e06acf7d0c4b11b51",
+      "head32": "fffffffffffffffffffffffffffffffff4aaf0002c0000f8fed444fd9b23574c",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_8_RAW_PFS_SUBCOMPONENT_65464.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 0.823,
+      "size": 819322,
+      "sha256": "300d517a2eebf0c5d65f35860ca1c949055e387a239f0516ac2d7f2215145697",
+      "head32": "7a800c19424d76800c0000000000760000002800000000050000000500000100",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_9_RAW_PFS_SUBCOMPONENT_819322.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 867368,
+      "sha256": "8149af0af314977dd75933c22509ed0815535a84810686d09833bfd6e4550769",
+      "head32": "728508177f37ef448f4eb09fff46a07006aa0108283c0df8010000002a000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_10_hdrstub_867368.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 867344,
+      "sha256": "7d6d6e82c81038b7d35adf69d540f856f47bbe08fc4cb238e12ccb16b0e11137",
+      "head32": "010000002a00000015200306e206050096ea7bfe0100000014000000d02b0100",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_11_hdrstub_867344.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.59,
+      "size": 38078,
+      "sha256": "be0aefa9029fb29d71adad3842cbe1ec3bc580474780acf50af850c7a76dd7d0",
+      "head32": "5b2c600aa005c4409181edcd891d00019aaa0700be9400f81600001302f6f0a3",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "DELLDIAGDELLDIAGDELLDIAGDELLDIAG",
+          "DELL_PROJECT_NAME"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_12_RAW_PFS_SUBCOMPONENT_38078.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.587,
+      "size": 37988,
+      "sha256": "5a0cbe6dc03e6eeddc9f90b9e88ab9099796028bae82920634b4eaf7a03eeb93",
+      "head32": "649400104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "DELLDIAGDELLDIAGDELLDIAGDELLDIAG",
+          "DELL_PROJECT_NAME"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_13_RAW_PFS_SUBCOMPONENT_37988.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.996,
+      "size": 54326,
+      "sha256": "83df52dacbdd09655f6d04c587412072941145822cb6f164add053a904a9a8e3",
+      "head32": "7fcba2d6186a2f4eb43b9920a733700a34aa050036d400f81ed4000298584eee",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_14_hdrstub_54326.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.996,
+      "size": 54302,
+      "sha256": "7e607d3c20afa6087b60363198db9be73c0639d56d6bcb21d23a5c03ceeb004c",
+      "head32": "1ed4000298584eee143959429d6edc7bd79403cf180001005d0000000186ee01",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_15_hdrstub_54302.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.198,
+      "size": 126598,
+      "sha256": "b7cc193dbfde40d8ba91d6b70dfb92859f13f68bee1254493634b0d39422a156",
+      "head32": "64ee01104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "Variable Write",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_16_RAW_PFS_SUBCOMPONENT_126598.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.199,
+      "size": 126564,
+      "sha256": "628a7ff48f3736e37adce8dfc4f044610a819d793aeafed4f573e27be3390dc2",
+      "head32": "64ee01104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "Variable Write",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_17_RAW_PFS_SUBCOMPONENT_126564.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.854,
+      "size": 36066,
+      "sha256": "cdf3f2d2dba3f70b56f0ef81f3cf91da3ae867d9d34c60edd23168a78dc94e59",
+      "head32": "ce0f689b6bad3a4fb60bf59899003443acaa0700e28c00f81600001302f6f0a3",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_18_RAW_PFS_SUBCOMPONENT_36066.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.852,
+      "size": 35972,
+      "sha256": "54e22ea38dac3091edc987fa5c0831943ff41c09f6cb53b25e54c8696d39afe7",
+      "head32": "848c00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_19_RAW_PFS_SUBCOMPONENT_35972.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.108,
+      "size": 77886,
+      "sha256": "b32343e5e33fb9fe0c3cbbaab6d27a08652d1d8721f3abc398834b58bdc05c93",
+      "head32": "624d8c34bdbf82489ecec80bb1c4783b6eaa07003e3001f81600001302f6f0a3",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_20_RAW_PFS_SUBCOMPONENT_77886.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.107,
+      "size": 77796,
+      "sha256": "bb8d5787a7a054a0115a58ddcdbba9acb1d9080702d7ee9614563b43de8df70f",
+      "head32": "e42f01104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_21_RAW_PFS_SUBCOMPONENT_77796.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.828,
+      "size": 35002,
+      "sha256": "0cf173f0aa378dbecf64743163b8163846c673b87d1cb0c311bb0045e67a4d20",
+      "head32": "9194d1b75ae50d47850885a5dfa41974b0aa0700ba8800f85e00001302b1ccba",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "DELL  "
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_22_RAW_PFS_SUBCOMPONENT_35002.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.819,
+      "size": 34852,
+      "sha256": "2ce56d4fd47fd6ec0ff111a0cedf77461908121afe2d852b5a47ead0136a598e",
+      "head32": "248800104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "DELL  "
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_23_RAW_PFS_SUBCOMPONENT_34852.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.963,
+      "size": 63758,
+      "sha256": "b72899101f8d1d702a8400e429e951d8be2e3cebbf4b8541de3fe945049bf47c",
+      "head32": "0d907cd7c7a1c541b9890c3d37fca43200aa07000ef900f8820000130267c15d",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_24_RAW_PFS_SUBCOMPONENT_63758.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.957,
+      "size": 63556,
+      "sha256": "3a20b612ac531de5b9adb67766900f9215d1951dc911731b5666c0dfab1ace8e",
+      "head32": "44f800104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_25_RAW_PFS_SUBCOMPONENT_63556.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.638,
+      "size": 72966,
+      "sha256": "80bdfa651ab671713d92d0d6acca00fed12e89510a5fba6defb390accd12983c",
+      "head32": "7aeb90fc0a3e3c48a26c484d36593ff4b3aa0700061d01f8dc00001302dd6be0",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_26_RAW_PFS_SUBCOMPONENT_72966.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.627,
+      "size": 72676,
+      "sha256": "f8e4191164c9d0607edb5c372c10ffd565867759eabd80000af140399f5433d7",
+      "head32": "e41b01104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_27_RAW_PFS_SUBCOMPONENT_72676.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.387,
+      "size": 40002,
+      "sha256": "47937fad0554d76c8ac3215d2c938d309328617ca569136c2ae68ae499227049",
+      "head32": "cb71d162cd7880448678c6a2a797a8de79aa0700429c00f83a00001302b2ccba",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_28_RAW_PFS_SUBCOMPONENT_40002.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.379,
+      "size": 39876,
+      "sha256": "0d74ce5db036b653ce5df8aa3e6dbc7fa30d947f5fbc0dd0efe5ab15c777dde3",
+      "head32": "c49b00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_29_RAW_PFS_SUBCOMPONENT_39876.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.924,
+      "size": 55650,
+      "sha256": "9515411f1f783e3fb5a3cd29685da3f6f3f5db3becb37ba2e3d675d39c00cc3a",
+      "head32": "eeac23de55cfb64faa77984ab53de823faaa070062d900f83a00001302be3480",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_30_RAW_PFS_SUBCOMPONENT_55650.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.921,
+      "size": 55524,
+      "sha256": "a1153b8bc643aeb1d68587594d98248a79db086492f37c7a9ac61a096a73cb28",
+      "head32": "e4d800104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_31_RAW_PFS_SUBCOMPONENT_55524.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.211,
+      "size": 759942,
+      "sha256": "019c5c8ac9e015e1412d7fe0b28ceb2cfc4f1332de28296f9232c093975ef03c",
+      "head32": "d7079489fe99d8439a2179ec328cac2178aa070086980bf84c00001302f6f0a3",
+      "signals": {
+        "io_910_911_pairs": 5,
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "Write Protected",
+          "Warning Write Failure",
+          "DellVar01",
+          "DellPassword"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_32_RAW_PFS_SUBCOMPONENT_759942.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.209,
+      "size": 759812,
+      "sha256": "a47602f58f7adde8e4e4d63187ee1232a0fb03cb19047db72cc0751d9078dca2",
+      "head32": "04980b104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "io_910_911_pairs": 5,
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "Write Protected",
+          "Warning Write Failure",
+          "DellVar01",
+          "DellPassword"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_33_RAW_PFS_SUBCOMPONENT_759812.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.44,
+      "size": 37558,
+      "sha256": "870405779cbd5293584781015f24bb59a40cb61764eba6000ceac449d8073b22",
+      "head32": "3ea2d0169cc07d40a14aad058fdd0ca11caa0700b69200f83a00001302b1ccba",
+      "signals": {
+        "notable_strings": [
+          "DELL  ",
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_34_RAW_PFS_SUBCOMPONENT_37558.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.433,
+      "size": 37444,
+      "sha256": "01766fa767240feea7be0e7471e8393de3142090d3fd25a36466b00d95a9279a",
+      "head32": "449200104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "DELL  ",
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_35_RAW_PFS_SUBCOMPONENT_37444.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.355,
+      "size": 44510,
+      "sha256": "b0fd3c51778cf49c9c2b4813fb7237cff255838b5c53456470ba88d7c5fd95c5",
+      "head32": "4f60e52c82a92e4d8fd0d1600c2e151514aa0700dead00f870000013023f73c0",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_36_RAW_PFS_SUBCOMPONENT_44510.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.344,
+      "size": 44324,
+      "sha256": "ea007aef79d6a9217353f64442e933b33fc962a1f5af1f15d9072f8b14f69e6b",
+      "head32": "24ad00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_37_RAW_PFS_SUBCOMPONENT_44324.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.179,
+      "size": 66242,
+      "sha256": "790a33f2282f51122a45a595326e953a1d27518af0febcc725165d6f7d0b7a6c",
+      "head32": "1fcf62a07384a34a8793600bc4ffe9a887aa0700c20201f882000013027e7bdb",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "_DELL_GPE_"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_38_RAW_PFS_SUBCOMPONENT_66242.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.173,
+      "size": 66052,
+      "sha256": "3f60fad205b8e2377b5066c3c0d545936b35f65e7b682e0c9c4306f851192ea5",
+      "head32": "040201104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "_DELL_GPE_"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_39_RAW_PFS_SUBCOMPONENT_66052.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.985,
+      "size": 46330,
+      "sha256": "c2d1d7f5c979acc6be659567a760d7bdd15e2cd8dcb0f9d54dc7658b43570457",
+      "head32": "38dd3eb14c68ed41a305d7b7e32497dfb2aa0700fab400f83a0000130214dd03",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "Mosel Vitelic"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_40_RAW_PFS_SUBCOMPONENT_46330.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.981,
+      "size": 46212,
+      "sha256": "bf7f09e842acba3161714769fbd97270442fc989c7fa06133a79d020cfa7c676",
+      "head32": "84b400104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "Mosel Vitelic"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_41_RAW_PFS_SUBCOMPONENT_46212.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.033,
+      "size": 42086,
+      "sha256": "b8483aed6e0bc038c399b14a363856d2a54daebdcc46ab32c08c688a761b6a76",
+      "head32": "56570439a3fcbd498daec7bae8389affebaa070066a400f82800001302ffbe6c",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_42_RAW_PFS_SUBCOMPONENT_42086.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.029,
+      "size": 41988,
+      "sha256": "13f3c9123c74e2961ec8b08abb91f2f95175f078f202a87a38041f021df36756",
+      "head32": "04a400104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_43_RAW_PFS_SUBCOMPONENT_41988.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.161,
+      "size": 53842,
+      "sha256": "c1eef0a448ddb8485043c0258c7bb71071d63f76cd6c7f7e869fed9cf2990824",
+      "head32": "81ad18076af25048a6ecf268e309d707deaa070052d200f85e000013026c767f",
+      "signals": {
+        "notable_strings": [
+          "Exit Boot Services Invocation",
+          "Exit Boot Services Returned with Success",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_44_RAW_PFS_SUBCOMPONENT_53842.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.157,
+      "size": 53668,
+      "sha256": "ef23383fccf0ed3b10fa74ee7ac484dc5c1cc44beab489a610111e4419d05cb9",
+      "head32": "a4d100104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Exit Boot Services Invocation",
+          "Exit Boot Services Returned with Success",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_45_RAW_PFS_SUBCOMPONENT_53668.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.984,
+      "size": 57458,
+      "sha256": "cfec7451d25c8d97653d009ce77097064bdb7f1d729cbad0c2a37a9737a66d2a",
+      "head32": "00d90d585d38d711883a00500473d4eba4aa070072e000f81600001302f6f0a3",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_46_RAW_PFS_SUBCOMPONENT_57458.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.68,
+      "size": 57380,
+      "sha256": "f819f813e13e4a77cf9d947fb98f69ccb07ee7712207cb8d4d6c9b6318c583df",
+      "head32": "24e000104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_47_RAW_PFS_SUBCOMPONENT_57380.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.158,
+      "size": 100718,
+      "sha256": "a7ce35550ddb7d7463a27fa1fc874488d3f74a6ec9d5586b49ca16786c9de287",
+      "head32": "828f4b8f919b284086e6f4db7d4c1dff62aa07006e8901f81600001302f6f0a3",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "DellBBSManagerInit",
+          "Dell_FixedOptionNameOfBbsUSBNIC",
+          "SetDellCardReaderOptionName",
+          "Dell_Fixed_UefiUSBNIC_Tag",
+          "Dell_Fixed_BbsUSBNIC_Tag",
+          "DellSetBootOptionTags",
+          "DellDeleteUnmatchedUefiHddBootDevices",
+          "Dell_DectedBBSUSBNIC_Match",
+          "Dell_BootOption_InternalHDD_PreProcess",
+          "Dell_DectedInternalHDD_Changed",
+          "DellFillProgressBar",
+          "ShowDellLogoEvent"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_48_RAW_PFS_SUBCOMPONENT_100718.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.157,
+      "size": 100644,
+      "sha256": "fa6a4325c29b1b1c149d7e8eed53198e8339d34a28f9a962cfee69c6cbd1acdd",
+      "head32": "248901104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "DellBBSManagerInit",
+          "Dell_FixedOptionNameOfBbsUSBNIC",
+          "SetDellCardReaderOptionName",
+          "Dell_Fixed_UefiUSBNIC_Tag",
+          "Dell_Fixed_BbsUSBNIC_Tag",
+          "DellSetBootOptionTags",
+          "DellDeleteUnmatchedUefiHddBootDevices",
+          "Dell_DectedBBSUSBNIC_Match",
+          "Dell_BootOption_InternalHDD_PreProcess",
+          "Dell_DectedInternalHDD_Changed",
+          "DellFillProgressBar",
+          "ShowDellLogoEvent"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_49_RAW_PFS_SUBCOMPONENT_100644.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.985,
+      "size": 34494,
+      "sha256": "71485dd896dbad2a32289703cb7116a0bb756115c817795aba4101f3c4191955",
+      "head32": "bf1abe761e1e1d32b7f09e0984fddabcb8aa0700be8600f81600001302f6f0a3",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "Copyright DELL INC 2012"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_50_RAW_PFS_SUBCOMPONENT_34494.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.982,
+      "size": 34404,
+      "sha256": "4fc6bb478f65e3a6580d35121918c6addde8e48e7726750295bd5084c6f95c24",
+      "head32": "648600104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "Copyright DELL INC 2012"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_51_RAW_PFS_SUBCOMPONENT_34404.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 2.965,
+      "size": 125246,
+      "sha256": "5975151a4d2e42dc3aad922df9195669a78630a336b159d09bc794b37e6d48a9",
+      "head32": "4b5abb553f3b2c44bf090f87a67e8ee73baa07003ee901f81600001302f6f0a3",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_52_RAW_PFS_SUBCOMPONENT_125246.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 2.962,
+      "size": 125156,
+      "sha256": "d96c9ccbd450293740c2ee1b4f7c454c95952000161fd997b4e91711250eb65c",
+      "head32": "e4e801104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_53_RAW_PFS_SUBCOMPONENT_125156.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.842,
+      "size": 50046,
+      "sha256": "4f8525318cbcd8c5a41c306915a7ea69ea0614640a978507a0559662ef49baca",
+      "head32": "87e28c0306b8b645a819514daf4b91b964aa07007ec300f84c00001302f6f0a3",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_54_RAW_PFS_SUBCOMPONENT_50046.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.826,
+      "size": 49860,
+      "sha256": "b5af17bdcb265a7149a7b1c09d9341c950d61c80409b0bc88c807a92c13c80f0",
+      "head32": "c4c200104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_55_RAW_PFS_SUBCOMPONENT_49860.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.79,
+      "size": 32886,
+      "sha256": "73751b451633839b45dfa05ec177a1355584394f92787469b5d51cc660eba88c",
+      "head32": "4a5774e3df2adb43a77888a75fc08026d1aa0700768000f83a00001302a8f09c",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_56_RAW_PFS_SUBCOMPONENT_32886.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.363,
+      "size": 57978,
+      "sha256": "3a51224010c2a3aa0bc6072f9e74a4ca3fa1c3267a74725da126437176327b3f",
+      "head32": "066ceb7748fd8b48a1b3ae0a7080136939aa07007ae200f81600001302f6f0a3",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_57_RAW_PFS_SUBCOMPONENT_57978.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.362,
+      "size": 57892,
+      "sha256": "e185ecd8bff0e983a3215b1ae0b6f23e159f7bd64381e4ff7a08c6ab2e11be12",
+      "head32": "24e200104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_58_RAW_PFS_SUBCOMPONENT_57892.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.064,
+      "size": 33490,
+      "sha256": "d24723a26bacf7ddbb0caf00a21dae12c0ce7f025c9ddc6a428d1d1fd25036b3",
+      "head32": "022e5a8f8c53594db920c4786acbc552a6aa0700d28200f81600001302f6f0a3",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_59_RAW_PFS_SUBCOMPONENT_33490.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.061,
+      "size": 33412,
+      "sha256": "823636f616dba93d8df201b6279663e8a538f96b04abe7fafa830216269a8117",
+      "head32": "848200104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_60_RAW_PFS_SUBCOMPONENT_33412.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.032,
+      "size": 33950,
+      "sha256": "14fee5b9709df08e153e0862df8be3b105907afd583bc72b316146bd0833782b",
+      "head32": "89dcecaa492af146a163f7979c039998d0aa07009e8400f8dc00001302f63f5e",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_61_RAW_PFS_SUBCOMPONENT_33950.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.014,
+      "size": 33668,
+      "sha256": "69ce58a7864a2efdfa265712b6913445236a58519a98328bac371fb956f65374",
+      "head32": "848300104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_62_RAW_PFS_SUBCOMPONENT_33668.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.875,
+      "size": 62398,
+      "sha256": "9b299be49ab438582b8180a9767ba5a417e268be7421f1d45768fa96a50ef113",
+      "head32": "9fe31d3c07d28a40aacc731cfb7f1dd757aa0700bef300f884f300104d5a0000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_63_RAW_PFS_SUBCOMPONENT_62398.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.874,
+      "size": 62340,
+      "sha256": "56bdbe04699343427495e77082b107407b65811c1c9bf8dc94f92a86212b8388",
+      "head32": "84f300104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_64_RAW_PFS_SUBCOMPONENT_62340.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 4.956,
+      "size": 44998,
+      "sha256": "1e2ea286f115b45eac643464b923269d30754b231d118cf92376cd7027bec689",
+      "head32": "9e1a89543e76774388418d5c90d88cdefdaa0700c6af00f884af00104d5a0000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_65_RAW_PFS_SUBCOMPONENT_44998.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 4.953,
+      "size": 44932,
+      "sha256": "c5cb130278524b63db0d556aa43712a1281a4c00346ddd3b2f9108bc2e687723",
+      "head32": "84af00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_66_RAW_PFS_SUBCOMPONENT_44932.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.02,
+      "size": 51326,
+      "sha256": "debd336f7aa33e0abbd9742d453100454d5bcb442031a7dc4c3d3c772bb704c9",
+      "head32": "68447e1a552f564a903c01265eb7622bb6aa07007ec800f844c800104d5a0000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_67_RAW_PFS_SUBCOMPONENT_51326.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.019,
+      "size": 51268,
+      "sha256": "cbf60189fcb4c75ded7fa4434a405c25c92c9c14475fa0f33ed074eceec7bc79",
+      "head32": "44c800104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_68_RAW_PFS_SUBCOMPONENT_51268.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.065,
+      "size": 60842,
+      "sha256": "8908096307f1a09c826b8a7b8f14f0392f98188104d7d634c698c1924759c6b5",
+      "head32": "da9f5eb9de26d24888071f9107ac5e3a2aaa0700aaed00f864ed00104d5a0000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_69_RAW_PFS_SUBCOMPONENT_60842.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.064,
+      "size": 60772,
+      "sha256": "4db6725376ba94f6db128f0a2d50a37dd6c5f50c0504405882676ddeb0d3e8ab",
+      "head32": "64ed00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_70_RAW_PFS_SUBCOMPONENT_60772.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.948,
+      "size": 43742,
+      "sha256": "dd0e0f5165fb3a971507118bad8d21b03b784446f22fdadc9d8452dc0adffd12",
+      "head32": "f3a1b19f713b2443b39a745cbb015fff43aa0700deaa00f8a4aa00104d5a0000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_71_RAW_PFS_SUBCOMPONENT_43742.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.948,
+      "size": 43684,
+      "sha256": "c6526922edb73c9d5fcbd8f259c6827708d19c010022ff5b2f502f3fd3dbb871",
+      "head32": "a4aa00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_72_RAW_PFS_SUBCOMPONENT_43684.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.955,
+      "size": 77690,
+      "sha256": "a1a51d111f0a1915b2a2b58f97995747bc09c43e6c0e9fc907cec15cb5399881",
+      "head32": "ccb5ed5b30d8b24e87422d4cc9b54f2c43aa07007a2f01f81c000019e0c51389",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_73_RAW_PFS_SUBCOMPONENT_77690.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.954,
+      "size": 77604,
+      "sha256": "9ae730ca0ca0f183eaa4287168fc29e5595ec25af57c0e6bcec544eaebfbe42d",
+      "head32": "242f01104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_74_RAW_PFS_SUBCOMPONENT_77604.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.185,
+      "size": 62914,
+      "sha256": "f454280014e017dba1e12d7e42e82e5e1d8c8f181893b2f1e74df1db67342dd4",
+      "head32": "581b7a443e8f5846abaa9e7b2280b90ad0aa0a00c2f500f85e00001c02ab67b8",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_75_RAW_PFS_SUBCOMPONENT_62914.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.18,
+      "size": 62756,
+      "sha256": "712c70ae91889ee920b0519cd0fd3b711519b5c39361b73704ab421955e41448",
+      "head32": "24f500104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_76_RAW_PFS_SUBCOMPONENT_62756.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.206,
+      "size": 86802,
+      "sha256": "50d1e895c4e0a35e8c729e475361fcd51f8ead75c2afbbd8b68d70aea0f1ff73",
+      "head32": "0baa4b6d31f47043af1999d6209239f633aa0a00125301f85e00001c02b7bfcc",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_77_RAW_PFS_SUBCOMPONENT_86802.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.549,
+      "size": 86628,
+      "sha256": "7d34f1fb10d465fbcfcfd99eff8b3f6066a856f94a1e715a313b6b41d24e6753",
+      "head32": "645201104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_78_RAW_PFS_SUBCOMPONENT_86628.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.351,
+      "size": 58474,
+      "sha256": "19ce7ea3b140a365ddfe1575bc5560d3393954c13fc93aab918b8622e027f0bf",
+      "head32": "c711d52a601b0240841d2998ddc138eeeeaa0a006ae400f82800001c02b7bfcc",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_79_RAW_PFS_SUBCOMPONENT_58474.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.348,
+      "size": 58372,
+      "sha256": "143110ebda8e24420784f0c77c7d3bb9cf6f5dce9f2f07e63ae5c11f46d46c6a",
+      "head32": "04e400104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_80_RAW_PFS_SUBCOMPONENT_58372.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.491,
+      "size": 107514,
+      "sha256": "81fa03bb7e8d45df6abbf9f2b098e9f504997f8e4358f56c412f165da1e4e105",
+      "head32": "a1aaea04a129d711883800500473d4eb27aa0a00faa301f85e00001c023a3951",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_81_RAW_PFS_SUBCOMPONENT_107514.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.489,
+      "size": 107364,
+      "sha256": "8b7a5b9f5f291d0d3c893a4a30647b0b222037a133d279767adc6000d319e5b8",
+      "head32": "64a301104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_82_RAW_PFS_SUBCOMPONENT_107364.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
       "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
       "plaintext": true,
       "active_entropy": 5.452,
@@ -122,7 +1384,7 @@
           "DELLDIAGDELLDIAG"
         ]
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_2_RAW_PFS_SUBCOMPONENT_34078.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_83_RAW_PFS_SUBCOMPONENT_34078.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -141,7 +1403,7 @@
           "DELLDIAGDELLDIAG"
         ]
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_3_RAW_PFS_SUBCOMPONENT_33860.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_84_RAW_PFS_SUBCOMPONENT_33860.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -158,7 +1420,7 @@
           "EFI_WARN_WRITE_FAILURE"
         ]
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_4_RAW_PFS_SUBCOMPONENT_40442.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_85_RAW_PFS_SUBCOMPONENT_40442.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -175,7 +1437,39 @@
           "EFI_WARN_WRITE_FAILURE"
         ]
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_5_RAW_PFS_SUBCOMPONENT_40164.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_86_RAW_PFS_SUBCOMPONENT_40164.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.831,
+      "size": 34230,
+      "sha256": "a34fd0251f0175942f05810d136bcc3f593f46af2915addeb45f627f5d057517",
+      "head32": "1b4be73494870244aa4399b5249b1cfdc6aa0a00b68500f89400001c02b7bfcc",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_87_RAW_PFS_SUBCOMPONENT_34230.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.817,
+      "size": 34020,
+      "sha256": "2778c9df81789860e8a8dbc38fbe6ebd1268fc60eab2586e8517e4c1e09750e1",
+      "head32": "e48400104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_88_RAW_PFS_SUBCOMPONENT_34020.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -192,7 +1486,7 @@
           "EFI_WARN_WRITE_FAILURE"
         ]
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_6_RAW_PFS_SUBCOMPONENT_36574.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_89_RAW_PFS_SUBCOMPONENT_36574.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -209,7 +1503,1190 @@
           "EFI_WARN_WRITE_FAILURE"
         ]
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_7_RAW_PFS_SUBCOMPONENT_36228.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_90_RAW_PFS_SUBCOMPONENT_36228.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.659,
+      "size": 771142,
+      "sha256": "d717d37db43e8380625f7900b49f44bc0cebda1bdef5c1cc85e4663b2f7a1b8d",
+      "head32": "b7d67ac51505a8409d21551652854e378faa090046c40bf804c40b104d5a0000",
+      "signals": {
+        "notable_strings": [
+          "ItemType",
+          "ItemHandle"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_91_RAW_PFS_SUBCOMPONENT_771142.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.658,
+      "size": 771076,
+      "sha256": "1f950985846bb521e4a1e0b2632a6cc45f3e1cd5e32b8549010f33c16e843d9b",
+      "head32": "04c40b104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "ItemType",
+          "ItemHandle"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_92_RAW_PFS_SUBCOMPONENT_771076.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.16,
+      "size": 135057,
+      "sha256": "34318462d4651dcac8970b4852e9f9a0238fcf5bd3913e239175a7c89b391aa8",
+      "head32": "0df518c11d39f445b3d311bc931aa56de0aa0200910f02f8790f021944534454",
+      "signals": {
+        "notable_strings": [
+          "ADELL  CBX3   ",
+          "TEMP piTEMP",
+          "piTEMP",
+          "DELLBDWRINFO",
+          "phCMDR",
+          "DELLABC6"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_93_RAW_PFS_SUBCOMPONENT_135057.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.159,
+      "size": 135033,
+      "sha256": "14c89dabd219a7f8ac7e276406606fb803b8dcde93b5ba15e2981ee4bf02accb",
+      "head32": "790f021944534454750f0200024144454c4c2020434258332020200009200701",
+      "signals": {
+        "notable_strings": [
+          "ADELL  CBX3   ",
+          "TEMP piTEMP",
+          "piTEMP",
+          "DELLBDWRINFO",
+          "phCMDR",
+          "DELLABC6"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_94_RAW_PFS_SUBCOMPONENT_135033.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.409,
+      "size": 33990,
+      "sha256": "9c13a73bf0d45a25fd7beec9bc65b4c4ff4aaac12321f721275667c369ec6863",
+      "head32": "262d4261ec81ff47b6cf939eaee73fbac2aa0700c68400f83a00001302f6f0a3",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "MBR or GPT is write protected",
+          "Invalid HDD password",
+          "Invalid password",
+          "Some Architectural Protocols are not available",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_95_RAW_PFS_SUBCOMPONENT_33990.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.401,
+      "size": 33860,
+      "sha256": "08b56fcd157f96aff3e7cd598ce4e9b0fdf1cdb2b97b84b59068b5c832953c57",
+      "head32": "448400104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "MBR or GPT is write protected",
+          "Invalid HDD password",
+          "Invalid password",
+          "Some Architectural Protocols are not available",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_96_RAW_PFS_SUBCOMPONENT_33860.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.196,
+      "size": 61962,
+      "sha256": "b0cc917c9de2a2bedf9117bbfc6f63a9f2dfc48b0b0fe5192428a138915a4164",
+      "head32": "0d0407183459a241a0888e0f777f71ab86aa07000af200f8280000130296655b",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_97_RAW_PFS_SUBCOMPONENT_61962.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.194,
+      "size": 61860,
+      "sha256": "bd844ffe37c734bf5a6c7b1a17d557b4ca7fe8ff096ba67b4934840ca200e2c5",
+      "head32": "a4f100104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_98_RAW_PFS_SUBCOMPONENT_61860.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.795,
+      "size": 33792,
+      "sha256": "158b2051658997be8cd03f898724083ee7580234fd109de46043528fdf6e54f1",
+      "head32": "789513eaa0fed24d91b56953819ef1e4bdaa0200008400f8e883001953534454",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_99_RAW_PFS_SUBCOMPONENT_33792.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.792,
+      "size": 33768,
+      "sha256": "f2d9e98a73a824c6e1057e0192b3da22bd0eb80d50fec63c081acae05dc47e38",
+      "head32": "e883001953534454e483000002de447074665461447074665461626c00100000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_100_RAW_PFS_SUBCOMPONENT_33768.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.076,
+      "size": 40938,
+      "sha256": "0bebe9a557c3607e0cb0ee0c022f0d3690ef0ee8a8b17111ec67cad9cfd82f0c",
+      "head32": "da09bb3b0f1e9b468997d440f101d6f1a1aa0200ea9f00f8d29f001953534454",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_101_RAW_PFS_SUBCOMPONENT_40938.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.072,
+      "size": 40914,
+      "sha256": "34a18b75df345cbd545d6afe5736326ebd413674f34f18824549555948c5486f",
+      "head32": "d29f001953534454ce9f00000266447074665364447074665364735f00100000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_102_RAW_PFS_SUBCOMPONENT_40914.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.835,
+      "size": 81804,
+      "sha256": "49ceaf5601d166d05025822b3569ba35bf93396e96ec1a0f2319e48cccb51cc2",
+      "head32": "254e377e018eee4f87f2390c23c606cdc4aa02008c3f01f8980000194c504954",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_103_RAW_PFS_SUBCOMPONENT_81804.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.147,
+      "size": 40434,
+      "sha256": "10fda00773f8429ea167d88fa1878046d7c1c6b0ab9829055f90dff88b4f2c51",
+      "head32": "eeac23de55cfb64faa77984ab53de811b8aa0700f29d00f89400001302dd6be0",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_104_RAW_PFS_SUBCOMPONENT_40434.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.123,
+      "size": 40228,
+      "sha256": "3a8c818c62b814fe673082e3957ccb44e5e4a744051767347dc821f2a7b2cdbd",
+      "head32": "249d00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_105_RAW_PFS_SUBCOMPONENT_40228.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.417,
+      "size": 34726,
+      "sha256": "f7bb6c9325c480ab826407813b37ced9759d65dca70b97391a25df1caa6c095d",
+      "head32": "53edd6b044b8f543bd2f61095264e77e5eaa0a00a68700f89400001c02bb7e70",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_106_RAW_PFS_SUBCOMPONENT_34726.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.399,
+      "size": 34500,
+      "sha256": "2ae72ce3c594ae0a274db92c5f23df525485af023263f6e73bd2936d1dd9099b",
+      "head32": "c48600104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_107_RAW_PFS_SUBCOMPONENT_34500.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.347,
+      "size": 277610,
+      "sha256": "81e7450974ad8fda04d34978b1b00335e07c3d46b16f0524dcd0282c2ba339e7",
+      "head32": "20f753496d00f541990d0ac7742abb60c9aa07006a3c04f81600001302021062",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_108_RAW_PFS_SUBCOMPONENT_277610.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.347,
+      "size": 277508,
+      "sha256": "14ebe92abbd5488da01b2847a83a4e1eebe48bff39872dd9fef8b96a8fe1a2f4",
+      "head32": "043c04104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_109_RAW_PFS_SUBCOMPONENT_277508.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.357,
+      "size": 71902,
+      "sha256": "0726b53fb17ccbfaf6229219af4a1bf4c125303b58b8b5a5b80a060a5956def0",
+      "head32": "9c1801104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "f:\\uefi\\edk2\\MdePkg\\Library\\UefiBootServicesTabl",
+          "eLib\\UefiBootServicesTableLib.c",
+          "f:\\uefi\\edk2\\MdePkg\\Library\\UefiRuntimeServicesT",
+          "ableLib\\UefiRuntimeServicesTableLib.c",
+          "Warning Write Failure",
+          "Write Protected",
+          "Microsoft Time-Stamp Service",
+          "Microsoft Time-Stamp Service0"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_110_RAW_PFS_SUBCOMPONENT_71902.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.358,
+      "size": 71836,
+      "sha256": "03a8f058c1a9f5b7b1baaea54faffe4c08959a15f62752ce7c7d033ccf6fa3cf",
+      "head32": "9c1801104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "f:\\uefi\\edk2\\MdePkg\\Library\\UefiBootServicesTabl",
+          "eLib\\UefiBootServicesTableLib.c",
+          "f:\\uefi\\edk2\\MdePkg\\Library\\UefiRuntimeServicesT",
+          "ableLib\\UefiRuntimeServicesTableLib.c",
+          "Warning Write Failure",
+          "Write Protected",
+          "Microsoft Time-Stamp Service",
+          "Microsoft Time-Stamp Service0"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_111_RAW_PFS_SUBCOMPONENT_71836.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.62,
+      "size": 108082,
+      "sha256": "f97518ec7b6550ae90eb4b85c9c2368f1a8553748e2666f4c49ceffa6fad89f5",
+      "head32": "04a601104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "ry/UefiBootServicesTableLib/UefiBootServicesTabl",
+          "ry/UefiRuntimeServicesTableLib/UefiRuntimeServic",
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_112_RAW_PFS_SUBCOMPONENT_108082.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.62,
+      "size": 108036,
+      "sha256": "c18b1c4c0c8c317ca6bdddaed2ef606cb0af8c791f0d065a4669562c2759db76",
+      "head32": "04a601104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "ry/UefiBootServicesTableLib/UefiBootServicesTabl",
+          "ry/UefiRuntimeServicesTableLib/UefiRuntimeServic",
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_113_RAW_PFS_SUBCOMPONENT_108036.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 76452,
+      "sha256": "3c4fe77cd177524cafe1e9b2dcf8fad1a5d5d2108b64a83670d38fe6f64a3896",
+      "head32": "c1d9b4911c1424488d023c298e36eb3fcdaa0700a42a01f816000013027c75d5",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_114_hdrstub_76452.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 76404,
+      "sha256": "15558c5ac555f9215f17a8dfb2bf8efce528c238e1ded0a61fc2789ea7e5f065",
+      "head32": "742a010298584eee143959429d6edc7bd79403cf180001005d00000001323b03",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_115_hdrstub_76404.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.46,
+      "size": 211762,
+      "sha256": "78f73e83696c61a92913748d5723f15b532fa2a16cb8ea384784989a73815980",
+      "head32": "043b03104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "Failed to write packed metadata!",
+          "Failed to write sorted Segment/Index list",
+          "Warning Write Failure",
+          "Write Protected",
+          "vicesTableLib\\UefiRuntimeServicesTableLib.c",
+          "esTableLib\\UefiBootServicesTableLib.c",
+          "ervicesLib\\UefiHiiServicesLib.c"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_116_RAW_PFS_SUBCOMPONENT_211762.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.46,
+      "size": 211716,
+      "sha256": "1f47d437b9cf65d62d74b871dfaa98c2d7336608c3af5fbb53f9abdda3099e98",
+      "head32": "043b03104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "Failed to write packed metadata!",
+          "Failed to write sorted Segment/Index list",
+          "Warning Write Failure",
+          "Write Protected",
+          "vicesTableLib\\UefiRuntimeServicesTableLib.c",
+          "esTableLib\\UefiBootServicesTableLib.c",
+          "ervicesLib\\UefiHiiServicesLib.c"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_117_RAW_PFS_SUBCOMPONENT_211716.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.995,
+      "size": 45658,
+      "sha256": "fb5bed3ec68280ef4881e609ec989d76a609b25f8a6664deac68907129483d3e",
+      "head32": "2c80fd9ca109d6438217aa49c1f90d2c66aa07005ab200f842b2000124a40100",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_118_hdrstub_45658.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.995,
+      "size": 45634,
+      "sha256": "f632e384d88fe490215f168507e00a657080a8b05ce82587466e34f46a6e42db",
+      "head32": "42b2000124a401000131b2000024a4010025588def5ef7ac69397b11dc993b26",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_119_hdrstub_45634.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.656,
+      "size": 107556,
+      "sha256": "a00a3c891c742d86359d43fa62e288fd1c1d3309179afa5b497f4c4090911baf",
+      "head32": "24a401104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_120_RAW_PFS_SUBCOMPONENT_107556.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.993,
+      "size": 35756,
+      "sha256": "30e3e6b195428f0dfd4c3b3d37615bcbb12328d89620f369a11f5c231a495cd7",
+      "head32": "bbfb2eb62339b94ca6e8db818e828a80c3aa0700ac8b00f8948b000124f80000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_121_hdrstub_35756.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.993,
+      "size": 35732,
+      "sha256": "72f1ce68bad55696587a385bc93f299e3f067fd7f9c0a4f68ddaf63a1e750683",
+      "head32": "948b000124f8000001838b000024f80000256086dd7bdac693b2f19264c92004",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_122_hdrstub_35732.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.161,
+      "size": 63524,
+      "sha256": "d36a9d8130bb08ccd5161a66badddb5a49e2e33147a14251c6adf7a87f97636d",
+      "head32": "24f800104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_123_RAW_PFS_SUBCOMPONENT_63524.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.999,
+      "size": 170066,
+      "sha256": "cdfe27ceaf767da8e9577df48e9cf518526bf6a3c6a0da65fae59256fabb5301",
+      "head32": "df0adab1774f7040a88ebffe1c60529ac8aa0700529802f83a98020298584eee",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_124_hdrstub_170066.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.999,
+      "size": 170042,
+      "sha256": "efb1cf04e14c7b46ae17c92de1221662c221c470ee942511c2b7ef3e85bb2ccd",
+      "head32": "3a98020298584eee143959429d6edc7bd79403cf180001005d00000001d64806",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_125_hdrstub_170042.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.192,
+      "size": 411862,
+      "sha256": "136cf4c1341fbf59b78763299e65df98b34b8b0182325aaf98bd45b3f748587c",
+      "head32": "c44806104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "DELL  ",
+          "Dell Inc. ",
+          "_DELL_BOOT_"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_126_RAW_PFS_SUBCOMPONENT_411862.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.192,
+      "size": 411844,
+      "sha256": "7146c3b0b3df5733b359ce785c9c1c55416370685506e8e8dd9d22b6cceb2efd",
+      "head32": "c44806104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "DELL  ",
+          "Dell Inc. ",
+          "_DELL_BOOT_"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_127_RAW_PFS_SUBCOMPONENT_411844.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.996,
+      "size": 47463,
+      "sha256": "8fa03f7ba89f6471dc159d3324cd7632ab49a644349274fd9f4486c26bf95ab7",
+      "head32": "722b61fe3c20b1478560a66d946eb37170aa020067b900f84fb9000298584eee",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_128_hdrstub_47463.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.996,
+      "size": 47439,
+      "sha256": "876fe7f85c47cd42d9f13d772cf0e917f15d56dcdb98d7f1a339e90387cc9663",
+      "head32": "4fb9000298584eee143959429d6edc7bd79403cf180001005d00000001340a06",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_129_hdrstub_47439.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.12,
+      "size": 395828,
+      "sha256": "3792e54b90b5049f94fad445a9367861675c79a9c3115061f2a22e76213c66c3",
+      "head32": "100a0618722b61fe3c20b1478560a66d946eb371245350460002000010020000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_130_RAW_PFS_SUBCOMPONENT_395828.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.12,
+      "size": 395792,
+      "sha256": "41d94b829fbec3b900ac10effba796929e80be2cea055350a883d26bef3391e2",
+      "head32": "100a0618722b61fe3c20b1478560a66d946eb371245350460002000010020000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_131_RAW_PFS_SUBCOMPONENT_395792.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.119,
+      "size": 395772,
+      "sha256": "7fa3ab10aad878b4e8c1c7c085637b2bbc36e3f391640e93ec2d914faafad3e9",
+      "head32": "245350460002000010020000000000000000000043d687eca4ebb54ba1e53f3e",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_132_RAW_PFS_SUBCOMPONENT_395772.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 84324,
+      "sha256": "b49f2e3a08ce39d96e7c782ad50b553d0f45717cb2967d3cde8090ba5e4d2631",
+      "head32": "ba625c36ef052e4ba7f792c1781af4f9c5aa0200644901f84c49010298584eee",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_133_hdrstub_84324.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 84300,
+      "sha256": "118cc054b5cb08ced25860005c719b0ca91ec34eafbc54a4b2dd16c28bbb9283",
+      "head32": "4c49010298584eee143959429d6edc7bd79403cf180001005d00000001ea9003",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_134_hdrstub_84300.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.351,
+      "size": 233706,
+      "sha256": "cbf5c1c03a18aedf679663ecc6773b95bba22f82f4f02a5dbb30c6a7858df8e1",
+      "head32": "ea900319010000000100532b0000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "_DELL_GPE_",
+          "_DELL_SOFTTAA_",
+          "Dell System",
+          "ProxyDHCP service did not reply to request on po"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_135_RAW_PFS_SUBCOMPONENT_233706.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.994,
+      "size": 33243,
+      "sha256": "c36c91332c8f12d0e7d39cc1db9ca10c9bd332af94f85f7a8cafd01618872f92",
+      "head32": "747a24254094d547bf0aed92a4d6eba423aa0900db8100f8c381000298584eee",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_136_hdrstub_33243.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.994,
+      "size": 33219,
+      "sha256": "90e090a21cf3da39dbff51c31dc228b680be5ad902f549f2e14c45dd474ab207",
+      "head32": "c381000298584eee143959429d6edc7bd79403cf180001005d000000010cda00",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_137_hdrstub_33219.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.806,
+      "size": 55820,
+      "sha256": "6c3f990525650c1bd5eb9364579859386c753f4f4972faedf4bdacff385693bc",
+      "head32": "0cda00104d5a04000100000004000100ffff066a00cb00000000000040000000",
+      "signals": {
+        "notable_strings": [
+          "System\\CurrentControlSet\\Services\\rpcnetp",
+          "RegisterServiceCtrlHandlerA",
+          "StartServiceCtrlDispatcherA",
+          "SetServiceStatus",
+          "WriteProcessMemory",
+          "WriteFile",
+          "NtWriteFile",
+          "'Symantec Time Stamping Services CA - G20",
+          "+Symantec Time Stamping Services Signer - G40",
+          "'Symantec Time Stamping Services CA - G2"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_138_RAW_PFS_SUBCOMPONENT_55820.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 2.202,
+      "size": 393144,
+      "sha256": "af63e0795aeee7244b1d8eb6100d6ca6c01d8f69d6cef83cb4aa709974d1e3ed",
+      "head32": "74f501326e844c46b8eafe1fe9b0e7be26aa0100b8ff05f84e564152ca14ffff",
+      "signals": {
+        "notable_strings": [
+          "DellVar01"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_139_RAW_PFS_SUBCOMPONENT_393144.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 2.185,
+      "size": 393120,
+      "sha256": "67b6d24f6f1a508c45f9d107f77336cb091765b37f42e0f155c0a3913f04a3eb",
+      "head32": "4e564152ca14ffffff830053746444656661756c7473004e5641527f12ffffff",
+      "signals": {
+        "notable_strings": [
+          "DellVar01"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_140_RAW_PFS_SUBCOMPONENT_393120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.995,
+      "size": 36648,
+      "sha256": "55f80bfa670b04ce5ce8c32241aacfbc65d117f278ad23137ed552f668d6ef35",
+      "head32": "e07f32a0da1f5b4e905db510c45a61d06eaa0700288f00f8108f000298584eee",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_141_hdrstub_36648.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.995,
+      "size": 36624,
+      "sha256": "d267b88a3366d32fed2dbce1b93fc6a5885fc3010a64883245317967c0411360",
+      "head32": "108f000298584eee143959429d6edc7bd79403cf180001005d00000001140c01",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_142_hdrstub_36624.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.916,
+      "size": 68628,
+      "sha256": "93a87d09f61d41693cd6ca905047033af2121c7a115c7a1ab16dc2422cf804b7",
+      "head32": "140c0118209d33500ac9b24b9affd8a11b23bc1555aa86e8373ccb0d2a030000",
+      "signals": {
+        "notable_strings": [
+          "ProxyDHCP service did not reply to request on po"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_143_RAW_PFS_SUBCOMPONENT_68628.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.915,
+      "size": 68608,
+      "sha256": "502757310da4eca52174180a9134c0262a1f36b78e3385fcbc0ade5f22edfeb6",
+      "head32": "55aa86e8373ccb0d2a0300000000000000000000000020004000600010013801",
+      "signals": {
+        "notable_strings": [
+          "ProxyDHCP service did not reply to request on po"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_144_RAW_PFS_SUBCOMPONENT_68608.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.995,
+      "size": 36986,
+      "sha256": "f2522cb766fa8870a83bc3febac87169f308348a0797b94ef1bcc33cce4e4c14",
+      "head32": "44d241fdfbf0d04f8fd64276bd4323d081aa07007a9000f86290000298584eee",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_145_hdrstub_36986.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.995,
+      "size": 36962,
+      "sha256": "d587f52b9de51145fb38e151a87ba2f6c365bf186e209fa5bc4ccdba6391187e",
+      "head32": "6290000298584eee143959429d6edc7bd79403cf180001005d00000001140001",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_146_hdrstub_36962.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.63,
+      "size": 65556,
+      "sha256": "43e62f3d14d987872505c897ae225905e5a0aec0a9b10fcb6cb0043023ef3a1c",
+      "head32": "140001185c3a2edcd832ee49a64182db942592be55aa80e9f0f6303030303030",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_147_RAW_PFS_SUBCOMPONENT_65556.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.628,
+      "size": 65536,
+      "sha256": "80dc7077f66043d5b546fabd0c5b5594a8de1f1f6330deb22eceeb83606bdcd0",
+      "head32": "55aa80e9f0f6303030303030303030303030a02ce9a92baf4000d00b30304942",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_148_RAW_PFS_SUBCOMPONENT_65536.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.997,
+      "size": 60381,
+      "sha256": "42751cd4b05d1ef85f5aa25451db6e5f5d80a318a6d778dbc91b06c58411d77b",
+      "head32": "beb34a91c2a23a46b77df820fbba180edaaa0700ddeb00f8c5eb000298584eee",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_149_hdrstub_60381.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.997,
+      "size": 60357,
+      "sha256": "406e8e53097644306eab597513c6d8451a285d4a74f5a42a3ccd0357fe9142b0",
+      "head32": "c5eb000298584eee143959429d6edc7bd79403cf180001005d0000000114da01",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_150_hdrstub_60357.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.864,
+      "size": 121364,
+      "sha256": "a711899133ee7f55e3cad75d0525846fc9e62d218718a4d03d233d3e772ad521",
+      "head32": "14da01189498d61ff31b5a42ab7677275159b95955aaede9521b000000000000",
+      "signals": {
+        "notable_strings": [
+          "Failed to write packed metadata!",
+          "Failed to write sorted Segment/Index list",
+          "CacheMgr::startRW write-thru -> Success",
+          "CacheMgr::startRW write-back -> Success"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_151_RAW_PFS_SUBCOMPONENT_121364.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.864,
+      "size": 121344,
+      "sha256": "a461fbd9023de89e0337920c8c19e727d6af3a0519a2d101ac6b421f57ec057f",
+      "head32": "55aaede9521b00000000000000000000000000000000008ea0009a01496e7465",
+      "signals": {
+        "notable_strings": [
+          "Failed to write packed metadata!",
+          "Failed to write sorted Segment/Index list",
+          "CacheMgr::startRW write-thru -> Success",
+          "CacheMgr::startRW write-back -> Success"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_152_RAW_PFS_SUBCOMPONENT_121344.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.138,
+      "size": 60628,
+      "sha256": "c6e1a2ac67aa77b28bc3408e7ca249d90eb6043e43baa3dbd462e9d4ec4ccd2d",
+      "head32": "d4ec0018408124d8b588144c9e9ffd1cfa9d071e4d5a00000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_153_RAW_PFS_SUBCOMPONENT_60628.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.999,
+      "size": 921511,
+      "sha256": "c022d5580a9c0483445e7d8f5d8f76752bc619a18c5f6865d13850aaa1a21c65",
+      "head32": "0a4699d0c98c054ba5c324bcf51bbbcaf6aa0b00a70f0ef88f0f0e0298584eee",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_154_hdrstub_921511.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": false,
+      "active_entropy": 7.999,
+      "size": 921487,
+      "sha256": "3ecd7373b41e2e9e4f9c626b13e2d22c8431e20d47d47ca60d1fbd3b9e1b5793",
+      "head32": "8f0f0e0298584eee143959429d6edc7bd79403cf180001005d00000001101031",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_155_hdrstub_921487.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.725,
+      "size": 55229,
+      "sha256": "f0edbe8023c02e4052540ac4bb04719d0db682b73ce5d15c8fe7357e8142b2ea",
+      "head32": "2e7244fc13189f419fddc3fb644cec8c18aa0700bdd700f8a6000013027e7bdb",
+      "signals": {
+        "notable_strings": [
+          "DELLDIAG",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_156_RAW_PFS_SUBCOMPONENT_55229.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.714,
+      "size": 55037,
+      "sha256": "86a3c3046215aa2382b4a8012e9c0685b21a0dbbbf679540449255814570e088",
+      "head32": "fdd60001f4d600000064d600104d5a0000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "DELLDIAG",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_157_RAW_PFS_SUBCOMPONENT_55037.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.714,
+      "size": 55028,
+      "sha256": "453b0fcf77bba70798a74cb584c2e97ebf37e5e61b8825b002daa16c5346affc",
+      "head32": "64d600104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "DELLDIAG",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_158_RAW_PFS_SUBCOMPONENT_55028.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.71,
+      "size": 54884,
+      "sha256": "8f2cad1e8322c6406d65c68d6f22c053ca1f392a56229c4756419ce70c60dd90",
+      "head32": "64d600104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "DELLDIAG",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_159_RAW_PFS_SUBCOMPONENT_54884.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.737,
+      "size": 38377,
+      "sha256": "a2724d7fa886ae52ae5f7e50477005f69440cb15d19161d86ae3cf8f449d72f4",
+      "head32": "d8110d16d893a240b1f87f7e80e0c8c78daa0700e99500f8940000130263b092",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_160_RAW_PFS_SUBCOMPONENT_38377.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.722,
+      "size": 38205,
+      "sha256": "25d26e1cdc55f8859a229ca7488de2e3c63ee200f42165e65b56520b5fbe060e",
+      "head32": "3d9500013495000000a49400104d5a0000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_161_RAW_PFS_SUBCOMPONENT_38205.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.722,
+      "size": 38196,
+      "sha256": "266ffd3680f08b8669f9aa1fbb52fbca015618f1d8d6524964099c3994e28c8a",
+      "head32": "a49400104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_162_RAW_PFS_SUBCOMPONENT_38196.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.716,
+      "size": 38052,
+      "sha256": "fa2fced8f4f89482e96f822a4465ff6ec3289575909599f69a941c4dd9ea1b7b",
+      "head32": "a49400104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_163_RAW_PFS_SUBCOMPONENT_38052.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 7.127,
+      "size": 67894,
+      "sha256": "4a5db65b7099a8cef4f5946c479394588fbfb029669aabd591bcbd944a5e959e",
+      "head32": "f0914ad547458043889017c19937f853bcaa0a00360901f8b800001c02b7bfcc",
+      "signals": {
+        "notable_strings": [
+          "Dell Inc.1#0!",
+          "Dell Inc. Key Exchange Key0",
+          "Dell Inc.1",
+          "Dell Inc. UEFI DB0",
+          "Dell Inc. Platform Key0",
+          "Services1",
+          "Public Key Services1",
+          "Dell Inc. Issuing CA 10",
+          "Dell Inc. UEFI Platform Key0",
+          " http://crl.dell.com/1/issuer.crl0",
+          "Dell Inc. Issuing CA 11",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_164_RAW_PFS_SUBCOMPONENT_67894.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 7.123,
+      "size": 67686,
+      "sha256": "5e8a4494c59c4fe4937540bd6540e7acc2dd5ccaefaf6338e36a29a8ea1828d3",
+      "head32": "660801015d08010000040801104d5a0000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Dell Inc.1#0!",
+          "Dell Inc. Key Exchange Key0",
+          "Dell Inc.1",
+          "Dell Inc. UEFI DB0",
+          "Dell Inc. Platform Key0",
+          "Services1",
+          "Public Key Services1",
+          "Dell Inc. Issuing CA 10",
+          "Dell Inc. UEFI Platform Key0",
+          " http://crl.dell.com/1/issuer.crl0",
+          "Dell Inc. Issuing CA 11",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_165_RAW_PFS_SUBCOMPONENT_67686.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 7.123,
+      "size": 67677,
+      "sha256": "13a871b64aeae220137ff961c5bf25461582194a5ae7e2e58c7e128dda782969",
+      "head32": "040801104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Dell Inc.1#0!",
+          "Dell Inc. Key Exchange Key0",
+          "Dell Inc.1",
+          "Dell Inc. UEFI DB0",
+          "Dell Inc. Platform Key0",
+          "Services1",
+          "Public Key Services1",
+          "Dell Inc. Issuing CA 10",
+          "Dell Inc. UEFI Platform Key0",
+          " http://crl.dell.com/1/issuer.crl0",
+          "Dell Inc. Issuing CA 11",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_166_RAW_PFS_SUBCOMPONENT_67677.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 7.124,
+      "size": 67588,
+      "sha256": "518de4254aa1544234e9c260b1c06213a6a58a815a74cb292aafaed86d5cc082",
+      "head32": "040801104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Dell Inc.1#0!",
+          "Dell Inc. Key Exchange Key0",
+          "Dell Inc.1",
+          "Dell Inc. UEFI DB0",
+          "Dell Inc. Platform Key0",
+          "Services1",
+          "Public Key Services1",
+          "Dell Inc. Issuing CA 10",
+          "Dell Inc. UEFI Platform Key0",
+          " http://crl.dell.com/1/issuer.crl0",
+          "Dell Inc. Issuing CA 11",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_167_RAW_PFS_SUBCOMPONENT_67588.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -226,7 +2703,7 @@
         "GUID_SMM_EC_7310E28E": 1,
         "SHA256_K0_LE": 1
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_8_RAW_PFS_SUBCOMPONENT_42806.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_168_RAW_PFS_SUBCOMPONENT_42806.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -243,7 +2720,7 @@
         "GUID_SMM_EC_7310E28E": 1,
         "SHA256_K0_LE": 1
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_9_RAW_PFS_SUBCOMPONENT_42598.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_169_RAW_PFS_SUBCOMPONENT_42598.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -260,7 +2737,7 @@
         "GUID_SMM_EC_7310E28E": 1,
         "SHA256_K0_LE": 1
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_10_RAW_PFS_SUBCOMPONENT_42589.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_170_RAW_PFS_SUBCOMPONENT_42589.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -277,7 +2754,71 @@
         "GUID_SMM_EC_7310E28E": 1,
         "SHA256_K0_LE": 1
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_11_RAW_PFS_SUBCOMPONENT_42500.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_171_RAW_PFS_SUBCOMPONENT_42500.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.08,
+      "size": 53700,
+      "sha256": "2820cf022389d504060a9fe0bd404f357f4e31b22380d239511484cb2e9956b1",
+      "head32": "162351c0a5b52347bd369b1a765b2f7e30aa0700c4d100f8280000130272c19f",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_172_RAW_PFS_SUBCOMPONENT_53700.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.076,
+      "size": 53636,
+      "sha256": "7c70d03bb1e1eb3cc1e6f325776e14f4d9ba9ddce8eea1314c428a8d76d69c86",
+      "head32": "84d100017bd100000024d100104d5a0000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_173_RAW_PFS_SUBCOMPONENT_53636.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.076,
+      "size": 53627,
+      "sha256": "0111de964f901874851d831f12b0afdcb576cedc30930916075cf9f896527d51",
+      "head32": "24d100104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_174_RAW_PFS_SUBCOMPONENT_53627.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.074,
+      "size": 53540,
+      "sha256": "e2fb3ad557fc8b17bccf380805123cdfeff9792a46b2ca3b8f9ecae235e7dda7",
+      "head32": "24d100104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_175_RAW_PFS_SUBCOMPONENT_53540.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -290,7 +2831,7 @@
       "signals": {
         "GUID_SMM_EC_7310E28E": 1
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_12_RAW_PFS_SUBCOMPONENT_50630.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_176_RAW_PFS_SUBCOMPONENT_50630.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -303,7 +2844,7 @@
       "signals": {
         "GUID_SMM_EC_7310E28E": 1
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_13_RAW_PFS_SUBCOMPONENT_50278.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_177_RAW_PFS_SUBCOMPONENT_50278.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -316,7 +2857,7 @@
       "signals": {
         "GUID_SMM_EC_7310E28E": 1
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_14_RAW_PFS_SUBCOMPONENT_50269.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_178_RAW_PFS_SUBCOMPONENT_50269.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -329,7 +2870,1071 @@
       "signals": {
         "GUID_SMM_EC_7310E28E": 1
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_15_RAW_PFS_SUBCOMPONENT_50180.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_179_RAW_PFS_SUBCOMPONENT_50180.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.932,
+      "size": 35146,
+      "sha256": "eddae30ae7c5e3160f3b709681f854a3c90e86126673280403293002f21917d6",
+      "head32": "31e28623cfa9524f946a6f6b6c133b4679aa07004a8900f8ca00001302f63f58",
+      "signals": {
+        "notable_strings": [
+          "Dell Inc.",
+          "Dell System",
+          "12[www.dell.com]",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_180_RAW_PFS_SUBCOMPONENT_35146.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.912,
+      "size": 34918,
+      "sha256": "c8477531014642b4048f1ae9cd7a8173cd2ae319e683589ebc22c05c1c8de3f1",
+      "head32": "668800015d88000000048800104d5a0000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Dell Inc.",
+          "Dell System",
+          "12[www.dell.com]",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_181_RAW_PFS_SUBCOMPONENT_34918.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.913,
+      "size": 34909,
+      "sha256": "355f930874c6a8ff514ff75436807a2c447a957668de746caf2826c7e87c6d7a",
+      "head32": "048800104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Dell Inc.",
+          "Dell System",
+          "12[www.dell.com]",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_182_RAW_PFS_SUBCOMPONENT_34909.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.908,
+      "size": 34820,
+      "sha256": "9575d0d5c9d3bb8a5387a9d452e25f6f823381094bdb2ef7b01fd2adbed0d048",
+      "head32": "048800104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Dell Inc.",
+          "Dell System",
+          "12[www.dell.com]",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_183_RAW_PFS_SUBCOMPONENT_34820.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.48,
+      "size": 257390,
+      "sha256": "3ad36833001100d6c8a07a7f325e40e31bc3d7cbaf71983caf653200d7f36c3f",
+      "head32": "14c826641a6016419e9fbf9d6f8f254f59aa07006eed03f8ee000013028d99d8",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "LITERAL",
+          "invalid literal/length code",
+          "invalid literal/lengths set",
+          " MFG_MODE_SYSTEM_SERVICE ",
+          " MFG_MODE_DELL_FACTORY ",
+          " MFG_MODE_SERVICE_MENU ",
+          "DellLogo",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_184_RAW_PFS_SUBCOMPONENT_257390.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.475,
+      "size": 257126,
+      "sha256": "560c7d49ed383ee01c420028f70223709cde3a094a9dc5ce8672d7ef05ba2ddd",
+      "head32": "66ec03015dec03000004ec03104d5a0000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "LITERAL",
+          "invalid literal/length code",
+          "invalid literal/lengths set",
+          " MFG_MODE_SYSTEM_SERVICE ",
+          " MFG_MODE_DELL_FACTORY ",
+          " MFG_MODE_SERVICE_MENU ",
+          "DellLogo",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_185_RAW_PFS_SUBCOMPONENT_257126.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.475,
+      "size": 257117,
+      "sha256": "fe29736155944d20b69c0fed9a8b226a4cf8fc059c450ed2b53375532cd8e03a",
+      "head32": "04ec03104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "LITERAL",
+          "invalid literal/length code",
+          "invalid literal/lengths set",
+          " MFG_MODE_SYSTEM_SERVICE ",
+          " MFG_MODE_DELL_FACTORY ",
+          " MFG_MODE_SERVICE_MENU ",
+          "DellLogo",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_186_RAW_PFS_SUBCOMPONENT_257117.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.475,
+      "size": 257028,
+      "sha256": "c752ae929a73f75568fb0a9a116dc5e0bd7b53d0a62892e027147741dc776d75",
+      "head32": "04ec03104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "LITERAL",
+          "invalid literal/length code",
+          "invalid literal/lengths set",
+          " MFG_MODE_SYSTEM_SERVICE ",
+          " MFG_MODE_DELL_FACTORY ",
+          " MFG_MODE_SERVICE_MENU ",
+          "DellLogo",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_187_RAW_PFS_SUBCOMPONENT_257028.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 4.856,
+      "size": 51012,
+      "sha256": "0381690eff33e7bb8c9aaca6ea695dbf4ff910452a688fcff53a91f7f33fd6c5",
+      "head32": "8aa28530aac6c94ead285bdb35a41b0384aa070044c700f828000013027e7bdb",
+      "signals": {
+        "SHA256_K0_LE": 2,
+        "AES_SBOX": 1,
+        "notable_strings": [
+          "Dell Module Authentication Library_genW.1.0.loca"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_188_RAW_PFS_SUBCOMPONENT_51012.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 4.851,
+      "size": 50948,
+      "sha256": "3d5276b8897ca7de3ca166b50988d9646743c3af8140a29fc1d950afa366dc14",
+      "head32": "04c70001fbc6000000a4c600104d5a0000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 2,
+        "AES_SBOX": 1,
+        "notable_strings": [
+          "Dell Module Authentication Library_genW.1.0.loca"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_189_RAW_PFS_SUBCOMPONENT_50948.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 4.851,
+      "size": 50939,
+      "sha256": "5d4e3c5d13858d166a7fb0441615a8b6b0405649dacd0f517bb6e07d59b1c53a",
+      "head32": "a4c600104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 2,
+        "AES_SBOX": 1,
+        "notable_strings": [
+          "Dell Module Authentication Library_genW.1.0.loca"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_190_RAW_PFS_SUBCOMPONENT_50939.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 4.847,
+      "size": 50852,
+      "sha256": "458a36d2262c722196f947a9a6797827c83a805adab33de6e3e6f7b2d069d559",
+      "head32": "a4c600104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 2,
+        "AES_SBOX": 1,
+        "notable_strings": [
+          "Dell Module Authentication Library_genW.1.0.loca"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_191_RAW_PFS_SUBCOMPONENT_50852.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.736,
+      "size": 33916,
+      "sha256": "cf84dfbcc0232148301dcd1b0b845e38fae1b35f5ec4b3b4343f56b0118ae625",
+      "head32": "58fcd04727766841bf63bbaf626084a0d3aa0a007c8400f85e00001c02a19768",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "AES_SBOX": 1,
+        "notable_strings": [
+          "Dell Module Authentication Library_genW.1.0.loca"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_192_RAW_PFS_SUBCOMPONENT_33916.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.716,
+      "size": 33796,
+      "sha256": "8b9e9d8e8fe90ef4a5708b5b762e3e1c0990771642ccb51685cc6ed1a03cfaf9",
+      "head32": "04840001fb83000000a48300104d5a0000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "AES_SBOX": 1,
+        "notable_strings": [
+          "Dell Module Authentication Library_genW.1.0.loca"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_193_RAW_PFS_SUBCOMPONENT_33796.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.715,
+      "size": 33787,
+      "sha256": "74af50258b86d11239c34b09ef21531acc493ba6a968c82d5d10a84b90cf294b",
+      "head32": "a48300104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "AES_SBOX": 1,
+        "notable_strings": [
+          "Dell Module Authentication Library_genW.1.0.loca"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_194_RAW_PFS_SUBCOMPONENT_33787.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.705,
+      "size": 33700,
+      "sha256": "e1b3bf7b479ade0c2f6dbd3a2e42d8c889a54411b904bf799d6e922cc6734f5f",
+      "head32": "a48300104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "AES_SBOX": 1,
+        "notable_strings": [
+          "Dell Module Authentication Library_genW.1.0.loca"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_195_RAW_PFS_SUBCOMPONENT_33700.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.868,
+      "size": 53484,
+      "sha256": "a3ea56fe2ca6298178280d2fa86de4ea66c857c7c3f9a63d5299a086c1f0fb57",
+      "head32": "0374fcf1fff14a4d97fb06c5b91c0b040eaa0a00ecd000f87000001c02b7bfcc",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "AES_SBOX": 1,
+        "notable_strings": [
+          "Dell Module Authentication Library_genW.1.0.loca"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_196_RAW_PFS_SUBCOMPONENT_53484.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.851,
+      "size": 53348,
+      "sha256": "b857d64a3e08b27946695e5eaa764647f3a997ee44af9b7f72a3aa4f998f4dd0",
+      "head32": "64d000015bd000000004d000104d5a0000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "AES_SBOX": 1,
+        "notable_strings": [
+          "Dell Module Authentication Library_genW.1.0.loca"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_197_RAW_PFS_SUBCOMPONENT_53348.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.85,
+      "size": 53339,
+      "sha256": "c3055026e523520f13810fd688d667410210e676f886ca9aae7500b0f4163c94",
+      "head32": "04d000104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "AES_SBOX": 1,
+        "notable_strings": [
+          "Dell Module Authentication Library_genW.1.0.loca"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_198_RAW_PFS_SUBCOMPONENT_53339.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.843,
+      "size": 53252,
+      "sha256": "615c2fff57c13d7e7dd66ea0a3fe66888133443121eaefb62a820bb13672598c",
+      "head32": "04d000104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "AES_SBOX": 1,
+        "notable_strings": [
+          "Dell Module Authentication Library_genW.1.0.loca"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_199_RAW_PFS_SUBCOMPONENT_53252.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.729,
+      "size": 58534,
+      "sha256": "d265a75692483d192c393a91083ecbe65e557dbb06250f980d43a640d325aa9a",
+      "head32": "9bc8874ba9398f47a4b6816a9edc5087ecaa0700a6e400f828000013028a3588",
+      "signals": {
+        "notable_strings": [
+          "DellVariable"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_200_RAW_PFS_SUBCOMPONENT_58534.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.725,
+      "size": 58470,
+      "sha256": "c4d004ad7d6928f9d06d4e992d266ef167547a33f24dd40908bfd59ae1e32c18",
+      "head32": "66e400015de400000004e400104d5a0000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "DellVariable"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_201_RAW_PFS_SUBCOMPONENT_58470.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.725,
+      "size": 58461,
+      "sha256": "6d37cc5a9ee36b89397ca8613ba029da181971060ed2de119307227a034e294e",
+      "head32": "04e400104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "DellVariable"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_202_RAW_PFS_SUBCOMPONENT_58461.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.721,
+      "size": 58372,
+      "sha256": "3a1be5dd69eb9fae0bcdb4751572848252beea8af4a94887e21e1ddbb8260746",
+      "head32": "04e400104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "DellVariable"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_203_RAW_PFS_SUBCOMPONENT_58372.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.521,
+      "size": 69342,
+      "sha256": "059532158f33456d989e479334d827ea627a15d6c667a91489e5d99fd82148f9",
+      "head32": "43d06f1613ea4848bb3c6fa295b9462721aa0a00de0e01f85e00001c028a3588",
+      "signals": {
+        "notable_strings": [
+          "DellVariable"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_204_RAW_PFS_SUBCOMPONENT_69342.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.514,
+      "size": 69222,
+      "sha256": "b3c7399eab2816f371586744c903856cb41cb88b4792483bf2ba7e4ed6d0df61",
+      "head32": "660e01015d0e010000040e01104d5a0000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "DellVariable"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_205_RAW_PFS_SUBCOMPONENT_69222.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.514,
+      "size": 69213,
+      "sha256": "94bfc5d41b4f94e88ba0cc58e48c73ed0ab8ad910751f9adbf4324d633edceac",
+      "head32": "040e01104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "DellVariable"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_206_RAW_PFS_SUBCOMPONENT_69213.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.511,
+      "size": 69124,
+      "sha256": "0f0f3e5bec3cedcbc9da1ee9e78b37b471cccaed230206525b577f467078d184",
+      "head32": "040e01104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "DellVariable"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_207_RAW_PFS_SUBCOMPONENT_69124.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.068,
+      "size": 33662,
+      "sha256": "f680ab06263ea1fd8df7d6ed1d470fea3b190e6eb01f4379516368af100ad15b",
+      "head32": "068237591b868043a3492f2f4f030c4b86aa0a007e8300f80001001c02b7bfcc",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_208_RAW_PFS_SUBCOMPONENT_33662.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.023,
+      "size": 33382,
+      "sha256": "33fcabbc9c6dd84f93075d715b31e4953ccc7aea8aefb37b652e5de43f4ec33a",
+      "head32": "668200015d82000000048200104d5a0000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_209_RAW_PFS_SUBCOMPONENT_33382.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.022,
+      "size": 33373,
+      "sha256": "47b6357eae5f26e13f0da69ad93afae9942268b897922a26c3d18d98614cb408",
+      "head32": "048200104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_210_RAW_PFS_SUBCOMPONENT_33373.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.013,
+      "size": 33284,
+      "sha256": "55ef97f6508069ca64203c099f55b58f485d892f08cefa3ccfb665837dd48dea",
+      "head32": "048200104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_211_RAW_PFS_SUBCOMPONENT_33284.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.442,
+      "size": 608496,
+      "sha256": "266e7cef07667ffd1213e9b043f39e580271f15a46377409360d031a6880039e",
+      "head32": "34dfcc099167c94fa46640ec1448f568d1aa0700f04809f870000013027feb50",
+      "signals": {
+        "notable_strings": [
+          "Only Dell batteries should be used in Dell noteb",
+          "ooks, and Dell batteries can only be purchased t",
+          "hrough Dell.",
+          "Health: Not a Dell Battery",
+          "Module Bay HDD Password",
+          "Fixed Bay HDD Password",
+          "Successful changes to this password take effect ",
+          "When an HDD password is set, it travels with the",
+          "You must enter the password for a protected HDD ",
+          " enter the correct password, the HDD will simply",
+          "k on, and enter the correct password.",
+          "By default, the drive will not have a password s",
+          "password on the system's module  bay hard disk d",
+          "password on the system's fixed  bay hard disk dr",
+          "ystem password (previously called the \"Primary\" "
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_212_RAW_PFS_SUBCOMPONENT_608496.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.44,
+      "size": 608360,
+      "sha256": "6cc5bee13d76d2c49ad88053d9969a5336615940bd4aa4c15bc015f2bd006df4",
+      "head32": "684809015f48090000044809104d5a0000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Only Dell batteries should be used in Dell noteb",
+          "ooks, and Dell batteries can only be purchased t",
+          "hrough Dell.",
+          "Health: Not a Dell Battery",
+          "Module Bay HDD Password",
+          "Fixed Bay HDD Password",
+          "Successful changes to this password take effect ",
+          "When an HDD password is set, it travels with the",
+          "You must enter the password for a protected HDD ",
+          " enter the correct password, the HDD will simply",
+          "k on, and enter the correct password.",
+          "By default, the drive will not have a password s",
+          "password on the system's module  bay hard disk d",
+          "password on the system's fixed  bay hard disk dr",
+          "ystem password (previously called the \"Primary\" "
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_213_RAW_PFS_SUBCOMPONENT_608360.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.44,
+      "size": 608351,
+      "sha256": "2dd5cb72a60843094d3a45936478a027abe5fe2419ab4e3adb1ce1fdb5304d10",
+      "head32": "044809104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Only Dell batteries should be used in Dell noteb",
+          "ooks, and Dell batteries can only be purchased t",
+          "hrough Dell.",
+          "Health: Not a Dell Battery",
+          "Module Bay HDD Password",
+          "Fixed Bay HDD Password",
+          "Successful changes to this password take effect ",
+          "When an HDD password is set, it travels with the",
+          "You must enter the password for a protected HDD ",
+          " enter the correct password, the HDD will simply",
+          "k on, and enter the correct password.",
+          "By default, the drive will not have a password s",
+          "password on the system's module  bay hard disk d",
+          "password on the system's fixed  bay hard disk dr",
+          "ystem password (previously called the \"Primary\" "
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_214_RAW_PFS_SUBCOMPONENT_608351.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.44,
+      "size": 608260,
+      "sha256": "fe6dd85fe272a695b4b7cce730a67dba656c6c45af1e36a3abad0e183332ff60",
+      "head32": "044809104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Only Dell batteries should be used in Dell noteb",
+          "ooks, and Dell batteries can only be purchased t",
+          "hrough Dell.",
+          "Health: Not a Dell Battery",
+          "Module Bay HDD Password",
+          "Fixed Bay HDD Password",
+          "Successful changes to this password take effect ",
+          "When an HDD password is set, it travels with the",
+          "You must enter the password for a protected HDD ",
+          " enter the correct password, the HDD will simply",
+          "k on, and enter the correct password.",
+          "By default, the drive will not have a password s",
+          "password on the system's module  bay hard disk d",
+          "password on the system's fixed  bay hard disk dr",
+          "ystem password (previously called the \"Primary\" "
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_215_RAW_PFS_SUBCOMPONENT_608260.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.813,
+      "size": 51358,
+      "sha256": "3465ec0ddab132abb2b349efb1ccdf61cb548043ee3b23942256f7db68b96950",
+      "head32": "2bee219601b1b74a98c8ed2695ad6f2bc1aa07009ec800f85e000013028d99d8",
+      "signals": {
+        "notable_strings": [
+          "Firmware failed with write file issue.",
+          "Error %d: Password did not match.",
+          "Error %d: Password exceeded maximum number of re",
+          "Error %d: Password Not provided when required.",
+          "File write error",
+          "File write failure",
+          "Password did not match",
+          "Max password retries exceeded",
+          "%a Firmware Update Failed: Write file failure",
+          "%a Firmware Update Failed: Password not matched",
+          "%a FW Update Failed: Password exceed maximum ret",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_216_RAW_PFS_SUBCOMPONENT_51358.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.805,
+      "size": 51238,
+      "sha256": "7155a72aed9a61676d1c86eb3c2b9dafe39261146e751a3df4799bed2360980c",
+      "head32": "26c800011dc8000000c4c700104d5a0000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Firmware failed with write file issue.",
+          "Error %d: Password did not match.",
+          "Error %d: Password exceeded maximum number of re",
+          "Error %d: Password Not provided when required.",
+          "File write error",
+          "File write failure",
+          "Password did not match",
+          "Max password retries exceeded",
+          "%a Firmware Update Failed: Write file failure",
+          "%a Firmware Update Failed: Password not matched",
+          "%a FW Update Failed: Password exceed maximum ret",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_217_RAW_PFS_SUBCOMPONENT_51238.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.805,
+      "size": 51229,
+      "sha256": "da657f97942507fe7985c6b18b6fa012d65d613c4e4642443f1389fa9fdcd4d8",
+      "head32": "c4c700104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Firmware failed with write file issue.",
+          "Error %d: Password did not match.",
+          "Error %d: Password exceeded maximum number of re",
+          "Error %d: Password Not provided when required.",
+          "File write error",
+          "File write failure",
+          "Password did not match",
+          "Max password retries exceeded",
+          "%a Firmware Update Failed: Write file failure",
+          "%a Firmware Update Failed: Password not matched",
+          "%a FW Update Failed: Password exceed maximum ret",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_218_RAW_PFS_SUBCOMPONENT_51229.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.801,
+      "size": 51140,
+      "sha256": "4469fe9ceb4a0ba9bcddeb2bcbe7c5a9fd0529daf60fec5b7c074e7f8d31e65d",
+      "head32": "c4c700104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Firmware failed with write file issue.",
+          "Error %d: Password did not match.",
+          "Error %d: Password exceeded maximum number of re",
+          "Error %d: Password Not provided when required.",
+          "File write error",
+          "File write failure",
+          "Password did not match",
+          "Max password retries exceeded",
+          "%a Firmware Update Failed: Write file failure",
+          "%a Firmware Update Failed: Password not matched",
+          "%a FW Update Failed: Password exceed maximum ret",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_219_RAW_PFS_SUBCOMPONENT_51140.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.715,
+      "size": 39930,
+      "sha256": "f4389dbc8e8899a703bc4f6159871aaab32105ce08addbe36558323432bd1374",
+      "head32": "066ad27d4299a841b9cf09de46d5d2196caa0700fa9b00f83a00001302e26856",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_220_RAW_PFS_SUBCOMPONENT_39930.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.708,
+      "size": 39846,
+      "sha256": "5dfdf77295fead80a07eb4678621e91bcbf49f9e932d055d73167bb184847b1a",
+      "head32": "a69b00019d9b000000449b00104d5a0000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_221_RAW_PFS_SUBCOMPONENT_39846.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.708,
+      "size": 39837,
+      "sha256": "bca5b89a033a870bcb7642f8367573f3810535414068bb314c50d729832f3c2a",
+      "head32": "449b00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_222_RAW_PFS_SUBCOMPONENT_39837.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.704,
+      "size": 39748,
+      "sha256": "3f03edba7e3522449af95921bf5041839c3b92c1137dea0f1c960540ae133643",
+      "head32": "449b00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_223_RAW_PFS_SUBCOMPONENT_39748.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.717,
+      "size": 72486,
+      "sha256": "7a4f19d5032f3f6854e88145eedf234eb715ff898c97c8c0ad867e27adc94b7a",
+      "head32": "12e5c3267679c545999f6b41988d11982caa0700261b01f8a600001302203e84",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_224_RAW_PFS_SUBCOMPONENT_72486.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.151,
+      "size": 72294,
+      "sha256": "71e1d3a1ce732f500ad3533ba9416fc7ef1ed8984722443a9fac6ef84db63db9",
+      "head32": "661a01015d1a010000041a01104d5a0000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_225_RAW_PFS_SUBCOMPONENT_72294.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.151,
+      "size": 72285,
+      "sha256": "5104491a235bf98f41e5d4141424534ab6fc8726e02ca56c77fd45abf698eaa0",
+      "head32": "041a01104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_226_RAW_PFS_SUBCOMPONENT_72285.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.144,
+      "size": 72196,
+      "sha256": "45deac64f02f52403e18b8611c6e3f91255cfe530929685e074e4ad7dab75aa8",
+      "head32": "041a01104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_227_RAW_PFS_SUBCOMPONENT_72196.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.505,
+      "size": 64294,
+      "sha256": "91a5fbf8d0c779c74f4dc37b54a04440da49be0eb454cb0ad8aded27af821c48",
+      "head32": "8488572acfff0d48b30c60a1e61872c72eaa0a0026fb00f8a600001c02b7bfcc",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_228_RAW_PFS_SUBCOMPONENT_64294.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.476,
+      "size": 64102,
+      "sha256": "031d724e9cdc31e807f5af526debc0927c8501b34befa29a5fde0ad8b94e202e",
+      "head32": "66fa00015dfa00000004fa00104d5a0000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_229_RAW_PFS_SUBCOMPONENT_64102.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.476,
+      "size": 64093,
+      "sha256": "56b0691e6f54bed5ef9749d2f48cde0c517b83b3b068647f5e606853cfb70539",
+      "head32": "04fa00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_230_RAW_PFS_SUBCOMPONENT_64093.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.469,
+      "size": 64004,
+      "sha256": "5d1e27b6ff186d5821cbe04663d739f3004cdefa4b018f9ddf613d1ab1229ea6",
+      "head32": "04fa00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_231_RAW_PFS_SUBCOMPONENT_64004.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.813,
+      "size": 37124,
+      "sha256": "ec35529e3ab991fdb22b3c4b6b386e06e77f1d7f27f7770e1b8c8fca1418ec15",
+      "head32": "855fd55777c1844aa2dd8668e6f082e1a5aa0a00049100f82800001c02b7bfcc",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_232_RAW_PFS_SUBCOMPONENT_37124.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.806,
+      "size": 37060,
+      "sha256": "843a0f6d06834a988130078041cf6badcd9640172f76eadf6cdd05414be2edd5",
+      "head32": "c4900001bb90000000649000104d5a0000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_233_RAW_PFS_SUBCOMPONENT_37060.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.806,
+      "size": 37051,
+      "sha256": "7726c2f3e1659063de16cead32c4d3c22781be27bed8fece516f25d07e31d630",
+      "head32": "649000104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_234_RAW_PFS_SUBCOMPONENT_37051.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.8,
+      "size": 36964,
+      "sha256": "1bca5a48deb33198e3183ea71c127369c791c3839a2af2856a790475fb2b23ac",
+      "head32": "649000104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_235_RAW_PFS_SUBCOMPONENT_36964.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.265,
+      "size": 59589,
+      "sha256": "5d02ec1c7410453387c1d08be1c94fbbfc28eb27d704f9c03bc15f9c06733521",
+      "head32": "32f0a8ae0146890124116c8e3027ee8e01aa0700c5e800f828000013027e7bdb",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_236_RAW_PFS_SUBCOMPONENT_59589.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.261,
+      "size": 59525,
+      "sha256": "f3d90ec982d105c60a672e813146ede804bdfe62ac0a8939961a36251f71758a",
+      "head32": "85e800017ce800000004e800104d5a0000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_237_RAW_PFS_SUBCOMPONENT_59525.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.261,
+      "size": 59516,
+      "sha256": "a1e62bc9d6b61d39108e544d120e9326e942c925d239ee452c2ad639c70dc3fe",
+      "head32": "04e800104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_238_RAW_PFS_SUBCOMPONENT_59516.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.256,
+      "size": 59396,
+      "sha256": "ffc5a618450179c9977517b8668d78ef1b30d2dcc3250fbd66368f0d23549783",
+      "head32": "04e800104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_239_RAW_PFS_SUBCOMPONENT_59396.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -346,7 +3951,7 @@
           "Dell Inc."
         ]
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_16_RAW_PFS_SUBCOMPONENT_75738.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_240_RAW_PFS_SUBCOMPONENT_75738.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -363,7 +3968,7 @@
           "Dell Inc."
         ]
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_17_RAW_PFS_SUBCOMPONENT_75366.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_241_RAW_PFS_SUBCOMPONENT_75366.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -380,7 +3985,7 @@
           "Dell Inc."
         ]
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_18_RAW_PFS_SUBCOMPONENT_75357.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_242_RAW_PFS_SUBCOMPONENT_75357.bin"
     },
     {
       "kind": "RAW_PFS_SUBCOMPONENT",
@@ -397,7 +4002,467 @@
           "Dell Inc."
         ]
       },
-      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_19_RAW_PFS_SUBCOMPONENT_75268.bin"
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_243_RAW_PFS_SUBCOMPONENT_75268.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.446,
+      "size": 733393,
+      "sha256": "e277a0e28f67a1b4ce3779bd420e621a2690fce9e58a2ee144925c6f5595ad12",
+      "head32": "868f06d1e6b9a643a50a7bca298d537efeaa0700d1300bf84c00001302e26856",
+      "signals": {
+        "notable_strings": [
+          "ERROR: fWrite Status %i64X",
+          "Warning Write Failure",
+          "Write Protected",
+          "Service Tag:     %s          %s",
+          "DELLDIAGDELLDIAGDELLDIAGDELLDIAG",
+          "DELLCODEDELLCODEDELLCODEDELLCODE",
+          "DELLCODE",
+          "DELLDIAG",
+          "Password Setup",
+          "Off - Disk password incorrect",
+          "Off - Boot password incorrect",
+          " DellDiag",
+          "Unable to write page %d, rc=0x%X",
+          "Evlog:: Diag, Write page %d, Status=0x%X",
+          "Evlog:: DEH, No string for item - skip"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_244_RAW_PFS_SUBCOMPONENT_733393.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.444,
+      "size": 733293,
+      "sha256": "4272da22a844d0ba411734e0e02b40000f1773caaf8e0170ab107eb6d70e1b2f",
+      "head32": "6d300b0164300b000064300b104d5a90000300000004000000ffff0000b80000",
+      "signals": {
+        "notable_strings": [
+          "ERROR: fWrite Status %i64X",
+          "Warning Write Failure",
+          "Write Protected",
+          "Service Tag:     %s          %s",
+          "DELLDIAGDELLDIAGDELLDIAGDELLDIAG",
+          "DELLCODEDELLCODEDELLCODEDELLCODE",
+          "DELLCODE",
+          "DELLDIAG",
+          "Password Setup",
+          "Off - Disk password incorrect",
+          "Off - Boot password incorrect",
+          " DellDiag",
+          "Unable to write page %d, rc=0x%X",
+          "Evlog:: Diag, Write page %d, Status=0x%X",
+          "Evlog:: DEH, No string for item - skip"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_245_RAW_PFS_SUBCOMPONENT_733293.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.444,
+      "size": 733284,
+      "sha256": "48ffa561cf94ae9c53097835b0814e8b265f21d837b213cd70297a628513ebcc",
+      "head32": "64300b104d5a90000300000004000000ffff0000b80000000000000040000000",
+      "signals": {
+        "notable_strings": [
+          "ERROR: fWrite Status %i64X",
+          "Warning Write Failure",
+          "Write Protected",
+          "Service Tag:     %s          %s",
+          "DELLDIAGDELLDIAGDELLDIAGDELLDIAG",
+          "DELLCODEDELLCODEDELLCODEDELLCODE",
+          "DELLCODE",
+          "DELLDIAG",
+          "Password Setup",
+          "Off - Disk password incorrect",
+          "Off - Boot password incorrect",
+          " DellDiag",
+          "Unable to write page %d, rc=0x%X",
+          "Evlog:: Diag, Write page %d, Status=0x%X",
+          "Evlog:: DEH, No string for item - skip"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_246_RAW_PFS_SUBCOMPONENT_733284.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.71,
+      "size": 327608,
+      "sha256": "49169e05df6a8e99126617d64fc568916e05ccfedccc96c2fd130efbece24d39",
+      "head32": "fffffffffffffffffffffffffffffffff4aaf0002c0000f8f139ddafd7190145",
+      "signals": {
+        "SHA256_K0_LE": 1
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_247_RAW_PFS_SUBCOMPONENT_327608.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.806,
+      "size": 184088,
+      "sha256": "58d4b6240b66ff168e58d7b86b1ce6f14668aaf060d345d80f210a39fb495013",
+      "head32": "18c6272dcd7df541bb1021166be7e143c4aa012818cf02f802000000a1000000",
+      "signals": {
+        "SHA256_K0_LE": 1
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_248_RAW_PFS_SUBCOMPONENT_184088.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.805,
+      "size": 184064,
+      "sha256": "d1b08ae58117fedb0dea7d07ce597ad2b93e1cf19eea59523ab04975825ad724",
+      "head32": "02000000a10000000000000006b000008680000030061620c0b3000000000400",
+      "signals": {
+        "SHA256_K0_LE": 1
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_249_RAW_PFS_SUBCOMPONENT_184064.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.411,
+      "size": 354466,
+      "sha256": "5a6b30e9a12af95917378f6ff1b6a1d3bfc6e184b08110c5bb542d8785b38db1",
+      "head32": "659e49a8f6a6b04896db45c266030d83f2aa0600a26805f81600001b02254df3",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_250_RAW_PFS_SUBCOMPONENT_354466.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.41,
+      "size": 354372,
+      "sha256": "4c78436f1cee8a14660c6a1999af048aec2ab34f84fcaaa46b6c7dedd218e536",
+      "head32": "446805104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_251_RAW_PFS_SUBCOMPONENT_354372.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.156,
+      "size": 151902,
+      "sha256": "797b06b9b5c837cd4fbf2287d4b305627335d56d186c796bd5b8b4dda5eca5e7",
+      "head32": "1d61eeee8ff7b94fb86855907f169280b5aa06005e5102f82800001b02254df3",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_252_RAW_PFS_SUBCOMPONENT_151902.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.155,
+      "size": 151780,
+      "sha256": "0580292821f75ec3ccc9179d508d542ae1e00a9a18cf5f871756ef6ce6302103",
+      "head32": "e45002104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_253_RAW_PFS_SUBCOMPONENT_151780.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 4.923,
+      "size": 123302,
+      "sha256": "fe7bcb85286cb756ea4d8542835b7bdc4f1fb955a44ddd57d44862ada5f141c2",
+      "head32": "2dd6ad59c0a1c544a90fa1168770468cc7aa0600a6e101f83a00001b023d6494",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_254_RAW_PFS_SUBCOMPONENT_123302.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 4.92,
+      "size": 123172,
+      "sha256": "f1125c51f556fd8216622020e1c052c148293cefe56875fd4735aad63d3a87c8",
+      "head32": "24e101104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_255_RAW_PFS_SUBCOMPONENT_123172.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.45,
+      "size": 98150,
+      "sha256": "dda5449097224554f3458178657be7977b9e9b2ea6d531773c41f942fd128c83",
+      "head32": "8b6f9d29c92e404e9ec6ddaa7ebf5fd96faa0600667f01f82800001b023d6494",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_256_RAW_PFS_SUBCOMPONENT_98150.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.449,
+      "size": 98052,
+      "sha256": "80954afa5aae5d57db3c294fbd383c84e917957f768a53789a96f4d73bd508fb",
+      "head32": "047f01104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_257_RAW_PFS_SUBCOMPONENT_98052.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.126,
+      "size": 41770,
+      "sha256": "281e4235f7df40ca21191d4b59d6c219bc892bdcac0f20f7f3bf3975441a0848",
+      "head32": "be191c96acd1a74b87af4ae0f09df2a6b0aa06002aa300f84c00001b02f56eb8",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_258_RAW_PFS_SUBCOMPONENT_41770.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.119,
+      "size": 41636,
+      "sha256": "649e67e2b7718fe9d0618ee64b08e3681f8d6fc9251252701669e792905290a0",
+      "head32": "a4a200104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_259_RAW_PFS_SUBCOMPONENT_41636.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.06,
+      "size": 39710,
+      "sha256": "797d17e5ddc5af0e3221c64cab38d967826dae3d9c4f4c7e2f55a6da5c400b69",
+      "head32": "ff39800de949c94ca806bb7c31b0bcb003aa06001e9b00f82800001b020a68f5",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_260_RAW_PFS_SUBCOMPONENT_39710.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.053,
+      "size": 39588,
+      "sha256": "ce8742842440d75c0ee208cf80f7976a3aa9cd311897cd563856e4065cdf23c6",
+      "head32": "a49a00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_261_RAW_PFS_SUBCOMPONENT_39588.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.989,
+      "size": 60420,
+      "sha256": "39ba9d74227101c899866a29bd70e7a2c969429f1655c976bb340a9ee9202c6e",
+      "head32": "04ec00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_262_RAW_PFS_SUBCOMPONENT_60420.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.094,
+      "size": 40622,
+      "sha256": "085e451ddfc274bbd09497c49711746d35762d5ff6911f9872305c368438811f",
+      "head32": "d5283f9ba610c846ba72bd40b847a71a2aaa0600ae9e00f84c00001b02d2397d",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_263_RAW_PFS_SUBCOMPONENT_40622.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.084,
+      "size": 40452,
+      "sha256": "e4512ef1692b1eca5feb45c6725b5de95fd458802a24781b5cc023e36e54481a",
+      "head32": "049e00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_264_RAW_PFS_SUBCOMPONENT_40452.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.604,
+      "size": 56237,
+      "sha256": "c1d9ec79609ceb07f8a9a4da89c8e11454b3d6d85881ed984cfa47a995568b10",
+      "head32": "2120c6b2809e5042b567896ea8360ad13daa0600addb00f81600001b023d6494",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "invalid literal/length code",
+          "invalid literal/lengths set",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_265_RAW_PFS_SUBCOMPONENT_56237.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 6.601,
+      "size": 56100,
+      "sha256": "023a370a62d6f7cc3b2c53090a0375cbeed33b0d6939c080ce61ae9ae46bf4a4",
+      "head32": "24db00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "invalid literal/length code",
+          "invalid literal/lengths set",
+          "Write Protected",
+          "Warning Write Failure"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_266_RAW_PFS_SUBCOMPONENT_56100.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.368,
+      "size": 135326,
+      "sha256": "b79eb3b6ee1ec2760995cfc09703e3083eb6eca05d7c43b70a6bab926ea5a7e1",
+      "head32": "eab75a2f90da844e83ee5f73972545316faa06009e1002f81600001b02254df3",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_267_RAW_PFS_SUBCOMPONENT_135326.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 3.368,
+      "size": 135236,
+      "sha256": "1d629a6e1a05e953650a8bba8eedcb194d2771f585db4854f5d88af8d3e1190d",
+      "head32": "441002104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_268_RAW_PFS_SUBCOMPONENT_135236.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 0.026,
+      "size": 53120,
+      "sha256": "0b660bae3c7bc55336c2ee5ce7dbd127a2adc734c2a3c941aeb739601ba72116",
+      "head32": "ffffffffffffffffffffffffffffffffd1aaf00080cf00f8ffffffffffffffff",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_269_RAW_PFS_SUBCOMPONENT_53120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.561,
+      "size": 32792,
+      "sha256": "4e6c56e499f49fd4cd6e594da728efe00a27c40be7f8127380d4c52b28ad97d6",
+      "head32": "32f52065272a9541b331c0854683e0bad0aa0138188000f802000300a1000000",
+      "signals": {
+        "SHA256_K0_LE": 1
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_270_RAW_PFS_SUBCOMPONENT_32792.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 5.555,
+      "size": 32768,
+      "sha256": "d8f12b851b2650cd4bdf97c86b75190514426117b3078642c2003f0627727148",
+      "head32": "02000300a1000000000000000000000086800000240615200020000002000100",
+      "signals": {
+        "SHA256_K0_LE": 1
+      },
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_271_RAW_PFS_SUBCOMPONENT_32768.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 0.026,
+      "size": 155368,
+      "sha256": "e05fccfc8f0acf06f7373d40c25a619565bee1d48439db57342dbcd46a064d46",
+      "head32": "ffffffffffffffffffffffffffffffffd8aaf000e85e02f8ffffffffffffffff",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_272_RAW_PFS_SUBCOMPONENT_155368.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS with BIOS Guard v1.13.0.bin->ufv",
+      "plaintext": true,
+      "active_entropy": 0.035,
+      "size": 123136,
+      "sha256": "87f4184833dc2405ee9a1689020a7158abbca2a5b56353016e1f8b959dfaf0a2",
+      "head32": "ffffffffffffffffffffffffffffffff3eaaf00000e101f8ffffffffffffffff",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_1.13.0_33773727/ec_273_RAW_PFS_SUBCOMPONENT_123136.bin"
     }
   ],
   "pw_modules": [

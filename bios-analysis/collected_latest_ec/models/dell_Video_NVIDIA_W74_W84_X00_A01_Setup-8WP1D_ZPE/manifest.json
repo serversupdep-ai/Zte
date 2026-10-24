@@ -8,7 +8,7 @@
       "url": "https://downloads.dell.com/FOLDER01545547M/11/Video_NVIDIA_W74_W84_X00_A01_Setup-8WP1D_ZPE.exe"
     }
   },
-  "elapsed_sec": 2.53,
+  "elapsed_sec": 2.26,
   "inner_files": [
     [
       "cab:setup.exe",
@@ -93,9 +93,105 @@
   ],
   "unpacked_stream_count": 20,
   "pfs_sections": [],
-  "ec_count": 0,
-  "plaintext_ec_count": 0,
+  "ec_count": 6,
+  "plaintext_ec_count": 6,
   "pw_module_count": 0,
-  "ecs": [],
+  "ecs": [
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:DisplayDriver.nvi",
+      "plaintext": true,
+      "active_entropy": 5.975,
+      "size": 42479,
+      "sha256": "a4b2f6708b93831c0d95e0ba021c23759392e700178e79791975d0b5b8e61219",
+      "head32": "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574",
+      "signals": {
+        "notable_strings": [
+          "<string name=\"driverServiceName\" value=\"nvlddmkm",
+          "<string name=\"driverServiceName\" value=\"nv\"/>",
+          "cessite ${RequiredOSName}.  Vous utilisez ${Runn",
+          "elite uporabiti NVIDIA 3D Vision, morate namesti",
+          "<string name=\"DriverServiceName\" value=\"${{drive",
+          "rServiceName}}\"/>"
+        ]
+      },
+      "saved_file": "models/dell_Video_NVIDIA_W74_W84_X00_A01_Setup-8WP1D_ZPE/ec_1_RAW_PFS_SUBCOMPONENT_42479.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:mcu.ex_",
+      "plaintext": true,
+      "active_entropy": 7.656,
+      "size": 786456,
+      "sha256": "c89c93cb7d844071c074f5ca6e1eb1c61952f2a6024d1ccf5be37501005d4383",
+      "head32": "535a444488f02733410020d71700ff4d5a9000030000007d04f5f0ffff0000b8",
+      "signals": {
+        "notable_strings": [
+          "ermite o",
+          "Uudellee",
+          "gybites ",
+          "aktivOitetl",
+          "mite-lhe",
+          "apnite, ;akH",
+          "WriteMr"
+        ]
+      },
+      "saved_file": "models/dell_Video_NVIDIA_W74_W84_X00_A01_Setup-8WP1D_ZPE/ec_2_RAW_PFS_SUBCOMPONENT_786456.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:nvcuvenc.dl_",
+      "plaintext": true,
+      "active_entropy": 7.698,
+      "size": 955709,
+      "sha256": "5d2b6614de26466eae1fc4a4f6823ef3bdf170059929619d3faeb3a4f36adef6",
+      "head32": "535a444488f02733410020531e00ff4d5a9000030000007d04f5f0ffff0000b8",
+      "signals": {
+        "notable_strings": [
+          "Services"
+        ]
+      },
+      "saved_file": "models/dell_Video_NVIDIA_W74_W84_X00_A01_Setup-8WP1D_ZPE/ec_3_RAW_PFS_SUBCOMPONENT_955709.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:nvcuvenc64.dl_",
+      "plaintext": true,
+      "active_entropy": 7.693,
+      "size": 1114817,
+      "sha256": "4c1ceea7ee2a85b372be156d5ba65d074532cc3523dbd90624d61bd448240327",
+      "head32": "535a444488f02733410020d52300ff4d5a9000030000007d04f5f0ffff0000b8",
+      "signals": {
+        "io_910_911_pairs": 1
+      },
+      "saved_file": "models/dell_Video_NVIDIA_W74_W84_X00_A01_Setup-8WP1D_ZPE/ec_4_RAW_PFS_SUBCOMPONENT_1114817.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:nvd3d9wrap.dl_",
+      "plaintext": true,
+      "active_entropy": 7.743,
+      "size": 141988,
+      "sha256": "4d072ae92ffa3e812421e5ee1f881c1e3b0875e90f81d812efc2fadf3968bdb6",
+      "head32": "535a444488f027334100485f0400ff4d5a9000030000007d04f5f0ffff0000b8",
+      "signals": {
+        "notable_strings": [
+          "Services"
+        ]
+      },
+      "saved_file": "models/dell_Video_NVIDIA_W74_W84_X00_A01_Setup-8WP1D_ZPE/ec_5_RAW_PFS_SUBCOMPONENT_141988.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:nvd3d9wrapx.dl_",
+      "plaintext": true,
+      "active_entropy": 7.736,
+      "size": 156933,
+      "sha256": "de0912ff9dc8bb90a88f6b77680030e0a7cb4d0dc1a5bbc87cc4dc5d06b3830a",
+      "head32": "535a444488f02733410050fe0400ff4d5a9000030000007d04f5f0ffff0000b8",
+      "signals": {},
+      "saved_file": "models/dell_Video_NVIDIA_W74_W84_X00_A01_Setup-8WP1D_ZPE/ec_6_RAW_PFS_SUBCOMPONENT_156933.bin"
+    }
+  ],
   "pw_modules": []
 }

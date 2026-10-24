@@ -8,7 +8,7 @@
       "url": "https://downloads.dell.com/FOLDER01107455M/1/DELL_P713w_wcr_64_he.exe"
     }
   },
-  "elapsed_sec": 0.81,
+  "elapsed_sec": 0.71,
   "inner_files": [
     [
       "cab:DLECprpr.chm",
@@ -45,9 +45,54 @@
   ],
   "unpacked_stream_count": 10,
   "pfs_sections": [],
-  "ec_count": 0,
-  "plaintext_ec_count": 0,
+  "ec_count": 4,
+  "plaintext_ec_count": 4,
   "pw_module_count": 0,
-  "ecs": [],
+  "ecs": [
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:DLECprpr.chm",
+      "plaintext": true,
+      "active_entropy": 7.689,
+      "size": 65106,
+      "sha256": "ae217e303312dc864a6efaf31ea95e7279afe31b0e2a6e513839d6a3f966d31d",
+      "head32": "495453460300000060000000010000001116a6390904000010fd017caa7bd011",
+      "signals": {},
+      "saved_file": "models/dell_DELL_P713w_wcr_64_he/ec_1_RAW_PFS_SUBCOMPONENT_65106.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:DLECprpr.chm",
+      "plaintext": true,
+      "active_entropy": 7.699,
+      "size": 66531,
+      "sha256": "04d34156256c92cb1d69178e0e4e5a7730a31e5f2dbb47846253085e8af3a483",
+      "head32": "49545346030000006000000001000000d158dd490904000010fd017caa7bd011",
+      "signals": {},
+      "saved_file": "models/dell_DELL_P713w_wcr_64_he/ec_2_RAW_PFS_SUBCOMPONENT_66531.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:dleccpathsideflip.BMP",
+      "plaintext": true,
+      "active_entropy": 2.902,
+      "size": 56510,
+      "sha256": "7293b75b138ffa911e51296cff4437e69cdabf541b34ec702bbc0d3d55e06b07",
+      "head32": "424dbedc0000000000003602000028000000fa000000de000000010008000000",
+      "signals": {},
+      "saved_file": "models/dell_DELL_P713w_wcr_64_he/ec_3_RAW_PFS_SUBCOMPONENT_56510.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:dlectopflip.bmp",
+      "plaintext": true,
+      "active_entropy": 5.304,
+      "size": 52036,
+      "sha256": "23e6b4c16f7f0248e8dd55456ef7e1c31295a051f42d36b4cda485b3a78aa071",
+      "head32": "424d44cb000000000000320400002800000002010000c4000000010008000000",
+      "signals": {},
+      "saved_file": "models/dell_DELL_P713w_wcr_64_he/ec_4_RAW_PFS_SUBCOMPONENT_52036.bin"
+    }
+  ],
   "pw_modules": []
 }

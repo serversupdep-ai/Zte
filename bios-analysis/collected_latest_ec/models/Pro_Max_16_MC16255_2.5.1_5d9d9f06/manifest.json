@@ -18,7 +18,7 @@
     "category": "dell_pro_amd_2025",
     "priority": 92
   },
-  "elapsed_sec": 3.73,
+  "elapsed_sec": 3.57,
   "inner_files": [
     [
       "cab:firmware.bin",
@@ -195,10 +195,66 @@
       "xml_hint": ""
     }
   ],
-  "ec_count": 9,
-  "plaintext_ec_count": 1,
+  "ec_count": 58,
+  "plaintext_ec_count": 50,
   "pw_module_count": 3,
   "ecs": [
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Utilities/1 Image -- 1 Policy Payload v1.2.60.bin",
+      "plaintext": true,
+      "active_entropy": 0.532,
+      "size": 211736,
+      "sha256": "03f4e40dc0b9a4d9b6627b9c4649552a9ddecc72047303de5bb6c329662a50e7",
+      "head32": "24504c430100000020000000183b0300200000003c0201000000000009d1945f",
+      "signals": {
+        "notable_strings": [
+          "DellFlashUi.exe"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_1_RAW_PFS_SUBCOMPONENT_211736.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Utilities/1 Image -- 2 Resource Payload v1.1.13.bin",
+      "plaintext": true,
+      "active_entropy": 7.289,
+      "size": 256614,
+      "sha256": "54d8831a12e25ea64601fe7c2d6c7ddbd5cc60616469e50c6e4fbd9013899e31",
+      "head32": "43535224010000002000000066ea030020000000a01e00000d010100ed81c77a",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_2_RAW_PFS_SUBCOMPONENT_256614.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Utilities/1 Image -- 3 UI Payload v1.0.13.bin",
+      "plaintext": true,
+      "active_entropy": 6.164,
+      "size": 1166863,
+      "sha256": "e61ccc24eb7eb6210d7fd84f89ccdd81b99030e38a2b48f95d77a4cdee4d9b8f",
+      "head32": "42494e2e4844522e01000000efcd110055495c436c61726974792e646c6c0000",
+      "signals": {
+        "io_910_911_pairs": 1,
+        "notable_strings": [
+          "SelectionItem`1",
+          "SelectionItem`2",
+          "DellResourceKeyID",
+          "Dell.Clarity.MVVM",
+          "Dell_WindowHeader_Loaded",
+          "PasswordBoxPasswordChanged",
+          "OnPasswordValueChanged",
+          "Dell_ActionBar_ItemsCollectionChanged",
+          "OnItemsChanged",
+          "get_Password",
+          "set_Password",
+          "GetPassword",
+          "SetPassword",
+          "GetService",
+          "get_ItemsSource"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_3_RAW_PFS_SUBCOMPONENT_1166863.bin"
+    },
     {
       "kind": "PHCM",
       "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin@0x81000",
@@ -217,7 +273,33 @@
           "SVI3: Write register error."
         ]
       },
-      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_1_PHCM_327680.bin"
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_4_PHCM_327680.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 11 Retimer v2.2.0.12.bin",
+      "plaintext": true,
+      "active_entropy": 5.877,
+      "size": 65536,
+      "sha256": "c69e1a5c768b64d75ff2d55e0a9a6679c93d1140e9c4d9398f1248e622f9d7ed",
+      "head32": "020000023003ffffffffff02300bffffffffff023013ffffffffff02301bffff",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_5_RAW_PFS_SUBCOMPONENT_65536.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 2 Main System TI Port Controller 0 v1.40.5.6.bin",
+      "plaintext": true,
+      "active_entropy": 6.91,
+      "size": 178316,
+      "sha256": "4b633cd234b37fb38b8cb013b54edaf7d7c329805bd04cd2f912b0d38b1a51b7",
+      "head32": "0300efac0b000008b80b770021c7a172bf60c8076b331387814c42e8544902d4",
+      "signals": {
+        "notable_strings": [
+          "<\"BKBC"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_6_RAW_PFS_SUBCOMPONENT_178316.bin"
     },
     {
       "kind": "PHCM",
@@ -229,7 +311,7 @@
       "size": 378448,
       "sha256": "427accf64d46eafad941609869f92e3de95875dd47111cb7b7972f53cb2bb4e1",
       "signals": {},
-      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_2_hdrstub_378448.bin",
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_7_hdrstub_378448.bin",
       "stub_only": true
     },
     {
@@ -242,7 +324,7 @@
       "size": 378448,
       "sha256": "63e036e65fa8f806729f494a48f6fa06846dc0edf7b15fd69a040037a1f4e58e",
       "signals": {},
-      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_3_hdrstub_378448.bin",
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_8_hdrstub_378448.bin",
       "stub_only": true
     },
     {
@@ -255,7 +337,7 @@
       "size": 378576,
       "sha256": "7975ed2e91c92f08909df030fe1acc56387f727341020baf8af997448f0914d3",
       "signals": {},
-      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_4_hdrstub_378576.bin",
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_9_hdrstub_378576.bin",
       "stub_only": true
     },
     {
@@ -268,7 +350,7 @@
       "size": 378576,
       "sha256": "f49f16db9da9f2f2b3324e285830932c7e4454cb021624f990dbfdea808ec8a0",
       "signals": {},
-      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_5_hdrstub_378576.bin",
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_10_hdrstub_378576.bin",
       "stub_only": true
     },
     {
@@ -281,7 +363,7 @@
       "size": 327680,
       "sha256": "e277e59cbc82be3409ec9ee95b54b42abb531c8ab47d70eb74ad0c3b6a75776e",
       "signals": {},
-      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_6_hdrstub_327680.bin",
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_11_hdrstub_327680.bin",
       "stub_only": true
     },
     {
@@ -294,7 +376,7 @@
       "size": 327680,
       "sha256": "6be38fa01244da8b273ac213a481151dfd233de26e93008c3f6390d9a504928b",
       "signals": {},
-      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_7_hdrstub_327680.bin",
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_12_hdrstub_327680.bin",
       "stub_only": true
     },
     {
@@ -307,7 +389,7 @@
       "size": 327680,
       "sha256": "8915a4ade5157273b64b9fa1755f55d3dd2743f7dd635ba1a1a329c8fd85d4ef",
       "signals": {},
-      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_8_hdrstub_327680.bin",
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_13_hdrstub_327680.bin",
       "stub_only": true
     },
     {
@@ -320,8 +402,672 @@
       "size": 327680,
       "sha256": "593b96e66a7a94763d7a323010c62aaaa11f0303036be773022867f63af574b7",
       "signals": {},
-      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_9_hdrstub_327680.bin",
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_14_hdrstub_327680.bin",
       "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x10F8E00",
+      "plaintext": true,
+      "active_entropy": 5.506,
+      "size": 349216,
+      "sha256": "2cb2a2b022236c3a709979c4278404602d37a8a9c86c058cc033206ac6994ec0",
+      "head32": "00c54910d54920e54930f54900340000dcff0061d0ff0061100001612f000400",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_15_RAW_PFS_SUBCOMPONENT_349216.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x11AF400",
+      "plaintext": true,
+      "active_entropy": 4.56,
+      "size": 408192,
+      "sha256": "91cf337c3f2e74863f2994a33e7ee75939f21a80d54eb12390a1d36fcb47372b",
+      "head32": "020000000400000000000400b70000000b00000000000000900d0000384a0000",
+      "signals": {
+        "io_910_911_pairs": 1
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_16_RAW_PFS_SUBCOMPONENT_408192.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x11C4F00",
+      "plaintext": true,
+      "active_entropy": 3.566,
+      "size": 296784,
+      "sha256": "43a4445b74622b352ed4fd5f95dce0c8671d1e4a185b58f3991f2ab7d2ed8554",
+      "head32": "0200000004000000000004001800000006000000000000000002000028030000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_17_RAW_PFS_SUBCOMPONENT_296784.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x11FAF00",
+      "plaintext": true,
+      "active_entropy": 6.494,
+      "size": 107472,
+      "sha256": "257bd9372d11536ae0e67e38ae58df7ac67c47a2169b456b522975970222677d",
+      "head32": "10402de904209fe532ff2fe11080bde8457c020070402de90340a0e10250a0e1",
+      "signals": {
+        "notable_strings": [
+          "WriteSmnRegister 0x%x 0x%x ",
+          "Write PIE Code",
+          "APB REG WRITE: UMC%d 0x%08x = 0x%08x",
+          "Single Chip Select Write/Read Burst Test",
+          "Single Chip Select Write/Read Burst with Turnaro",
+          " Read Bubble: %d   Write Bubble: %d   Seed: %d  ",
+          "UMC REG WRITE: 0x%06x = 0x%08x",
+          "FchPciWrite",
+          "IoWrite",
+          "MmioWrite",
+          "Dummy Read and write for DramConfig Register to ",
+          "End of Write leveling fine delay search",
+          "End of Write leveling coarse delay search"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_18_RAW_PFS_SUBCOMPONENT_107472.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x120C200",
+      "plaintext": true,
+      "active_entropy": 6.667,
+      "size": 50048,
+      "sha256": "9be512d4695423412c0d1c977b47cf5ecef8bb10bc464ac30fe4ff831530a4b0",
+      "head32": "10402de904209fe532ff2fe11080bde88552020070402de90340a0e10250a0e1",
+      "signals": {
+        "notable_strings": [
+          "SwaOutputCurrentLimiterWarningStatus is set",
+          "SwbOutputCurrentLimiterWarningStatus is set",
+          "SwcOutputCurrentLimiterWarningStatus is set",
+          "SwdOutputCurrentLimiterWarningStatus is set",
+          "Cannot write SPD Hub registers for DIMM at 0x%x",
+          "Cannot write SPD Hub page registers for DIMM at ",
+          "Cannot write SPD Hub page at 0x%x",
+          "Cannot write Hub registers at 0x%x",
+          "FchPciWrite",
+          "IoWrite",
+          "MmioWrite"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_19_RAW_PFS_SUBCOMPONENT_50048.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x1251800",
+      "plaintext": true,
+      "active_entropy": 4.822,
+      "size": 393216,
+      "sha256": "b879ee8d569f2e543af0a98cc9c0282800b09dc5bb15994b4628e8673e5b8f8f",
+      "head32": "00165d0b00165d0b00000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_20_RAW_PFS_SUBCOMPONENT_393216.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x1281A00",
+      "plaintext": true,
+      "active_entropy": 5.027,
+      "size": 393216,
+      "sha256": "5a79d7b1e7417079b5f6859fc282d06b89194710c964070bfb248887b3ee5b20",
+      "head32": "0017650b0017650b00000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_21_RAW_PFS_SUBCOMPONENT_393216.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x12B0F00",
+      "plaintext": true,
+      "active_entropy": 4.859,
+      "size": 393216,
+      "sha256": "271918e16552bc4708ca6eb27000770f2b327ca75c0375812c1569f5e30a9159",
+      "head32": "00075d0c00075d0c00000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_22_RAW_PFS_SUBCOMPONENT_393216.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x12E2900",
+      "plaintext": true,
+      "active_entropy": 5.063,
+      "size": 393216,
+      "sha256": "d2344e4061cb6ccebd2b44e57b7025272319269bb5338ef7b45350aa784fc669",
+      "head32": "0007650c0007650c00000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_23_RAW_PFS_SUBCOMPONENT_393216.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x1313C00",
+      "plaintext": true,
+      "active_entropy": 5.647,
+      "size": 196608,
+      "sha256": "b177c8a80a5a7e2d3af80eb455752bcaa25f83e1a8ffb4e0c9bf2a5ffd4570f4",
+      "head32": "00165d0b00165d0b000000000000000000000000000003000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_24_RAW_PFS_SUBCOMPONENT_196608.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x1325000",
+      "plaintext": true,
+      "active_entropy": 5.49,
+      "size": 196608,
+      "sha256": "e39b02e8e69999e27ef0e195784d4adde3942280d2cbde8cdaac52600f65e14d",
+      "head32": "0017650b0017650b000000000000000000000000000003000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_25_RAW_PFS_SUBCOMPONENT_196608.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x1335C00",
+      "plaintext": true,
+      "active_entropy": 5.63,
+      "size": 196608,
+      "sha256": "17b385c2ccd16f55af3939508e7a438e4ff1160b46be58c7196532afe47865da",
+      "head32": "00075d0c00075d0c000000000000000000000000000003000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_26_RAW_PFS_SUBCOMPONENT_196608.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x1347100",
+      "plaintext": true,
+      "active_entropy": 5.52,
+      "size": 196608,
+      "sha256": "e1c1f42de80c000ac41786c2337e64ae290a50cd540a1bdba5c37d8fd9ff382f",
+      "head32": "0007650c0007650c000000000000000000000000000003000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_27_RAW_PFS_SUBCOMPONENT_196608.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x1511100",
+      "plaintext": true,
+      "active_entropy": 6.645,
+      "size": 32800,
+      "sha256": "6aa3adb98787be3142d82457d248ee99c96b219d6768107d0cdffd10ca8fba94",
+      "head32": "4250504120000000020000000080000064070000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_28_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x1514800",
+      "plaintext": true,
+      "active_entropy": 2.715,
+      "size": 32800,
+      "sha256": "607c421058554f7d7c4a4d0b5855b0f369882f9e7b7e295c2af6e066adc3e4ee",
+      "head32": "4250504120000000020000000080000065070000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_29_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x1514E00",
+      "plaintext": true,
+      "active_entropy": 6.999,
+      "size": 32800,
+      "sha256": "df65d4e20014be127f3e65eed907c6dca863711f6c3e6dd2a119d6104c7ca453",
+      "head32": "42505041200000000200000000800000640b0000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_30_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x151B000",
+      "plaintext": true,
+      "active_entropy": 7.017,
+      "size": 32800,
+      "sha256": "8354b16c8e18e37ce348133ad668bf1b82a3e3b272da23aa89235c84d23ca223",
+      "head32": "42505041200000000200000000800000640c0000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_31_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x1520F00",
+      "plaintext": true,
+      "active_entropy": 6.963,
+      "size": 32800,
+      "sha256": "c664014aee7032964f23fb58dff8ef64eda07be43510b7992dc4cb269a39561a",
+      "head32": "42505041200000000200000000800000640d0000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_32_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x1524D00",
+      "plaintext": true,
+      "active_entropy": 3.29,
+      "size": 32800,
+      "sha256": "737bad3ec5d454d9ce2edf91bbd823e5fa83d7eeae328f97f2e0c48655d7ae80",
+      "head32": "42505041200000000200000000800000650b0000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_33_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x1525400",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "7b72c787a3c7d7e1d269a56a7780be2a6080c351620f12449e775801a13e0e11",
+      "head32": "42505041200000000200000000800000650c0000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_34_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x1525700",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "8c17a876d1c56e5c769581ace08dba7c63530a3bb89ee57a3f82e553b50c2cca",
+      "head32": "42505041200000000200000000800000650d0000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_35_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 3.434,
+      "size": 37134,
+      "sha256": "95eb8dd2ff31cddd4e3a18d6a26e1c7e36fcbe9151c143294010d8ae5e2c6b1e",
+      "head32": "7b4617d6f71f3f40a87d29f61c80ee7cbeaa06100e9100f82800001b02f56eb8",
+      "signals": {
+        "notable_strings": [
+          "Birman"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_36_RAW_PFS_SUBCOMPONENT_37134.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 3.421,
+      "size": 36996,
+      "sha256": "fac40cf1ec0d36fdab62ce26361a34e7cbb68963c5cf628b39537f5c30bd6b0a",
+      "head32": "849000104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Birman"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_37_RAW_PFS_SUBCOMPONENT_36996.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.506,
+      "size": 54222,
+      "sha256": "6b8991c85f133d438fba207a5b1f995a30158f7d83e9c89f6bc47dfc73ac17af",
+      "head32": "c8c0f61c85faee4394afdb27c54174c977aa0610ced300f83a00001b023d6494",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_38_RAW_PFS_SUBCOMPONENT_54222.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.504,
+      "size": 54084,
+      "sha256": "08fb5891286d2404c2dfcd1d36f4b48abb80e20439be55dd3f9e050bc03a66b0",
+      "head32": "44d300104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_39_RAW_PFS_SUBCOMPONENT_54084.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.591,
+      "size": 35602,
+      "sha256": "d374fab972a121123b0ec95aa1538c342a5608dac22e74945550abb5dfd440ac",
+      "head32": "b28df1eafdfb504e8e77aac8191628b51aaa0610128b00f84c00001b029a447a",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_40_RAW_PFS_SUBCOMPONENT_35602.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.588,
+      "size": 35428,
+      "sha256": "d0aaf45abd70e0a3d5bf2d40c4282a41ff601eb7e16e2bffa512f540606eb9ae",
+      "head32": "648a00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_41_RAW_PFS_SUBCOMPONENT_35428.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.376,
+      "size": 80130,
+      "sha256": "ab92b2a17bd40c4cda3c7a6567fcbb17bb828812578b908d3394510d9f1bf0b8",
+      "head32": "418d1194a5657c4990a19d78591c797abeaa0610023901f88200001b02471e78",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_42_RAW_PFS_SUBCOMPONENT_80130.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.372,
+      "size": 79908,
+      "sha256": "e41986e64615aa5a32d450518aec9ef57228d2c38dea571ccc874d1e81a04634",
+      "head32": "243801104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_43_RAW_PFS_SUBCOMPONENT_79908.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.245,
+      "size": 36550,
+      "sha256": "74459aaf6bccc6cb72a66e112bc44419ed8805a972b461c82c81fa59e2ce321a",
+      "head32": "8f0aaaa2d543214ba26b5d02476ad457e5aa0610c68e00f8dc00001b029c65d5",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_44_RAW_PFS_SUBCOMPONENT_36550.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.228,
+      "size": 36260,
+      "sha256": "d28639211df8d679e35df39bf2cf59da57cb14c33ec138fb47c34860f172980e",
+      "head32": "a48d00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_45_RAW_PFS_SUBCOMPONENT_36260.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.627,
+      "size": 35134,
+      "sha256": "70e592e9ee7b74479fe02d9626099b62d1168194214062bb11259f548eae1f9f",
+      "head32": "9debadedbaddbd489d22c1c169c8c5c668aa06103e8900f81600001b02254df3",
+      "signals": {
+        "notable_strings": [
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_46_RAW_PFS_SUBCOMPONENT_35134.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.627,
+      "size": 35044,
+      "sha256": "15d07c72ec9f11d20bda62350c498a0ffc8c2b71715307b08355e52e8ee5dc6c",
+      "head32": "e48800104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_47_RAW_PFS_SUBCOMPONENT_35044.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.49,
+      "size": 38072,
+      "sha256": "277da14aef13481f0843ca543e62c9374f4826dc9125cff4776497db9961c1bd",
+      "head32": "8ddd22f90c40f643951b93673d73601fbbaa0610b89400f81600001b028e8992",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_48_RAW_PFS_SUBCOMPONENT_38072.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.487,
+      "size": 38020,
+      "sha256": "3dde0c32a69b2098f182055774122ff7c24f65b263b2255e7e695c92442fcf05",
+      "head32": "849400104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_49_RAW_PFS_SUBCOMPONENT_38020.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.62,
+      "size": 764158,
+      "sha256": "8be5f3ef159cd3d612c24e4c0e2bda369f01b09c547f0e7f4e02be7bf9aecc03",
+      "head32": "6be41c0dd972a74b95da23511865e661ddaa0610fea80bf81600001b02254df3",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "directory services (X.500)",
+          "challengePassword",
+          "serviceLocator",
+          "OCSP Service Locator",
+          "directory services - algorithms",
+          "favouriteDrink",
+          "id-PasswordBasedMAC",
+          "password based MAC",
+          "id-ct-asciiTextWithCRLF",
+          "userPassword",
+          "tcg-ce-virtualPlatformAttestationService",
+          "Virtual Platform Attestation Service",
+          "tcg-ce-migrationControllerAttestationService",
+          "Migration Controller Attestation Service",
+          "tcg-ce-migrationControllerRegistrationService"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_50_RAW_PFS_SUBCOMPONENT_764158.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.619,
+      "size": 764068,
+      "sha256": "1d476e4f7d2016c1925ff03ae96e3de2b5460d989e8b7ce48d60047bfd328596",
+      "head32": "a4a80b104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "directory services (X.500)",
+          "challengePassword",
+          "serviceLocator",
+          "OCSP Service Locator",
+          "directory services - algorithms",
+          "favouriteDrink",
+          "id-PasswordBasedMAC",
+          "password based MAC",
+          "id-ct-asciiTextWithCRLF",
+          "userPassword",
+          "tcg-ce-virtualPlatformAttestationService",
+          "Virtual Platform Attestation Service",
+          "tcg-ce-migrationControllerAttestationService",
+          "Migration Controller Attestation Service",
+          "tcg-ce-migrationControllerRegistrationService"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_51_RAW_PFS_SUBCOMPONENT_764068.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.733,
+      "size": 75938,
+      "sha256": "08831013c8fe63b92e9a3966475bdfb9148780b0a8469c5f44a329492831c4d7",
+      "head32": "f81450cfbe2e574daa83d7a3607371ea8faa0610a22801f82800001b023d6494",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "DellLogo",
+          "Warning Write Failure",
+          "Write Protected",
+          "invalid literal/lengths set",
+          "invalid literal/length code"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_52_RAW_PFS_SUBCOMPONENT_75938.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.734,
+      "size": 75780,
+      "sha256": "84ee54586ceec27f7c4fe1ceba0cda02fde6ce687f97b1a6e3b536e140eada1d",
+      "head32": "042801104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "DellLogo",
+          "Warning Write Failure",
+          "Write Protected",
+          "invalid literal/lengths set",
+          "invalid literal/length code"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_53_RAW_PFS_SUBCOMPONENT_75780.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.608,
+      "size": 609230,
+      "sha256": "124b9c83514b72e49eef8bc5c6a17c94386e732f4545f6f509063b38cd4a53f5",
+      "head32": "b4db2add4d584c4e9f17b91431c15be73caa0610ce4b09f81600001b02254df3",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "iteration",
+          "Assertion failed: (item->keytype1 == -1) == (ite",
+          "directory services (X.500)",
+          "challengePassword",
+          "serviceLocator",
+          "OCSP Service Locator",
+          "directory services - algorithms",
+          "favouriteDrink",
+          "id-PasswordBasedMAC",
+          "password based MAC",
+          "id-ct-asciiTextWithCRLF",
+          "userPassword",
+          "tcg-ce-virtualPlatformAttestationService",
+          "Virtual Platform Attestation Service",
+          "tcg-ce-migrationControllerAttestationService"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_54_RAW_PFS_SUBCOMPONENT_609230.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.608,
+      "size": 609124,
+      "sha256": "3890e85ace047aafad67c7971791b47542b9abc60cacebcb5752a251a99167e1",
+      "head32": "644b09104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "iteration",
+          "Assertion failed: (item->keytype1 == -1) == (ite",
+          "directory services (X.500)",
+          "challengePassword",
+          "serviceLocator",
+          "OCSP Service Locator",
+          "directory services - algorithms",
+          "favouriteDrink",
+          "id-PasswordBasedMAC",
+          "password based MAC",
+          "id-ct-asciiTextWithCRLF",
+          "userPassword",
+          "tcg-ce-virtualPlatformAttestationService",
+          "Virtual Platform Attestation Service",
+          "tcg-ce-migrationControllerAttestationService"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_55_RAW_PFS_SUBCOMPONENT_609124.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 5.565,
+      "size": 49176,
+      "sha256": "b574e39bd82496834cd56d969f4da3d151b60a57086ffea73e0632f1e9f8289e",
+      "head32": "9261e75ead945d4da6b3ab59716c46fb81aa010818c000f85f504344544e545f",
+      "signals": {
+        "notable_strings": [
+          "PcdDellSataTempBuffer",
+          "PcdDellBoardBomID",
+          "PcdDellBranding",
+          "PcdDellBrightnessLowNitsEnableSwitch",
+          "PcdDellCpuM2PcieLabel",
+          "PcdDellEcMmioAddress",
+          "PcdDellFchDefinesPtr",
+          "PcdDellFuncDxeBoardGetDisplayModeFlag",
+          "PcdDellFuncDxeBoardProgramDgpSsidSvid",
+          "PcdDellFuncDxeBoardSetDisplayRouting",
+          "PcdDellFuncDxeBoardUpdateHgSsdtTable",
+          "PcdDellFuncDxeBoardUpdateMeSetupPttState",
+          "PcdDellFuncPeiBoardDgpuDirectOutput",
+          "PcdDellIgdCableDetect",
+          "PcdDellKbdBacklightRemove"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_56_RAW_PFS_SUBCOMPONENT_49176.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 5.56,
+      "size": 49152,
+      "sha256": "1c9f912969db21410350a37958eeaf5ac08acf1088b1ee6587d2ceb1bf85ed03",
+      "head32": "5f504344544e545f15007904861a4e2ca1a696439793d941a44386d93ded994f",
+      "signals": {
+        "notable_strings": [
+          "PcdDellSataTempBuffer",
+          "PcdDellBoardBomID",
+          "PcdDellBranding",
+          "PcdDellBrightnessLowNitsEnableSwitch",
+          "PcdDellCpuM2PcieLabel",
+          "PcdDellEcMmioAddress",
+          "PcdDellFchDefinesPtr",
+          "PcdDellFuncDxeBoardGetDisplayModeFlag",
+          "PcdDellFuncDxeBoardProgramDgpSsidSvid",
+          "PcdDellFuncDxeBoardSetDisplayRouting",
+          "PcdDellFuncDxeBoardUpdateHgSsdtTable",
+          "PcdDellFuncDxeBoardUpdateMeSetupPttState",
+          "PcdDellFuncPeiBoardDgpuDirectOutput",
+          "PcdDellIgdCableDetect",
+          "PcdDellKbdBacklightRemove"
+        ]
+      },
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_57_RAW_PFS_SUBCOMPONENT_49152.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v2.5.1.bin->zlib@0x3D40100->ufv",
+      "plaintext": true,
+      "active_entropy": 0.026,
+      "size": 336224,
+      "sha256": "628fbcef18205a08dad1063ed60bba4b4b4b99d53ef1d2d3412fb58cb4950271",
+      "head32": "ffffffffffffffffffffffffffffffff9aaaf000602105f8ffffffffffffffff",
+      "signals": {},
+      "saved_file": "models/Pro_Max_16_MC16255_2.5.1_5d9d9f06/ec_58_RAW_PFS_SUBCOMPONENT_336224.bin"
     }
   ],
   "pw_modules": [

@@ -18,7 +18,7 @@
     "category": "xps_alienware_gaming_latest",
     "priority": 88
   },
-  "elapsed_sec": 1.26,
+  "elapsed_sec": 1.08,
   "inner_files": [
     [
       "cab:firmware.bin",
@@ -67,9 +67,90 @@
       "head16": "3b20546869732066696c652069732074"
     }
   ],
-  "ec_count": 0,
-  "plaintext_ec_count": 0,
+  "ec_count": 4,
+  "plaintext_ec_count": 3,
   "pw_module_count": 0,
-  "ecs": [],
+  "ecs": [
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_INI_IMG@0x11007D8",
+      "plaintext": true,
+      "active_entropy": 4.66,
+      "size": 61624,
+      "sha256": "52999507e4b10ee3efb020f6063996be3273c8b0ed86215862b6dd4e2fbf1e5a",
+      "head32": "3b20546869732066696c652069732074686520636f6e66696775726174696f6e",
+      "signals": {
+        "notable_strings": [
+          "; To specify each setting item, the following no",
+          "; [PasswordCheck]                       | WIN SH",
+          "; [WriteVariable]                       | Secure",
+          "erwrite.",
+          "ty will load the new ini file and overwrite all ",
+          "EnableNoWriteBlockProgressDelay=0",
+          ";EnableNoWriteBlockProgressDelay",
+          ";                            If no ROM write is ",
+          "rite is required.",
+          "Password=0",
+          ";                            Password      = Typ",
+          "EC_Verify=0",
+          "EC_VerifyErrorRetry=3",
+          "fore writing. Just do write action directly.",
+          " the same as the data we want to write,"
+        ]
+      },
+      "saved_file": "models/Alienware_15_DA15260_1.4.0_647af5e2/ec_1_RAW_PFS_SUBCOMPONENT_61624.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->lzma@0xE24A40",
+      "plaintext": true,
+      "active_entropy": 6.629,
+      "size": 101934,
+      "sha256": "53a26c30ffb613f2c98c42f877177a6e70d06e97fea31135127a13bf2f5f464a",
+      "head32": "048e01104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Failed to write packed metadata!",
+          "Failed to write sorted Segment/Index list",
+          "EFI_WRITE_PROTECTED",
+          "EFI_WARN_WRITE_FAILURE",
+          "PeiServicesTablePointer != ((void *) 0)",
+          "c:\\udk\\edk2\\MdePkg\\Library\\PeiServicesTablePoint",
+          "erLib\\PeiServicesTablePointer.c",
+          "gPeiServices != ((void *) 0)",
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/Alienware_15_DA15260_1.4.0_647af5e2/ec_2_RAW_PFS_SUBCOMPONENT_101934.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->lzma@0xE8C298",
+      "plaintext": false,
+      "active_entropy": 7.847,
+      "size": 131200,
+      "sha256": "3d77a8a5014fbc4fa6fd47d4c25b2925c220ebe261160580f093b166aa9c3cd1",
+      "head32": "7c00001900000000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1
+      },
+      "saved_file": "models/Alienware_15_DA15260_1.4.0_647af5e2/ec_3_hdrstub_131200.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->lzma@0xE8C298->lzma@0x10D18",
+      "plaintext": true,
+      "active_entropy": 6.272,
+      "size": 54314,
+      "sha256": "50016b4a83d41b1b2999a9cde3b3670fa551ebfb50bfaa4d9dc7239c4fad3d91",
+      "head32": "e4d300104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1
+      },
+      "saved_file": "models/Alienware_15_DA15260_1.4.0_647af5e2/ec_4_RAW_PFS_SUBCOMPONENT_54314.bin"
+    }
+  ],
   "pw_modules": []
 }
