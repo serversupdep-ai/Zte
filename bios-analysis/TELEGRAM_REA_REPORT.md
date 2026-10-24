@@ -68,3 +68,20 @@
 | `pw_x86_64_b618a5980e86ac3e_28672.efi` | 28,672 | `b618a5980e86` | `8FC8` | `8FC8,E7A8,BF97,6FF1,1F66,1D3B,2A7B` | `False` | `False` | `ev_f221f46942318ca2...` |
 | `pw_x86_64_e7ae8e2dab7bc924_39424.efi` | 39,424 | `e7ae8e2dab7b` | `8FC8` | `8FC8,E7A8,BF97,6FF1,1F66,1D3B,2A7B,595B` | `True` | `True` | `ev_3a8e132c729d0537...` |
 | `pw_x86_64_f3b6e0b6bbab7160_22528.efi` | 22,528 | `f3b6e0b6bbab` | `1B58,9ABE,3FE2,CF1B,8FC8` | `8FC8,E7A8,BF97,6FF1,1F66,1D3B,2A7B` | `False` | `False` | `ev_0b22bf2de8fe56ce...` |
+
+## 4. Synthesis: 2026 REA Binary Findings + Live Telegram Visual Evidence
+
+1. **Exact Two-Table Partition in 2026 Dell BIOS (`PC14250` `1.18.0`, `OptiPlex 7020` `1.29.0 DVT`, `Latitude 5440/5450/7450`, `PB14255`)**:
+   - **Setup DXE (`pw_04c3_22528.efi`, `0x5560`)**: Checks two adjacent `uint16_t` suffix tables at `.data+0x00` (`0x6000`: `{E7A8, BF97, 6FF1, 1F66, 1D3B, 2A7B, 0001}`) and `.data+0x10` (`0x6010`: `{1B58, 9ABE, 3FE2, CF1B, 8FC8}`).
+   - **SMM Verifier (`pw_308b_38912.efi` / `DellSecurityVaultSmm_53248.efi`)**:
+     - `0x47a5` executes `cmp rax, 0x00ff` (`48 3d ff 00 00 00` — legacy `0001` sentinel -> `BF97`), **not** `0xffff`. Unlisted suffixes (`0x4308 == 0xFFFF`) hit `0x490c: cmp rax, 0xffff; je 0x4a0b` (`EFI_INVALID_PARAMETER`), refuting `Key./dell_keygen_newgen.py`'s `0xFFFF -> BF97` assumption.
+     - `{1B58, 9ABE, 3FE2, CF1B, 8FC8}` validate exclusively via `0x2223 -> 0x8AEC -> 0x32F8` (EC mailbox `0x910/0x911`, `cmd 0x21, sub 0x03, type 0x06`).
+     - `DellSecurityVaultSmm_53248.efi` also embeds `PwByPassSmm` v1.1 at raw offset `0xb368` (hardware `PSWD` service-jumper / manufacturing policy table at `0x4a58`).
+
+2. **Empirical Confirmation from Captured `@Bios_Password` Screenshots (`bios-analysis/telegram_captures/`)**:
+   - **`-8FC8` (`#99`, `#100`, `#139`, `#144`)**: Visible fragments (`Qs...MN6`, `IqW...kr`, `G8...zzBN`, `bm...[RB`) consist strictly of `ALPHABET0` (`0Q2drGk99...`, including `[`), matching `0x32F8`'s `ALPHABET0[(resp32[i] + resp32[i+16]) % 72]` path.
+   - **`-1B58` & `-9ABE` (`#135`, `#136`, `#142`, `#146`, `#148`, `#149`)**: Visible fragments (`kROPDERR+...`, `...RT...zF`, `...dEcbQH10UUd`, `YEb0KYKQFD...`, `g6303VQo...`) use standard 64-character Base64 (`[A-Za-z0-9+/]`, including `+`, `O`, `V`, `Y`, `K`, `T`, `H`, `g` absent from `ALPHABET0`), matching `0x32F8`'s direct 16-byte `memcpy(out, resp32, 16)` path for `{1B58, 9ABE, 3FE2, CF1B}` and multi-hour upstream dealer/factory lookup turnaround (`11:54 AM -> 2:45 PM`).
+
+3. **Standalone Keygen**:
+   - Implemented in `bios-analysis/dell_simple_keygen.py` (`26/26` self-tests passing, zero external dependencies, optional `--rea-info` live `rea_security_data.json` inspector).
+
