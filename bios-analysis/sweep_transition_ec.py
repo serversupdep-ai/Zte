@@ -304,6 +304,7 @@ def analyze_one_target(t: dict, hits_dir: Path) -> dict:
         pkg = http_get(t["wayback_url"], timeout=120)
     if not pkg:
         return {**t, "status": "download_failed", "elapsed": round(time.time() - t0, 1)}
+    pkg_mb = round(len(pkg) / (1024 * 1024), 2)
 
     with tempfile.TemporaryDirectory() as td:
         inner_blobs = []
@@ -312,7 +313,8 @@ def analyze_one_target(t: dict, hits_dir: Path) -> dict:
             Path(cab_p).write_bytes(pkg)
             ext_d = os.path.join(td, "ext")
             import subprocess
-            subprocess.run(["7z", "x", "-y", f"-o{ext_d}", cab_p], capture_output=True, timeout=240)
+            if shutil.which("7z"):
+                subprocess.run(["7z", "x", "-y", f"-o{ext_d}", cab_p], capture_output=True, timeout=240)
             for root, _dirs, files in os.walk(ext_d):
                 for fn in sorted(files):
                     if fn in (".text", ".rdata", ".data", ".pdata", ".reloc", ".rsrc", "CERTIFICATE"):
@@ -353,16 +355,18 @@ def analyze_one_target(t: dict, hits_dir: Path) -> dict:
 
         ec_summaries = []
         any_unsealed_ec = False
+        tmp_ec_path = Path(td) / "cand_ec.bin"
         for idx, e in enumerate(ecs, 1):
             eb = e.pop("bytes")
-            insp = eks.inspect_ec_dump(eb)
+            tmp_ec_path.write_bytes(eb)
+            insp = eks.inspect_ec_dump(tmp_ec_path)
             phcm_b6 = f"0x{eb[6]:02x}" if eb[:4] == b"PHCM" and len(eb) > 8 else None
             is_unsealed = bool(e.get("plaintext")) or (eb[:4] == b"PHCM" and len(eb) > 8 and eb[6] == 0x00)
             if is_unsealed:
                 any_unsealed_ec = True
             saved_hit = None
-            # Save binary ONLY if it's an unsealed EC on an 8FC8/cmd21 platform OR has EC_ALPH72/ALPHABET0!
-            if is_unsealed and (has_ec_8fc8 or insp["has_alphabet0"] or insp["has_ec_alph72"]):
+            # Save binary ONLY if it's an unsealed EC on an 8FC8/cmd21 platform OR novel unsealed EC with ALPHABET0!
+            if is_unsealed and (has_ec_8fc8 or insp["has_alphabet0"] or (insp["has_ec_alph72"] and "5x90" not in t["slug"].lower())):
                 hits_dir.mkdir(parents=True, exist_ok=True)
                 out_fn = f"{t['slug']}__ec{idx}_{e['kind']}_{len(eb)}.bin"
                 (hits_dir / out_fn).write_bytes(eb)
@@ -374,9 +378,9 @@ def analyze_one_target(t: dict, hits_dir: Path) -> dict:
                 "phcm_byte6": phcm_b6,
                 "active_entropy": e.get("active_entropy"),
                 "unsealed": is_unsealed,
-                "has_ec_alph72": insp["has_ec_alph72"],
-                "has_alphabet0": insp["has_alphabet0"],
-                "cmd4e_offset": insp["cmd4e_handler_offset"],
+                "has_ec_alph72": insp.get("has_ec_alph72", False),
+                "has_alphabet0": insp.get("has_alphabet0", False),
+                "family_dispatch": insp.get("family_dispatch_candidates", []),
                 "saved_hit": saved_hit,
             })
 
@@ -389,7 +393,7 @@ def analyze_one_target(t: dict, hits_dir: Path) -> dict:
         return {
             **t,
             "status": "ok",
-            "pkg_mb": round(len(pkg) / (1024 * 1024), 2),
+            "pkg_mb": pkg_mb,
             "elapsed": round(time.time() - t0, 1),
             "has_ec_8fc8_protocol": has_ec_8fc8,
             "has_unsealed_ec": any_unsealed_ec,
