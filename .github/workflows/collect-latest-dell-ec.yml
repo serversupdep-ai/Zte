@@ -1,0 +1,66 @@
+name: Collect Latest Dell EC & Password Modules (2024-2026)
+
+on:
+  push:
+    branches: [arena/233897a2-zte]
+    paths:
+      - 'bios-analysis/collect_latest_dell_ec.py'
+      - '.github/workflows/collect-latest-dell-ec.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: collect-latest-dell-ec
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  collect-ec:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout session branch
+        uses: actions/checkout@v4
+        with:
+          ref: arena/233897a2-zte
+          fetch-depth: 1
+
+      - name: Install unpackers & BIOSUtilities
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq p7zip-full p7zip-rar zstd xz-utils cabextract > /dev/null
+          python3 -m pip install --upgrade pip -q
+          python3 -m pip install uefi_firmware zstandard pefile -q
+          git clone --depth 1 https://github.com/platomav/BIOSUtilities.git /tmp/BIOSUtilities || true
+
+      - name: Run 2024-2026 Dell LVFS + dl.dell.com EC harvester
+        env:
+          BIOSUTILS_DIR: /tmp/BIOSUtilities
+        run: |
+          mkdir -p bios-analysis/collected_latest_ec
+          python3 bios-analysis/collect_latest_dell_ec.py \
+            --lvfs-sweep \
+            --wayback-dell-ec \
+            --max-targets 48 \
+            --workers 5 \
+            --out bios-analysis/collected_latest_ec
+          du -sh bios-analysis/collected_latest_ec
+          cat bios-analysis/collected_latest_ec/COLLECTION_REPORT.md | head -n 120
+
+      - name: Commit harvested EC & password modules
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -d bios-analysis/collected_latest_ec ]; then
+            git add bios-analysis/collected_latest_ec
+          fi
+          if git diff --cached --quiet; then
+            echo "No new files staged."
+            exit 0
+          fi
+          git commit -m "Harvest latest 2024-2026 Dell EC & BIOS password modules"
+          for attempt in 1 2 3; do
+            git pull --rebase origin arena/233897a2-zte && git push origin HEAD:arena/233897a2-zte && break
+            sleep 3
+          done
