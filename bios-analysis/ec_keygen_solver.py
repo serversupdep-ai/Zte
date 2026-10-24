@@ -220,7 +220,26 @@ def inspect_ec_dump(ec_path: pathlib.Path) -> dict[str, object]:
 
     phcm_off = b.find(b"PHCM")
     phcm_flag = b[phcm_off + 6] if 0 <= phcm_off <= len(b) - 8 else None
+    phcm_load = (
+        int.from_bytes(b[phcm_off + 8 : phcm_off + 12], "little")
+        if 0 <= phcm_off <= len(b) - 12
+        else None
+    )
     npcx_sealed = b[:4] == bytes.fromhex("5e4d3b2a")
+    sealed = bool((phcm_flag is not None and (phcm_flag & 0x80)) or npcx_sealed or entropy > 7.90)
+
+    if npcx_sealed:
+        isa = "Nuvoton_NPCX993D_OTP_Sealed"
+    elif sealed and phcm_off >= 0:
+        isa = "Microchip_DEC1515_MEC5200_OTP_Sealed"
+    elif phcm_load == 0xBFCF0000:
+        isa = "Microchip_MEC14xx_MIPS32_microMIPS"
+    elif phcm_load == 0x000D0000:
+        isa = "Microchip_MEC5107_ARM_CortexM4_Thumb2"
+    elif b[:4] == bytes.fromhex("20b20d17") or (b"012345679abcdef" in b and phcm_off < 0):
+        isa = "Microchip_MEC5085_ARCompact"
+    else:
+        isa = "Unknown_or_Encrypted"
 
     fam_set = {0x58, 0xBE, 0xE2, 0x1B, 0xC8}
     fam_hits = []
@@ -245,11 +264,14 @@ def inspect_ec_dump(ec_path: pathlib.Path) -> dict[str, object]:
         "path": str(ec_path),
         "size": n,
         "entropy": round(entropy, 4),
+        "isa": isa,
         "phcm_offset": phcm_off,
         "phcm_flag": f"0x{phcm_flag:02x}" if phcm_flag is not None else None,
-        "sealed": bool((phcm_flag is not None and (phcm_flag & 0x80)) or npcx_sealed or entropy > 7.90),
+        "phcm_load": f"0x{phcm_load:08x}" if phcm_load is not None else None,
+        "sealed": sealed,
         "has_alphabet0": b"0Q2drGk9" in b,
         "has_ec_alph72": b"012345679abcdef" in b,
+        "has_sha256_k0": bytes.fromhex("982f8a42") in b,
         "has_vault_salt": VAULT_SALT_LE in b or VAULT_SALT_BE in b,
         "family_dispatch_candidates": fam_hits,
     }
@@ -519,6 +541,12 @@ def run_selftest() -> bool:
     if ec_path.exists():
         info_plain = inspect_ec_dump(ec_path)
         assert info_plain["sealed"] is False and info_plain["has_ec_alph72"] is True
+        assert info_plain["isa"] == "Microchip_MEC5107_ARM_CortexM4_Thumb2"
+    mips_path = REPO_ROOT / "bios-analysis/ec_payloads/transition_samples/Latitude_3310_1.24.0_MEC14xx_microMIPS_PHCM_196608.bin"
+    if mips_path.exists():
+        info_mips = inspect_ec_dump(mips_path)
+        assert info_mips["sealed"] is False and info_mips["has_ec_alph72"] is True
+        assert info_mips["isa"] == "Microchip_MEC14xx_MIPS32_microMIPS" and info_mips["has_sha256_k0"] is True
     sealed_candidates = sorted((REPO_ROOT / "bios-analysis/collected_latest_ec/models").glob("*/ec_*"))
     sealed_checked = 0
     for sc in sealed_candidates[:10]:
@@ -526,7 +554,7 @@ def run_selftest() -> bool:
             info = inspect_ec_dump(sc)
             sealed_checked += 1
             assert isinstance(info["entropy"], float)
-    print(f"      OK: inspected plaintext MEC5107 + {sealed_checked} modern EC payloads")
+    print(f"      OK: inspected plaintext MEC5107 + MEC14xx microMIPS + {sealed_checked} modern EC payloads")
     print("PASS: All ec_keygen_solver self-tests passed!")
     return True
 

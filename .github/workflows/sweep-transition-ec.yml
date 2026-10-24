@@ -1,11 +1,6 @@
 name: Sweep 2018-2020 Dell Transition EC & Wilco EC
 
 on:
-  push:
-    branches: [arena/233897a2-zte]
-    paths:
-      - 'bios-analysis/sweep_transition_ec.py'
-      - '.github/workflows/sweep-transition-ec.yml'
   workflow_dispatch:
 
 concurrency:

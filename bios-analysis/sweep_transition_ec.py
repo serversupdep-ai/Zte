@@ -361,12 +361,12 @@ def analyze_one_target(t: dict, hits_dir: Path) -> dict:
             tmp_ec_path.write_bytes(eb)
             insp = eks.inspect_ec_dump(tmp_ec_path)
             phcm_b6 = f"0x{eb[6]:02x}" if eb[:4] == b"PHCM" and len(eb) > 8 else None
-            is_unsealed = bool(e.get("plaintext")) or (eb[:4] == b"PHCM" and len(eb) > 8 and eb[6] == 0x00)
+            is_unsealed = (eb[:4] == b"PHCM" and len(eb) > 8 and eb[6] in (0x00, 0x01) and (e.get("active_entropy") or 8.0) < 7.5)
             if is_unsealed:
                 any_unsealed_ec = True
             saved_hit = None
-            # Save binary ONLY if it's an unsealed EC on an 8FC8/cmd21 platform OR novel unsealed EC with ALPHABET0!
-            if is_unsealed and (has_ec_8fc8 or insp["has_alphabet0"] or (insp["has_ec_alph72"] and "5x90" not in t["slug"].lower())):
+            # Save binary ONLY if an unsealed PHCM EC actually embeds ALPHABET0 (true 8FC8/CF1B EC generator)
+            if is_unsealed and e["kind"] == "PHCM" and insp.get("has_alphabet0"):
                 hits_dir.mkdir(parents=True, exist_ok=True)
                 out_fn = f"{t['slug']}__ec{idx}_{e['kind']}_{len(eb)}.bin"
                 (hits_dir / out_fn).write_bytes(eb)
