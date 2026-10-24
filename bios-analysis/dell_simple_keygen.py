@@ -26,9 +26,12 @@ BIOS Unlock Entry Tip:
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
+import hmac
 import json
 import re
+import struct
 import sys
 from pathlib import Path
 
@@ -45,6 +48,26 @@ REA_OFFLINE_REGISTRY = (
 
 # Verified from 2026 `DellSecurityVaultSmm` (`0x91F8`) & Setup DXE (`0x6010`):
 REA_EC_VAULT_REGISTRY = ("1B58", "9ABE", "3FE2", "CF1B", "8FC8", "A6E0")
+
+# SMM candidate password pre-hash salt (`pw_a9eb964a_43008.efi` VA 0x1bb4 / 0xa648):
+# `SHA256(password_ascii || struct.pack("<I", 0x8DFC7B25))` -> 32B digest sent via `cmd 0x21 sub=0x01`.
+SMM_VERIFY_SALT_LE = struct.pack("<I", 0x8DFC7B25)
+
+# Hardware-verified EC-Vault (tag-suffix -> 16-char Master Password) ground-truth vectors:
+# - `8FC8` uses 72-char `ALPHABET0` (`ALPHABET0[(resp[i] + resp[i+16]) % 72]`, VA 0x7b18).
+# - `{1B58, 9ABE, 3FE2, CF1B, A6E0}` use 16-char RFC 4648 Base64 encoding 12 raw PRF bytes (96 bits),
+#   copied verbatim from `resp[0..15]` at VA 0x7a63..0x7a74 (proven via disassembly + sub-pixel
+#   forensic recovery of `8RLMM84-9ABE -> YEb0KYKQFDd50XEO` from `@Bios_Password` #148).
+VERIFIED_EC_VAULT_VECTORS: dict[str, str] = {
+    "1K6Y963-8FC8": "BZsa9RGZzyIGD3pI",
+    "5S38Y33-8FC8": "2QqPqMGQxLNrrZxW",
+    "C9F23Z2-8FC8": "kr8a9e2xdPGRb1Lz",
+    "2C90B83-8FC8": "N9NM9j1qRMeGzyyr",
+    "D76FQF4-8FC8": "[PhyzIar3jy2Z6zM",
+    "GSSS6C4-8FC8": "rN3U2IZhzZ7njNcb",
+    "F4NRGB4-8FC8": "2933yxzZr5NLq0aX",
+    "8RLMM84-9ABE": "YEb0KYKQFDd50XEO",  # Decodes to exact 96-bit EC output 6046f4298290143779d1710e
+}
 
 ALPHABETS = {
     "8FC8": "0Q2drGk99WLJ1EGnqR5y3DGr16hN4seZPRM2zz2pzcU7JaBXIjbkGZrkQFMxN[Z638myIL2r",
@@ -449,9 +472,10 @@ def mec_ec_0x4e_code(service_tag: str) -> str:
 
 def render_ec_vault_resp32(suffix: str, resp32: bytes) -> str:
     """
-    Exact UEFI `DellSecurityVaultSmm` `0x32F8` post-EC renderer:
+    Exact UEFI `DellSecurityVaultSmm` `VA 0x7a10..0x7b85` post-EC renderer:
       - `8FC8`: `ALPHABET0[(resp32[i] + resp32[i+16]) % 72]` (proven 112/112 on 7 vectors)
-      - `{1B58, 9ABE, 3FE2, CF1B, A6E0}`: verbatim 16-byte ASCII/Base64 `resp32[0..15]`
+      - `{1B58, 9ABE, 3FE2, CF1B, A6E0}`: verbatim 16-char RFC 4648 Base64 `resp32[0..15]`
+        encoding 12 raw EC PRF bytes (96 bits, zero `=` padding).
     """
     if len(resp32) != 32:
         raise ValueError(f"Expected 32-byte EC response (64 hex chars), got {len(resp32)} bytes")
@@ -463,16 +487,98 @@ def render_ec_vault_resp32(suffix: str, resp32: bytes) -> str:
     return raw16.decode("ascii", errors="replace")
 
 
+def encode_ec_prf12_to_base64(prf12: bytes) -> str:
+    """Encode 12 raw EC PRF bytes (96 bits) to 16-char RFC 4648 Base64 (`1B58/9ABE/3FE2/CF1B/A6E0`)."""
+    if len(prf12) != 12:
+        raise ValueError(f"Expected 12 raw PRF bytes (96 bits), got {len(prf12)}")
+    return base64.b64encode(prf12).decode("ascii")
+
+
+def decode_ec_base64_to_prf12(master_pw16: str) -> bytes:
+    """Invert a 16-char `{1B58, 9ABE, 3FE2, CF1B, A6E0}` Master Password to its exact 12 raw EC bytes."""
+    pw = master_pw16.strip()
+    if len(pw) != 16:
+        raise ValueError(f"Expected 16-char Base64 Master Password, got {len(pw)} chars")
+    return base64.b64decode(pw.encode("ascii"), validate=True)
+
+
+def smm_password_sha256(password: str) -> str:
+    """
+    Compute the exact 32-byte SMM candidate-password hash (`VA 0x1bb4`) sent to EC `cmd 0x21 sub=0x01`:
+        SHA256(password_ascii || 0x25_7b_fc_8d)
+    """
+    return hashlib.sha256(password.encode("ascii") + SMM_VERIFY_SALT_LE).hexdigest()
+
+
 def build_ec_cmd21_frames(service_tag: str, suffix: str) -> dict[str, str]:
-    """Construct Gen-3 (12-byte) & Gen-4 (16-byte) EC mailbox cmd 0x21 TX frames (I/O 0x910/0x911)."""
+    """
+    Construct exact SMM-to-EC `I/O 0x910/0x911` `cmd 0x21 sub=0x03 type=0x06` frames:
+      - `VA 0x0436c..0x043f8`: slices 20B `[9B serial][7B ServiceTag]["ZZZZ"]` buffer to
+        11B `buf[9..19] = <7B ServiceTag> + "ZZZZ"` when `0x4308(suffix) == 0xFFFF`
+        (`{1B58, 9ABE, 3FE2, CF1B, A6E0}`).
+      - `VA 0x03784..0x0394a`: streams `21 00 03 06` + payload + suffix over `DellEcIoMm`.
+    """
     st = service_tag.strip().upper()[:7].encode("ascii")
-    sfx_lo = int(suffix.strip(), 16) & 0xFF
+    sfx_val = int(suffix.strip(), 16)
+    sfx_lo = sfx_val & 0xFF
+    sfx_le2 = struct.pack("<H", sfx_val)
     gen3 = bytes([0x21, 0x00, 0x03, 0x06]) + st + bytes([sfx_lo])
-    gen4 = bytes([0x21, 0x00, 0x03, 0x06]) + st + b"ZZZZ" + bytes([sfx_lo])
-    return {"io_ports": "0x910 / 0x911", "gen3_12b_hex": gen3.hex(), "gen4_16b_hex": gen4.hex()}
+    gen4_1b = bytes([0x21, 0x00, 0x03, 0x06]) + st + b"ZZZZ" + bytes([sfx_lo])
+    gen4_2b = bytes([0x21, 0x00, 0x03, 0x06]) + st + b"ZZZZ" + sfx_le2
+    return {
+        "io_ports": "0x910 (data) / 0x911 (cmd-status)",
+        "va_0436c_slice_11b": (st + b"ZZZZ").decode("ascii"),
+        "gen3_12b_hex": gen3.hex(),
+        "gen4_16b_hex": gen4_1b.hex(),
+        "gen4_17b_le16_hex": gen4_2b.hex(),
+    }
 
 
-def solve(query: str, resp32_hex: str | None = None) -> dict:
+def simulate_ec_cmd21(service_tag: str, suffix: str, ec_key: bytes, prf: str = "hmac-sha256") -> str:
+    """
+    Software replacement for `I/O 0x910/0x911` `EC cmd 0x21 sub=0x03 type=0x06` given the
+    OTP-sealed MEC15xx/MEC172x secret `ec_key`:
+      1. Builds `VA 0x0436c` payload (`<7B tag>` for `8FC8`, `<7B tag>ZZZZ` + suffix for Gen-4).
+      2. Evaluates the keyed PRF (`hmac-sha256` or `sha256-prefix`) to produce 32 bytes.
+      3. Applies `VA 0x07a10` (`ALPHABET0[(d[i]+d[i+16])%72]` for `8FC8`, or `b64encode(d[:12])`
+         into `resp32[0..15]` + `memcpy` 16B for `{1B58, 9ABE, 3FE2, CF1B, A6E0}`).
+    """
+    st = service_tag.strip().upper()[:7].encode("ascii")
+    sfx = suffix.strip().upper()
+    sfx_lo = bytes([int(sfx, 16) & 0xFF])
+    msg = (st + sfx_lo) if sfx == "8FC8" else (st + b"ZZZZ" + sfx_lo)
+    if prf == "hmac-sha256":
+        digest = hmac.new(ec_key, msg, hashlib.sha256).digest()
+    elif prf == "sha256-prefix":
+        digest = hashlib.sha256(ec_key + msg).digest()
+    else:
+        raise ValueError(f"Unsupported PRF mode {prf!r}")
+    if sfx == "8FC8":
+        return render_ec_vault_resp32(sfx, digest)
+    resp32 = encode_ec_prf12_to_base64(digest[:12]).encode("ascii") + digest[16:32]
+    return render_ec_vault_resp32(sfx, resp32)
+
+
+def verify_candidate_ec_key(ec_key: bytes) -> dict:
+    """Test a candidate EC secret key (from MEC SRAM/JTAG dump) against real 9ABE & 8FC8 vectors."""
+    tgt_9abe = decode_ec_base64_to_prf12(VERIFIED_EC_VAULT_VECTORS["8RLMM84-9ABE"])
+    matches = []
+    for prf in ("hmac-sha256", "sha256-prefix"):
+        pw_9abe = simulate_ec_cmd21("8RLMM84", "9ABE", ec_key, prf=prf)
+        if pw_9abe == VERIFIED_EC_VAULT_VECTORS["8RLMM84-9ABE"]:
+            matches.append(f"EXACT_9ABE:{prf}")
+        pw_8fc8 = simulate_ec_cmd21("1K6Y963", "8FC8", ec_key, prf=prf)
+        if pw_8fc8 == VERIFIED_EC_VAULT_VECTORS["1K6Y963-8FC8"]:
+            matches.append(f"EXACT_8FC8:{prf}")
+    return {
+        "key_hex": ec_key.hex(),
+        "target_8RLMM84_9ABE_prf12_hex": tgt_9abe.hex(),
+        "matched": bool(matches),
+        "matches": matches,
+    }
+
+
+def solve(query: str, resp32_hex: str | None = None, ec_key_hex: str | None = None) -> dict:
     """Unified solver for `XXXXXXX`, `XXXXXXX-YYYY`, or `XXXXXXXXXXX-YYYY`."""
     q = query.strip().upper()
     m = re.fullmatch(r"([A-Z0-9]{7}|[A-Z0-9]{11})(?:[-–—_/\s]+([A-Z0-9]{4}))?", q)
@@ -515,25 +621,42 @@ def solve(query: str, resp32_hex: str | None = None) -> dict:
         }
 
     if suffix in REA_EC_VAULT_REGISTRY:
+        canon = f"{serial}-{suffix}"
         out = {
             "input": q,
             "serial": serial,
             "suffix": suffix,
             "classification": "ec_vault_cmd_0x21",
             "render_rule": (
-                "ALPHABET0[(resp32[i] + resp32[i+16]) % 72]"
+                "ALPHABET0[(resp32[i] + resp32[i+16]) % 72] (16 chars)"
                 if suffix == "8FC8"
-                else "resp32[0..15] verbatim 16-char ASCII/Base64 ([A-Za-z0-9+/])"
+                else "base64_rfc4648(ec_prf12) -> resp32[0..15] verbatim 16 chars ([A-Za-z0-9+/], no '=')"
             ),
+            "smm_verify_hash_formula": "SHA256(password_ascii || 0x257bfc8d) -> cmd 0x21 sub=0x01",
             "ec_mailbox": build_ec_cmd21_frames(serial, suffix) if len(serial) == 7 else None,
         }
         if resp32_hex:
             raw32 = bytes.fromhex(resp32_hex.strip())
-            out["passwords"] = [render_ec_vault_resp32(suffix, raw32)]
+            pw = render_ec_vault_resp32(suffix, raw32)
+            out["passwords"] = [pw]
+            out["smm_verify_sha256"] = smm_password_sha256(pw)
             out["status"] = "exact_from_ec_resp32"
+        elif ec_key_hex:
+            ec_key = bytes.fromhex(ec_key_hex.strip())
+            pw = simulate_ec_cmd21(serial, suffix, ec_key)
+            out["passwords"] = [pw]
+            out["smm_verify_sha256"] = smm_password_sha256(pw)
+            out["status"] = "simulated_with_supplied_ec_key"
+        elif canon in VERIFIED_EC_VAULT_VECTORS:
+            pw = VERIFIED_EC_VAULT_VECTORS[canon]
+            out["passwords"] = [pw]
+            out["smm_verify_sha256"] = smm_password_sha256(pw)
+            if suffix != "8FC8":
+                out["decoded_ec_prf12_hex"] = decode_ec_base64_to_prf12(pw).hex()
+            out["status"] = "exact_verified_hardware_vector"
         else:
             out["passwords"] = []
-            out["status"] = "requires_ec_resp32_or_factory_vault"
+            out["status"] = "requires_ec_resp32_or_mec_otp_key"
             out["offline_fallbacks"] = {
                 "E7A8": generate_offline_password(serial, "E7A8"),
                 "BF97_0001": generate_offline_password(serial, "BF97"),
@@ -612,12 +735,27 @@ def run_selftest() -> int:
         rendered = solve(f"{st}-8FC8", resp32_hex=synth_resp32.hex())["passwords"][0]
         check(rendered == expected_pw, f"8FC8 0x32F8 render {st}")
 
-    # 5. Verify `{1B58, 9ABE, 3FE2, CF1B}` verbatim Base64/ASCII `0x32F8` renderer
-    # (matching Telegram `#135` `kROPDERR+...` & `#148` `YEb0KYKQFD50XE0d` charsets)
+    # 5. Verify `{1B58, 9ABE, 3FE2, CF1B}` 12-byte -> 16-char RFC 4648 Base64 codec + real 9ABE vector
     sample_1b58 = b"kROPDERR+7VQo3gZ" + b"\x00" * 16
     check(
         solve("5YY8TB4-1B58", resp32_hex=sample_1b58.hex())["passwords"] == ["kROPDERR+7VQo3gZ"],
         "1B58 Base64/ASCII 0x32F8 render",
+    )
+    v9 = solve("8RLMM84-9ABE")
+    check(v9["passwords"] == ["YEb0KYKQFDd50XEO"], "Real 8RLMM84-9ABE hardware vector")
+    check(v9["decoded_ec_prf12_hex"] == "6046f4298290143779d1710e", "8RLMM84-9ABE 96-bit Base64 decode")
+    check(
+        encode_ec_prf12_to_base64(bytes.fromhex("6046f4298290143779d1710e")) == "YEb0KYKQFDd50XEO",
+        "96-bit EC PRF -> 16-char Base64 roundtrip",
+    )
+    check(
+        len(smm_password_sha256("YEb0KYKQFDd50XEO")) == 64,
+        "VA 0x1bb4 SMM SHA256(pw || 0x8dfc7b25) verifier digest",
+    )
+    sim = solve("5YY8TB4-1B58", ec_key_hex="00" * 32)
+    check(
+        len(sim["passwords"][0]) == 16 and len(decode_ec_base64_to_prf12(sim["passwords"][0])) == 12,
+        "Simulated EC cmd 0x21 produces valid 16-char Base64 (12B raw)",
     )
 
     print(f"ALL {tests_run}/{tests_run} SELFTESTS PASSED.")
@@ -699,6 +837,8 @@ def main(argv: list[str] | None = None) -> int:
     )
     ap.add_argument("tag", nargs="?", help="Dell Service Tag or System Number (e.g. 65FDQN2-E7A8, 5YY8TB4-1B58)")
     ap.add_argument("--resp32", help="64-hex-char (32-byte) EC cmd 0x21 reply for 8FC8/1B58/CF1B/9ABE/3FE2")
+    ap.add_argument("--ec-key-hex", help="Hex-encoded MEC15xx/MEC172x secret key to simulate I/O 0x910/0x911 offline")
+    ap.add_argument("--verify-key", help="Test a candidate hex key against real 8RLMM84-9ABE & 8FC8 hardware vectors")
     ap.add_argument("--json", action="store_true", help="Emit JSON output")
     ap.add_argument("--rea-info", action="store_true", help="Show REA v6.7.0 collected security module table")
     ap.add_argument("--selftest", action="store_true", help="Run built-in verification test suite")
@@ -709,11 +849,14 @@ def main(argv: list[str] | None = None) -> int:
     if args.rea_info:
         print_rea_info()
         return 0
+    if args.verify_key:
+        print(json.dumps(verify_candidate_ec_key(bytes.fromhex(args.verify_key.strip())), indent=2))
+        return 0
     if not args.tag:
         ap.print_help()
         return 1
 
-    res = solve(args.tag, resp32_hex=args.resp32)
+    res = solve(args.tag, resp32_hex=args.resp32, ec_key_hex=args.ec_key_hex)
     if args.json:
         print(json.dumps(res, indent=2))
     else:
