@@ -1,0 +1,1059 @@
+{
+  "tag": "Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7",
+  "meta": {
+    "id": "com.dell.uefi002e46e7.firmware",
+    "name": "Pro 13 Plus PB13255,Pro 14 Plus PB14255,Pro 16 Plus PB16255",
+    "summary": "Dell System Firmware Update",
+    "latest": {
+      "version": "1.16.0",
+      "timestamp": 1779840000,
+      "url": "https://cdn.fwupd.org/downloads/bd5b93e53dcd467abac74e1e3949961c50f19ee3db9b304c3f4fe49c91d0d65f-TarokoStxOne_firmware.cab"
+    },
+    "oldest": {
+      "version": "1.4.3",
+      "timestamp": 1748390400,
+      "url": "https://cdn.fwupd.org/downloads/ad3f2cef4a698c78a9942a25f56383dadef59f951036d14353d59c5b8a78e01c-TarokoStxOne_firmware.cab"
+    },
+    "release_count": 5,
+    "category": "dell_pro_plus_amd_pb14255",
+    "priority": 96
+  },
+  "elapsed_sec": 3.49,
+  "inner_files": [
+    [
+      "cab:firmware.bin",
+      39568044
+    ],
+    [
+      "cab:firmware.jcat",
+      26120
+    ]
+  ],
+  "unpacked_stream_count": 199,
+  "pfs_sections": [
+    {
+      "source": "DellPfsExtract",
+      "name": "Utilities/1 Image -- 1 Policy Payload v1.2.60.bin",
+      "size": 211736,
+      "entropy": 0.532,
+      "head16": "24504c430100000020000000183b0300"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Utilities/1 Image -- 2 Resource Payload v1.1.11.bin",
+      "size": 12191885,
+      "entropy": 6.706,
+      "head16": "4353522401000000200000008d08ba00"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Utilities/1 Image -- 3 UI Payload v1.0.13.bin",
+      "size": 1166863,
+      "entropy": 6.164,
+      "head16": "42494e2e4844522e01000000efcd1100"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 1 System BIOS v1.16.0.bin",
+      "size": 67108864,
+      "entropy": 6.552,
+      "head16": "1008005fffffffffffffffffffffffff"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 10 BIOS.FAR.SPL v0.0.0.3.bin",
+      "size": 16,
+      "entropy": 0.0,
+      "head16": "ffffffffffffffffffffffffffffffff"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 11 Retimer v2.2.0.12.bin",
+      "size": 65536,
+      "entropy": 5.877,
+      "head16": "020000023003ffffffffff02300bffff"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 12 Retimer 2 v2.2.0.12.bin",
+      "size": 65536,
+      "entropy": 5.877,
+      "head16": "020000023003ffffffffff02300bffff"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 13 HSP.SVN v0.0.0.6.bin",
+      "size": 16,
+      "entropy": 0.0,
+      "head16": "ffffffffffffffffffffffffffffffff"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 14 CPUHSPFused.SVN v0.0.0.256.bin",
+      "size": 16,
+      "entropy": 0.0,
+      "head16": "ffffffffffffffffffffffffffffffff"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 15 HSPReVokeUpper.SVN v0.0.0.256.bin",
+      "size": 16,
+      "entropy": 0.0,
+      "head16": "ffffffffffffffffffffffffffffffff"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 16 HSPReVokeLower.SVN v0.0.0.256.bin",
+      "size": 16,
+      "entropy": 0.0,
+      "head16": "ffffffffffffffffffffffffffffffff"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 17 HSPFirmware.VERSION v0.0.0.256.bin",
+      "size": 16,
+      "entropy": 0.0,
+      "head16": "ffffffffffffffffffffffffffffffff"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 18 Model Information v1.0.0.0.txt",
+      "size": 148,
+      "entropy": 4.974,
+      "head16": "56656e646f724e616d653d44656c6c20"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 2 Main System TI Port Controller 0 v1.10.3.12.bin",
+      "size": 176268,
+      "entropy": 6.9,
+      "head16": "0300efac0b000008b80b770005280537"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 3 Embedded Controller v1.12.0.bin",
+      "size": 386576,
+      "entropy": 7.997,
+      "head16": "5048434d0505800300800b0001800b00"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 4 Backup Embedded Controller v1.7.0.bin",
+      "size": 386576,
+      "entropy": 7.997,
+      "head16": "5048434d0505800300800b0001800b00"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 5 Embedded Controller v1.12.0.bin",
+      "size": 386704,
+      "entropy": 7.997,
+      "head16": "5048434d0505800300800b0001800b00"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 6 Backup Embedded Controller v1.7.0.bin",
+      "size": 386704,
+      "entropy": 7.997,
+      "head16": "5048434d0505800300800b0001800b00"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 7 PCR0 XML v1.0.0.0.xml",
+      "size": 2811,
+      "entropy": 5.615,
+      "head16": "3c3f786d6c2076657273696f6e3d2231"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 8 System Board Map v0.0.1.bin",
+      "size": 2176,
+      "entropy": 0.747,
+      "head16": "494d4150800800000341000103022000"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Firmware/1 Image -- 9 FUSE.FAR.SPL v0.0.0.3.bin",
+      "size": 16,
+      "entropy": 0.0,
+      "head16": "ffffffffffffffffffffffffffffffff"
+    },
+    {
+      "source": "dell_hdr_zlib@0xED8810->pfs@0x0[0]",
+      "guid": "b'\\xb0\\xc2\\xc6~\\xe3?\\xa0B\\xa3\\x16\"\\xdd\\x05\\x17\\xc1\\xe8'",
+      "size": 67108864,
+      "entropy": 6.553,
+      "head16": "b0320b548d80e147a18876aa7cf1bb93",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0xED8810->pfs@0x0[1]",
+      "guid": "b'\\xf4\\xfa=lz\\t\\xff\\xe7\\xc7nn\\x00G_\\xde\\x84'",
+      "size": 655361,
+      "entropy": 6.9,
+      "head16": "ffffffffffffffff7aa825fb7891d5b9",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0xED8810->pfs@0x0[2]",
+      "guid": "b'\\xf6\\xe8\\x15\\x91\\xa2\\x1b\\x80\\xd9\\x80\\xceq\\xc4ybfB'",
+      "size": 431880,
+      "entropy": 7.999,
+      "head16": "8140f7f79d8de577ee7797160780df19",
+      "xml_hint": ""
+    }
+  ],
+  "ec_count": 54,
+  "plaintext_ec_count": 43,
+  "pw_module_count": 3,
+  "ecs": [
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Utilities/1 Image -- 1 Policy Payload v1.2.60.bin",
+      "plaintext": true,
+      "active_entropy": 0.532,
+      "size": 211736,
+      "sha256": "03f4e40dc0b9a4d9b6627b9c4649552a9ddecc72047303de5bb6c329662a50e7",
+      "head32": "24504c430100000020000000183b0300200000003c0201000000000009d1945f",
+      "signals": {
+        "notable_strings": [
+          "DellFlashUi.exe"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_1_RAW_PFS_SUBCOMPONENT_211736.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Utilities/1 Image -- 3 UI Payload v1.0.13.bin",
+      "plaintext": true,
+      "active_entropy": 6.164,
+      "size": 1166863,
+      "sha256": "e61ccc24eb7eb6210d7fd84f89ccdd81b99030e38a2b48f95d77a4cdee4d9b8f",
+      "head32": "42494e2e4844522e01000000efcd110055495c436c61726974792e646c6c0000",
+      "signals": {
+        "io_910_911_pairs": 1,
+        "notable_strings": [
+          "SelectionItem`1",
+          "SelectionItem`2",
+          "DellResourceKeyID",
+          "Dell.Clarity.MVVM",
+          "Dell_WindowHeader_Loaded",
+          "PasswordBoxPasswordChanged",
+          "OnPasswordValueChanged",
+          "Dell_ActionBar_ItemsCollectionChanged",
+          "OnItemsChanged",
+          "get_Password",
+          "set_Password",
+          "GetPassword",
+          "SetPassword",
+          "GetService",
+          "get_ItemsSource"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_2_RAW_PFS_SUBCOMPONENT_1166863.bin"
+    },
+    {
+      "kind": "PHCM",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin@0x81000",
+      "ver_hex": "00070003",
+      "sealed_flag": false,
+      "plaintext": true,
+      "active_entropy": 6.881,
+      "size": 327680,
+      "sha256": "46e293cc9def401479392c2a1676fb3e7e8962d829eeeaaa0d4fe1e1f06badba",
+      "signals": {
+        "MEC_MBOX_400F0000": 1,
+        "MEC_ESPI_400F3400": 3,
+        "MEC_CRYPTO_4000FC00": 3,
+        "notable_strings": [
+          "PHCM_1701_BIRMAN_PUS2024-06-030.2.27321 129782c*",
+          "SVI3: Write register error."
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_3_PHCM_327680.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 11 Retimer v2.2.0.12.bin",
+      "plaintext": true,
+      "active_entropy": 5.877,
+      "size": 65536,
+      "sha256": "c69e1a5c768b64d75ff2d55e0a9a6679c93d1140e9c4d9398f1248e622f9d7ed",
+      "head32": "020000023003ffffffffff02300bffffffffff023013ffffffffff02301bffff",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_4_RAW_PFS_SUBCOMPONENT_65536.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 2 Main System TI Port Controller 0 v1.10.3.12.bin",
+      "plaintext": true,
+      "active_entropy": 6.9,
+      "size": 176268,
+      "sha256": "bda6c60e2bc994067d594ad6c6251cdb714e1560b8d485880918ffb3d3c1295f",
+      "head32": "0300efac0b000008b80b77000528053728c287a7016fca2e300233d11bbbad5d",
+      "signals": {
+        "notable_strings": [
+          "\"!2NKBC"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_5_RAW_PFS_SUBCOMPONENT_176268.bin"
+    },
+    {
+      "kind": "PHCM",
+      "stream": "bu:Firmware/1 Image -- 3 Embedded Controller v1.12.0.bin@0x0",
+      "ver_hex": "05058003",
+      "sealed_flag": true,
+      "plaintext": false,
+      "active_entropy": 7.997,
+      "size": 386576,
+      "sha256": "1352e6a95c96ab2d5fcc5dc393b27e2d2ddb1f8151472213a779c6454ca261ba",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_6_sealed_386576.bin"
+    },
+    {
+      "kind": "PHCM",
+      "stream": "bu:Firmware/1 Image -- 4 Backup Embedded Controller v1.7.0.bin@0x0",
+      "ver_hex": "05058003",
+      "sealed_flag": true,
+      "plaintext": false,
+      "active_entropy": 7.997,
+      "size": 386576,
+      "sha256": "50d78df4a74827e00b56659bb10f3885e5fe8cf1e347b1f388b786181f6084c5",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_7_sealed_386576.bin"
+    },
+    {
+      "kind": "PHCM",
+      "stream": "bu:Firmware/1 Image -- 5 Embedded Controller v1.12.0.bin@0x0",
+      "ver_hex": "05058003",
+      "sealed_flag": true,
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 386704,
+      "sha256": "ed7d557dcdc7dc4d8d442390fc343c20ecbbd965187cd68813812de3eff4353e",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_8_hdrstub_386704.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "PHCM",
+      "stream": "bu:Firmware/1 Image -- 6 Backup Embedded Controller v1.7.0.bin@0x0",
+      "ver_hex": "05058003",
+      "sealed_flag": true,
+      "plaintext": false,
+      "active_entropy": 7.997,
+      "size": 386704,
+      "sha256": "f3d80f7304b3081af3bf5494805f84b69634a8f35aa7c0d3a3e1fba028d9914a",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_9_hdrstub_386704.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "PHCM",
+      "stream": "dell_hdr_zlib@0xED8810@0x402B5D0",
+      "ver_hex": "05058003",
+      "sealed_flag": true,
+      "plaintext": false,
+      "active_entropy": 7.997,
+      "size": 327680,
+      "sha256": "0f7447d76805f699b46f9bacd5bea47018cad4e2e170fbc7242356ee117617d1",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_10_hdrstub_327680.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "PHCM",
+      "stream": "dell_hdr_zlib@0xED8810@0x4089D38",
+      "ver_hex": "05058003",
+      "sealed_flag": true,
+      "plaintext": false,
+      "active_entropy": 7.997,
+      "size": 327680,
+      "sha256": "4836c414ab0312e0559d8b751fe4b44bb7be922e673cf6d78049b00d47188c5d",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_11_hdrstub_327680.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "PHCM",
+      "stream": "dell_hdr_zlib@0xED8810@0x40E84A0",
+      "ver_hex": "05058003",
+      "sealed_flag": true,
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 327680,
+      "sha256": "3c356d474f05dec50a4f8d1b797a6719c7ec46c918442b575987df8ce6015def",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_12_hdrstub_327680.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "PHCM",
+      "stream": "dell_hdr_zlib@0xED8810@0x4146C88",
+      "ver_hex": "05058003",
+      "sealed_flag": true,
+      "plaintext": false,
+      "active_entropy": 7.997,
+      "size": 327680,
+      "sha256": "64d50a0e9664c62a43b37d5c03fb8325e28138e7151f3c3acbc8275a433c7ddb",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_13_hdrstub_327680.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x1100E00",
+      "plaintext": true,
+      "active_entropy": 5.313,
+      "size": 347168,
+      "sha256": "7b020dc8e66e0a21a36c4e7cf50624668cdba2e9dad3bfe337335dca7108abcd",
+      "head32": "00c54910d54920e54930f54900340000dcff0061d0ff0061100001612f000400",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_14_RAW_PFS_SUBCOMPONENT_347168.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x11B0600",
+      "plaintext": true,
+      "active_entropy": 4.56,
+      "size": 408224,
+      "sha256": "39d4f8978668e5d4551c483143a4dadb98506ff24c1be8df882a7c85c28def72",
+      "head32": "020000000400000000000400b70000000b00000000000000900d0000384a0000",
+      "signals": {
+        "io_910_911_pairs": 1
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_15_RAW_PFS_SUBCOMPONENT_408224.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x11C6100",
+      "plaintext": true,
+      "active_entropy": 3.566,
+      "size": 296800,
+      "sha256": "f8ccee831e1edeba02ad5edea84131e546a883b1240b3ccaf001c19e33b23191",
+      "head32": "0200000004000000000004001800000006000000000000000002000040030000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_16_RAW_PFS_SUBCOMPONENT_296800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x1210E00",
+      "plaintext": true,
+      "active_entropy": 6.365,
+      "size": 79664,
+      "sha256": "f5acbc6df5a0afa586e8f82b094db05f1bb57f8aaabf28f15a7eeae82ef0a9d3",
+      "head32": "10402de904209fe532ff2fe11080bde8494d020070402de90340a0e10250a0e1",
+      "signals": {
+        "notable_strings": [
+          "APB REG WRITE: UMC%d 0x%08x = 0x%08x",
+          "FchPciWrite",
+          "IoWrite",
+          "MmioWrite",
+          "End of Write leveling fine delay search",
+          "End of Write leveling coarse delay search"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_17_RAW_PFS_SUBCOMPONENT_79664.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x1249C00",
+      "plaintext": true,
+      "active_entropy": 4.823,
+      "size": 393216,
+      "sha256": "09d8fbac6b6ff36d2bc3afe2ae14c7e1cbd06c6441ad0d1afda42eb3475b642c",
+      "head32": "00175d0b00175d0b00000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_18_RAW_PFS_SUBCOMPONENT_393216.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x1279E00",
+      "plaintext": true,
+      "active_entropy": 5.027,
+      "size": 393216,
+      "sha256": "2bccb98e78c7f2169d6b2161fa19d19e84aa1d4dcd502bd2fbdb7ba3e2543ec9",
+      "head32": "0018650b0018650b00000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_19_RAW_PFS_SUBCOMPONENT_393216.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x12A9300",
+      "plaintext": true,
+      "active_entropy": 0.022,
+      "size": 131072,
+      "sha256": "210ac33ffb463b4239cb365d5951ff5e2c278e23e35c077c13eb9162b2bb81f1",
+      "head32": "00175d0b00175d0b00000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_20_RAW_PFS_SUBCOMPONENT_131072.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x12A9600",
+      "plaintext": true,
+      "active_entropy": 0.022,
+      "size": 131072,
+      "sha256": "45e2f6f658b8b1bb8e03acf87b6e963e7daca579f1c32eb210b1ce530883f133",
+      "head32": "0018650b0018650b00000000000000000000000000ff03000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_21_RAW_PFS_SUBCOMPONENT_131072.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x12A9900",
+      "plaintext": true,
+      "active_entropy": 5.647,
+      "size": 196608,
+      "sha256": "56b5bdc21724625e16a988c5392a8ed52faf8beb856aa46b8f9ef7a61fe9c963",
+      "head32": "00175d0b00175d0b000000000000000000000000000003000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_22_RAW_PFS_SUBCOMPONENT_196608.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x12BAD00",
+      "plaintext": true,
+      "active_entropy": 5.49,
+      "size": 196608,
+      "sha256": "aec21d39790be243eb0fc4c7bf1f2afa1957de79c847dd101b63846749030291",
+      "head32": "0018650b0018650b000000000000000000000000000003000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_23_RAW_PFS_SUBCOMPONENT_196608.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x1510100",
+      "plaintext": true,
+      "active_entropy": 6.645,
+      "size": 32800,
+      "sha256": "6aa3adb98787be3142d82457d248ee99c96b219d6768107d0cdffd10ca8fba94",
+      "head32": "4250504120000000020000000080000064070000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_24_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x1513800",
+      "plaintext": true,
+      "active_entropy": 2.715,
+      "size": 32800,
+      "sha256": "607c421058554f7d7c4a4d0b5855b0f369882f9e7b7e295c2af6e066adc3e4ee",
+      "head32": "4250504120000000020000000080000065070000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_25_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x1513E00",
+      "plaintext": true,
+      "active_entropy": 6.999,
+      "size": 32800,
+      "sha256": "df65d4e20014be127f3e65eed907c6dca863711f6c3e6dd2a119d6104c7ca453",
+      "head32": "42505041200000000200000000800000640b0000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_26_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x151A000",
+      "plaintext": true,
+      "active_entropy": 7.017,
+      "size": 32800,
+      "sha256": "8354b16c8e18e37ce348133ad668bf1b82a3e3b272da23aa89235c84d23ca223",
+      "head32": "42505041200000000200000000800000640c0000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_27_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x151FF00",
+      "plaintext": true,
+      "active_entropy": 6.963,
+      "size": 32800,
+      "sha256": "c664014aee7032964f23fb58dff8ef64eda07be43510b7992dc4cb269a39561a",
+      "head32": "42505041200000000200000000800000640d0000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_28_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x1523D00",
+      "plaintext": true,
+      "active_entropy": 3.29,
+      "size": 32800,
+      "sha256": "737bad3ec5d454d9ce2edf91bbd823e5fa83d7eeae328f97f2e0c48655d7ae80",
+      "head32": "42505041200000000200000000800000650b0000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_29_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x1524400",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "7b72c787a3c7d7e1d269a56a7780be2a6080c351620f12449e775801a13e0e11",
+      "head32": "42505041200000000200000000800000650c0000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_30_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x1524700",
+      "plaintext": true,
+      "active_entropy": 0.029,
+      "size": 32800,
+      "sha256": "8c17a876d1c56e5c769581ace08dba7c63530a3bb89ee57a3f82e553b50c2cca",
+      "head32": "42505041200000000200000000800000650d0000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_31_RAW_PFS_SUBCOMPONENT_32800.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x1ED6100",
+      "plaintext": false,
+      "active_entropy": 7.999,
+      "size": 1135824,
+      "sha256": "79482994afc414597ea863196ac83f09070cd3e930e7d33037c48596d9d8a210",
+      "head32": "574c414e00000000050000000000000000000000ac3a0f006000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_32_hdrstub_1135824.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "PHCM",
+      "stream": "dell_hdr_zlib@0xED8810->pfs@0x0[1:b'\\xf4\\x]@0x8996C",
+      "ver_hex": "05058003",
+      "sealed_flag": true,
+      "plaintext": false,
+      "active_entropy": 7.995,
+      "size": 91797,
+      "sha256": "7d1a9188e9760626cde53514d3aaaf4dd0f0545935bf2bf3a0197750bcd91240",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_33_hdrstub_91797.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0xED8810->pfs@0x0[1:b'\\xf4\\x]",
+      "plaintext": true,
+      "active_entropy": 6.9,
+      "size": 655361,
+      "sha256": "90f85101baccd750c4dde6c41296bb61a4d6e9d1f47db3585af46d8dbf154b91",
+      "head32": "ffffffffffffffff7aa825fb7891d5b9b0320b548d80e147a18876aa7cf1bb93",
+      "signals": {
+        "notable_strings": [
+          "\"!2NKBC"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_34_RAW_PFS_SUBCOMPONENT_655361.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0xED8810->pfs@0x0[2:b'\\xf6\\x]",
+      "plaintext": false,
+      "active_entropy": 7.999,
+      "size": 431880,
+      "sha256": "684ba1888572f2555abb4e5427b4701456c9b7ba97a63f1bf1b49e9df49a929d",
+      "head32": "8140f7f79d8de577ee7797160780df192bf9f0b6cc88982d19ac95a6dbd5764e",
+      "signals": {
+        "notable_strings": [
+          "Name=\"Dell Pro 13 Plus PB13255,Dell Pro 13 Plus ",
+          "PB13255,Dell Pro 13 Plus PB13255,Dell Pro 13 Plu",
+          "s PB13255,Dell Pro 14 Plus PB14255,Dell Pro 14 P",
+          "lus PB14255,Dell Pro 14 Plus PB14255,Dell Pro 14",
+          " Plus PB14255,Dell Pro 16 Plus PB16255,Dell Pro ",
+          "    <core:VendorID Name=\"Dell\">",
+          "      <core:TcgVendorId>Dell</core:TcgVendorId>",
+          "  <CompositeHash Id=\"_E170A4BB-1CB5-4CCD-A76C-FB",
+          "QjQns=</CompositeHash>",
+          "  <CompositeHash Id=\"_497F4659-3D33-444F-B879-EA",
+          "z8qdXTkCpe1CkH8jShwEmvg=</CompositeHash>",
+          "VendorName=Dell Inc.;OemString=Model_File;System",
+          "Name=Dell Pro 13 Plus PB13255;Version=1.16.0;Mod"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_35_RAW_PFS_SUBCOMPONENT_431880.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.638,
+      "size": 35102,
+      "sha256": "c0d7c1367603f53593d01233ff053087672be828476bb7337a8a5876b8b8efd7",
+      "head32": "9debadedbaddbd489d22c1c169c8c5c688aa06101e8900f81600001b02254df3",
+      "signals": {
+        "notable_strings": [
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_36_RAW_PFS_SUBCOMPONENT_35102.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.637,
+      "size": 35012,
+      "sha256": "d3265141085e27a633b1e63badfe67176b8943cb5cc7b3d2172bebf326c29ca8",
+      "head32": "c48800104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_37_RAW_PFS_SUBCOMPONENT_35012.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 3.248,
+      "size": 39758,
+      "sha256": "f946175cd39b536702c61da9a3fe12fff4b879d17fc42dc577ed77e8b4ca2d61",
+      "head32": "7b4617d6f71f3f40a87d29f61c80ee7c74aa06104e9b00f82800001b02f56eb8",
+      "signals": {
+        "notable_strings": [
+          "Birman"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_38_RAW_PFS_SUBCOMPONENT_39758.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 3.234,
+      "size": 39620,
+      "sha256": "faa60752ae3d48a9db69c99a337f6f69198d6f9e3ba8d0492830af4a6aa1444c",
+      "head32": "c49a00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "Birman"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_39_RAW_PFS_SUBCOMPONENT_39620.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.478,
+      "size": 55114,
+      "sha256": "88d70da0d19b5a09e6cd6b88f85b1cc6f45b61c073129932d0ceb29efad52d2d",
+      "head32": "c8c0f61c85faee4394afdb27c54174c9f7aa06104ad700f83a00001b023d6494",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_40_RAW_PFS_SUBCOMPONENT_55114.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.476,
+      "size": 54980,
+      "sha256": "1cbaa5c928569b2e3989cddb04d000c65bcd726ddfe5a12bfdb1ec663f034e77",
+      "head32": "c4d600104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_41_RAW_PFS_SUBCOMPONENT_54980.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.681,
+      "size": 42194,
+      "sha256": "94f4e4cf80c4e84276e503ad6e6787710aa59d9dd39ed24aeeeecab2433829fe",
+      "head32": "b28df1eafdfb504e8e77aac8191628b541aa0610d2a400f84c00001b029a447a",
+      "signals": {
+        "notable_strings": [
+          "PeiCoreTopologyServicesV3InitializeCallback",
+          "  FabricTopologyServices returns system has %d s",
+          "  Install AmdCoreTopologyServicesV3Ppi. Status: ",
+          "  Request NotifyPpi for AmdCoreTopologyServicesV",
+          "CcxCoreTopolgyServicesLaunchThreadV3",
+          "ThreadEnable register write: 0x%x"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_42_RAW_PFS_SUBCOMPONENT_42194.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.68,
+      "size": 42020,
+      "sha256": "93f84623f00045cdada9384c834dde4def172fa197729bcd819ea1e034277b89",
+      "head32": "24a400104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "PeiCoreTopologyServicesV3InitializeCallback",
+          "  FabricTopologyServices returns system has %d s",
+          "  Install AmdCoreTopologyServicesV3Ppi. Status: ",
+          "  Request NotifyPpi for AmdCoreTopologyServicesV",
+          "CcxCoreTopolgyServicesLaunchThreadV3",
+          "ThreadEnable register write: 0x%x"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_43_RAW_PFS_SUBCOMPONENT_42020.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.637,
+      "size": 45226,
+      "sha256": "efa8426d4e5da3187e34679addb5e159a2cd1f8a46158604524c34d55280af06",
+      "head32": "7bc827abb9911c4fb9428437b164277a5aaa0610aab000f87000001b027b1faf",
+      "signals": {
+        "notable_strings": [
+          "FchHNUsbSmuServiceReqOnly",
+          "Service request status NOT OK.",
+          "[FCH]FchHNUSB4S3nBIFService is started!",
+          "NbioSmuServiceRequestV14 Enter",
+          "NbioSmuServiceRequestV14 INVALID!!",
+          "  Service Request 0x%x",
+          "  Service Request Argument 0x%x, 0x%x, 0x%x, 0x%",
+          "Wait till SMU service complete",
+          "NbioSmuServiceRequestV14 Exit",
+          "NbioSmuServiceRequestOnlyV14 Enter",
+          "NbioSmuServiceRequestOnlyV14 INVALID!!",
+          "NbioSmuServiceRequestOnlyV14 Exit"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_44_RAW_PFS_SUBCOMPONENT_45226.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.633,
+      "size": 45028,
+      "sha256": "92b1e9dd6fe35f53514c832157280622c43e175bdbcc1cbfc628886b5f337c79",
+      "head32": "e4af00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "FchHNUsbSmuServiceReqOnly",
+          "Service request status NOT OK.",
+          "[FCH]FchHNUSB4S3nBIFService is started!",
+          "NbioSmuServiceRequestV14 Enter",
+          "NbioSmuServiceRequestV14 INVALID!!",
+          "  Service Request 0x%x",
+          "  Service Request Argument 0x%x, 0x%x, 0x%x, 0x%",
+          "Wait till SMU service complete",
+          "NbioSmuServiceRequestV14 Exit",
+          "NbioSmuServiceRequestOnlyV14 Enter",
+          "NbioSmuServiceRequestOnlyV14 INVALID!!",
+          "NbioSmuServiceRequestOnlyV14 Exit"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_45_RAW_PFS_SUBCOMPONENT_45028.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.482,
+      "size": 88610,
+      "sha256": "02c1087456fdfeb61a7056655c65158315e0ab5c9846dad05b6ec8c15fa20164",
+      "head32": "418d1194a5657c4990a19d78591c797a7daa0610225a01f88200001b02471e78",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_46_RAW_PFS_SUBCOMPONENT_88610.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.479,
+      "size": 88388,
+      "sha256": "a88eee968c78df50ab9bcc68ab6eb11018011039ab657620354d9bf01f3c7c40",
+      "head32": "445901104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_47_RAW_PFS_SUBCOMPONENT_88388.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.216,
+      "size": 36774,
+      "sha256": "2a699b6b0d954423d0c417fa2969c4e97b44334e2fbc6d7b0e0dd1844edb68f5",
+      "head32": "8f0aaaa2d543214ba26b5d02476ad45704aa0610a68f00f8dc00001b029c65d5",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_48_RAW_PFS_SUBCOMPONENT_36774.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.197,
+      "size": 36484,
+      "sha256": "361864a308260079541fce53c38fa2fd89975d2e91a22da9966c8eff8698c8b5",
+      "head32": "848e00104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_49_RAW_PFS_SUBCOMPONENT_36484.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.734,
+      "size": 75938,
+      "sha256": "3186f7f0282c5e0be359f32e41936268843b8eb41bb64ce00b6bf079bbd03ddf",
+      "head32": "f81450cfbe2e574daa83d7a3607371ea8faa0610a22801f82800001b023d6494",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "DellLogo",
+          "Warning Write Failure",
+          "Write Protected",
+          "invalid literal/lengths set",
+          "invalid literal/length code"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_50_RAW_PFS_SUBCOMPONENT_75938.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 6.735,
+      "size": 75780,
+      "sha256": "2ec102e78260b48a32c4796d27c6cc539660e7d3ca1e03781f34c51a4c1de478",
+      "head32": "042801104d5a0000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "DellLogo",
+          "Warning Write Failure",
+          "Write Protected",
+          "invalid literal/lengths set",
+          "invalid literal/length code"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_51_RAW_PFS_SUBCOMPONENT_75780.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 5.47,
+      "size": 49176,
+      "sha256": "f76dd9b4dd89e38c3de5e1a3a7b764b33da92a6d950e687840d8662000c90029",
+      "head32": "9261e75ead945d4da6b3ab59716c46fb81aa010818c000f85f504344544e545f",
+      "signals": {
+        "notable_strings": [
+          "PcdDellSataTempBuffer",
+          "PcdDellBoardBomID",
+          "PcdDellBranding",
+          "PcdDellBrightnessLowNitsEnableSwitch",
+          "PcdDellCpuM2PcieLabel",
+          "PcdDellEcMmioAddress",
+          "PcdDellFchDefinesPtr",
+          "PcdDellFuncDxeBoardUpdateMeSetupPttState",
+          "PcdDellIgdCableDetect",
+          "PcdDellKbdBacklightRemove",
+          "PcdDellKvmisEnable",
+          "PcdDellMultiPcieCfgToBeUsedTable",
+          "PcdDellNvidiaDynamicBoost20Enable",
+          "PcdDellNvidiaGpuGeneration",
+          "PcdDellPS2KeyboardSupport"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_52_RAW_PFS_SUBCOMPONENT_49176.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 5.464,
+      "size": 49152,
+      "sha256": "cfb2ca36f941c85f3e04f46eac6a1d1e3720944ae3029777aa6e7b88f10af0a4",
+      "head32": "5f504344544e545f15004304861a4e2ca1a696439793d941a44386d93ded994f",
+      "signals": {
+        "notable_strings": [
+          "PcdDellSataTempBuffer",
+          "PcdDellBoardBomID",
+          "PcdDellBranding",
+          "PcdDellBrightnessLowNitsEnableSwitch",
+          "PcdDellCpuM2PcieLabel",
+          "PcdDellEcMmioAddress",
+          "PcdDellFchDefinesPtr",
+          "PcdDellFuncDxeBoardUpdateMeSetupPttState",
+          "PcdDellIgdCableDetect",
+          "PcdDellKbdBacklightRemove",
+          "PcdDellKvmisEnable",
+          "PcdDellMultiPcieCfgToBeUsedTable",
+          "PcdDellNvidiaDynamicBoost20Enable",
+          "PcdDellNvidiaGpuGeneration",
+          "PcdDellPS2KeyboardSupport"
+        ]
+      },
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_53_RAW_PFS_SUBCOMPONENT_49152.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->zlib@0x3E20100->ufv",
+      "plaintext": true,
+      "active_entropy": 0.026,
+      "size": 815896,
+      "sha256": "9fcb1ed6732312330d3aa5dd4aa612ec7e1bd952570c57841a96bda71d8586b1",
+      "head32": "ffffffffffffffffffffffffffffffff89aaf00018730cf8ffffffffffffffff",
+      "signals": {},
+      "saved_file": "models/Pro_13_Plus_PB13255_Pro_14_Plus_PB14255__1.16.0_002e46e7/ec_54_RAW_PFS_SUBCOMPONENT_815896.bin"
+    }
+  ],
+  "pw_modules": [
+    {
+      "arch": "x86_64",
+      "size": 38912,
+      "has_alphabet0": true,
+      "has_salt_8dfc7b25": false,
+      "has_guid_c065aeab": true,
+      "has_smm_ec_7310e28e": true,
+      "has_classic_alph32": false,
+      "io_910_911": false,
+      "family_tables": 1,
+      "has_cmd21_sub3": true,
+      "sha256": "308bfefc72690c51dd7b8792cf95213172dc168032d40915951f8e23ce5e6616",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->lzma@0x2E0090@0x125341C",
+      "trigger_marker": "ALPH_SHORT",
+      "dedup_file": "unique_pw/pw_x86_64_308bfefc72690c51_38912.efi"
+    },
+    {
+      "arch": "x86_64",
+      "size": 23040,
+      "has_alphabet0": false,
+      "has_salt_8dfc7b25": false,
+      "has_guid_c065aeab": true,
+      "has_smm_ec_7310e28e": false,
+      "has_classic_alph32": false,
+      "io_910_911": false,
+      "family_tables": 1,
+      "has_cmd21_sub3": false,
+      "sha256": "c6cf969643751ad3005d71cf8ca8a2830a4c3593168aa20d7bfb809ac8662128",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->lzma@0x2E0090@0xC8A65C",
+      "trigger_marker": "GUID_C065AEAB",
+      "dedup_file": "unique_pw/pw_x86_64_c6cf969643751ad3_23040.efi"
+    },
+    {
+      "arch": "x86_64",
+      "size": 28672,
+      "has_alphabet0": false,
+      "has_salt_8dfc7b25": false,
+      "has_guid_c065aeab": true,
+      "has_smm_ec_7310e28e": false,
+      "has_classic_alph32": false,
+      "io_910_911": false,
+      "family_tables": 1,
+      "has_cmd21_sub3": false,
+      "sha256": "5042c2f5322b6ffd4a58e1d2a60e2a03c93b1c65c531329433e56b59c74f7c3c",
+      "stream": "bu:Firmware/1 Image -- 1 System BIOS v1.16.0.bin->lzma@0x2E0090@0x110D2A8",
+      "trigger_marker": "GUID_C065AEAB",
+      "dedup_file": "unique_pw/pw_x86_64_5042c2f5322b6ffd_28672.efi"
+    }
+  ]
+}

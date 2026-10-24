@@ -1,0 +1,25 @@
+{
+  "tag": "dell_5455A08",
+  "meta": {
+    "category": "wayback_dl_dell",
+    "priority": 94,
+    "latest": {
+      "version": "exe",
+      "url": "https://downloads.dell.com/FOLDER03291895M/1/5455A08.exe"
+    }
+  },
+  "elapsed_sec": 0.04,
+  "inner_files": [
+    [
+      "raw",
+      6756616
+    ]
+  ],
+  "unpacked_stream_count": 1,
+  "pfs_sections": [],
+  "ec_count": 0,
+  "plaintext_ec_count": 0,
+  "pw_module_count": 0,
+  "ecs": [],
+  "pw_modules": []
+}

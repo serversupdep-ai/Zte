@@ -1,0 +1,1266 @@
+; This file is Insyde H2OFFT (Flash Firmware Tool) configuration file.
+; Because some setting items only supported on specific OS flash.
+; Here use following method to identify each setting item.
+; (dwsDWS) means the setting item supported on which OS flash.
+; d means DOS normal flash.
+; w means Windows normal flash.
+; s means Shell normal flash.
+; D means DOS secure flash.
+; W means Windows secure flash.
+; S means Shell secure flash.
+
+;
+; ***************************
+;
+; Supported Section List.
+;
+; ***************************
+;                                       | supports on
+;  -------------------------------------+---------------------------------
+; [AC_Adapter]                          | DOS WIN SHELL Secure
+; [AutoWakeup]                          | WIN Secure
+; [Bios_Version_Check]                  | DOS WIN SHELL
+; [BIOSVersionFormat]                   | DOS WIN SHELL
+; [CapsuleAudit]                        | DOS WIN
+; [CommonFlash]                         | DOS WIN SHELL
+; [FactoryCopy]                         | Secure
+; [FDFile]                              | WIN
+; [FlashComplete]                       | DOS WIN SHELL Secure
+; [FlashSecureBIOSOverride]             | DOS WIN SHELL
+; [ForceFlash]                          | WIN SHELL Secure
+; [Log_file]                            | WIN SHELL
+; [MessageStringTable]                  | DOS WIN SHELL
+; [MULTI_FD]                            | DOS WIN SHELL
+; [Option]                              | WIN
+; [Others]                              | DOS WIN SHELL Secure
+; [ParamForBiosReference]               | DOS WIN SHELL Secure
+; [PassToBios]                          | DOS WIN SHELL Secure
+; [PasswordCheck]                       | WIN
+; [PermitFlashConditionalData]          | DOS
+; [PermitFlashVersion]                  | WIN
+; [Platform_Check]                      | DOS WIN SHELL
+; [PlatformVersion]                     | DOS WIN SHELL
+; [PreFlash]                            | Secure
+; [Region]                              | DOS WIN SHELL Secure
+; [ReturnCodeDefinition]                | WIN
+; [ReturnErrorCode]                     | WIN
+; [SecureUpdate]                        | WIN SHELL
+; [UI]                                  | WIN DOS SHELL
+; [UpdateEC]                            | WIN SHELL Secure
+; [UpdateExtraData]                     | WIN
+; [UpdateOEMME]                         | WIN SHELL
+; [UpdateDeviceFirmware]                | Secure
+; [Version]                             | WIN
+;
+
+; Supports on DOS WIN SHELL Secure flash.
+[CommonFlash]
+SwitchString=
+ErrorMsg00=No error!
+ErrorMsg01=AC detect error!
+ErrorMsg02=DC detect error!
+ErrorMsg03=DC gas gauge under xx%!
+ErrorMsg04=BIOS version compare error!
+ErrorMsg05=Model name compare error!
+ErrorMsg10=Not support this version of Flash Common Interface!
+ErrorMsg11=Show BIOS version string length more than xx bytes.
+ErrorMsg12=Show model name string length more than xx bytes.
+;
+; WARNING!
+; To disable this section need to remove entire [CommonFlash] section.
+; When enable and BIOS supported, power check will take care by IHISI, and NOT reference [AC_Adapter].
+;
+;(dwsDWS)
+;SwitchString      default : empty.
+;                   String : A switch flag setting string. Ex: "CPVER:[1] ACEN DCEN FHRST"
+;                            Detail parameter please reference following table.
+;  Parameter    | Description
+;  -------------+----------------------------------------------
+;  PTEN         | All protection enable.
+;  PTDIS        | All protection disable.
+;  ACEN         | AC protect checking enable.
+;  ACDIS        | AC protect checking disable.
+;  DCEN         | DC & Gangue protect checking enable.
+;  DCDIS        | DC & Gangue protect checking disable.
+;  RESSEN       | BIOS Regression enable.
+;  RESSDIS      | BIOS Regression disable.
+;  PJMDEN       | Project Model string protect checking enable.
+;  PJMDDIS      | Project Model string protect checking disable.
+;  FHOS         | System back to OS after flash BIOS completely.
+;  FHST         | System directly shutdown after flash BIOS completely.
+;  FHRST        | System directly reboot after flash BIOS completely.
+;  CPVER:[Num]  | Common Flash Version information
+;               | ex: [Num] is decimal and start from 1.
+;  -------------+----------------------------------------------
+;(dwsDWS)
+;ErrorMsg00        default : empty.
+;                   String : The message of no error.
+;(dwsDWS)
+;ErrorMsg01        default : empty.
+;                   String : AC error message.
+;(dwsDWS)
+;ErrorMsg02        default : empty.
+;                   String : DC error message.
+;(dwsDWS)
+;ErrorMsg03        default : empty.
+;                   String : DC gas gauge under xx% message.
+;(dwsDWS)
+;ErrorMsg04        default : empty.
+;                   String : BIOS version error message.
+;(dwsDWS)
+;ErrorMsg05        default : empty.
+;                   String : Model name error message.
+;(dwsDWS)
+;ErrorMsg10        default : empty.
+;                   String : No support this version of Flash Common Interface message.
+;The number of ErrorMsg## is in hex.
+
+; Supports on DOS flash.
+[PermitFlashConditionalData]
+PFCDFunctionEnable=0
+Conditionalcount=3
+Conditionaldata1=1,w,"0x0003","The BIOS image does not support the current hardware configuration.\nFlash update is aborted."
+Conditionaldata2=2,w,"0x20DD","The BIOS image does not support the current hardware configuration.\nFlash update is aborted."
+Conditionaldata3=2,w,"0x20DE","The BIOS image does not support the current hardware configuration.\nFlash update is aborted."
+;(d)
+;PFCDFunctionEnable
+;                  default : 0.
+;                        0 : Function is disabled.
+;                        1 : Function is enabled.
+; The function is enabled or disabled by the flag. If the flag is disabled, application will keep flash progress without conditional check.
+;(d)
+;Conditionalcount  default : 0.
+;                  Integer : Total count of conditional data.
+;Conditionaldata#=[Data Type], [Data Format], [Data Field], [Message String]
+; Base on data format you need and to add configure value by below data format field and data field.
+;(d)      Conditionaldata# : # support from 1~20.
+;(d)           [Data Type] : The type of Conditionaldata, when you have more than one conditional data need to check before flash, you can give them different type.
+;                            It will allow flash when all types are pass.
+;                            It also can use the same type with more than one conditional data, which means if one of the conditional data is pass, this type is pass.
+;                            Ex: We have the following settings, Conditionaldata1 is type 0, and others are type 1.
+;                                Conditionalcount=3
+;                                Conditionaldata1=0,w,"0x1234","This BIOS is not allow to flash."
+;                                Conditionaldata2=1,w,"0x1111","This BIOS is not allow to flash."
+;                                Conditionaldata3=1,w,"0x1222","This BIOS is not allow to flash."
+;                                When Conditionaldata1 is pass and Conditionaldata2 or Conditionaldata 3 is pass that will allow flash.
+;                                Allow = data1 pass && (data2 pass || data3 pass).
+;(d)         [Data Format] : Can support different as binary, string, WORD, DWORD.
+;                        b : The data format is binary.
+;                        s : The data format is string.
+;                        w : The data format is WORD.
+;                        d : The data format is DWORD.
+;(d)          [Data Field] : Relative data base on data format.
+;                   BINARY : If the data format is binary.
+;                            Data field is HEX. The data is as like "AA BB 00 12 55".
+;                   String : If the data format is string.
+;                            Data field is string. The data is as like "Data.123.AABE.".
+;                     WORD : If the data format is WORD.
+;                            Data field is HEX and unit is a WORD length. The data is as like "0x1223".
+;                    DWORD : If the data format is DWORD.
+;                            Data field is HEX and unit is a DWORD length. The data is as like "0x12345678".
+;(d)      [Message string] : Define customize message string here.
+;                            The message is pop up when flash utility get a process interrupted from BIOS.
+;                            The message string is optional field.
+;                            It will not pop any message if you do not provide message string in this field.
+
+; Supports on DOS WIN SHELL flash.
+[MULTI_FD]
+Flag=0
+FD#01=ID,HDL54,HDL54.fd
+FD#02=PCI,0,1F,2,80,FFFFFFFF,00007007,BIOS.fd,ME.fd
+FD#03=MPCIIO,2,PCI-0-1F-0-00-FFFFFFFF-3B0B8086,IO-538-0100-0000,BIOS.fd,ME.fd
+FD#04=ID,ModelName,BIOS.fd
+FD#05=OS,32,32bios.bin,,32.ini
+FD#06=OS,64,64bios.bin,me.bin,64.ini
+FD#07=MEMORY,FF679000,FFFFFFFF,A2346578,BIOS.fd,ME.bin,config.ini
+FD#08=CPUID,FFFFFFFF,000406E3,BIOS.fd,ME.bin,config.ini
+;(dwsDWS)
+;Flag              default : 0.
+;                        0 : Normal mode.
+;                        1 : Multi-FD mode. It will reference FD#XX values.
+;(dwsDWS)
+;FD#XX             Integer : XX is decimal number from 01 to 99. (FD#01 ~ FD#99)
+;This section supports IO space type, PCI address type and multiple condition type.
+;FD#XX=IO,[Offset],[Mask],[Value],[BIOS Filename],[ME Filename],[INI Filename]
+;FD#XX=PCI,[Bus],[Device],[Function],[Offset],[Mask],[Value],[BIOS Filename],[ME Filename],[INI Filename]
+;FD#XX=MPCIIO,[Condition Number],PCI-[Bus]-[Device]-[Function]-[Offset]-[Mask]-[Value],IO-[Offset]-[Mask]-[Value],[BIOS Filename],[ME Filename],[INI Filename]
+;FD#XX=ID,[Model Name],[BIOS Filename],[ME Filename],[INI Filename]
+;FD#XX=OS,[OS Version],[BIOS Filename],[ME Filename],[INI Filename]
+;FD#XX=MEMORY,[Physical Address],[Mask],[Value],[BIOS Filename],[ME Filename],[INI Filename]
+;FD#XX=CPUID,[Mask],[Value],[BIOS Filename],[ME Filename],[INI Filename]
+;(dsDS)       {IO condition}
+;(dwsDWS)    {PCI condition}
+;(dwsDWS)     {ID condition}
+;(wW)         {OS condition}
+;(dwsDWS) {MEMORY condition}
+;(wW)      {CPUID condition}
+;(dwsDWS)         [Offset] : Offset in hex.
+;(dwsDWS)           [Mask] : IO and MEMORY type supports BYTE, WORD and DWORD in hex.
+;                              For example, BYTE -> 03, WORD -> 0A01, DWORD 100400D3
+;                            PCI and CPUID type supports DWORD in hex only.
+;(dwsDWS)          [Value] : IO and MEMORY type supports BYTE, WORD and DWORD in hex.
+;                            PCI type supports DWORD in hex only.
+;(dwsDWS)     [Model Name] : The platform ID, model name string.
+;(wW)         [OS Version] : 32bit or 64bit OS. 32 for 32bit OS, 64 for 64bit OS.
+;(dws)  [Physical Address] : A DWORD value in hex. Value range 0xFE000000 ~ 0xFFFFFFFF.
+;(dwsDWS)  [BIOS Filename] : BIOS filename.
+;(w)         [ME Filename] : ME filename. If it exists, utility will run OEMME flash feature.
+;(dw)       [INI Filename] : INI filename for overwrite.
+;                            If it exists, utility will load the new ini file and overwrite all sections (except [MULTI_FD]) exist in new ini file.
+;When [Offset] & [Mask] == [Value], it will flash the following files ([BIOS Filename] and [ME Filename]).
+
+; Supports on WIN flash.
+[Version]
+Version=
+;H2OFFT (FlashFirmware Tool) will append the version string at title bar.
+;(wW)
+;Version           default : empty.
+;                   String : Version number string for display.
+;                            It will be show on UI, and append on current version number.
+;                            When current version is 5.01 and this version string set to "12", then it will show "H2OFFT V5.01.12" on main dialog caption.
+
+; Supports on WIN DOS SHELL flash.
+[UI]
+Confirm=1
+Silent=0
+SilentWithDialog=2
+DisplayID=0
+InsydeInfo=1
+VersionInfo=1
+GroupInfo=1
+ConfirmInfo=0
+ConfirmInfoRDate=0
+OnFlashingBeep=0
+OnFlashingBeepDelayTime=800
+DisableMouseAndKeyboardInput=1
+BeforeRunToolDelayTime=0
+ProgramStartToWrongMessageBox=0
+GetFDFileButton=0
+DelayBeforeFlash=0
+ConfirmDialogCustomizeMessage=
+ShowCustomizeMessageOnConfirmDialogOnly=0
+ShowUpdateROMAddress=1
+Elapse=0
+DisableAccessRightWarningMessage=0
+DisableAccessRightCheck=0
+PassUpdateProgressToBios=0
+ShowEcUpdateProgress=1
+ExtEcUpdateErrorMessage=""
+NotShowIconOnMessageBox=0
+PauseWhenUpdateBinaryWithoutBiosFail=0
+;(wW)
+;Confirm           default : 1.
+;                        0 : Don't display confirm dialog.
+;                        1 : Display confirm dialog.
+;(wW)
+;Silent            default : 0.
+;                        0 : Normal mode.
+;                        1 : Silent mode, hide main dialog.
+;(wW)
+;SilentWithDialog  default : 2.
+;                        0 : Don't display any dialog.
+;                        1 : Display main dialog only.
+;                        2 : Display all dialogs except main dialog.
+;(wW)
+;DisplayID         default : 1.
+;                        0 : Don't display BIOS ID.
+;                        1 : Display BIOS ID.
+;(wW)
+;InsydeInfo        default : 1.
+;                        0 : Don't display Insyde copyright information and URL.
+;                        1 : Display Insyde copyright information and URL.
+;(wW)
+;VersionInfo       default : 1.
+;                        0 : Don't display BIOS version.
+;                        1 : Display BIOS version.
+;(wW)
+;GroupInfo         default : 1.
+;                        0 : Don't display group box.
+;                        1 : Display group box.
+;(wW)
+;ConfirmInfo       default : 0.
+;                        0 : Don't display BIOS version and build date information in confirm dialog.
+;                        1 : Display BIOS version and build date information in confirm dialog.
+;(wW)
+;ConfirmInfoRDate  default : 0.
+;                        0 : Don't display BIOS version and release date information in confirm dialog.
+;                        1 : Display BIOS version and release date information in confirm dialog.
+;                            When this flag set to 1, the ConfirmInfo flag won't be referenced.
+;(w)
+;OnFlashingBeep    default : 0.
+;                        0 : Don't beep on flashing.
+;                        1 : Beep on flashing.
+;(w)
+;OnFlashingBeepDelayTime
+;                  default : 800. (Unit is millisecond)
+;                  Integer : Set beep delay time (milliseconds).
+;(wW)
+;DisableMouseAndKeyboardInput
+;                  default : 0.
+;                        0 : Don't hook mouse and keyboard.
+;                        1 : Hook mouse and keyboard without "CTRL+ALT+DEL".
+;(wW)
+;BeforeRunToolDelayTime
+;                  default : 0. (Unit is second)
+;                  Integer : Delay number of seconds before flash process.
+;(wW)
+;ProgramStartToWrongMessageBox
+;                  default : 0.
+;                        0 : Don't pop-up warning dialog before flash process.
+;                        1 : Pop-up a warning dialog before flash process.
+;(wW)
+;GetFDFileButton   default : 0.
+;                        0 : Hide FD file browse button.
+;                        1 : Show the button for browsing FD file.
+;(wW)
+;DelayBeforeFlash  default : 0. (Unit is second)
+;                  Integer : Delay number of seconds before flashing.
+;(wW)
+;ConfirmDialogCustomizeMessage
+;                  default : empty.
+;                   String : A key name which list in [MessageStringTable].
+;                            For inserting additional notification message in confirm dialog.
+;(wW)
+;ShowCustomizeMessageOnConfirmDialogOnly
+;                  default : 0
+;                        0 : Display default confirm message and insert the customize message on confirm dialog.
+;                        1 : Do not display default confirm message, only show customize message on confirm dialog.
+;(d)
+;ShowUpdateROMAddress
+;                  default : 0
+;                        0 : Show progress bar when updating BIOS.
+;                        1 : Show ROM address when updating BIOS.
+;(dwsDWS)
+;Elapse            default : 0
+;                        0 : Disable to show elapse time during progressing BIOS update.
+;                        1 : Enable to show elapse time during progressing BIOS update.
+;(wW)
+;DisableAccessRightWarningMessage
+;                  default : 0
+;                        0 : It will show warning message when any region is locked (such as ME) in input image.
+;                        1 : Do not show warning message when any region is locked in input image.
+;(wW)
+;DisableAccessRightCheck
+;                  default : 0
+;                        0 : It will check access right when any one region flag of [Region] section is set.
+;                        1 : It will not do access right check.
+;(DWS)
+;PassUpdateProgressToBios
+;                  default : 0
+;                        0 : Do not pass update progress to BIOS.
+;                        1 : It will pass update progress to BIOS during flash.
+;(DWS)
+;ShowEcUpdateProgress
+;                  default : 1
+;                        0 : Hide the EC update progress during EC updating.
+;                        1 : Show the EC update progress during EC updating.
+;(WS)
+;ExtEcUpdateErrorMessage
+;                  default : Empty
+;                   String : The error to display when extern EC update failed.
+;(WS)
+;ExtEcUpdateErrorMessage###
+;                  default : Empty
+;                   String : The error to display when extern EC update failed.
+;                            ### is the return code (from IHISI) in Hex. Value range from 1 ~ FFFFFFFF.
+;                            When the return code is 0x00000005 the ExtEcUpdateErrorMessage5 will be used.
+;                            When the return code is 0x00100002 the ExtEcUpdateErrorMessage100002 will be used.
+;(wW)
+;NotShowIconOnMessageBox
+;                  default : 0
+;                        0 : Show question, information, warning, error icon on message box.
+;                        1 : Not show icon, only message string on message box.
+;(DWS)
+;PauseWhenUpdateBinaryWithoutBiosFail
+;                  default : 0
+;                            Update binary without BIOS means only update EC, native ME, ISH, PDT, IOM, MGPHY, TBT, Retimer but no BIOS binary.
+;                        0 : Not pause when it failed on updating binary without BIOS case.
+;                            This seeting need to use in Windows capsule update to prevent user confused.
+;                            Because in Windows capsule update the message will not be displaied.
+;                        1 : Pause to let user see the error.
+
+; Supports on WIN flash.
+[Option]
+Flag=0
+;(wW)
+;Flag              default : 0.
+;                        0 : Auto flash mode.
+;                        1 : User option mode, including start, exit buttons.
+;                        2 : User flash mode, including start, exit buttons.
+
+; Supports on WIN flash.
+[FDFile]
+FileName=
+;(wW)
+;FileName          default : empty.
+;                   String : Utility always load this file.
+;                            If the FileName is empty, utility will search current directory
+;                              and load the first found FD file.
+
+; Supports on DOS WIN SHELL flash.
+[AC_Adapter]
+Flag=1
+BatteryCheck=1
+;[PRJ] Modify battery bound limitation from 10% to 25% when flashing BIOS
+BatteryBound=25
+;[PRJ] Modify battery bound limitation from 10% to 25% when flashing BIOS
+LauncherAcWarning=messagestringA02
+SecurityAcWarning=messagestringA02
+AcNotConnectError=messagestringA05
+DcNotConnectError=messagestringA06
+DcNotEnoughError=messagestringA07
+;(dwsDWS)
+;Flag              default : 1.
+;                        0 : Don't check AC power and battery life percentage.
+;                            Skip power check and continue flash.
+;                        1 : Check AC power not check battery life percentage.
+;                            Only AC power meets the requirement can continue flash.
+;                        2 : Check battery life percentage not check AC power.
+;                            Only DC power meets the requirement can continue flash.
+;                        3 : Check AC power and battery life percentage.
+;                            Both AC and DC power meet the requirement can continue flash.
+;                        4 : Check AC power or battery life percentage.
+;                            One of AC or DC power meets the requirement can continue flash.
+;(dwsDWS)
+;BatteryCheck      default : 0. This setting will not be referenced when the value of flag >= 2.
+;                        0 : Don't check battery life percentage
+;                        1 : Check battery life percentage
+;(dwsDWS)
+;BatteryBound      default : 20.
+;          Integer (1~100) : Low battery boundary (percentage).
+;                            When BatteryCheck=1 this value will be referenced.
+;                            And only when the battery life percentage is bigger than inputted value, it can do flash.
+;(dsDS)
+;LauncherAcWarning default : messagestringA02
+;                   String : A key name which list in [MessageStringTable].
+;(dwsDWS)
+;SecurityAcWarning default : messagestringA02
+;                   String : A key name which list in [MessageStringTable].
+;(wW)
+;AcNotConnectError default : messagestringA05
+;                   String : A key name which list in [MessageStringTable].
+;(wW)
+;DcNotConnectError default : messagestringA06
+;                   String : A key name which list in [MessageStringTable].
+;(wW)
+;DcNotEnoughError  default : messagestringA07
+;                   String : A key name which list in [MessageStringTable].
+
+; Supports on DOS WIN SHELL flash.
+[Platform_Check]
+Flag=2
+NotTargetPlatformErrorMessage="This BIOS is not for your Notebook PC."
+PlatformName1=HDL54
+PlatformName2=Vostro 3425
+PlatformName3=Vostro 3525
+PlatformName4=Inspiron 15 3525
+PlatformName5=
+PlatformName6=
+PlatformName7=
+PlatformName8=
+PlatformName9=
+PlatformName10=
+PlatformName11=
+PlatformName12=
+PlatformName13=
+PlatformName14=
+PlatformName15=
+PlatformName16=
+PlatformName17=
+PlatformName18=
+PlatformName19=
+PlatformName20=
+;This flag is the switch of comparing BIOS project ID with ROM file project ID.
+;(dwsDWS)
+;Flag              default : 3.
+;                        0 : Don't check project ID.
+;                        1 : Check project ID of new file.
+;                            If ID is different with current BIOS, the utility will close.
+;                        2 : Utility will compare current platform ID with the 20 platform IDs.
+;                            If anyone is match, it will go ahead, otherwise utility will close.
+;                        3 : Does tool need to do platform check is depend on onboard BIOS report.
+;                            When BIOS report not to check from IHISI, it is the same as Flag=0.
+;                            When BIOS report need to check from IHISI, it is the same as Flag=1.
+;(wsWS)
+;NotTargetPlatformErrorMessage
+;                  default : "This BIOS is not for your Notebook PC."
+;                   String : User defined error message when input BIOS model name is not match with platform model name.
+;(dwsDWS)
+;PlatformName1~20  default : empty.
+;                   String : If ROM file do not contain correct ID, user can define ID here.
+
+; Supports on DOS WIN SHELL flash.
+[PlatformVersion]
+Flag=0
+Version1=
+Version2=
+Version3=
+Version4=
+Version5=
+Version6=
+Version7=
+Version8=
+Version9=
+Version10=
+Version11=
+Version12=
+Version13=
+Version14=
+Version15=
+Version16=
+Version17=
+Version18=
+Version19=
+Version20=
+;This section only available when the [Platform_Check] is enable to compare the 20 platform IDs.
+;The Version is pair with the PlatformName.
+;For example: When the platform ID matches with PlatformName2, the Version2 will be used.
+;(dwsDWS)
+;Flag              default : 0.
+;                        0 : Don't use multi version.
+;                        1 : Use the version in the list instead of the version in file.
+;(dwsDWS)
+;Version1~20       default : empty.
+;                   String : If ROM file do not contain correct version, user can define version here.
+
+; Supports on DOS WIN SHELL flash.
+[Bios_Version_Check]
+;W_M_A_Update_BIOS_version_and_block_older_1130
+Flag=4
+;W_M_A_Update_BIOS_version_and_block_older_1130
+SameVersionErrorMessage="The version of ROM file is the same as that of BIOS."
+OlderVersionErrorMessage="The version of ROM file is not newer than that of BIOS."
+CheckByBiosErrorMessage="This BIOS file is not allow to flash. The flash process will be terminated."
+;This flag is the switch of checking BIOS version.
+;(dwsDWS)
+;Flag              default : 2.
+;                        0 : Don't check BIOS version.
+;                        1 : Check BIOS version by tool.
+;                            When BIOS version in file is older than onboard BIOS, it will display a warning message and close application.
+;                            Does same version allow to flash depend on BIOS report (from IHISI).
+;                        2 : Does tool need to do version check is depend on onboard BIOS report (from IHISI).
+;                            When BIOS report not to check from IHISI, it is the same as Flag=0.
+;                            When BIOS report need to check from IHISI, it is the same as Flag=1.
+;                        3 : Check BIOS version by BIOS only. (Application will not do version check.)
+;                        4 : Check BIOS version by BIOS and application. After it pass version check by BIOS, it will do version check by application.
+;                            Only pass both BIOS and application check allow to flash.
+;(wsWS)
+;SameVersionErrorMessage
+;                  default : "The version of ROM file is the same as that of BIOS."
+;                   String : User defined error message when input BIOS version is the same as platform BIOS version.
+;(wsWS)
+;OlderVersionErrorMessage
+;                  default : "The version of ROM file is not newer than that of BIOS."
+;                   String : User defined error message when input BIOS version is older than platform BIOS version.
+;(dwsDWS)
+;CheckByBiosErrorMessage
+;                  default : "This BIOS file is not allow to flash. The flash process will be terminated."
+;                   String : User defined error message when BIOS is not allow to flash this version image.
+
+; Supports on WIN SHELL flash.
+[BIOSVersionFormat]
+BIOSVFEnable=1
+VersionFormat=#.#.#
+;This BIOSVFEnable flag is the switch of BIOSVersionFormat.
+;(wsWS)
+;BIOSVFEnable      default : 0
+;                        0 : Function is disabled.
+;                        1 : Function is enabled.
+;(wsWS)
+;VersionFormat           X : The field is masked. It will NOT be compared.
+;                        N : The digit field can be ASCII, case-sensitive.
+;                        T : It's the same definition with N. But T is a case-insensitive.
+;                        . : Dot is also a mask. It will NOT be compared.
+;                        D : Don't care field. It will NOT be compared.
+;                            This field can be empty.
+;                            It only allow to put at start or end of the version format.
+;                            For example: Onboard version 1.21B flash to 1.22, VersionFormat must be N.NND
+;                                         N.NND means the valid format is N.NN and N.NNX, the 5th character will be ignore in version compare.
+;                        # : The digit with variable number of digits.
+;                            It only can be used with '.', cannot mix used with other format char.
+;                            For example: #.#.# the version string can be 2.9.3 or 2.10.1 or 2.9.1003 or 10.201.9.
+
+; Supports on WIN flash.
+[PermitFlashVersion]
+PFVFunctionEnable=0
+SingleVersion=
+MultiVersion1=
+MultiVersion2=
+MultiVersion3=
+MultiVersion4=
+MultiVersion5=
+MultiVersion6=
+MultiVersion7=
+MultiVersion8=
+MultiVersion9=
+MultiVersion10=
+MultiVersion11=
+MultiVersion12=
+MultiVersion13=
+MultiVersion14=
+MultiVersion15=
+MultiVersion16=
+MultiVersion17=
+MultiVersion18=
+MultiVersion19=
+MultiVersion20=
+;This section is for conditional version definition for BIOS update.
+;When this function enabled, flash utility will compare on board BIOS version with conditional version and then decide to continue flash progress or not.
+;For example: In following condition PFVFunctionEnable=1, SingleVersion=A03, "Please update to BIOS version A03 first!".
+;             When on board BIOS version is older than A03,
+;              it will pop up the error dialog with the message "Please update to BIOS version A03 first!" and then terminated.
+;             Otherwise it will continue original flash process.
+;The MultiVersion1~20 are similar as SingleVersion, but they only available when the [Platform_Check] is enable to compare the 20 platform IDs.
+;They must be pair of the PlatformName of [Platform_Check] section.
+;For example: When the platform ID matches with PlatformName2, the Version2 will be used.
+;(wW)
+;PFVFunctionEnable default : 0.
+;                        0 : Disable conditional version check.
+;                        1 : Enable conditional version check.
+;(wW)
+;SingleVersion     default : empty.
+;                   String : XXXX, "Message String"
+;                            XXXX is the conditional version, regarding version check rule please refer section "BIOSVersionFormat".
+;                            "Message String" is the message to show when the on board BIOS version is older than the conditional version.
+;(wW)
+;MultiVersion1~20  default : empty.
+;                   String : XXXX, "Message String"
+;                            XXXX is the conditional version, regarding version check rule please refer section "BIOSVersionFormat".
+;                            "Message String" is the message to show when the on board BIOS version is older than the conditional version.
+;
+; The section is depended on other sections if using [PermitFlashVersion].
+;               a. If single version is enabled,
+;                  Please also configure section [Bios_Version_Check] for version check
+;               b. If multi-version is enabled,
+;                  Please also configure following sections [Bios_Version_Check] for version check,
+;                  section [Platform_Check] for platform name check and section [PlatformVersion] for multi-platform version check
+
+; Supports on DOS WIN SHELL Secure flash.
+[FlashComplete]
+Action=2
+Dialog=0
+Counter=15
+ActionOverride=0
+Pause=0
+PauseWarning=messagestringA03
+;(dwsDWS)
+;Action            default : 2.
+;                        0 : Do nothing. Return to OS.
+;                        1 : Shutdown.
+;                        2 : Reboot.
+;(w)
+;Dialog            default : 0.
+;                        0 : Don't display dialog.
+;                        1 : Display dialog.
+;                        2 : Display dialog and wait several seconds.
+;(w)
+;Counter           default : 15. (Unit is second)
+;                  Integer : The number of seconds for countdown to reboot or shutdown.
+;(w)
+;ActionOverride    default : 0
+;                        0 : This key is disabled. Flash utility bases action key setting to do original behavior.
+;                        1 : This key is enabled. Flash utility just does close itself in silent mode.
+;(dwsDWS)
+;Pause             default : 0.
+;                        0 : Not pause after flash complete.
+;                        1 : Pause after flash complete.
+;(dwsDWS)
+;PauseWarning      default : messagestringA03
+;                   String : A key name which list in [MessageStringTable].
+;The value behind comma is the return value in silent mode.
+
+; Supports on DOS WIN SHELL flash.
+[FlashSecureBIOSOverride]
+EnableFlashSecureBIOSOverride=0
+Action=1,1
+;(DWS)
+;EnableFlashSecureBIOSOverride
+;                  default : 0.
+;                        0 : Disable action override. Use the action which returned from BIOS.
+;                        1 : Enable the action override when flashing secure BIOS in OS.
+;(DWS)
+;Action            default : 1.
+;                        0 : S3.
+;                        1 : Reboot.
+;                        2 : Shutdown.
+;                        3 : Do nothing.
+;The value behind comma is the return value in silent mode.
+
+; Supports on DOS WIN SHELL Secure flash.
+[ForceFlash]
+ALL=1
+BB_PEI=0
+CPU_Microcode=0
+Variable=0
+DXE=0
+EC=0
+Password=0
+OEM_NVS=0
+Logo=1
+Type#09=0
+Type#08=0
+UseBvdtRomMap=0
+;These areas are reported by IHISI from BIOS for protection.
+;When you set the value to 1, the selected protect area will be force flash.
+;(dwsDWS)
+;ALL               default : 0.
+;                        0 : Reserve all protected areas.
+;                        1 : Flash all protected areas.
+;(dwsDWS)
+;BB_PEI, CPU_Microcode, Variable, DXE, EC, Password, OEM_NVS, Logo
+;                            They are the predefined types each one indicate a type value.
+;                            BB_PEI        = Type#00
+;                            CPU_Microcode = Type#01
+;                            Variable      = Type#02
+;                            DXE           = Type#03
+;                            EC            = Type#04
+;                            Password      = Type#0F
+;                            OEM_NVS       = Type#10
+;                            Logo          = Type#05
+;                  default : 0.
+;                        0 : Protect this area.
+;                        1 : Force flash this area.
+;(dwsDWS)
+;Type#NN                     Type#NN is an extended method for those didn't have predefine type.
+;                            The NN is a number in Hex.
+;                            For example:
+;                            If BIOS report to protect type 13h from IHISI, and you want to flash this protect area.
+;                            Then the setting in platform.ini can add Type#13=1.
+;                  default : 0.
+;                        0 : Protect this area.
+;                        1 : Force flash this area.
+;(DWS)
+;UseBvdtRomMap     default : 0.
+;                        0 : Disable private/protection ROM map override feature.
+;                            AP will reference IHISI report to protect regions.
+;                        1 : Enable private/protection ROM map override feature.
+;                            AP will reference BVDT defined map to protect regions.
+
+; Supports on DOS WIN SHELL Secure flash.
+[Region]
+BIOS=0
+GbE=0
+ME=0
+EC=0
+DESC=0
+Platform_Data=0
+;This section is used to control SPI descriptor mode.
+;Default is flash all regions when the values all set to 0.
+;If any one of the regions set to 1, it will only flash specific regions.
+;If the BIOS is built without additional Intel firmware as like ME, GBE and Descriptor
+; or BIOS is an AMD firmware which does not support ME, please ignore this section.
+;(dwsDWS)
+;BIOS              default : 0.
+;                        0 : Don't flash.
+;                        1 : Flash BIOS region.
+;(dwsDWS)
+;GbE               default : 0.
+;                        0 : Don't flash.
+;                        1 : Flash GbE region.
+;(dwsDWS)
+;ME                default : 0.
+;                        0 : Don't flash.
+;                        1 : Flash ME region.
+;(dwsDWS)
+;EC                default : 0.
+;                        0 : Don't flash.
+;                        1 : Flash EC region.
+;(dwsDWS)
+;DESC              default : 0.
+;                        0 : Don't flash.
+;                        1 : Flash Descriptor region.
+;(dwsDWS)
+;Platform_Data     default : 0.
+;                        0 : Don't flash.
+;                        1 : Flash Platform Data region.
+
+; Supports on WIN SHELL Secure flash.
+[UpdateEC]
+Flag=1
+Ignore_21h=1
+EC_Dialog=0
+BIOS_Only=0
+Progress_Bar=1
+EC_Only=0
+EC_Path=
+EC_Compare=0
+EC_Verify=0
+EC_VerifyErrorRetry=3
+EC_BlockSize=64
+EC_DockWarning=messagestringA04
+;(w)
+;Flag              default : 0.
+;                        0 : Don't flash EC by BIOS.
+;                        1 : Flash EC by BIOS.
+;(w)
+;EC_Dialog         default : 0.
+;                        0 : Don't display confirm dialog when begin to update EC.
+;                        1 : Show confirm dialog.
+;                            This key only valid when Flag=1.
+;(w)
+;BIOS_Only         default : 0.
+;                        0 : Flash EC and BIOS file.
+;                        1 : Only flash BIOS part of the EC merged BIOS binary file.
+;                            This key only valid when Flag=1.
+;(w)
+;EC_Only           default : 0.
+;                        0 : Flash EC and BIOS file.
+;                        1 : Only flash EC binary file.
+;                            This key only valid when Flag=1.
+;(w)
+;EC_Path           default : empty.
+;                   String : EC filename.
+;                            This key only valid when Flag=1.
+;(wsWDS)
+;EC_Compare        default : 0.
+;                        0 : Don't do compare before writing. Just do write action directly.
+;                        1 : Read EC and compare difference before writing.
+;                            If the read data is the same as the data we want to write,
+;                              it will not do the write action.
+;(wsWDS)
+;EC_Verify         default : 0.
+;                        0 : Don't verify EC.
+;                        1 : Verify EC after writing.
+;(wsWDS)
+;EC_VerifyErrorRetry
+;                  default : 3.
+;                  Integer : Retry times.
+;                            If the value is not zero means enable verify retry, and will retry the setting times.
+;                            0 for disable verify retry.
+;(WDS)
+;EC_BlockSize      default : 64.
+;                  Integer : The block size of EC update. Unit is KB.
+;(dsS)
+;EC_DockWarning    default : messagestringA04
+;                   String : A key name which list in [MessageStringTable].
+
+; Supports on WIN flash.
+[UpdateExtraData]
+Flag=0
+DataType=1
+type1errorcodeA0=messagestring1
+;(w)
+;Flag              default : 0.
+;                        0 : Do not update extra data.
+;                        1 : Update extra data by IHISI.
+;                            If new image is NOT processed by IFIT tool, please do not enable this function.
+;(w)
+;DataType          default : 1.
+;                  Integer : Integer number. The meaning of data type number will define by BIOS OEM.
+;                            Now will support 1, 4~C.
+;                            Ex:1,4,6,5 -> Mean you want to update 1,4,6,5 Four type of data.
+;                            Notice: 2, 3 cannot used.
+;(w)
+;type#errorcode??=messagestringX
+;                            This key is for customizing error message which occur in update extra data.
+;                            For example:
+;                            When an error occur when updating type 4, BIOS return the error code A2.
+;                            AP will find the key "type4errorcodeA2" and get the string ID "messagestring4", and find the string in [MessageStringTable].
+;                            Then shows the message string instead of standard error message.
+;                        # : The type number define in DataType. (Hex)
+;                       ?? : The error code returned by BIOS. Available value range  A0~AF.
+;                        X : Message string number.
+;This feature will let you just input data to update by IHISI. Data type will define by BIOS OEM.
+;If new image is NOT processed by IFIT tool, please do not enable this function.
+
+; Supports on WIN SHELL flash.
+[UpdateOEMME]
+MEFileName=
+MEProgram=
+CheckVersion=0
+Command=
+;(ws)
+;MEFileName        default : empty.
+;                   String : If this field not empty or Multi-FD ME filename exists, tool will use Intel firmware update tool to update ME in OS before flash BIOS.
+;(w)
+;MEProgram         default : empty.
+;                   String : The Intel ME update program name. When this field is empty, tool will using default program name "FWUpdLcl.exe".
+;(w)
+;CheckVersion      default : 0.
+;                        0 : Don't check ME file version.
+;                        1 : Check ME file version.
+;                        2 : When ME flash error is cause of same version and downgrade version do not show error and continue to flash.
+;                        3 : When ME flash error, show error but continue to flash.
+;(ws)
+;Command           default : empty.
+;                   String : When this field is empty and don't want to check ME version, utility will use "-f %filename -generic -allowsv" as default command.
+;                            The %filename is a keyword which will be replaced with the value in MEFileName within this section or the filename in MULTI_FD section.
+;NOTE:
+; The Intel firmware update tool (FWUpdLcl.exe) is dependent on each chipset generation, and the tool in release flash package is a sample and may be not suitable for your project.
+; Please remember to replace the FWUpdLcl.exe with right version before you will utilize function to update Intel firmware (ME or TXE).
+
+; Supports on Secure flash.
+[UpdateDeviceFirmware]
+VerifyErrorRetry=0
+;(DWS)
+;VerifyErrorRetry  default : 0. Don't verify after update.
+;                  Integer : Retry times.
+;                            When this value bigger than 0, means enable verifying device firmware after writing and it will retry the setting times.
+;                            0 for disable verify retry.
+
+; Supports on WIN SHELL flash.
+[Log_file]
+Flag=0
+FileName=H2OFFT.log
+CMOS_Flag=0
+CMOS_INDEX_PORT=70
+CMOS_DATA_PORT=71
+CMOS_OFFSET=68,69
+;(wsWS)
+;Flag              default : 0.
+;                        0 : Don't log to file.
+;                        1 : Utility will log to specify file.
+;(wsWS)
+;FileName          default : H2OFFT.log.
+;                   String : Log filename.
+;(wW)
+;CMOS_Flag         default : 0.
+;                        0 : Disable CMOS debug.
+;                        1 : Enable CMOS debug.
+;(wW)
+;CMOS_INDEX_PORT   default : 70. (hex)
+;                       70 : Use 0x70 port as index port.
+;                       72 : Use 0x72 port as index port.
+;(wW)
+;CMOS_DATA_PORT    default : 71. (hex)
+;                       71 : Use 0x71 port as index port.
+;                       73 : Use 0x73 port as index port.
+;(wW)
+;CMOS_OFFSET       default : 0,0. (hex)
+;                            CMOS_OFFSET=xx,yy the xx is high byte offset; yy is low byte offset, and the range is 0~FF (hex)
+
+; Supports on WIN flash.
+[ReturnErrorCode]
+FileNotFound=3,259
+ErrorBeforeFlash=4,259
+BatteryNotConnect=4,259
+BatteryCapacityNotEnough=4,259
+WriteROMFail=5,259
+WriteECFail=6,259
+WriteExtraDataFail=7,259
+OemOdmFuncFail=8,259
+;(wW)
+;FileNotFound      default : 3.
+;                  Integer : If utility cannot find the BIOS file, it will return this error code.
+;(wW)
+;ErrorBeforeFlash  default : 4.
+;                  Integer : If error occur before flash process, it will return this error code.
+;(wW)
+;BatteryNotConnect default : 4.
+;                  Integer : If battery not connect, it will return this error code.
+;                            (This error is separated from ErrorBeforeFlash.)
+;(wW)
+;BatteryCapacityNotEnough
+;                  default : 4.
+;                  Integer : If battery capacity not enough, it will return this error code.
+;                            (This error is separated from ErrorBeforeFlash.)
+;(wW)
+;WriteROMFail      default : 5.
+;                  Integer : If error occur during write ROM process, it will return this error code.
+;(wW)
+;WriteECFail       default : 6.
+;                  Integer : If error occur during write EC process, it will return this error code.
+;(wW)
+;WriteExtraDataFail
+;                  default : 7.
+;                  Integer : If error occur during write Extra Data process, it will return this error code.
+;(W)
+;OemOdmFuncFail
+;                  default : 8.
+;                  Integer : If error occur when doing OEM/ODM specific function, it will return this error code.
+;The value behind comma is the return value in silent mode.
+
+; Supports on WIN flash.
+[ReturnCodeDefinition]
+RETURN_SUCCESSFUL=0,3010
+RETURN_MODEL_CHECK_FAIL=259,259
+RETURN_USER_CONFIRM_CANCEL=1701,259
+RETURN_AC_NOT_CONNECT=1702,259
+RETURN_LOAD_DRIVER_FAIL=1703,259
+RETURN_NEED_REBOOT=3010,3010
+RETURN_USER_EXIT=1704,259
+RETURN_SAME_VERSION_CHECK=99999,259
+;(wW)
+;RETURN_SUCCESSFUL default : 0.
+;                  Integer : Use input value as return code.
+;                    99999 : Use the default value above.
+;(wW)
+;RETURN_MODEL_CHECK_FAIL
+;                  default : 259.
+;                  Integer : Use input value as return code.
+;                    99999 : Use the default value above.
+;(wW)
+;RETURN_USER_CONFIRM_CANCEL
+;                  default : 1602.
+;                  Integer : Use input value as return code.
+;                    99999 : Use the default value above.
+;(wW)
+;RETURN_AC_NOT_CONNECT
+;                  default : 1602.
+;                  Integer : Use input value as return code.
+;                    99999 : Use the default value above.
+;(wW)
+;RETURN_LOAD_DRIVER_FAIL
+;                  default : 259.
+;                  Integer : Use input value as return code.
+;                    99999 : Use the default value above.
+;(wW)
+;RETURN_NEED_REBOOT
+;                  default : 3010.
+;                  Integer : Use input value as return code.
+;                    99999 : Use the default value above.
+;(wW)
+;RETURN_USER_EXIT  default : 1602.
+;                  Integer : Use input value as return code.
+;                    99999 : Use the default value above.
+;(wW)
+;RETURN_SAME_VERSION_CHECK
+;                  default : 1602.
+;                  Integer : Use input value as return code.
+;                    99999 : Use the default value above.
+;The value behind comma is the return value in silent mode.
+
+; Supports on DOS WIN SHELL Secure flash.
+[Others]
+DisableCompare=0
+DisableVerify=0
+VerifyErrorRetry=3
+SMIErrorRetryDelay=100
+SMIErrorRetry=5
+ForceIHISIVersion=
+EnablePrivateRegionMovement=0
+EnableProtectionRegionMovement=0
+DisableSecureCapsuleFlash=0
+BootSafeMode=0
+;(wsWS)
+;DisableCompare    default : 0.
+;                        0 : Read BIOS and compare difference before writing.
+;                            If the read data is the same as the data we want to write,
+;                              it will not do the write action.
+;                        1 : Don't do compare before writing. Just do write action directly.
+;(wsWS)
+;DisableVerify     default : 0.
+;                        0 : Verify BIOS after writing.
+;                        1 : Don't verify BIOS after writing.
+;(wsWS)
+;VerifyErrorRetry  default : 3.
+;                  Integer : Retry times.
+;                            If the value is not zero means enable verify retry, and will retry set times.
+;                            0 for disable verify retry.
+;(wsWS)
+;SMIErrorRetryDelay
+;                  default : 100. (Unit is millisecond)
+;                  Integer : Delay time during SMI error retry (millisecond).
+;(wsWS)
+;SMIErrorRetry     default : 5.
+;                  Integer : Retry times when SMI fail. (Note: This may let flash time become longer.)
+;(w)
+;ForceIHISIVersion default : empty.
+;                  Version : This flag will force override the IHISI version which will passing to BIOS.
+;                            Ex: 1.9.1
+;(wsDWS)
+;EnablePrivateRegionMovement
+;                  default : 0
+;                        0 : Disable private region movement.
+;                        1 : Enable private region movement. It will backup orginal private regions and relocate to new address which defined in new image BVDT when update whole BIOS.
+;(sDWS)
+;EnableProtectionRegionMovement
+;                  default : 0
+;                        0 : Disable protection region movement.
+;                        1 : Enable protection region movement. It will backup orginal protection regions and relocate to new address which defined in new image BVDT when update whole BIOS.
+;                            This flag cannot be used with [ForceFlash] all=1.
+;(dwsDWS)
+;DisableSecureCapsuleFlash
+;                  default : 0.
+;                        0 : Enable flash secure BIOS on normal platform.
+;                        1 : Disable flash secure BIOS on normal platform.
+;(wW)
+;BootSafeMode       format : [Number],[Version String]
+;         [Number] default : 0.
+;                        0 : Disable this feature. Normal boot.
+;                        1 : Enable this feature. Next boot into Windows safe mode.
+; [Version String] default : empty.
+;                            The limit version.
+;                            When onboard BIOS version smaller than or equal to this version, it allow to enable this feature.
+;                            When onboard BIOS version bigger than this version, this feature always disable even the value is set to 1.
+
+; Supports on WIN flash.
+[PasswordCheck]
+PasswordCheckEnable=0
+MsgCaption=Password confirmation
+MsgPreface=Please enter password
+MsgSuccess=Password is correct.
+MsgFailure=Password is incorrect. Please retry again.
+;(wW)
+;PasswordCheckEnable
+;                  default : 0.
+;                        0 : Disable the password check function.
+;                        1 : Enable the password check function.
+;(wW)
+;MsgCaption        default : "Password confirmation"
+;                   String : The dialog box caption.
+;(wW)
+;MsgPreface        default : "Please enter password"
+;                   String : The preface of password entering.
+;(wW)
+;MsgSuccess        default : "Password is correct."
+;                   String : The string displayed when the comparing result returned by BIOS is 0x00.
+;(wW)
+;MsgFailure        default : "Password is incorrect. Please retry again."
+;                   String : The string displayed when the comparing result returned by BIOS is 0x01.
+
+; Supports on DOS WIN Shell flash.
+[MessageStringTable]
+messagestring1="Warning message 1"
+messagestringA00="It only supports to flash secure BIOS on current platform.\r\nThe image to be updated is not a secure BIOS.\r\n"
+messagestringA01="Not allow to flash secure BIOS on current platform.\r\n"
+messagestringA02="Please do not remove the AC power!"
+messagestringA03="Press any key to continue..."
+messagestringA04="Get EC part information fail."
+messagestringA05="Insyde H2OFFT cannot run on battery power. Please plug in AC power and try again."
+messagestringA06="Please insert system battery."
+messagestringA07="Battery is too low (%d < %d). Please charge your battery to %d%%."
+;(dwsDWS)
+;messagestring#   default : empty.
+;The message string must as following format messagestring#="Your message here."
+;The # is a number in Decimal or Hex.
+;If a multi line message is required, you can use "\n" in message string for new line.
+
+; Supports on Secure flash.
+[FactoryCopy]
+Restore=0
+;(DWS)
+;Restore           default : 0.
+;                        0 : Don't do FACTORY_COPY restore after flash.
+;                        1 : Restore FACTORY_COPY after flash BIOS.
+;Factory copy is a region in BIOS which is used to store default keys of Secure Boot.
+
+[SecurityFlashFactoryUpdate]
+UpdateFactoryCopy=1
+;
+UpdateNvStorage=0
+;
+BackupNvStorageUpdateFactoryCopy=1  
+;
+;                  default : 0.
+;                        0 : Don't update NV storage area on secure boot support platform. 
+;                        1 : Force update NV storage area on secure boot support platform. 
+
+[EngineeringErrorDisable]
+SkipSecureBootProtectionCheck = 1
+
+; Supports on DOS WIN flash.
+[CapsuleAudit]
+Flag=0
+QAKey=
+OemKey=
+;(dw)
+;Flag              default : 0.
+;                        0 : Disable.
+;                        1 : Enable capsule update audit.
+;(dw)
+;QAKey             default : empty.
+;                   String : Capsule file which sign with Insyde QA test key.
+;(dw)
+;OemKey            default : empty.
+;                   String : Capsule file which sign with OEM/ODM key.
+
+; Supports on WIN Shell flash.
+[SecureUpdate]
+viaESP=1
+ViaESPCopyFileWaitingTime=0
+FreeEspSpaceWhenNeed=1
+DeviceOrder=eMMC, NVMe, SATA, ATAPI, USB
+PhysicalMemoryAllocateFailRetryTimes=3
+PhysicalMemoryAllocateFailRetryDelay=500
+;(WS)
+;viaESP            default : 3.
+;                        0 : Disable.
+;                            Pass capsule via memory only.
+;                        1 : Write the capsule to ESP (EFI system partition).
+;                            Pass capsule via ESP only.
+;                            Onboard BIOS need to support via ESP method, if BIOS not support then the update failed.
+;                        2 : Pass capsule via ESP and memory.
+;                            It will copy capsule to ESP then pass capsule to BIOS via memory.
+;                            It success when both steps are success, and failure when any one failed.
+;                        3 : Pass capsule via ESP or memory.
+;                            It will try to update capsule via ESP first.
+;                            When via ESP method failed it will use pass capsule to BIOS via memory.
+;                            When via ESP method success it will return success.
+; NOTE: DOS flash does not support via ESP method, if the setting need to run in DOS please set viaESP as 0 or 3.
+;(WS)
+;ViaESPCopyFileWaitingTime
+;                  default : 0.
+;                  Integer : The waiting time after ESP file copy, unit is second.
+;                            To prevent file copy success but the file not actually write to disk, you can use this delay to wait hardware action done.
+;                            The flash utility also has a mechanism to read back and compare to make sure the data is correct.
+;(W)
+;FreeEspSpaceWhenNeed
+;                  default : 1.
+;                        0 : Do not try to delete file in ESP.
+;                        1 : Try to delete .log file in root folder of ESP.
+;(S)
+;DeviceOrder       default : eMMC, NVMe, SATA, ATAPI, USB
+;                            The FAT device detection sequence of secure flash via ESP feature.
+;                            Now we support eMMC, NVMe, SATA, ATAPI, USB.
+;(W)
+;PhysicalMemoryAllocateFailRetryTimes
+;                  default : 3.
+;                  Integer : Retry times.
+;                            If the value is not zero means enable physical memory allocate fail retry, and will retry the setting times.
+;                            0 for disable retry.
+;(W)
+;PhysicalMemoryAllocateFailRetryDelay
+;                  default : 500. (Unit is millisecond)
+;                  Integer : Delay time during secure update physical memory allocate fail retry (millisecond).
+
+; Supports on WIN Secure flash.
+[AutoWakeup]
+Flag=0
+Interval=120
+;(wsWDS)
+;Flag              default : 0.
+;                        0 : Disable.
+;                        1 : Enable auto power on via RTC.
+;(wsWDS)
+;Interval          default : 120.
+;                  Integer : Unit is second. Interval time after system turn off.
+
+; Supports on DOS WIN SHELL Secure flash.
+[PassToBios]
+ClearTXE=0
+;(wdsWDS)
+;ClearTXE          default : 0.
+;                        0 : Disable.
+;                        1 : Tell BIOS to clear TXE at this flash.
+
+; Supports on Secure flash.
+[PreFlash]
+EraseDataType=
+;(WDS)
+;EraseDataType     default : Empty.
+;                Hex Value : The address and size of the data type must reported via IHISI.
+;                            When the data type is not empty, flash utility will erase (fill with 0xFF) the area of the specific data type before flash.
+;                            Note: In secure BIOS, the NV Storage will be always protected. If the specific data type is NV Storage, it will not take effect.
+
+; Supports on DOS WIN SHELL Secure flash.
+[ParamForBiosReference]
+Param1=
+Param2=
+Param3=
+Param4=
+Param5=
+Param6=
+Param7=
+Param8=
+Param9=
+Param10=
+; This section used to pass specific parameter string to BIOS via IHISI 19h.
+;(dwsDWS)
+;Param1~20         default : empty.
+;                   String : The parameter string you want to pass to BIOS.
+[WriteVariable]
+VarName1=SecureBootVarReplaced
+VarGuid1=D710A718-C02A-4658-A0CE-69820A7E8D24
+VarValue1=1
+VarValueLen1=1

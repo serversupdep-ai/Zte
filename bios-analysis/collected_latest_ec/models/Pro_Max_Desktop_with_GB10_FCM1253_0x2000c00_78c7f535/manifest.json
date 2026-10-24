@@ -1,0 +1,59 @@
+{
+  "tag": "Pro_Max_Desktop_with_GB10_FCM1253_0x2000c00_78c7f535",
+  "meta": {
+    "id": "com.dell.uefi78c7f535.firmware",
+    "name": "Pro Max Desktop with GB10 FCM1253",
+    "summary": "System EC Firmware Update",
+    "latest": {
+      "version": "0x2000c00",
+      "timestamp": 1785801600,
+      "url": "https://cdn.fwupd.org/downloads/d71256916e8385230c706cc93f3cd5d2b4e7f82d43be8b67ac87222abac9cdce-DGX_Spark_EC_FW_2.12.0_fuse.cab"
+    },
+    "oldest": {
+      "version": "0x1000200",
+      "timestamp": 1759795200,
+      "url": "https://cdn.fwupd.org/downloads/5db5dda147079d3ec9faf616e6adf50f60dfddbe9628deb9133480def7c203df-DGX_Spark_EC_FW_1.2.0_fuse.cab"
+    },
+    "release_count": 6,
+    "category": "explicit_ec",
+    "priority": 100
+  },
+  "elapsed_sec": 0.97,
+  "inner_files": [
+    [
+      "cab:ec.cap",
+      518970
+    ],
+    [
+      "cab:firmware.jcat",
+      20592
+    ]
+  ],
+  "unpacked_stream_count": 2,
+  "pfs_sections": [],
+  "ec_count": 1,
+  "plaintext_ec_count": 1,
+  "pw_module_count": 0,
+  "ecs": [
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:ec.cap",
+      "plaintext": true,
+      "active_entropy": 6.787,
+      "size": 518970,
+      "sha256": "25c1d26359c21cbae1dea96123f8c8bb51ed7cc3033f26f1acf71e3ce9a84d8a",
+      "head32": "edd5cb6d2de8444cbda17194199ad92a20000000000005003aeb070000000000",
+      "signals": {
+        "notable_strings": [
+          "Compal1",
+          "CompalA31SWD1402",
+          "CompalA31SWD1<0:",
+          "CompalA31SWD1907",
+          "V< MCHP - Replace this region with MCHP Signatur"
+        ]
+      },
+      "saved_file": "models/Pro_Max_Desktop_with_GB10_FCM1253_0x2000c00_78c7f535/ec_1_RAW_PFS_SUBCOMPONENT_518970.bin"
+    }
+  ],
+  "pw_modules": []
+}

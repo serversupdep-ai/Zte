@@ -1,0 +1,49 @@
+{
+  "tag": "dell_5455A11",
+  "meta": {
+    "category": "wayback_dl_dell",
+    "priority": 94,
+    "latest": {
+      "version": "exe",
+      "url": "https://downloads.dell.com/FOLDER03737638M/1/5455A11.exe"
+    }
+  },
+  "elapsed_sec": 0.09,
+  "inner_files": [
+    [
+      "cab:[0]",
+      5578336
+    ],
+    [
+      "cab:4.ico",
+      51262
+    ],
+    [
+      "cab:130.bmp",
+      9758
+    ],
+    [
+      "raw",
+      6819760
+    ]
+  ],
+  "unpacked_stream_count": 4,
+  "pfs_sections": [],
+  "ec_count": 1,
+  "plaintext_ec_count": 1,
+  "pw_module_count": 0,
+  "ecs": [
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:4.ico",
+      "plaintext": true,
+      "active_entropy": 3.79,
+      "size": 51262,
+      "sha256": "2c8ce8dec7c3fb7c8db747d8a6ec65b1d5fbe0b3e49e84d8ea09fd33ebd546ee",
+      "head32": "000001000100808000000000000028c800001600000028000000800000000001",
+      "signals": {},
+      "saved_file": "models/dell_5455A11/ec_1_RAW_PFS_SUBCOMPONENT_51262.bin"
+    }
+  ],
+  "pw_modules": []
+}

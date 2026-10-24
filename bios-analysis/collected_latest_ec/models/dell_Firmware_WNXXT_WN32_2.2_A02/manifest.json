@@ -1,0 +1,50 @@
+{
+  "tag": "dell_Firmware_WNXXT_WN32_2.2_A02",
+  "meta": {
+    "category": "dl_dell_ec_tool",
+    "priority": 94,
+    "latest": {
+      "version": "exe",
+      "url": "https://dl.dell.com/FOLDER03495025M/5/Firmware_WNXXT_WN32_2.2_A02.EXE"
+    }
+  },
+  "elapsed_sec": 0.2,
+  "inner_files": [
+    [
+      "cab:IFU_XE.exe",
+      9151672
+    ],
+    [
+      "cab:update.bin",
+      65536
+    ],
+    [
+      "raw",
+      10838144
+    ]
+  ],
+  "unpacked_stream_count": 3,
+  "pfs_sections": [],
+  "ec_count": 1,
+  "plaintext_ec_count": 1,
+  "pw_module_count": 0,
+  "ecs": [
+    {
+      "kind": "ITE_EC",
+      "stream": "cab:update.bin@ite_0x40",
+      "plaintext": true,
+      "active_entropy": 4.749,
+      "size": 65536,
+      "sha256": "a647c26ccbe3b64354ca2774a5c5c0170178d0f512210c001cf12cf8bc52474f",
+      "signals": {
+        "ite_sig_offset": "0x40",
+        "notable_strings": [
+          "UUIT873X -ITE Tech. Inc.",
+          "IT873X Codebase V1.0 - Copyright ITE Tech. Inc."
+        ]
+      },
+      "saved_file": "models/dell_Firmware_WNXXT_WN32_2.2_A02/ec_1_ITE_EC_65536.bin"
+    }
+  ],
+  "pw_modules": []
+}

@@ -1,0 +1,192 @@
+{
+  "tag": "D14261_D15261_PV14261_PV15261_1.2.0_1709c177",
+  "meta": {
+    "id": "com.dell.uefi1709c177.firmware",
+    "name": "D14261_D15261_PV14261_PV15261",
+    "summary": "Firmware for the Dell_D14261_D15261_PV14261_PV15261",
+    "latest": {
+      "version": "1.2.0",
+      "timestamp": 1787097600,
+      "url": "https://cdn.fwupd.org/downloads/b335b209e8f1c7c76b43f61e90b182ed3d45eca964c20ee881c21379b57dd0e4-52350_firmware.cab"
+    },
+    "oldest": {
+      "version": "1.1.0",
+      "timestamp": 1785283200,
+      "url": "https://cdn.fwupd.org/downloads/dfc2802951bff767ff5ef387dd7fee2c86ada2fc93ebebb7030806389d439ac7-firmware.cab"
+    },
+    "release_count": 2,
+    "category": "dell_essential_intel_odm",
+    "priority": 93
+  },
+  "elapsed_sec": 1.31,
+  "inner_files": [
+    [
+      "cab:firmware.bin",
+      22296624
+    ],
+    [
+      "cab:firmware.jcat",
+      20583
+    ]
+  ],
+  "unpacked_stream_count": 27,
+  "pfs_sections": [
+    {
+      "source": "cab:firmware.bin->iflash@0x5C40",
+      "name": "$_IFLASH_DRV_IMG",
+      "size": 22271536,
+      "entropy": 3.502,
+      "head16": "4d5a0000000000000000000000000000"
+    },
+    {
+      "source": "cab:firmware.bin->iflash@0x100B18",
+      "name": "$_IFLASH_BIOSIMG",
+      "size": 14680064,
+      "entropy": 7.176,
+      "head16": "5f4f545fffffffffffffffffffffffff"
+    },
+    {
+      "source": "cab:firmware.bin->iflash@0xF00B38",
+      "name": "$_IFLASH_INI_IMG",
+      "size": 59123,
+      "entropy": 4.653,
+      "head16": "3b20546869732066696c652069732049"
+    },
+    {
+      "source": "cab:firmware.bin->iflash@0xF0F258",
+      "name": "$_IFLASH_EC_IMG_",
+      "size": 1048576,
+      "entropy": 6.906,
+      "head16": "0212570216d200010203000000000000"
+    },
+    {
+      "source": "cab:firmware.bin->iflash@0x105CB98",
+      "name": "$_IFLASH_ME_IMG_",
+      "size": 5136628,
+      "entropy": 7.716,
+      "head16": "ffffffffffffffffffffffffffffffff"
+    },
+    {
+      "source": "cab:firmware.bin->$_IFLASH_DRV_IMG@0x5C40->iflash@0xFAEC0",
+      "name": "$_IFLASH_BIOSIMG",
+      "size": 14680064,
+      "entropy": 7.176,
+      "head16": "5f4f545fffffffffffffffffffffffff"
+    },
+    {
+      "source": "cab:firmware.bin->$_IFLASH_DRV_IMG@0x5C40->iflash@0xEFAEE0",
+      "name": "$_IFLASH_INI_IMG",
+      "size": 59123,
+      "entropy": 4.653,
+      "head16": "3b20546869732066696c652069732049"
+    },
+    {
+      "source": "cab:firmware.bin->$_IFLASH_DRV_IMG@0x5C40->iflash@0xF09600",
+      "name": "$_IFLASH_EC_IMG_",
+      "size": 1048576,
+      "entropy": 6.906,
+      "head16": "0212570216d200010203000000000000"
+    },
+    {
+      "source": "cab:firmware.bin->$_IFLASH_DRV_IMG@0x5C40->iflash@0x1056F40",
+      "name": "$_IFLASH_ME_IMG_",
+      "size": 5136628,
+      "entropy": 7.716,
+      "head16": "ffffffffffffffffffffffffffffffff"
+    }
+  ],
+  "ec_count": 4,
+  "plaintext_ec_count": 4,
+  "pw_module_count": 0,
+  "ecs": [
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->$_IFLASH_INI_IMG@0xF00B38",
+      "plaintext": true,
+      "active_entropy": 4.653,
+      "size": 59123,
+      "sha256": "fc85e94ad1c1df7e398cad35c81c4f8294c280d7faee2689af4781098598cb17",
+      "head32": "3b20546869732066696c6520697320496e737964652048324f4646542028466c",
+      "signals": {
+        "notable_strings": [
+          "; Because some setting items only supported on s",
+          "ting item.",
+          "; (wsWS) means the setting item supported on whi",
+          "; [PasswordCheck]                       | WIN SH",
+          "erwrite.",
+          "ty will load the new ini file and overwrite all ",
+          "PlatformName1=Dell 14 D14261",
+          "Password=0",
+          ";                            Password      = Typ",
+          "EC_Verify=0",
+          "EC_VerifyErrorRetry=3",
+          "fore writing. Just do write action directly.",
+          " the same as the data we want to write,",
+          "e write action.",
+          ";EC_Verify         default : 0."
+        ]
+      },
+      "saved_file": "models/D14261_D15261_PV14261_PV15261_1.2.0_1709c177/ec_1_RAW_PFS_SUBCOMPONENT_59123.bin"
+    },
+    {
+      "kind": "EXPLICIT_EC_SECTION",
+      "stream": "cab:firmware.bin->$_IFLASH_EC_IMG_@0xF0F258",
+      "plaintext": true,
+      "active_entropy": 6.906,
+      "size": 1048576,
+      "sha256": "5d4828fa36d6bcb6dc4ff62997cad386b91dbd83b98f8e51553978a1e4349396",
+      "signals": {
+        "notable_strings": [
+          " Write data in Shutdown_9sec_ECOFF_SPI EEROM 0x0"
+        ]
+      },
+      "saved_file": "models/D14261_D15261_PV14261_PV15261_1.2.0_1709c177/ec_2_EXPLICIT_EC_SECTION_1048576.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->lzma@0xA40BC0",
+      "plaintext": true,
+      "active_entropy": 5.731,
+      "size": 196736,
+      "sha256": "57ae038fdef437c354c1f6b85f3c8a01338c1f16b25a84b0ea6f11ac4adafd01",
+      "head32": "7c00001900000000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "DECOMPILATION OR DISASSEMBLY PROHIBITED"
+        ]
+      },
+      "saved_file": "models/D14261_D15261_PV14261_PV15261_1.2.0_1709c177/ec_3_RAW_PFS_SUBCOMPONENT_196736.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:firmware.bin->lzma@0xA4D538",
+      "plaintext": true,
+      "active_entropy": 6.489,
+      "size": 852096,
+      "sha256": "264bfaa1eaa8e28adfd9237a83c08ffaf94e77711d1d21062f2cd1e61683cf20",
+      "head32": "7c00001900000000000000000000000000000000000000000000000000000000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "directory services (X.500)",
+          "challengePassword",
+          "ac-auditEntity",
+          "serviceLocator",
+          "OCSP Service Locator",
+          "directory services - algorithms",
+          "favouriteDrink",
+          "id-PasswordBasedMAC",
+          "password based MAC",
+          "id-ct-asciiTextWithCRLF",
+          "userPassword",
+          "iteration",
+          "No password method specified",
+          "PEM password callback wrapper",
+          "empty password"
+        ]
+      },
+      "saved_file": "models/D14261_D15261_PV14261_PV15261_1.2.0_1709c177/ec_4_RAW_PFS_SUBCOMPONENT_852096.bin"
+    }
+  ],
+  "pw_modules": []
+}

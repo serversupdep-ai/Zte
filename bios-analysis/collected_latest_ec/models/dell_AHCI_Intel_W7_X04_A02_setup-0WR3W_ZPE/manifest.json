@@ -1,0 +1,88 @@
+{
+  "tag": "dell_AHCI_Intel_W7_X04_A02_setup-0WR3W_ZPE",
+  "meta": {
+    "category": "wayback_dl_dell",
+    "priority": 94,
+    "latest": {
+      "version": "exe",
+      "url": "https://downloads.dell.com/FOLDER00574558M/2/AHCI_Intel_W7_X04_A02_setup-0WR3W_ZPE.exe"
+    }
+  },
+  "elapsed_sec": 0.23,
+  "inner_files": [
+    [
+      "cab:data1.cab",
+      2183918
+    ],
+    [
+      "cab:data1.hdr",
+      55109
+    ],
+    [
+      "cab:data2.cab",
+      8605377
+    ],
+    [
+      "cab:setup.exe",
+      457496
+    ],
+    [
+      "cab:setup.inx",
+      242602
+    ],
+    [
+      "cab:TXTSETUP.OEM",
+      5617
+    ],
+    [
+      "cab:iaStor.sys",
+      470808
+    ],
+    [
+      "cab:TXTSETUP.OEM",
+      5617
+    ],
+    [
+      "cab:iaStor.sys",
+      568600
+    ],
+    [
+      "raw",
+      12418584
+    ]
+  ],
+  "unpacked_stream_count": 10,
+  "pfs_sections": [],
+  "ec_count": 2,
+  "plaintext_ec_count": 2,
+  "pw_module_count": 0,
+  "ecs": [
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:data1.hdr",
+      "plaintext": true,
+      "active_entropy": 4.062,
+      "size": 55109,
+      "sha256": "6d8e66e148a6d1b91ee24bbc0ff1ec6bf420347cbb7531e88d697ddfb791180f",
+      "head32": "49536328b00400020000000000020000bc46000045d700000000000000000000",
+      "signals": {
+        "notable_strings": [
+          "ITMService.exe"
+        ]
+      },
+      "saved_file": "models/dell_AHCI_Intel_W7_X04_A02_setup-0WR3W_ZPE/ec_1_RAW_PFS_SUBCOMPONENT_55109.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:setup.inx",
+      "plaintext": true,
+      "active_entropy": 7.378,
+      "size": 242602,
+      "sha256": "eeb8f5acae37e3db5f88f61dc21730ca1dd2dac1109073188dd1935e7c12e975",
+      "head32": "74c42c84e1e5d42810fb00203c24fb4d11201d3de4c8ccece4dcd8dcc8056cc7",
+      "signals": {},
+      "saved_file": "models/dell_AHCI_Intel_W7_X04_A02_setup-0WR3W_ZPE/ec_2_RAW_PFS_SUBCOMPONENT_242602.bin"
+    }
+  ],
+  "pw_modules": []
+}

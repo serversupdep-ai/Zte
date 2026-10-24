@@ -1,0 +1,1432 @@
+{
+  "tag": "XPS_13_9350_XPS_13_9350_1.25.0_1a99170e",
+  "meta": {
+    "id": "com.dell.uefi1a99170e.firmware",
+    "name": "XPS 13 9350/XPS 13 9350",
+    "summary": "Dell System Firmware Update",
+    "latest": {
+      "version": "1.25.0",
+      "timestamp": 1787628164,
+      "url": "https://cdn.fwupd.org/downloads/50bcabc8a144c8384211276dc9d086adb2e2bc37a8e52c464d200c31fac5135c-TributoLnl_20.0.11.1815_CORP_DVT_firmware.lvfs.cab"
+    },
+    "oldest": {
+      "version": "1.11.2",
+      "timestamp": 1746000383,
+      "url": "https://cdn.fwupd.org/downloads/859cdd18abe1a55265b4993b655d9c9c569664eb37e0664db16823f24a48d716-TributoLnl_20.0.0.1410_CORP_DVT_firmware.cab"
+    },
+    "release_count": 9,
+    "category": "xps_alienware_gaming_latest",
+    "priority": 88
+  },
+  "elapsed_sec": 0.63,
+  "inner_files": [
+    [
+      "cab:firmware.bin",
+      12549263
+    ]
+  ],
+  "unpacked_stream_count": 69,
+  "pfs_sections": [
+    {
+      "source": "DellPfsExtract",
+      "name": "Utilities/1 Image -- 1 Policy Payload v1.2.60.bin",
+      "size": 211736,
+      "entropy": 0.532,
+      "head16": "24504c430100000020000000183b0300"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Utilities/1 Image -- 2 Resource Payload v1.1.11.bin",
+      "size": 1007190,
+      "entropy": 7.287,
+      "head16": "435352240100000020000000565e0f00"
+    },
+    {
+      "source": "DellPfsExtract",
+      "name": "Utilities/1 Image -- 3 UI Payload v1.0.13.bin",
+      "size": 1166863,
+      "entropy": 6.164,
+      "head16": "42494e2e4844522e01000000efcd1100"
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[0]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 21064,
+      "entropy": 1.862,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[1]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 5.797,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[2]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 5.777,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[3]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 5.345,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[4]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 5.499,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[5]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 5.752,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[6]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 5.219,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[7]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 5.317,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[8]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 4.834,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[9]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 5.939,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[10]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 6.531,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[11]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 4.97,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[12]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 5.516,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[13]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 6.117,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[14]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 6.339,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[15]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 6.469,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[16]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 6.413,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[17]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 6.428,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[18]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 6.157,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[19]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 3.754,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[20]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 4.646,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[21]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 4.534,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[22]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 0.934,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[23]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 0.934,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[24]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 0.934,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[25]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 0.934,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[26]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 45640,
+      "entropy": 3.237,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[27]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 5.663,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[28]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 6.063,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[29]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 6.803,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[30]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 7.303,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[31]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 7.213,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[32]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 7.215,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[33]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 6.953,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[34]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 5.616,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[35]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 6.434,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    },
+    {
+      "source": "dell_hdr_zlib@0x45E410->pfs@0x68[36]",
+      "guid": "f6e2b359424ef341b1f4446a84bfc6d0",
+      "size": 66120,
+      "entropy": 6.458,
+      "head16": "0200000044656c6c4167735f32303233",
+      "xml_hint": ""
+    }
+  ],
+  "ec_count": 66,
+  "plaintext_ec_count": 57,
+  "pw_module_count": 0,
+  "ecs": [
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Utilities/1 Image -- 1 Policy Payload v1.2.60.bin",
+      "plaintext": true,
+      "active_entropy": 0.532,
+      "size": 211736,
+      "sha256": "03f4e40dc0b9a4d9b6627b9c4649552a9ddecc72047303de5bb6c329662a50e7",
+      "head32": "24504c430100000020000000183b0300200000003c0201000000000009d1945f",
+      "signals": {
+        "notable_strings": [
+          "DellFlashUi.exe"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_1_RAW_PFS_SUBCOMPONENT_211736.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Utilities/1 Image -- 2 Resource Payload v1.1.11.bin",
+      "plaintext": true,
+      "active_entropy": 7.287,
+      "size": 1007190,
+      "sha256": "12126404a52555a503e13a5873a743efd3c642b74f5bbe123ab9d8c6c1730f4b",
+      "head32": "435352240100000020000000565e0f0020000000a01e00000d010100e9f50fe8",
+      "signals": {},
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_2_RAW_PFS_SUBCOMPONENT_1007190.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "bu:Utilities/1 Image -- 3 UI Payload v1.0.13.bin",
+      "plaintext": true,
+      "active_entropy": 6.164,
+      "size": 1166863,
+      "sha256": "e61ccc24eb7eb6210d7fd84f89ccdd81b99030e38a2b48f95d77a4cdee4d9b8f",
+      "head32": "42494e2e4844522e01000000efcd110055495c436c61726974792e646c6c0000",
+      "signals": {
+        "io_910_911_pairs": 1,
+        "notable_strings": [
+          "SelectionItem`1",
+          "SelectionItem`2",
+          "DellResourceKeyID",
+          "Dell.Clarity.MVVM",
+          "Dell_WindowHeader_Loaded",
+          "PasswordBoxPasswordChanged",
+          "OnPasswordValueChanged",
+          "Dell_ActionBar_ItemsCollectionChanged",
+          "OnItemsChanged",
+          "get_Password",
+          "set_Password",
+          "GetPassword",
+          "SetPassword",
+          "GetService",
+          "get_ItemsSource"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_3_RAW_PFS_SUBCOMPONENT_1166863.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[1:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 5.797,
+      "size": 66120,
+      "sha256": "6d138b6670eb5258d26bde103ea2a1ea200bdb2ec9caf127b8a80d9c8df09f7d",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023",
+          "Warning Write Failure",
+          "Write Protected",
+          "Dell Inc"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_4_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[2:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 5.777,
+      "size": 66120,
+      "sha256": "dd968a6b14e6558b7b1bc0bc6a85a8e8bd448dbf3a49d242061fd9d882a293b4",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023",
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_5_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[3:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 5.345,
+      "size": 66120,
+      "sha256": "3a63ec29dfc0bf45db6bc185570b499a92c301539447983091b07573dd61379b",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023",
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_6_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[4:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 5.499,
+      "size": 66120,
+      "sha256": "33c7544c4ea716988831a6adf58b1badabd82db442e04542db734b10d8a191fe",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "DellAgs_2023",
+          "PcdOddPowerInitEnable",
+          "PcdPc8374SioKbcPresent"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_7_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[5:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 5.752,
+      "size": 66120,
+      "sha256": "b0fcd04c119c7dd82715bde9aeb9cf3e991ad073235297e92cf9e5f27a8492e6",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023",
+          "VpdPcd8374SioKbcPresent",
+          "VpdPcdOddPowerInitEnable",
+          "PcdPasswordStatusAdminName",
+          "PcdPasswordStatusUserName",
+          "PcdDellAudioSSIDexV2Value",
+          "PcdDellBoardBomID",
+          "PcdDellBranding",
+          "PcdDellBrightnessLowNitsEnableSwitch",
+          "PcdDellCdracEnabled",
+          "PcdDellCpuM2PcieLabel",
+          "PcdDellFuncDxeBoardGetDisplayModeFlag",
+          "PcdDellFuncDxeBoardProgramDgpSsidSvid",
+          "PcdDellFuncDxeBoardUpdateMeSetupPttState",
+          "PcdDellFuncPeiBoardDpinPolicy"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_8_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[6:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 5.219,
+      "size": 66120,
+      "sha256": "6a6d9abe68b8a7483ac475f9a2220774a9d2ca4f6002a7b69960523ab78f5568",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_9_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[7:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 5.317,
+      "size": 66120,
+      "sha256": "db988c2fed8e9a47125487aab7f8e9725a4ef5a6cbc4396b97307873e4f4a3ab",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023",
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_10_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[8:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 4.834,
+      "size": 66120,
+      "sha256": "7c4e3feedaaf726fcaac4c84482e8d77bdf67f7b7b0246ccba9c452710f11ab3",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023",
+          "DECOMPILATION OR DISASSEMBLY PROHIBITED",
+          "Dell_Inc",
+          "xh_Dell_"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_11_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[9:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 5.939,
+      "size": 66120,
+      "sha256": "a7e86d9ffceaa509490c7630f3cd4a6e152399ff7c7e683960fb337bc15233f5",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "io_910_911_pairs": 4,
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_12_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[10:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.531,
+      "size": 66120,
+      "sha256": "d0464fd69eef965ad381361d1b1864fb2b3562741ed082913f49f3cfab8f268e",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "notable_strings": [
+          "DellAgs_2023",
+          "DellLogo",
+          "Warning Write Failure",
+          "Write Protected",
+          "invalid literal/lengths set",
+          "invalid literal/length code"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_13_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[11:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 4.97,
+      "size": 66120,
+      "sha256": "938adcc521637f2f2b5863a2358fd3f558e4cdec00ac8b4c3a86427d96f3fdc3",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_14_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[12:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 5.516,
+      "size": 66120,
+      "sha256": "0451327bc616878d0c02b4a996eceb1002592695f392251a0da4e79fb44a8a5f",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023",
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_15_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[13:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.117,
+      "size": 66120,
+      "sha256": "5d36f90deeb6db5ce48f047efeb2978ae1c28983d9b1c3abb4cb2f66591cd1cb",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_16_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[14:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.339,
+      "size": 66120,
+      "sha256": "7512dbc994122b8bf8e949878e538f91d721fa47b025691816d153bdd7d12337",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_17_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[15:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.469,
+      "size": 66120,
+      "sha256": "0917591a30c95ce3e29b908945fd10afdd42e622d2076743f37b6f55d650d53d",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_18_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[16:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.413,
+      "size": 66120,
+      "sha256": "7053f32d808d8737f48a5a2f363c5947c54ea41f2b7368944e31f5cabcaf1b29",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_19_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[17:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.428,
+      "size": 66120,
+      "sha256": "5b13df987fb2ee3727ef836ddcde9074fe21042ac69195027835d87ffe4b366b",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_20_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[18:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.157,
+      "size": 66120,
+      "sha256": "a00e4643410fd11843eeb5fd8bfecee40afd285ee55c09b8cae7f1e20a29b3fc",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023",
+          "directory services (X.500)",
+          "challengePassword",
+          "ac-auditEntity",
+          "serviceLocator",
+          "OCSP Service Locator",
+          "directory services - algorithms",
+          "favouriteDrink",
+          "id-PasswordBasedMAC",
+          "password based MAC",
+          "id-ct-asciiTextWithCRLF",
+          "userPassword"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_21_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[19:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 3.754,
+      "size": 66120,
+      "sha256": "db3ff89a134af2e1a6d69ee495d18dc4f9150667e0b783e2da2bd8b4845a376e",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_22_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[20:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 4.646,
+      "size": 66120,
+      "sha256": "b9748c9c9f5be344e4fa1fb7f8113c2e7a61be941c7ece4a5dbd491e212164e3",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "SHA256_K0_LE": 1,
+        "AES_SBOX": 1,
+        "notable_strings": [
+          "DellAgs_2023",
+          "Suite B: certificate version invalid",
+          "Suite B: invalid public key algorithm",
+          "Suite B: invalid ECC curve",
+          "Suite B: invalid signature algorithm",
+          "Suite B: curve not allowed for this LOS",
+          "Suite B: cannot sign P-384 with P-256",
+          "professionItems",
+          "OCSP_SERVICELOC"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_23_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[21:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 4.534,
+      "size": 66120,
+      "sha256": "414122451097a18ea9f0e67565d3938479a9ea3c793babde72eda6901a88d421",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_24_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[22:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 0.934,
+      "size": 66120,
+      "sha256": "9c6efa64019b984e3405ef25e8217cc607ca3ad79ba24e05f2ddf14a2c369360",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_25_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[23:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 0.934,
+      "size": 66120,
+      "sha256": "25e0a5820e795d9a40caf990c72e2f41696b57dbb8d88168ddf2fc7502a626e9",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_26_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[24:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 0.934,
+      "size": 66120,
+      "sha256": "155b695594b6b4386665e872253686b810ecbda1b5cd1f51b06e24f7e2582f85",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_27_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[25:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 0.934,
+      "size": 66120,
+      "sha256": "891cebeca70fc90d449342b8b0d093d9522d2a095ac44dd964743d65d260ba36",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_28_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[26:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 3.237,
+      "size": 45640,
+      "sha256": "e0a3a1781f286c7e739fd1bf4b3adf6e1a7ecf15a9949ff612ea89fee56ae6dc",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_29_RAW_PFS_SUBCOMPONENT_45640.bin"
+    },
+    {
+      "kind": "ITE_EC",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[27:f6e2b359]@ite_0xCB7",
+      "plaintext": true,
+      "active_entropy": 5.663,
+      "size": 66120,
+      "sha256": "694088e1fca1cee63960a29b9f8bfcd211fe5cd207c67d45da306d7de9c4bb08",
+      "signals": {
+        "ite_sig_offset": "0xcb7",
+        "notable_strings": [
+          "DellAgs_2023",
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_30_ITE_EC_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[28:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.063,
+      "size": 66120,
+      "sha256": "62a56f84869cea1a0c32035df363bffbea27030b370dfb67cb8cae7e1f617bd0",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023",
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_31_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[29:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.803,
+      "size": 66120,
+      "sha256": "987e3009642be1324ca1c9694a1868e000f0485f087b33b707f397a390828d70",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_32_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[30:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 7.303,
+      "size": 66120,
+      "sha256": "8b612b887a17b7fe720a9cff602d7841c4a9052099672289c1d49103252c98db",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_33_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[31:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 7.213,
+      "size": 66120,
+      "sha256": "18ccae16f0d9bd6f8b3d19a4371f9d1e44f790f7410b04be3d025e493b84202e",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_34_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[32:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 7.215,
+      "size": 66120,
+      "sha256": "5ab11f63dc7b7ac5ddcc0282320b06084b89e99b629adda7100788db802160d5",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_35_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[33:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.953,
+      "size": 66120,
+      "sha256": "7e4ea6650e83f252b1825b5840b86035b7b95408a822bfac37010162f7412542",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_36_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[34:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 5.616,
+      "size": 66120,
+      "sha256": "0bf9258cbed894ef2bd6b610eccc0381f48872dfb07160aea8ac1a82b8cc372b",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023",
+          "Warning Write Failure",
+          "Write Protected"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_37_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[35:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.434,
+      "size": 66120,
+      "sha256": "7b2084d3213077b0ebf98efe232d728fdb6ddde98fc7eb758f37335fd963d3b0",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_38_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[36:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.458,
+      "size": 66120,
+      "sha256": "0786918755661b99f33da107ba9c299520226b39a8c4795d7d10761741155eca",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_39_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[37:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.464,
+      "size": 66120,
+      "sha256": "9ce1ea02b24afb5a6e82160dbd37896aafee63c86214693107cdf5c71a49d98b",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_40_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[38:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.471,
+      "size": 66120,
+      "sha256": "1792c5ce56aea8a7b394d2102716b17aa621e17c66234ed9c4329e3d7dd52a2b",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_41_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[39:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 5.827,
+      "size": 66120,
+      "sha256": "13d0ecd8019b230651495ba8e792eb9a4c42aee753c7cd8d7ada6767a26a167d",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_42_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[40:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 4.686,
+      "size": 66120,
+      "sha256": "28af4be9a567f5837c73a1909727d402d4e983b6f0c305100f3b163f7d8589ae",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "io_910_911_pairs": 1,
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_43_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[41:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 0.934,
+      "size": 66120,
+      "sha256": "b7333dd0f8d9a8dd71c393289ffe643e0f33b4b697e8c6d00063ee5b4ec96058",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_44_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[42:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 0.934,
+      "size": 66120,
+      "sha256": "c7346309e5c220c5aeeeaba472ed5e6c43aa58ac0868fe38a91885881b37c46b",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_45_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[43:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 0.934,
+      "size": 66120,
+      "sha256": "914649100d5ab453022d91a31e192f06495a89eb1be7056240aeb44f9e9a3ab3",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_46_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[44:f6e2b359]",
+      "plaintext": false,
+      "active_entropy": 7.991,
+      "size": 66120,
+      "sha256": "609f09b2345be2ef63c6959c0424a187198e8590f3f24a1a4f969fcef711c169",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_47_hdrstub_66120.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[45:f6e2b359]",
+      "plaintext": false,
+      "active_entropy": 7.992,
+      "size": 66120,
+      "sha256": "b9268a12f710a228bd6b81915a23fe684cc2d8d3208f079d5dc96a1368334a3a",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_48_hdrstub_66120.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[46:f6e2b359]",
+      "plaintext": false,
+      "active_entropy": 7.993,
+      "size": 66120,
+      "sha256": "8da30af8dc7a62459b7d5ef61dbe1eed2a2e7f227725c5ff05bbcb5543e4fd8c",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_49_hdrstub_66120.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[47:f6e2b359]",
+      "plaintext": false,
+      "active_entropy": 7.992,
+      "size": 66120,
+      "sha256": "7472bd4f98deba46cfbada4686e90f542edfdd858f6f8b3a2927a1c141212c72",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_50_hdrstub_66120.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[48:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 7.526,
+      "size": 66120,
+      "sha256": "c405ac8a464e0460270720562f4af6d0b5cad9a280ea186c2bbfc738de757c51",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_51_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[49:f6e2b359]",
+      "plaintext": false,
+      "active_entropy": 7.986,
+      "size": 66120,
+      "sha256": "872d91b5956d7f57905355a612e1110247386d3096c74f2d3327fd3ea3b04af0",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_52_hdrstub_66120.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[50:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 5.998,
+      "size": 66120,
+      "sha256": "639c82806609333c84eea9625074c37eb389410955d783313b39328783946e66",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_53_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[51:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 3.62,
+      "size": 66120,
+      "sha256": "7ae87f4ce6518600642ccdbd137f1ac08297889937674042708705da68990829",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "SHA256_K0_LE": 2,
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_54_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[52:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.09,
+      "size": 66120,
+      "sha256": "195a4e90baba5068540df143d848a3110c41af0c096f6c12b8d5afa510cd3fe4",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_55_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[53:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 6.559,
+      "size": 66120,
+      "sha256": "90e54a4b8645eafe5bb11def2cd54dc39d9d9631c577e0d2d8027757eabf2758",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_56_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[54:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 0.479,
+      "size": 66120,
+      "sha256": "5ca92ec8d1e178aa84c09188a39570758f06bf7a3e8ac3469f4efb0b934baa7c",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_57_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[55:f6e2b359]",
+      "plaintext": false,
+      "active_entropy": 7.991,
+      "size": 66120,
+      "sha256": "6e80571bcb24188aa2bfb683585e9e4dd62185f7bbeabc4c816a768e52bf2ae7",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_58_hdrstub_66120.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[56:f6e2b359]",
+      "plaintext": false,
+      "active_entropy": 7.863,
+      "size": 66120,
+      "sha256": "e0760ef78211451b5a133a9c039036b0abc5ee315f6d6c253a92a2c372011d30",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_59_hdrstub_66120.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[57:f6e2b359]",
+      "plaintext": false,
+      "active_entropy": 7.819,
+      "size": 66120,
+      "sha256": "199119900bdfaf98156d5d6c3ce6be2a66b633c94cf6f3006912e8dd32682b9f",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_60_hdrstub_66120.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[58:f6e2b359]",
+      "plaintext": false,
+      "active_entropy": 7.807,
+      "size": 66120,
+      "sha256": "e485f64d5eadee8e8f4a9a0a5e56aff647f00efcdeec1c690c0006cda669bb2d",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_61_hdrstub_66120.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[59:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 0.934,
+      "size": 66120,
+      "sha256": "b75c96688461b46a3d6434e999d51d1040c16bcf2d4a56ad56e31c5e221e8cce",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_62_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[60:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 7.571,
+      "size": 66120,
+      "sha256": "9a6a7ff533622c68b41467806a2de27e82092832c2e7a6c95ec842f335fbcb9e",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_63_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[61:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 7.79,
+      "size": 66120,
+      "sha256": "c2fd7e1bb963306ad47b803bb808422a0e96f8165adac837d73a8f577dd44578",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_64_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[62:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 0.934,
+      "size": 66120,
+      "sha256": "2a0b4bfb17c14ffbd45045a854481275f155af213bab71a8a7aea5d90a0b23a5",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_65_RAW_PFS_SUBCOMPONENT_66120.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "dell_hdr_zlib@0x45E410->pfs@0x68[63:f6e2b359]",
+      "plaintext": true,
+      "active_entropy": 0.934,
+      "size": 66120,
+      "sha256": "877617763000aad143e385e242d8b6c1ba2f94e9e12766b5068a50e376d20c8f",
+      "head32": "0200000044656c6c4167735f3230323300000000050000000200000018020000",
+      "signals": {
+        "notable_strings": [
+          "DellAgs_2023"
+        ]
+      },
+      "saved_file": "models/XPS_13_9350_XPS_13_9350_1.25.0_1a99170e/ec_66_RAW_PFS_SUBCOMPONENT_66120.bin"
+    }
+  ],
+  "pw_modules": []
+}

@@ -1,0 +1,330 @@
+{
+  "tag": "dell_Alienware_AW3225QF_FWUpdate_M2B105_Windows",
+  "meta": {
+    "category": "wayback_dl_dell",
+    "priority": 94,
+    "latest": {
+      "version": "exe",
+      "url": "https://dl.dell.com/FOLDER11545529M/1/Alienware_AW3225QF_FWUpdate_M2B105_Windows.exe"
+    }
+  },
+  "elapsed_sec": 0.35,
+  "inner_files": [
+    [
+      "cab:Alienware_AW3225QF_FirmwareUpdate_Instruction_Windows_en_A00.pdf",
+      187059
+    ],
+    [
+      "cab:Firmware Updater.exe",
+      3425880
+    ],
+    [
+      "cab:Firmware Updater.pdb",
+      873984
+    ],
+    [
+      "cab:MuseoSansForDell-Regular.ttf",
+      144848
+    ],
+    [
+      "cab:SFXExtract.exe",
+      27224
+    ],
+    [
+      "cab:U3425WE",
+      134240
+    ],
+    [
+      "cab:HTML4.INI",
+      31512
+    ],
+    [
+      "cab:help_Brazilian_Portuguese.html",
+      10619
+    ],
+    [
+      "cab:help_English.html",
+      9748
+    ],
+    [
+      "cab:help_French.html",
+      10834
+    ],
+    [
+      "cab:help_German.html",
+      10349
+    ],
+    [
+      "cab:help_Japanese.html",
+      11237
+    ],
+    [
+      "cab:help_Russian.html",
+      13287
+    ],
+    [
+      "cab:help_SimplifiedChinese.html",
+      9798
+    ],
+    [
+      "cab:help_Spanish.html",
+      10671
+    ],
+    [
+      "cab:USB_cable.png",
+      53095
+    ],
+    [
+      "cab:power_cable.png",
+      85457
+    ],
+    [
+      "cab:step1_Spanish.png",
+      10478
+    ],
+    [
+      "cab:step2_Spanish.png",
+      27031
+    ],
+    [
+      "cab:step3_Spanish.png",
+      27408
+    ],
+    [
+      "cab:step4_Spanish.png",
+      23325
+    ],
+    [
+      "cab:step1_English.png",
+      10402
+    ],
+    [
+      "cab:step2_English.png",
+      25085
+    ],
+    [
+      "cab:step3_English.png",
+      25626
+    ],
+    [
+      "cab:step4_English.png",
+      22349
+    ],
+    [
+      "cab:step1_Russian.png",
+      10037
+    ],
+    [
+      "cab:step2_Russian.png",
+      26167
+    ],
+    [
+      "cab:step3_Russian.png",
+      26876
+    ],
+    [
+      "cab:step4_Russian.png",
+      23120
+    ],
+    [
+      "cab:step1_German.png",
+      11222
+    ],
+    [
+      "cab:step2_German.png",
+      28410
+    ],
+    [
+      "cab:step3_German.png",
+      28917
+    ],
+    [
+      "cab:step4_German.png",
+      23883
+    ],
+    [
+      "cab:step1_Brazilian_Portuguese.png",
+      11193
+    ],
+    [
+      "cab:step2_Brazilian_Portuguese.png",
+      26642
+    ],
+    [
+      "cab:step3_Brazilian_Portuguese.png",
+      27155
+    ],
+    [
+      "cab:step4_Brazilian_Portuguese.png",
+      24180
+    ],
+    [
+      "cab:step1_SimplifiedChinese.png",
+      11397
+    ],
+    [
+      "cab:step2_SimplifiedChinese.png",
+      26283
+    ],
+    [
+      "cab:step3_SimplifiedChinese.png",
+      26447
+    ],
+    [
+      "cab:step4_SimplifiedChinese.png",
+      20949
+    ],
+    [
+      "cab:step1_Japanese.png",
+      11021
+    ],
+    [
+      "cab:step2_Japanese.png",
+      27314
+    ],
+    [
+      "cab:step3_Japanese.png",
+      27596
+    ],
+    [
+      "cab:step4_Japanese.png",
+      21022
+    ],
+    [
+      "cab:step1_French.png",
+      10675
+    ],
+    [
+      "cab:step2_French.png",
+      26097
+    ],
+    [
+      "cab:step3_French.png",
+      26236
+    ],
+    [
+      "cab:step4_French.png",
+      22896
+    ],
+    [
+      "cab:AW3225QF_M2B105_20240418(ISP).UPG",
+      2231786
+    ],
+    [
+      "raw",
+      13105480
+    ]
+  ],
+  "unpacked_stream_count": 51,
+  "pfs_sections": [],
+  "ec_count": 6,
+  "plaintext_ec_count": 2,
+  "pw_module_count": 0,
+  "ecs": [
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:Alienware_AW3225QF_FirmwareUpdate_Instruction_Windows_en_A00.pdf",
+      "plaintext": false,
+      "active_entropy": 7.953,
+      "size": 187059,
+      "sha256": "8fe794574136dbd57c10798add0a01b80bbeb6ae26c6587e1b7a7eaa2fd4e4f4",
+      "head32": "255044462d312e360d25e2e3cfd30d0a3237372030206f626a0d3c3c2f4c696e",
+      "signals": {
+        "notable_strings": [
+          "3 20 0 R/FontName/CBJMCC+MuseoSansForDell-700/It",
+          "<</BaseFont/CBJMCC+MuseoSansForDell-700/Encoding",
+          ".Firmware.Update.Prerequisites)36 0 R(M9.92077.H",
+          "<</EF<</F 29 0 R>>/F(High Quality Print_dell_201"
+        ]
+      },
+      "saved_file": "models/dell_Alienware_AW3225QF_FWUpdate_M2B105_Windows/ec_1_hdrstub_187059.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:Firmware Updater.pdb",
+      "plaintext": true,
+      "active_entropy": 3.794,
+      "size": 873984,
+      "sha256": "18c94c597f322eb07d4e86f9cd4660e8f904c5fb01a750541d7755626ef2f675",
+      "head32": "4d6963726f736f667420432f432b2b204d534620372e30300d0a1a4453000000",
+      "signals": {
+        "notable_strings": [
+          "are\\isp\\windows\\Firmware Updater\\HIDtoI2C\\MCHP\\M",
+          "are\\isp\\windows\\firmware updater\\hidtoi2c\\mchp\\m",
+          "are\\isp\\windows\\Firmware Updater\\MCU\\NuvotonMCU\\",
+          "are\\isp\\windows\\firmware updater\\mcu\\nuvotonmcu\\",
+          "NuMicroMCUMchpSecure.cs",
+          "numicromcumchpsecure.cs",
+          "ler\\MStarMST9UMchpSecure.cs",
+          "ler\\mstarmst9umchpsecure.cs",
+          "ler\\MStarMchpSecure.cs",
+          "ler\\mstarmchpsecure.cs",
+          "ler\\MStarMST9UMchpSecure_AW5520QF.cs",
+          "ler\\mstarmst9umchpsecure_aw5520qf.cs",
+          "ler\\MStarTSUMGMchpSecure.cs",
+          "ler\\mstartsumgmchpsecure.cs",
+          "ler\\MStarTSUMMchpSecure.cs"
+        ]
+      },
+      "saved_file": "models/dell_Alienware_AW3225QF_FWUpdate_M2B105_Windows/ec_2_RAW_PFS_SUBCOMPONENT_873984.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:MuseoSansForDell-Regular.ttf",
+      "plaintext": true,
+      "active_entropy": 6.373,
+      "size": 144848,
+      "sha256": "556dd541baf600704128ed9a23477db6ea92a035a6509ce89240a8f500260000",
+      "head32": "00010000001501000004005044534947c9b53bc200021ff0000015e047504f53",
+      "signals": {
+        "notable_strings": [
+          "eserved.Museo Sans For DellRegular1.000;xljb;Mus",
+          "eoSansForDellMuseo Sans For Dell RegularVersion ",
+          "1.000MuseoSansForDellMuseo Sans is a trademark o",
+          "\"VeriSign Time Stamping Services CA0",
+          "+VeriSign Time Stamping Services Signer - G20",
+          "\"VeriSign Time Stamping Services CA"
+        ]
+      },
+      "saved_file": "models/dell_Alienware_AW3225QF_FWUpdate_M2B105_Windows/ec_3_RAW_PFS_SUBCOMPONENT_144848.bin"
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:U3425WE",
+      "plaintext": false,
+      "active_entropy": 7.998,
+      "size": 134240,
+      "sha256": "e4a56c349710292aba865a8071a3010b9f1121b817beed302fe94339101dca0e",
+      "head32": "b76ed1e4b6b629f5f6cbe99baaa591494285019d1d159e19e9243fffd6795e41",
+      "signals": {},
+      "saved_file": "models/dell_Alienware_AW3225QF_FWUpdate_M2B105_Windows/ec_4_hdrstub_134240.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:USB_cable.png",
+      "plaintext": false,
+      "active_entropy": 7.982,
+      "size": 53095,
+      "sha256": "ea76cf80548dca19420893cbd849323887f619a5451a3a81e133f0bdbb5695e0",
+      "head32": "89504e470d0a1a0a0000000d4948445200000210000001da0806000000519b70",
+      "signals": {},
+      "saved_file": "models/dell_Alienware_AW3225QF_FWUpdate_M2B105_Windows/ec_5_hdrstub_53095.bin",
+      "stub_only": true
+    },
+    {
+      "kind": "RAW_PFS_SUBCOMPONENT",
+      "stream": "cab:power_cable.png",
+      "plaintext": false,
+      "active_entropy": 7.98,
+      "size": 85457,
+      "sha256": "f6c29b6a1a188e058df6c13c479be1b4b842858af2e50d38a4356b1e18ff6e09",
+      "head32": "89504e470d0a1a0a0000000d4948445200000244000002a2080600000037fdc3",
+      "signals": {},
+      "saved_file": "models/dell_Alienware_AW3225QF_FWUpdate_M2B105_Windows/ec_6_hdrstub_85457.bin",
+      "stub_only": true
+    }
+  ],
+  "pw_modules": []
+}
