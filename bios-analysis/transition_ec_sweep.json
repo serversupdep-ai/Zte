@@ -1,0 +1,612 @@
+{
+  "generated_utc": "2026-10-24T19:42:00Z",
+  "total_capsules_tested": 60,
+  "wilco_chromebooks_tested": 3,
+  "golden_overlaps": [],
+  "wilco_results": [
+    {
+      "slug": "wilco_sarien",
+      "name": "Dell Latitude 5400 Chromebook Enterprise (2019 Wilco EC)",
+      "version": "MrChromebox-2609.2_20261015",
+      "url": "https://www.mrchromebox.tech/files/firmware/full_rom/MrChromebox-2609.2/coreboot_edk2-sarien-mrchromebox_20261015.rom",
+      "status": "ok",
+      "ifd_tag0_tag1": "100000f71008005fffffffffffffffff",
+      "pw_mode": "chromeos_wilco_ec",
+      "ecs": [
+        {
+          "kind": "WILCO_PHCM_TAG0_primary",
+          "size": 262144,
+          "phcm_hdr_hex": "5048434d0001800300000d0001000d006108000080000000",
+          "phcm_flag_byte6": "0x80",
+          "plaintext": false,
+          "active_entropy": 7.9986
+        },
+        {
+          "kind": "WILCO_PHCM_TAG1_backup",
+          "size": 262144,
+          "phcm_hdr_hex": "5048434d0001800300000d0001000d00ec08000080000000",
+          "phcm_flag_byte6": "0x80",
+          "plaintext": false,
+          "active_entropy": 7.9983
+        }
+      ]
+    },
+    {
+      "slug": "wilco_arcada",
+      "name": "Dell Latitude 5300 2-in-1 Chromebook Enterprise (2019 Wilco EC)",
+      "version": "MrChromebox-2609.2",
+      "status": "not_on_cdn",
+      "pw_mode": "chromeos_vboot",
+      "ecs": []
+    },
+    {
+      "slug": "wilco_drallion",
+      "name": "Dell Latitude 7410 Chromebook Enterprise (2020 Wilco EC)",
+      "version": "MrChromebox-2609.2_20261015",
+      "url": "https://www.mrchromebox.tech/files/firmware/full_rom/MrChromebox-2609.2/coreboot_edk2-drallion-mrchromebox_20261015.rom",
+      "status": "ok",
+      "ifd_tag0_tag1": "100000f71008005fffffffffffffffff",
+      "pw_mode": "chromeos_wilco_ec",
+      "ecs": [
+        {
+          "kind": "WILCO_PHCM_TAG0_primary",
+          "size": 262144,
+          "phcm_hdr_hex": "5048434d0001800300000d0001000d002609000080000000",
+          "phcm_flag_byte6": "0x80",
+          "plaintext": false,
+          "active_entropy": 7.9987
+        },
+        {
+          "kind": "WILCO_PHCM_TAG1_backup",
+          "size": 262144,
+          "phcm_hdr_hex": "5048434d0001800300000d0001000d002609000080000000",
+          "phcm_flag_byte6": "0x80",
+          "plaintext": false,
+          "active_entropy": 7.9987
+        }
+      ]
+    }
+  ],
+  "capsule_results": [
+    {
+      "slug": "EGW5200_102_oldest",
+      "name": "EGW5200",
+      "version": "102",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/1abbe4606ea4cce9a841be7d78a2529dc55d4bc0092a57577ef314eff515d29d-DELL_EGW5200_10210.cab",
+      "source": "lvfs",
+      "status": "error:cannot access local variable 'pkg' where it is not associated with a value"
+    },
+    {
+      "slug": "Edge_Gateway_5000_5100_1.15.1_oldest",
+      "name": "Edge Gateway 5000/5100",
+      "version": "1.15.1",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/3f673b49761b6f21e66155ed2710ada4c91657b315210d1df99d733160bdd2cc-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "G3_3500_G5_5500_1.21.0_oldest",
+      "name": "G3 3500, G5 5500",
+      "version": "1.21.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/77db2e5e83ad0620c5b2de6f2f2450b81efb92d1b74b47688ebe99739974283d-G3_3500_G5_5500_1.21.0.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "G5_5000_1.5.1_oldest",
+      "name": "G5 5000",
+      "version": "1.5.1",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/56d039c9314a7331b6da35bb84e3261603e28b5b9093d1120ffde18a8a2b2d32-Signed_1152921505694384710.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Inspiron_14_7000_Gaming_Inspiron_15_7000_Gaming_1.0.3_oldest",
+      "name": "Inspiron 14 7000 Gaming/Inspiron 15 7000 Gaming",
+      "version": "1.0.3",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/9f91eb2a21b2dd4c97a9d2cb666a1ec624389289-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Inspiron_3490_Vostro_3490_Inspiron_3590_Inspiron_3590_Vostro_359",
+      "name": "Inspiron 3490, Vostro 3490, Inspiron 3590, Inspiron 3590, Vostro 3590, Vostro 3590, Inspiron 3790, Inspiron 5494, Inspiron 5594",
+      "version": "1.17.1",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/a2483636851cfc69d22a4ef4be3a39f8540ad60f619006ba3ff4ade5505df896-Inspiron_Vostro_XX9X_1171_CML.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_3300_1.24.0_oldest",
+      "name": "Latitude 3300",
+      "version": "1.24.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/63092a6d50cd10305d51eddac9817bc3b8714f6f65c06c1afe2ab04287a25ede-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_3300_1.33.0_latest",
+      "name": "Latitude 3300",
+      "version": "1.33.0",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/95555d42eff337395aebfa0a58124cb3aeec1cd2696262562d96410fc92fb069-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_3310_1.24.0_oldest",
+      "name": "Latitude 3310",
+      "version": "1.24.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/c4930d23dd75ef25d0f7061d98e4797e626d836caf3e2b9853b598d91bffc3fe-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_3310_1.4.2_oldest",
+      "name": "Latitude 3310",
+      "version": "1.4.2",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/b28e37bd2e6e499c6687b017c36592f3cd2799d5960578097dd6400ec9bbc06f-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_3310_2in1_1.4.0_oldest",
+      "name": "Latitude 3310 2in1",
+      "version": "1.4.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/a7b92378fa225a5265afa8e3c3dae6f1b997aac5e42ba7c9a77057e0be169373-firmware_ori.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_3390_2-in-1_1.9.0_oldest",
+      "name": "Latitude 3390 2-in-1",
+      "version": "1.9.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/df94b3f4f29d35f1ef378a885d613ca9378fa7e1-Signed_1152921504628041092.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_3500_Latitude_3400_1.28.0_oldest",
+      "name": "Latitude 3500, Latitude 3400",
+      "version": "1.28.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/7bbdafebefe807e6864d447b1ef63cba9e410c2b3c39c7a6c23c6e288cea0ebe-Latitude_3400_3500_1.28.0_firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_3500_Latitude_3400_1.38.0_latest",
+      "name": "Latitude 3500, Latitude 3400",
+      "version": "1.38.0",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/f7f391f92870c8281c9d7c0d9c0b01d2b8bd40c0b8ffb9641dcaf4eb05d2f59a-Latitude_3400_3500_1.38.0_firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_5X00_1.28.0_oldest",
+      "name": "Latitude 5X00",
+      "version": "1.28.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/8fb9c54d5fe08392680bfe42255eb206a1ee77c8b2141b5089765d07db9a83b0-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_5X00_1.37.0_latest",
+      "name": "Latitude 5X00",
+      "version": "1.37.0",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/e27e0d9467b965ffce0a408e757ca2a9c52b8277b6e206fbdb995cd2023fae31-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_5X00_1.7.2_oldest",
+      "name": "Latitude 5X00",
+      "version": "1.7.2",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/2c2eeee87815c9f4c9f57b14726e461288052468c342f46b8768dba437251e22-Bandon_1_7_2_firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_5X00_1.8.1_oldest",
+      "name": "Latitude 5X00",
+      "version": "1.8.1",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/9b0fdbaacfee1ee7a9b8ea766cf8577594132340-Bandon_1_8_1_firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_5X00_1.9.2_oldest",
+      "name": "Latitude 5X00",
+      "version": "1.9.2",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/117f9ed6111e7c5a201d336a437a0ac839e6fde71d1acaf41a5c8c7408799a8b-Bandon_1_9_2_firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_5X00_Precision_3540_1.34.1_oldest",
+      "name": "Latitude 5X00/Precision 3540",
+      "version": "1.34.1",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/ed4827bbba60ffd8246857242a9fc733bb002bdf7a6bd26b7d2c993bcafa7fb9-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_5X00_Precision_3540_1.43.1_latest",
+      "name": "Latitude 5X00/Precision 3540",
+      "version": "1.43.1",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/d62ea8352357b641e14a179d91a4bc3116681694c9748cb7f87b1cf886dcf123-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_5X91_1.19.0_oldest",
+      "name": "Latitude 5X91",
+      "version": "1.19.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/5f07df9516f18d000c281ec2cfda4339fa7b2442e1863c60351942c80b657db1-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_5X91_1.30.0_oldest",
+      "name": "Latitude 5X91",
+      "version": "1.30.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/30efcb2b044078d0836b7eed74f0786e4f14c6b94e0338e69122f4b071e63bac-Latitude_5X91_Precision_3530_1.30.0.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_5X91_1.39.0_latest",
+      "name": "Latitude 5X91",
+      "version": "1.39.0",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/be488ccf1bcd323dbfc188d89816d07d254285b7e5bf558572ac2fdeb479a2c5-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_7390_2-in-1_1.29.1_oldest",
+      "name": "Latitude 7390 2-in-1",
+      "version": "1.29.1",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/eebfc15ad41f25cb42c0450db5a52ee79372d961a03cdfb885ae949846fabd61-Latitude_7390_2in1_1.29.1.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_7390_2-in-1_1.38.0_latest",
+      "name": "Latitude 7390 2-in-1",
+      "version": "1.38.0",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/e34f2b21885c4be5f53808383f0ea4b1acb790cfe79186fce12b969e5eb4be21-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_7X00_1.31.0_oldest",
+      "name": "Latitude 7X00",
+      "version": "1.31.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/8fc81a3ada10cdc518382218946536d6282b82b78fb44f6ec334146b79602545-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_7X00_1.43.0_latest",
+      "name": "Latitude 7X00",
+      "version": "1.43.0",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/33801a3361cd082ac2834a733f6737e77d18179b30745f6bae0d32478d3e00ad-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_7X90_1.31.1_oldest",
+      "name": "Latitude 7X90",
+      "version": "1.31.1",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/8d1b928ea6a59f053ab0d4293b07b2555264e58fa79f24f3156dc804d1d10cf1-Latitude_7X90_1.31.1.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Latitude_7X90_1.41.0_latest",
+      "name": "Latitude 7X90",
+      "version": "1.41.0",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/aa09d18154885dc6279d5bb5fbbc1fe40247989cd372dc36a1da028b23f288dd-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "OptiPlex_3060_1.15.0_oldest",
+      "name": "OptiPlex 3060",
+      "version": "1.15.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/2f50f3faab4cf3d476794fe8e15f696628030be3af644c7432eca7dc52699ed8-firmware_Dell_OptiPlex_3060_BIOS_1.15.0.Wu.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "OptiPlex_3070_1.26.0_oldest",
+      "name": "OptiPlex 3070",
+      "version": "1.26.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/6c641f420d14c7c7e8213b4e559b1b8ce34963891032a0aff3a817d7060409eb-firmware_Dell_OptiPlex_3070_HDP_BIOS_1.26.0.Wu.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "OptiPlex_3070_1.9.1_oldest",
+      "name": "OptiPlex 3070",
+      "version": "1.9.1",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/8be493ae7b262467a6c4981ffa3049c3b5c077c64fa39e6e035322f299782622-firmware_Dell_OptiPlex_3070_BIOS_1.9.1.Wu.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "OptiPlex_5060_1.18.0_oldest",
+      "name": "OptiPlex 5060",
+      "version": "1.18.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/9ba51c868aca71af54e3a8ac4c6b4c2e6416b06bea5488d2fdc3c2493f4477e0-firmware_Dell_OptiPlex_5060_BIOS_1.18.0.Wu.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "OptiPlex_5070_1.15.0_oldest",
+      "name": "OptiPlex 5070",
+      "version": "1.15.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/633ed347d8d6a0a797345174ce7808e1c6a6249ac6b1b88156b11cd757e18a16-firmware_Dell_OptiPlex_5070_BIOS_1.15.0.Wu.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "OptiPlex_5070_1.26.0_oldest",
+      "name": "OptiPlex 5070",
+      "version": "1.26.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/167d3fcc684617f9528c4db33d4e53e2e35ef238bd5fc5122102427cc2d7a496-firmware_Dell_OptiPlex_5070_HDP_BIOS_1.26.0.Wu.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "OptiPlex_7060_1.12.0_oldest",
+      "name": "OptiPlex 7060",
+      "version": "1.12.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/042915977df69addf0005a92f175fa2b4dc536a51d2dcb82a3243dc4c1f41103-firmware_1.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "OptiPlex_7060_1.24.0_latest",
+      "name": "OptiPlex 7060",
+      "version": "1.24.0",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/88f23d3c79547d21e2442c2a5b0ff9885c775cee27f658a284afc309317600b3-firmware_Dell_OptiPlex_7060_BIOS_1.24.0.Wu.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "OptiPlex_7070_Ultra_1.27.0_oldest",
+      "name": "OptiPlex 7070 Ultra",
+      "version": "1.27.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/a9302a40890a0eb082c0629ab8f7951e0017866343db5ecb2460d2e23f41bb3b-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Precision_3630_Tower_2.23.0_oldest",
+      "name": "Precision 3630 Tower",
+      "version": "2.23.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/b563671a15465f39dcc2d0536d985ce1f60daa355d0ffc44b05e072e3e7c54f1-firmware_Precision_3630_China_Hdd_Deluxe_2.23.0.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Precision_3930_Rack_2.35.0_oldest",
+      "name": "Precision 3930 Rack",
+      "version": "2.35.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/e87ab3e49574bf3f8bded139e0a668e6d9f8ea923c71abbe4240c1cad6c75786-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Precision_5530_1.36.0_oldest",
+      "name": "Precision 5530",
+      "version": "1.36.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/c48ec99d5d3734b5a84a974ca682a797af7d53a8566c8eff6ba882f5e7be96b8-24236_BerlinettaPCFL_1360.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Precision_5530_1.41.0_latest",
+      "name": "Precision 5530",
+      "version": "1.41.0",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/50bb88ff27298ed63d549a533920cac7b2ed87a6e43cc41c577bf4ce158acf58-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Precision_5530_1.42.0_oldest",
+      "name": "Precision 5530",
+      "version": "1.42.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/d04726b1617530ec2bca09bc110b7bc7741bdf7d2fa3918b6992506387f8ded9-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Precision_5540_1.36.0_oldest",
+      "name": "Precision 5540",
+      "version": "1.36.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/aa64b07077350fae5456f55572bc16eed96588ac9c95fe2f78071eaa019761ac-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Precision_7X30_1.33.0_oldest",
+      "name": "Precision 7X30",
+      "version": "1.33.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/30ab83dc33d897b200ec883d7813fad0c5b27724f3036cae00c217ee61f444f7-Signed_1152921505697382822_WH1.33.0.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Precision_7X30_1.42.0_latest",
+      "name": "Precision 7X30",
+      "version": "1.42.0",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/df5095ce9d68b7b2b1da6044cb8fe65a23ddebfe1318d3d1e91d902d110823c8-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Precision_7X40_1.34.0_oldest",
+      "name": "Precision 7X40",
+      "version": "1.34.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/6a5fa4d418e93826767d42405c2a7ad8236647fa4fe85d570d3ae1ccc5dafafb-firmware.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Precision_Tower_3430_1.28.0_oldest",
+      "name": "Precision Tower 3430",
+      "version": "1.28.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/cefcc70269b2bd5ae77b34636c7011ce775255a888c125390ada95841b1fec9e-Precision_3430_1.28.0_HDP.Wu.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Vostro_5490_Vostro_5590_Inspiron_5490_Inspiron_5498_Inspiron_559",
+      "name": "Vostro 5490, Vostro 5590, Inspiron 5490, Inspiron 5498, Inspiron 5590, Inspiron 5598",
+      "version": "1.22.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/39d1593a6a9510d66e0796336b701b0e87610b6d13c3d461dff8d0d52efbeef8-Initial_1152921505695769632.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "Wyse_5070_Thin_Client_1.15.1_oldest",
+      "name": "Wyse 5070 Thin Client",
+      "version": "1.15.1",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/123767153a03f05fd44b325ef60221ead01e6617611a09389cc18996430a8eda-Initial_1152921505694405377.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "XPS_13_7390_1.19.0_oldest",
+      "name": "XPS 13 7390",
+      "version": "1.19.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/5a216b56714cffd86966b45da2df4fda802bda1410c1bde31536ed182c9f9371-Dell_XPS_13_7390_System_BIOS_Ver.1.19.0.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "XPS_13_7390_1.29.0_latest",
+      "name": "XPS 13 7390",
+      "version": "1.29.0",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/cbfb8b44531223baf1ca8c1b79beef75a483978a3263108bf68070a1490ee79b-Dell_XPS_13_7390_System_BIOS_Ver.1.29.0.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "XPS_13_9370_1.12.1_oldest",
+      "name": "XPS 13 9370",
+      "version": "1.12.1",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/d56fc1f35e4d71464af3cec56ab654d02c278d481940e396e040de62c2cae8e4-Dell_XPS_13_9370_System_BIOS1.12.1.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "XPS_13_9380_1.17.0_oldest",
+      "name": "XPS 13 9380",
+      "version": "1.17.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/85f11659e6a0f25306983663512a8339ba1bce52e6060ddeb6285dec607d3891-Dell_XPS_13_9380_System_BIOS_Ver.1.17.0.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "XPS_13_9380_1.26.0_latest",
+      "name": "XPS 13 9380",
+      "version": "1.26.0",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/158152326f0387ab25a50d5b0599e6b5d81c379fc0865fb8f0d4d305fb1ce732-Dell_XPS_13_9380_System_BIOS_ver._1.26.0.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "XPS_15_7590_Precision_5540_1.24.0_oldest",
+      "name": "XPS 15 7590/Precision 5540",
+      "version": "1.24.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/66884719866a8a5ab7c0abcbc7c59bdf28498101954e5cee2a75b74f43c03fe2-Dell_XPS7590_Precision5540_BIOS_Ver._1.24.0.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "XPS_15_9570_Precision_5530_1.22.1_oldest",
+      "name": "XPS 15 9570/Precision 5530",
+      "version": "1.22.1",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/869b81f9208a6ff92ba5510e503a8d106c009098891161132e4449eb3b015f9f-Dell_XPS_15_9570_Precision_5530_System_BIOS_ver.1.22.1.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "XPS_15_9570_Precision_5530_1.31.0_latest",
+      "name": "XPS 15 9570/Precision 5530",
+      "version": "1.31.0",
+      "slot": "latest",
+      "url": "https://cdn.fwupd.org/downloads/2f85db77ff8deb2bd5619e8f6f43d70ece71e517908faa23956ab5871cd93b39-Dell_Precision_5530_System_BIOS_ver.1.31.0.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    },
+    {
+      "slug": "atitude_3301_1.27.0_oldest",
+      "name": "atitude 3301",
+      "version": "1.27.0",
+      "slot": "oldest",
+      "url": "https://cdn.fwupd.org/downloads/e053e6008ea595b6c504dba0d9ee4896182929ea87aebe8636637a37d94f4124-Initial_1152921505696547083.cab",
+      "source": "lvfs",
+      "status": "error:'bytes' object has no attribute 'read_bytes'"
+    }
+  ]
+}
