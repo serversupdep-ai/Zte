@@ -1,6 +1,11 @@
 name: Telegram Online Security Fetch + REA Collector
 
 on:
+  push:
+    branches: [arena/233897a2-zte]
+    paths:
+      - '.github/workflows/telegram-rea-agent.yml'
+      - 'bios-analysis/telegram_rea_agent.py'
   workflow_dispatch:
 
 permissions:
