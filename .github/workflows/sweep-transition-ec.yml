@@ -1,0 +1,60 @@
+name: Sweep 2018-2020 Dell Transition EC & Wilco EC
+
+on:
+  push:
+    branches: [arena/233897a2-zte]
+    paths:
+      - 'bios-analysis/sweep_transition_ec.py'
+      - '.github/workflows/sweep-transition-ec.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: sweep-transition-ec
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sweep-transition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout session branch
+        uses: actions/checkout@v4
+        with:
+          ref: arena/233897a2-zte
+          fetch-depth: 1
+
+      - name: Install unpackers
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq p7zip-full p7zip-rar zstd xz-utils cabextract > /dev/null
+          python3 -m pip install --upgrade pip -q
+          python3 -m pip install uefi_firmware zstandard pefile capstone unicorn pycryptodome -q
+          git clone --depth 1 https://github.com/platomav/BIOSUtilities.git /tmp/BIOSUtilities || true
+
+      - name: Run 2018-2020 transition & Wilco EC sweep
+        env:
+          BIOSUTILS_DIR: /tmp/BIOSUtilities
+        run: |
+          python3 bios-analysis/sweep_transition_ec.py --workers 8 --max-targets 65
+          cat bios-analysis/TRANSITION_EC_SWEEP_REPORT.md
+
+      - name: Commit sweep report and any unsealed 8FC8 EC hits
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bios-analysis/TRANSITION_EC_SWEEP_REPORT.md bios-analysis/transition_ec_sweep.json
+          if [ -d bios-analysis/transition_hits ]; then
+            git add bios-analysis/transition_hits
+          fi
+          if git diff --cached --quiet; then
+            echo "No new files staged."
+            exit 0
+          fi
+          git commit -m "Audit 2018-2020 Dell E7A8->8FC8 transition capsules & Wilco EC"
+          for attempt in 1 2 3; do
+            git pull --rebase origin arena/233897a2-zte && git push origin HEAD:arena/233897a2-zte && break
+            sleep 3
+          done
