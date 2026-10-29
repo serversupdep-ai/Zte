@@ -1,0 +1,39 @@
+name: Publish bulk domain results
+
+on:
+  push:
+    branches:
+      - arena/82307eaf-zte
+    paths:
+      - ".github/workflows/publish-domain-results.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out result branch
+        uses: actions/checkout@v4
+        with:
+          ref: arena/82307eaf-zte
+      - name: Download completed RDAP artifact
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          repository: serversupdep-ai/Zte
+          run-id: 40922319081
+          name: domain-check-results
+          path: /tmp/domain-results
+      - name: Publish CSV on the branch
+        run: |
+          test -s /tmp/domain-results/domains_checked.csv
+          mkdir -p availability-checker/data/results
+          cp /tmp/domain-results/domains_checked.csv availability-checker/data/results/domains_checked.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add availability-checker/data/results/domains_checked.csv
+          git commit -m "Publish bulk domain availability results"
+          git push origin HEAD:arena/82307eaf-zte
