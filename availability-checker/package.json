@@ -1,0 +1,37 @@
+{
+  "name": "namevet",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.3.1",
+    "google-play-scraper": "^10.1.3",
+    "mcp-handler": "^2.2.0",
+    "next": "^16.3.8",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2"
+  },
+  "description": "Vet a product name: domains, app stores, web and trademark registers, in the browser or via MCP.",
+  "license": "MIT",
+  "author": "Mika Stiebitz",
+  "keywords": [
+    "mcp",
+    "domain-check",
+    "name-checker",
+    "trademark",
+    "nextjs",
+    "app-store"
+  ]
+}

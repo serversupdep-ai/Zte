@@ -1,0 +1,58 @@
+name: Bulk domain availability check
+
+on:
+  push:
+    branches:
+      - arena/82307eaf-zte
+    paths:
+      - "availability-checker/data/10000_short_domain_name_ideas.txt"
+      - "availability-checker/scripts/check_domains.py"
+      - ".github/workflows/bulk-domain-check.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check-domains:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Query RDAP
+        run: >-
+          python3 availability-checker/scripts/check_domains.py
+          availability-checker/data/10000_short_domain_name_ideas.txt
+          --default-tld com
+          --workers 4
+          --delay 0.25
+          --timeout 15
+          --retries 4
+          --output domains_checked.csv
+      - name: Summarize results
+        if: always()
+        run: |
+          if [ -f domains_checked.csv ]; then
+            python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import collections, csv
+          rows = list(csv.DictReader(open("domains_checked.csv", newline="", encoding="utf-8")))
+          counts = collections.Counter(r["status"] for r in rows)
+          print("## Bulk domain check")
+          print(f"Processed rows: **{len(rows)}**")
+          for status in ("available", "taken", "unknown", "invalid"):
+              print(f"- {status}: **{counts[status]}**")
+          print("\nFull CSV is available in the `domain-check-results` workflow artifact.")
+          PY
+          fi
+      - name: Upload CSV results
+        if: always() && hashFiles('domains_checked.csv') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: domain-check-results
+          path: domains_checked.csv
+          if-no-files-found: error
+          retention-days: 14
