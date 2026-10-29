@@ -1,0 +1,245 @@
+{
+  "bacher09/pwgen-for-bios": {
+    "commit": "5d2caca8b4ef4a19b31e19f7ce133700f7e046e4",
+    "commit_date": "2023-11-26T00:31:41+02:00",
+    "files": {
+      "src/keygen/dell/encode.ts": "19a2df758faa4de8638c7ee0dca9af79b2b08c63",
+      "src/keygen/dell/index.ts": "6f35d9da08bca45b633bfdbe374298a7780bc1e1",
+      "src/keygen/dell/types.ts": "1bf065522e7e4c940180924cbdb56e671d58fe78"
+    },
+    "base_url": "https://github.com/bacher09/pwgen-for-bios/blob/5d2caca8b4ef4a19b31e19f7ce133700f7e046e4"
+  },
+  "secaicandido/bioskey": {
+    "commit": "f544e1e603f75ba909b1cd6ba396d66d708ff30c",
+    "commit_date": "2026-10-18T06:33:49+00:00",
+    "files": {
+      "src/dell/index.ts": "8f602192c7c6d683c6b2bd989b1c6ace6d04a7d9",
+      "src/dell/types.ts": "c54056b06b6289f24e2c7b54c99e729fcc7ddc46",
+      "src/dell/encode.ts": "d484973f7983a3546bf4d7f104191e39731df76f",
+      "src/cli.ts": "141301e75a7297871aa5d3fe5b5fa531e69ace24",
+      "tests/keygen.test.ts": "592e710f1395dc2db24a2c6f9a21eb4e2652c020",
+      "docs/ARCHITECTURE.md": "db49ce63cd4a0691cb23d069104edfd0810031ad",
+      "README.md": "6bbf1c52c40725c67e5a2987c9b763d2fe2deb48"
+    },
+    "base_url": "https://github.com/secaicandido/bioskey/blob/f544e1e603f75ba909b1cd6ba396d66d708ff30c"
+  },
+  "serversupdep-ai/Bin-file": {
+    "commit": "73acbc1534baac6102a5aefb093a532c140214bd",
+    "commit_date": "2026-10-22T11:51:20+01:00",
+    "files": {
+      "analysis/REPORT.md": "131506a6ebc68c5fa0338d2c1d410c72712c3f15",
+      "analysis/9ABE_PAIR_HUNT.md": "beae64179b511c9d06027821825b5f284b6d275e",
+      "tools/dell_e7a8_pure.py": "197f3fcb895127a2d96547aced168e74612a7de5",
+      "tools/dell_newbios_probe.py": "82f6c6847eada71de7465af58224d16d0772f23d",
+      "tools/dell_vault_grab.py": "05c24e137e52de5abc0a6e06a820e72cfda3ac07",
+      "tools/dell_v2_keygen.py": "567c1b9a39e305d3c5ba24231d1191c7f7a4d0a6"
+    },
+    "base_url": "https://github.com/serversupdep-ai/Bin-file/blob/73acbc1534baac6102a5aefb093a532c140214bd"
+  },
+  "chromebreakerdev/DellBIOSTools": {
+    "commit": "869a79fca24df7f39762c3d16932d692d6077abf",
+    "commit_date": "2026-08-27T19:45:36-05:00",
+    "files": {
+      "DellBiosTools.pyw": "b239cb8a9d4287a7ed7e43c3632e4f356fae2725",
+      "README.md": "1d5f894f85502d49dec42ed0530601c50d544dec",
+      "vendor/biosutilities/dell_pfs_extract.py": "1c464063f91314efa8d3896c95fbb04a991eb59d"
+    },
+    "base_url": "https://github.com/chromebreakerdev/DellBIOSTools/blob/869a79fca24df7f39762c3d16932d692d6077abf"
+  },
+  "LeRELIKT/BIOS-Generator-Patch": {
+    "commit": "89e1308ba1a1ebc2285d4d82c6b761d5305f6ed7",
+    "commit_date": "2026-10-25T14:26:11+01:00",
+    "files": {
+      "app.js": "770756b211b5f813d17bfaf29aa58809e1039a1a",
+      "generator.js": "5dbf7dd4f3e24f3d4da802e3a912edacb65fabe8",
+      "README.md": "9e1600f76cb3eeb35944321d4c4d2ed467d02900"
+    },
+    "base_url": "https://github.com/LeRELIKT/BIOS-Generator-Patch/blob/89e1308ba1a1ebc2285d4d82c6b761d5305f6ed7"
+  },
+  "dogbert/bios-pwgen": {
+    "commit": "93b9fb363b8321769ae8234e3abcc79c95455df8",
+    "commit_date": "2022-06-03T09:05:35-07:00",
+    "files": {
+      "dell.c": "e2b95876e1a86b3a18a90c1b40a6772a4f6295a8"
+    },
+    "base_url": "https://github.com/dogbert/bios-pwgen/blob/93b9fb363b8321769ae8234e3abcc79c95455df8"
+  },
+  "_meta": {
+    "collected": "2026-10-27",
+    "method": "git clone (depth 50+) from github.com + GitHub REST API for issues/comments; blob SHAs are git hash-object of the checked-out files",
+    "egress": "github.com, codeload.github.com, api.github.com, pypi.org, files.pythonhosted.org, registry.npmjs.org",
+    "note": "Claudio-Candido/bioskey redirects to secaicandido/bioskey (same repo, renamed owner)."
+  },
+  "github_issues": [
+    {
+      "id": "bacher09/pwgen-for-bios#80",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/80",
+      "opened": "2020-01-08",
+      "last_comment": "2026-10-07",
+      "role": "main 8FC8 RE thread (535 comments)"
+    },
+    {
+      "id": "comment-5067918343",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/80#issuecomment-5067918343",
+      "author": "Georgii52",
+      "date": "2026-07-24",
+      "claims": [
+        "DellSecurityVaultSm suffix dispatch table @ VA 0x9760: 8FC8 encoder_ptr=0 (NULL), E7A8 encoder_ptr=0x91E8",
+        "keygen @0x553C gates on NULL encoder -> EFI_INVALID_PARAMETER",
+        "keygen compute @0x58B4, suffix lookup @0x45E8, SHA-256 @0x8278, verify @0x68D4/0x6910",
+        "8FC8 alphabet @0x91A0 (72 chars) = permutation of BF97 alphabet",
+        "8FC8 encoder NULL since introduction (2019 Latitude 7400 1.2.0, 2022 Latitude 5330)",
+        "three owner-verified real 8FC8 pairs: 1K6Y963/BZsa9RGZzyIGD3pI, 5S38Y33/2QqPqMGQxLNrrZxW, C9F23Z2/kr8a9e2xdPGRb1Lz",
+        "1755-configuration search of known encoders x suffix strings x tables reproduced none of the 3 pairs"
+      ],
+      "confidence": "author-stated static analysis; independently corroborated by our own extraction from a GitHub-sourced BIOS (see firmware_5440_1281.json)"
+    },
+    {
+      "id": "comment-4003614643",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/80#issuecomment-4003614643",
+      "author": "bacher09",
+      "date": "2026-03-05",
+      "claims": [
+        "8FC8 is done in the EC (repo owner)"
+      ]
+    },
+    {
+      "id": "comment-4010168130",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/80#issuecomment-4010168130",
+      "author": "bacher09",
+      "date": "2026-03-06",
+      "claims": [
+        "validate_8fc8 uses DellECIOSmm; EC IO protocol GUID 7310e28e-96ea-4360-946e-5adc6be8f531",
+        "EC returns SHA256(master_password); a second code path may return the code itself"
+      ]
+    },
+    {
+      "id": "comment-4010522711",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/80#issuecomment-4010522711",
+      "author": "bacher09",
+      "date": "2026-03-06",
+      "claims": [
+        "three options for full 8FC8 algorithm: brute-force 12 params, find plaintext EC/UEFI firmware, or obtain decrypted EC firmware",
+        "EC firmware is encrypted in SPI (MEC172x)"
+      ]
+    },
+    {
+      "id": "comment-4976691066",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/80#issuecomment-4976691066",
+      "author": "luc4m4rio",
+      "date": "2026-07-15",
+      "claims": [
+        "CF1B/3FE2/9ABE family: BIOS passes serial+tag to MEC EC via mailbox, gets 32-byte response, first 16 bytes memcpy/compare"
+      ]
+    },
+    {
+      "id": "comment-5935232074",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/80#issuecomment-5935232074",
+      "author": "Iridium-137",
+      "date": "2026-10-01",
+      "claims": [
+        "EC response for 9ABE is hashed before compare; response already char-encoded"
+      ]
+    },
+    {
+      "id": "comment-6032854612",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/80#issuecomment-6032854612",
+      "author": "luc4m4rio",
+      "date": "2026-10-07",
+      "claims": [
+        "EC response fully computed/char-encoded; second hash before SMM compare"
+      ]
+    },
+    {
+      "id": "comment-983843349",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/80#issuecomment-983843349",
+      "author": "bacher09",
+      "date": "2021-12-01",
+      "claims": [
+        "field E7A8 pairs GZ6DNQ2 -> Pz3bZnakhErR8rMR / rkGGUh7Ix1hRy (truncated), 2TB1YT2 -> 5mzqb6RQQa2k403y / GG3rM3NBznGZ6rUG"
+      ]
+    },
+    {
+      "id": "bacher09/pwgen-for-bios#331",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/331",
+      "date": "2026-09-05",
+      "claims": [
+        "calls 9ABE \"Dell newest unlock suffix (2024+ BIOS)\"",
+        "asks for Latitude 5440 BIOS 1.30.3 BIOS_IMG.rcv",
+        "E7A8 emulated keygen 8/8 and 14/14 real vectors",
+        "8FC8/CF1B derivation moved into EC"
+      ]
+    },
+    {
+      "id": "bacher09/pwgen-for-bios#333",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/333",
+      "date": "2026-10-13",
+      "claims": [
+        "newest GitHub 9ABE sighting: Precision 5680, 847TJ34-9ABE, BIOS 1.29.0 released 2026-06-18"
+      ]
+    },
+    {
+      "id": "bacher09/pwgen-for-bios#324",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/324",
+      "date": "2026-07-08",
+      "claims": [
+        "Latitude 5440 BCBXD14-9ABE, BIOS 1.30.3"
+      ]
+    },
+    {
+      "id": "bacher09/pwgen-for-bios#330",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/330",
+      "date": "2026-08-30",
+      "claims": [
+        "Latitude 3450 6VZW194-9ABE, BIOS 1.22.1"
+      ]
+    },
+    {
+      "id": "serversupdep-ai/Bin-file#1",
+      "url": "https://github.com/serversupdep-ai/Bin-file/pull/1",
+      "date": "2026-09-05",
+      "claims": [
+        "E7A8 keygen 8/8 real-world, legacy 47/47, 9ABE needs newer BIOS image"
+      ]
+    },
+    {
+      "id": "serversupdep-ai/Zte#2",
+      "url": "https://github.com/serversupdep-ai/Zte/pull/2",
+      "date": "2026-09-12",
+      "claims": [
+        "EC GENERATE protocol emulation-proven, response->code map, offline keygen impossible from public material"
+      ]
+    },
+    {
+      "id": "serversupdep-ai/Zte#3",
+      "url": "https://github.com/serversupdep-ai/Zte/issues/3",
+      "date": "2026-09-12",
+      "claims": [
+        "9ABE (Latitude 3450) field validation of EC readout attempted; inconclusive (no code returned)"
+      ]
+    },
+    {
+      "id": "comment-983896309",
+      "url": "https://github.com/bacher09/pwgen-for-bios/issues/80#issuecomment-983896309",
+      "author": "bacher09",
+      "date": "2021-12-01",
+      "claims": [
+        "B8TMKF2-E7A8 -> qE7ypWJzz3k622Dx / [[GBQR43yjzWrbM1 (both reported working on 2021-12-01)"
+      ]
+    }
+  ],
+  "local_corpus": {
+    "repo": "serversupdep-ai/Zte",
+    "branch": "arena/efe15f28-zte",
+    "base_commit": "e868fc195742eb4f2dd14c0cee634f0c015dcbd5",
+    "base_date": "2026-10-22",
+    "files": [
+      "bios-analysis/CF1B_FINDINGS.md (sections 11 and 17)",
+      "bios-analysis/dell_cf1b_session_emu.py",
+      "bios-analysis/solution_kit/src/dell_latest_keygen.py",
+      "bios-analysis/solution_kit/src/dell_ec_keygen.py",
+      "dell-keygen/vectors.json",
+      "cf1b-research/ONLINE-SOURCES-SWEEP-2026-09-15.md"
+    ]
+  }
+}

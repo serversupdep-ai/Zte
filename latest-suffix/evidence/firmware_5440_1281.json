@@ -1,0 +1,137 @@
+{
+  "title": "Independent extraction from a GitHub-sourced Dell BIOS image (Latitude 5440, BIOS 1.28.1)",
+  "date": "2026-10-27",
+  "why_it_matters": "9ABE is the newest displayed suffix on GitHub (issue #333, 2026-10-13). This is a real 5440-family image from the same GitHub corpus; its own password module says how 9ABE is handled.",
+  "source_files": {
+    "repo": "serversupdep-ai/Bin-file",
+    "commit_that_added_parts": "858d6d7d1234da67ae6e5a8ac215735007a5d012 (2026-09-07)",
+    "part1": {
+      "path": "BIOS_IMG.rcv.part1",
+      "bytes": 14032868,
+      "sha256": "ef8c3369ff79a97aeb11fb533ba9dfe5393e4d28d275006ea892d5d2d13dce29"
+    },
+    "part2": {
+      "path": "BIOS_IMG.rcv.part2",
+      "bytes": 14032868,
+      "sha256": "4b2e12e5cdee5d4170342af71753cff06eb9bffe60c8f19095bb859dff9e4cda"
+    },
+    "joined": {
+      "bytes": 28065736,
+      "sha256": "489a89065f8579c50b526a5857baa99ee879e442e7a60f4f68d315ffffd7fd91",
+      "note": "cat part1 part2; PFS.HDR at file offset 0xe87d8"
+    },
+    "system_bios": {
+      "name": "1 BIOS_IMG_candidate -- 1 System BIOS with BiosGuard v1.28.1.bin",
+      "bytes": 25165824,
+      "sha256": "7b2c7d798df5aa74b2808050312a5b61e2f9fd159bf46336ab3449ede58cdc23",
+      "model_info": "VendorName=Dell Inc.; SystemName=Latitude 5440; Version=1.28.1; Model=0C00,0C01,0C02"
+    },
+    "vault_pe": {
+      "path": "latest-suffix/evidence/DellSecurityVaultSmm_Latitude5440_1.28.1.pe",
+      "bytes": 38912,
+      "sha256": "308bfefc72690c51dd7b8792cf95213172dc168032d40915951f8e23ce5e6616",
+      "ffs_guid": "C7CAF1C7-2D97-45CB-99D9-D89AAF8ACC11",
+      "ui_name": "DellSecurityVaultSmm"
+    }
+  },
+  "extraction_chain": [
+    "git clone https://github.com/serversupdep-ai/Bin-file (commit 73acbc1534baac6102a5aefb093a532c140214bd)",
+    "cat BIOS_IMG.rcv.part1 BIOS_IMG.rcv.part2 > BIOS_IMG.rcv",
+    "Dell PFS extract (chromebreakerdev/DellBIOSTools vendor/biosutilities/dell_pfs_extract.py, class DellPfsExtract) -> Firmware/System BIOS with BiosGuard v1.28.1.bin",
+    "uefi_firmware AutoParser (pip uefi_firmware) -> FFS GUID C7CAF1C7-... -> section1.pe (DellSecurityVaultSmm)",
+    "stdlib PE section walk: .text VA 0x1000 raw 0x400; .data VA 0x9000 raw 0x8000 (delta -0x1000)"
+  ],
+  "findings": {
+    "ec_routed_family_list": {
+      "file_offset": "0x81f8",
+      "va": "0x91f8",
+      "words": [
+        "1B58",
+        "9ABE",
+        "3FE2",
+        "CF1B",
+        "8FC8",
+        "FFFF"
+      ],
+      "note": "0xFFFF terminator. Matches CF1B_FINDINGS.md section 11 family list at 0x81F8-class. HddPwSmm carries the same list at file 0x5210 (preceded by 0001 FFFF)."
+    },
+    "local_keygen_descriptor_table": {
+      "file_offset": "0x8810",
+      "entries": [
+        {
+          "offset": "0x8810",
+          "suffix": "8FC8",
+          "params_va": "0x0",
+          "alphabet_va": "0x9130"
+        },
+        {
+          "offset": "0x8828",
+          "suffix": "E7A8",
+          "params_va": "0x9178",
+          "alphabet_va": "0x91b0"
+        },
+        {
+          "offset": "0x8840",
+          "suffix": "FFFF",
+          "params_va": "0x0",
+          "alphabet_va": "0x0"
+        }
+      ],
+      "note": "24-byte entries {u16 suffix, u16 pad, u32 pad, u64 params@+8, u64 alphabet@+16}. 8FC8 params = NULL (no host-side derivation). E7A8 params VA 0x9178. 0xFFFF terminates. No 9ABE / CF1B / 3FE2 / 1B58 descriptor exists anywhere in this module."
+    },
+    "e7a8_params": {
+      "file_offset": "0x8178",
+      "va": "0x9178",
+      "encodeParams": [
+        "0x50501010",
+        "0x0a010908",
+        "0x00a08097",
+        "0x60606161",
+        "0x60606161",
+        "0x000a0008",
+        "0x00100097",
+        "0x50501010"
+      ],
+      "loopParams": [
+        17,
+        13,
+        12,
+        8
+      ],
+      "note": "Byte-identical to bacher09/pwgen-for-bios src/keygen/dell/encode.ts:403-413 (TagE7A8Encoder) and to serversupdep-ai/Bin-file tools/dell_e7a8_pure.py. Confirms the last local algorithm is unchanged in this 5440-class image."
+    },
+    "alphabets": {
+      "8FC8": {
+        "file_offset": "0x8130",
+        "va": "0x9130",
+        "value": "0Q2drGk99WLJ1EGnqR5y3DGr16hN4seZPRM2zz2pzcU7JaBXIjbkGZrkQFMxN[Z638myIL2r",
+        "length": 72
+      },
+      "E7A8": {
+        "file_offset": "0x81b0",
+        "va": "0x91b0",
+        "value": "Q92G0drk9y63r5DG1hLqJGW1EnRk[QxrFMNZ328I6myLr4MsPNeZR2z72czpzUJBGXbaIjkZ",
+        "length": 72
+      },
+      "note": "Both are 72 chars and permutations of the same multiset. The 8FC8 table equals the alphabet recovered at 0x91A0 in pwgen-for-bios issue 80 comment 5067918343 and ALPHABET0 in Zte CF1B_FINDINGS.md section 11.3."
+    },
+    "false_positive_warning": {
+      "observed": "a naive u16 context dump around 0x81f8 shows \"6A49 5A6B 1B58 9ABE 3FE2 CF1B 8FC8 FFFF\"",
+      "explanation": "0x6A49 and 0x5A6B are the ASCII bytes \"I j\" and \"k Z\" \u2014 the last four characters of the E7A8 alphabet ending ...JXGabIjkZ. They are NOT new suffix words. Dell_newbios_probe.py prints them only because it dumps 3 words of context before the first known word.",
+      "impact": "do not treat 6A49/5A6B as new suffixes without a code cross-reference. Confidence: proven (byte-level inspection)."
+    },
+    "verdict": {
+      "local_keygen_suffixes": "E7A8 only (of the modern suffixes); legacy suffixes use the older MD5-family path",
+      "ec_routed_suffixes": [
+        "1B58",
+        "9ABE",
+        "3FE2",
+        "CF1B",
+        "8FC8"
+      ],
+      "newest_display_suffix_seen_on_github": "9ABE (issue #333, 2026-10-13)",
+      "host_side_algorithm_for_9ABE": "none: family is in the EC-routed list only; master = EC GENERATE response rendered (verbatim resp[0:16])"
+    }
+  },
+  "confidence": "proven for extracted bytes/offsets (recomputable from the committed PE); probable for mapping this image to the displayed suffix 9ABE (same model family/BIOS line as issues #324/#333, but the image itself does not record the lock-screen suffix)."
+}

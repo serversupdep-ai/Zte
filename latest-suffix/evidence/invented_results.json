@@ -1,0 +1,179 @@
+{
+  "_meta": {
+    "generated": "2026-10-29",
+    "purpose": "results of the two original tools in this kit",
+    "pairs": [
+      "1K6Y963-8FC8",
+      "5S38Y33-8FC8",
+      "C9F23Z2-8FC8"
+    ]
+  },
+  "falsification": {
+    "space": "hash(2100) + mixer(288)",
+    "configurations": 2388,
+    "renders": 9552,
+    "survivors": 0,
+    "best_single_pair_chars": 4,
+    "best_total_chars": 7,
+    "noise_band": {
+      "trials_per_rep": 9552,
+      "reps": 40,
+      "mean_max": 4.4,
+      "p05": 4,
+      "p50": 4,
+      "p95": 5,
+      "max": 5
+    },
+    "seconds": 1.65
+  },
+  "falsification_wide": {
+    "space": "mixer rotation lattice 6..19, 4 params",
+    "configurations": 38416,
+    "survivors": 0,
+    "best_single_pair_chars": 6,
+    "noise_band": {
+      "trials_per_rep": 153664,
+      "reps": 40,
+      "mean_max": 5.4,
+      "p05": 5,
+      "p50": 5,
+      "p95": 6,
+      "max": 6
+    },
+    "seconds": 28.43
+  },
+  "positive_control": {
+    "planted": {
+      "hash": "sha3_256",
+      "material": "tag+fam",
+      "expand": "chain",
+      "reducer": "xor32"
+    },
+    "pairs": [
+      {
+        "tag": "9ZZ9Z99",
+        "code": "2PNNGeI1I5zhG5Ik"
+      },
+      {
+        "tag": "8YY8Y88",
+        "code": "rbq4GhzNMrzkGerI"
+      },
+      {
+        "tag": "7XX7X77",
+        "code": "IPrIzhz12I2ILNkI"
+      }
+    ],
+    "configurations_tested": 2100,
+    "hits": [
+      "sha3_256/tag+fam/chain/xor32"
+    ],
+    "recovered_planted": true,
+    "planted_rank": 1,
+    "n_survivors": 1
+  },
+  "information": {
+    "budget": {
+      "bits_per_pair": 98.72,
+      "bits_for_pairs": 296.16,
+      "bits_resolved_by_space": 13.22,
+      "configs_needed_to_resolve_one_pair": "2^98.7 = 5.216e+29",
+      "false_positive_pairs_expected": {
+        "space_10k": "1.831e-26",
+        "space_2p40": "2.108e-18",
+        "space_2p60": "2.210e-12"
+      },
+      "reading": "Each field pair pins the transform to 98.72 bits. A 10k-config search tests 13.22 bits. Even a 2^60 search leaves 38.7 bits of freedom per pair: it cannot distinguish a correct formula from a wrong one unless the formula is structurally right, which is exactly the part that is not public."
+    },
+    "detection": {
+      "pairs": 3,
+      "bits_available": 296.16,
+      "verdict_detect": "yes -- one pair rejects any concrete candidate",
+      "verdict_identify": "no -- identification needs the structural form of the transform, which no field pair can supply",
+      "consequence": "more field pairs raise rejection power but never reveal structure; collecting tags is the weakest possible evidence investment"
+    },
+    "evidence_ranking": [
+      {
+        "rank": 1,
+        "artifact": "decrypted MEC17xx EC firmware from your own board",
+        "yields": "the actual GENERATE handler and its 32-byte table/PRNG",
+        "solves": "8FC8 / 9ABE / CF1B / 3FE2 / 1B58 at once",
+        "why": "the transform lives in EC SRAM/flash, not in the BIOS PE",
+        "blocked_by": "EC region is encrypted/read-protected on MEC17xx",
+        "authorization": "board must be yours/contracted; debug unlock voids warranty"
+      },
+      {
+        "rank": 2,
+        "artifact": "32-byte GENERATE response from the target board",
+        "yields": "the exact password for that board (renderer is trivial)",
+        "solves": "one machine, all suffixes it supports",
+        "why": "the BIOS renderer is already fully reversed; the EC is the only gap",
+        "blocked_by": "needs a booted/EC-live vantage point or BIOS-side hook",
+        "authorization": "requires physical access + ownership"
+      },
+      {
+        "rank": 3,
+        "artifact": "a blind oracle that already answers for your board",
+        "yields": "the password (not the algorithm)",
+        "solves": "one machine",
+        "why": "answer-reading, not reverse engineering; zero generality",
+        "blocked_by": "cost/trust; gives no formula",
+        "authorization": "use only on hardware you own"
+      },
+      {
+        "rank": 4,
+        "artifact": "more (tag, displayed suffix, password) pairs from GitHub",
+        "yields": "negative controls and falsification only",
+        "solves": "nothing new after the first 3 pairs",
+        "why": "98.72 bits/pair vs unknown structure -- see information_budget()",
+        "blocked_by": "nothing; it is just weak",
+        "authorization": "n/a"
+      }
+    ]
+  },
+  "probe": {
+    "cases": [
+      {
+        "oracle": "affine-ec",
+        "expect": "affine-recovered",
+        "got": "affine-recovered",
+        "queries": 89,
+        "rank": 56,
+        "verified": 24
+      },
+      {
+        "oracle": "xorshift-ec",
+        "expect": "affine-recovered",
+        "got": "affine-recovered",
+        "queries": 89,
+        "rank": 56,
+        "verified": 24
+      },
+      {
+        "oracle": "affine-ec",
+        "expect": "nonlinear",
+        "got": "nonlinear",
+        "queries": 8,
+        "rank": null,
+        "verified": null
+      },
+      {
+        "oracle": "prf-ec",
+        "expect": "nonlinear",
+        "got": "nonlinear",
+        "queries": 8,
+        "rank": null,
+        "verified": null
+      },
+      {
+        "oracle": "locked-affine-ec",
+        "expect": "tag-locked",
+        "got": "tag-locked",
+        "queries": 2,
+        "rank": null,
+        "verified": null
+      }
+    ],
+    "affine_recovery_queries": 57,
+    "docstring_model": "resp(t) = resp(t0) XOR sum(cols[i])"
+  }
+}

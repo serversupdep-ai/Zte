@@ -1,0 +1,369 @@
+{
+  "_meta": {
+    "collected": "2026-10-27",
+    "purpose": "validation data for latest-suffix reconstruction; every value traced to a GitHub file source or the in-repo corpus",
+    "e7a8_sources": [
+      "serversupdep-ai/Bin-file tools/dell_e7a8_pure.py VECTORS (20/20 selftest)",
+      "dell-keygen/vectors.json (72-vector JS/Python corpus)",
+      "bacher09/pwgen-for-bios issue 80 comments (field codes from repo owner, 2021-12-01)",
+      "secaicandido/bioskey tests/keygen.test.ts (1234567-E7A8, CX8F9C3-3FE2)"
+    ]
+  },
+  "e7a8_binfile_vectors": [
+    {
+      "tag": "65FDQN2",
+      "code1": "zxdIkZ1XBrINbkDr",
+      "code2": "a0ycrkLr9Be8BZze"
+    },
+    {
+      "tag": "D9B7JW2",
+      "code1": "es6yZz5EaFBxE17Q",
+      "code2": "GrIUZsQ3ex529M[6"
+    },
+    {
+      "tag": "5LS8423",
+      "code1": "RnGrGsQNZB1rIJ9r",
+      "code2": "QazRb9ayEDQ6913P"
+    },
+    {
+      "tag": "F2V9SQ2",
+      "code1": "PIFQ2Nns9xMIIQsG",
+      "code2": "rGBy3x[n12Ekr[3e"
+    },
+    {
+      "tag": "J4F3CV2",
+      "code1": "d2bkF2QekQ2rbk9Q",
+      "code2": "nrjy23QrF6dMqL1I"
+    },
+    {
+      "tag": "G7LMQ73",
+      "code1": "1GIkGGGmZNc2RNMN",
+      "code2": "QrzQkJ7ZGRRWXEUQ"
+    },
+    {
+      "tag": "6HDT5S2",
+      "code1": "rhGyIG6Nk7MFE9Gk",
+      "code2": "Zq8r9P6rRGkMIhN1"
+    },
+    {
+      "tag": "1JGPCK2",
+      "code1": "67M[kP4k92yG4nMQ",
+      "code2": "RGRb5UBrrEa8hrGL"
+    },
+    {
+      "tag": "BXBGRQ2",
+      "code1": "9yZ19ZRG0nZkDkGx",
+      "code2": "ZIGc2UMjZD[ZcypI"
+    },
+    {
+      "tag": "5957FH2",
+      "code1": "XPN[Z7MeDqa[3D4I",
+      "code2": "Ra72s2N92ZFUR3Ek"
+    }
+  ],
+  "e7a8_keygen_html_vectors": [
+    {
+      "tag": "CVZKKD3",
+      "expect": [
+        "JnGkZZ9ZRIRPBm3[",
+        "JxNGZ3yqWP26p9G["
+      ]
+    },
+    {
+      "tag": "DELLSUX",
+      "expect": [
+        "0eZL5xXzDF1LrPMJ",
+        "a0sq1GaPy2B9P28R"
+      ]
+    },
+    {
+      "tag": "H2FS5S3",
+      "expect": [
+        "s1JRqmRNP0rmI988",
+        "ZM3ax1ZQhG3G9pha"
+      ]
+    },
+    {
+      "tag": "7QJ4H42",
+      "expect": [
+        "hqrD9j8qbQGX6ZGJ",
+        "NsMLk0x0G2LZZyrz"
+      ]
+    },
+    {
+      "tag": "1A2B3C4",
+      "expect": [
+        "QmWh2L5Na2QEp7ZM",
+        "GUQGJ6brGDGWqkQr"
+      ]
+    },
+    {
+      "tag": "X8Y9Z0Q",
+      "expect": [
+        "xrNGJkNkG2EGZZR5",
+        "IPZzbGJc3zkPLqRk"
+      ]
+    }
+  ],
+  "e7a8_field_vectors_issue80": [
+    {
+      "tag": "GZ6DNQ2",
+      "code1": "Pz3bZnakhErR8rMR",
+      "note": "repo owner bacher09, 2021-12-01; second code quoted truncated (rkGGUh7Ix1hRy) = prefix of rkGGUh7Ix1hRy[Gr"
+    },
+    {
+      "tag": "2TB1YT2",
+      "code1": "5mzqb6RQQa2k403y",
+      "code2": "GG3rM3NBznGZ6rUG"
+    },
+    {
+      "tag": "B8TMKF2",
+      "code1": "qE7ypWJzz3k622Dx",
+      "code2": "[[GBQR43yjzWrbM1"
+    }
+  ],
+  "e7a8_upstream_test_vectors": [
+    {
+      "tag": "1234567",
+      "suffix": "E7A8",
+      "expect": [
+        "Qk3LkU22kPeyq2jd",
+        "rLIqjUy59IG2JU2R"
+      ],
+      "source": "secaicandido/bioskey tests/keygen.test.ts"
+    }
+  ],
+  "ec_render_vectors": {
+    "response_hex": "4142434445464748494a4b4c4d4e4f505152535455565758595a303132333435",
+    "response_ascii": "ABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
+    "source": "Zte bios-analysis/dell_cf1b_session_emu.py (emulated BIOS fn 0x8E18, CF1B_FINDINGS.md section 11.3)",
+    "expected": {
+      "CF1B": {
+        "master": "ABCDEFGHIJKLMNOP",
+        "second": "QRSTUVWXYZ012345"
+      },
+      "9ABE": {
+        "master": "ABCDEFGHIJKLMNOP",
+        "second": "QRSTUVWXYZ012345"
+      },
+      "3FE2": {
+        "master": "ABCDEFGHIJKLMNOP",
+        "second": "QRSTUVWXYZ012345"
+      },
+      "1B58": {
+        "master": "ABCDEFGHIJKLMNOP",
+        "second": "QRSTUVWXYZ012345"
+      },
+      "8FC8": {
+        "master": "2rk9L1Gq53kZkFx[",
+        "second": "2rk9L1Gq53kZkFx[",
+        "note": "addition is commutative, so the second 8FC8 candidate is identical to the first (edge case)"
+      }
+    }
+  },
+  "field_8fc8_pairs": {
+    "source": "bacher09/pwgen-for-bios issue 80 comment 5067918343 (three owner-verified pairs) + Zte cf1b-research/ONLINE-SOURCES-SWEEP-2026-09-15.md (one unverified paid-service pair)",
+    "pairs": [
+      {
+        "tag": "1K6Y963",
+        "suffix": "8FC8",
+        "code": "BZsa9RGZzyIGD3pI",
+        "verified": "owner-verified in issue 80 report"
+      },
+      {
+        "tag": "5S38Y33",
+        "suffix": "8FC8",
+        "code": "2QqPqMGQxLNrrZxW",
+        "verified": "owner-verified in issue 80 report"
+      },
+      {
+        "tag": "C9F23Z2",
+        "suffix": "8FC8",
+        "code": "kr8a9e2xdPGRb1Lz",
+        "verified": "owner-verified in issue 80 report"
+      },
+      {
+        "tag": "2C90B83",
+        "suffix": "8FC8",
+        "code": "N9NM9j1qRMeGzyyr",
+        "verified": "unverified, vinafix Mar 2025"
+      }
+    ],
+    "note": "All characters fall inside the 8FC8 alphabet; a 1755-configuration search of known encoders failed to reproduce any pair. Used here as a NEGATIVE CONTROL for the bioskey suffix-in-serial hypothesis."
+  },
+  "bioskey_hypothesis_outputs": {
+    "source": "observed by running secaicandido/bioskey@f544e1e on Node 22.22.3: node --experimental-strip-types -e import(keygenDell)",
+    "command": "node --experimental-strip-types -e 'import(\"./src/dell/index.ts\").then(m=>console.log(m.keygenDell(TAG,SUFFIX,0)))'",
+    "outputs": [
+      {
+        "tag": "1K6Y963",
+        "suffix": "8FC8",
+        "codes": [
+          "smjxXINJR1GBZ7q4",
+          "1sQb6XQqsG61[drM"
+        ]
+      },
+      {
+        "tag": "5S38Y33",
+        "suffix": "8FC8",
+        "codes": [
+          "227zQ1mRz8Ran0Zy",
+          "c0yJ5zd8RD[brRyD"
+        ]
+      },
+      {
+        "tag": "C9F23Z2",
+        "suffix": "8FC8",
+        "codes": [
+          "MmUGG8217Z4IIRBh",
+          "1Gk0jzW28hE2zR21"
+        ]
+      },
+      {
+        "tag": "2C90B83",
+        "suffix": "8FC8",
+        "codes": [
+          "JGJ1qkIIZJmqpQ28",
+          "qaMzk4NBqNpPJ1LN"
+        ]
+      },
+      {
+        "tag": "847TJ34",
+        "suffix": "9ABE",
+        "codes": [
+          "pZWrMeZ6UzzN8r70",
+          "GN2EDL4N2GJG29Qc"
+        ]
+      },
+      {
+        "tag": "CX8F9C3",
+        "suffix": "3FE2",
+        "codes": [
+          "dIaNZyycy2J2xNF6",
+          "ZUsI2sMaBrzQj7xz"
+        ]
+      },
+      {
+        "tag": "9WT70J3",
+        "suffix": "9ABE",
+        "codes": [
+          "I6zz621rM2L6Xqs4",
+          "69kyRk2Iqkh5Dare"
+        ]
+      },
+      {
+        "tag": "9WT70J3",
+        "suffix": "CF1B",
+        "codes": [
+          "9q3ae2MypPDkyj6F",
+          "zEyMba0cBkEGR4Zd"
+        ]
+      },
+      {
+        "tag": "9WT70J3",
+        "suffix": "1B58",
+        "codes": [
+          "NZh0RkGFGZBQ5ymQ",
+          "RzNazGGz2rURmFGh"
+        ]
+      },
+      {
+        "tag": "1JGPCK2",
+        "suffix": "E7A8",
+        "codes": [
+          "67M[kP4k92yG4nMQ",
+          "RGRb5UBrrEa8hrGL"
+        ]
+      },
+      {
+        "tag": "6HDT5S2",
+        "suffix": "E7A8",
+        "codes": [
+          "rhGyIG6Nk7MFE9Gk",
+          "Zq8r9P6rRGkMIhN1"
+        ]
+      },
+      {
+        "tag": "GZ6DNQ2",
+        "suffix": "E7A8",
+        "codes": [
+          "Pz3bZnakhErR8rMR",
+          "rkGGUh7Ix1hRy[Gr"
+        ]
+      },
+      {
+        "tag": "1234567",
+        "suffix": "E7A8",
+        "codes": [
+          "Qk3LkU22kPeyq2jd",
+          "rLIqjUy59IG2JU2R"
+        ]
+      }
+    ]
+  },
+  "legacy_reference_vectors": [
+    {
+      "tag": "CVZKKD3",
+      "suffix": "595B",
+      "expect": [
+        "gufrg8to"
+      ]
+    },
+    {
+      "tag": "CVZKKD3",
+      "suffix": "1F66",
+      "expect": [
+        "nSYA67PUVL4oX4Sv"
+      ]
+    },
+    {
+      "tag": "CVZKKD3",
+      "suffix": "BF97",
+      "expect": [
+        "b1GMyMy52zkqJN3s"
+      ]
+    },
+    {
+      "tag": "DELLSUX",
+      "suffix": "595B",
+      "expect": [
+        "8xxvj6to"
+      ]
+    },
+    {
+      "tag": "DELLSUX",
+      "suffix": "1F66",
+      "expect": [
+        "qHXaL0ntli6Gu4c0"
+      ]
+    },
+    {
+      "tag": "DELLSUX",
+      "suffix": "BF97",
+      "expect": [
+        "rrNM2LrbD8nGsd2P"
+      ]
+    },
+    {
+      "tag": "H2FS5S3",
+      "suffix": "595B",
+      "expect": [
+        "99krzf3c"
+      ]
+    },
+    {
+      "tag": "H2FS5S3",
+      "suffix": "1F66",
+      "expect": [
+        "0QTfJ0L1hg9YhJ4o"
+      ]
+    },
+    {
+      "tag": "H2FS5S3",
+      "suffix": "BF97",
+      "expect": [
+        "shzNyjGRzRN2LLzL"
+      ]
+    }
+  ]
+}
